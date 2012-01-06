@@ -1,0 +1,16 @@
+<% div_for(line) do %>
+  <% link_to(line, :class => "preview") do %>
+    <div class="color" style="background-color: <%= line.color or 'grey' %>"><div class="code"><%= line.code%></div></div>
+  <% end %>
+  <%= link_to line.name, line %>
+  <div class="info">
+    <% if !line.journey_patterns.main.nil? %>   
+      <p>   
+        <%= line.journey_patterns.main.departure %> - <%= line.journey_patterns.main.arrival %>
+      </p>
+    <% end %>
+    <p>
+      <%= line.journey_patterns.count %> missions
+    </p>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+<% semantic_form_for @line do |form| %>
+  <% form.inputs do %> 
+    <%= form.input :name %>
+    <%= form.input :number %>          
+  <% end %>
+
+  <% form.buttons do %>
+    <%= form.commit_button %>
+    ou <%= link_to "revenir", @line %>
+  <% end %>
+<% end %>

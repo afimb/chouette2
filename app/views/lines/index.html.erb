@@ -1,0 +1,10 @@
+<%= title_tag "Lignes" %>
+
+<%= render :partial => "line", :collection => @lines %>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to "Créer une Ligne", new_line_path, :class => "add" %></li>
+  <br>
+</ul>
+<% end %>

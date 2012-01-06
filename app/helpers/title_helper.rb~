@@ -1,0 +1,11 @@
+module TitleHelper
+
+  def title(title = nil)
+    if title
+      @title = title 
+    else
+      @title
+    end
+  end
+
+end

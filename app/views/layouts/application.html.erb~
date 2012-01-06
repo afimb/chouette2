@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kyriel - <%= title %></title>
+    <%= stylesheet_link_tag :application %>      
+    <%= javascript_include_tag :application %>
+    <%= csrf_meta_tag %>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+  </head>
+  <body>
+    <div id="header">
+      <div class="infos">       
+      </div>
+
+      <div class="tabs">
+        <ul class="main">
+          
+        </ul>
+      </div>
+    </div>
+    <div id="body">
+      <div id="flash">
+        <% flash.each_pair do |type, message| %>
+          <%= content_tag :div, message, :class => type %>
+        <% end %>
+      </div>
+      <div id="workspace" class="<%= controller_name %> <%= action_name %>">
+        <%= yield %>
+      </div>
+      <div id="sidebar">
+        <%= yield :sidebar %>
+      </div>
+    </div>
+  </body>
+</html>

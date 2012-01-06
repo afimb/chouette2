@@ -1,0 +1,27 @@
+<%= title_tag "Ligne #{@line.name}" %>
+
+<div class="line_show">
+
+  <div class="summary">
+    <p>
+      <label>Nom :</label>
+      <%= @line.name %>
+    </p>
+    <p>
+      <label>Code :</label>
+      <%= @line.number %>
+    </p>
+    <p>
+      <label>Identifiant Chouette :</label>
+      <%= @line.registrationnumber %>
+    </p>
+  </div>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('lines.actions.edit'), edit_line_path(@line), :class => "edit" %></li>
+  <li><%= link_to  t('lines.actions.destroy'), line_path(@line), :method => :delete, :confirm => "Etes vous sûr de supprimer la ligne #{@line.name} ?", :class => "remove" %></li>
+  <br>
+</ul>
+<% end %>

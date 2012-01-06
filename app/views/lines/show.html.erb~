@@ -1,0 +1,45 @@
+<%= title_tag "Ligne #{@line.name}" %>
+
+<div class="line_show">
+  <%= @map.to_html %>
+
+  <div class="summary">
+    <p>
+      <label>Nom :</label>
+      <%= @line.name %>
+    </p>
+    <p>
+      <label>Code :</label>
+      <%= @line.code %>
+    </p>
+    <p>
+      <label>Priorité :</label>
+      <%= @line.priority %>
+    </p
+       <p>
+         <label>Couleur :</label>
+         <span style="background-color: <%= @line.color %>">
+           <%= @line.color %>
+         </span>
+       </p>
+    <p>
+      <label>Identifiant Chouette :</label>
+      <%= @line.chouette_id %>
+    </p>
+  </div>
+  <div class="journey_patterns">
+    <h3>Missions</h3>
+    <%= render :partial => "journey_patterns/journey_pattern", :collection => @line.journey_patterns %>
+  </div>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('lines.actions.edit'), edit_network_line_path(@network, @line), :class => "edit" %></li>
+  <li><%= link_to  t('lines.actions.destroy'), network_line_path(@network, @line), :method => :delete, :confirm => "Etes vous sûr de supprimer la ligne #{@line.name} ?", :class => "remove" %></li>
+  <li><%= link_to "Ajouter un Arrêt", new_network_line_line_stop_point_path(@network, @line), :class => "add" %></li>
+  <br>
+  <li><%= link_to "Export CSV", network_line_path(@network, @line, :format => :csv), :class => "csv" %></li>
+  <li><%= link_to "Export KML", network_line_path(@network, @line, :format => :kml), :class => "kml" %></li>
+</ul>
+<% end %>
