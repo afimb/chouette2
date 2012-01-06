@@ -8,8 +8,9 @@ GIT
       composite_primary_keys
       geokit
 
-PATH
-  remote: /home/luc/projects/user_interface
+GIT
+  remote: git://sim.dryade.priv/user_interface
+  revision: 41f8e79515999e095ebec78ec1daf1fe4cb28aad
   specs:
     user_interface (0.0.1)
       rails (~> 3.1.0)
