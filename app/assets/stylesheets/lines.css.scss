@@ -1,3 +1,116 @@
 // Place all the styles related to the lines controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@mixin div_for_object {
+    margin-bottom: 20px;
+
+    .color {
+        width: 64px;
+        height: 64px;
+        float: left;
+        margin-right: 10px;
+    }
+
+    img {
+        float: left;
+        margin-right: 10px;
+    }
+
+    img.preview {
+        width: 90px;
+        height: 70px;
+    }
+
+    a { 
+        display:block;
+        text-decoration: underline;
+        margin: 5px 0px 0px 0px;
+    }
+
+    .info {
+        font-size: 10px;
+        color: #777;
+        font-weight: normal;
+        line-height: 14px;
+        margin-top: 5px;
+        
+        a {
+            display:inline;
+            color: #095495;
+        }
+
+        p {
+            margin:0;
+        }
+    }
+}
+
+@mixin content_to_clear {
+    content: " ";  
+    display: block; 
+    height: 0; 
+    clear: both;
+    visibility: hidden;
+}
+
+@mixin after_div_for_object {
+    @include content_to_clear;
+}
+
+#workspace.lines.index
+{
+    .line:after { 
+        @include after_div_for_object;  
+    }
+    
+    .line {
+        @include div_for_object;
+    
+        .color {
+            width: 64px;
+            height: 64px;
+            float: left;
+            margin-right: 10px;
+            a {
+                text-decoration: none;                   
+            }
+        }
+
+        .number {     
+            font-size: 16px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            padding-top: 21px;
+        }   
+    }
+    
+}
+
+#workspace.lines.edit, #workspace.lines.new
+{
+    #line_color{ width: 100px;
+                 color: white;
+                 font-weight: bold;}
+}
+
+#workspace.lines.show
+{
+    .line_color{ color: white;
+                 font-weight: bold;
+                 padding: 0 5px 0 5px;}
+}        
+
+
+#workspace .order {
+    float: right;
+    padding: 15px 0;
+    font-size: 0.8em;
+    
+    a { text-decoration: underline; }
+    
+    a.current {
+      font-weight: bold;
+      text-decoration: none;
+    }
+}

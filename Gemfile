@@ -5,7 +5,8 @@ gem 'rails', '3.1.3'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'user_interface', :git => 'git://sim.dryade.priv/user_interface'
+gem 'user_interface', :path => '~/projects/user_interface'
+#gem 'user_interface', :git => 'git://sim.dryade.priv/user_interface'
 
 platforms :jruby do
   gem 'activerecord-jdbcsqlite3-adapter'
@@ -42,6 +43,7 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug'
 
+gem 'formtastic'
 gem 'inherited_resources'
 gem 'activerecord-jdbcpostgresql-adapter'
 

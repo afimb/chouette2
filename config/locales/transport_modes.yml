@@ -1,0 +1,24 @@
+en:
+
+fr:
+  interchange: Correspondance
+  unknown: Inconnu
+  coach: Voiture
+  air: Air
+  waterborne: Eau
+  bus: Bus
+  ferry: Ferry
+  walk: Piéton
+  metro: Métro
+  shuttle: Navette
+  rapid_transit: Lignes rapides
+  taxi: Taxi
+  local_train: Train Local
+  train: Train
+  long_distance_train: Train longue distance
+  tramway: Tramway
+  trolley_bus: Bus Trolley
+  private_vehicle: Véhicule Privé
+  bicycle: Vélo
+  other: Autre
+  

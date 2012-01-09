@@ -1,10 +1,16 @@
-<%= title_tag "Lignes" %>
+<div class="order">  
+  Trier par  
+  <%= order "name" %> | 
+  <%= order "number" %>
+</div>
+
+<%= title_tag Chouette::Line.model_name.human.pluralize %> 
 
 <%= render :partial => "line", :collection => @lines %>
 
 <% content_for :sidebar do %>
 <ul class="actions">
-  <li><%= link_to "Créer une Ligne", new_line_path, :class => "add" %></li>
+  <li><%= link_to t('lines.actions.new'), new_line_path, :class => "add" %></li>
   <br>
 </ul>
 <% end %>

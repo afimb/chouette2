@@ -1,0 +1,40 @@
+en:
+  lines:
+    actions:
+      new: Add a new line
+      edit: Edit this line
+      destroy: Remove this line
+      destroy_confirm: "Are you sure you want destroy this line?"
+    new:
+      title: "Add a new line"
+    edit:
+      title: "Update line"
+    show:
+      title: "Line"
+
+fr:
+  lines:
+    actions:
+      new: Ajouter une ligne
+      edit: Modifier cette ligne
+      destroy: Supprimer cette ligne
+      destroy_confirm: "Etes vous sûr de détruire cette ligne ?"
+    new:
+      title: "Ajouter une ligne"
+    edit:
+      title: "Modifier la ligne"
+    show:
+      title: "Ligne"
+  activerecord:
+    models:
+      line: Lignes
+    attributes:
+      line:
+        network: "Réseau"
+        company: "Transporteur"
+        registrationnumber: "Identifiant"
+        name: "Nom"
+        publishedname: "Nom publié"        
+        number: "Indice"
+        transportmodename: "Mode de transport"
+        comment: "Commentaire"

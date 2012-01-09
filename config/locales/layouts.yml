@@ -1,0 +1,20 @@
+en:
+  layouts:
+    back_to_dashboard: "Back to Dashboard"
+    help: Help
+    home: "Home"          
+    user:
+      profile: "My Profile"
+      sign_out: "Sign out"
+    tabs:
+      dashboard: "Dashboard"
+fr:
+  layouts:
+    back_to_dashboard: "Retour au Tableau de Bord"
+    help: Besoin d'aide?
+    home: "Accueil"
+    user:
+      profile: "Mon Profil"      
+      sign_out: "Déconnexion"
+    tabs:
+      dashboard: "Tableau de bord"

@@ -6,4 +6,5 @@ class Chouette::Line
     end
     ActiveModel::Name.new name
   end
+
 end
