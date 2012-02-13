@@ -1,0 +1,2 @@
+module ReferentialsHelper
+end

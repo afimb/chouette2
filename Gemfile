@@ -3,17 +3,21 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.3'
 
 # Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'user_interface', :path => '~/projects/user_interface'
 #gem 'user_interface', :git => 'git://sim.dryade.priv/user_interface'
 
+gem 'apartment', :path => '~/projects/apartment'
+
 platforms :jruby do
+  gem 'activerecord-jdbcpostgresql-adapter', :git => 'git://github.com/dryade/activerecord-jdbc-adapter.git'    
   gem 'activerecord-jdbcsqlite3-adapter'
   gem 'jruby-openssl'
 end
 
 platforms :ruby do
+  gem 'pg', '~> 0.11.0' 
   gem 'sqlite3'
 end
 
@@ -25,7 +29,7 @@ gem 'warbler'
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
   gem 'coffee-rails', '~> 3.1.1'
-  gem 'coffee-script-source'
+  #gem 'coffee-script-source'
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -45,7 +49,36 @@ gem 'jquery-rails'
 
 gem 'formtastic'
 gem 'inherited_resources'
-gem 'activerecord-jdbcpostgresql-adapter'
 
 gem 'chouette-ninoxe', :git => 'git://chouette.dryade.priv/ninoxe'
+
+group :development do 
+#  gem 'less'
+  gem 'autotest-rails'
+  gem 'autotest-notification' 
+  gem 'capistrano'
+  gem 'capistrano-ext'   
+end
+
+group :test, :development, :cucumber do
+  gem "rspec"
+  gem "rspec-rails"
+  gem "remarkable", "~> 4.0.0.alpha4"           
+  gem "remarkable_activerecord", "~> 4.0.0.alpha4" 
+  gem "shoulda", :git => 'git://github.com/thoughtbot/shoulda.git'
+end
+
+group :cucumber do
+  gem 'capybara'
+  gem 'cucumber'
+  gem 'cucumber-rails'
+  gem 'launchy'
+  gem 'pickle', :git => 'git://github.com/mflorisson/pickle.git'
+end
+
+group :test, :cucumber do
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'factory_girl'
+end
 

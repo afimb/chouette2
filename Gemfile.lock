@@ -8,6 +8,42 @@ GIT
       composite_primary_keys
       geokit
 
+GIT
+  remote: git://github.com/mflorisson/pickle.git
+  revision: 4316faa3ef00c414bf286336c57a6d10addcf79f
+  specs:
+    pickle (0.4.4)
+      cucumber (>= 0.8)
+      rake
+      rspec (>= 1.3)
+      yard
+
+GIT
+  remote: git://github.com/thoughtbot/shoulda.git
+  revision: 80545637b957fc68a3b7be8993033d089913ac66
+  specs:
+    shoulda (3.0.0.beta2)
+      shoulda-context (~> 1.0.0.beta1)
+      shoulda-matchers (~> 1.0.0.beta1)
+
+PATH
+  remote: /home/luc/projects/activerecord-jdbc-adapter
+  specs:
+    activerecord-jdbc-adapter (1.2.2)
+    activerecord-jdbcpostgresql-adapter (1.2.2)
+      activerecord-jdbc-adapter (~> 1.2.2)
+      jdbc-postgres (>= 9.0, < 9.2)
+    activerecord-jdbcsqlite3-adapter (1.2.2)
+      activerecord-jdbc-adapter (~> 1.2.2)
+      jdbc-sqlite3 (~> 3.7.2)
+    jdbc-postgres (9.1.901)
+    jdbc-sqlite3 (3.7.2)
+
+PATH
+  remote: ~/projects/apartment
+  specs:
+    apartment (0.14.1)
+
 PATH
   remote: ~/projects/user_interface
   specs:
@@ -18,6 +54,7 @@ GEM
   remote: http://rubygems.org/
   specs:
     GeoRuby (1.3.4)
+    ZenTest (4.5.0)
     actionmailer (3.1.3)
       actionpack (= 3.1.3)
       mail (~> 2.3.0)
@@ -41,21 +78,37 @@ GEM
       activesupport (= 3.1.3)
       arel (~> 2.2.1)
       tzinfo (~> 0.3.29)
-    activerecord-jdbc-adapter (1.2.1)
-    activerecord-jdbcpostgresql-adapter (1.2.1)
-      activerecord-jdbc-adapter (~> 1.2.1)
-      jdbc-postgres (~> 9.0.0)
-    activerecord-jdbcsqlite3-adapter (1.2.1)
-      activerecord-jdbc-adapter (~> 1.2.1)
-      jdbc-sqlite3 (~> 3.7.2)
     activeresource (3.1.3)
       activemodel (= 3.1.3)
       activesupport (= 3.1.3)
     activesupport (3.1.3)
       multi_json (~> 1.0)
+    addressable (2.2.6)
     arel (2.2.1)
+    autotest-notification (2.3.4)
+      autotest-standalone (~> 4.5)
+    autotest-rails (4.1.1)
+      ZenTest (= 4.5)
+    autotest-standalone (4.5.9)
     bouncy-castle-java (1.5.0146.1)
     builder (3.0.0)
+    capistrano (2.9.0)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
+    capistrano-ext (1.2.1)
+      capistrano (>= 1.0.0)
+    capybara (1.1.2)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      selenium-webdriver (~> 2.0)
+      xpath (~> 0.1.4)
+    childprocess (0.3.0)
+      ffi (~> 1.0.6)
     coffee-rails (3.1.1)
       coffee-script (>= 2.2.0)
       railties (~> 3.1.0)
@@ -65,20 +118,42 @@ GEM
     coffee-script-source (1.1.2)
     composite_primary_keys (4.1.1)
       activerecord (~> 3.1)
+    cucumber (1.1.4)
+      builder (>= 2.1.2)
+      diff-lcs (>= 1.1.2)
+      gherkin (~> 2.7.1)
+      json (>= 1.4.6)
+      term-ansicolor (>= 1.0.6)
+    cucumber-rails (1.2.1)
+      capybara (>= 1.1.2)
+      cucumber (>= 1.1.3)
+      nokogiri (>= 1.5.0)
+    database_cleaner (0.7.1)
+    diff-lcs (1.1.3)
     erubis (2.7.0)
     execjs (1.2.13)
       multi_json (~> 1.0)
+    factory_girl (2.5.0)
+      activesupport
+    factory_girl_rails (1.6.0)
+      factory_girl (~> 2.5.0)
+      railties (>= 3.0.0)
+    ffi (1.0.11)
+    ffi (1.0.11-java)
     formtastic (2.0.2)
       rails (~> 3.0)
     geokit (1.6.0)
+    gherkin (2.7.6)
+      json (>= 1.4.6)
+    gherkin (2.7.6-java)
+      json (>= 1.4.6)
     has_scope (0.5.1)
+    highline (1.6.11)
     hike (1.2.1)
     i18n (0.6.0)
     inherited_resources (1.3.0)
       has_scope (~> 0.5.0)
       responders (~> 0.6.0)
-    jdbc-postgres (9.0.801)
-    jdbc-sqlite3 (3.7.2)
     jquery-rails (1.0.19)
       railties (~> 3.0)
       thor (~> 0.14)
@@ -88,12 +163,27 @@ GEM
     jruby-rack (1.1.2)
     json (1.6.4)
     json (1.6.4-java)
+    launchy (2.0.5)
+      addressable (~> 2.2.6)
+    launchy (2.0.5-java)
+      addressable (~> 2.2.6)
+      ffi (~> 1.0.9)
+      spoon (~> 0.0.1)
     mail (2.3.0)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.17.2)
     multi_json (1.0.4)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.3.0)
+    net-ssh-gateway (1.1.0)
+      net-ssh (>= 1.99.1)
+    nokogiri (1.5.0)
+    nokogiri (1.5.0-java)
     polyglot (0.3.3)
     rack (1.3.6)
     rack-cache (1.1)
@@ -122,7 +212,29 @@ GEM
     rake (0.9.2.2)
     rdoc (3.12)
       json (~> 1.4)
+    remarkable (4.0.0.alpha4)
+      rspec (>= 2.0.0.alpha11)
+    remarkable_activemodel (4.0.0.alpha4)
+      remarkable (~> 4.0.0.alpha4)
+      rspec (>= 2.0.0.alpha11)
+    remarkable_activerecord (4.0.0.alpha4)
+      remarkable (~> 4.0.0.alpha4)
+      remarkable_activemodel (~> 4.0.0.alpha4)
+      rspec (>= 2.0.0.alpha11)
     responders (0.6.4)
+    rspec (2.8.0)
+      rspec-core (~> 2.8.0)
+      rspec-expectations (~> 2.8.0)
+      rspec-mocks (~> 2.8.0)
+    rspec-core (2.8.0)
+    rspec-expectations (2.8.0)
+      diff-lcs (~> 1.1.2)
+    rspec-mocks (2.8.0)
+    rspec-rails (2.8.1)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec (~> 2.8.0)
     rubyzip (0.9.5)
     sass (3.1.12)
     sass-rails (3.1.5)
@@ -130,11 +242,20 @@ GEM
       railties (~> 3.1.0)
       sass (~> 3.1.10)
       tilt (~> 1.3.2)
+    selenium-webdriver (2.17.0)
+      childprocess (>= 0.2.5)
+      ffi (~> 1.0.9)
+      multi_json (~> 1.0.4)
+      rubyzip
+    shoulda-context (1.0.0)
+    shoulda-matchers (1.0.0)
+    spoon (0.0.1)
     sprockets (2.0.3)
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.5)
+    term-ansicolor (1.0.7)
     thor (0.14.6)
     tilt (1.3.3)
     treetop (1.4.10)
@@ -149,24 +270,45 @@ GEM
       jruby-rack (>= 1.0.0)
       rake (>= 0.8.7)
       rubyzip (>= 0.9.4)
+    xpath (0.1.4)
+      nokogiri (~> 1.3)
+    yard (0.7.4)
 
 PLATFORMS
   java
   ruby
 
 DEPENDENCIES
-  activerecord-jdbcpostgresql-adapter
+  activerecord-jdbcpostgresql-adapter!
   activerecord-jdbcsqlite3-adapter
+  apartment!
+  autotest-notification
+  autotest-rails
+  capistrano
+  capistrano-ext
+  capybara
   chouette-ninoxe!
   coffee-rails (~> 3.1.1)
-  coffee-script-source
+  cucumber
+  cucumber-rails
+  database_cleaner
+  factory_girl
+  factory_girl_rails
   formtastic
   inherited_resources
   jquery-rails
   jruby-openssl
   json
+  launchy
+  pg (~> 0.11.0)
+  pickle!
   rails (= 3.1.3)
+  remarkable (~> 4.0.0.alpha4)
+  remarkable_activerecord (~> 4.0.0.alpha4)
+  rspec
+  rspec-rails
   sass-rails (~> 3.1.5)
+  shoulda!
   sqlite3
   uglifier (>= 1.0.3)
   user_interface!

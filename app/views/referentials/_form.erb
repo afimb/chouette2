@@ -1,0 +1,12 @@
+<%= semantic_form_for @referential do |form| %>
+  <%= form.inputs do %> 
+    <%= form.input :name %> 
+    <%= form.input :slug%>
+  <% end %>
+
+  <%= form.buttons do %>
+    <%= form.commit_button true %>
+    <li><%= t('or') %></li>
+    <li><%= link_to t('back'), :back %></li>
+  <% end %>
+<% end %>

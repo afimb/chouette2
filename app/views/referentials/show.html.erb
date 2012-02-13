@@ -1,0 +1,8 @@
+<%= title_tag t('.title', :title => @referential.name) %>
+
+<div>
+  <p>
+  <label><%= Referential.human_attribute_name("slug") %>: </label>
+  <%= @referential.slug %>
+  </p>
+</div>  
