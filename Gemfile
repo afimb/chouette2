@@ -51,6 +51,7 @@ gem 'formtastic'
 gem 'inherited_resources'
 
 gem 'chouette-ninoxe', :git => 'git://chouette.dryade.priv/ninoxe'
+#gem 'chouette-ninoxe', :path => '/home/luc/projects/ninoxe'
 
 group :development do 
 #  gem 'less'
