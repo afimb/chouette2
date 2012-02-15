@@ -40,8 +40,8 @@
 
 <% content_for :sidebar do %>
 <ul class="actions">
-  <li><%= link_to t('lines.actions.edit'), edit_line_path(@line), :class => "edit" %></li>
-  <li><%= link_to  t('lines.actions.destroy'), line_path(@line), :method => :delete, :confirm =>  t('lines.actions.destroy_confirm'), :class => "remove" %></li>
+  <li><%= link_to t('lines.actions.edit'), edit_referential_line_path(@referential, @line), :class => "edit" %></li>
+  <li><%= link_to  t('lines.actions.destroy'), referential_line_path(@referential, @line), :method => :delete, :confirm =>  t('lines.actions.destroy_confirm'), :class => "remove" %></li>
   <br>
 </ul>
 <% end %>

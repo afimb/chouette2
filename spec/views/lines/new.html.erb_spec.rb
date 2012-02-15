@@ -1,8 +1,10 @@
 require 'spec_helper'
 
 describe "/lines/new" do
-  let!(:network) { assign(:network, Factory(:network)) }
-  let!(:line) { assign(:line, Factory.build(:line, :network => network)) }
+  let!(:referential) { assign(:referential, Factory(:referential)) }
+  let!(:network) { Factory(:network) }
+  let!(:company) { Factory(:company) }
+  let!(:line) { assign(:line, Factory.build(:line, :network => network, :company => company )) }
 
   describe "form" do
     

@@ -1,15 +1,17 @@
 require 'spec_helper'
 
 describe "/lines/edit" do
-  let!(:network) { assign(:network, Factory(:network)) }
-  let!(:line) { assign(:line, Factory(:line, :network => network)) }
-  let!(:lines) { Array.new(2) { Factory(:line, :network => network) } }
+  let!(:referential) { assign(:referential, Factory(:referential)) }
+  let!(:network) { Factory(:network) }
+  let!(:company) { Factory(:company) }
+  let!(:line) { assign(:line, Factory(:line, :network => network, :company => company)) }
+  let!(:lines) { Array.new(2) { Factory(:line, :network => network, :company => company) } }
 
   describe "test" do
-  it "should render h2 with the group name" do
-    render    
-    rendered.should have_selector("h2", :text => Regexp.new(line.name))
-  end
+    it "should render h2 with the group name" do
+      render    
+      rendered.should have_selector("h2", :text => Regexp.new(line.name))
+    end
   end
 
   describe "form" do

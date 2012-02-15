@@ -1,4 +1,4 @@
-class LinesController < InheritedResources::Base
+class LinesController < ChouetteController
   defaults :resource_class => Chouette::Line
   helper_method :sort_column, :sort_direction
   respond_to :html
@@ -8,10 +8,8 @@ class LinesController < InheritedResources::Base
   protected
 
   def collection
-    @lines ||= Chouette::Line.all.order_by [[sort_column.to_sym, sort_direction.to_sym]]
+    @lines ||= referential.lines.order_by [[sort_column.to_sym, sort_direction.to_sym]]
   end
-
-  private
 
   def sort_column  
     %w(name number).include?(params[:sort]) ? params[:sort] : "name"

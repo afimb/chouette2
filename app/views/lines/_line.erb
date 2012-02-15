@@ -1,10 +1,10 @@
 <%= div_for(line) do %>
- <%= link_to(line, :class => "preview") do %>
+ <%= link_to([@referential, line], :class => "preview") do %>
     <div class="color" style="background-color: grey ">
       <div class="number"><%= line.number %></div>
     </div>
   <% end %>
-  <%= link_to line.name, line %>
+  <%= link_to line.name, [@referential, line] %>
   <div class="info">
 
   </div>

@@ -1,4 +1,4 @@
-<%= semantic_form_for @line do |form| %>
+<%= semantic_form_for [@referential, @line] do |form| %>
   <%= form.inputs do %> 
     <%= form.input :network, :as => :select, :collection => Chouette::Network.all, :include_blank => false %> 
     <%= form.input :company, :as => :select, :collection => Chouette::Company.all, :include_blank => false%>
