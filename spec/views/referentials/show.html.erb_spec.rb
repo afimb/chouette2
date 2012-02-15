@@ -5,7 +5,6 @@ describe "referentials/show.html.erb" do
   
   it "should have a title with name" do
     render
-    puts render
     rendered.should have_selector("h2", :text => Regexp.new(referential.name))
   end
 

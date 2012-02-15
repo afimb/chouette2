@@ -1,0 +1,10 @@
+<%= title_tag Referential.model_name.human.pluralize %> 
+
+<%= render :partial => "referential", :collection => @referentials %>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('referentials.actions.new'), new_referential_path, :class => "add" %></li>
+  <br>
+</ul>
+<% end %>
