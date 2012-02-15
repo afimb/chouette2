@@ -1,0 +1,17 @@
+<%= semantic_form_for [@referential, @network] do |form| %>
+  <%= form.inputs do %> 
+    <%= form.input :name %> 
+    <%= form.input :registration_number %>  
+    <%= form.input :comment,  :as => :text %>
+    <%= form.input :version_date %> 
+    <%= form.input :description,  :as => :text %>              
+    <%= form.input :source_name,  :as => :text %>              
+    <%= form.input :source_identifier,  :as => :text %>              
+  <% end %>
+
+  <%= form.buttons do %>
+    <%= form.commit_button %>
+    <li><%= t('or') %></li>
+    <li><%= link_to t('back'), :back %></li>
+  <% end %>
+<% end %>

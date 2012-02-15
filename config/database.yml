@@ -6,19 +6,21 @@
 #
 development:
   adapter: jdbcpostgresql
-  database: chouette
-  schema_search_path: avignon
-  hostname: localhost
-  username: luc
-  password: monalisa
+  database: chouette_dev
+  username: chouette
+  password: chouette
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   adapter: jdbcpostgresql
-  database: db/test.sqlite3
+  database: chouette_test
+  username: chouette
+  password: chouette
 
 production:
   adapter: jdbcpostgresql
-  database: db/production.sqlite3
+  database: chouette_prod
+  username: chouette
+  password: chouette

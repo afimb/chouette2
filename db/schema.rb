@@ -10,7 +10,63 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120126110946) do
+ActiveRecord::Schema.define(:version => 20120214101645) do
+
+  create_table "company", :force => true do |t|
+    t.string   "objectid"
+    t.integer  "objectversion"
+    t.datetime "creationtime"
+    t.string   "creatorid"
+    t.string   "name"
+    t.string   "shortname"
+    t.string   "organizationalunit"
+    t.string   "operatingdepartmentname"
+    t.string   "code"
+    t.string   "phone"
+    t.string   "fax"
+    t.string   "email"
+    t.string   "registrationnumber"
+  end
+
+  add_index "company", ["objectid"], :name => "company_objectid_key", :unique => true
+  add_index "company", ["registrationnumber"], :name => "company_registrationnumber_key", :unique => true
+
+  create_table "line", :force => true do |t|
+    t.integer  "ptnetworkid",                :limit => 8
+    t.integer  "companyid",                  :limit => 8
+    t.string   "objectid"
+    t.integer  "objectversion"
+    t.datetime "creationtime"
+    t.string   "creatorid"
+    t.string   "name"
+    t.string   "number"
+    t.string   "publishedname"
+    t.string   "transportmodename"
+    t.string   "registrationnumber"
+    t.string   "comment"
+    t.boolean  "mobilityrestrictedsuitable"
+    t.integer  "userneeds",                  :limit => 8
+  end
+
+  add_index "line", ["objectid"], :name => "line_objectid_key", :unique => true
+  add_index "line", ["registrationnumber"], :name => "line_registrationnumber_key", :unique => true
+
+  create_table "ptnetwork", :force => true do |t|
+    t.string   "objectid"
+    t.integer  "objectversion"
+    t.datetime "creationtime"
+    t.string   "creatorid"
+    t.date     "versiondate"
+    t.string   "description"
+    t.string   "name"
+    t.string   "registrationnumber"
+    t.string   "sourcename"
+    t.string   "sourceidentifier"
+    t.string   "comment"
+  end
+
+  add_index "ptnetwork", ["objectid"], :name => "ptnetwork_objectid_key", :unique => true
+  add_index "ptnetwork", ["registrationnumber"], :name => "ptnetwork_registrationnumber_key", :unique => true
 
   create_table "referentials", :force => true do |t|
     t.string   "name"

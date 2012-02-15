@@ -16,7 +16,14 @@
 
       <div class="tabs">
         <ul class="main">
-          <li><%= tab_link_to t('activerecord.models.line'), lines_path %></li>
+          <% unless @referential %>
+            <li><%= tab_link_to t('activerecord.models.referential'), referentials_path %></li>
+          <% else %>
+            <li><%= link_to "Tableau de bord", referential_path(@referential), :class => ("current" if current_page?(referential_path(@referential))) %></li>
+            <li><%= tab_link_to t('activerecord.models.line'), referential_lines_path(@referential) %></li>
+            <li><%= tab_link_to t('activerecord.models.network'), referential_networks_path(@referential) %></li>
+            <li><%= tab_link_to t('activerecord.models.company'), referential_companies_path(@referential) %></li>
+          <% end %>    
         </ul>
       </div>
     </div>

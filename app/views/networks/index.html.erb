@@ -1,0 +1,10 @@
+<%= title_tag t('networks.index.title') %> 
+
+<%= render :partial => "network", :collection => @networks %>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('networks.actions.new'), new_referential_network_path(@referential), :class => "add" %></li>
+  <br>
+</ul>
+<% end %>

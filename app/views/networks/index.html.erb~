@@ -1,0 +1,17 @@
+<div class="order">
+  Trier par 
+  <%= link_to_order "Code", "code" %> | 
+  <%= link_to_order "Priorité", "priority" %> | 
+  <%= link_to_order "Nom", "name" %>
+</div>
+
+<%= title_tag Chouette::Line.model_name.human.pluralize %> 
+
+<%= render :partial => "line", :collection => @lines %>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('lines.actions.new'), new_referential_line_path(@referential), :class => "add" %></li>
+  <br>
+</ul>
+<% end %>

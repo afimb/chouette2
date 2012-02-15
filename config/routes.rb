@@ -12,8 +12,9 @@ ChouetteIhm::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :lines
-  resources :referentials
+  resources :referentials do
+    resources :lines, :networks, :companies 
+  end 
 
   # Sample resource route with options:
   #   resources :products do
@@ -50,7 +51,7 @@ ChouetteIhm::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'lines#index'
+  root :to => 'referentials#index'
 
   # See how all your routes lay out with "rake routes"
 

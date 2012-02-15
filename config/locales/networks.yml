@@ -1,0 +1,43 @@
+en:
+  networks:
+    actions:
+      new: Add a new network
+      edit: Edit this network
+      destroy: Remove this network
+      destroy_confirm: "Are you sure you want destroy this network?"
+    new:
+      title: "Add a new network"
+    edit:
+      title: "Update network"
+    show:
+      title: "Network"
+    index:
+      title: "Networks"
+
+fr:
+  networks:
+    actions:
+      new: Ajouter un réseau
+      edit: Modifier ce réseau
+      destroy: Supprimer ce réseau
+      destroy_confirm: "Etes vous sûr de détruire cette réseau ?"
+    new:
+      title: "Ajouter un réseau"
+    edit:
+      title: "Modifier le réseau"
+    show:
+      title: "Réseau"
+    index:
+      title: "Réseaux"
+  activerecord:
+    models:
+      network: Réseaux
+    attributes:
+      network:
+        registrationnumber: "Identifiant"
+        name: "Nom"
+        comment: "Commentaire"
+        version_date: Date de version
+        description: Description
+        source_name: Nom de la source
+        source_identifier: Identifiant de la source        
