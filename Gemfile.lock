@@ -13,6 +13,12 @@ GIT
     jdbc-sqlite3 (3.7.2)
 
 GIT
+  remote: git://github.com/dryade/apartment.git
+  revision: cd6185f55eb6d9df958599825e848af4e12a9eae
+  specs:
+    apartment (0.14.1)
+
+GIT
   remote: git://github.com/mflorisson/pickle.git
   revision: 4316faa3ef00c414bf286336c57a6d10addcf79f
   specs:
@@ -30,6 +36,13 @@ GIT
       shoulda-context (~> 1.0.0.beta1)
       shoulda-matchers (~> 1.0.0.beta1)
 
+GIT
+  remote: git://sim.dryade.priv/user_interface
+  revision: 6315dd483c6338421481869c045295554b85aaff
+  specs:
+    user_interface (0.0.1)
+      rails (~> 3.1.0)
+
 PATH
   remote: /home/luc/projects/ninoxe
   specs:
@@ -38,17 +51,6 @@ PATH
       activerecord
       composite_primary_keys
       geokit
-
-PATH
-  remote: ~/projects/apartment
-  specs:
-    apartment (0.14.1)
-
-PATH
-  remote: ~/projects/user_interface
-  specs:
-    user_interface (0.0.1)
-      rails (~> 3.1.0)
 
 GEM
   remote: http://rubygems.org/
@@ -116,7 +118,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.1.2)
-    composite_primary_keys (4.1.1)
+    composite_primary_keys (4.1.2)
       activerecord (~> 3.1)
     cucumber (1.1.4)
       builder (>= 2.1.2)
@@ -142,7 +144,8 @@ GEM
     ffi (1.0.11-java)
     formtastic (2.0.2)
       rails (~> 3.0)
-    geokit (1.6.0)
+    geokit (1.6.5)
+      multi_json
     gherkin (2.7.6)
       json (>= 1.4.6)
     gherkin (2.7.6-java)
@@ -161,8 +164,8 @@ GEM
     jruby-openssl (0.7.4)
       bouncy-castle-java
     jruby-rack (1.1.2)
-    json (1.6.4)
-    json (1.6.4-java)
+    json (1.6.5)
+    json (1.6.5-java)
     launchy (2.0.5)
       addressable (~> 2.2.6)
     launchy (2.0.5-java)
