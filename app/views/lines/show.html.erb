@@ -1,4 +1,4 @@
-<%= title_tag @line.name %>
+<%= title_tag t('lines.show.title', :line => @line.name ) %>
 
 <div class="line_show">
 
@@ -13,7 +13,7 @@
     </p>
     <p>
       <label><%= Chouette::Line.human_attribute_name("registrationnumber") %>: </label>
-      <%= @line.registrationnumber %>
+      <%= @line.registration_number %>
     </p>
     <p>
       <label><%= Chouette::Line.human_attribute_name("name") %>: </label>
@@ -28,8 +28,8 @@
       <%= @line.number %>
     </p>
     <p>
-      <label><%= Chouette::Line.human_attribute_name("transportmodename") %>: </label>
-      <%= @line.transportmodename %>
+      <label><%= Chouette::Line.human_attribute_name("transport_mode_name") %>: </label>
+      <%= @line.transport_mode_name %>
     </p>
     <p>
       <label><%= Chouette::Line.human_attribute_name("comment") %>: </label>

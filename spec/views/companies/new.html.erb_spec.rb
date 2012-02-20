@@ -1,17 +1,15 @@
 require 'spec_helper'
 
-describe "/lines/new" do
+describe "/companies/new" do
   let!(:referential) { assign(:referential, Factory(:referential)) }
-  let!(:network) { Factory(:network) }
-  let!(:company) { Factory(:company) }
-  let!(:line) { assign(:line, Factory.build(:line, :network => network, :company => company )) }
+  let!(:company) { assign(:company, Factory.build(:company)) }
 
   describe "form" do
     
     it "should render input for name" do
       render
       rendered.should have_selector("form") do
-        with_selector "input[type=text][name=?]", line.name
+        with_selector "input[type=text][name=?]", company.name
       end
     end
 

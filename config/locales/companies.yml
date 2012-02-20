@@ -1,0 +1,46 @@
+en:
+  companys:
+    actions:
+      new: Add a new company
+      edit: Edit this company
+      destroy: Remove this company
+      destroy_confirm: "Are you sure you want destroy this company?"
+    new:
+      title: "Add a new company"        
+    edit:
+      title: "Update company"
+    show:
+      title: "Company"
+    index:
+      title: "Companies"
+
+fr:
+  companies:
+    actions:
+      new: Ajouter une compagnie
+      edit: Modifier cette compagnie
+      destroy: Supprimer cette compagnie
+      destroy_confirm: "Etes vous sûr de détruire cette compagnie ?"
+    new:
+      title: Ajouter une compagnie
+    edit:
+      title: Modifier la compagnie %{company}
+    show:
+      title: Compagnie %{company}
+    index:
+      title: Compagnies
+  activerecord:
+    models:
+      company: Compagnies
+    attributes:
+      company:
+        registration_number: Identifiant
+        name: Nom
+        short_name: Nom court
+        organizational_unit: Service
+        operating_department_name: Nom du département
+        code: Code
+        phone: Téléphone
+        fax: Fax
+        email: Adresse mail
+

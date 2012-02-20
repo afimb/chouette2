@@ -1,14 +1,43 @@
+# -*- coding: utf-8 -*-
 require 'spec_helper'
 
 describe "Referentials" do
-  
-  # describe "create" do
-  #   get new_referential_path
-  #   fill_in "Nom", :with => "Test"
-  #   fill_in "Slug", :with => "test"
-  #   click_button "Créer"
 
-  #   Referential.where(:name => "Test").should_not be_nil
-  # end
+  describe "index" do
+    let!(:referentials) {  Array.new(2) { Factory(:referential) } } 
+
+    it "should show n referentials" do
+      visit referentials_path
+      page.should have_content(referentials.first.name)
+      page.should have_content(referentials.last.name)
+    end
+
+  end
+  
+  describe "create" do
+    
+    it "should" do
+      visit new_referential_path
+      fill_in "Nom", :with => "Test"
+      fill_in "Code", :with => "test"
+      click_button "Créer Référentiel"
+
+      Referential.where(:name => "Test").should_not be_nil
+      # CREATE SCHEMA
+    end
+
+  end
+
+  describe "destroy" do
+    let(:referential) {  Factory(:referential, :slug => "Referential destroyed") } 
+
+    it "should" do
+      visit referential_path(referential)
+      click_link "Supprimer"
+      Referential.where(:slug => "Referential destroyed").should be_nil
+      # DELETE SCHEMA
+    end
+
+  end
   
 end

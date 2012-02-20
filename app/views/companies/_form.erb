@@ -1,13 +1,14 @@
-<%= semantic_form_for [@referential, @line] do |form| %>
-  <%= form.inputs do %> 
-    <%= form.input :network, :as => :select, :collection => Chouette::Network.all, :include_blank => false %> 
-    <%= form.input :company, :as => :select, :collection => Chouette::Company.all, :include_blank => false%>
-    <%= form.input :registrationnumber %>  
+<%= semantic_form_for [@referential, @company] do |form| %>
+  <%= form.inputs do %>   
     <%= form.input :name %>
-    <%= form.input :publishedname %>
-    <%= form.input :number %>
-    <%= form.input :transportmodename, :as => :select, :collection => Chouette::TransportMode.definitions, :include_blank => false, :member_label => Proc.new { |a| t("#{a[0]}") }  %>
-    <%= form.input :comment,  :as => :text %>              
+    <%= form.input :registration_number %>
+    <%= form.input :short_name %>
+    <%= form.input :organizational_unit %>
+    <%= form.input :operating_department_name %>
+    <%= form.input :code %>
+    <%= form.input :phone, :as => :phone %>
+    <%= form.input :fax, :as => :phone %>
+    <%= form.input :email, :as => :email %>              
   <% end %>
 
   <%= form.buttons do %>

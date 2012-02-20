@@ -11,12 +11,15 @@
   <body>
     <div id="header">
       <div class="infos">
+        <ul class="user">
+          <li><%= link_to(t('layouts.home'), referentials_path) %></li>
+        </ul>
         <h1>Chouette</h1>
       </div>
 
       <div class="tabs">
         <ul class="main">
-          <% unless @referential %>
+          <% if !@referential.present? || @referential.new_record? %>
             <li><%= tab_link_to t('activerecord.models.referential'), referentials_path %></li>
           <% else %>
             <li><%= link_to "Tableau de bord", referential_path(@referential), :class => ("current" if current_page?(referential_path(@referential))) %></li>

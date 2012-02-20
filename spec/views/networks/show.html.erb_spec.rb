@@ -1,28 +1,28 @@
 require 'spec_helper'
 
-describe "/lines/show" do
+describe "/networks/show" do
   
   let!(:referential) { assign(:referential, Factory(:referential)) }
-  let!(:line) { assign(:line, Factory(:line)) }
+  let!(:network) { assign(:network, Factory(:network)) }
 
-  it "should render h2 with the line name" do
+  it "should render h2 with the network name" do
     render
-    rendered.should have_selector("h2", :text => Regexp.new(line.name))
+    rendered.should have_selector("h2", :text => Regexp.new(network.name))
   end
 
-  # it "should display a map with class 'line'" do
+  # it "should display a map with class 'network'" do
   #   render
-  #   rendered.should have_selector("#map", :class => 'line')
+  #   rendered.should have_selector("#map", :class => 'network')
   # end
 
-  it "should render a link to edit the line" do
+  it "should render a link to edit the network" do
     render
-    view.content_for(:sidebar).should have_selector(".actions a[href='#{view.edit_referential_line_path(referential, line)}']")
+    view.content_for(:sidebar).should have_selector(".actions a[href='#{view.edit_referential_network_path(referential, network)}']")
   end
 
-  it "should render a link to remove the line" do
+  it "should render a link to remove the network" do
     render
-    view.content_for(:sidebar).should have_selector(".actions a[href='#{view.referential_line_path(referential, line)}'][class='remove']")
+    view.content_for(:sidebar).should have_selector(".actions a[href='#{view.referential_network_path(referential, network)}'][class='remove']")
   end
 
 end

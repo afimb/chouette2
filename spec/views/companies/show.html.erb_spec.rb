@@ -1,28 +1,28 @@
 require 'spec_helper'
 
-describe "/lines/show" do
+describe "/companies/show" do
   
   let!(:referential) { assign(:referential, Factory(:referential)) }
-  let!(:line) { assign(:line, Factory(:line)) }
+  let!(:company) { assign(:company, Factory(:company)) }
 
-  it "should render h2 with the line name" do
+  it "should render h2 with the company name" do
     render
-    rendered.should have_selector("h2", :text => Regexp.new(line.name))
+    rendered.should have_selector("h2", :text => Regexp.new(company.name))
   end
 
-  # it "should display a map with class 'line'" do
+  # it "should display a map with class 'company'" do
   #   render
-  #   rendered.should have_selector("#map", :class => 'line')
+  #   rendered.should have_selector("#map", :class => 'company')
   # end
 
-  it "should render a link to edit the line" do
+  it "should render a link to edit the company" do
     render
-    view.content_for(:sidebar).should have_selector(".actions a[href='#{view.edit_referential_line_path(referential, line)}']")
+    view.content_for(:sidebar).should have_selector(".actions a[href='#{view.edit_referential_company_path(referential, company)}']")
   end
 
-  it "should render a link to remove the line" do
+  it "should render a link to remove the company" do
     render
-    view.content_for(:sidebar).should have_selector(".actions a[href='#{view.referential_line_path(referential, line)}'][class='remove']")
+    view.content_for(:sidebar).should have_selector(".actions a[href='#{view.referential_company_path(referential, company)}'][class='remove']")
   end
 
 end

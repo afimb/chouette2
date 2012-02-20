@@ -7,7 +7,7 @@ class ChouetteController < InheritedResources::Base
   end 
 
   def referential
-    @referential = Referential.find params[:referential_id]  
+    @referential ||= Referential.find params[:referential_id]  
   end 
 
 end

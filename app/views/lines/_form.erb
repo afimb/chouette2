@@ -2,11 +2,11 @@
   <%= form.inputs do %> 
     <%= form.input :network, :as => :select, :collection => Chouette::Network.all, :include_blank => false %> 
     <%= form.input :company, :as => :select, :collection => Chouette::Company.all, :include_blank => false%>
-    <%= form.input :registrationnumber %>  
+    <%= form.input :registration_number %>  
     <%= form.input :name %>
-    <%= form.input :publishedname %>
+    <%= form.input :published_name %>
     <%= form.input :number %>
-    <%= form.input :transportmodename, :as => :select, :collection => Chouette::TransportMode.definitions, :include_blank => false, :member_label => Proc.new { |a| t("#{a[0]}") }  %>
+    <%= form.input :transport_mode_name, :as => :select, :collection => Chouette::TransportMode.definitions, :include_blank => false, :member_label => Proc.new { |a| t("#{a[0]}") }  %>
     <%= form.input :comment,  :as => :text %>              
   <% end %>
 

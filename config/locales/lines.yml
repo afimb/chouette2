@@ -20,11 +20,13 @@ fr:
       destroy: Supprimer cette ligne
       destroy_confirm: "Etes vous sûr de détruire cette ligne ?"
     new:
-      title: "Ajouter une ligne"
+      title: Ajouter une ligne
     edit:
-      title: "Modifier la ligne"
+      title: Modifier la ligne %{line}
     show:
-      title: "Ligne"
+      title: Ligne %{line}
+    index:
+      title: Lignes
   activerecord:
     models:
       line: Lignes

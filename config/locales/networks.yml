@@ -24,9 +24,9 @@ fr:
     new:
       title: "Ajouter un réseau"
     edit:
-      title: "Modifier le réseau"
+      title: Modifier le réseau %{network}
     show:
-      title: "Réseau"
+      title: Réseau %{network}
     index:
       title: "Réseaux"
   activerecord:

@@ -5,10 +5,10 @@ fr:
     show:
       title: Référentiel
     new:
-      title: Créer une nouveau référentiel
+      title: Créer un nouveau référentiel
       submit: "Créer un référentiel"
     actions:
-      new: Ajouter une référentiel
+      new: Ajouter un référentiel
       destroy_confirm: "Etes vous sûr de vouloir supprimer le référentiel ?"
       destroy: Supprimer
       edit: Modifier

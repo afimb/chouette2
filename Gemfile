@@ -54,7 +54,6 @@ gem 'chouette-ninoxe', :git => 'git://chouette.dryade.priv/ninoxe'
 #gem 'chouette-ninoxe', :path => '/home/luc/projects/ninoxe'
 
 group :development do 
-#  gem 'less'
   gem 'autotest-rails'
   gem 'autotest-notification' 
   gem 'capistrano'
@@ -78,6 +77,8 @@ group :cucumber do
 end
 
 group :test, :cucumber do
+  gem 'capybara'
+  gem 'launchy'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'factory_girl'

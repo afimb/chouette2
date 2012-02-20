@@ -5,7 +5,7 @@
   <%= link_to_order "Nom", "name" %>
 </div>
 
-<%= title_tag Chouette::Line.model_name.human.pluralize %> 
+<%= title_tag t('lines.index.title') %> 
 
 <%= render :partial => "line", :collection => @lines %>
 

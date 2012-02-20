@@ -7,7 +7,7 @@ module TitleHelper
       @title
     end
   end
-
+  
   def title_tag(title, options = nil)
     content_tag :h2, title(title), options
   end

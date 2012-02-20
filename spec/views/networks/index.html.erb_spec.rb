@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "/lines/index" do
+describe "/networks/index" do
 
   let!(:referential) { assign( :referential, Factory(:referential) ) }
   let!(:networks) { assign( :networks, Array.new(2) { Factory(:network) } )  }  
