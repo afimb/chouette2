@@ -19,4 +19,12 @@ class LinesController < ChouetteController
     %w(asc desc).include?(params[:direction]) ? params[:direction] : "asc"
   end  
 
+  def resource_url(line = nil)
+    referential_line_path(referential, line || resource)
+  end
+
+  def collection_url
+    referential_lines_path(referential)
+  end
+
 end

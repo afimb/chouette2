@@ -12,11 +12,12 @@ class CompaniesController < ChouetteController
 
   protected
 
+  def resource_url(company = nil)
+    referential_company_path(referential, company || resource)
+  end
 
-  # def resource_url(company = nil)
-  #   puts "########################################"
-  #   puts referential_company_path(referential, company || @resource).inspect
-  #   referential_company_path(referential, company || @resource)
-  # end
+  def collection_url
+    referential_companies_path(referential)
+  end
 
 end

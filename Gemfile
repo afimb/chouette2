@@ -84,3 +84,7 @@ group :test, :cucumber do
   gem 'factory_girl'
 end
 
+group :production do
+   gem "SyslogLogger"
+end
+

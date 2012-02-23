@@ -31,16 +31,21 @@ ChouetteIhm::Application.configure do
   # config.force_ssl = true
 
   # See everything in the log (default is :info)
-  # config.log_level = :debug
+  #config.log_level = :info
 
   # Use a different logger for distributed setups
-  # config.logger = SyslogLogger.new
+	require 'syslog_logger'
+  config.logger = SyslogLogger.new("rails/chouette2").tap do |logger|
+	  logger.level = Logger::INFO
+	end
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
+
+  #config.assets.prefix = "/chouette2/assets"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
