@@ -1,4 +1,8 @@
+Chouette::ActiveRecord.establish_chouette_connection = false
+
+
 class Chouette::Line
+
   def self.model_name
     name = "Line"
     def name.name

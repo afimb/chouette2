@@ -7,8 +7,9 @@ class LinesController < ChouetteController
 
   protected
 
-  def collection
-    @lines ||= referential.lines.order_by [[sort_column.to_sym, sort_direction.to_sym]]
+  def collection    
+    @q = Chouette::Line.search(params[:q])
+    @lines ||= @q.result(:distinct => true).paginate(:page => params[:page], :per_page => 10)
   end
 
   def sort_column  

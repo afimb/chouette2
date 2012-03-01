@@ -1,17 +1,26 @@
-<div class="order">
-  Trier par 
-  <%= link_to_order "Code", "code" %> | 
-  <%= link_to_order "Priorité", "priority" %> | 
-  <%= link_to_order "Nom", "name" %>
-</div>
-
 <%= title_tag t('lines.index.title') %> 
 
-<%= render :partial => "line", :collection => @lines %>
+<%= search_form_for @q, :url => referential_lines_path(@referential), :html => {:method => :get} do |f| %>
+  <%= f.label :name_or_number_cont %>
+  <%= f.text_field :name_or_number_cont %>
+  <%= f.submit %>
+<% end %>
+
+<div class="digg_pagination">
+  <%= will_paginate @lines %>
+  <div class="page_info">
+    <%= render :partial => "line", :collection => @lines %>
+  </div>
+  <%= will_paginate @lines %>
+</div>
 
 <% content_for :sidebar do %>
 <ul class="actions">
-  <li><%= link_to t('lines.actions.new'), new_referential_line_path(@referential), :class => "add" %></li>
+  <li><%= link_to t('lines.actions.new'), new_referential_line_path(@referential), :class => "add" %></li> 
   <br>
 </ul>
+<ul>
+
+</ul>
+
 <% end %>

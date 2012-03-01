@@ -27,8 +27,8 @@ fr:
       title: Ligne %{line}
     index:
       title: Lignes
-  activerecord:
-    models:
+  activerecord:        
+    models:        
       line: Lignes
     attributes:
       line:

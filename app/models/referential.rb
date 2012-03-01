@@ -6,15 +6,15 @@ class Referential < ActiveRecord::Base
   before_destroy :destroy_schema
 
   def lines
-    Chouette::Line.all
+    Chouette::Line.scoped
   end
 
   def networks
-    Chouette::Network.all
+    Chouette::Network.scoped
   end
 
   def companies
-    Chouette::Company.all
+    Chouette::Company.scoped
   end
 
   private 
