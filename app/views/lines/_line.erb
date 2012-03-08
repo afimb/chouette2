@@ -1,15 +1,19 @@
 <%= div_for(line) do %>
- <%= link_to([@referential, line], :class => "preview") do %>
-    <div class="color" style="background-color: grey ">
+  <%= link_to([@referential, line], :class => "preview", :title => "Ligne #{line.number}") do %>
+    <div class="color">
+      <% if line.number.length <= 3 %>
       <div class="number"><%= line.number %></div>
+      <% end %>
     </div>
   <% end %>
-  <%= link_to line.name, [@referential, line] %>
+  <%= link_to truncate(line.name, :length => 30), [@referential, line], :title => "Ligne #{line.name}" %>
   <div class="info">
-    <p><%= link_to_if( line.network, line.network.name, referential_network_path(@referential, line.network), :title => "Réseau : #{line.network.name}" )  %> | <%= link_to_if( line.company, line.company.name, referential_company_path(@referential, line.company), :title => "Transporteur : #{line.company.name}" )  %> </p>    
-    <p>  
+    Réseau <%= link_to_if( line.network, line.network.name, referential_network_path(@referential, line.network), :title => "Réseau : #{line.network.name}" )  %> -
+    Transporteur <%= link_to_if( line.company, line.company.name, referential_company_path(@referential, line.company), :title => "Transporteur : #{line.company.name}" )  %>
+
+    <div class="actions">  
       <%= link_to "Modifier", edit_referential_line_path(@referential, line), :class => "edit" %> |
       <%= link_to "Supprimer", referential_line_path(@referential, line), :method => :delete, :confirm =>  t('lines.actions.destroy_confirm'), :class => "remove" %>
-    </p>
+    </div>
   </div>
 <% end %>

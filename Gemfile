@@ -5,8 +5,7 @@ gem 'rails', '3.1.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-#gem 'user_interface', :path => '~/projects/user_interface'
-gem 'user_interface', :git => 'git://sim.dryade.priv/user_interface'
+gem 'user_interface', :git => 'git://sim.dryade.priv/user_interface'#, :path => '~/Projects/UserInterfaceDryade'
 
 gem 'apartment', :git => 'git://github.com/dryade/apartment.git'
 
@@ -53,8 +52,7 @@ gem 'will_paginate', '~> 3.0'
 gem 'ransack'
 gem 'squeel'
 
-gem 'chouette-ninoxe', :git => 'git://chouette.dryade.priv/ninoxe'
-#gem 'chouette-ninoxe', :path => '/home/luc/projects/ninoxe'
+gem 'chouette-ninoxe', :git => 'git://chouette.dryade.priv/ninoxe'#, :path => '~/Projects/Ninoxe'
 
 group :development do 
   gem 'autotest-rails'

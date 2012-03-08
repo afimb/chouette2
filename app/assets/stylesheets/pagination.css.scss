@@ -1,8 +1,9 @@
 .pagination {
-  background: white;
   cursor: default;
 
-  > a, > span, > em{
+  margin: 10px 0;
+
+  > a, > span, > em {
     padding: 0.2em 0.5em;
     display: block;
     float: left;
@@ -11,28 +12,28 @@
 
   > .disabled{
     color: #999999;
-    border: 1px solid #dddddd;
+    /* border: 1px solid #dddddd; */
   }
   
   > .current{
     font-style: normal;
     font-weight: bold;
-    background: #2e6ab1;
+    background: #666;
     color: white;
-    border: 1px solid #2e6ab1;
+    border: 1px solid #666;
   }
 
   > a{
     text-decoration: none;
-    color: #105cb6;
-    border: 1px solid #9aafe5;
+    color: #666;
+    border: 1px solid #ddd;
     &:hover, &:focus{
       color: #000033;
       border-color: #000033;
     }
   }
 
-  .page_info{      
+  .paginated_content {      
       padding: 0.4em 0.6em
   }
 

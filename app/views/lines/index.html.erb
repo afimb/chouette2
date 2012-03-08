@@ -3,24 +3,56 @@
 <%= search_form_for @q, :url => referential_lines_path(@referential), :html => {:method => :get} do |f| %>
   <%= f.label :name_or_number_cont %>
   <%= f.text_field :name_or_number_cont %>
-  <%= f.submit %>
+
+  <%= f.hidden_field :company_id_eq %>
+  <%= f.hidden_field :network_id_eq %>
+
+  <%= f.submit %> ou
+  <%= link_to "annuler", referential_lines_path(@referential) %>
 <% end %>
 
-<div class="digg_pagination">
-  <%= will_paginate @lines %>
-  <div class="page_info">
-    <%= render :partial => "line", :collection => @lines %>
-  </div>
-  <%= will_paginate @lines %>
+<% if @q.company_id_eq.present? %>
+<p>
+  Transporteur : <%= @referential.companies.find(@q.company_id_eq).name %>
+</p>
+<% end %>
+
+<% if @q.network_id_eq.present? %>
+<p>
+  Réseau : <%= @referential.networks.find(@q.network_id_eq).name %>
+</p>
+<% end %>
+
+
+<%#= will_paginate @lines %>
+<div class="lines paginated_content">
+  <%= render :partial => "line", :collection => @lines %>
 </div>
+<%= will_paginate @lines %>
 
 <% content_for :sidebar do %>
 <ul class="actions">
   <li><%= link_to t('lines.actions.new'), new_referential_line_path(@referential), :class => "add" %></li> 
-  <br>
 </ul>
-<ul>
 
+<h3>Sélection</h3>
+
+<h4><%= Chouette::Company.model_name.human.pluralize %></h4>
+
+<ul class="selection">
+<% @referential.companies.each do |company| %>
+<li><%= link_to company.name, params.deep_merge("q" => {"company_id_eq" => company.id}), :class => ("current" if @q.company_id_eq == company.id) %></li>
+<% end %>
+<li><%= link_to "Toutes", params.deep_merge("q" => {"company_id_eq" => nil}), :class => ["all", ("current" if @q.company_id_eq.blank?)].compact.join(" ") %></li>
+</ul>
+
+<h4><%= Chouette::Network.model_name.human.pluralize %></h4>
+
+<ul class="selection">
+<% @referential.networks.each do |network| %>
+<li><%= link_to network.name, params.deep_merge("q" => {"network_id_eq" => network.id}), :class => ("current" if @q.network_id_eq == network.id) %></li>
+<% end %>
+<li><%= link_to "Tous", params.deep_merge("q" => {"network_id_eq" => nil}), :class => ["all", ("current" if @q.network_id_eq.blank?)].compact.join(" ") %></li>
 </ul>
 
 <% end %>

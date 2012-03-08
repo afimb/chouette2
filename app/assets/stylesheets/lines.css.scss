@@ -33,10 +33,25 @@
         font-weight: normal;
         line-height: 14px;
         margin-top: 5px;
-        
+
         a {
             display:inline;
-            color: #095495;
+            color: #777;
+        }
+
+        .actions {
+            margin-top: 14px;
+            a {
+                color: #666;
+                padding-left: 12px;
+            }
+
+            a.edit {
+                background: url(image-path('user_interface/ui/edit-small.png')) no-repeat 0% 50%;
+            }
+            a.remove {
+                background: url(image-path('user_interface/ui/remove-small.png')) no-repeat 0% 50%;
+            }
         }
 
         p {
@@ -62,15 +77,30 @@
     .line:after { 
         @include after_div_for_object;  
     }
+
+    .lines {
+        margin-top: 20px;
+    }
+
+    .lines:after {
+        @include content_to_clear;
+    }
     
     .line {
         @include div_for_object;
-    
+
+        /* to create multi-column index */
+        width: 350px;
+        float: left;
+        padding-right: 10px;
+
         .color {
             width: 64px;
             height: 64px;
             float: left;
             margin-right: 10px;
+            border: 1px solid #999;
+
             a {
                 text-decoration: none;                   
             }
@@ -79,12 +109,10 @@
         .number {     
             font-size: 16px;
             text-align: center;
-            color: white;
             font-weight: bold;
             padding-top: 21px;
         }   
     }
-    
 }
 
 #workspace.lines.edit, #workspace.lines.new
@@ -114,3 +142,29 @@
       text-decoration: none;
     }
 }
+
+/* FIXME a déplacer dans layout */
+
+#sidebar ul {
+    padding: 0 8px;
+
+    li {
+        margin: 4px 0;
+    }
+}
+
+#sidebar ul.selection li {
+    a {
+        padding-left: 20px;
+    }
+    a.current {
+        text-decoration: none;
+        color: black !important;
+        background: url(image-path('user_interface/ui/accept.png')) no-repeat;
+    }
+    a.all {
+        background-image: none;
+    }
+}
+
+
