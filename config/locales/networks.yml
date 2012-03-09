@@ -13,6 +13,23 @@ en:
       title: "Network"
     index:
       title: "Networks"
+  activerecord:
+    models:
+      network: Networks
+    attributes:
+      network:
+        registration_number: "Registration number"
+        name: "Name"
+        comment: "Comments"
+        version_date: Version date
+        description: Description
+        source_type: Origin system date
+        source_name: Origin system name
+        source_identifier: Origin system identifier        
+        object_id: Neptune identifier
+        object_version: Version
+        creation_time: Created on
+        creator_id: Created by 
 
 fr:
   networks:
@@ -34,10 +51,15 @@ fr:
       network: Réseau
     attributes:
       network:
-        registrationnumber: "Identifiant"
+        registration_number: "Numéro d'enregistrement"
         name: "Nom"
         comment: "Commentaire"
-        version_date: Date de version
+        version_date: Date de cette version
         description: Description
-        source_name: Nom de la source
-        source_identifier: Identifiant de la source        
+        source_type: "Type de système d'origine"
+        source_name: "Nom du système à l'origine du réseau"
+        source_identifier: "Identifiant du système"        
+        object_id: "Identifiant Neptune"
+        object_version: "Version"
+        creation_time: "Créé le"
+        creator_id: "Créé par"
