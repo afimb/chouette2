@@ -12,7 +12,7 @@ ChouetteIhm::Application.configure do
   config.serve_static_assets = false
 
   # Compress JavaScripts and CSS
-  config.assets.compress = true
+  config.assets.compress = false
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = false
@@ -43,8 +43,7 @@ ChouetteIhm::Application.configure do
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
-  # config.action_controller.asset_host = "http://assets.example.com"
-
+  #config.action_controller.asset_host = "chouette2/assets"
   #config.assets.prefix = "/chouette2/assets"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
