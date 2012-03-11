@@ -4,36 +4,48 @@
 
   <div class="summary">
     <p>
-      <label><%= Chouette::Line.human_attribute_name(:network) %>: </label>
-      <%= @line.network.name if @line.network.present? %>
-    </p>
-    <p>
-      <label><%= Chouette::Line.human_attribute_name("company") %>: </label>
-      <%= @line.company.name if @line.company.present? %>
-    </p>
-    <p>
-      <label><%= Chouette::Line.human_attribute_name("registrationnumber") %>: </label>
-      <%= @line.registration_number %>
-    </p>
-    <p>
-      <label><%= Chouette::Line.human_attribute_name("name") %>: </label>
+      <label><%= @line.human_attribute_name("name") %>: </label>
       <%= @line.name %>
     </p>
     <p>
-      <label><%= Chouette::Line.human_attribute_name("publishedname") %>: </label>
+      <label><%= @line.human_attribute_name("objectid") %>: </label>
+      <%= @line.objectid %>
+    </p>
+    <p>
+      <label><%= @line.human_attribute_name(:network) %>: </label>
+      <%= link_to @line.network.name, [@referential, @line.network] %>
+    </p>
+    <p>
+      <label><%= @line.human_attribute_name("company") %>: </label>
+      <%= link_to @line.company.name, [@referential, @line.company] %>
+    </p>
+    <p>
+      <label><%= @line.human_attribute_name("registration_number") %>: </label>
+      <%= @line.registration_number %>
+    </p>
+    <p>
+      <label><%= @line.human_attribute_name("published_name") %>: </label>
       <%= @line.publishedname %>
     </p>
     <p>
-      <label><%= Chouette::Line.human_attribute_name("number") %>: </label>
+      <label><%= @line.human_attribute_name("number") %>: </label>
       <%= @line.number %>
     </p>
     <p>
-      <label><%= Chouette::Line.human_attribute_name("transport_mode_name") %>: </label>
+      <label><%= @line.human_attribute_name("transport_mode_name") %>: </label>
       <%= @line.transport_mode_name %>
     </p>
     <p>
-      <label><%= Chouette::Line.human_attribute_name("comment") %>: </label>
+      <label><%= @line.human_attribute_name("comment") %>: </label>
       <%= @line.comment %>
+    </p>
+    <p>
+      <label><%= @line.human_attribute_name("creation_time") %>: </label>
+      <%= @line.creation_time %>
+    </p>
+    <p>
+      <label><%= @line.human_attribute_name("creator_id") %>: </label>
+      <%= @line.creator_id %>
     </p>
   </div>
 </div>

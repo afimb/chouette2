@@ -1,28 +1,27 @@
 <%= title_tag t('lines.index.title') %> 
 
 <%= search_form_for @q, :url => referential_lines_path(@referential), :html => {:method => :get} do |f| %>
-  <%= f.label :name_or_number_cont %>
+  <%= f.label :name_or_number_cont, "#{t('.name_or_number')} :" %>
   <%= f.text_field :name_or_number_cont %>
 
   <%= f.hidden_field :company_id_eq %>
   <%= f.hidden_field :network_id_eq %>
 
-  <%= f.submit %> ou
-  <%= link_to "annuler", referential_lines_path(@referential) %>
-<% end %>
-
-<% if @q.company_id_eq.present? %>
-<p>
-  Transporteur : <%= @referential.companies.find(@q.company_id_eq).name %>
-</p>
+  <%= f.submit t('actions.search') %> <%= t("or") %>
+  <%= link_to t("cancel"), referential_lines_path(@referential) %>
 <% end %>
 
 <% if @q.network_id_eq.present? %>
 <p>
-  Réseau : <%= @referential.networks.find(@q.network_id_eq).name %>
+  <%= Chouette::Line.human_attribute_name('network') %> : <%= @referential.networks.find(@q.network_id_eq).name %>
 </p>
 <% end %>
 
+<% if @q.company_id_eq.present? %>
+<p>
+  <%= Chouette::Line.human_attribute_name('company') %> : <%= @referential.companies.find(@q.company_id_eq).name %>
+</p>
+<% end %>
 
 <%#= will_paginate @lines %>
 <div class="lines paginated_content">
@@ -35,7 +34,7 @@
   <li><%= link_to t('lines.actions.new'), new_referential_line_path(@referential), :class => "add" %></li> 
 </ul>
 
-<h3>Sélection</h3>
+<h3><%= t(".selection") %></h3>
 
 <h4><%= Chouette::Company.model_name.human.pluralize %></h4>
 
@@ -43,7 +42,7 @@
 <% @referential.companies.each do |company| %>
 <li><%= link_with_search company.name, "company_id_eq" => company.id %></li>
 <% end %>
-<li><%= link_with_search "Toutes", {"company_id_eq" => nil}, :class => "all" %></li>
+<li><%= link_with_search t(".selection_all"), {"company_id_eq" => nil}, :class => "all" %></li>
 </ul>
 
 <h4><%= Chouette::Network.model_name.human.pluralize %></h4>
@@ -52,7 +51,7 @@
 <% @referential.networks.each do |network| %>
 <li><%= link_with_search network.name, "network_id_eq" => network.id %></li>
 <% end %>
-<li><%= link_with_search "Tous", {"network_id_eq" => nil}, :class => "all" %></li>
+<li><%= link_with_search t(".selection_all"), {"network_id_eq" => nil}, :class => "all" %></li>
 </ul>
 
 <% end %>

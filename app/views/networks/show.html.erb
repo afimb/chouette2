@@ -4,12 +4,12 @@
 
   <div class="summary">
     <p>
-      <label><%= Chouette::Network.human_attribute_name("registrationnumber") %>: </label>
-      <%= @network.registrationnumber %>
-    </p>
-    <p>
       <label><%= Chouette::Network.human_attribute_name("name") %>: </label>
       <%= @network.name %>
+    </p>
+    <p>
+      <label><%= Chouette::Network.human_attribute_name("registration_number") %>: </label>
+      <%= @network.registrationnumber %>
     </p>
     <p>
       <label><%= Chouette::Network.human_attribute_name("comment") %>: </label>

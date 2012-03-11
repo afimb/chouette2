@@ -1,3 +1,25 @@
+en:
+  referentials:
+    edit:
+      title: "Edit the referentiel"
+    show:
+      title: Referential
+    new:
+      title: Create a new referential
+      submit: "Create a referential"
+    actions:
+      new: Add a referential
+      destroy_confirm: "Do you confirm to destroy this referential ?"
+      destroy: Destroy this referential
+      edit: Edit this referential
+  activerecord:
+    models:
+      referential: Referential
+    attributes:
+      referential:
+        name: Name
+        slug: Code
+
 fr:
   referentials:
     edit:
@@ -9,9 +31,9 @@ fr:
       submit: "Créer un référentiel"
     actions:
       new: Ajouter un référentiel
-      destroy_confirm: "Etes vous sûr de vouloir supprimer le référentiel ?"
-      destroy: Supprimer
-      edit: Modifier
+      destroy_confirm: "Etes vous sûr de vouloir supprimer ce référentiel ?"
+      destroy: Supprimer ce référentiel
+      edit: Modifier ce référentiel
   activerecord:
     models:
       referential: Référentiel

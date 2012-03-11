@@ -8,12 +8,12 @@
   <% end %>
   <%= link_to truncate(line.name, :length => 30), [@referential, line], :title => "Ligne #{line.name}" %>
   <div class="info">
-    Réseau <%= link_to_if( line.network, line.network.name, referential_network_path(@referential, line.network), :title => "Réseau : #{line.network.name}" )  %> -
-    Transporteur <%= link_to_if( line.company, line.company.name, referential_company_path(@referential, line.company), :title => "Transporteur : #{line.company.name}" )  %>
+    <%= line.human_attribute_name('network') %> <%= link_to_if line.network, line.network.name, referential_network_path(@referential, line.network), :title => "#{line.human_attribute_name('network')} #{line.network.name}" %> -
+    <%= line.human_attribute_name('company') %> <%= link_to_if( line.company, line.company.name, referential_company_path(@referential, line.company), :title => "#{line.human_attribute_name('company')} #{line.company.name}" )  %>
 
     <div class="actions">  
-      <%= link_to "Modifier", edit_referential_line_path(@referential, line), :class => "edit" %> |
-      <%= link_to "Supprimer", referential_line_path(@referential, line), :method => :delete, :confirm =>  t('lines.actions.destroy_confirm'), :class => "remove" %>
+      <%= link_to t("actions.edit"), edit_referential_line_path(@referential, line), :class => "edit" %> |
+      <%= link_to t("actions.destroy"), referential_line_path(@referential, line), :method => :delete, :confirm =>  t('lines.actions.destroy_confirm'), :class => "remove" %>
     </div>
   </div>
 <% end %>

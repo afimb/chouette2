@@ -2,19 +2,26 @@
 <%= semantic_form_for [@referential, @line] do |form| %>
   <%= form.inputs do %> 
     <%= form.input :name %>
-    <%= form.input :objectid %>  
+    <% if @line.new_record? %>
+      <%= form.input :objectid %>  
+    <% else %>
+      <li>
+      <label><%= @line.human_attribute_name("objectid") %>: </label>
+      <%= @line.objectid %>
+      </li>
+    <% end %>
     <%= form.input :registration_number %>  
     <%= form.input :network, :as => :select, :collection => Chouette::Network.all, :include_blank => false %> 
     <%= form.input :company, :as => :select, :collection => Chouette::Company.all, :include_blank => false%>
     <%= form.input :published_name %>
     <%= form.input :number %>
     <%= form.input :transport_mode_name, :as => :select, :collection => Chouette::TransportMode.definitions, :include_blank => false, :member_label => Proc.new { |a| t("#{a[0]}") }  %>
-    <%= form.input :comment,  :as => :text %>              
+    <%= form.input :comment %>              
   <% end %>
 
   <%= form.buttons do %>
     <%= form.commit_button true %>
     <li><%= t('or') %></li>
-    <li><%= link_to t('back'), :back %></li>
+    <li><%= link_to t('cancel'), :back %></li>
   <% end %>
 <% end %>

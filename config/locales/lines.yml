@@ -8,12 +8,17 @@ en:
     new:
       title: "Add a new line"
     edit:
-      title: "Update line"
+      title: "Update line %{line}"
     show:
-      title: "Line"
+      title: "Line %{line}"
+    index:
+      title: Lines
+      name_or_number: "Name or number"
+      selection: Selection
+      selection_all: All
   activerecord:        
     models:        
-      line: Lignes
+      line: Line
     attributes:
       line:
         network: "Network"
@@ -21,10 +26,10 @@ en:
         registration_number: "Registration number"
         name: "Name"
         published_name: "Public name"        
-        number: "NUmber"
+        number: "Number"
         transport_mode_name: "Transport mode"
         comment: "Comments"
-        object_id: Neptune identifier
+        objectid: Neptune identifier
         object_version: Version
         creation_time: Created on
         creator_id: Created by 
@@ -43,10 +48,13 @@ fr:
     show:
       title: Ligne %{line}
     index:
+      name_or_number: "Nom ou indice"
       title: Lignes
+      selection: Sélection
+      selection_all: Tous
   activerecord:        
     models:        
-      line: Lignes
+      line: Ligne
     attributes:
       line:
         network: "Réseau"
@@ -57,7 +65,7 @@ fr:
         number: "Indice"
         transport_mode_name: "Mode de transport"
         comment: "Commentaire"
-        object_id: "Identifiant Neptune"
+        objectid: "Identifiant Neptune"
         object_version: "Version"
         creation_time: "Créé le"
         creator_id: "Créé par"

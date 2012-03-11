@@ -8,7 +8,7 @@ en:
     new:
       title: "Add a new network"
     edit:
-      title: "Update network"
+      title: "Update network %{network}"
     show:
       title: "Network"
     index:

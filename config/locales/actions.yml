@@ -1,0 +1,14 @@
+en:
+  actions:
+    edit: Edit
+    destroy: Destroy
+    search: Search
+  or: or
+  cancel: cancel
+fr:
+  actions:
+    edit: Modifier
+    destroy: Supprimer
+    search: Chercher
+  or: ou
+  cancel: annuler

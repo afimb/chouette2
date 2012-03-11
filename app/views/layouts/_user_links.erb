@@ -1,0 +1,12 @@
+<ul class="user">
+  <li class="home"><%= link_to  t('layouts.home'), root_path %></li>
+  <li> | </li>
+  <li class="<%= language_class("fr") %>"><%= link_to_language :fr %></li>
+  <li class="<%= language_class("en") %>"><%= link_to_language :en %></li>
+  <li>
+  <li> | </li> 
+  <%= link_to "/help/index" do %>
+    <span class="help"><%= t('layouts.help') %></span>
+  <% end %>
+  </li>
+</ul>
