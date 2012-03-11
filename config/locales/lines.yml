@@ -11,6 +11,23 @@ en:
       title: "Update line"
     show:
       title: "Line"
+  activerecord:        
+    models:        
+      line: Lignes
+    attributes:
+      line:
+        network: "Network"
+        company: "Company"
+        registration_number: "Registration number"
+        name: "Name"
+        published_name: "Public name"        
+        number: "NUmber"
+        transport_mode_name: "Transport mode"
+        comment: "Comments"
+        object_id: Neptune identifier
+        object_version: Version
+        creation_time: Created on
+        creator_id: Created by 
 
 fr:
   lines:
@@ -34,9 +51,14 @@ fr:
       line:
         network: "Réseau"
         company: "Transporteur"
-        registrationnumber: "Identifiant"
+        registration_number: "Numéro d'enregistrement"
         name: "Nom"
-        publishedname: "Nom publié"        
+        published_name: "Nom publié"        
         number: "Indice"
-        transportmodename: "Mode de transport"
+        transport_mode_name: "Mode de transport"
         comment: "Commentaire"
+        object_id: "Identifiant Neptune"
+        object_version: "Version"
+        creation_time: "Créé le"
+        creator_id: "Créé par"
+

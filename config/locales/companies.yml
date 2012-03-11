@@ -1,46 +1,68 @@
 en:
-  companys:
+  companies:
     actions:
-      new: Add a new company
-      edit: Edit this company
-      destroy: Remove this company
+      new: "Add a new company"
+      edit: "Edit this company"
+      destroy: "Remove this company"
       destroy_confirm: "Are you sure you want destroy this company?"
     new:
       title: "Add a new company"        
     edit:
-      title: "Update company"
+      title: "Update company  %{company}"
     show:
-      title: "Company"
+      title: "Company  %{company}"
     index:
       title: "Companies"
+  activerecord:
+    models:
+      company: "Companies"
+    attributes:
+      company:
+        registration_number: "Registration number"
+        name: "Name"
+        short_name: "Short name"
+        organizational_unit: "Unit"
+        operating_department_name: "Department"
+        code: "Zip code"
+        phone: "Phone number"
+        fax: "Fax number"
+        email: "E-mail"
+        object_id: Neptune identifier
+        object_version: Version
+        creation_time: Created on
+        creator_id: Created by 
 
 fr:
   companies:
     actions:
-      new: Ajouter une compagnie
-      edit: Modifier cette compagnie
-      destroy: Supprimer cette compagnie
-      destroy_confirm: "Etes vous sûr de détruire cette compagnie ?"
+      new: "Ajouter un transporteur"
+      edit: "Modifier ce transporteur"
+      destroy: "Supprimer ce transporteur"
+      destroy_confirm: "Etes vous sûr de détruire ce transporteur ?"
     new:
-      title: Ajouter une compagnie
+      title: "Ajouter un transporteur"
     edit:
-      title: Modifier la compagnie %{company}
+      title: "Modifier le transporteur %{company}"
     show:
-      title: Compagnie %{company}
+      title: "Transporteur %{company}"
     index:
-      title: Compagnies
+      title: "Transporteurs"
   activerecord:
     models:
-      company: Compagnies
+      company: "Transporteurs"
     attributes:
       company:
-        registration_number: Identifiant
-        name: Nom
-        short_name: Nom court
-        organizational_unit: Service
-        operating_department_name: Nom du département
-        code: Code
-        phone: Téléphone
-        fax: Fax
-        email: Adresse mail
+        registration_number: "Numéro d'enregistrement"
+        name: "Nom"
+        short_name: "Nom court"
+        organizational_unit: "Service"
+        operating_department_name: "Nom du département"
+        code: "Code postal"
+        phone: "Téléphone"
+        fax: "Fax"
+        email: "Adresse mel"
+        object_id: "Identifiant Neptune"
+        object_version: "Version"
+        creation_time: "Créé le"
+        creator_id: "Créé par"
 

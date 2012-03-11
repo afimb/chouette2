@@ -1,24 +1,44 @@
 en:
-
-fr:
-  interchange: Correspondance
-  unknown: Inconnu
-  coach: Voiture
+  unknown: unknown
   air: Air
-  waterborne: Eau
+  train: Train
+  long_distance_train: Long distance train
+  local_train: Local train
+  rapid_transit: Rapid transit
+  metro: Metro
+  tramway: Tramway
+  coach: Coach
   bus: Bus
   ferry: Ferry
-  walk: Piéton
-  metro: Métro
-  shuttle: Navette
-  rapid_transit: Lignes rapides
+  waterborne: Waterborne
+  private_vehicle: Private vehicle
+  walk: Walk
+  trolley_bus: Trolleybus
+  bicycle: Bicycle
+  shuttle: Shuttle
   taxi: Taxi
-  local_train: Train Local
+  val: VAL
+  other: Other
+
+fr:
+  unknown: Inconnu
+  air: Air
   train: Train
   long_distance_train: Train longue distance
+  local_train: Train local
+  rapid_transit: Lignes rapides
+  metro: Métro
   tramway: Tramway
-  trolley_bus: Bus Trolley
-  private_vehicle: Véhicule Privé
+  coach: Voiture
+  bus: Bus
+  ferry: Ferry
+  waterborne: Eau
+  private_vehicle: Véhicule privé
+  walk: Piéton
+  trolley_bus: Trolley bus
   bicycle: Vélo
+  shuttle: Navette
+  taxi: Taxi
+  val: VAL
   other: Autre
   
