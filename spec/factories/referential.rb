@@ -1,4 +1,4 @@
-Factory.define :referential, :class => "Referential" do |f|
-  f.sequence(:name) { |n| "Referential #{n}" }
-  f.sequence(:slug) { |n| "referential_#{n}" }
+Factory.define :referential do |f|
+  f.sequence(:name) { |n| "Test #{n}" }
+  f.sequence(:slug) { |n| "test_#{n}" }
 end

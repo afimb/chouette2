@@ -1,9 +1,11 @@
+<!-- <%= @line.errors.inspect %> -->
 <%= semantic_form_for [@referential, @line] do |form| %>
   <%= form.inputs do %> 
+    <%= form.input :name %>
+    <%= form.input :objectid %>  
+    <%= form.input :registration_number %>  
     <%= form.input :network, :as => :select, :collection => Chouette::Network.all, :include_blank => false %> 
     <%= form.input :company, :as => :select, :collection => Chouette::Company.all, :include_blank => false%>
-    <%= form.input :registration_number %>  
-    <%= form.input :name %>
     <%= form.input :published_name %>
     <%= form.input :number %>
     <%= form.input :transport_mode_name, :as => :select, :collection => Chouette::TransportMode.definitions, :include_blank => false, :member_label => Proc.new { |a| t("#{a[0]}") }  %>

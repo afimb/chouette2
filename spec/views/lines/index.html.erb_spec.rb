@@ -2,14 +2,14 @@ require 'spec_helper'
 
 describe "/lines/index" do
 
-  let!(:referential) { assign( :referential, Factory(:referential) ) }
-  let!(:network) { Factory(:network) }
-  let!(:company) { Factory(:company) }
-  let!(:lines) { assign( :lines, Array.new(2) { Factory(:line, :network => network, :company => company) } )  }  
+  let!(:referential) { assign :referential, Factory(:referential) }
+  let!(:network) { Factory :network }
+  let!(:company) { Factory :company }
+  let!(:lines) { assign :lines, Array.new(2) { Factory(:line, :network => network, :company => company) }.paginate }  
+  let!(:q) { assign :q, Ransack::Search.new(Chouette::Line) }
 
   before :each do
-    rendered.stub(:collection).and_return( lines.order_by [[:number, :asc]] )    
-    view.stub(:link_to_order).and_return( "#" )
+    view.stub(:link_with_search).and_return("#")
   end
 
   it "should render a show link for each group" do        

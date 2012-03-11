@@ -29,13 +29,12 @@ describe "Referentials" do
   end
 
   describe "destroy" do
-    let(:referential) {  Factory(:referential, :slug => "Referential destroyed") } 
+    let(:referential) {  Factory(:referential) } 
 
     it "should" do
       visit referential_path(referential)
       click_link "Supprimer"
-      Referential.where(:slug => "Referential destroyed").should be_nil
-      # DELETE SCHEMA
+      Referential.where(:slug => referential.slug).should be_blank
     end
 
   end

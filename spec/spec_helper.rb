@@ -12,6 +12,8 @@ require 'capybara/rails'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
+require 'will_paginate/array'
+
 RSpec.configure do |config|
   DatabaseCleaner.logger = Rails.logger
   # ## Mock Framework
@@ -45,6 +47,7 @@ RSpec.configure do |config|
   end
 
   config.after(:each) do
+    Apartment::Database.switch(nil)
     DatabaseCleaner.clean
   end
 

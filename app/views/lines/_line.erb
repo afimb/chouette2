@@ -1,7 +1,7 @@
 <%= div_for(line) do %>
   <%= link_to([@referential, line], :class => "preview", :title => "Ligne #{line.number}") do %>
     <div class="color">
-      <% if line.number.length <= 3 %>
+      <% if line.number and line.number.length <= 3 %>
       <div class="number"><%= line.number %></div>
       <% end %>
     </div>

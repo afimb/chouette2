@@ -52,13 +52,15 @@ gem 'will_paginate', '~> 3.0'
 gem 'ransack'
 gem 'squeel'
 
-gem 'chouette-ninoxe', :git => 'git://chouette.dryade.priv/ninoxe'#, :path => '~/Projects/Ninoxe'
+gem 'chouette-ninoxe', :git => 'git://chouette.dryade.priv/ninoxe' #, :path => '~/Projects/Ninoxe'
 
 group :development do 
   gem 'autotest-rails'
   gem 'autotest-notification' 
   gem 'capistrano'
   gem 'capistrano-ext'   
+  gem 'guard'
+  gem 'guard-rspec'
 end
 
 group :test, :development, :cucumber do

@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe "/lines/show" do
   
-  let!(:referential) { assign(:referential, Factory(:referential)) }
-  let!(:line) { assign(:line, Factory(:line)) }
+  let!(:referential) { assign :referential, Factory(:referential) }
+  let!(:line) { assign :line, Factory(:line) }
 
   it "should render h2 with the line name" do
     render

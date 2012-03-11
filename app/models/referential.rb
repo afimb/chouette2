@@ -17,14 +17,20 @@ class Referential < ActiveRecord::Base
     Chouette::Company.scoped
   end
 
+  def switch
+    raise "Referential not created" if new_record?
+    Apartment::Database.switch(slug)
+    self
+  end
+
   private 
 
   def create_schema
-    Apartment::Database.create self.slug
+    Apartment::Database.create slug
   end
 
   def destroy_schema
-    Apartment::Database.drop self.slug
+    Apartment::Database.drop slug
   end
   
 end

@@ -41,18 +41,18 @@
 
 <ul class="selection">
 <% @referential.companies.each do |company| %>
-<li><%= link_to company.name, params.deep_merge("q" => {"company_id_eq" => company.id}), :class => ("current" if @q.company_id_eq == company.id) %></li>
+<li><%= link_with_search company.name, "company_id_eq" => company.id %></li>
 <% end %>
-<li><%= link_to "Toutes", params.deep_merge("q" => {"company_id_eq" => nil}), :class => ["all", ("current" if @q.company_id_eq.blank?)].compact.join(" ") %></li>
+<li><%= link_with_search "Toutes", {"company_id_eq" => nil}, :class => "all" %></li>
 </ul>
 
 <h4><%= Chouette::Network.model_name.human.pluralize %></h4>
 
 <ul class="selection">
 <% @referential.networks.each do |network| %>
-<li><%= link_to network.name, params.deep_merge("q" => {"network_id_eq" => network.id}), :class => ("current" if @q.network_id_eq == network.id) %></li>
+<li><%= link_with_search network.name, "network_id_eq" => network.id %></li>
 <% end %>
-<li><%= link_to "Tous", params.deep_merge("q" => {"network_id_eq" => nil}), :class => ["all", ("current" if @q.network_id_eq.blank?)].compact.join(" ") %></li>
+<li><%= link_with_search "Tous", {"network_id_eq" => nil}, :class => "all" %></li>
 </ul>
 
 <% end %>
