@@ -1,44 +1,47 @@
 en:
-  unknown: unknown
-  air: Air
-  train: Train
-  long_distance_train: Long distance train
-  local_train: Local train
-  rapid_transit: Rapid transit
-  metro: Metro
-  tramway: Tramway
-  coach: Coach
-  bus: Bus
-  ferry: Ferry
-  waterborne: Waterborne
-  private_vehicle: Private vehicle
-  walk: Walk
-  trolley_bus: Trolleybus
-  bicycle: Bicycle
-  shuttle: Shuttle
-  taxi: Taxi
-  val: VAL
-  other: Other
-
+  transport_modes:
+    label:
+      unknown: unknown
+      air: Air
+      train: Train
+      long_distance_train: Long distance train
+      local_train: Local train
+      rapid_transit: Rapid transit
+      metro: Metro
+      tramway: Tramway
+      coach: Coach
+      bus: Bus
+      ferry: Ferry
+      waterborne: Waterborne
+      private_vehicle: Private vehicle
+      walk: Walk
+      trolley_bus: Trolleybus
+      bicycle: Bicycle
+      shuttle: Shuttle
+      taxi: Taxi
+      val: VAL
+      other: Other
+      
 fr:
-  unknown: Inconnu
-  air: Air
-  train: Train
-  long_distance_train: Train longue distance
-  local_train: Train local
-  rapid_transit: Lignes rapides
-  metro: Métro
-  tramway: Tramway
-  coach: Voiture
-  bus: Bus
-  ferry: Ferry
-  waterborne: Eau
-  private_vehicle: Véhicule privé
-  walk: Piéton
-  trolley_bus: Trolley bus
-  bicycle: Vélo
-  shuttle: Navette
-  taxi: Taxi
-  val: VAL
-  other: Autre
-  
+  transport_modes:
+    label:
+      unknown: Inconnu
+      air: Air
+      train: Train
+      long_distance_train: Train longue distance
+      local_train: Train local
+      rapid_transit: Lignes rapides
+      metro: Métro
+      tramway: Tramway
+      coach: Voiture
+      bus: Bus
+      ferry: Ferry
+      waterborne: Eau
+      private_vehicle: Véhicule privé
+      walk: Piéton
+      trolley_bus: Trolley bus
+      bicycle: Vélo
+      shuttle: Navette
+      taxi: Taxi
+      val: VAL
+      other: Autre

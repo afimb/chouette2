@@ -33,7 +33,7 @@
     </p>
     <p>
       <label><%= @line.human_attribute_name("transport_mode_name") %>: </label>
-      <%= @line.transport_mode_name %>
+      <%= t("transport_modes.label.#{@line.transport_mode}") %>
     </p>
     <p>
       <label><%= @line.human_attribute_name("comment") %>: </label>
