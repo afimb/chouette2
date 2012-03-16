@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/help/"/>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+    <link href="/assets/application.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/user_interface.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/user_interface/layout.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/formtastic.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/formtastic_changes.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/legacy.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+
+    <link href="/help/stylesheets/help.css" media="screen" rel="stylesheet" type="text/css" /> 
+    <title>Chouette Documentation - {{ page.title }}</title>
+  </head>
+  <body>
+    <div id="header">
+      <div class="infos">
+        <ul class="user">
+          <li><a href="/">Accueil</a></li>
+        </ul>
+        <h1>Chouette Documentation</h1>
+      </div>
+      <div class="tabs">
+        <ul class="main">
+          <li><a class="current" href="/help/">Accueil</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="body">
+      <div id="workspace">
+        <h2>{{ page.title }}</h2>
+        {{ content }}
+      </div>
+    </div>
+  </body>
+</html>
+
