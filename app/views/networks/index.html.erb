@@ -1,6 +1,19 @@
 <%= title_tag t('networks.index.title') %> 
 
-<%= render :partial => "network", :collection => @networks %>
+<%= search_form_for @q, :url => referential_networks_path(@referential), :html => {:method => :get} do |f| %>
+  <%= f.label :name_cont, "#{t('.name')} :" %>
+  <%= f.text_field :name_cont %>
+
+  <%= f.submit t('actions.search') %> <%= t("or") %>
+  <%= link_to t("cancel"), referential_networks_path(@referential) %>
+<% end %>
+
+<%#= will_paginate @networks %>
+<div class="networks paginated_content">
+  <%= render :partial => "network", :collection => @networks %>
+</div>
+<%= will_paginate @networks %>
+
 
 <% content_for :sidebar do %>
 <ul class="actions">

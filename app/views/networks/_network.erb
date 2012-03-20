@@ -1,6 +1,9 @@
 <%= div_for(network) do %>
   <%= link_to network.name, [@referential, network] %>
   <div class="info">
-
+    <div class="actions">  
+      <%= link_to t("actions.edit"), edit_referential_network_path(@referential, network), :class => "edit" %> |
+      <%= link_to t("actions.destroy"), referential_network_path(@referential, network), :method => :delete, :confirm =>  t('networks.actions.destroy_confirm'), :class => "remove" %>
+    </div>
   </div>
 <% end %>

@@ -4,16 +4,16 @@ en:
       new: Add a new line
       edit: Edit this line
       destroy: Remove this line
-      destroy_confirm: "Are you sure you want destroy this line?"
+      destroy_confirm: Are you sure you want destroy this line?
     new:
-      title: "Add a new line"
+      title: Add a new line
     edit:
-      title: "Update line %{line}"
+      title: Update line %{line}
     show:
-      title: "Line %{line}"
+      title: Line %{line}
     index:
       title: Lines
-      name_or_number: "Name or number"
+      name_or_number: Name or number
       selection: Selection
       selection_all: All
   activerecord:        
@@ -21,14 +21,14 @@ en:
       line: Line
     attributes:
       line:
-        network: "Network"
-        company: "Company"
-        registration_number: "Registration number"
-        name: "Name"
-        published_name: "Public name"        
-        number: "Number"
-        transport_mode_name: "Transport mode"
-        comment: "Comments"
+        network: Network
+        company: Company
+        registration_number: Registration number
+        name: Name
+        published_name: Published name        
+        number: Number
+        transport_mode_name: Transport mode
+        comment: Comments
         objectid: Neptune identifier
         object_version: Version
         creation_time: Created on
@@ -40,7 +40,7 @@ fr:
       new: Ajouter une ligne
       edit: Modifier cette ligne
       destroy: Supprimer cette ligne
-      destroy_confirm: "Etes vous sûr de détruire cette ligne ?"
+      destroy_confirm: Etes vous sûr de détruire cette ligne ?
     new:
       title: Ajouter une ligne
     edit:
@@ -48,7 +48,7 @@ fr:
     show:
       title: Ligne %{line}
     index:
-      name_or_number: "Nom ou indice"
+      name_or_number: Nom ou indice
       title: Lignes
       selection: Sélection
       selection_all: Tous
@@ -57,16 +57,16 @@ fr:
       line: Ligne
     attributes:
       line:
-        network: "Réseau"
-        company: "Transporteur"
+        network: Réseau
+        company: Transporteur
         registration_number: "Numéro d'enregistrement"
-        name: "Nom"
-        published_name: "Nom publié"        
-        number: "Indice"
-        transport_mode_name: "Mode de transport"
-        comment: "Commentaire"
-        objectid: "Identifiant Neptune"
-        object_version: "Version"
-        creation_time: "Créé le"
-        creator_id: "Créé par"
+        name: Nom
+        published_name: Nom public        
+        number: Indice
+        transport_mode_name: Mode de transport
+        comment: Commentaire
+        objectid: Identifiant Neptune
+        object_version: Version
+        creation_time: Créé le
+        creator_id: Créé par
 

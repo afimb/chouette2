@@ -4,10 +4,6 @@
 
   <div class="summary">
     <p>
-      <label><%= Chouette::Company.human_attribute_name("registration_number") %>: </label>
-      <%= @company.registration_number %>
-    </p>
-    <p>
       <label><%= Chouette::Company.human_attribute_name("name") %>: </label>
       <%= @company.name %>
     </p>
@@ -24,6 +20,10 @@
       <%= @company.operating_department_name %>
     </p>
     <p>
+      <label><%= Chouette::Company.human_attribute_name("code") %>: </label>
+      <%= @company.code %>
+    </p>
+    <p>
       <label><%= Chouette::Company.human_attribute_name("phone") %>: </label>
       <%= @company.phone %>
     </p>
@@ -34,6 +34,14 @@
     <p>
       <label><%= Chouette::Company.human_attribute_name("email") %>: </label>
       <%= @company.email %>
+    </p>
+    <p>
+      <label><%= Chouette::Company.human_attribute_name("registration_number") %>: </label>
+      <%= @company.registration_number %>
+    </p>
+    <p>
+      <label><%= Chouette::Company.human_attribute_name("objectid") %>: </label>
+      <%= @company.objectid %>
     </p>
   </div>
 </div>

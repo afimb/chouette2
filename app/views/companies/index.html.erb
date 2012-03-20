@@ -1,6 +1,19 @@
 <%= title_tag t('companies.index.title') %> 
 
-<%= render :partial => "company", :collection => @companies %>
+<%= search_form_for @q, :url => referential_companies_path(@referential), :html => {:method => :get} do |f| %>
+  <%= f.label :name_cont, "#{t('.name')} :" %>
+  <%= f.text_field :name_cont %>
+
+  <%= f.submit t('actions.search') %> <%= t("or") %>
+  <%= link_to t("cancel"), referential_companies_path(@referential) %>
+<% end %>
+
+<%#= will_paginate @companies %>
+<div class="companies paginated_content">
+  <%= render :partial => "company", :collection => @companies %>
+</div>
+<%= will_paginate @companies %>
+
 
 <% content_for :sidebar do %>
 <ul class="actions">

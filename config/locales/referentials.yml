@@ -1,20 +1,20 @@
 en:
   referentials:
     edit:
-      title: "Edit the referentiel"
+      title: "Edit the data space"
     show:
-      title: Referential
+      title: Data space
     new:
-      title: Create a new referential
-      submit: "Create a referential"
+      title: Create a new data space
+      submit: "Create a data space"
     actions:
-      new: Add a referential
-      destroy_confirm: "Do you confirm to destroy this referential ?"
-      destroy: Destroy this referential
-      edit: Edit this referential
+      new: Add a data space
+      destroy_confirm: "Do you confirm to destroy this data space ?"
+      destroy: Destroy this data space
+      edit: Edit this data space
   activerecord:
     models:
-      referential: Referential
+      referential: Data space
     attributes:
       referential:
         name: Name
@@ -23,20 +23,20 @@ en:
 fr:
   referentials:
     edit:
-      title: "Modifier le référentiel"
+      title: "Modifier l'espace de données"
     show:
-      title: Référentiel
+      title: Espace de données
     new:
-      title: Créer un nouveau référentiel
-      submit: "Créer un référentiel"
+      title: Créer un nouvel espace de données
+      submit: "Créer un espace de données"
     actions:
-      new: Ajouter un référentiel
-      destroy_confirm: "Etes vous sûr de vouloir supprimer ce référentiel ?"
-      destroy: Supprimer ce référentiel
-      edit: Modifier ce référentiel
+      new: Ajouter un espace de données
+      destroy_confirm: "Etes vous sûr de vouloir supprimer cet espace de données ?"
+      destroy: Supprimer cet espace de données
+      edit: Modifier cet espace de données
   activerecord:
     models:
-      referential: Référentiel
+      referential: Espace de données
     attributes:
       referential:
         name: Nom
