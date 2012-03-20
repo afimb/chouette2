@@ -97,19 +97,6 @@
     }
 }
 
-#workspace.companies.edit, #workspace.companies.new
-{
-    #line_color{ width: 100px;
-                 color: white;
-                 font-weight: bold;}
-}
-
-#workspace.lines.show
-{
-    .line_color{ color: white;
-                 font-weight: bold;
-                 padding: 0 5px 0 5px;}
-}        
 
 
 #workspace .order {
