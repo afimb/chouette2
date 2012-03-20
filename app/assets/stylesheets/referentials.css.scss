@@ -1,3 +1,13 @@
 // Place all the styles related to the referentials controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+ul.logos {
+    margin: 30px 30px 0 0;
+    
+    li {                
+        display: inline;
+        margin: 0 3px;
+    }
+}
