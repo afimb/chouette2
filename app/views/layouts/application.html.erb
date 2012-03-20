@@ -10,11 +10,19 @@
   </head>
   <body>
     <div id="header">
-      <div class="infos">
-        <%= render "layouts/user_links" %>
-        <h1>Chouette</h1>
+      <div class="infos">               
+        <div class="logo"> 
+          <%= image_tag "logo_chouette.png" %>
+        </div>
+        <div class="title"> 
+          <% if @referential.present? %>
+            <h1><%= @referential.name.upcase %></h1>
+          <% end %>
+        </div>
+        <div class="interaction">
+          <%= render "layouts/user_links" %>
+        </div>
       </div>
-
       <div class="tabs">
         <ul class="main">
           <% if !@referential.present? || @referential.new_record? %>

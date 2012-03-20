@@ -18,18 +18,18 @@
   > .current{
     font-style: normal;
     font-weight: bold;
-    background: #666;
+    background: #61970b;
     color: white;
-    border: 1px solid #666;
+    border: 1px solid #61970b;
   }
 
   > a{
     text-decoration: none;
-    color: #666;
+    color: #61970b;
     border: 1px solid #ddd;
     &:hover, &:focus{
-      color: #000033;
-      border-color: #000033;
+      color: #86b41d;
+      border-color: #86b41d;
     }
   }
 
