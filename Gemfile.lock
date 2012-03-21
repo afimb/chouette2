@@ -1,14 +1,4 @@
 GIT
-  remote: git://chouette.dryade.priv/ninoxe
-  revision: ac0ec92e6d4b04972e969f20fe623781d787a5f0
-  specs:
-    chouette-ninoxe (0.0.8)
-      GeoRuby
-      activerecord
-      composite_primary_keys
-      geokit
-
-GIT
   remote: git://github.com/dryade/activerecord-jdbc-adapter.git
   revision: 5b45a0a417e146e92db8c57b5c600cdeb9e957bf
   specs:
@@ -48,10 +38,19 @@ GIT
 
 GIT
   remote: git://sim.dryade.priv/user_interface
-  revision: f4b2a562d5f4d813fc5a942b2694de0e36abcc0a
+  revision: ee5c629c3aaea61036abfc7c7287a3b80abc7d63
   specs:
     user_interface (0.0.1)
       rails (~> 3.1.0)
+
+PATH
+  remote: ~/projects/ninoxe
+  specs:
+    chouette-ninoxe (0.0.8)
+      GeoRuby
+      activerecord
+      composite_primary_keys
+      geokit
 
 GEM
   remote: http://rubygems.org/
@@ -91,8 +90,6 @@ GEM
     activesupport (3.1.3)
       multi_json (~> 1.0)
     addressable (2.2.6)
-    albino (1.3.3)
-      posix-spawn (>= 0.3.6)
     arel (2.2.3)
     autotest-notification (2.3.4)
       autotest-standalone (~> 4.5)
@@ -118,8 +115,6 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.3.0)
       ffi (~> 1.0.6)
-    classifier (1.3.3)
-      fast-stemmer (>= 1.0.0)
     coffee-rails (3.1.1)
       coffee-script (>= 2.2.0)
       railties (~> 3.1.0)
@@ -141,7 +136,6 @@ GEM
       nokogiri (>= 1.5.0)
     database_cleaner (0.7.1)
     diff-lcs (1.1.3)
-    directory_watcher (1.4.1)
     erubis (2.7.0)
     execjs (1.2.13)
       multi_json (~> 1.0)
@@ -150,7 +144,6 @@ GEM
     factory_girl_rails (1.6.0)
       factory_girl (~> 2.5.0)
       railties (>= 3.0.0)
-    fast-stemmer (1.0.0)
     ffi (1.0.11)
     ffi (1.0.11-java)
     formtastic (2.0.2)
@@ -175,13 +168,6 @@ GEM
     inherited_resources (1.3.0)
       has_scope (~> 0.5.0)
       responders (~> 0.6.0)
-    jekyll (0.11.2)
-      albino (~> 1.3)
-      classifier (~> 1.3)
-      directory_watcher (~> 1.1)
-      kramdown (~> 0.13)
-      liquid (~> 2.3)
-      maruku (~> 0.5)
     jquery-rails (1.0.19)
       railties (~> 3.0)
       thor (~> 0.14)
@@ -191,20 +177,17 @@ GEM
     jruby-rack (1.1.2)
     json (1.6.5)
     json (1.6.5-java)
-    kramdown (0.13.5)
     launchy (2.0.5)
       addressable (~> 2.2.6)
     launchy (2.0.5-java)
       addressable (~> 2.2.6)
       ffi (~> 1.0.9)
       spoon (~> 0.0.1)
-    liquid (2.3.0)
-    mail (2.3.0)
+    mail (2.3.3)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    maruku (0.6.0)
-      syntax (>= 1.0.0)
+    map_layers (0.0.5)
     mime-types (1.17.2)
     multi_json (1.0.4)
     net-scp (1.0.4)
@@ -220,9 +203,8 @@ GEM
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
-    posix-spawn (0.3.6)
     rack (1.3.6)
-    rack-cache (1.1)
+    rack-cache (1.2)
       rack (>= 0.4)
     rack-mount (0.8.3)
       rack (>= 1.0.0)
@@ -299,7 +281,6 @@ GEM
       activerecord (~> 3.0)
       activesupport (~> 3.0)
       polyamorous (~> 0.5.0)
-    syntax (1.0.0)
     term-ansicolor (1.0.7)
     thor (0.14.6)
     tilt (1.3.3)
@@ -347,11 +328,11 @@ DEPENDENCIES
   guard
   guard-rspec
   inherited_resources
-  jekyll
   jquery-rails
   jruby-openssl
   json
   launchy
+  map_layers (~> 0.0.4)
   pg (~> 0.11.0)
   pickle!
   rails (= 3.1.3)

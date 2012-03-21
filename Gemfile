@@ -5,9 +5,11 @@ gem 'rails', '3.1.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'user_interface', :git => 'git://sim.dryade.priv/user_interface'#, :path => '~/Projects/UserInterfaceDryade'
+gem 'user_interface', :git => 'git://sim.dryade.priv/user_interface'#, :path => '~/projects/user_interface'
 
 gem 'apartment', :git => 'git://github.com/dryade/apartment.git'
+
+gem "map_layers", "~> 0.0.4"
 
 platforms :jruby do
   gem 'activerecord-jdbcpostgresql-adapter', :git => 'git://github.com/dryade/activerecord-jdbc-adapter.git'    
@@ -52,7 +54,7 @@ gem 'will_paginate', '~> 3.0'
 gem 'ransack'
 gem 'squeel'
 
-gem 'chouette-ninoxe', :git => 'git://chouette.dryade.priv/ninoxe'#, :path => '~/Projects/Ninoxe'
+gem 'chouette-ninoxe', :git => 'git://chouette.dryade.priv/ninoxe'#, :path => '~/projects/ninoxe'
 
 group :development do 
   gem 'autotest-rails'
@@ -61,7 +63,7 @@ group :development do
   gem 'capistrano-ext'   
   gem 'guard'
   gem 'guard-rspec'
-  gem 'jekyll'
+  #gem 'jekyll'
   gem 'RedCloth'
 end
 

@@ -13,7 +13,12 @@ ChouetteIhm::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :referentials do
-    resources :lines, :networks, :companies 
+    resources :lines do
+      resources :stop_areas
+    end
+    resources :networks, :companies
+    
+ 
   end 
 
   # Sample resource route with options:

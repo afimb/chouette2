@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <% @stop_areas.each do |stop_area| %>
+      <Placemark id="<%= stop_area.id %>" >
+        <name><%= stop_area.name %></name>
+        <%= stop_area.geometry.kml_representation.html_safe %>
+      </Placemark>
+    <% end %>
+  </Document>
+</kml>

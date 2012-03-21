@@ -5,6 +5,11 @@ class LinesController < ChouetteController
   respond_to :xml
   respond_to :json
 
+  def show
+    @map = LineMap.new referential, resource
+    show!
+  end
+
   protected
 
   def collection    
