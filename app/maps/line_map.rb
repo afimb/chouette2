@@ -9,13 +9,14 @@ class LineMap < ApplicationMap
     @line_style = line_style
   end
 
-  def controls
-    [ OpenLayers::Control::Navigation.new ]
-  end
-
   def map
     @map ||= MapLayers::Map.new(id, :projection => projection("EPSG:900913"), :controls => controls) do |map, page|
       page << map.add_layer(MapLayers::OSM_MAPNIK)
+      page << map.add_layer(google_physical) 
+      page << map.add_layer(google_streets) 
+      page << map.add_layer(google_hybrid) 
+      page << map.add_layer(google_satellite) 
+
       #page << map.add_layer(kml_layer(line, :styleMap => StyleMap::LineStyleMap.new( :style => line_style).style_map))
       page << map.add_layer(kml_layer(polymorphic_path([referential, line, :stop_areas], :format => :kml), :styleMap => StyleMap::StopAreasStyleMap.new(true).style_map))
       page << map.zoom_to_extent(bounds) if bounds
