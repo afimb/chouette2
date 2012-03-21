@@ -1,4 +1,14 @@
 GIT
+  remote: git://chouette.dryade.priv/ninoxe
+  revision: a80f47a66862abb0c46069e765676aee53e360ea
+  specs:
+    chouette-ninoxe (0.0.8)
+      GeoRuby
+      activerecord
+      composite_primary_keys
+      geokit
+
+GIT
   remote: git://github.com/dryade/activerecord-jdbc-adapter.git
   revision: 5b45a0a417e146e92db8c57b5c600cdeb9e957bf
   specs:
@@ -42,15 +52,6 @@ GIT
   specs:
     user_interface (0.0.1)
       rails (~> 3.1.0)
-
-PATH
-  remote: ~/projects/ninoxe
-  specs:
-    chouette-ninoxe (0.0.8)
-      GeoRuby
-      activerecord
-      composite_primary_keys
-      geokit
 
 GEM
   remote: http://rubygems.org/
