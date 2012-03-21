@@ -20,7 +20,7 @@ describe "Referentials" do
       visit new_referential_path
       fill_in "Nom", :with => "Test"
       fill_in "Code", :with => "test"
-      click_button "Créer Référentiel"
+      click_button "Créer Espace de données"
 
       Referential.where(:name => "Test").should_not be_nil
       # CREATE SCHEMA

@@ -13,6 +13,8 @@ en:
       title: "Company  %{company}"
     index:
       title: "Companies"
+      name: Name
+
   activerecord:
     models:
       company: "Companies"
@@ -23,11 +25,11 @@ en:
         short_name: "Short name"
         organizational_unit: "Unit"
         operating_department_name: "Department"
-        code: "Zip code"
+        code: "Postcode"
         phone: "Phone number"
         fax: "Fax number"
-        email: "E-mail"
-        object_id: Neptune identifier
+        email: "Email"
+        objectid: Neptune identifier
         object_version: Version
         creation_time: Created on
         creator_id: Created by 
@@ -47,6 +49,8 @@ fr:
       title: "Transporteur %{company}"
     index:
       title: "Transporteurs"
+      name: Nom
+
   activerecord:
     models:
       company: "Transporteurs"
@@ -55,13 +59,13 @@ fr:
         registration_number: "Numéro d'enregistrement"
         name: "Nom"
         short_name: "Nom court"
-        organizational_unit: "Service"
-        operating_department_name: "Nom du département"
+        organizational_unit: "Nom d'unité dans la société"
+        operating_department_name: "Nom du département dans la société"
         code: "Code postal"
-        phone: "Téléphone"
-        fax: "Fax"
-        email: "Adresse mel"
-        object_id: "Identifiant Neptune"
+        phone: "Numéro de téléphone"
+        fax: "Numero de fax"
+        email: "Email"
+        objectid: "Identifiant Neptune"
         object_version: "Version"
         creation_time: "Créé le"
         creator_id: "Créé par"

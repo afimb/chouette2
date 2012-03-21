@@ -13,6 +13,8 @@ en:
       title: "Network"
     index:
       title: "Networks"
+      name: Name
+
   activerecord:
     models:
       network: Networks
@@ -21,12 +23,12 @@ en:
         registration_number: "Registration number"
         name: "Name"
         comment: "Comments"
-        version_date: Version date
+        version_date: "Date of this network's version"
         description: Description
-        source_type: Origin system date
-        source_name: Origin system name
-        source_identifier: Origin system identifier        
-        object_id: Neptune identifier
+        source_type: Source type
+        source_name: Source name
+        source_identifier: Source identifier        
+        objectid: Neptune identifier
         object_version: Version
         creation_time: Created on
         creator_id: Created by 
@@ -37,7 +39,7 @@ fr:
       new: Ajouter un réseau
       edit: Modifier ce réseau
       destroy: Supprimer ce réseau
-      destroy_confirm: "Etes vous sûr de détruire cette réseau ?"
+      destroy_confirm: "Etes vous sûr de détruire ce réseau ?"
     new:
       title: "Ajouter un réseau"
     edit:
@@ -46,6 +48,8 @@ fr:
       title: Réseau %{network}
     index:
       title: "Réseaux"
+      name: Nom
+      
   activerecord:
     models:
       network: Réseau
@@ -54,12 +58,12 @@ fr:
         registration_number: "Numéro d'enregistrement"
         name: "Nom"
         comment: "Commentaire"
-        version_date: Date de cette version
+        version_date: Date de cette version du réseau
         description: Description
-        source_type: "Type de système d'origine"
+        source_type: "Type de système à l'origine du réseau"
         source_name: "Nom du système à l'origine du réseau"
-        source_identifier: "Identifiant du système"        
-        object_id: "Identifiant Neptune"
+        source_identifier: "Identifiant du système à l'origine du réseau"        
+        objectid: "Identifiant Neptune"
         object_version: "Version"
         creation_time: "Créé le"
         creator_id: "Créé par"

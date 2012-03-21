@@ -11,6 +11,11 @@ class CompaniesController < ChouetteController
   # end
 
   protected
+  def collection    
+    @q = referential.companies.search(params[:q])
+    @companies ||= @q.result(:distinct => true).order(:name).paginate(:page => params[:page], :per_page => 10)
+  end
+
 
   def resource_url(company = nil)
     referential_company_path(referential, company || resource)

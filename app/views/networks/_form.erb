@@ -7,6 +7,14 @@
     <%= form.input :description %>              
     <%= form.input :source_name %>              
     <%= form.input :source_identifier %>              
+    <% if @network.new_record? %>
+      <%= form.input :objectid %>  
+    <% else %>
+      <li>
+      <label><%= @network.human_attribute_name("objectid") %>: </label>
+      <%= @network.objectid %>
+      </li>
+    <% end %>
   <% end %>
 
   <%= form.buttons do %>

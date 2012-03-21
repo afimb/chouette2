@@ -28,18 +28,18 @@ fr:
       unknown: Inconnu
       air: Air
       train: Train
-      long_distance_train: Train longue distance
-      local_train: Train local
-      rapid_transit: Lignes rapides
+      long_distance_train: Train Grande Ligne
+      local_train: TER 
+      rapid_transit: RER 
       metro: Métro
       tramway: Tramway
-      coach: Voiture
+      coach: Autocar
       bus: Bus
       ferry: Ferry
-      waterborne: Eau
-      private_vehicle: Véhicule privé
-      walk: Piéton
-      trolley_bus: Trolley bus
+      waterborne: Bac
+      private_vehicle: Voiture particulière
+      walk: Marche à pied
+      trolley_bus: Trolleybus
       bicycle: Vélo
       shuttle: Navette
       taxi: Taxi

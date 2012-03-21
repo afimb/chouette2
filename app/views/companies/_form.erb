@@ -1,7 +1,6 @@
 <%= semantic_form_for [@referential, @company] do |form| %>
   <%= form.inputs do %>   
     <%= form.input :name %>
-    <%= form.input :registration_number %>
     <%= form.input :short_name %>
     <%= form.input :organizational_unit %>
     <%= form.input :operating_department_name %>
@@ -9,6 +8,15 @@
     <%= form.input :phone, :as => :phone %>
     <%= form.input :fax, :as => :phone %>
     <%= form.input :email, :as => :email %>              
+    <%= form.input :registration_number %>
+    <% if @company.new_record? %>
+      <%= form.input :objectid %>  
+    <% else %>
+      <li>
+      <label><%= @company.human_attribute_name("objectid") %>: </label>
+      <%= @company.objectid %>
+      </li>
+    <% end %>
   <% end %>
 
   <%= form.buttons do %>
