@@ -2,7 +2,7 @@ class StopAreasController < ChouetteController
   defaults :resource_class => Chouette::StopArea
 
 #  belongs_to :network, :parent_class => Potimart::Network do
-    belongs_to :line, :parent_class => Chouette::Line#, :optional => true
+  belongs_to :line, :parent_class => Chouette::Line, :optional => true
 #  end
 
   respond_to :html, :kml
@@ -38,11 +38,12 @@ class StopAreasController < ChouetteController
   # end
 
   def line
-    @line ||= Chouette::Line.find(params[:line_id])     
+    @line ||= Chouette::Line.find(params[:line_id]) if params[:line_id]      
   end
 
   def collection
-    @stop_areas ||= line.stop_areas
+    @q = line ? line.stop_areas.search(params[:q]) : referential.stop_areas.search(params[:q])
+    @stop_areas ||= @q.result(:distinct => true).order(:name).paginate(:page => params[:page], :per_page => 10)
   end
 
 end

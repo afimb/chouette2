@@ -16,9 +16,8 @@ ChouetteIhm::Application.routes.draw do
     resources :lines do
       resources :stop_areas
     end
-    resources :networks, :companies
+    resources :networks, :companies, :stop_areas
     
- 
   end 
 
   # Sample resource route with options:

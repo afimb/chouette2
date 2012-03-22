@@ -1,0 +1,86 @@
+en:
+  stop_areas:
+    stop_area:
+      no_position: No Position 
+      lines: "Lines :"
+    actions:
+      new: Add a new stop
+      edit: Edit this stop
+      destroy: Remove this stop
+      destroy_confirm: Are you sure you want destroy this stop?
+    new:
+      title: Add a new stop
+    edit:
+      title: Update stop %{stop_area}
+    show:
+      title: Stop %{stop_area}
+    index:
+      title: Stop areas
+      name_or_country_code: Name or Country code
+      selection: Selection
+      selection_all: All
+  activerecord:        
+    models:        
+      stop_area: Stop area
+    attributes:
+      stop_area:
+        name: Name
+        registration_number: Registration number
+        comment: Comments
+        areatype: Area type
+        nearest_topic_name: Nearest point of interest
+        street_name: Street name
+        country_code: INSEE code
+        fare_code: Fare code
+        x: x-position
+        y: y-position
+        longitude: Longitude
+        latitude: Latitude
+        objectid: Neptune identifier
+        object_version: Version
+        creation_time: Created on
+        creator_id: Created by 
+
+fr:
+  stop_areas:
+    stop_area:
+      no_position: Pas de position 
+      lines: "Lignes :"
+    actions:
+      new: Ajouter une zone
+      edit: Modifier cette zone
+      destroy: Supprimer cette zone
+      destroy_confirm: Etes vous sûr de détruire cette zone ?
+    new:
+      title: Ajouter une zone
+    edit:
+      title: "Modifier la zone %{stop_area}"
+    show:
+      title: Zone %{stop_area}
+    index:
+      name_or_country_code: Nom ou Code Postal
+      title: Zones
+      selection: Sélection
+      selection_all: Tous 
+  activerecord:        
+    models:        
+      stop_area: Zone
+    attributes:
+      stop_area:
+        name: Nom
+        registration_number: "Numéro d'enregistrement"
+        published_name: Nom public        
+        comment: Commentaire
+        area_type: "Type de zone"
+        nearest_topic_name: "Point d'intérêt le plus proche"
+        street_name: Nom de la rue
+        country_code: Code INSEE
+        fare_code: Zone tarifaire
+        x: Position X
+        y: Position Y
+        longitude: Longitude
+        latitude: Latitude
+        object_id: Identifiant Neptune
+        object_version: Version
+        creation_time: Créé le
+        creator_id: Créé par
