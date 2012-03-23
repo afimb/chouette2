@@ -40,6 +40,11 @@ en:
         object_version: Version
         creation_time: Created on
         creator_id: Created by 
+  formtastic:
+    hints:
+      stop_area:
+        registration_number: only alphanumerical or underscore characters 
+        objectid: "[prefix]:StopArea:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
 
 fr:
   stop_areas:
@@ -84,3 +89,10 @@ fr:
         object_version: Version
         creation_time: Créé le
         creator_id: Créé par
+  formtastic:
+    hints:
+      stop_area:
+        registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
+        objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+
+
