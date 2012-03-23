@@ -1,0 +1,21 @@
+<%= semantic_form_for [@referential, @stop_area] do |form| %>
+  <%= form.inputs do %> 
+    <%= form.input :name %>
+    <% if @stop_area.new_record? %>
+      <%= form.input :objectid %>  
+    <% else %>
+      <li>
+      <label><%= @stop_area.human_attribute_name("objectid") %>: </label>
+      <%= @stop_area.objectid %>
+      </li>
+    <% end %>
+    <%= form.input :registration_number %>
+    <%= form.input :type, :as => :select, :collection => Chouette::StopArea.types, :include_blank => false, :member_label => Proc.new { |mode| t("area_types.label.#{mode}") }  %>
+    <%= form.input :comment %>              
+  <% end %>
+
+  <%= form.buttons do %>
+    <%= form.commit_button %>
+    ou <%= link_to "revenir", [@referential, @stop_area] %>
+  <% end %>
+<% end %>

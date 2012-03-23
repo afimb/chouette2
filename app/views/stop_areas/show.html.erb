@@ -1,0 +1,43 @@
+<%= title_tag t('stop_areas.show.title', :stop_area => @stop_area.name ) %>
+
+<div class="stop_area_show">
+
+  <div class="summary">
+    <p>
+      <label><%= @stop_area.human_attribute_name("name") %>: </label>
+      <%= @stop_area.name %>
+    </p>
+    <p>
+      <label><%= @stop_area.human_attribute_name("objectid") %>: </label>
+      <%= @stop_area.objectid %>
+    </p>
+    <p>
+      <label><%= @stop_area.human_attribute_name("registration_number") %>: </label>
+      <%= @stop_area.registration_number %>
+    </p>
+    <p>
+      <label><%= @stop_area.human_attribute_name("type") %>: </label>
+      <%= t("area_types.label.#{@stop_area.type}") %>
+    </p>
+    <p>
+      <label><%= @stop_area.human_attribute_name("comment") %>: </label>
+      <%= @stop_area.comment %>
+    </p>
+    <p>
+      <label><%= @stop_area.human_attribute_name("creation_time") %>: </label>
+      <%= @stop_area.creation_time %>
+    </p>
+    <p>
+      <label><%= @stop_area.human_attribute_name("creator_id") %>: </label>
+      <%= @stop_area.creator_id %>
+    </p>
+  </div>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('stop_areas.actions.edit'), edit_referential_stop_area_path(@referential, @stop_area), :class => "edit" %></li>
+  <li><%= link_to  t('stop_areas.actions.destroy'), referential_stop_area_path(@referential, @stop_area), :method => :delete, :confirm =>  t('stop_areas.actions.destroy_confirm'), :class => "remove" %></li>
+  <br>
+</ul>
+<% end %>

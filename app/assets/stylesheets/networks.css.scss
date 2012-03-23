@@ -111,28 +111,3 @@
     }
 }
 
-/* FIXME a déplacer dans layout */
-
-#sidebar ul {
-    padding: 0 8px;
-
-    li {
-        margin: 4px 0;
-    }
-}
-
-#sidebar ul.selection li {
-    a {
-        padding-left: 20px;
-    }
-    a.current {
-        text-decoration: none;
-        color: black !important;
-        background: url(image-path('user_interface/ui/accept.png')) no-repeat;
-    }
-    a.all {
-        background-image: none;
-    }
-}
-
-

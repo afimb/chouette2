@@ -6,3 +6,32 @@ $tabs_color: white;
 $text_color: #222;
 
 @import "user_interface/layout";
+
+#sidebar ul {
+    padding: 0 8px;
+
+    li {
+        margin: 4px 0;
+    }
+}
+
+#sidebar ul.selection li {
+    a {
+        padding-left: 20px;
+    }
+    a.current {
+        text-decoration: none;
+        color: black !important;
+        background: url(image-path('user_interface/ui/accept.png')) no-repeat;
+    }
+    a.all {
+        background-image: none;
+    }
+}
+
+
+#map {
+    float: right;
+    width: 600px;
+    height: 400px;
+}

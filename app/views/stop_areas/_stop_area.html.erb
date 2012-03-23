@@ -1,0 +1,22 @@
+<%= div_for(stop_area) do %>
+  <%= link_to stop_area.name, [@referential, stop_area] %>
+  <div class="info">
+    <p>      
+      <% unless stop_area.geometry %>
+      <span class="warning"><%= t('.no_position') %></span> -
+      <% end %>
+    </p>
+    <p>
+      <%= stop_area.street_name %> <%= stop_area.country_code %>
+    </p>
+    <p> 
+      <%= t('.lines') %> <% stop_area.lines.each do |line| %>
+        <span class="line"><%= line.number %></span>
+      <% end %>
+    </p>
+    <div class="actions">  
+      <%= link_to t("actions.edit"), edit_referential_stop_area_path(@referential, stop_area), :class => "edit" %> |
+      <%= link_to t("actions.destroy"), referential_stop_area_path(@referential, stop_area), :method => :delete, :confirm =>  t('networks.actions.destroy_confirm'), :class => "remove" %>
+    </div>
+  </div>
+<% end %>

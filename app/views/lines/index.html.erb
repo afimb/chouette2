@@ -23,7 +23,7 @@
 </p>
 <% end %>
 
-<%#= will_paginate @lines %>
+<%= will_paginate @lines %>
 <div class="lines paginated_content">
   <%= render :partial => "line", :collection => @lines %>
 </div>

@@ -8,7 +8,7 @@
   <%= link_to t("cancel"), referential_companies_path(@referential) %>
 <% end %>
 
-<%#= will_paginate @companies %>
+<%= will_paginate @companies %>
 <div class="companies paginated_content">
   <%= render :partial => "company", :collection => @companies %>
 </div>

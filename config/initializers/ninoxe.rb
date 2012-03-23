@@ -23,3 +23,11 @@ class Chouette::Company
   end
 
 end
+
+class Chouette::StopArea
+
+  def self.model_name
+    ActiveModel::Name.new Chouette::StopArea, Chouette, "StopArea"
+  end
+
+end
