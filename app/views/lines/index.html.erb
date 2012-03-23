@@ -54,4 +54,22 @@
 <li><%= link_with_search t(".selection_all"), {"network_id_eq" => nil}, :class => "all" %></li>
 </ul>
 
+<div id="multiple_selection_menu">
+  <h3>Sélection multiple</h3>
+  <div class="disabled">
+    <a class="enable" href="#">Activer la sélection multiple</a>
+  </div>
+
+  <div class="enabled" style="display: none;">
+    <a class="disable" href="#">Désactiver la sélection multiple</a>
+    
+    <ul class="actions">
+      <li><a href="#" class="remove">Supprimer les lignes</a></li>
+      <li><a href="#" class="export">Exporter les lignes</a></li>
+    </ul>
+
+    <a class="select_all" href="#">Tout sélectionner</a> | <a class="deselect_all" href="#">désélectionner</a>
+  </div>
+</div>
+
 <% end %>
