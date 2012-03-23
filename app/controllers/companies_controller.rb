@@ -4,6 +4,8 @@ class CompaniesController < ChouetteController
   respond_to :xml
   respond_to :json
 
+  belongs_to :referential, :parent_class => Referential
+
   # def update
   #   update! do |success, failure|
   #     failure.html { redirect_to referential_companies_path(@resource,  @referential) }

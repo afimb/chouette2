@@ -1,9 +1,10 @@
 class StopAreasController < ChouetteController
   defaults :resource_class => Chouette::StopArea
 
-#  belongs_to :network, :parent_class => Potimart::Network do
-  belongs_to :line, :parent_class => Chouette::Line, :optional => true
-#  end
+  belongs_to :referential do
+    belongs_to :line, :parent_class => Chouette::Line, :optional => true, :polymorphic => true
+    belongs_to :network, :parent_class => Chouette::Network, :optional => true, :polymorphic => true
+  end
 
   respond_to :html, :kml
 
@@ -12,14 +13,22 @@ class StopAreasController < ChouetteController
   #   render :layout => false
   # end
 
-  # def show
-  #   @map = StopAreaMap.new stop_area
-  #   show! do |format|
-  #     unless stop_area.position or params[:default]
-  #       format.kml { render :nothing => true, :status => :not_found }
-  #     end
-  #   end
-  # end
+  def index     
+    request.format.kml? ? @per_page = nil : @per_page = 10
+    index!
+  end
+
+  def show
+    @map = StopAreaMap.new referential, stop_area
+    show! do |format|
+      unless stop_area.geometry
+        format.kml {
+          render :nothing => true, :status => :not_found 
+        }
+        
+      end
+    end
+  end
   
   # def edit
   #   stop_area.position ||= stop_area.default_position
@@ -33,17 +42,14 @@ class StopAreasController < ChouetteController
 
   alias_method :stop_area, :resource
 
-  # def network
-  #   @network ||= Potimart::Network.find(params[:network_id])     
-  # end
-
-  def line
-    @line ||= Chouette::Line.find(params[:line_id]) if params[:line_id]      
-  end
-
   def collection
-    @q = line ? line.stop_areas.search(params[:q]) : referential.stop_areas.search(params[:q])
-    @stop_areas ||= @q.result(:distinct => true).order(:name).paginate(:page => params[:page], :per_page => 10)
+    @q = end_of_association_chain.search(params[:q])
+    @stop_areas ||= 
+      begin
+        stop_areas = @q.result(:distinct => true).order(:name)
+        stop_areas = stop_areas.paginate(:page => params[:page], :per_page => @per_page) if @per_page.present?
+        stop_areas
+      end
   end
 
 end

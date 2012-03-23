@@ -4,6 +4,13 @@ class NetworksController < ChouetteController
   respond_to :xml
   respond_to :json
 
+  belongs_to :referential
+
+  def show
+    @map = NetworkMap.new referential, resource
+    show!
+  end
+
   protected
 
   def collection    
