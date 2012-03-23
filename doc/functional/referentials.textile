@@ -1,0 +1,19 @@
+---
+layout: default
+title: Espaces de donnees
+---
+
+h3. Définition
+
+p. un espace de données est le lieu de stockage d'un ensemble de données de transport connectées entre elles.
+
+h3. Attributs
+
+# Nom : 
+# Code : 
+
+h3. Implémentation
+
+p. L'espace de données est concrétisé dans la base de données par un schéma au sens SQL portant le nom définit par l'attribut code, les attributs sont enregistrés dans la table
+du schéma PUBLIC
+
