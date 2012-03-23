@@ -1,14 +1,4 @@
 GIT
-  remote: git://chouette.dryade.priv/ninoxe
-  revision: 181c6fa75c4a82fb8c4bff4eec05ef1013b7ae61
-  specs:
-    chouette-ninoxe (0.0.8)
-      GeoRuby
-      activerecord
-      composite_primary_keys
-      geokit
-
-GIT
   remote: git://github.com/dryade/activerecord-jdbc-adapter.git
   revision: 5b45a0a417e146e92db8c57b5c600cdeb9e957bf
   specs:
@@ -48,10 +38,19 @@ GIT
 
 GIT
   remote: git://sim.dryade.priv/user_interface
-  revision: 724621255c1ea243c433f6fb5e6dd726690f84b8
+  revision: 0d22ebf5bb92d2c0ce27f1e395f6b3c82ce17628
   specs:
     user_interface (0.0.1)
       rails (~> 3.1.0)
+
+PATH
+  remote: ~/projects/ninoxe
+  specs:
+    chouette-ninoxe (0.0.8)
+      GeoRuby
+      activerecord
+      composite_primary_keys
+      geokit
 
 GEM
   remote: http://rubygems.org/
@@ -172,13 +171,6 @@ GEM
     inherited_resources (1.3.1)
       has_scope (~> 0.5.0)
       responders (~> 0.6)
-    jekyll (0.11.2)
-      albino (~> 1.3)
-      classifier (~> 1.3)
-      directory_watcher (~> 1.1)
-      kramdown (~> 0.13)
-      liquid (~> 2.3)
-      maruku (~> 0.5)
     jquery-rails (1.0.19)
       railties (~> 3.0)
       thor (~> 0.14)
@@ -261,15 +253,15 @@ GEM
       rspec (>= 2.0.0.alpha11)
     responders (0.9.0)
       railties (~> 3.1)
-    rspec (2.9.0)
-      rspec-core (~> 2.9.0)
-      rspec-expectations (~> 2.9.0)
-      rspec-mocks (~> 2.9.0)
-    rspec-core (2.9.0)
-    rspec-expectations (2.9.0)
-      diff-lcs (~> 1.1.3)
-    rspec-mocks (2.9.0)
-    rspec-rails (2.9.0)
+    rspec (2.8.0)
+      rspec-core (~> 2.8.0)
+      rspec-expectations (~> 2.8.0)
+      rspec-mocks (~> 2.8.0)
+    rspec-core (2.8.0)
+    rspec-expectations (2.8.0)
+      diff-lcs (~> 1.1.2)
+    rspec-mocks (2.8.0)
+    rspec-rails (2.8.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
