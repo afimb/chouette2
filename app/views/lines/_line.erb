@@ -4,6 +4,7 @@
       <% if line.number and line.number.length <= 3 %>
       <div class="number"><%= line.number %></div>
       <% end %>
+      <%= check_box_tag "ids[]", line.id, false, :class => "multiple_selection", :style => "display: none;" %>
     </div>
   <% end %>
   <%= link_to truncate(line.name, :length => 30), [@referential, line], :title => "Ligne #{line.name}" %>

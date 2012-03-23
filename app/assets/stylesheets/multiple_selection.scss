@@ -1,0 +1,18 @@
+input[type=checkbox].multiple_selection {
+    margin-left: 25px;
+}
+
+#multiple_selection_menu {
+    h3 {
+        margin-top: 20px;
+    }
+    div {
+        padding: 6px 8px;
+    }
+    .actions {
+        margin-top: 20px;
+    }
+    .select_all, .deselect_all {
+        font-size: 0.8em;
+    }
+}
