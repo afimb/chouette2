@@ -1,6 +1,13 @@
 <%= semantic_form_for [@referential, @stop_area] do |form| %>
   <%= form.inputs do %> 
     <%= form.input :name %>
+    <%= form.input :comment %>              
+    <%= form.input :nearest_topic_name %>              
+    <%= form.input :street_name %>              
+    <%= form.input :country_code %>              
+    <%= form.input :fare_code %>              
+    <%= form.input :registration_number %>
+    <%= form.input :type, :as => :select, :collection => Chouette::StopArea.types, :include_blank => false, :member_label => Proc.new { |mode| t("area_types.label.#{mode}") }  %>
     <% if @stop_area.new_record? %>
       <%= form.input :objectid %>  
     <% else %>
@@ -9,9 +16,11 @@
       <%= @stop_area.objectid %>
       </li>
     <% end %>
-    <%= form.input :registration_number %>
-    <%= form.input :type, :as => :select, :collection => Chouette::StopArea.types, :include_blank => false, :member_label => Proc.new { |mode| t("area_types.label.#{mode}") }  %>
-    <%= form.input :comment %>              
+    <p><%= t('stop_areas.show.geographic_data') %></p>
+    <%= form.input :x %>              
+    <%= form.input :y %>              
+    <%= form.input :longitude %>              
+    <%= form.input :latitude %>              
   <% end %>
 
   <%= form.buttons do %>

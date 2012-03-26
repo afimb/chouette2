@@ -1,7 +1,14 @@
 <!-- <%= @line.errors.inspect %> -->
 <%= semantic_form_for [@referential, @line] do |form| %>
   <%= form.inputs do %> 
+    <%= form.input :network, :as => :select, :collection => Chouette::Network.all, :include_blank => false %> 
+    <%= form.input :company, :as => :select, :collection => Chouette::Company.all, :include_blank => false%>
     <%= form.input :name %>
+    <%= form.input :published_name %>
+    <%= form.input :registration_number %>  
+    <%= form.input :number %>
+    <%= form.input :transport_mode_name, :as => :select, :collection => Chouette::Line.transport_modes, :include_blank => false, :member_label => Proc.new { |mode| t("transport_modes.label.#{mode}") }  %>
+    <%= form.input :comment %>              
     <% if @line.new_record? %>
       <%= form.input :objectid %>  
     <% else %>
@@ -10,13 +17,6 @@
       <%= @line.objectid %>
       </li>
     <% end %>
-    <%= form.input :registration_number %>  
-    <%= form.input :network, :as => :select, :collection => Chouette::Network.all, :include_blank => false %> 
-    <%= form.input :company, :as => :select, :collection => Chouette::Company.all, :include_blank => false%>
-    <%= form.input :published_name %>
-    <%= form.input :number %>
-    <%= form.input :transport_mode_name, :as => :select, :collection => Chouette::Line.transport_modes, :include_blank => false, :member_label => Proc.new { |mode| t("transport_modes.label.#{mode}") }  %>
-    <%= form.input :comment %>              
   <% end %>
 
   <%= form.buttons do %>

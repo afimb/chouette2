@@ -5,14 +5,6 @@
 
   <div class="summary">
     <p>
-      <label><%= @line.human_attribute_name("name") %>: </label>
-      <%= @line.name %>
-    </p>
-    <p>
-      <label><%= @line.human_attribute_name("objectid") %>: </label>
-      <%= @line.objectid %>
-    </p>
-    <p>
       <label><%= @line.human_attribute_name(:network) %>: </label>
       <%= link_to @line.network.name, [@referential, @line.network] %>
     </p>
@@ -21,12 +13,16 @@
       <%= link_to @line.company.name, [@referential, @line.company] %>
     </p>
     <p>
-      <label><%= @line.human_attribute_name("registration_number") %>: </label>
-      <%= @line.registration_number %>
+      <label><%= @line.human_attribute_name("name") %>: </label>
+      <%= @line.name %>
     </p>
     <p>
       <label><%= @line.human_attribute_name("published_name") %>: </label>
       <%= @line.publishedname %>
+    </p>
+    <p>
+      <label><%= @line.human_attribute_name("registration_number") %>: </label>
+      <%= @line.registration_number %>
     </p>
     <p>
       <label><%= @line.human_attribute_name("number") %>: </label>
@@ -39,6 +35,10 @@
     <p>
       <label><%= @line.human_attribute_name("comment") %>: </label>
       <%= @line.comment %>
+    </p>
+    <p>
+      <label><%= @line.human_attribute_name("objectid") %>: </label>
+      <%= @line.objectid %>
     </p>
     <p>
       <label><%= @line.human_attribute_name("creation_time") %>: </label>

@@ -14,6 +14,7 @@ en:
       title: Update stop %{stop_area}
     show:
       title: Stop %{stop_area}
+      geographic_data: Geographic data 
     index:
       title: Stop areas
       name_or_country_code: Name or Country code
@@ -52,31 +53,32 @@ fr:
       no_position: Pas de position 
       lines: "Lignes :"
     actions:
-      new: Ajouter une zone
-      edit: Modifier cette zone
-      destroy: Supprimer cette zone
-      destroy_confirm: Etes vous sûr de détruire cette zone ?
+      new: Ajouter un arrêt
+      edit: Modifier cet arrêt
+      destroy: Supprimer cet arrêt
+      destroy_confirm: Etes vous sûr de détruire cet arrêt ?
     new:
-      title: Ajouter une zone
+      title: Ajouter un arrêt
     edit:
-      title: "Modifier la zone %{stop_area}"
+      title: "Modifier l'arrêt %{stop_area}"
     show:
-      title: Zone %{stop_area}
+      title: Arrêt %{stop_area}
+      geographic_data: Données géographiques 
     index:
       name_or_country_code: Nom ou Code Postal
-      title: Zones
+      title: Arrêts
       selection: Sélection
       selection_all: Tous 
   activerecord:        
     models:        
-      stop_area: Zone
+      stop_area: Arrêt
     attributes:
       stop_area:
         name: Nom
         registration_number: "Numéro d'enregistrement"
         published_name: Nom public        
         comment: Commentaire
-        area_type: "Type de zone"
+        area_type: "Type d'arrêt"
         nearest_topic_name: "Point d'intérêt le plus proche"
         street_name: Nom de la rue
         country_code: Code INSEE

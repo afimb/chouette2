@@ -8,8 +8,24 @@
       <%= @stop_area.name %>
     </p>
     <p>
-      <label><%= @stop_area.human_attribute_name("objectid") %>: </label>
-      <%= @stop_area.objectid %>
+      <label><%= @stop_area.human_attribute_name("comment") %>: </label>
+      <%= @stop_area.comment %>
+    </p>
+    <p>
+      <label><%= @stop_area.human_attribute_name("nearest_topic_name") %>: </label>
+      <%= @stop_area.nearest_topic_name %>
+    </p>
+    <p>
+      <label><%= @stop_area.human_attribute_name("street_name") %>: </label>
+      <%= @stop_area.street_name %>
+    </p>
+    <p>
+      <label><%= @stop_area.human_attribute_name("country_code") %>: </label>
+      <%= @stop_area.country_code %>
+    </p>
+    <p>
+      <label><%= @stop_area.human_attribute_name("fare_code") %>: </label>
+      <%= @stop_area.fare_code %>
     </p>
     <p>
       <label><%= @stop_area.human_attribute_name("registration_number") %>: </label>
@@ -20,8 +36,8 @@
       <%= t("area_types.label.#{@stop_area.type}") %>
     </p>
     <p>
-      <label><%= @stop_area.human_attribute_name("comment") %>: </label>
-      <%= @stop_area.comment %>
+      <label><%= @stop_area.human_attribute_name("objectid") %>: </label>
+      <%= @stop_area.objectid %>
     </p>
     <p>
       <label><%= @stop_area.human_attribute_name("creation_time") %>: </label>
@@ -31,6 +47,25 @@
       <label><%= @stop_area.human_attribute_name("creator_id") %>: </label>
       <%= @stop_area.creator_id %>
     </p>
+    <p><%= t('stop_areas.show.geographic_data') %></p>
+    <p>
+      <label><%= @stop_area.human_attribute_name("x") %>: </label>
+      <%= @stop_area.x %>
+    </p>
+    <p>
+      <label><%= @stop_area.human_attribute_name("y") %>: </label>
+      <%= @stop_area.y %>
+    </p>
+    <p>
+      <label><%= @stop_area.human_attribute_name("longitude") %>: </label>
+      <%= @stop_area.longitude %>
+    </p>
+    <p>
+      <label><%= @stop_area.human_attribute_name("latitude") %>: </label>
+      <%= @stop_area.latitude %>
+    </p>
+    
+    
   </div>
 </div>
 
