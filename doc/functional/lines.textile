@@ -3,7 +3,7 @@ layout: default
 title: Lignes
 ---
 
-h3. Définition
+h3. D&eacute;finition
 
 p. TODO
 
@@ -11,7 +11,7 @@ h3. Attributs
 
 p. TODO
 
-h3. Implémentation
+h3. Impl&eacute;mentation
 
 p. TODO
 
