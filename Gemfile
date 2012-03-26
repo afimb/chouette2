@@ -32,6 +32,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.1.1'
   gem 'coffee-script-source'
   gem 'uglifier', '>= 1.0.3'
+  gem 'therubyrhino'
 end
 
 gem 'jquery-rails'
