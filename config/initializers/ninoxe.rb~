@@ -1,5 +1,0 @@
-class Chouette::Line
-  def self.model_name
-    AciveModel::Name.new("Line")
-  end
-end

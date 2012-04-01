@@ -55,7 +55,8 @@ gem 'will_paginate', '~> 3.0'
 gem 'ransack'
 gem 'squeel'
 
-gem 'chouette-ninoxe', :git => 'git://chouette.dryade.priv/ninoxe'#, :path => '~/projects/ninoxe'
+# gem 'chouette-ninoxe', :git => 'git://chouette.dryade.priv/ninoxe'#, :path => '~/projects/ninoxe'
+gem 'chouette-ninoxe', :path => '~/workspace/chouette/ninoxe'
 
 group :development do 
   gem 'autotest-rails'

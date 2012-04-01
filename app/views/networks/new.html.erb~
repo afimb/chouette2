@@ -1,3 +1,0 @@
-<%= title_tag "Créer la Ligne" %>
-
-<%= render "form" %>
