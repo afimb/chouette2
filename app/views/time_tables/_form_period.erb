@@ -1,0 +1,6 @@
+<%= semantic_form_for [@referential, @time_table_period] do |form| %>
+  <%= form.inputs do %> 
+    <%= form.input :period_start, :as => :date %>
+    <%= form.input :period_end, :as => :date %>
+  <% end %>
+<% end %>

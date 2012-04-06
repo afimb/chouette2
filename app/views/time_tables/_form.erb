@@ -1,0 +1,42 @@
+<%= semantic_form_for [@referential, @time_table] do |form| %>
+  <%= form.inputs do %> 
+    <%= form.input :comment %>
+    <%= form.input :version %> 
+    <%= form.input :monday, :as => :boolean %> 
+    <%= form.input :tuesday, :as => :boolean %> 
+    <%= form.input :wednesday, :as => :boolean %> 
+    <%= form.input :thursday, :as => :boolean %> 
+    <%= form.input :friday, :as => :boolean %> 
+    <%= form.input :saturday, :as => :boolean %> 
+    <%= form.input :sunday, :as => :boolean %> 
+
+    <% if @time_table.new_record? %>
+      <%= form.input :objectid %>  
+    <% else %>
+      <li>
+      <label><%= @time_table.human_attribute_name("objectid") %>: </label>
+      <%= @time_table.objectid %>
+      </li>
+    <% end %>
+  <% end %>
+  <!-- 
+  <% if not @time_table.new_record? %>
+    <label><%= @time_table.human_attribute_name("periods") %>: </label>
+    <%= form.inputs  :for => :periods do |period_form| %>
+      <%= period_form.input :period_start, :as => :date ,:label => @time_table.human_attribute_name("period_start")%>
+      <%= period_form.input :period_end, :as => :date ,:label => @time_table.human_attribute_name("period_end")%>
+    <% end %> 
+    <label><%= @time_table.human_attribute_name("dates") %>: </label>
+    <%= form.inputs  :for => :dates do |date_form| %>
+      <%= date_form.input :date, :as => :date %>
+    <% end %> 
+     
+  <% end%>
+  -->
+
+  <%= form.buttons do %>
+    <%= form.commit_button %>
+    <li><%= t('or') %></li>
+    <li><%= link_to t('cancel'), :back %></li>
+  <% end %>
+<% end %>

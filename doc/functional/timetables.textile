@@ -1,0 +1,39 @@
+---
+layout: default
+title: Calendriers d'application
+---
+
+h3. D&eacute;finition
+
+p. Un calendrier d'application est un ensemble de dates et de p&eacute;riodes calendaires 
+
+h3. Attributs
+
+- Commentaire := Description du calendrier
+- Version := 
+- Jours d'application := jours de la semaine effectivement applicables dans le cas o&ugrave; des p&eacute;riodes sont d&eacute;finies dans le calendrier
+- P&eacute;riodes d'application := p&eacute;riodes calendaires durant lesquelles le calendrier est applicable
+- Dates d'application := 
+dates spécifiques pour lesquelles le calendrier est applicable;
+ces dates peuvent &ecirc;tre ajout&eacute;es dans ou en dehors des p&eacute;riodes calendaires.
+Un calendrier peut n'avoir que des dates calendaires, auquel cas les jours d'applications n'ont pas de signification
+
+Donn&eacute;es de gestion : 
+
+- Identifiant Neptune := 
+cl&eacute; unique p&eacute;renne identifiant le r&eacute;seau pour les &eacute;changes Neptune
+cet identifiant est compos&eacute; de 3 parties : pr&eacute;fixe:type:id_technique
+* pr&eacute;fixe : cl&eacute; identifiant un producteur de donn&eacute;es unique
+* type = Timetable : cl&eacute; identifiant le type d'objet (valeur impos&eacute;e)
+* id_technique : valeur identifiant un seul object d'un type donn&eacute; pour un m&ecirc;me producteur
+ce champ obligatoire est automatiquement g&eacute;n&eacute;r&eacute; s'il n'est pas renseign&eacute; 
+il est possible aussi de ne renseigner que le pr&eacute;fixe auquel cas la valeur sera compl&eacute;t&eacute;e automatiquement.
+=:
+- Date de cr&eacute;ation := date &agrave; laquelle l'objet a &eacute;t&eacute; cr&eacute;&eacute; ou modifi&eacute; pour la dernière fois
+- Version := version de l'objet (auto incr&eacute;ment&eacute; &agrave; chaque modification)
+- Cr&eacute;&eacute; par := compte utilisateur ayant proc&eacute;d&eacute; &agrave; la derni&egarve;re modification
+
+h3. Impl&eacute;mentation
+
+p. TODO
+

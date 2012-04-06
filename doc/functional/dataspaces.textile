@@ -1,0 +1,21 @@
+---
+layout: default
+title: Espaces de donnees
+---
+
+h3. D&eacute;finition
+
+p. un espace de donn&eacute;es est le lieu de stockage d'un ensemble de donn&eacute;es de transport connect&eacute;es entre elles.
+
+h3. Attributs
+
+- Nom := nom de l'espace de donn&eacute;es 
+- Code := code de l'espace de donn&eacute;es
+- Pr&eacute;fixe Neptune := pr&eacute;fixe utilis&eacute; par d&eacute;faut pour la g&eacute;n&eacute;ration des identifiants Neptune
+- Projection g&eacute;ographique := r&eacute;f&eacute;rentiel de projection des coordonn&eacute;es cartographiques en compl&eacute;ment du WGS84
+
+h3. Impl&eacute;mentation
+
+p. L'espace de donn&eacute;es est concr&eacute;tis&eacute; dans la base de donn&eacute;es par un sch&eacute;ma au sens SQL portant le nom definit par l'attribut code, 
+les attributs sont enregistr&eacute;s dans la table REFERENTIALS du schema PUBLIC
+

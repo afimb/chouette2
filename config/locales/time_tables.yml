@@ -1,0 +1,94 @@
+en:
+  time_tables:
+    time_table:
+    actions:
+      new: Add a new timetable
+      edit: Edit this timetable
+      destroy: Remove this timetable
+      destroy_confirm: Are you sure you want destroy this timetable?
+    new:
+      title: Add a new timetable
+    edit:
+      title: Update timetable %{time_table}
+    show:
+      title: Timetable %{time_table}
+    index:
+      title: Timetables
+      comment: Comment
+      selection: Selection
+      selection_all: All
+  activerecord:        
+    models:        
+      time_table: Timetable
+    attributes:
+      time_table:
+        comment: Comment
+        version: Version
+        monday: Monday
+        tuesday: Tuesday
+        wednesday: Wednesday
+        thursday: Thursday
+        friday: Friday
+        saturday: Saturday
+        sunday: Sunday
+        objectid: Neptune identifier
+        object_version: Version
+        creation_time: Created on
+        creator_id: Created by 
+        dates: Application dates
+        periods: Application periods
+        period_start: From
+        period_end: to
+  formtastic:
+    hints:
+      time_table:
+        objectid: "[prefix]:Timetable:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+
+fr:
+  time_tables:
+    time_table:
+    actions:
+      new: Ajouter un calendrier
+      edit: Modifier ce calendrier
+      destroy: Supprimer ce calendrier
+      destroy_confirm: Etes vous sûr de détruire ce calendrier ?
+    new:
+      title: Ajouter un calendrier
+    edit:
+      title: "Modifier le calendrier %{time_table}"
+    show:
+      title: Calendrier %{time_table}
+    index:
+      comment: Commentaire
+      title: calendriers
+      selection: Sélection
+      selection_all: Tous
+  activerecord:        
+    models:        
+      time_table: Calendrier
+    attributes:
+      time_table:
+        comment: Commentaire
+        version: Version
+        monday: Lundi
+        tuesday: Mardi
+        wednesday: Mercredi
+        thursday: Jeudi
+        friday: Vendredi
+        saturday: Samedi
+        sunday: Dimanche
+        object_id: Identifiant Neptune
+        object_version: Version
+        creation_time: Créé le
+        creator_id: Créé par
+        dates: "Dates d'application"
+        periods: "Périodes d'application"
+        period_start: Du 
+        period_end: au
+
+  formtastic:
+    hints:
+      time_table:
+        objectid: "[prefixe]:Timetable:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+
+

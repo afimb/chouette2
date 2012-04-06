@@ -1,0 +1,68 @@
+<%= title_tag t('time_tables.show.title', :time_table => @time_table.comment )%>
+
+<div class="time_table_show">
+	
+  <div class="summary">
+    <p>
+      <label><%= @time_table.human_attribute_name("comment") %>: </label>
+      <%= @time_table.comment %>
+    </p>
+    <p>
+      <label><%= @time_table.human_attribute_name("version") %>: </label>
+      <%= @time_table.version %>
+    </p>
+    <p>
+      <label><%= @time_table.human_attribute_name("objectid") %>: </label>
+      <%= @time_table.objectid %>
+    </p>
+    <p>
+      <label><%= @time_table.human_attribute_name("monday") %>: </label>
+      <%= @time_table.monday %>
+    </p>
+    <p>
+      <label><%= @time_table.human_attribute_name("tuesday") %>: </label>
+      <%= @time_table.tuesday %>
+    </p>
+    <p>
+      <label><%= @time_table.human_attribute_name("wednesday") %>: </label>
+      <%= @time_table.wednesday %>
+    </p>
+    <p>
+      <label><%= @time_table.human_attribute_name("thursday") %>: </label>
+      <%= @time_table.thursday %>
+    </p>
+    <p>
+      <label><%= @time_table.human_attribute_name("friday") %>: </label>
+      <%= @time_table.friday %>
+    </p>
+    <p>
+      <label><%= @time_table.human_attribute_name("saturday") %>: </label>
+      <%= @time_table.saturday %>
+    </p>
+    <p>
+      <label><%= @time_table.human_attribute_name("sunday") %>: </label>
+      <%= @time_table.sunday %>
+    </p>
+  </div>
+  <div>
+  	<p>
+  	<label><%= @time_table.human_attribute_name("periods") %>: </label>
+  	</p>
+  	<%= render :partial => "period", :collection => @time_table.periods %>
+  </div>
+  <div>
+  	<p>
+  	<label><%= @time_table.human_attribute_name("dates") %>: </label>
+  	</p>
+  	<%= render :partial => "date", :collection => @time_table.dates %>
+  </div>
+    
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('time_tables.actions.edit'), edit_referential_time_table_path(@referential, @time_table), :class => "edit" %></li>
+  <li><%= link_to  t('time_tables.actions.destroy'), referential_time_table_path(@referential, @time_table), :method => :delete, :confirm =>  t('time_tables.actions.destroy_confirm'), :class => "remove" %></li>
+  <br>
+</ul>
+<% end %>

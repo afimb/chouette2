@@ -1,0 +1,23 @@
+<%= title_tag t('time_tables.index.title') %> 
+
+<%= search_form_for @q, :url => referential_time_tables_path(@referential), :html => {:method => :get} do |f| %>
+  <%= f.label :comment_cont, "#{t('.comment')} :" %>
+  <%= f.text_field :comment_cont %>
+
+  <%= f.submit t('actions.search') %> <%= t("or") %>
+  <%= link_to t("cancel"), referential_time_tables_path(@referential) %>
+<% end %>
+
+<%= will_paginate @time_tables %>
+<div class="time_tables paginated_content">
+  <%= render :partial => "time_table", :collection => @time_tables %>
+</div>
+<%= will_paginate @time_tables %>
+
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('time_tables.actions.new'), new_referential_time_table_path(@referential), :class => "add" %></li>
+  <br>
+</ul>
+<% end %>
