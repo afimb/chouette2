@@ -1,1 +1,1 @@
-UiDatePickerRails3.activate :formtastic
+#UiDatePickerRails3.activate :formtastic
