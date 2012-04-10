@@ -63,11 +63,11 @@ fr:
         registration_number: "Numéro d'enregistrement"
         name: "Nom"
         comment: "Commentaire"
-        version_date: Date de cette version du réseau
+        version_date: Date de version
         description: Description
-        source_type: "Type de système à l'origine du réseau"
-        source_name: "Nom du système à l'origine du réseau"
-        source_identifier: "Identifiant du système à l'origine du réseau"        
+        source_type: "Type de système origine"
+        source_name: "Nom du système origine"
+        source_identifier: "Identifiant du système origine"        
         objectid: "Identifiant Neptune"
         object_version: "Version"
         creation_time: "Créé le"

@@ -16,8 +16,43 @@
     margin: 7px 0 7px 20px;
 }
 
+#workspace ul li li {
+    list-style: disc;
+}
+
+
+#workspace ol {
+    list-style: none; 
+    margin: 7px 0 7px 20px;
+    padding: 0;
+    counter-reset: num;
+}
+
+#workspace ol li:before {
+    content: counter(num) '. ';
+    counter-increment: num;
+}
+
+#workspace ol ol li:before {
+    content: counters(num, '.') ' ';
+}
+
+
 #workspace em {
     font-style: italic;
+}
+
+#workspace strong {
+    font-weight: bold;
+}
+
+#workspace cite {
+  font-style: italic;
+}
+
+#workspace p.attr_data {
+  font-style: italic;
+  text-decoration: underline;
 }
 
 #workspace table {
@@ -30,6 +65,7 @@
 }
 
 #workspace dt {
+    font-style:italic;
     margin: 5px 0; 
 }
 

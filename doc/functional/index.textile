@@ -1,21 +1,34 @@
 ---
 layout: default
-title: Présentation
+title: Pr&eacute;sentation
 ---
+
+Chouette v2 : it&eacute;ration 4 du 16/04/2012
+
+Cette it&eacute;ration pr&eacute;sente les formulaires de :
+
+* r&eacute;seaux
+* lignes
+* arr&ecirc;ts
+* calendriers d'application
+
+l'avancement actuel permet de ...
 
 h3. Sommaire
 
-# "Espaces de données":referentials
-# "Réseaux":networks
+# "G&eacute;n&eacute;ralit&eacute;s":introduction
+## "Normalisation":normalisation
+# "Espaces de donn&eacute;es":dataspaces
+# "R&eacute;seaux":networks
 # "Transporteurs":companies
 # "Lignes":lines
-## Séquences d'arrêts
+## S&eacute;quences d'arr&ecirc;ts
 ## Horaires
-# "Arrêts":stop_areas
+# "Arr&ecirc;ts":stop_areas
 ## Correspondances
-## Accès
-## Liaisons Arrêt-Accès
-# Calendriers d'application
+## Acc&egrave;s
+## Liaisons Arr&ecirc;t-Acc&egrave;s
+# "Calendriers d'application":timetables
 # Outils
 ## Imports
 ## Validation

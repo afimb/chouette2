@@ -5,11 +5,40 @@ title: Lignes
 
 h3. D&eacute;finition
 
-p. TODO
+Une ligne r&eacute;f&eacute;rence un r&eacute;seau et un transporteur; par ailleurs la ligne se compose d'un ou plusieurs itin&eacute;raires. 
+La ligne dispose aussi d'un identifiant fonctionnel (&laquo; num&eacute;ro d'enregistrement &raquo;) qui est utilis&eacute; dans les &eacute;changes XML pour identifier la ligne et la mettre &agrave; jour; il est donc important que le gestionnaire de la base CHOUETTE le renseigne d'une mani&egrave;re bien d&eacute;finie et p&eacute;renne.
 
 h3. Attributs
 
-p. TODO
+- R&eacute;seau := r&eacute;seau d'appartenance de la ligne
+- Transporteur := 
+transporteur principal exploitant la ligne
+les autres transporteurs de la lignes sont r&eacute;f&eacute;renc&eacute;s au niveau de chaque course
+=:
+- Nom := nom de la ligne 
+- Nom public := nom de la ligne connu des usagers
+- Num&eacute;ro d'enregistrement := code r&eacute;f&eacute;ren&ccedil;ant une ligne au sein d'une autorit&eacute; sup&eacute;rieure
+- Indice := indice de la ligne
+- Mode de transport := 
+mode de transport principal de la ligne
+les modes de transports particuliers sont indiqu&eacute;s au niveau de chaque course 
+=:
+- Commentaire := zone de texte libre sur la ligne
+
+p(attr_data). Donn&eacute;es de gestion : 
+
+- Identifiant Neptune := 
+cl&eacute; unique p&eacute;renne identifiant la ligne pour les &eacute;changes Neptune
+cet identifiant est compos&eacute; de 3 parties : pr&eacute;fixe:type:id_technique
+* pr&eacute;fixe : cl&eacute; identifiant un producteur de donn&eacute;es unique
+* type = Line : cl&eacute; identifiant le type d'objet (valeur impos&eacute;e)
+* id_technique : valeur identifiant un seul object d'un type donn&eacute; pour un m&ecirc;me producteur
+ce champ obligatoire est automatiquement g&eacute;n&eacute;r&eacute; s'il n'est pas renseign&eacute; 
+il est possible aussi de ne renseigner que le pr&eacute;fixe auquel cas la valeur sera compl&eacute;t&eacute;e automatiquement.
+=:
+- Date de cr&eacute;ation := date &agrave; laquelle l'objet a &eacute;t&eacute; cr&eacute;&eacute; ou modifi&eacute; pour la derni&egrave;re fois
+- Version := version de l'objet (auto incr&eacute;ment&eacute; &agrave; chaque modification)
+- Cr&eacute;&eacute; par := compte utilisateur ayant proc&eacute;d&eacute; &agrave; la derni&egrave;re modification
 
 h3. Impl&eacute;mentation
 
