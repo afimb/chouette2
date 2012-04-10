@@ -5,11 +5,38 @@ title: Transporteurs
 
 h3. D&eacute;finition
 
-p. TODO
+Dans la r&eacute;alit&eacute;, le transporteur est l'entit&eacute; en charge de l'exploitation d'une ou plusieurs lignes de transport. 
+Ce principe se retrouve dans ce logiciel. 
+
+* Il s'agit de l'exploitant de la ligne; chaque ligne est rattach&eacute;e &agrave; un seul transporteur, un transporteur pouvant &eacute;videmment g&eacute;rer plusieurs lignes. 
+* Chaque transporteur dispose d'un identifiant fonctionnel (&laquo; num&eacute;ro d'enregistrement &raquo;) qui est utilis&eacute; dans les &eacute;changes XML pour identifier le transporteur et le mettre &agrave; jour. Cet identifiant est unique pour toute la base CHOUETTE, quel que soit le r&eacute;seau ; il est donc important que le gestionnaire de la base CHOUETTE le renseigne d'une mani&egrave;re bien d&eacute;finie et p&eacute;renne.
 
 h3. Attributs
 
-p. TODO
+- Nom := nom du transporteur
+- Nom court := nom abr&eacute;g&eacute; du transporteur
+- Nom d'unit&eacute; := nom de l'unit&eacute; de gestion dans la soci&eacute;t&eacute; de transport
+- Nom du d&eacute;partement := nom du d&eacute;partement dans la soci&eacute;t&eacute; de transport
+- Code postal := code postal de l'adresse de la soci&eacute;t&eacute; de transport
+- Num&eacute;ro de t&eacute;l&eacute;phone := Numr&eacute;ro de t&eacute;l&eacute;phone de l'unit&eacute; de gestion
+- Num&eacute;ro de fax := Num&eacute;ro de fax de l'unit&eacute; de gestion
+- Email := adresse &eacute;lectronique de l'unit&eacute; de gestion de l'unit&eacute; de gestion
+- Num&eacute;ro d'enregistrement := code r&eacute;f&eacute;ren&ccedil;ant un transporteur au sein d'une autorit&eacute; sup&eacute;rieure
+
+p(attr_data). Donn&eacute;es de gestion : 
+
+- Identifiant Neptune := 
+cl&eacute; unique p&eacute;renne identifiant le transporteur pour les &eacute;changes Neptune
+cet identifiant est compos&eacute; de 3 parties : pr&eacute;fixe:type:id_technique
+* pr&eacute;fixe : cl&eacute; identifiant un producteur de donn&eacute;es unique
+* type = Company : cl&eacute; identifiant le type d'objet (valeur impos&eacute;e)
+* id_technique : valeur identifiant un seul object d'un type donn&eacute; pour un m&ecirc;me producteur
+ce champ obligatoire est automatiquement g&eacute;n&eacute;r&eacute; s'il n'est pas renseign&eacute; 
+il est possible aussi de ne renseigner que le pr&eacute;fixe auquel cas la valeur sera compl&eacute;t&eacute;e automatiquement.
+=:
+- Date de cr&eacute;ation := date &agrave; laquelle l'objet a &eacute;t&eacute; cr&eacute;&eacute; ou modifi&eacute; pour la derni&egrave;re fois
+- Version := version de l'objet (auto incr&eacute;ment&eacute; &agrave; chaque modification)
+- Cr&eacute;&eacute; par := compte utilisateur ayant proc&eacute;d&eacute; &agrave; la derni&egrave;re modification
 
 h3. Impl&eacute;mentation
 

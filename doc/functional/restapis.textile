@@ -11,13 +11,13 @@ la liste des objets d'un m&ecirc;me type peut &ecirc;tre obtenue par l'URL REST 
 ??[URL_server]/[referential_id]/[Objects].[format]??
 o&ugrave; :
 * URL_server : l'adresse web d'installation du serveur Chouette
-* referential_id: l'identifiant de l'espace de données
-* Objects: le type d'objet demandé (au pluriel) 
+* referential_id: l'identifiant de l'espace de donn&eacute;es
+* Objects: le type d'objet demand&eacute; (au pluriel) 
 ** networks
 ** lines
 ** companies
 ** ...
-* id : l'identifiant de l'objet désiré
+* id : l'identifiant de l'objet d&eacute;sir&eacute;
 * format : le format de sortie :
 ** json
 ** xml

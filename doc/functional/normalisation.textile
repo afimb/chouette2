@@ -1,0 +1,43 @@
+---
+layout: default
+title: Normalisation
+---
+
+Le projet Chouette a &eacute;t&eacute; d&eacute;velopp&eacute; dans le cadre de la normalisation de l'information sur les transports publics (AFNOR/BNEVT CN03/GT7), en vue de faciliter l'interop&eacute;rabilit&eacute; des syst&egrave;mes et en particulier les &eacute;changes de donn&eacute;es entre Syst&egrave;mes d'Information Multimodale.
+
+h3. TRANSMODEL (EN12896)
+
+La norme europ&eacute;enne TRANSMODEL constitue le mod&egrave;le conceptuel de donn&eacute;es sur lequel s'appuie l'ensemble des travaux normatifs (Neptune, SIRI, IFOPT, NETEX) . Elle est actuellement valid&eacute;e dans sa version 5.1.
+
+Elle a pour objectif de d&eacute;crire les diff&eacute;rents concepts utilis&eacute;s au sein des multiples m&eacute;tiers du transport public (aussi bien dans le domaine de l'exploitation, de la r&eacute;gulation que dans celui de l'information voyageur) en usant de la mod&eacute;lisation UML. Cette description a abouti &agrave; la constitution d'un "dictionnaire" dans lequel chacun peut venir piocher la terminologie ad&eacute;quate pour pouvoir d&eacute;signer, quels que soient la structure et le m&eacute;tier de l'int&eacute;ress&eacute;, de fa&ccedil;on homog&egrave;ne et non ambigu&eumlc; les concepts qu'il va d&eacute;cliner dans son application.
+
+h3. de TRIDENT &agrave; NEPTUNE (PR NF P99-506)
+
+Dans le cadre de la commission de normalisation CN03 pour les applications t&eacute;l&eacute;matiques dans les transports publics, miroir du groupe europ&eacute;en CEN TC278 / WG3, un groupe de travail GT7 a &eacute;t&eacute; cr&eacute;&eacute; en 2002 pour normaliser les &eacute;changes de donn&eacute;es concernant l'information aux voyageurs entre exploitants et Autorit&eacute;s Organisatrices de transport.
+
+Apr&egrave;s examen des travaux en cours au niveau europ&eacute;en, il est apparu au groupe que les sp&eacute;cifications d'&eacute;change &eacute;labor&eacute;es dans le cadre du projet europ&eacute;en TRIDENT &eacute;taient la meilleure base de travail sur laquelle s'appuyer pour la normalisation. 
+Ces sp&eacute;cifications d'&eacute;change couvrent l'information VP et TC, th&eacute;orique et en situation perturb&eacute;e; elles s'appuient sur :
+* un mod&egrave;le d'&eacute;change pair &agrave; pair entre fournisseur et client, avec possibilit&eacute; d'abonnement ; 
+* un mod&egrave;le de donn&eacute;es orient&eacute; objets d&eacute;crit en UML, reprenant pour ce qui concerne les transports publics, le mod&egrave;le conceptuel de donn&eacute;es Transmodel V4.0, normalis&eacute; au niveau europ&eacute;en ; 
+* un format d'&eacute;change XML sp&eacute;cifi&eacute; sous forme de sch&eacute;mas XSD. 
+
+Les sp&eacute;cifications TRIDENT ont &eacute;t&eacute; impl&eacute;ment&eacute;es dans plusieurs pays europ&eacute;ens, et en France ont &eacute;t&eacute; mises en &oelig;uvre par la RATP pour son syst&egrave;me d'information sur les situations perturb&eacute;es SIPRE, et &eacute;galement pour les &eacute;changes d'information au niveau francilien en cours entre les syst&egrave;mes de la RATP et du STIF, pour ce qui concerne l'information th&eacute;orique.
+
+Le travail du groupe GT7 a abouti &agrave; des sp&eacute;cifications de profil d'&eacute;change TRIDENT / Chouette en 2006, qui ont servi de r&eacute;f&eacute;rence pour impl&eacute;menter le logiciel CHOUETTE et sont utilis&eacute;es depuis lors par plusieurs projets de SIM en France.
+
+Lors des discussions pr&eacute;c&eacute;dant l'enqu&ecirc;te probatoire AFNOR en 2009 en vue faire de ces sp&eacute;cifications une norme fran&ccedil;aise, ces sp&eacute;cifications ont &eacute;t&eacute; compl&eacute;t&eacute;es par quelques &eacute;l&eacute;ments de donn&eacute;es relatifs &agrave; l'accessibilit&eacute; des transports : le nouveau profil d'&eacute;change baptis&eacute; *NEPTUNE* (PR NF99-506 D&eacute;cembre 2009) a &eacute;t&eacute; adopt&eacute; en janvier 2010. Il y a compatibilit&eacute; ascendante avec les fichiers au profil Trident/Chouette dont Neptune est une extension.
+
+h3. Le profile d'&eacute;change NEPTUNE
+
+Le d&eacute;veloppement des Syst&egrave;mes d'Information Multimodale a conduit les partenaires des transports publics en France (AOT et op&eacute;rateurs, repr&eacute;sentants d'utilisateurs et administrations publiques) dans leur ensemble &agrave; demander l'inscription de ce profil d'&eacute;change en tant que 'norme pleine'. L'adoption de ce statut de norme est d'autant plus important aujourd'hui, que les outils pr&eacute;cit&eacute;s vont conna&icirc;tre des p&eacute;riodes d'&eacute;volution et d'adaptation. 
+
+Dans le cadre du processus de normalisation, le profil d'&eacute;change a &eacute;t&eacute; rebaptis&eacute; NEPTUNE et compl&eacute;t&eacute; . Le processus s'est conclu d&eacute;but 2010 par l'adoption d'un document AFNOR (cf. PR NF P99-506) . 
+
+En pratique, l'essentiel est de savoir que le profil TRIDENT/CHOUETTE est compatible avec NEPTUNE : Neptune reprend l'essentiel de Trident profil Chouette, et n'a &eacute;t&eacute; compl&eacute;t&eacute; qu'en ce qui concerne l'information sur l'accessibilit&eacute; aux Personnes &agrave; Mobilit&eacute; R&eacute;duite et les acc&egrave;s. En particulier, le nommage des &eacute;l&eacute;ments de donn&eacute;es du profil XSD n'a pas &eacute;t&eacute; modifi&eacute;.
+
+Ce profil r&eacute;sulte d'un consensus entre les diff&eacute;rentes parties prenantes participant au groupe de travail de normalisation CN03/GT7. Il est r&eacute;dig&eacute; en fran&ccedil;ais. Dans certains cas, pour &eacute;viter des confusions ou des contre-sens, les concepts de la norme TRANSMODEL  qui ont &eacute;t&eacute; manipul&eacute;s sont rappel&eacute;s dans leur terminologie, voire leur d&eacute;finition en anglais dans le texte original de la norme TRANSMODEL  V5.1 qui vaut r&eacute;f&eacute;rence. Les rapprochements n&eacute;cessaires ont &eacute;t&eacute; faits avec la version provisoire en fran&ccedil;ais de la norme TRANSMODEL  en cours de validation. 
+
+Ce profil sera sans doute amen&eacute; &agrave; &eacute;voluer en fonction des travaux r&eacute;alis&eacute;s dans le cadre des travaux de normalisation europ&eacute;ens ou internationaux en cours. Ceux-ci touchent tout &agrave; la fois la repr&eacute;sentation topographique  des r&eacute;seaux de transport, les interfaces entre les donn&eacute;es d'exploitation et l'information diffus&eacute;e vers le voyageur avant et pendant le voyage (NeTEX ), la description des points d'arr&ecirc;ts et points fixes (IFOPT2) , les interfaces avec la billettique et les autres &eacute;changes de donn&eacute;es envisageables dans les m&eacute;tiers des transports publics (TRANSMODEL).
+
+Le profil d'&eacute;change NEPTUNE (PR NF P99-506 D&eacute;cembre 2009) et donc l'outil CHOUETTE se limitent aux &eacute;changes d'information concernant la description " statique " de l'offre TC (r&eacute;seau, horaires), et ne couvrent pas l'information en temps r&eacute;el.
+
