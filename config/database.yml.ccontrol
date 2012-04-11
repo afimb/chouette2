@@ -1,0 +1,13 @@
+development:
+  adapter: jdbcpostgresql
+  database: chouette2_test
+  encoding: utf8
+  username: chouette
+  password: chouette
+
+test:
+  adapter: jdbcpostgresql
+  database: chouette2_test
+  encoding: utf8
+  username: chouette
+  password: chouette
