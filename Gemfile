@@ -54,6 +54,7 @@ gem 'inherited_resources'
 gem 'will_paginate', '~> 3.0'
 gem 'ransack'
 gem 'squeel'
+gem 'RedCloth'
 
 gem 'ninoxe', :git => 'git://chouette.dryade.priv/ninoxe'#, :path => '~/projects/ninoxe'
 
@@ -64,11 +65,6 @@ group :development do
   gem 'capistrano-ext'   
   gem 'guard'
   gem 'guard-rspec'
-  gem 'RedCloth'
-end
-
-group :jekyll do
-  gem 'jekyll'
 end
 
 group :test, :development, :cucumber do
