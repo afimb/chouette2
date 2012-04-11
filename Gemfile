@@ -64,8 +64,11 @@ group :development do
   gem 'capistrano-ext'   
   gem 'guard'
   gem 'guard-rspec'
-  gem 'jekyll'
   gem 'RedCloth'
+end
+
+group :jekyll do
+  gem 'jekyll'
 end
 
 group :test, :development, :cucumber do
