@@ -11,9 +11,6 @@
       <span class="warning"><%= t('.no_position') %></span> -
       <% end %>
     </p>
-    <p>
-      <%= stop_area.street_name %> <%= stop_area.country_code %>
-    </p>
     <p> 
       <%= t('.lines') %> <% stop_area.lines.each do |line| %>
         <span class="line"><%= line.number %></span>
