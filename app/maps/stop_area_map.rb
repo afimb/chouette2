@@ -13,6 +13,10 @@ class StopAreaMap < ApplicationMap
   def map
     @map ||= MapLayers::Map.new(id, :projection => projection("EPSG:900913"), :controls => controls) do |map, page|
       page << map.add_layer(MapLayers::OSM_MAPNIK)
+      page << map.add_layer(google_physical) 
+      page << map.add_layer(google_streets) 
+      page << map.add_layer(google_hybrid) 
+      page << map.add_layer(google_satellite) 
 
       page.assign "edit_stop_area_layer", kml_layer( polymorphic_path( [referential, stop_area], :format => :kml, :default => editable?), :style_map => StyleMap::StopAreasStyleMap.new.style_map)
       page << map.add_layer(:edit_stop_area_layer)
