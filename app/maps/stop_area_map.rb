@@ -14,17 +14,7 @@ class StopAreaMap < ApplicationMap
     @map ||= MapLayers::Map.new(id, :projection => projection("EPSG:900913"), :controls => controls) do |map, page|
       page << map.add_layer(MapLayers::OSM_MAPNIK)
 
-      stop_area.lines.each do |line|
-        #page << map.add_layer(kml_layer(line, :styleMap => StyleMap::LineStyleMap.new({:line_color => line.color}).style_map))
-        page << map.add_layer(kml_layer(polymorphic_path([referential, line, :stop_areas], :format => :kml), :styleMap => StyleMap::StopAreasStyleMap.new(true).style_map))
-      end
-
-      styles = {"default" => {:strokeColor => "red"},
-        "select" => {:strokeColor => "red",
-        :strokeWidth => 4}
-      }
-
-      page.assign "edit_stop_area_layer", kml_layer( polymorphic_path( [referential, stop_area], :format => :kml, :default => editable?), :style_map => StyleMap::StopAreasStyleMap.new(false, false, {}, styles).style_map)
+      page.assign "edit_stop_area_layer", kml_layer( polymorphic_path( [referential, stop_area], :format => :kml, :default => editable?), :style_map => StyleMap::StopAreasStyleMap.new.style_map)
       page << map.add_layer(:edit_stop_area_layer)
 
 #       if editable?
