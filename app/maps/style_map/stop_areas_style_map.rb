@@ -16,8 +16,13 @@ class StyleMap::StopAreasStyleMap < StyleMap::GenericStyleMap
       :labelAlign => "ct",
       :labelXOffset => 0,
       :labelYOffset => -15,
-      :pointRadius => 16, 
+      :pointRadius => 1, 
       :externalGraphic => "/assets/map/${areaType}.png",
+      :graphicWidth => 25,
+      :graphicHeight => 25, 
+      :graphicOpacity => 1,	
+      :graphicXOffset =>	12.5,
+      :graphicYOffset =>	12.5,
       :display => true
     }   
     
@@ -37,8 +42,12 @@ class StyleMap::StopAreasStyleMap < StyleMap::GenericStyleMap
       :labelAlign => "ct",
       :labelXOffset => 0,
       :labelYOffset => -15,
-      :pointRadius => 16, 
       :externalGraphic => "/assets/map/${areaType}.png",
+      :graphicWidth => 25,
+      :graphicHeight => 25, 
+      :graphicOpacity => 1,	
+      :graphicXOffset =>	12.5,
+      :graphicYOffset =>	12.5,
       :display => true
     }
 

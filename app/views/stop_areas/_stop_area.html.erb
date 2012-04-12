@@ -1,13 +1,15 @@
 <%= div_for(stop_area) do %>
+  <%= link_to([@referential, stop_area], :class => "preview") do %>
+    <div class="area_type">
+      <%= image_tag "map/" + stop_area.area_type.to_s.downcase + ".png"   %>
+    </div>
+  <% end %>
   <%= link_to stop_area.name, [@referential, stop_area] %>
   <div class="info">
     <p>      
       <% unless stop_area.geometry %>
       <span class="warning"><%= t('.no_position') %></span> -
       <% end %>
-    </p>
-    <p>
-      <%= stop_area.street_name %> <%= stop_area.country_code %>
     </p>
     <p> 
       <%= t('.lines') %> <% stop_area.lines.each do |line| %>

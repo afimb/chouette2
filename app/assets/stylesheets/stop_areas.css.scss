@@ -98,6 +98,18 @@
         float: left;
         padding-right: 10px;
 
+        .area_type {
+            width: 25px;
+            height: 64px;
+            float: left;
+            margin-right: 10px;
+            
+
+            a {
+                text-decoration: none;                   
+            }
+        }
+
     }
 }
 
