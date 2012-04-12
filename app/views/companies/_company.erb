@@ -1,4 +1,4 @@
-<%= div_for(company, :class => "company") do %>
+<%= div_for(company) do %>
   <%= link_to company.name, [@referential, company] %>
   <div class="info">
   	<%= company.human_attribute_name('code') %> <%= company.code %>
