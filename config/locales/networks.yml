@@ -20,22 +20,22 @@ en:
       network: Networks
     attributes:
       network:
-        registration_number: "Registration number"
+        registrationnumber: "Registration number"
         name: "Name"
         comment: "Comments"
-        version_date: "Date of this network's version"
+        versiondate: "Date of this network's version"
         description: Description
-        source_type: Source type
-        source_name: Source name
-        source_identifier: Source identifier        
+        sourcetype: Source type
+        sourcename: Source name
+        sourceidentifier: Source identifier        
         objectid: Neptune identifier
-        object_version: Version
-        creation_time: Created on
-        creator_id: Created by 
+        objectversion: Version
+        creationtime: Created on
+        creatorid: Created by 
   formtastic:
     hints:
       network:
-        registration_number: only alphanumerical or underscore characters 
+        registrationnumber: only alphanumerical or underscore characters 
         objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
 
 fr:
@@ -54,27 +54,26 @@ fr:
     index:
       title: "Réseaux"
       name: Nom
-      
   activerecord:
     models:
       network: Réseau
     attributes:
       network:
-        registration_number: "Numéro d'enregistrement"
+        registrationnumber: "Numéro d'enregistrement"
         name: "Nom"
         comment: "Commentaire"
-        version_date: Date de version
+        versiondate: Date de version
         description: Description
-        source_type: "Type de système origine"
-        source_name: "Nom du système origine"
-        source_identifier: "Identifiant du système origine"        
+        sourcetype: "Type de système origine"
+        sourcename: "Nom du système origine"
+        sourceidentifier: "Identifiant du système origine"        
         objectid: "Identifiant Neptune"
-        object_version: "Version"
-        creation_time: "Créé le"
-        creator_id: "Créé par"
+        objectversion: "Version"
+        creationtime: "Créé le"
+        creatorid: "Créé par"
   formtastic:
     hints:
       network:
-        registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
+        registrationnumber: "caractères autorisés : alphanumériques et 'souligné'" 
         objectid: "[prefixe]:GroupOfLine:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
 

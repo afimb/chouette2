@@ -21,6 +21,10 @@ class Referential < ActiveRecord::Base
     Chouette::StopArea.scoped
   end
 
+  def time_tables
+    Chouette::TimeTable.scoped
+  end
+
   def switch
     raise "Referential not created" if new_record?
     Apartment::Database.switch(slug)
