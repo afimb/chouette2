@@ -43,7 +43,7 @@ class StopAreasController < ChouetteController
   alias_method :stop_area, :resource
 
   def collection
-    @q = end_of_association_chain.search(params[:q])
+    @q = parent.present? ? parent.stop_areas.search(params[:q]) : referential.stop_areas.search(params[:q])
     @stop_areas ||= 
       begin
         stop_areas = @q.result(:distinct => true).order(:name)

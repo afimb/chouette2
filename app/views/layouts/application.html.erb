@@ -34,7 +34,7 @@
           <% else %>
             <li><%= link_to t("layouts.tabs.dashboard"), referential_path(@referential), :class => ("current" if current_page?(referential_path(@referential))) %></li>
             <li><%= tab_link_to Chouette::Network, referential_networks_path(@referential) %></li>
-            <li><%= tab_link_to t('activerecord.models.company'), referential_companies_path(@referential) %></li>
+            <li><%= tab_link_to Chouette::Company, referential_companies_path(@referential) %></li>
             <li><%= tab_link_to Chouette::Line, referential_lines_path(@referential) %></li>
             <li><%= tab_link_to Chouette::StopArea, referential_stop_areas_path(@referential) %></li>
             <li><%= tab_link_to Chouette::TimeTable, referential_time_tables_path(@referential) %></li>
