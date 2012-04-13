@@ -1,76 +1,7 @@
 // Place all the styles related to the lines controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@mixin div_for_object { 
-    margin-bottom: 20px;
-
-    .color {
-        width: 64px;
-        height: 64px;
-        float: left;
-        margin-right: 10px;
-    }
-
-    img {
-        float: left;
-        margin-right: 10px;
-    }
-
-    img.preview {
-        width: 90px;
-        height: 70px;
-    }
-
-    a { 
-        display:block;
-        text-decoration: underline;
-        margin: 5px 0px 0px 0px;
-    }
-
-    .info {
-        font-size: 10px;
-        color: #777;
-        font-weight: normal;
-        line-height: 14px;
-        margin-top: 5px;
-
-        a {
-            display:inline;
-            color: #777;
-        }
-
-        .actions {
-            margin-top: 14px;
-            a {
-                color: #666;
-                padding-left: 12px;
-            }
-
-            a.edit {
-                background: url(image-path('user_interface/ui/edit-small.png')) no-repeat 0% 50%;
-            }
-            a.remove {
-                background: url(image-path('user_interface/ui/remove-small.png')) no-repeat 0% 50%;
-            }
-        }
-
-        p {
-            margin:0;
-        }
-    }
-}
-
-@mixin content_to_clear {
-    content: " ";  
-    display: block; 
-    height: 0; 
-    clear: both;
-    visibility: hidden;
-}
-
-@mixin after_div_for_object {
-    @include content_to_clear;
-}
+@import "common";
 
 #workspace.networks.index
 {
@@ -97,17 +28,10 @@
     }
 }
 
-
-#workspace .order {
-    float: right;
-    padding: 15px 0;
-    font-size: 0.8em;
-    
-    a { text-decoration: underline; }
-    
-    a.current {
-      font-weight: bold;
-      text-decoration: none;
+#workspace.networks.show
+{
+    .summary p label {
+        font-weight: bold;
     }
 }
 
