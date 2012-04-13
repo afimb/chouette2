@@ -30,13 +30,13 @@ class StopAreasController < ChouetteController
     end
   end
   
-  # def edit
-  #   stop_area.position ||= stop_area.default_position
+  def edit
+    #stop_area.position ||= stop_area.default_position
 
-  #   @map = StopAreaMap.new stop_area
-  #   @map.editable = true
-  #   edit!
-  # end
+    @map = StopAreaMap.new referential, stop_area
+    @map.editable = true
+    edit!
+  end
 
   protected
 
