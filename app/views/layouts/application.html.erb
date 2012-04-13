@@ -16,7 +16,7 @@
     <div id="header">
       <div class="infos">               
         <div class="logo"> 
-          <%= image_tag "logo_chouette.png" %>
+          <%= link_to image_tag("logo_chouette.png"), referentials_path %>
         </div>
         <div class="title"> 
           <% if @referential.present? %>
