@@ -9,6 +9,8 @@ gem 'user_interface', :git => 'git://sim.dryade.priv/user_interface'
 
 gem 'apartment', :git => 'git://github.com/dryade/apartment.git'
 
+gem 'devise'
+
 gem "map_layers", "~> 0.0.4"
 
 platforms :jruby do
