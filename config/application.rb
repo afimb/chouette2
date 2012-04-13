@@ -49,5 +49,10 @@ module ChouetteIhm
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    ActionMailer::Base.smtp_settings = {
+      :address        => "mail.dryade.priv",
+      :domain         => "dryade.priv"
+    }
   end
 end

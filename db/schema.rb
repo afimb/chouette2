@@ -10,63 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120214101645) do
-
-  create_table "company", :force => true do |t|
-    t.string   "objectid"
-    t.integer  "objectversion"
-    t.datetime "creationtime"
-    t.string   "creatorid"
-    t.string   "name"
-    t.string   "shortname"
-    t.string   "organizationalunit"
-    t.string   "operatingdepartmentname"
-    t.string   "code"
-    t.string   "phone"
-    t.string   "fax"
-    t.string   "email"
-    t.string   "registrationnumber"
-  end
-
-  add_index "company", ["objectid"], :name => "company_objectid_key", :unique => true
-  add_index "company", ["registrationnumber"], :name => "company_registrationnumber_key", :unique => true
-
-  create_table "line", :force => true do |t|
-    t.integer  "ptnetworkid",                :limit => 8
-    t.integer  "companyid",                  :limit => 8
-    t.string   "objectid"
-    t.integer  "objectversion"
-    t.datetime "creationtime"
-    t.string   "creatorid"
-    t.string   "name"
-    t.string   "number"
-    t.string   "publishedname"
-    t.string   "transportmodename"
-    t.string   "registrationnumber"
-    t.string   "comment"
-    t.boolean  "mobilityrestrictedsuitable"
-    t.integer  "userneeds",                  :limit => 8
-  end
-
-  add_index "line", ["objectid"], :name => "line_objectid_key", :unique => true
-  add_index "line", ["registrationnumber"], :name => "line_registrationnumber_key", :unique => true
-
-  create_table "ptnetwork", :force => true do |t|
-    t.string   "objectid"
-    t.integer  "objectversion"
-    t.datetime "creationtime"
-    t.string   "creatorid"
-    t.date     "versiondate"
-    t.string   "description"
-    t.string   "name"
-    t.string   "registrationnumber"
-    t.string   "sourcename"
-    t.string   "sourceidentifier"
-    t.string   "comment"
-  end
-
-  add_index "ptnetwork", ["objectid"], :name => "ptnetwork_objectid_key", :unique => true
-  add_index "ptnetwork", ["registrationnumber"], :name => "ptnetwork_registrationnumber_key", :unique => true
+ActiveRecord::Schema.define(:version => 20120413142837) do
 
   create_table "referentials", :force => true do |t|
     t.string   "name"
@@ -74,5 +18,23 @@ ActiveRecord::Schema.define(:version => 20120214101645) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "users", :force => true do |t|
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end
