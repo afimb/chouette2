@@ -24,6 +24,8 @@ en:
       time_table:
         comment: Comment
         version: Version
+        day_types: Day types
+        none: none
         monday: Monday
         tuesday: Tuesday
         wednesday: Wednesday
@@ -37,8 +39,8 @@ en:
         creator_id: Created by 
         dates: Application dates
         periods: Application periods
-        period_start: From
-        period_end: to
+        periodstart: From
+        periodend: to
   formtastic:
     hints:
       time_table:
@@ -59,7 +61,7 @@ fr:
     show:
       title: Calendrier %{time_table}
     index:
-      comment: Commentaire
+      comment: Description
       title: calendriers
       selection: Sélection
       selection_all: Tous
@@ -68,8 +70,10 @@ fr:
       time_table: Calendrier
     attributes:
       time_table:
-        comment: Commentaire
+        comment: Description
         version: Version
+        day_types: "Jours d'application"
+        none: aucun
         monday: Lundi
         tuesday: Mardi
         wednesday: Mercredi
@@ -77,14 +81,14 @@ fr:
         friday: Vendredi
         saturday: Samedi
         sunday: Dimanche
-        object_id: Identifiant Neptune
+        objectid: Identifiant Neptune
         object_version: Version
         creation_time: Créé le
         creator_id: Créé par
         dates: "Dates d'application"
         periods: "Périodes d'application"
-        period_start: Du 
-        period_end: au
+        periodstart: Du 
+        periodend: au
 
   formtastic:
     hints:

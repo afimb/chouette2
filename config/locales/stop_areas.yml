@@ -15,6 +15,7 @@ en:
     show:
       title: Stop %{stop_area}
       geographic_data: Geographic data 
+      no_geographic_data: None
     index:
       title: Stop areas
       name_or_country_code: Name or Country code
@@ -34,8 +35,10 @@ en:
         street_name: Street name
         country_code: INSEE code
         fare_code: Fare code
+        projectiontype: Projection type
         x: x-position
         y: y-position
+        longlattype: Projection type
         longitude: Longitude
         latitude: Latitude
         objectid: Neptune identifier
@@ -65,6 +68,7 @@ fr:
     show:
       title: Arrêt %{stop_area}
       geographic_data: Données géographiques 
+      no_geographic_data: Aucune
     index:
       name_or_country_code: Nom ou Code Postal
       title: Arrêts
@@ -85,8 +89,10 @@ fr:
         street_name: Nom de la rue
         country_code: Code INSEE
         fare_code: Zone tarifaire
+        projectiontype: Projection
         x: Position X
         y: Position Y
+        longlattype: Projection
         longitude: Longitude
         latitude: Latitude
         object_id: Identifiant Neptune
