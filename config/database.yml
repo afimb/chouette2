@@ -1,30 +1,13 @@
-# SQLite version 3.x
-#   gem 'activerecord-jdbcsqlite3-adapter'
-#
-# Configure Using Gemfile
-# gem 'activerecord-jdbcsqlite3-adapter'
-#
 development:
   adapter: jdbcpostgresql
-  database: chouette_dev
+  database: chouette2_dev
   encoding: utf8
   username: chouette
   password: chouette
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
   adapter: jdbcpostgresql
-  database: chouette_test
+  database: chouette2_test
   encoding: utf8
   username: chouette
   password: chouette
-
-production:
-  adapter: jdbcpostgresql
-  database: chouette2
-  encoding: utf8
-  host: localhost
-  username: chouette
-  password: chouette    

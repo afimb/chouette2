@@ -18,22 +18,23 @@ class StopAreaMap < ApplicationMap
       page << map.add_layer(google_hybrid) 
       page << map.add_layer(google_satellite) 
 
-      page.assign "edit_stop_area_layer", kml_layer( polymorphic_path( [referential, stop_area], :format => :kml, :default => editable?), :style_map => StyleMap::StopAreasStyleMap.new.style_map)
+      page.assign "edit_stop_area_layer", kml_layer( polymorphic_path( [referential, stop_area], :format => :kml, :default => editable?), :style_map => StyleMap::EditStopAreaStyleMap.new.style_map)
       page << map.add_layer(:edit_stop_area_layer)
 
-#       if editable?
-#         # TODO virer ce code inline
-#         page << <<EOF
-#         edit_stop_area_layer.events.on({ 
-#                           'afterfeaturemodified': function(event) { 
-#                             geometry = event.feature.geometry.clone().transform(new OpenLayers.Projection("EPSG:900913"), new OpenLayers.Projection("EPSG:4326"));
-#                             $('#potimart_stop_area_position').val(geometry.y + ',' + geometry.x);
-#                            }
-#                         });
-# EOF
-#         page << map.add_control(OpenLayers::Control::ModifyFeature.new(:edit_stop_area_layer, :mode => 8, :autoActivate => true))
+     if editable?
+        # TODO virer ce code inline
+        page << <<EOF
+        edit_stop_area_layer.events.on({ 
+                          'afterfeaturemodified': function(event) { 
+                            geometry = event.feature.geometry.clone().transform(new OpenLayers.Projection("EPSG:900913"), new OpenLayers.Projection("EPSG:4326"));
+                            $('#stop_area_longitude').val(geometry.x);
+                            $('#stop_area_latitude').val(geometry.y);
+                           }
+                        });
+EOF
+        page << map.add_control(OpenLayers::Control::ModifyFeature.new(:edit_stop_area_layer, :mode => 8, :autoActivate => true))
 
-#       end
+      end
 
       page << map.zoom_to_extent(bounds) if bounds
       #page << map.set_center(center.to_google.to_openlayers, 16, false, true)

@@ -1,12 +1,9 @@
 class StyleMap::EditStopAreaStyleMap < StyleMap::GenericStyleMap
   
-  attr_accessor :styles, :display_label, :context, :terminus
-  alias_method :terminus?, :terminus
+  attr_accessor :styles, :display_label
 
-  def initialize(display_label = false, terminus = false, context = {}, styles = {})
+  def initialize(display_label = false, styles = {})
     @display_label = display_label
-    @terminus = terminus
-    @context = context
     @styles = styles
   end
 
@@ -25,12 +22,8 @@ class StyleMap::EditStopAreaStyleMap < StyleMap::GenericStyleMap
       :strokeColor => "black",
       :strokeOpacity => 1,
       :strokeWidth => 2,
-      :display => "${display}"
-    }.tap do |style_basic|
-      style_basic.merge! :fontSize =>"11px", 
-      :pointRadius => 16, 
-      :externalGraphic => "/images/stop_area_hover.png" if terminus?
-    end
+      :display => true
+    }   
     
     if styles["default"].present?
       style.merge styles["default"] 
@@ -54,12 +47,9 @@ class StyleMap::EditStopAreaStyleMap < StyleMap::GenericStyleMap
       :strokeColor => "black",
       :strokeOpacity => 1,
       :strokeWidth => 2,
-      :display => "${display}"
-    }.tap do |style_basic|
-      style_basic.merge! :fontSize =>"11px", 
-      :pointRadius => 16, 
-      :externalGraphic => "/images/stop_area_hover.png" if terminus?
-    end
+      :display => true
+    }
+
     if styles["select"].present?
       select_style.merge styles["select"]
     else
@@ -69,7 +59,8 @@ class StyleMap::EditStopAreaStyleMap < StyleMap::GenericStyleMap
   
   def context
     context = { 
-      :label => :"function(feature) { if(feature.layer.map.getZoom() > 15) { return feature.attributes.name;} else {return '';}}"
+      :label => :" function(feature) {if(feature.layer.map.getZoom() > 13) { return feature.attributes.name;} else {return '';}} ", 
+      :areaType => :" function(feature) { console.log(feature); return feature.attributes.stop_area_type.toLowerCase();} "
     }
   end
 

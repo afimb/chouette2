@@ -20,7 +20,7 @@ Enfin, CHOUETTE vous offre la possibilit&eacute; de regrouper les lieux d'arr&ec
 Ainsi on obtient les possibilit&eacute;s de regroupements suivants:
 * un arr&ecirc;t physique regroupe plusieurs arr&ecirc;ts itin&eacute;raire.
 * un arr&ecirc;t commercial regroupe plusieurs arr&ecirc;ts physiques (quai, embarquement).
-* une p&ocirc;le d'&eacute;change regroupe plusieurs arr&ecirc;ts commerciaux. 
+* un p&ocirc;le d'&eacute;change regroupe plusieurs arr&ecirc;ts commerciaux. 
 
 Pour ne pas aboutir &agrave; un syst&egrave;me trop complexe, les r&egrave;gles suivantes sont pos&eacute;es:
 * un p&ocirc;le d'&eacute;change peut contenir des arr&ecirc;ts commerciaux et/ou des p&ocirc;les d'&eacute;changes (qui ne peuvent pas en contenir d'autres).
@@ -36,6 +36,12 @@ Ainsi dans CHOUETTE:
 h3. Attributs
 
 - Type d'arr&ecirc;t := cat&eacute;gorie de l'arr&ecirc;t
+
+* !boardingposition.png! point d'embarquement
+* !quay.png! quai
+* !commercialstoppoint.png! arr&ecirc;t commercial
+* !stopplace.png! p&ocirc;le d'&eacute;change
+
 - Nom := nom de l'arr&ecirc;t 
 - Commentaire := zone de texte libre
 - Point d'int&eacute;r&ecirc;t le plus proche := nom du lieu desservi par l'arr&ecirc;t
