@@ -13,6 +13,7 @@ require 'capybara/rails'
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 require 'will_paginate/array'
+require 'database_cleaner'
 
 RSpec.configure do |config|
   DatabaseCleaner.logger = Rails.logger
