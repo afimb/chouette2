@@ -1,6 +1,6 @@
 development:
   adapter: jdbcpostgresql
-  database: chouette2_test
+  database: chouette2_dev
   encoding: utf8
   username: chouette
   password: chouette
