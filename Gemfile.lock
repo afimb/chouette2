@@ -45,7 +45,7 @@ GIT
 
 GIT
   remote: git://sim.dryade.priv/user_interface
-  revision: 0d22ebf5bb92d2c0ce27f1e395f6b3c82ce17628
+  revision: a9f62359e65e42e9329bf4dbbd0c5a63a42119a4
   specs:
     user_interface (0.0.1)
       rails (~> 3.1.0)
@@ -97,6 +97,8 @@ GEM
     autotest-rails (4.1.1)
       ZenTest (= 4.5)
     autotest-standalone (4.5.9)
+    bcrypt-ruby (3.0.1)
+    bcrypt-ruby (3.0.1-java)
     bouncy-castle-java (1.5.0146.1)
     builder (3.0.0)
     capistrano (2.9.0)
@@ -136,6 +138,11 @@ GEM
       cucumber (>= 1.1.3)
       nokogiri (>= 1.5.0)
     database_cleaner (0.7.1)
+    devise (2.0.4)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.0.3)
+      railties (~> 3.1)
+      warden (~> 1.1.1)
     diff-lcs (1.1.3)
     erubis (2.7.0)
     execjs (1.2.13)
@@ -201,6 +208,7 @@ GEM
       net-ssh (>= 1.99.1)
     nokogiri (1.5.0)
     nokogiri (1.5.0-java)
+    orm_adapter (0.0.7)
     pg (0.11.0)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
@@ -300,6 +308,8 @@ GEM
       jruby-rack (>= 1.0.0)
       rake (>= 0.8.7)
       rubyzip (>= 0.9.4)
+    warden (1.1.1)
+      rack (>= 1.0)
     will_paginate (3.0.3)
     xpath (0.1.4)
       nokogiri (~> 1.3)
@@ -325,6 +335,7 @@ DEPENDENCIES
   cucumber
   cucumber-rails
   database_cleaner
+  devise
   factory_girl
   factory_girl_rails
   formtastic

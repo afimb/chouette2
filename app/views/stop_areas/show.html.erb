@@ -35,7 +35,7 @@
       <label><%= @stop_area.human_attribute_name("type") %>: </label>
       <%= t("area_types.label.#{@stop_area.type}") %>
     </p>
-    <p><%= t('stop_areas.show.geographic_data') %></p>
+    <p> <label><%= t('stop_areas.show.geographic_data') %> </label></p>
     <% if @stop_area.projectiontype == nil && @stop_area.longlattype == nil %>
 	    <span class='geo_data'><%= t('stop_areas.show.no_geographic_data') %></span>
     <% else %>
