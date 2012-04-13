@@ -11,38 +11,89 @@
       <label><%= @time_table.human_attribute_name("version") %>: </label>
       <%= @time_table.version %>
     </p>
+    <!-- 
     <p>
-      <label><%= @time_table.human_attribute_name("objectid") %>: </label>
-      <%= @time_table.objectid %>
+      <label><%= @time_table.human_attribute_name("day_types") %>:&nbsp;&nbsp;</label>
+      <% if @time_table.monday %> 
+      	<%= image_tag "icons/checked.png" %>
+      <% else %>	
+        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+      <% end %>	
+      <label><%= @time_table.human_attribute_name("monday") %>&nbsp;&nbsp;</label>
+      <% if @time_table.tuesday %> 
+      	<%= image_tag "icons/checked.png" %>
+      <% else %>	
+        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+      <% end %>	
+      <label><%= @time_table.human_attribute_name("tuesday") %>&nbsp;&nbsp;</label>
+      <% if @time_table.wednesday %> 
+      	<%= image_tag "icons/checked.png" %>
+      <% else %>	
+        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+      <% end %>	
+      <label><%= @time_table.human_attribute_name("wednesday") %>&nbsp;&nbsp;</label>
+      <% if @time_table.thursday %> 
+      	<%= image_tag "icons/checked.png" %>
+      <% else %>	
+        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+      <% end %>	
+      <label><%= @time_table.human_attribute_name("thursday") %>&nbsp;&nbsp;</label>
+      <% if @time_table.friday %> 
+      	<%= image_tag "icons/checked.png" %>
+      <% else %>	
+        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+      <% end %>	
+      <label><%= @time_table.human_attribute_name("friday") %>&nbsp;&nbsp;</label>
+      <% if @time_table.saturday %> 
+      	<%= image_tag "icons/checked.png" %>
+      <% else %>	
+        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+      <% end %>	
+      <label><%= @time_table.human_attribute_name("saturday") %>&nbsp;&nbsp;</label>
+      <% if @time_table.sunday %> 
+      	<%= image_tag "icons/checked.png" %>
+      <% else %>	
+        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+      <% end %>	
+      <label><%= @time_table.human_attribute_name("sunday") %></label>
     </p>
+    -->
     <p>
-      <label><%= @time_table.human_attribute_name("monday") %>: </label>
-      <%= @time_table.monday %>
+      <label><%= @time_table.human_attribute_name("day_types") %>:&nbsp;&nbsp;</label>
+      <% if @time_table.intdaytypes == 0 %>
+        <label><%= @time_table.human_attribute_name("none") %></label>
+      <% else %>  
+	      <% if @time_table.monday %> 
+	      	<span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("monday") %>&nbsp;</span>
+	      <% end %>	
+	      
+	      <% if @time_table.tuesday %> 
+	      	<span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("tuesday") %>&nbsp;</span>
+	      <% end %>	
+	      
+	      <% if @time_table.wednesday %> 
+	        <span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("wednesday") %>&nbsp;</span>
+	      <% end %>	
+	      
+	      <% if @time_table.thursday %> 
+	      	<span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("thursday") %>&nbsp;</span>
+	      <% end %>	
+	      
+	      <% if @time_table.friday %> 
+	      	<span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("friday") %>&nbsp;</span>
+	      <% end %>	
+	      
+	      <% if @time_table.saturday %> 
+	      	<span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("saturday") %>&nbsp;</span>
+	      <% end %>	
+	      
+	      <% if @time_table.sunday %> 
+	      	<span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("sunday") %>&nbsp;</span>
+	      <% end %>	
+      <% end %>	
+      
     </p>
-    <p>
-      <label><%= @time_table.human_attribute_name("tuesday") %>: </label>
-      <%= @time_table.tuesday %>
-    </p>
-    <p>
-      <label><%= @time_table.human_attribute_name("wednesday") %>: </label>
-      <%= @time_table.wednesday %>
-    </p>
-    <p>
-      <label><%= @time_table.human_attribute_name("thursday") %>: </label>
-      <%= @time_table.thursday %>
-    </p>
-    <p>
-      <label><%= @time_table.human_attribute_name("friday") %>: </label>
-      <%= @time_table.friday %>
-    </p>
-    <p>
-      <label><%= @time_table.human_attribute_name("saturday") %>: </label>
-      <%= @time_table.saturday %>
-    </p>
-    <p>
-      <label><%= @time_table.human_attribute_name("sunday") %>: </label>
-      <%= @time_table.sunday %>
-    </p>
+    
   </div>
   <div>
   	<p>
@@ -56,7 +107,20 @@
   	</p>
   	<%= render :partial => "date", :collection => @time_table.dates %>
   </div>
-    
+  <div>
+    <p>
+      <label><%= @time_table.human_attribute_name("objectid") %>: </label>
+      <%= @time_table.objectid %>
+    </p>
+    <p>
+      <label><%= @time_table.human_attribute_name("creation_time") %>: </label>
+      <%= @time_table.creation_time %>
+    </p>
+    <p>
+      <label><%= @time_table.human_attribute_name("creator_id") %>: </label>
+      <%= @time_table.creator_id %>
+    </p>
+  </div>
 </div>
 
 <% content_for :sidebar do %>

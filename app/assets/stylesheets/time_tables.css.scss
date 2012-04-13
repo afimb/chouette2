@@ -97,6 +97,20 @@
     }
 }
 
+#workspace.time_tables.show
+{
+    .day_type { 
+      border-style:solid;
+      border-width:1px;
+      }
+      .period {
+        padding-left:50px;
+      }
+      .date {
+        padding-left:50px;
+      }
+}        
+
 
 #workspace .order {
     float: right;

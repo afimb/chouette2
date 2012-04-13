@@ -35,6 +35,39 @@
       <label><%= @stop_area.human_attribute_name("type") %>: </label>
       <%= t("area_types.label.#{@stop_area.type}") %>
     </p>
+    <p><%= t('stop_areas.show.geographic_data') %></p>
+    <% if @stop_area.projectiontype == nil && @stop_area.longlattype == nil %>
+	    <span class='geo_data'><%= t('stop_areas.show.no_geographic_data') %></span>
+    <% else %>
+	    <% if @stop_area.projectiontype != nil %>
+	    <p>
+	      <span class='geo_data'><%= @stop_area.human_attribute_name("projectiontype") %>: </span>
+	      <%= @stop_area.projectiontype %>
+	    </p>
+	    <p>
+	      <span class='geo_data'><%= @stop_area.human_attribute_name("x") %>: </span>
+	      <%= @stop_area.x %>
+	    </p>
+	    <p>
+	      <span class='geo_data'><%= @stop_area.human_attribute_name("y") %>: </span>
+	      <%= @stop_area.y %>
+	    </p>
+	    <% end %>
+	    <% if @stop_area.longlattype != nil %>
+	    <p>
+	      <span class='geo_data'><%= @stop_area.human_attribute_name("longlattype") %>: </span>
+	      <%= @stop_area.longlattype %>
+	    </p>
+	    <p>
+	      <span class='geo_data'><%= @stop_area.human_attribute_name("longitude") %>: </span>
+	      <%= @stop_area.longitude %>
+	    </p>
+	    <p>
+	      <span class='geo_data'><%= @stop_area.human_attribute_name("latitude") %>: </span>
+	      <%= @stop_area.latitude %>
+	    </p>
+	    <% end %>
+    <% end %>
     <p>
       <label><%= @stop_area.human_attribute_name("objectid") %>: </label>
       <%= @stop_area.objectid %>
@@ -46,23 +79,6 @@
     <p>
       <label><%= @stop_area.human_attribute_name("creator_id") %>: </label>
       <%= @stop_area.creator_id %>
-    </p>
-    <p><%= t('stop_areas.show.geographic_data') %></p>
-    <p>
-      <label><%= @stop_area.human_attribute_name("x") %>: </label>
-      <%= @stop_area.x %>
-    </p>
-    <p>
-      <label><%= @stop_area.human_attribute_name("y") %>: </label>
-      <%= @stop_area.y %>
-    </p>
-    <p>
-      <label><%= @stop_area.human_attribute_name("longitude") %>: </label>
-      <%= @stop_area.longitude %>
-    </p>
-    <p>
-      <label><%= @stop_area.human_attribute_name("latitude") %>: </label>
-      <%= @stop_area.latitude %>
     </p>
     
     
