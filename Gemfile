@@ -12,7 +12,7 @@ gem 'apartment', :git => 'git://github.com/dryade/apartment.git'
 gem "map_layers", "~> 0.0.4"
 
 platforms :jruby do
-  gem 'activerecord-jdbcpostgresql-adapter', :git => 'git://github.com/dryade/activerecord-jdbc-adapter.git'    
+  gem 'activerecord-jdbcpostgresql-adapter', :git => 'git://github.com/dryade/activerecord-jdbc-adapter.git'
   gem 'activerecord-jdbcsqlite3-adapter'
   gem 'jruby-openssl'
 end
