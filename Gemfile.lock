@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: git://github.com/dryade/activerecord-jdbc-adapter.git
-  revision: a26a00e58251af4fed878b117701e8f7e16dce9e
+  revision: 0bf424bc3bcaf9f44646976cc4c1a8e9e57f11b4
   specs:
     activerecord-jdbc-adapter (1.2.2)
     activerecord-jdbcpostgresql-adapter (1.2.2)
