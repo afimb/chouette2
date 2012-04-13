@@ -94,20 +94,16 @@
       
     </p>
     
-  </div>
-  <div>
   	<p>
   	<label><%= @time_table.human_attribute_name("periods") %>: </label>
   	</p>
   	<%= render :partial => "period", :collection => @time_table.periods %>
-  </div>
-  <div>
+  	
   	<p>
   	<label><%= @time_table.human_attribute_name("dates") %>: </label>
   	</p>
   	<%= render :partial => "date", :collection => @time_table.dates %>
-  </div>
-  <div>
+  	
     <p>
       <label><%= @time_table.human_attribute_name("objectid") %>: </label>
       <%= @time_table.objectid %>

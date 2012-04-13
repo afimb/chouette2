@@ -35,6 +35,14 @@
       <label><%= Chouette::Network.human_attribute_name("objectid") %>: </label>
       <%= @network.objectid %>
     </p>
+    <p>
+      <label><%= @network.human_attribute_name("creation_time") %>: </label>
+      <%= @network.creation_time %>
+    </p>
+    <p>
+      <label><%= @network.human_attribute_name("creator_id") %>: </label>
+      <%= @network.creator_id %>
+    </p>
   </div>
 </div>
 
