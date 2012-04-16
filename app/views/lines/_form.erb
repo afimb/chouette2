@@ -7,7 +7,7 @@
     <%= form.input :published_name %>
     <%= form.input :registration_number %>  
     <%= form.input :number %>
-    <%= form.input :transport_mode_name, :as => :select, :collection => Chouette::Line.transport_modes, :include_blank => false, :member_label => Proc.new { |mode| t("transport_modes.label.#{mode}") }  %>
+    <%= form.input :transport_mode, :as => :select, :collection => Chouette::Line.transport_modes, :include_blank => false, :member_label => Proc.new { |mode| t("transport_modes.label.#{mode}") }  %>
     <%= form.input :comment %>              
     <% if @line.new_record? %>
       <%= form.input :objectid %>  
