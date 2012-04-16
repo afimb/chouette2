@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Pr&eacute;sentation
+title: Présentation
 ---
 
 Chouette v2 : it&eacute;ration 4 du 16/04/2012

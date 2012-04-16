@@ -1,68 +1,70 @@
-#workspace h2 {
+#workspace.help {
+h2 {
     font-size: 17px;
 }
 
-#workspace h3 {
+h3 {
     font-size: 15px;
 }
 
-#workspace h4 {
+h4 {
     font-weight: bold;
     padding: 7px 0;
 }
 
-#workspace ul li {
+ul li {
     list-style: circle;
     margin: 7px 0 7px 20px;
 }
 
-#workspace ol {
+ol {
     list-style: none; 
     margin: 7px 0 7px 20px;
     padding: 0;
     counter-reset: num;
 }
 
-#workspace ol li:before {
+ol li:before {
     content: counter(num) '. ';
     counter-increment: num;
 }
 
-#workspace ol ol li:before {
+ol ol li:before {
     content: counters(num, '.') ' ';
 }
 
-#workspace em {
+em {
     font-style: italic;
 }
 
-#workspace strong {
+strong {
     font-weight: bold;
 }
 
-#workspace cite {
+cite {
   font-style: italic;
 }
 
-#workspace p.attr_data {
+p.attr_data {
   font-style: italic;
   text-decoration: underline;
 }
 
-#workspace table {
+table {
     width: 100%;
 }
 
-#workspace table td {
+table td {
     padding: 3px 5px;
     width: 30%;
 }
 
-#workspace dt {
+dt {
     font-style:italic;
     margin: 5px 0; 
 }
 
-#workspace dd {
+dd {
     padding-left: 10px;
+}
 }

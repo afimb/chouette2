@@ -22,6 +22,8 @@ ChouetteIhm::Application.routes.draw do
     resources :companies, :stop_areas, :time_tables
   end 
 
+  match '/help/(*slug)' => 'help#show'
+
   # Sample resource route with options:
   #   resources :products do
   #     member do

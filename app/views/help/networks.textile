@@ -1,6 +1,6 @@
 ---
 layout: default
-title: R&eacute;seaux
+title: Réseaux
 ---
 
 h3. D&eacute;finition
