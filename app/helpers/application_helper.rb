@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def help_path
-    url_for(:controller => "help", :action => "show") + '/'
+    url_for(:controller => "/help", :action => "show") + '/'
   end
   
 end

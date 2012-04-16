@@ -12,9 +12,11 @@
   <li class="<%= language_class('fr') %>"><%= link_to_language :fr %></li>
   <li class="<%= language_class('en') %>"><%= link_to_language :en %></li>
   <li>
+  <% if user_signed_in?  %>
   <li> | </li> 
   <%= link_to help_path do %>
     <span class="help"><%= t('layouts.help') %></span>
   <% end %>
   </li>
+  <% end %>
 </ul>
