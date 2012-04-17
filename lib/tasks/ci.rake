@@ -5,6 +5,6 @@ namespace :ci do
   task :deploy do
     cp "workspace.war", "/var/lib/tomcat6/webapps/chouette2.war"
   end
-  task :build => ["db:migrate", "war", "ci:deploy"]
+  task :build => ["db:migrate", "spec", "war", "ci:deploy"]
 end
 

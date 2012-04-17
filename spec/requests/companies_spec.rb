@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe "Companies" do
+  login_user
+
   let!(:referential) { Factory(:referential).switch }
   let!(:companies) { referential; Array.new(2) { Factory(:company) } }
 

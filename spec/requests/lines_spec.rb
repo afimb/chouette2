@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "Lines" do
+  login_user
 
   let!(:referential) { Factory(:referential).switch }
   let!(:lines) { referential; Array.new(2) { Factory(:line) } }

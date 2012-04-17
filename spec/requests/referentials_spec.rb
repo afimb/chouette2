@@ -2,14 +2,25 @@
 require 'spec_helper'
 
 describe "Referentials" do
+  login_user
 
   describe "index" do
-    let!(:referentials) {  Array.new(2) { Factory(:referential) } } 
 
-    it "should show n referentials" do
+    it "should support no referential" do
       visit referentials_path
-      page.should have_content(referentials.first.name)
-      page.should have_content(referentials.last.name)
+      page.should have_content("Espace de données")
+    end
+
+    context "when several referentials exist" do
+                                                
+      let!(:referentials) {  Array.new(2) { Factory(:referential) } } 
+
+      it "should show n referentials" do
+        visit referentials_path
+        page.should have_content(referentials.first.name)
+        page.should have_content(referentials.last.name)
+      end
+      
     end
 
   end

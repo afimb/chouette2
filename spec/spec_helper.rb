@@ -40,16 +40,21 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with( :truncation, {:except => %w[spatial_ref_sys geometry_columns]} )
+
+    Apartment.database_names.each do |database|
+      Apartment::Database.drop(database)
+    end
+    DatabaseCleaner.clean_with(:truncation, {:except => %w[spatial_ref_sys geometry_columns]} )
   end
 
   config.before(:each) do
+    Apartment::Database.switch(nil)
     DatabaseCleaner.start
   end
 
   config.after(:each) do
-    Apartment::Database.switch(nil)
     DatabaseCleaner.clean
+    Apartment::Database.switch(nil)
   end
 
 end
