@@ -41,6 +41,8 @@ h3. Attributs
 * !quay.png! quai
 * !commercialstoppoint.png! arr&ecirc;t commercial
 * !stopplace.png! p&ocirc;le d'&eacute;change
+* !itl.png! ITL
+
 
 - Nom := nom de l'arr&ecirc;t 
 - Commentaire := zone de texte libre
