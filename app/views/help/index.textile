@@ -8,30 +8,20 @@ Chouette v2 : it&eacute;ration 4 du 16/04/2012
 Cette it&eacute;ration pr&eacute;sente les formulaires de :
 
 * r&eacute;seaux
+* transporteurs
 * lignes
 * arr&ecirc;ts
 * calendriers d'application
 
-l'avancement actuel permet de ...
+l'avancement actuel permet de : 
 
-h3. Sommaire
+* cr&eacute;er, modifier et supprimer les objets
+* consulter les cartes
 
-# "G&eacute;n&eacute;ralit&eacute;s":introduction
-## "Normalisation":normalisation
-# "Espaces de donn&eacute;es":dataspaces
-# "R&eacute;seaux":networks
-# "Transporteurs":companies
-# "Lignes":lines
-## S&eacute;quences d'arr&ecirc;ts
-## Horaires
-# "Arr&ecirc;ts":stop_areas
-## Correspondances
-## Acc&egrave;s
-## Liaisons Arr&ecirc;t-Acc&egrave;s
-# "Calendriers d'application":timetables
-# Outils
-## Imports
-## Validation
-# Divers
-## "API Rest":restapis
+les action suivantes ne sont pas encore disponible : 
 
+* d&eacute;placer un arr&ecirc;t depuis la carte
+* afficher le fond G&eacute;oportail
+* ajouter ou supprimer des dates et des p&eacute;riodes aux calendriers
+* associer les arr&ecirc;ts &agrave; leurs parents
+* associer une ITL &agrave; une ligne

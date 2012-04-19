@@ -2,6 +2,7 @@ class HelpController < ApplicationController
 
   def show
     @page = HelpPage.find(slug)
+    @toc = HelpPage.find("toc")
   end
 
   private
