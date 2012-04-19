@@ -2,7 +2,7 @@ module DeviseRequestHelper
   include Warden::Test::Helpers
 
   def login_user
-    @user ||= FactoryGirl.create :user
+    @user ||= create :user
     login_as @user, :scope => :user
     # post_via_redirect user_session_path, 'user[email]' => @user.email, 'user[password]' => @user.password
   end
