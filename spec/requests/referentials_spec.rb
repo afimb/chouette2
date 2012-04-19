@@ -42,7 +42,8 @@ describe "Referentials" do
   describe "destroy" do
     let(:referential) {  create(:referential) } 
 
-    it "should" do
+    it "should remove referential" do
+      pending "Unauthorized DELETE (ticket #14)"
       visit referential_path(referential)
       click_link "Supprimer"
       Referential.where(:slug => referential.slug).should be_blank
