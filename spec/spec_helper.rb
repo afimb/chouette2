@@ -8,6 +8,12 @@ require 'rspec/autorun'
 require 'capybara/rspec'
 require 'capybara/rails'
 
+# FIXME FactoryGirl not found in jenkins build #13
+unless defined?(FactoryGirl)
+  require 'factory_girl'
+  require 'spec/factories.rb'
+end
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
@@ -41,9 +47,14 @@ RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
 
-    Apartment.database_names.each do |database|
-      Apartment::Database.drop(database)
+    begin
+      Apartment.database_names.each do |database|
+        Apartment::Database.drop(database)
+      end
+    rescue
+      # FIXME referentials table not found in jenkins build #13
     end
+
     DatabaseCleaner.clean_with(:truncation, {:except => %w[spatial_ref_sys geometry_columns]} )
   end
 
