@@ -1,3 +1,9 @@
 <h2><%= @page.title %></h2>
 
 <%= textilize(@page.content).html_safe %>
+
+<% content_for :sidebar do %>
+<div id="sidebarhelp" class="help">
+<%= textilize(@toc.content).html_safe %>
+</div>
+<% end %>

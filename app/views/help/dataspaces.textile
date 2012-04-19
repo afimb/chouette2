@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Espaces de donnees
+title: Espaces de données
 ---
 
 h3. D&eacute;finition

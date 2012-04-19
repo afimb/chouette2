@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Arr&ecirc;ts
+title: Arrêts
 ---
 
 h3. D&eacute;finition
