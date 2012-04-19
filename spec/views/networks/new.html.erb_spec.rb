@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe "/networks/new" do
-  let!(:referential) { assign(:referential, Factory(:referential)) }
-  let!(:network) {  assign(:network, Factory.build(:network)) }
+  let!(:referential) { assign(:referential, create(:referential)) }
+  let!(:network) {  assign(:network, build(:network)) }
 
   describe "form" do
     

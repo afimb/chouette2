@@ -13,7 +13,7 @@ describe "Referentials" do
 
     context "when several referentials exist" do
                                                 
-      let!(:referentials) {  Array.new(2) { Factory(:referential) } } 
+      let!(:referentials) {  Array.new(2) { create(:referential) } } 
 
       it "should show n referentials" do
         visit referentials_path
@@ -40,7 +40,7 @@ describe "Referentials" do
   end
 
   describe "destroy" do
-    let(:referential) {  Factory(:referential) } 
+    let(:referential) {  create(:referential) } 
 
     it "should" do
       visit referential_path(referential)

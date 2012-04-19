@@ -3,8 +3,8 @@ require 'spec_helper'
 describe "Lines" do
   login_user
 
-  let!(:referential) { Factory(:referential).switch }
-  let!(:lines) { referential; Array.new(2) { Factory(:line) } }
+  let!(:referential) { create(:referential).switch }
+  let!(:lines) { referential; Array.new(2) { create(:line) } }
 
   describe "GET /lines" do
     it "works! (now write some real specs)" do

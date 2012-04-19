@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe "/companies/edit" do
-  let!(:referential) { assign(:referential, Factory(:referential)) }
-  let!(:company) { assign(:company, Factory(:company)) }
-  let!(:companies) { Array.new(2) { Factory(:company) } }
+  let!(:referential) { assign(:referential, create(:referential)) }
+  let!(:company) { assign(:company, create(:company)) }
+  let!(:companies) { Array.new(2) { create(:company) } }
 
   describe "test" do
     it "should render h2 with the company name" do

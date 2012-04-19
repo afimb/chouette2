@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe "/lines/index" do
 
-  let!(:referential) { assign :referential, Factory(:referential) }
-  let!(:network) { Factory :network }
-  let!(:company) { Factory :company }
-  let!(:lines) { assign :lines, Array.new(2) { Factory(:line, :network => network, :company => company) }.paginate }  
+  let!(:referential) { assign :referential, create(:referential) }
+  let!(:network) { create :network }
+  let!(:company) { create :company }
+  let!(:lines) { assign :lines, Array.new(2) { create(:line, :network => network, :company => company) }.paginate }  
   let!(:q) { assign :q, Ransack::Search.new(Chouette::Line) }
 
   before :each do

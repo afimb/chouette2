@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe "/networks/edit" do
-  let!(:referential) { assign(:referential, Factory(:referential)) }
-  let!(:network) { assign(:network, Factory(:network) ) }
+  let!(:referential) { assign(:referential, create(:referential)) }
+  let!(:network) { assign(:network, create(:network) ) }
 
   describe "test" do
     it "should render h2 with the group name" do

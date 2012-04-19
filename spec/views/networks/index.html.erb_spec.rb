@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe "/networks/index" do
 
-  let!(:referential) { assign :referential, Factory(:referential) }
-  let!(:networks) { assign :networks, Array.new(2){ Factory(:network) }.paginate }  
+  let!(:referential) { assign :referential, create(:referential) }
+  let!(:networks) { assign :networks, Array.new(2){ create(:network) }.paginate }  
   let!(:search) { assign :q, Ransack::Search.new(Chouette::Network) }
 
   it "should render a show link for each group" do        

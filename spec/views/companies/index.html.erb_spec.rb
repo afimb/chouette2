@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe "/companies/index" do
 
-  let!(:referential) { assign( :referential, Factory(:referential) ) }
-  let!(:companies) { assign :companies, Array.new(2) { Factory(:company) }.paginate  }  
+  let!(:referential) { assign( :referential, create(:referential) ) }
+  let!(:companies) { assign :companies, Array.new(2) { create(:company) }.paginate  }  
   let!(:search) { assign :q, Ransack::Search.new(Chouette::Company) }
 
   it "should render a show link for each group" do        

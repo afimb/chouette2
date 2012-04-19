@@ -3,8 +3,8 @@ require 'spec_helper'
 describe "Networks" do
   login_user
 
-  let!(:referential) { Factory(:referential).switch }  
-  let!(:networks) { referential; Array.new(2) { Factory(:network) } }
+  let!(:referential) { create(:referential).switch }  
+  let!(:networks) { referential; Array.new(2) { create(:network) } }
 
   describe "GET /networks" do
     it "works! (now write some real specs)" do

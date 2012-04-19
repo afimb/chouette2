@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe "/lines/show" do
   
-  let!(:referential) { assign :referential, Factory(:referential) }
-  let!(:line) { assign :line, Factory(:line) }
+  let!(:referential) { assign :referential, create(:referential) }
+  let!(:line) { assign :line, create(:line) }
   let!(:map) { assign(:map, mock(:to_html => '<div id="map"/>')) }
 
   it "should render h2 with the line name" do
