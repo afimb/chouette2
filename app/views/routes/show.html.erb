@@ -1,0 +1,57 @@
+<%= title_tag t('routes.show.title', :route => @route.name ) %>
+
+<div class="route_show">
+
+  <div class="summary">
+    <p>
+      <label><%= @route.human_attribute_name(:line) %>: </label>
+      <%= link_to @line.name, [@referential, @line] %>
+    </p>
+    <p>
+      <label><%= @route.human_attribute_name(:name) %>: </label>
+      <%= @route.name %>
+    </p>
+    <p>
+      <label><%= @route.human_attribute_name(:published_name) %>: </label>
+      <%= @route.published_name %>
+    </p>
+    <p>
+      <label><%= @route.human_attribute_name(:number) %>: </label>
+      <%= @route.number %>
+    </p>
+    <p>
+      <label><%= @route.human_attribute_name(:comment) %>: </label>
+      <%= @route.comment %>
+    </p>
+    <p>
+      <label><%= @route.human_attribute_name(:direction) %>: </label>
+      <%= @route.direction %>
+    </p>
+    <p>
+      <label><%= @route.human_attribute_name(:wayback) %>: </label>
+      <%= @route.wayback %>
+    </p>
+    <p>
+      <label><%= @route.human_attribute_name("objectid") %>: </label>
+      <%= @route.objectid %>
+    </p>
+    <p>
+      <label><%= @route.human_attribute_name("creation_time") %>: </label>
+      <%= @route.creation_time %>
+    </p>
+    <p>
+      <label><%= @route.human_attribute_name("creator_id") %>: </label>
+      <%= @route.creator_id %>
+    </p>
+  </div>
+
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('routes.actions.edit'), edit_referential_line_route_path(@referential, @line, @route), :class => "edit" %></li>
+  <li><%= link_to  t('routes.actions.destroy'), referential_line_route_path(@referential, @line, @route), :method => :delete, :confirm =>  t('routes.actions.destroy_confirm'), :class => "remove" %></li>
+  <br>
+</ul>
+<% end %>
+

@@ -1,0 +1,21 @@
+<%= title_tag t('routes.index.title') %> 
+
+<%= search_form_for @q, :url => referential_line_routes_path(@referential, @line), :html => {:method => :get} do |f| %>
+  <%= f.text_field :name_cont %>
+
+  <%= f.submit t('actions.search') %> <%= t("or") %>
+  <%= link_to t("cancel"), referential_line_path(@referential,@line) %>
+<% end %>
+
+<%= will_paginate @line.routes %>
+<div class="routes paginated_content">
+  <%= render :partial => "route", :collection => @line.routes %>
+</div>
+<%= will_paginate @line.routes %>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('routes.actions.new'), new_referential_line_route_path(@referential, @line), :class => "add" %></li> 
+</ul>
+<% end %>
+

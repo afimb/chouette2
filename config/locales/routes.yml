@@ -1,0 +1,71 @@
+en:
+  routes:
+    actions:
+      new: Add a new route
+      edit: Edit this route
+      destroy: Remove this route
+      destroy_confirm: Are you sure you want destroy this route?
+    new:
+      title: Add a new route
+    edit:
+      title: Update route %{route}
+    show:
+      title: Route %{route}
+    index:
+      title: Routes
+      selection: Selection
+      selection_all: All
+  activerecord:        
+    models:        
+      route: Route
+    attributes:
+      route:
+        line: Line
+        name: Name
+        published_name: Published name        
+        comment: Comments
+        number: Number
+        direction: Direction
+        wayback_code: Wayback
+        opposite_route: Reversed route
+        objectid: Neptune identifier
+        object_version: Version
+        creation_time: Created on
+        creator_id: Created by 
+
+fr:
+  routes:
+    actions:
+      new: Ajouter un itinéraire
+      edit: Modifier cet itinéraire
+      destroy: Supprimer cet itinéraire
+      destroy_confirm: Etes vous sûr de détruire cet itinéraire ?
+    new:
+      title: Ajouter un itinéraire
+    edit:
+      title: "Modifier l'itinéraire %{route}"
+    show:
+      title: Itinéraire %{route}
+    index:
+      title: Itinéraires
+      selection: Sélection
+      selection_all: Tous
+  activerecord:        
+    models:        
+      route: Itinéraire
+    attributes:
+      route:
+        line: Ligne
+        name: Nom
+        published_name: Nom public        
+        number: Indice
+        comment: Commentaire
+        direction: Direction
+        wayback_code: Sens
+        opposite_route: Itinéraire retour
+        objectid: Identifiant Neptune
+        object_version: Version
+        creation_time: Créé le
+        creator_id: Créé par
+
+

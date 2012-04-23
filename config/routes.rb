@@ -17,6 +17,7 @@ ChouetteIhm::Application.routes.draw do
   resources :referentials do
     resources :lines, :networks do
       resources :stop_areas
+      resources :routes
     end
 
     resources :companies, :stop_areas, :time_tables
