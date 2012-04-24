@@ -1,11 +1,11 @@
-<%= title_tag t('routes.show.title', :route => @route.name ) %>
+<%= title_tag t('routes.show.title', :route => @route.name, :line => @line.name ) %>
 
 <div class="route_show">
 
   <div class="summary">
     <p>
       <label><%= @route.human_attribute_name(:line) %>: </label>
-      <%= link_to @line.name, [@referential, @line] %>
+      <%= link_to line_formatted_name( @line), [@referential, @line] %>
     </p>
     <p>
       <label><%= @route.human_attribute_name(:name) %>: </label>
@@ -24,12 +24,30 @@
       <%= @route.comment %>
     </p>
     <p>
-      <label><%= @route.human_attribute_name(:direction) %>: </label>
-      <%= @route.direction %>
+      <label><%= @route.human_attribute_name(:direction_code) %>: </label>
+      <% if @route.direction_code %>
+        <p><%= @route.direction_code.inspect %></p>
+        <p><%= @route.direction.inspect %></p>
+        <%= t("directions.label.#{@route.direction_code}").capitalize %>
+      <% else %>
+        <%= t(".undefined") %>
+      <% end %>
     </p>
     <p>
-      <label><%= @route.human_attribute_name(:wayback) %>: </label>
-      <%= @route.wayback %>
+      <label><%= @route.human_attribute_name(:wayback_code) %>: </label>
+      <% if @route.wayback_code %>
+        <%= t("waybacks.label.#{@route.wayback_code}").capitalize %>
+      <% else %>
+        <%= t(".undefined") %>
+      <% end %>
+    </p>
+    <p>
+      <label><%= @route.human_attribute_name(:opposite_route) %>: </label>
+      <% if @route.opposite_route %>
+        <%= link_to @route.opposite_route.name, [@referential, @line, @route] %>
+      <% else %>
+        <%= t(".no_opposite_route") %>
+      <% end %>
     </p>
     <p>
       <label><%= @route.human_attribute_name("objectid") %>: </label>
@@ -37,7 +55,7 @@
     </p>
     <p>
       <label><%= @route.human_attribute_name("creation_time") %>: </label>
-      <%= @route.creation_time %>
+      <%= l @route.creation_time %>
     </p>
     <p>
       <label><%= @route.human_attribute_name("creator_id") %>: </label>
@@ -46,6 +64,13 @@
   </div>
 
 </div>
+
+<h3 class="stop_areas"><%= t('.stop_areas') %></h3>
+<%= will_paginate @stop_areas %>
+<div class="stop_areas paginated_content">
+  <%= render :partial => "stop_areas/stop_area", :collection => @stop_areas %>
+</div>
+<%= will_paginate @stop_areas %>
 
 <% content_for :sidebar do %>
 <ul class="actions">

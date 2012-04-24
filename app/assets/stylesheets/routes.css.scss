@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "common";
 
-#workspace.routes.index
+#workspace.lines.show
 {
     .route:after { 
         @include after_div_for_object;  

@@ -11,6 +11,9 @@ en:
       title: Update route %{route}
     show:
       title: Route %{route}
+      stop_areas: "Routes's stop areas list" 
+      no_opposite_route: No reversed route associated
+      undefined: Undefined
     index:
       title: Routes
       selection: Selection
@@ -25,7 +28,7 @@ en:
         published_name: Published name        
         comment: Comments
         number: Number
-        direction: Direction
+        direction_code: Direction
         wayback_code: Wayback
         opposite_route: Reversed route
         objectid: Neptune identifier
@@ -45,7 +48,10 @@ fr:
     edit:
       title: "Modifier l'itinéraire %{route}"
     show:
-      title: Itinéraire %{route}
+      title: Itinéraire %{route} de la ligne %{line}
+      stop_areas: "Liste des arrêts de l'itinéraire" 
+      no_opposite_route: Aucun itinéraire associé en sens opposé
+      undefined: Non défini
     index:
       title: Itinéraires
       selection: Sélection
@@ -60,9 +66,9 @@ fr:
         published_name: Nom public        
         number: Indice
         comment: Commentaire
-        direction: Direction
+        direction_code: Direction
         wayback_code: Sens
-        opposite_route: Itinéraire retour
+        opposite_route: Itinéraire associé en sens opposé
         objectid: Identifiant Neptune
         object_version: Version
         creation_time: Créé le

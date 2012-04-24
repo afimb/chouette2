@@ -8,6 +8,7 @@ class LinesController < ChouetteController
 
   def show
     @map = LineMap.new referential, resource
+    @routes = @line.routes.paginate(:page => params[:page], :per_page => 10)
     show!
   end
 
