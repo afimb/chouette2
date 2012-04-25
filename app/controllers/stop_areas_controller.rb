@@ -6,7 +6,7 @@ class StopAreasController < ChouetteController
     belongs_to :network, :parent_class => Chouette::Network, :optional => true, :polymorphic => true
   end
 
-  respond_to :html, :kml
+  respond_to :html, :kml, :xml, :json
 
   # def complete
   #   @stop_areas = line.stop_areas
