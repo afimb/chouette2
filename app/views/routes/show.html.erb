@@ -26,8 +26,6 @@
     <p>
       <label><%= @route.human_attribute_name(:direction_code) %>: </label>
       <% if @route.direction_code %>
-        <p><%= @route.direction_code.inspect %></p>
-        <p><%= @route.direction.inspect %></p>
         <%= t("directions.label.#{@route.direction_code}").capitalize %>
       <% else %>
         <%= t(".undefined") %>
@@ -65,7 +63,7 @@
 
 </div>
 
-<h3 class="stop_areas"><%= t('.stop_areas') %></h3>
+<h3><%= t('.stop_areas') %></h3>
 <%= will_paginate @stop_areas %>
 <div class="stop_areas paginated_content">
   <%= render :partial => "stop_areas/stop_area", :collection => @stop_areas %>
