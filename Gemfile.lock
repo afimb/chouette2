@@ -1,6 +1,6 @@
 GIT
   remote: git://chouette.dryade.priv/ninoxe
-  revision: be3072bcfbceb597bc74ee7661733ea01110632a
+  revision: b0092753d05902daba83fe717159ba056fdd4b6f
   specs:
     ninoxe (0.0.8)
       GeoRuby
@@ -26,16 +26,6 @@ GIT
     apartment (0.14.1)
 
 GIT
-  remote: git://github.com/mflorisson/pickle.git
-  revision: 4316faa3ef00c414bf286336c57a6d10addcf79f
-  specs:
-    pickle (0.4.4)
-      cucumber (>= 0.8)
-      rake
-      rspec (>= 1.3)
-      yard
-
-GIT
   remote: git://github.com/thoughtbot/shoulda.git
   revision: 80545637b957fc68a3b7be8993033d089913ac66
   specs:
@@ -54,11 +44,8 @@ GEM
   remote: http://rubygems.org/
   specs:
     GeoRuby (1.3.4)
-    RedCloth (4.2.9)
-    RedCloth (4.2.9-java)
     SyslogLogger (1.4.0)
       hoe (>= 1.2.0)
-    ZenTest (4.5.0)
     actionmailer (3.1.3)
       actionpack (= 3.1.3)
       mail (~> 2.3.0)
@@ -92,11 +79,6 @@ GEM
       multi_json (~> 1.0)
     addressable (2.2.6)
     arel (2.2.3)
-    autotest-notification (2.3.4)
-      autotest-standalone (~> 4.5)
-    autotest-rails (4.1.1)
-      ZenTest (= 4.5)
-    autotest-standalone (4.5.9)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-java)
     bouncy-castle-java (1.5.0146.1)
@@ -116,6 +98,9 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
+    capybara-webkit (0.11.0)
+      capybara (>= 1.0.0, < 1.2)
+      json
     childprocess (0.3.0)
       ffi (~> 1.0.6)
     coffee-rails (3.1.1)
@@ -127,16 +112,6 @@ GEM
     coffee-script-source (1.1.2)
     composite_primary_keys (4.1.2)
       activerecord (~> 3.1)
-    cucumber (1.1.4)
-      builder (>= 2.1.2)
-      diff-lcs (>= 1.1.2)
-      gherkin (~> 2.7.1)
-      json (>= 1.4.6)
-      term-ansicolor (>= 1.0.6)
-    cucumber-rails (1.2.1)
-      capybara (>= 1.1.2)
-      cucumber (>= 1.1.3)
-      nokogiri (>= 1.5.0)
     database_cleaner (0.7.1)
     devise (2.0.4)
       bcrypt-ruby (~> 3.0)
@@ -147,10 +122,10 @@ GEM
     erubis (2.7.0)
     execjs (1.2.13)
       multi_json (~> 1.0)
-    factory_girl (2.5.0)
-      activesupport
-    factory_girl_rails (1.6.0)
-      factory_girl (~> 2.5.0)
+    factory_girl (2.6.4)
+      activesupport (>= 2.3.9)
+    factory_girl_rails (1.7.0)
+      factory_girl (~> 2.6.0)
       railties (>= 3.0.0)
     ffi (1.0.11)
     ffi (1.0.11-java)
@@ -158,10 +133,6 @@ GEM
       rails (~> 3.0)
     geokit (1.6.5)
       multi_json
-    gherkin (2.7.6)
-      json (>= 1.4.6)
-    gherkin (2.7.6-java)
-      json (>= 1.4.6)
     guard (1.0.1)
       ffi (>= 0.5.0)
       thor (~> 0.14.6)
@@ -292,7 +263,6 @@ GEM
       activerecord (~> 3.0)
       activesupport (~> 3.0)
       polyamorous (~> 0.5.0)
-    term-ansicolor (1.0.7)
     therubyrhino (1.73.1)
     thor (0.14.6)
     tilt (1.3.3)
@@ -313,31 +283,25 @@ GEM
     will_paginate (3.0.3)
     xpath (0.1.4)
       nokogiri (~> 1.3)
-    yard (0.7.4)
 
 PLATFORMS
   java
   ruby
 
 DEPENDENCIES
-  RedCloth
   SyslogLogger
   activerecord-jdbcpostgresql-adapter!
   activerecord-jdbcsqlite3-adapter
   apartment!
-  autotest-notification
-  autotest-rails
   capistrano
   capistrano-ext
   capybara
+  capybara-webkit
   coffee-rails (~> 3.1.1)
   coffee-script-source
-  cucumber
-  cucumber-rails
   database_cleaner
   devise
-  factory_girl
-  factory_girl_rails
+  factory_girl_rails (= 1.7)
   formtastic
   guard
   guard-rspec
@@ -349,7 +313,6 @@ DEPENDENCIES
   map_layers (~> 0.0.4)
   ninoxe!
   pg (~> 0.11.0)
-  pickle!
   rails (= 3.1.3)
   ransack
   remarkable (~> 4.0.0.alpha4)

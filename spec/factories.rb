@@ -33,16 +33,16 @@ FactoryGirl.define do
     network.sequence(:name) { |n| "Network #{n}" }
     network.sequence(:objectid) { |n| "test:GroupOfLine:#{n}" }
     network.sequence(:registration_number) { |n| "test-#{n}" }
-
   end
 
-  # factory :chouette_stop_area, :class => "Chouette::StopArea" do |f|
-  #   f.latitude 10 * rand
-  #   f.longitude 10 * rand
-  #   f.sequence(:name) { |n| "StopArea #{n}" }
-  #   f.areatype "CommercialStopPoint"
-  #   f.objectid
-  # end
+  factory :stop_area, :class => "Chouette::StopArea" do |stop_area|
+    stop_area.sequence(:name) { |n| "StopArea #{n}" }
+    stop_area.latitude 10
+    stop_area.longitude 10    
+    stop_area.areatype "CommercialStopPoint"
+    stop_area.sequence(:registration_number) { |n| "test-#{n}" }
+    stop_area.sequence(:objectid) { |n| "test:StopArea:#{n}" }
+  end
 
   factory :referential do |f|
     f.sequence(:name) { |n| "Test #{n}" }
