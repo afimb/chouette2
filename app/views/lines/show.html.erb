@@ -52,11 +52,10 @@
 </div>
 
 <h3 class="routes"><%= t('.itineraries') %></h3>
-<%= will_paginate @routes %>
+
 <div class="routes paginated_content">
   <%= render :partial => "routes/route", :collection => @routes %>
 </div>
-<%= will_paginate @routes %>
 
 <% content_for :sidebar do %>
 <ul class="actions">

@@ -22,27 +22,22 @@
 
         /* to create multi-column index */
         width: 350px;
-        float: left;
         padding-right: 10px;
 
-        .color {
-            width: 64px;
-            height: 64px;
+        .wayback {
+            width: 16px;
+            height: 16px;
             float: left;
-            margin-right: 10px;
-            border: 1px solid #999;
-
-            a {
-                text-decoration: none;                   
-            }
+            margin-right: 10px; 
+            
+            a{ margin:0px;}
         }
-
-        .number {     
-            font-size: 16px;
-            text-align: center;
-            font-weight: bold;
-            padding-top: 21px;
-        }   
+        
+        .name {
+            line-height: 16px;
+            float: left;
+        }
+        
     }
 }
 
@@ -56,11 +51,44 @@
 #workspace.routes.show
 {
     .route_color{ color: white;
-                 font-weight: bold;
-                 padding: 0 5px 0 5px;}
+                  font-weight: bold;
+                  padding: 0 5px 0 5px;}
 
     .summary p label {
         font-weight: bold;
     }
+    
+    .stop_area:after { 
+        @include after_div_for_object;  
+    }
+
+    .stop_areas {
+        margin-top: 20px;
+    }
+
+    .stop_areas:after {
+        @include content_to_clear;
+    }
+    
+    .stop_area {
+        @include div_for_object;
+        /* to create multi-column index */
+        width: 350px;
+        float: left;
+        padding-right: 10px;
+
+        .area_type {
+            width: 25px;
+            height: 64px;
+            float: left;
+            margin-right: 10px;
+            
+
+            a {
+                text-decoration: none;                   
+            }            
+        }
+    }
+    
 }        
 
