@@ -17,6 +17,18 @@ FactoryGirl.define do
     line.sequence(:registration_number) { |n| "test-#{n}" }
   end
 
+  factory :route, :class => "Chouette::Route" do |route|
+    route.sequence(:name) { |n| "Route #{n}" }
+    route.sequence(:objectid) { |n| "test:Route:#{n}" }
+
+    route.sequence(:published_name) { |n| "Long route #{n}" }
+    route.sequence(:number) { |n| "#{n}" }
+    route.sequence(:wayback_code) { |n| Chouette::Wayback.new( n % 2) }
+    route.sequence(:direction_code) { |n| Chouette::Direction.new( n % 12) }
+
+    route.association :line, :factory => :line
+  end
+
   factory :network, :class => "Chouette::Network" do |network|
     network.sequence(:name) { |n| "Network #{n}" }
     network.sequence(:objectid) { |n| "test:GroupOfLine:#{n}" }
