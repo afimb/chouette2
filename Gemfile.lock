@@ -1,6 +1,6 @@
 GIT
   remote: git://chouette.dryade.priv/ninoxe
-  revision: d6e74962215872d521fe0830e101f2cc3a5e8bf0
+  revision: 8b4136d1c06cc03c22443cae4408b5b173dca9b5
   specs:
     ninoxe (0.0.8)
       GeoRuby
@@ -39,6 +39,13 @@ GIT
   specs:
     user_interface (0.0.1)
       rails (~> 3.1.0)
+
+GIT
+  remote: git@github.com:dryade/acts_as_tree.git
+  revision: 36ced5234beafdb3b21c2c2e2aa1686d37061497
+  specs:
+    acts_as_tree (1.1.0)
+      activerecord (>= 3.0.0)
 
 GEM
   remote: http://rubygems.org/
@@ -292,6 +299,7 @@ DEPENDENCIES
   SyslogLogger
   activerecord-jdbcpostgresql-adapter!
   activerecord-jdbcsqlite3-adapter
+  acts_as_tree!
   apartment!
   capistrano
   capistrano-ext

@@ -45,8 +45,59 @@
        padding-left:15px;
     }
 
-    .summary p label {
-        font-weight: bold;
+    .summary{
+        height: 400px;
+        
+        p label {
+            font-weight: bold;
+        }
+    }
+
+    .genealogical{
+        margin-top: 20px;
+
+        .parent{
+            border: 2px solid black;
+            float: left;
+            padding: 3px 15px 3px 3px;
+            height: 25px;        
+            * { vertical-align:middle; }
+            span { margin-left: 7px; }
+            img { margin: 0px 5px 0px 5px;}
+        }
+        
+        .target{
+            border: 2px solid #86b41d;
+            float: left;
+            padding: 3px 15px 3px 3px;
+            height: 25px;
+            font-weight: bold;
+            * { vertical-align:middle; }
+            span { margin-left: 7px; }
+            img { margin: 0px 5px 0px 5px;}
+        }
+        
+        .children{
+            float: left;
+
+            .child{
+                border: 2px solid black;
+                padding: 3px 15px 3px 3px;
+                height: 25px;
+                margin-bottom: 5px;
+                * { vertical-align:middle; }
+                span { margin-left: 7px; }
+                img { margin: 0px 5px 0px 5px;}
+            }
+        }
+        
+        .link{
+            float: left;
+            padding: 7px;
+            margin-right: 10px; 
+            margin-left: 10px;
+            height: 25px;
+        }
     }
 }
 

@@ -1,7 +1,7 @@
 <%= div_for(stop_area) do %>
   <%= link_to([@referential, stop_area], :class => "preview") do %>
     <div class="area_type">
-      <%= image_tag "map/" + stop_area.area_type.to_s.downcase + ".png"   %>
+      <%= image_tag "map/" + stop_area.type + ".png"   %>
     </div>
   <% end %>
   <%= link_to stop_area.name, [@referential, stop_area] %>
