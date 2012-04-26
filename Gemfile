@@ -27,7 +27,7 @@ gem 'will_paginate', '~> 3.0'
 gem 'ransack'
 gem 'squeel'
 
-gem "acts_as_tree", :git => "git@github.com:dryade/acts_as_tree.git"
+gem "acts_as_tree", :git => "git://github.com/dryade/acts_as_tree.git"
 gem 'apartment', :git => 'git://github.com/dryade/apartment.git'
 gem 'ninoxe', :git => 'git://chouette.dryade.priv/ninoxe'#, :path => '~/projects/ninoxe'
 
