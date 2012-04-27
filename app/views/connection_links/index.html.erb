@@ -1,0 +1,22 @@
+<%= title_tag t('connection_links.index.title') %> 
+
+<%= search_form_for @q, :url => referential_connection_links_path(@referential), :html => {:method => :get} do |f| %>
+  <%= f.label :name_cont, "#{t('.name')} :" %>
+  <%= f.text_field :name_cont %>
+
+  <%= f.submit t('actions.search') %> <%= t("or") %>
+  <%= link_to t("cancel"), referential_connection_links_path(@referential) %>
+<% end %>
+
+<%= will_paginate @connection_links %>
+<div class="connection_links paginated_content">
+  <%= render :partial => "connection_link", :collection => @connection_links %>
+</div>
+<%= will_paginate @connection_links %>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('connection_links.actions.new'), new_referential_connection_link_path(@referential), :class => "add" %></li> 
+</ul>
+
+<% end %>

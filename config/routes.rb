@@ -20,7 +20,7 @@ ChouetteIhm::Application.routes.draw do
       resources :routes
     end
 
-    resources :companies, :stop_areas, :time_tables
+    resources :companies, :stop_areas, :time_tables, :connection_links
   end 
 
   match '/help/(*slug)' => 'help#show'

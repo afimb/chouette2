@@ -1,0 +1,47 @@
+<%= title_tag t('connection_links.show.title', :connection_link => @connection_link.name ) %>
+
+<div class="connection_link_show">
+
+  <div class="summary">
+    <p>
+      <label><%= @connection_link.human_attribute_name(:departure) %>: </label>
+      <%= link_to @connection_link.departure.name, [@referential, @connection_link.departure] %>
+    </p>
+    <p>
+      <label><%= @connection_link.human_attribute_name(:arrival) %>: </label>
+      <%= link_to @connection_link.arrival.name, [@referential, @connection_link.arrival] %>
+    </p>
+    <p>
+      <label><%= @connection_link.human_attribute_name("name") %>: </label>
+      <%= @connection_link.name %>
+    </p>
+    <p>
+      <label><%= @connection_link.human_attribute_name("link_type") %>: </label>
+      <%= t("connection_link_types.label.#{@connection_link.link_type}") %>
+    </p>
+    <p>
+      <label><%= @connection_link.human_attribute_name("comment") %>: </label>
+      <%= @connection_link.comment %>
+    </p>
+    <p>
+      <label><%= @connection_link.human_attribute_name("objectid") %>: </label>
+      <%= @connection_link.objectid %>
+    </p>
+    <p>
+      <label><%= @connection_link.human_attribute_name("creation_time") %>: </label>
+      <%= @connection_link.creation_time %>
+    </p>
+    <p>
+      <label><%= @connection_link.human_attribute_name("creator_id") %>: </label>
+      <%= @connection_link.creator_id %>
+    </p>
+  </div>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('connection_links.actions.edit'), edit_referential_connection_link_path(@referential, @connection_link), :class => "edit" %></li>
+  <li><%= link_to  t('connection_links.actions.destroy'), referential_connection_link_path(@referential, @connection_link), :method => :delete, :confirm =>  t('connection_links.actions.destroy_confirm'), :class => "remove" %></li>
+  <br>
+</ul>
+<% end %>
