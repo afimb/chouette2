@@ -16,11 +16,24 @@ ChouetteIhm::Application.routes.draw do
   #   resources :products
   resources :referentials do
     resources :lines, :networks do
-      resources :stop_areas
+      resources :stop_areas do
+        resources :stop_area_parents
+        member do
+          get 'add_children'
+          get 'select_parent'
+        end
+      end        
       resources :routes
     end
 
-    resources :companies, :stop_areas, :time_tables
+    resources :companies, :time_tables
+    resources :stop_areas do
+      resources :stop_area_parents 
+      member do
+        get 'add_children'
+        get 'select_parent'
+      end
+    end
   end 
 
   match '/help/(*slug)' => 'help#show'

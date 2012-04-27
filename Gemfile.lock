@@ -1,6 +1,6 @@
 GIT
   remote: git://chouette.dryade.priv/ninoxe
-  revision: 8b4136d1c06cc03c22443cae4408b5b173dca9b5
+  revision: d07cf5dc8b9648e2ef7c27745b7c9b4575a3f676
   specs:
     ninoxe (0.0.8)
       GeoRuby
@@ -261,7 +261,7 @@ GEM
     shoulda-context (1.0.0)
     shoulda-matchers (1.0.0)
     spoon (0.0.1)
-    sprockets (2.0.3)
+    sprockets (2.0.4)
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)

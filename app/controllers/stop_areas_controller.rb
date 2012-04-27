@@ -13,6 +13,20 @@ class StopAreasController < ChouetteController
   #   render :layout => false
   # end
 
+  def select_parent
+    @stop_area = stop_area
+    @parent = stop_area.parent
+  end
+
+  def add_children
+    @stop_area = stop_area
+  end
+  
+  def possible_children
+    @possible_children= stop_area.possible_children
+    render :layout => false
+  end
+
   def index     
     request.format.kml? ? @per_page = nil : @per_page = 10
     index!
@@ -39,7 +53,7 @@ class StopAreasController < ChouetteController
   end
 
   protected
-
+  
   alias_method :stop_area, :resource
 
   def collection

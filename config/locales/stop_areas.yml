@@ -8,6 +8,8 @@ en:
       edit: Edit this stop
       destroy: Remove this stop
       destroy_confirm: Are you sure you want destroy this stop?
+      select_parent: Select Parent
+      add_children: Add Children
     new:
       title: Add a new stop
     edit:
@@ -23,6 +25,8 @@ en:
       selection: Selection
       selection_all: All
       area_type: Area Type
+    select_parent:
+      title: Select parent of stop area %{stop_area} 
   activerecord:        
     models:        
       stop_area: Stop area
@@ -62,6 +66,8 @@ fr:
       edit: Modifier cet arrêt
       destroy: Supprimer cet arrêt
       destroy_confirm: Etes vous sûr de détruire cet arrêt ?
+      select_parent: Sélectionner le parent
+      add_children: Ajouter un fils
     new:
       title: Ajouter un arrêt
     edit:
@@ -77,6 +83,8 @@ fr:
       selection: Sélection
       selection_all: Tous
       area_type: Type d'arrêt 
+    select_parent:
+      title: Sélection du parent de l'arrêt %{stop_area} 
   activerecord:        
     models:        
       stop_area: Arrêt
