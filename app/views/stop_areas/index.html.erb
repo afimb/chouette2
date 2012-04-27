@@ -8,11 +8,18 @@
   <%= link_to t("cancel"), referential_stop_areas_path(@referential) %>
 <% end %>
 
-<%= will_paginate @stop_areas %>
+<div class="pagination">
+  <div class="page_info">
+    <%= page_entries_info @stop_areas %>
+  </div>
+  <%= will_paginate @stop_areas, :container => false %>
+</div>
 <div class="stop_areas paginated_content">
   <%= render :partial => "stop_area", :collection => @stop_areas %>
 </div>
-<%= will_paginate @stop_areas %>
+<div class="pagination">
+  <%= will_paginate @stop_areas, :container => false %>
+</div>
 
 <% content_for :sidebar do %>
 <ul class="actions">

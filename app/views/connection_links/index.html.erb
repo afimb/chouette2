@@ -8,11 +8,18 @@
   <%= link_to t("cancel"), referential_connection_links_path(@referential) %>
 <% end %>
 
-<%= will_paginate @connection_links %>
+<div class="pagination">
+  <div class="page_info">
+    <%= page_entries_info @connection_links %>
+  </div>
+  <%= will_paginate @connection_links, :container => false %>
+</div>
 <div class="connection_links paginated_content">
   <%= render :partial => "connection_link", :collection => @connection_links %>
 </div>
-<%= will_paginate @connection_links %>
+<div class="pagination">
+  <%= will_paginate @connection_links, :container => false %>
+</div>
 
 <% content_for :sidebar do %>
 <ul class="actions">

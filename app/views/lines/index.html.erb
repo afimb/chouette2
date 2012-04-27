@@ -23,11 +23,19 @@
 </p>
 <% end %>
 
-<%= will_paginate @lines %>
+
+<div class="pagination">
+  <div class="page_info">
+    <%= page_entries_info @lines %>
+  </div>
+  <%= will_paginate @lines, :container => false %>
+</div>
 <div class="lines paginated_content">
   <%= render :partial => "line", :collection => @lines %>
 </div>
-<%= will_paginate @lines %>
+<div class="pagination">
+  <%= will_paginate @lines, :container => false %>
+</div>
 
 <% content_for :sidebar do %>
 <ul class="actions">

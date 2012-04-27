@@ -8,12 +8,18 @@
   <%= link_to t("cancel"), referential_networks_path(@referential) %>
 <% end %>
 
-<%= will_paginate @networks %>
+<div class="pagination">
+  <div class="page_info">
+    <%= page_entries_info @networks %>
+  </div>
+  <%= will_paginate @networks, :container => false %>
+</div>
 <div class="networks paginated_content">
   <%= render :partial => "network", :collection => @networks %>
 </div>
-<%= will_paginate @networks %>
-
+<div class="pagination">
+  <%= will_paginate @networks, :container => false %>
+</div>
 
 <% content_for :sidebar do %>
 <ul class="actions">
