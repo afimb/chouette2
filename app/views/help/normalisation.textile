@@ -21,7 +21,7 @@ Ces sp&eacute;cifications d'&eacute;change couvrent l'information VP et TC, th&e
 * un mod&egrave;le de donn&eacute;es orient&eacute; objets d&eacute;crit en UML, reprenant pour ce qui concerne les transports publics, le mod&egrave;le conceptuel de donn&eacute;es Transmodel V4.0, normalis&eacute; au niveau europ&eacute;en ; 
 * un format d'&eacute;change XML sp&eacute;cifi&eacute; sous forme de sch&eacute;mas XSD. 
 
-Les sp&eacute;cifications TRIDENT ont &eacute;t&eacute; impl&eacute;ment&eacute;es dans plusieurs pays europ&eacute;ens, et en France ont &eacute;t&eacute; mises en &oelig;uvre par la RATP pour son syst&egrave;me d'information sur les situations perturb&eacute;es SIPRE, et &eacute;galement pour les &eacute;changes d'information au niveau francilien en cours entre les syst&egrave;mes de la RATP et du STIF, pour ce qui concerne l'information th&eacute;orique.
+Les sp&eacute;cifications TRIDENT ont &eacute;t&eacute; impl&eacute;ment&eacute;es dans plusieurs pays europ&eacute;ens, et en France ont &eacute;t&eacute; mises en &&oelig;lig;uvre par la RATP pour son syst&egrave;me d'information sur les situations perturb&eacute;es SIPRE, et &eacute;galement pour les &eacute;changes d'information au niveau francilien en cours entre les syst&egrave;mes de la RATP et du STIF, pour ce qui concerne l'information th&eacute;orique.
 
 Le travail du groupe GT7 a abouti &agrave; des sp&eacute;cifications de profil d'&eacute;change TRIDENT / Chouette en 2006, qui ont servi de r&eacute;f&eacute;rence pour impl&eacute;menter le logiciel CHOUETTE et sont utilis&eacute;es depuis lors par plusieurs projets de SIM en France.
 

@@ -1,0 +1,301 @@
+<mockup version="1.0" skin="sketch" measuredW="1042" measuredH="1256" mockupW="853" mockupH="1231">
+  <controls>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::Title" x="226" y="147" w="-1" h="-1" measuredW="277" measuredH="37" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>28</size>
+        <text>Modifier%20la%20Course%20xyz</text>
+      </controlProperties>
+    </control>
+    <control controlID="20" controlTypeID="com.balsamiq.mockups::ButtonBar" x="226" y="90" w="-1" h="-1" measuredW="381" measuredH="29" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>2</selectedIndex>
+        <text>Tableau%20de%20bord%2C%20Lignes%2C%20Arr%EAts%2C%20...%2C%20Courses</text>
+      </controlProperties>
+    </control>
+    <control controlID="23" controlTypeID="com.balsamiq.mockups::FieldSet" x="189" y="121" w="588" h="1135" measuredW="200" measuredH="170" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::FieldSet" x="189" y="25" w="753" h="96" measuredW="200" measuredH="170" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::Label" x="233" y="240" w="-1" h="-1" measuredW="50" measuredH="22" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>14</size>
+        <text>Piscine</text>
+      </controlProperties>
+    </control>
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::TextInput" x="366" y="235" w="-1" h="-1" measuredW="51" measuredH="27" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>12h42</text>
+      </controlProperties>
+    </control>
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::Label" x="233" y="279" w="-1" h="-1" measuredW="45" measuredH="22" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>14</size>
+        <text>Mairie</text>
+      </controlProperties>
+    </control>
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::TextInput" x="366" y="310" w="-1" h="-1" measuredW="51" measuredH="27" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>12h54</text>
+      </controlProperties>
+    </control>
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::Label" x="233" y="315" w="-1" h="-1" measuredW="118" measuredH="22" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>14</size>
+        <text>Theatre%20Municipal</text>
+      </controlProperties>
+    </control>
+    <control controlID="35" controlTypeID="com.balsamiq.mockups::TextInput" x="366" y="274" w="-1" h="-1" measuredW="51" measuredH="27" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>12h47</text>
+      </controlProperties>
+    </control>
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::LinkBar" x="432" y="277" w="-1" h="-1" measuredW="256" measuredH="21" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>+1%2C%20-1%2C%20+1%20et%20suivants%2C%20-1%20et%20suivants</text>
+      </controlProperties>
+    </control>
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::Label" x="233" y="368" w="-1" h="-1" measuredW="50" measuredH="22" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>14</size>
+        <text>Piscine</text>
+      </controlProperties>
+    </control>
+    <control controlID="38" controlTypeID="com.balsamiq.mockups::TextInput" x="366" y="363" w="-1" h="-1" measuredW="51" measuredH="27" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>12h42</text>
+      </controlProperties>
+    </control>
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::Label" x="233" y="407" w="-1" h="-1" measuredW="45" measuredH="22" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>14</size>
+        <text>Mairie</text>
+      </controlProperties>
+    </control>
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::TextInput" x="366" y="438" w="-1" h="-1" measuredW="51" measuredH="27" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>12h54</text>
+      </controlProperties>
+    </control>
+    <control controlID="41" controlTypeID="com.balsamiq.mockups::Label" x="233" y="443" w="-1" h="-1" measuredW="118" measuredH="22" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>14</size>
+        <text>Theatre%20Municipal</text>
+      </controlProperties>
+    </control>
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::TextInput" x="366" y="402" w="-1" h="-1" measuredW="50" measuredH="27" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>12h52</text>
+      </controlProperties>
+    </control>
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::Label" x="432" y="405" w="271" h="21" measuredW="271" measuredH="21" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>+5%20minutes%20%7C%20%5BEnregistrer%5D%20%7C%20%5BModifier%20les%20suivants%5D</text>
+      </controlProperties>
+    </control>
+    <control controlID="45" controlTypeID="com.balsamiq.mockups::Label" x="243" y="936" w="-1" h="-1" measuredW="50" measuredH="22" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>14</size>
+        <text>Piscine</text>
+      </controlProperties>
+    </control>
+    <control controlID="46" controlTypeID="com.balsamiq.mockups::TextInput" x="376" y="931" w="-1" h="-1" measuredW="51" measuredH="27" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>12h42</text>
+      </controlProperties>
+    </control>
+    <control controlID="47" controlTypeID="com.balsamiq.mockups::Label" x="243" y="975" w="-1" h="-1" measuredW="46" measuredH="22" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>14</size>
+        <text>Mairie</text>
+      </controlProperties>
+    </control>
+    <control controlID="48" controlTypeID="com.balsamiq.mockups::TextInput" x="376" y="1006" w="-1" h="-1" measuredW="49" measuredH="27" zOrder="21" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>13h14</text>
+      </controlProperties>
+    </control>
+    <control controlID="49" controlTypeID="com.balsamiq.mockups::Label" x="243" y="1011" w="-1" h="-1" measuredW="118" measuredH="22" zOrder="22" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>14</size>
+        <text>Theatre%20Municipal</text>
+      </controlProperties>
+    </control>
+    <control controlID="50" controlTypeID="com.balsamiq.mockups::TextInput" x="376" y="970" w="-1" h="-1" measuredW="51" measuredH="27" zOrder="23" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>12h47</text>
+      </controlProperties>
+    </control>
+    <control controlID="51" controlTypeID="com.balsamiq.mockups::Label" x="442" y="1009" w="314" h="21" measuredW="301" measuredH="21" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>+20%20minutes%20%7C%20%5BEnregistrer%5D%20%7C%20%5BRepartir%20sur%20la%20s%E9lection%5D</text>
+      </controlProperties>
+    </control>
+    <control controlID="52" controlTypeID="com.balsamiq.mockups::Label" x="233" y="610" w="-1" h="-1" measuredW="50" measuredH="22" zOrder="25" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>14</size>
+        <text>Piscine</text>
+      </controlProperties>
+    </control>
+    <control controlID="53" controlTypeID="com.balsamiq.mockups::TextInput" x="366" y="605" w="-1" h="-1" measuredW="51" measuredH="27" zOrder="26" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>12h42</text>
+      </controlProperties>
+    </control>
+    <control controlID="54" controlTypeID="com.balsamiq.mockups::Label" x="233" y="649" w="-1" h="-1" measuredW="45" measuredH="22" zOrder="27" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>14</size>
+        <text>Mairie</text>
+      </controlProperties>
+    </control>
+    <control controlID="55" controlTypeID="com.balsamiq.mockups::TextInput" x="366" y="680" w="-1" h="-1" measuredW="49" measuredH="27" zOrder="28" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>13h14</text>
+      </controlProperties>
+    </control>
+    <control controlID="56" controlTypeID="com.balsamiq.mockups::Label" x="233" y="685" w="-1" h="-1" measuredW="118" measuredH="22" zOrder="29" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>14</size>
+        <text>Theatre%20Municipal</text>
+      </controlProperties>
+    </control>
+    <control controlID="57" controlTypeID="com.balsamiq.mockups::TextInput" x="366" y="644" w="-1" h="-1" measuredW="51" measuredH="27" zOrder="30" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>12h47</text>
+      </controlProperties>
+    </control>
+    <control controlID="58" controlTypeID="com.balsamiq.mockups::Label" x="432" y="683" w="314" h="21" measuredW="242" measuredH="21" zOrder="31" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%5BS%E9lectionner%5D%20%7C%20%5BEtendre%20la%20s%E9lection%20jusqu%27%E1%5D</text>
+      </controlProperties>
+    </control>
+    <control controlID="61" controlTypeID="com.balsamiq.mockups::Label" x="240" y="735" w="-1" h="-1" measuredW="50" measuredH="22" zOrder="32" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>14</size>
+        <text>Piscine</text>
+      </controlProperties>
+    </control>
+    <control controlID="62" controlTypeID="com.balsamiq.mockups::TextInput" x="373" y="730" w="-1" h="-1" measuredW="51" measuredH="27" zOrder="33" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>12h42</text>
+      </controlProperties>
+    </control>
+    <control controlID="63" controlTypeID="com.balsamiq.mockups::Label" x="240" y="774" w="-1" h="-1" measuredW="46" measuredH="22" zOrder="34" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>14</size>
+        <text>Mairie</text>
+      </controlProperties>
+    </control>
+    <control controlID="64" controlTypeID="com.balsamiq.mockups::TextInput" x="373" y="805" w="-1" h="-1" measuredW="51" measuredH="27" zOrder="35" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>12h54</text>
+      </controlProperties>
+    </control>
+    <control controlID="65" controlTypeID="com.balsamiq.mockups::Label" x="240" y="810" w="-1" h="-1" measuredW="118" measuredH="22" zOrder="36" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>14</size>
+        <text>Theatre%20Municipal</text>
+      </controlProperties>
+    </control>
+    <control controlID="66" controlTypeID="com.balsamiq.mockups::TextInput" x="373" y="769" w="-1" h="-1" measuredW="51" measuredH="27" zOrder="37" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>12h47</text>
+      </controlProperties>
+    </control>
+    <control controlID="71" controlTypeID="com.balsamiq.mockups::LinkBar" x="439" y="808" w="-1" h="-1" measuredW="310" measuredH="21" zOrder="38" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>D%E9s%E9lectionner%2C%20+1%20sur%20s%E9lection%2C%20-1%20sur%20s%E9lection</text>
+      </controlProperties>
+    </control>
+    <control controlID="72" controlTypeID="com.balsamiq.mockups::Title" x="226" y="199" w="-1" h="-1" measuredW="92" measuredH="28" zOrder="39" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>20</size>
+        <text>Passages</text>
+      </controlProperties>
+    </control>
+    <control controlID="74" controlTypeID="com.balsamiq.mockups::StickyNote" x="800" y="184" w="242" h="90" measuredW="109" measuredH="123" zOrder="41" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Facilitateurs%20qui%20apparaissent%20quand%20on%20survole%20le%20passage</text>
+      </controlProperties>
+    </control>
+    <control controlID="76" controlTypeID="com.balsamiq.mockups::Arrow" x="668" y="228" w="221" h="39" measuredW="150" measuredH="100" zOrder="40" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>bottom</direction>
+        <rightArrow>false</rightArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="77" controlTypeID="com.balsamiq.mockups::Arrow" x="668" y="354" w="221" h="39" measuredW="150" measuredH="100" zOrder="42" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>bottom</direction>
+        <rightArrow>false</rightArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="78" controlTypeID="com.balsamiq.mockups::StickyNote" x="800" y="310" w="242" h="90" measuredW="109" measuredH="123" zOrder="43" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Facilitateurs%20qui%20apparaissent%20quand%20on%20edite%20l%27horaire</text>
+      </controlProperties>
+    </control>
+    <control controlID="80" controlTypeID="com.balsamiq.mockups::StickyNote" x="516" y="551" w="182" h="114" measuredW="109" measuredH="123" zOrder="44" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <text>S%E9lection%20pour%20effectuer%20des%20op%E9rations%20sur%20plusieurs%20passages</text>
+      </controlProperties>
+    </control>
+    <control controlID="83" controlTypeID="com.balsamiq.mockups::StickyNote" x="486" y="893" w="242" h="90" measuredW="109" measuredH="123" zOrder="45" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <text>Facilitateurs%20sp%E9cifiques%20lorsqu%27une%20s%E9lection%20est%20disponible</text>
+      </controlProperties>
+    </control>
+    <control controlID="84" controlTypeID="com.balsamiq.mockups::Label" x="243" y="1068" w="-1" h="-1" measuredW="50" measuredH="22" zOrder="46" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>14</size>
+        <text>Piscine</text>
+      </controlProperties>
+    </control>
+    <control controlID="85" controlTypeID="com.balsamiq.mockups::TextInput" x="376" y="1063" w="-1" h="-1" measuredW="51" measuredH="27" zOrder="47" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>12h42</text>
+      </controlProperties>
+    </control>
+    <control controlID="86" controlTypeID="com.balsamiq.mockups::Label" x="243" y="1107" w="-1" h="-1" measuredW="46" measuredH="22" zOrder="48" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>14</size>
+        <text>Mairie</text>
+      </controlProperties>
+    </control>
+    <control controlID="87" controlTypeID="com.balsamiq.mockups::TextInput" x="376" y="1138" w="-1" h="-1" measuredW="49" measuredH="27" zOrder="49" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>13h14</text>
+      </controlProperties>
+    </control>
+    <control controlID="88" controlTypeID="com.balsamiq.mockups::Label" x="243" y="1143" w="-1" h="-1" measuredW="118" measuredH="22" zOrder="50" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>14</size>
+        <text>Theatre%20Municipal</text>
+      </controlProperties>
+    </control>
+    <control controlID="89" controlTypeID="com.balsamiq.mockups::TextInput" x="376" y="1102" w="-1" h="-1" measuredW="50" measuredH="27" zOrder="51" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>12h55</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

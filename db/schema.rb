@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120425125542) do
+ActiveRecord::Schema.define(:version => 20120426141032) do
 
   create_table "company", :force => true do |t|
     t.string   "objectid"
@@ -30,6 +30,29 @@ ActiveRecord::Schema.define(:version => 20120425125542) do
 
   add_index "company", ["objectid"], :name => "company_objectid_key", :unique => true
   add_index "company", ["registrationnumber"], :name => "company_registrationnumber_key", :unique => true
+
+  create_table "connectionlink", :force => true do |t|
+    t.integer  "departureid",                         :limit => 8
+    t.integer  "arrivalid",                           :limit => 8
+    t.string   "objectid",                                                                        :null => false
+    t.integer  "objectversion"
+    t.datetime "creationtime"
+    t.string   "creatorid"
+    t.string   "name"
+    t.string   "comment"
+    t.decimal  "linkdistance",                                     :precision => 19, :scale => 2
+    t.string   "linktype"
+    t.time     "defaultduration"
+    t.time     "frequenttravellerduration"
+    t.time     "occasionaltravellerduration"
+    t.time     "mobilityrestrictedtravellerduration"
+    t.boolean  "mobilityrestrictedsuitability"
+    t.boolean  "stairsavailability"
+    t.boolean  "liftavailability"
+    t.integer  "intuserneeds"
+  end
+
+  add_index "connectionlink", ["objectid"], :name => "connectionlink_objectid_key", :unique => true
 
   create_table "line", :force => true do |t|
     t.integer  "ptnetworkid",                :limit => 8

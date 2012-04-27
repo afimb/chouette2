@@ -26,7 +26,7 @@ ChouetteIhm::Application.routes.draw do
       resources :routes
     end
 
-    resources :companies, :time_tables
+    resources :companies, :time_tables, :connection_links
     resources :stop_areas do
       resources :stop_area_parents 
       member do
@@ -34,6 +34,7 @@ ChouetteIhm::Application.routes.draw do
         get 'select_parent'
       end
     end
+
   end 
 
   match '/help/(*slug)' => 'help#show'

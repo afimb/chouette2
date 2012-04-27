@@ -24,6 +24,10 @@ class Referential < ActiveRecord::Base
   def time_tables
     Chouette::TimeTable.scoped
   end
+  
+  def connection_links
+    Chouette::ConnectionLink.scoped
+  end
 
   def switch
     raise "Referential not created" if new_record?

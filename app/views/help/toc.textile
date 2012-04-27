@@ -1,6 +1,6 @@
 ---
 layout: default
-title: sommaire
+title: Sommaire
 ---
 
 h3. Sommaire
@@ -11,10 +11,10 @@ h3. Sommaire
 # "R&eacute;seaux":networks
 # "Transporteurs":companies
 # "Lignes":lines
-## S&eacute;quences d'arr&ecirc;ts
+## "S&eacute;quences d'arr&ecirc;ts":routes
 ## Horaires
 # "Arr&ecirc;ts":stop_areas
-## Correspondances
+## "Correspondances":connection_links
 ## Acc&egrave;s
 ## Liaisons Arr&ecirc;t-Acc&egrave;s
 # "Calendriers d'application":timetables

@@ -3,8 +3,8 @@ en:
     label:
       straight_forward: straight forward
       backward: backward
-      clockwise: clockwise
-      anti_clockwise: anticlockwise
+      clock_wise: clockwise
+      counter_clock_wise: counterclockwise
       north: north
       north_west: north west
       west: west
@@ -18,8 +18,8 @@ fr:
     label:
       straight_forward: aller
       backward: retour
-      clockwise: sens horaire
-      anti_clockwise: sens anti horaire
+      clock_wise: sens horaire
+      counter_clock_wise: sens anti horaire
       north: nord
       north_west: nord ouest
       west: ouest
