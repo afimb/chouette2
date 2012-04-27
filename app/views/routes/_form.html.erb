@@ -1,0 +1,26 @@
+<%= semantic_form_for [@referential, @line, @route] do |form| %>
+  <%= form.inputs do %> 
+    <%= form.input :name %>
+    <%= form.input :published_name %>
+    <%= form.input :number %>
+    <%= form.input :comment %>              
+    <%= form.input :opposite_route, :as => :select, :collection => Hash[@line.routes.map{|r| [r.name,r.id]}] %>
+    <%= form.input :direction_code, :as => :select, :collection => Chouette::Route.directions, :include_blank => false, :member_label => Proc.new { |mode| t("directions.label.#{mode}") } %>
+    <%= form.input :wayback_code, :as => :select, :collection => Chouette::Route.waybacks, :include_blank => false, :member_label => Proc.new { |mode| t("waybacks.label.#{mode}") } %>
+    <% if @route.new_record? %>
+      <%= form.input :objectid %>  
+    <% else %>
+      <li>
+      <label><%= @route.human_attribute_name("objectid") %>: </label>
+      <%= @route.objectid %>
+      </li>
+    <% end %>
+  <% end %>
+
+  <%= form.buttons do %>
+    <%= form.commit_button true %>
+    <li><%= t('or') %></li>
+    <li><%= link_to t('cancel'), :back %></li>
+  <% end %>
+<% end %>
+

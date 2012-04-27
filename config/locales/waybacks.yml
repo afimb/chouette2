@@ -1,0 +1,11 @@
+en:
+  waybacks:
+    label:
+      straight_forward: straight forward
+      backward: backward
+fr:
+  waybacks:
+    label:
+      straight_forward: aller
+      backward: retour
+

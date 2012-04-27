@@ -1,0 +1,80 @@
+<%= title_tag t('routes.show.title', :route => @route.name, :line => @line.name ) %>
+
+<div class="route_show">
+
+  <div class="summary">
+    <p>
+      <label><%= @route.human_attribute_name(:line) %>: </label>
+      <%= link_to line_formatted_name( @line), [@referential, @line] %>
+    </p>
+    <p>
+      <label><%= @route.human_attribute_name(:name) %>: </label>
+      <%= @route.name %>
+    </p>
+    <p>
+      <label><%= @route.human_attribute_name(:published_name) %>: </label>
+      <%= @route.published_name %>
+    </p>
+    <p>
+      <label><%= @route.human_attribute_name(:number) %>: </label>
+      <%= @route.number %>
+    </p>
+    <p>
+      <label><%= @route.human_attribute_name(:comment) %>: </label>
+      <%= @route.comment %>
+    </p>
+    <p>
+      <label><%= @route.human_attribute_name(:direction_code) %>: </label>
+      <% if @route.direction_code %>
+        <%= t("directions.label.#{@route.direction_code}").capitalize %>
+      <% else %>
+        <%= t(".undefined") %>
+      <% end %>
+    </p>
+    <p>
+      <label><%= @route.human_attribute_name(:wayback_code) %>: </label>
+      <% if @route.wayback_code %>
+        <%= t("waybacks.label.#{@route.wayback_code}").capitalize %>
+      <% else %>
+        <%= t(".undefined") %>
+      <% end %>
+    </p>
+    <p>
+      <label><%= @route.human_attribute_name(:opposite_route) %>: </label>
+      <% if @route.opposite_route %>
+        <%= link_to @route.opposite_route.name, [@referential, @line, @route] %>
+      <% else %>
+        <%= t(".no_opposite_route") %>
+      <% end %>
+    </p>
+    <p>
+      <label><%= @route.human_attribute_name("objectid") %>: </label>
+      <%= @route.objectid %>
+    </p>
+    <p>
+      <label><%= @route.human_attribute_name("creation_time") %>: </label>
+      <%= l @route.creation_time %>
+    </p>
+    <p>
+      <label><%= @route.human_attribute_name("creator_id") %>: </label>
+      <%= @route.creator_id %>
+    </p>
+  </div>
+
+</div>
+
+<h3><%= t('.stop_areas') %></h3>
+<%= will_paginate @stop_areas %>
+<div class="stop_areas paginated_content">
+  <%= render :partial => "stop_areas/stop_area", :collection => @stop_areas %>
+</div>
+<%= will_paginate @stop_areas %>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('routes.actions.edit'), edit_referential_line_route_path(@referential, @line, @route), :class => "edit" %></li>
+  <li><%= link_to  t('routes.actions.destroy'), referential_line_route_path(@referential, @line, @route), :method => :delete, :confirm =>  t('routes.actions.destroy_confirm'), :class => "remove" %></li>
+  <br>
+</ul>
+<% end %>
+

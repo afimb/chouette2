@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120416095046) do
+ActiveRecord::Schema.define(:version => 20120425125542) do
 
   create_table "company", :force => true do |t|
     t.string   "objectid"
@@ -75,6 +75,21 @@ ActiveRecord::Schema.define(:version => 20120416095046) do
     t.datetime "updated_at"
   end
 
+  create_table "route", :force => true do |t|
+    t.integer  "lineid",          :limit => 8
+    t.string   "objectid"
+    t.integer  "objectversion"
+    t.datetime "creationtime"
+    t.string   "creatorid"
+    t.string   "name"
+    t.string   "comment"
+    t.integer  "oppositerouteid", :limit => 8
+    t.string   "publishedname"
+    t.string   "number"
+    t.string   "direction"
+    t.string   "wayback"
+  end
+
   create_table "stoparea", :force => true do |t|
     t.integer  "parentid",           :limit => 8
     t.string   "objectid"
@@ -100,6 +115,16 @@ ActiveRecord::Schema.define(:version => 20120416095046) do
 
   add_index "stoparea", ["objectid"], :name => "stoparea_objectid_key", :unique => true
   add_index "stoparea", ["parentid"], :name => "index_stoparea_on_parentid"
+
+  create_table "stoppoint", :force => true do |t|
+    t.integer  "routeid",       :limit => 8
+    t.integer  "stopareaid",    :limit => 8
+    t.string   "objectid"
+    t.integer  "objectversion"
+    t.datetime "creationtime"
+    t.string   "creatorid"
+    t.integer  "position"
+  end
 
   create_table "timetable", :force => true do |t|
     t.string   "objectid",                     :null => false

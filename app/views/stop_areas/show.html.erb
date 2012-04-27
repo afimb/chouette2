@@ -79,12 +79,48 @@
     <p>
       <label><%= @stop_area.human_attribute_name("creator_id") %>: </label>
       <%= @stop_area.creator_id %>
-    </p>
-    
-    
+    </p>    
   </div>
-</div>
+  
 
+  <div class="genealogical">
+    <% if @stop_area.parent.present? || @stop_area.children.present? %>
+      <h3><%= t(".genealogical") %></h3>
+    <% end %>
+
+    <% if @stop_area.parent.present? %> 
+    <div class="parent">
+      <%= link_to([@referential, stop_area.parent]) do %> 
+        <%= image_tag "map/" + @stop_area.parent.type + ".png"   %><span><%= @stop_area.parent.name %></span>        
+      <% end %>
+      <%= link_to image_tag("user_interface/ui/remove.png"), referential_stop_area_path(@referential, @stop_area.parent), :method => :delete, :confirm =>  t('stop_areas.actions.destroy_confirm'), :class => "remove" %>
+    </div> 
+    <div class="link"><%= image_tag "icons/link.png"%></div>
+    <% end %>
+
+    <% if @stop_area.parent.present? || @stop_area.children.present? %>
+    <div class="target">
+      <%= image_tag "map/" + @stop_area.type + ".png"%><span><%= @stop_area.name %></span>
+    </div> 
+    <% end %>
+    
+    <% if @stop_area.children.present? %>
+    <div class="link"><%= image_tag "icons/link.png"%></div>
+    <div class="children">
+      <% @stop_area.children.each do |child| %>
+      <div class="child">
+        <%= link_to([@referential, child]) do %> 
+          <%= image_tag "map/" + child.type + ".png"   %><span><%= child.name %></span>         
+        <% end %>  
+        <%= link_to image_tag("user_interface/ui/remove.png"), referential_stop_area_path(@referential, child), :method => :delete, :confirm =>  t('stop_areas.actions.destroy_confirm'), :class => "remove" %>
+      </div>
+      <% end %>
+    </div> 
+    <% end %>
+  </div>
+                         
+</div>
+                         
 <% content_for :sidebar do %>
 <ul class="actions">
   <li><%= link_to t('stop_areas.actions.edit'), edit_referential_stop_area_path(@referential, @stop_area), :class => "edit" %></li>

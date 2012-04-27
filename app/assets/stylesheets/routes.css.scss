@@ -1,0 +1,94 @@
+// Place all the styles related to the routes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "common";
+
+#workspace.lines.show
+{
+    .route:after { 
+        @include after_div_for_object;  
+    }
+
+    .routes {
+        margin-top: 20px;
+    }
+
+    .routes:after {
+        @include content_to_clear;
+    }
+    
+    .route {
+        @include div_for_object;
+
+        /* to create multi-column index */
+        width: 350px;
+        padding-right: 10px;
+
+        .wayback {
+            width: 16px;
+            height: 16px;
+            float: left;
+            margin-right: 10px; 
+            
+            a{ margin:0px;}
+        }
+        
+        .name {
+            line-height: 16px;
+            float: left;
+        }
+        
+    }
+}
+
+#workspace.routes.edit, #workspace.routes.new
+{
+    #route_color{ width: 100px;
+                 color: white;
+                 font-weight: bold;}
+}
+
+#workspace.routes.show
+{
+    .route_color{ color: white;
+                  font-weight: bold;
+                  padding: 0 5px 0 5px;}
+
+    .summary p label {
+        font-weight: bold;
+    }
+    
+    .stop_area:after { 
+        @include after_div_for_object;  
+    }
+
+    .stop_areas {
+        margin-top: 20px;
+    }
+
+    .stop_areas:after {
+        @include content_to_clear;
+    }
+    
+    .stop_area {
+        @include div_for_object;
+        /* to create multi-column index */
+        width: 350px;
+        float: left;
+        padding-right: 10px;
+
+        .area_type {
+            width: 25px;
+            height: 64px;
+            float: left;
+            margin-right: 10px;
+            
+
+            a {
+                text-decoration: none;                   
+            }            
+        }
+    }
+    
+}        
+

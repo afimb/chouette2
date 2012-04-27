@@ -8,6 +8,7 @@ class LinesController < ChouetteController
 
   def show
     @map = LineMap.new referential, resource
+    @routes = @line.routes
     show!
   end
 

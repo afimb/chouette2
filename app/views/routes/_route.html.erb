@@ -1,0 +1,9 @@
+<%= div_for(route) do %>
+    <div class="wayback">
+      <%= link_to image_tag("icons/#{route.wayback}.png"), referential_line_route_path( @referential, @line, route) %>
+    </div>
+    <div class="route">
+      <%= link_to route.name, referential_line_route_path( @referential, @line, route) %>
+    </div> 
+<% end %>
+

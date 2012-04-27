@@ -11,6 +11,7 @@ en:
       title: Update line %{line}
     show:
       title: Line %{line}
+      itineraries: "Line's route list"
     index:
       title: Lines
       name_or_number: Name or number
@@ -52,6 +53,7 @@ fr:
       title: Modifier la ligne %{line}
     show:
       title: Ligne %{line}
+      itineraries: "Liste des itinéraires de la ligne"
     index:
       name_or_number: Nom ou indice
       title: Lignes
