@@ -36,4 +36,8 @@ ChouetteIhm::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  config.to_prepare do
+    Chouette::Loader.chouette_command = "true"
+  end
 end
