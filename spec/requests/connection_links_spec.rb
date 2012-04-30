@@ -35,26 +35,24 @@ describe "ConnectionLinks" do
   end
 
   describe "new" do     
-    pending ": TODO see how to affect departure and arrival" 
-#    it "creates connection_link and return to show" do
-#      visit referential_connection_links_path(referential)
-#      click_link "Ajouter une correspondance"
-#      fill_in "Nom", :with => "ConnectionLink 1"
-#      fill_in "Identifiant Neptune", :with => "test:Timetable:1"        
-#      click_button("Créer Correspondance")
-#      page.should have_content("ConnectionLink 1")
-#    end
+    it "creates connection_link and return to show" do
+      visit referential_connection_links_path(referential)
+      click_link "Ajouter une correspondance"
+      fill_in "Nom", :with => "ConnectionLink 1"
+      fill_in "Identifiant Neptune", :with => "test:ConnectionLink:1"        
+      click_button("Créer Correspondance")
+      page.should have_content("ConnectionLink 1")
+    end
   end
 
   describe "edit and return to show" do      
-    pending ": TODO see how to affect departure and arrival" 
-#    it "edit connection_link" do
-#      visit referential_connection_link_path(referential, subject)
-#      click_link "Modifier cette correspondance"
-#      fill_in "Nom", :with => "ConnectionLink Modified"
-#      click_button("Modifier Correspondance")
-#      page.should have_content("ConnectionLink Modified")
-#    end
+    it "edit connection_link" do
+      visit referential_connection_link_path(referential, subject)
+      click_link "Modifier cette correspondance"
+      fill_in "Nom", :with => "ConnectionLink Modified"
+      click_button("Modifier Correspondance")
+      page.should have_content("ConnectionLink Modified")
+    end
   end
 
 end

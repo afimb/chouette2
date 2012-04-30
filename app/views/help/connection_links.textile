@@ -34,7 +34,7 @@ cet identifiant est compos&eacute; de 3 parties : pr&eacute;fixe:type:id_techniq
 * type = ConnectionLink : cl&eacute; identifiant le type d'objet (valeur impos&eacute;e)
 * id_technique : valeur identifiant un seul object d'un type donn&eacute; pour un m&ecirc;me producteur
 ce champ obligatoire est automatiquement g&eacute;n&eacute;r&eacute; s'il n'est pas renseign&eacute; 
-il est possible aussi de ne renseigner que le pr&eacute;fixe auquel cas la valeur sera compl&eacute;t&eacute;e automatiquement.
+il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera compl&eacute;t&eacute;e automatiquement.
 =:
 - Date de cr&eacute;ation := date &agrave; laquelle l'objet a &eacute;t&eacute; cr&eacute;&eacute; ou modifi&eacute; pour la derni&egrave;re fois
 - Version := version de l'objet (auto incr&eacute;ment&eacute; &agrave; chaque modification)

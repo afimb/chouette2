@@ -1,12 +1,8 @@
 <!-- <%= @connection_link.errors.inspect %> -->
 <%= semantic_form_for [@referential, @connection_link] do |form| %>
   <%= form.inputs do %> 
-  <!--
-    <%= form.input :departure, :as => :select, :collection => Chouette::Network.all, :include_blank => false %> 
-    <%= form.input :arrival, :as => :select, :collection => Chouette::Company.all, :include_blank => false%>
- -->
     <%= form.input :name %>
-    <%= form.input :connection_link_type, :as => :select, :collection => Chouette::ConnectionLink.connection_link_types, :include_blank => false, :member_label => Proc.new { |mode| t("connection_link_types.label.#{mode}") }  %>
+    <%= form.input :connection_link_type, :as => :select, :collection => Chouette::ConnectionLink.connection_link_types, :include_blank => false, :member_label => Proc.new { |type| t("connection_link_types.label.#{type}") }  %>
     <%= form.input :comment %>              
     <% if @connection_link.new_record? %>
       <%= form.input :objectid %>  

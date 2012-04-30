@@ -25,6 +25,7 @@ en:
       connection_link:
         departure: Start of link
         arrival: End of link
+        undefined: not yet set
         name: Name
         comment: Comment
         linkdistance: Distance
@@ -59,7 +60,7 @@ fr:
     show:
       title: Correspondance %{connection_link}
     index:
-      name: Nom ou indice
+      name: Nom
       title: Correspondances
       departure: Arrêt de départ
       arrival: "Arrêt d'arrivée"
@@ -72,6 +73,7 @@ fr:
       connection_link:
         departure: Arrêt de départ
         arrival: "Arrêt d'arrivée"
+        undefined: non défini
         name: Nom
         comment: Commentaire
         linkdistance: Distance

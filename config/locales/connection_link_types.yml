@@ -1,13 +1,13 @@
 en:
   connection_link_types:
     label:
-      Underground: Underground
-      Mixed: Mixed
-      Overground: Overground
+      underground: Underground
+      mixed: Mixed
+      overground: Overground
       
 fr:
   connection_link_types:
     label:
-      Underground: Souterrain
-      Mixed: Mixte
-      Overground: Aérien
+      underground: Souterrain
+      mixed: Mixte
+      overground: Aérien

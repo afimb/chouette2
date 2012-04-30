@@ -19,12 +19,13 @@ l'avancement actuel permet de :
 
 * cr&eacute;er, modifier et supprimer les objets
 * consulter les cartes
-* d&eacute;placer un arr&ecirc;t depuis la carte
+* d&eacute;placer un arr&ecirc;t depuis la carte (voir mode op&eacute;ratoire dans l'aide des arr&ecirc;ts)
 * associer les arr&ecirc;ts &agrave; leurs parents
 
 les action suivantes ne sont pas encore disponible : 
 
 * afficher le fond G&eacute;oportail
 * ajouter ou supprimer des dates et des p&eacute;riodes aux calendriers
+* associer des arr&ecirc;ts à une s&eacute;quences d'arr&ecirc;ts
 * associer une ITL &agrave; une ligne
 

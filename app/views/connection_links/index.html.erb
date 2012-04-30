@@ -4,9 +4,28 @@
   <%= f.label :name_cont, "#{t('.name')} :" %>
   <%= f.text_field :name_cont %>
 
+<!--
+  <%= f.hidden_field :departure_id_eq %>
+  <%= f.hidden_field :arrival_id_eq %>
+-->
+
   <%= f.submit t('actions.search') %> <%= t("or") %>
   <%= link_to t("cancel"), referential_connection_links_path(@referential) %>
 <% end %>
+
+<!--
+<% if @q.departure_id_eq.present? %>
+<p>
+  <%= Chouette::ConnectionLink.human_attribute_name('departure') %> : <%= @referential.stop_areas.find(@q.departure_id_eq).name %>
+</p>
+<% end %>
+
+<% if @q.arrival_id_eq.present? %>
+<p>
+  <%= Chouette::ConnectionLink.human_attribute_name('arrival') %> : <%= @referential.stop_areas.find(@q.arrival_id_eq).name %>
+</p>
+<% end %>
+-->
 
 <div class="pagination">
   <div class="page_info">

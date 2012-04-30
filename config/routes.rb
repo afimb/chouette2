@@ -26,7 +26,13 @@ ChouetteIhm::Application.routes.draw do
       resources :routes
     end
 
-    resources :companies, :time_tables, :connection_links
+    resources :companies, :stop_areas,  :connection_links
+    
+    resources :time_tables do
+      resources :time_table_dates
+      resources :time_table_periods
+    end
+
     resources :stop_areas do
       resources :stop_area_parents 
       member do
