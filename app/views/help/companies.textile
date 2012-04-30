@@ -9,7 +9,7 @@ Dans la r&eacute;alit&eacute;, le transporteur est l'entit&eacute; en charge de 
 Ce principe se retrouve dans ce logiciel. 
 
 * Il s'agit de l'exploitant de la ligne; chaque ligne est rattach&eacute;e &agrave; un seul transporteur, un transporteur pouvant &eacute;videmment g&eacute;rer plusieurs lignes. 
-* Chaque transporteur dispose d'un identifiant fonctionnel (&laquo; num&eacute;ro d'enregistrement &raquo;) qui est utilis&eacute; dans les &eacute;changes XML pour identifier le transporteur et le mettre &agrave; jour. Cet identifiant est unique pour toute la base CHOUETTE, quel que soit le r&eacute;seau ; il est donc important que le gestionnaire de la base CHOUETTE le renseigne d'une mani&egrave;re bien d&eacute;finie et p&eacute;renne.
+* Chaque transporteur dispose d'un identifiant fonctionnel (&laquo; num&eacute;ro d'enregistrement &raquo;) qui est utilis&eacute; dans les &eacute;changes XML pour identifier le transporteur et le mettre &agrave; jour. Cet identifiant est unique pour toute la base CHOUETTE, quel que soit le r&eacute;seau ; il est donc important que le gestionnaire de la base CHOUETTE le renseigne d'une mani&egrave;re bien d&eacute;finie et p&eacute;renne.
 
 h3. Attributs
 
@@ -32,7 +32,7 @@ cet identifiant est compos&eacute; de 3 parties : pr&eacute;fixe:type:id_techniq
 * type = Company : cl&eacute; identifiant le type d'objet (valeur impos&eacute;e)
 * id_technique : valeur identifiant un seul object d'un type donn&eacute; pour un m&ecirc;me producteur
 ce champ obligatoire est automatiquement g&eacute;n&eacute;r&eacute; s'il n'est pas renseign&eacute; 
-il est possible aussi de ne renseigner que le pr&eacute;fixe auquel cas la valeur sera compl&eacute;t&eacute;e automatiquement.
+il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera compl&eacute;t&eacute;e automatiquement.
 =:
 - Date de cr&eacute;ation := date &agrave; laquelle l'objet a &eacute;t&eacute; cr&eacute;&eacute; ou modifi&eacute; pour la derni&egrave;re fois
 - Version := version de l'objet (auto incr&eacute;ment&eacute; &agrave; chaque modification)

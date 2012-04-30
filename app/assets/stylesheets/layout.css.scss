@@ -32,6 +32,16 @@ $text_color: #222;
 
 #map {
     float: right;
-    width: 600px;
+    width: 400px;
     height: 400px;
+}
+
+.actions {
+    a.add_children {
+        background: url(image-path('user_interface/ui/add.png')) no-repeat;
+    }
+
+    a.select_parent {
+        background: url(image-path('icons/select_parent.png')) no-repeat;
+    }
 }

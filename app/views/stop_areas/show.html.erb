@@ -90,7 +90,7 @@
 
     <% if @stop_area.parent.present? %> 
     <div class="parent">
-      <%= link_to([@referential, stop_area.parent]) do %> 
+      <%= link_to([@referential, @stop_area.parent]) do %> 
         <%= image_tag "map/" + @stop_area.parent.type + ".png"   %><span><%= @stop_area.parent.name %></span>        
       <% end %>
       <%= link_to image_tag("user_interface/ui/remove.png"), referential_stop_area_path(@referential, @stop_area.parent), :method => :delete, :confirm =>  t('stop_areas.actions.destroy_confirm'), :class => "remove" %>
@@ -125,6 +125,8 @@
 <ul class="actions">
   <li><%= link_to t('stop_areas.actions.edit'), edit_referential_stop_area_path(@referential, @stop_area), :class => "edit" %></li>
   <li><%= link_to  t('stop_areas.actions.destroy'), referential_stop_area_path(@referential, @stop_area), :method => :delete, :confirm =>  t('stop_areas.actions.destroy_confirm'), :class => "remove" %></li>
+  <li><%= link_to  t('stop_areas.actions.select_parent'), select_parent_referential_stop_area_path(@referential, @stop_area), :class => "select_parent" %></li>
+  <li><%= link_to  t('stop_areas.actions.add_children'), add_children_referential_stop_area_path(@referential, @stop_area), :class => "add_children" %></li>
   <br>
 </ul>
 <% end %>

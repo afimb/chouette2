@@ -1,0 +1,46 @@
+---
+layout: default
+title: Correspondances
+---
+
+h3. D&eacute;finition
+
+Une correspondance ou un changement est, dans un voyage en transports en commun, une &eacute;tape n&eacute;cessitant de changer de ligne. Le changement peut se faire soit au sein du m&ecirc;me r&eacute;seau, soit de mani&egrave;re intermodale, c'est-&agrave;-dire en changeant &eacute;galement de mode de transport.
+La correspondance permet d'&eacute;tablir une liaison entre un arr&ecirc;t physique (ou une zone d'arr&ecirc;t de type &laquo; arr&ecirc;t commercial &raquo; ou de type &laquo; p&ocirc;le d'&eacute;change &raquo;) et un autre arr&ecirc;t physique (ou une autre zone d'arr&ecirc;t de type &laquo; arr&ecirc;t commercial &raquo; ou de type &laquo; p&ocirc;le d'&eacute;change &raquo;).
+Cette liaison d&eacute;finit aussi une dur&eacute;e de parcours entre les arr&ecirc;ts (ou zones) reli&eacute;s.
+
+h3. Attributs
+
+- Nom := nom de la correspondances
+- Commentaire := zone de texte libre
+- Distance := distance en m&egrave;tres
+- Type := liste de choix parmi &laquo; A&eacute;rien &raquo;, &laquo; Souterrain&raquo; ou mixte &laquo; A&eacute;rien et souterrain &raquo;
+- D&eacute;part := arr&ecirc;t de d&eacute;part de la correspondance
+- Arriv&eacute;e := arr&ecirc;t d'arriv&eacute;e de la correspondance
+- Dur&eacute;e moyenne := champ de type horaire hh:mm
+- Dur&eacute;e pour un voyageur &agrave; mobilit&eacute; r&eacute;duite := champ de type horaire hh:mm
+- Dur&eacute;e pour un voyageur occasionnel := champ de type horaire hh:mm
+- Dur&eacute;e pour un habitu&eacute; := champ de type horaire hh:mm
+- Ascenseur := indicateur (Oui ou Non)
+- Acc&egrave;s pour personne &agrave; mobilit&eacute; r&eacute;duite := indicateur (Oui ou Non)
+- Escalator disponible := indicateur (Oui ou Non)
+
+p(attr_data). Donn&eacute;es de gestion :
+
+- Identifiant Neptune := 
+cl&eacute; unique p&eacute;renne identifiant la correspondance pour les &eacute;changes Neptune
+cet identifiant est compos&eacute; de 3 parties : pr&eacute;fixe:type:id_technique
+* pr&eacute;fixe : cl&eacute; identifiant un producteur de donn&eacute;es unique
+* type = ConnectionLink : cl&eacute; identifiant le type d'objet (valeur impos&eacute;e)
+* id_technique : valeur identifiant un seul object d'un type donn&eacute; pour un m&ecirc;me producteur
+ce champ obligatoire est automatiquement g&eacute;n&eacute;r&eacute; s'il n'est pas renseign&eacute; 
+il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera compl&eacute;t&eacute;e automatiquement.
+=:
+- Date de cr&eacute;ation := date &agrave; laquelle l'objet a &eacute;t&eacute; cr&eacute;&eacute; ou modifi&eacute; pour la derni&egrave;re fois
+- Version := version de l'objet (auto incr&eacute;ment&eacute; &agrave; chaque modification)
+- Cr&eacute;&eacute; par := compte utilisateur ayant proc&eacute;d&eacute; &agrave; la derni&egrave;re modification
+
+h3. Impl&eacute;mentation
+
+p. TODO
+

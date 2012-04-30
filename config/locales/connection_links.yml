@@ -1,0 +1,96 @@
+en:
+  connection_links:
+    actions:
+      new: Add a new connection link
+      edit: Edit this connection link
+      destroy: Remove this liconnection linkne
+      destroy_confirm: Are you sure you want destroy this connection link?
+    new:
+      title: Add a new connection link
+    edit:
+      title: Update connection link %{connection_link}
+    show:
+      title: Connection link %{connection_link}
+    index:
+      title: Connection_ links
+      name: Name
+      departure: Start of link
+      arrival: End of link
+      selection: Selection
+      selection_all: All
+  activerecord:        
+    models:        
+      connection_link: Connection link
+    attributes:
+      connection_link:
+        departure: Start of link
+        arrival: End of link
+        undefined: not yet set
+        name: Name
+        comment: Comment
+        linkdistance: Distance
+        connection_link_type: Type
+        defaultduration: Average duration
+        frequenttravellerduration: Regular passenger duration
+        occasionaltravellerduration: Occasional passenger duration
+        mobilityrestrictedtravellerduration: Mobility reduced passenger duration
+        mobilityrestrictedsuitability: Mobility reduced passenger suitable
+        stairsavailability: Escalator
+        liftavailability: Lift
+        objectid: Neptune identifier
+        object_version: Version
+        creation_time: Created on
+        creator_id: Created by 
+  formtastic:
+    hints:
+      connection_link:
+        objectid: "[prefix]:ConnectionLink:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+
+fr:
+  connection_links:
+    actions:
+      new: Ajouter une correspondance
+      edit: Modifier cette correspondance
+      destroy: Supprimer cette correspondance
+      destroy_confirm: Etes vous sûr de détruire cette correspondance ?
+    new:
+      title: Ajouter une correspondance
+    edit:
+      title: Modifier la correspondance %{connection_link}
+    show:
+      title: Correspondance %{connection_link}
+    index:
+      name: Nom
+      title: Correspondances
+      departure: Arrêt de départ
+      arrival: "Arrêt d'arrivée"
+      selection: Sélection
+      selection_all: Tous
+  activerecord:        
+    models:        
+      connection_link: Correspondance
+    attributes:
+      connection_link:
+        departure: Arrêt de départ
+        arrival: "Arrêt d'arrivée"
+        undefined: non défini
+        name: Nom
+        comment: Commentaire
+        linkdistance: Distance
+        connection_link_type: Type
+        defaultduration: Durée moyenne
+        frequenttravellerduration: Durée pour un habitué
+        occasionaltravellerduration: Durée pour un voyageur occasionnel
+        mobilityrestrictedtravellerduration: Durée pour un voyageur à mobilité réduite
+        mobilityrestrictedsuitability: Accès pour personne à mobilité réduite
+        stairsavailability: Escalator
+        liftavailability: Ascenseur
+        objectid: Identifiant Neptune
+        object_version: Version
+        creation_time: Créé le
+        creator_id: Créé par
+  formtastic:
+    hints:
+      connection_link:
+        objectid: "[prefixe]:ConnectionLink:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+

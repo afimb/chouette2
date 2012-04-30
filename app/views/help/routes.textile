@@ -1,0 +1,38 @@
+---
+layout: default
+title: Séquence d'arrêts
+---
+
+h3. D&eacute;finition
+
+La s&eacute;quence d'arr&ecirc;ts est une s&eacute;lection ordonn&eacute;e de r&eacute;f&eacute;rences aux points d'arr&ecirc;t (exemple: itin&eacute;raires aller et retour d'une ligne). Une s&eacute;quence d'arr&ecirc;ts est sp&eacute;cifique &agrave; une ligne; les s&eacute;quences d'arr&ecirc;ts peuvent r&eacute;f&eacute;rencer des arr&ecirc;ts communs.
+
+h3. Attributs
+
+- Nom := nom de la s&eacute;quence d'arr&ecirc;ts  
+- Nom public := nom public pour les voyageurs
+- Commentaire := zone de texte libre sur le r&eacute;seau
+- Direction := orientation principale (points cardinaux, circulaire ou aller/retour)
+- Indoce := num&eacute;ro de la s&eacute;quence d'arr&ecirc;ts
+- Sens := aller ou retour
+- Itin&eacute;raire associ&eacute; en sens oppos&eacute; := r&eacute;f&eacute;rence de l'itin&eacute;raire de sens oppos&eacute; associ&eacute;
+
+p(attr_data). Donn&eacute;es de gestion :
+
+- Identifiant Neptune := 
+cl&eacute; unique p&eacute;renne identifiant la s&eacute;quence d'arr&ecirc;ts pour les &eacute;changes Neptune
+cet identifiant est compos&eacute; de 3 parties : pr&eacute;fixe:type:id_technique
+* pr&eacute;fixe : cl&eacute; identifiant un producteur de donn&eacute;es unique
+* type = Route : cl&eacute; identifiant le type d'objet (valeur impos&eacute;e)
+* id_technique : valeur identifiant un seul object d'un type donn&eacute; pour un m&ecirc;me producteur
+ce champ obligatoire est automatiquement g&eacute;n&eacute;r&eacute; s'il n'est pas renseign&eacute; 
+il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera compl&eacute;t&eacute;e automatiquement.
+=:
+- Date de cr&eacute;ation := date &agrave; laquelle l'objet a &eacute;t&eacute; cr&eacute;&eacute; ou modifi&eacute; pour la derni&egrave;re fois
+- Version := version de l'objet (auto incr&eacute;ment&eacute; &agrave; chaque modification)
+- Cr&eacute;&eacute; par := compte utilisateur ayant proc&eacute;d&eacute; &agrave; la derni&egrave;re modification
+
+h3. Impl&eacute;mentation
+
+p. TODO
+

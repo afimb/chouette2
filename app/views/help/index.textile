@@ -3,7 +3,7 @@ layout: default
 title: Présentation
 ---
 
-Chouette v2 : it&eacute;ration 4 du 16/04/2012
+Chouette v2 : it&eacute;ration 5 du 07/05/2012
 
 Cette it&eacute;ration pr&eacute;sente les formulaires de :
 
@@ -12,16 +12,20 @@ Cette it&eacute;ration pr&eacute;sente les formulaires de :
 * lignes
 * arr&ecirc;ts
 * calendriers d'application
+* correspondances
+* s&eacute;quences d'arr&ecirc;ts
 
 l'avancement actuel permet de : 
 
 * cr&eacute;er, modifier et supprimer les objets
 * consulter les cartes
+* d&eacute;placer un arr&ecirc;t depuis la carte (voir mode op&eacute;ratoire dans l'aide des arr&ecirc;ts)
+* associer les arr&ecirc;ts &agrave; leurs parents
 
 les action suivantes ne sont pas encore disponible : 
 
-* d&eacute;placer un arr&ecirc;t depuis la carte
 * afficher le fond G&eacute;oportail
 * ajouter ou supprimer des dates et des p&eacute;riodes aux calendriers
-* associer les arr&ecirc;ts &agrave; leurs parents
+* associer des arr&ecirc;ts à une s&eacute;quences d'arr&ecirc;ts
 * associer une ITL &agrave; une ligne
+

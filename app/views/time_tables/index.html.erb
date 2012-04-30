@@ -8,11 +8,18 @@
   <%= link_to t("cancel"), referential_time_tables_path(@referential) %>
 <% end %>
 
-<%= will_paginate @time_tables %>
+<div class="pagination">
+  <div class="page_info">
+    <%= page_entries_info @time_tables %>
+  </div>
+  <%= will_paginate @time_tables, :container => false %>
+</div>
 <div class="time_tables paginated_content">
   <%= render :partial => "time_table", :collection => @time_tables %>
 </div>
-<%= will_paginate @time_tables %>
+<div class="pagination">
+  <%= will_paginate @time_tables, :container => false %>
+</div>
 
 
 <% content_for :sidebar do %>

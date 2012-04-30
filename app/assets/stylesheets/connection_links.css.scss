@@ -1,0 +1,40 @@
+// Place all the styles related to the lines controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "common";
+
+#workspace.connection_links.index
+{
+    .connection_link:after { 
+        @include after_div_for_object;  
+    }
+
+    .connection_links {
+        margin-top: 20px;
+    }
+
+    .connection_links:after {
+        @include content_to_clear;
+    }
+    
+    .connection_link {
+        @include div_for_object;
+
+        /* to create multi-column index */
+        width: 350px;
+        float: left;
+        padding-right: 10px;
+    }
+}
+
+
+#workspace.connection_links.show
+{
+
+    .summary p label {
+        font-weight: bold;
+    }
+}        
+
+
+
