@@ -29,4 +29,10 @@ ChouetteIhm::Application.configure do
   config.assets.debug = true
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  config.to_prepare do
+    # Chouette::Loader.chouette_command = "true"
+    Chouette::Loader.chouette_command = "tmp/chouette-command/chouette"
+  end
+  
 end
