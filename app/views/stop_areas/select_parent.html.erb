@@ -3,7 +3,7 @@
 <%= semantic_form_for [@referential, @stop_area] do |form| %>
 <div>
   <%= form.inputs do %> 
-    <%= form.input :parent_id, :as => :text, :input_html => { :"data-pre" => [{ :id => @parent.id.to_s, :name => "#{@parent.name} #{@parent.country_code}" }].to_json }  %>
+    <%= form.input :parent_id, :as => :text, :input_html => { :"data-pre" => ( @parent.present? ? [ { :id => @parent.id.to_s, :name => "#{@parent.name} #{@parent.country_code}" } ]: [] ).to_json }  %>
   <% end %>  
   
   <%= form.buttons do %>
