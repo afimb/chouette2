@@ -3,7 +3,11 @@ layout: default
 title: Arrêts
 ---
 
-h3. D&eacute;finition
+* "D&eacute;finition":#def
+* "Attributs":#attr
+* "Mode op&eacute;ratoire":#ope
+
+h3(#def). D&eacute;finition
 
 Le r&eacute;f&eacute;rentiel des arr&ecirc;ts constitue un maillon essentiel du r&eacute;seau, et se compose de plusieurs &eacute;l&eacute;ments de niveaux diff&eacute;rents. 
 
@@ -33,7 +37,7 @@ Ainsi dans CHOUETTE:
 * Une ITL est un regroupement d'arr&ecirc;ts repr&eacute;sentant le p&eacute;rim&egrave;tre d'interdiction.
 * Une ITL est associ&eacute;e &agrave; une ou plusieurs lignes 
 
-h3. Attributs
+h3(#attr). Attributs
 
 - Type d'arr&ecirc;t := cat&eacute;gorie de l'arr&ecirc;t
 
@@ -74,7 +78,12 @@ il est possible aussi de ne renseigner que l'identifiant technique auquel cas la
 - Version := version de l'objet (auto incr&eacute;ment&eacute; &agrave; chaque modification)
 - Cr&eacute;&eacute; par := compte utilisateur ayant proc&eacute;d&eacute; &agrave; la derni&egrave;re modification
 
-h3. Impl&eacute;mentation
+h3(#ope). Mode op&eacute;ratoire
 
-p. TODO
+h4. D&eacute;placement sur la carte
+
+* activer le d&eacute;placement en cliquant sur l'arr&ecirc;t -> le curseur prend la forme d'une quadruple fl&ecirc;che
+* appuyer sur le bouton gauche de la souris et maintenir appuyer lors du d&eacute;placement -> l'arr&ecirc;t suit la souris
+* relacher le bouton -> l'arr&ecirc;t a une nouvelle position fixe
+* cliquer sur la carte -> sortie du mode d&eacute;placement; les coordonn&eacute;es sont actualis&eacute;es dans le formulaire
 

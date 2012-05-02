@@ -36,5 +36,19 @@
     }
 }        
 
+#workspace.connection_links.select_departure
+{
+    .token-input-list{
+        display: inline-block;
+    }
+}
+
+#workspace.connection_links.select_arrival
+{
+    .token-input-list{
+        display: inline-block;
+    }
+}
+
 
 

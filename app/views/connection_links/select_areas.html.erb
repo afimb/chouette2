@@ -1,0 +1,40 @@
+<%= title_tag t('connection_links.select_areas.title', :connection_link => @connection_link.name ) %>
+
+<%= semantic_form_for [@referential, @connection_link] do |form| %>
+<div>
+  <%= form.inputs do %> 
+    <%= form.input :departure_id, :as => :text, :input_html => { :"data-pre" => ( @departure.present? ? [ { :id => @departure.id.to_s, :name => "#{@departure.name} #{@departure.country_code}" } ]: [] ).to_json }  %>
+    <%= form.input :arrival_id, :as => :text, :input_html => { :"data-pre" => ( @arrival.present? ? [ { :id => @arrival.id.to_s, :name => "#{@arrival.name} #{@arrival.country_code}" } ]: [] ).to_json }  %>
+  <% end %>  
+  
+  <%= form.buttons do %>
+    <%= form.commit_button %>
+    ou <%= link_to "revenir", [@referential, @connection_link] %>
+  <% end %>
+</div>
+<% end %>
+
+<script>
+	$(function() {
+		$( "#connection_link_departure_id" ).tokenInput('<%= referential_connection_link_connection_link_areas_path(@referential, @connection_link, :format => :json) %>', { 
+       crossDomain: false, 
+       prePopulate: $('#connection_link_departure_id').data('pre'),
+       tokenLimit: 1,
+       minChars: 3,
+    });
+	});
+
+	$(function() {
+		$( "#connection_link_arrival_id" ).tokenInput('<%= referential_connection_link_connection_link_areas_path(@referential, @connection_link, :format => :json) %>', { 
+       crossDomain: false, 
+       prePopulate: $('#connection_link_arrival_id').data('pre'),
+       tokenLimit: 1,
+       minChars: 3,
+    });
+	});
+</script>
+                         
+<% content_for :sidebar do %>
+<ul class="actions">
+</ul>
+<% end %>

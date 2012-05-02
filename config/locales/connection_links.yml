@@ -5,6 +5,9 @@ en:
       edit: Edit this connection link
       destroy: Remove this liconnection linkne
       destroy_confirm: Are you sure you want destroy this connection link?
+      select_departure: Select start of link
+      select_arrival: Select end of link
+      select_areas: "Select stop areas"
     new:
       title: Add a new connection link
     edit:
@@ -18,6 +21,12 @@ en:
       arrival: End of link
       selection: Selection
       selection_all: All
+    select_departure:
+      title: Select start stop area for %{connection_link} 
+    select_arrival:
+      title: Select end stop area for %{connection_link} 
+    select_areas:
+      title: "Select start and end stops for %{connection_link}"
   activerecord:        
     models:        
       connection_link: Connection link
@@ -25,6 +34,8 @@ en:
       connection_link:
         departure: Start of link
         arrival: End of link
+        departure_id: Start of link
+        arrival_id: End of link
         undefined: not yet set
         name: Name
         comment: Comment
@@ -53,6 +64,9 @@ fr:
       edit: Modifier cette correspondance
       destroy: Supprimer cette correspondance
       destroy_confirm: Etes vous sûr de détruire cette correspondance ?
+      select_departure: "Sélectionner l'arrêt de départ"
+      select_arrival: "Sélectionner l'arrêt d'arrivée"
+      select_areas: "Sélectionner les arrêts"
     new:
       title: Ajouter une correspondance
     edit:
@@ -66,6 +80,12 @@ fr:
       arrival: "Arrêt d'arrivée"
       selection: Sélection
       selection_all: Tous
+    select_departure:
+      title: "Sélection de l'arrêt de départ de %{connection_link}"
+    select_arrival:
+      title: "Sélection de l'arrêt d'arrivée de %{connection_link}"
+    select_areas:
+      title: "Sélection des arrêts de départ et d'arrivée de %{connection_link}"
   activerecord:        
     models:        
       connection_link: Correspondance
@@ -73,6 +93,8 @@ fr:
       connection_link:
         departure: Arrêt de départ
         arrival: "Arrêt d'arrivée"
+        departure_id: Arrêt de départ
+        arrival_id: "Arrêt d'arrivée"
         undefined: non défini
         name: Nom
         comment: Commentaire

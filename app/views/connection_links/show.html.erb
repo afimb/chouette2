@@ -49,7 +49,12 @@
 <% content_for :sidebar do %>
 <ul class="actions">
   <li><%= link_to t('connection_links.actions.edit'), edit_referential_connection_link_path(@referential, @connection_link), :class => "edit" %></li>
-  <li><%= link_to  t('connection_links.actions.destroy'), referential_connection_link_path(@referential, @connection_link), :method => :delete, :confirm =>  t('connection_links.actions.destroy_confirm'), :class => "remove" %></li>
+  <li><%= link_to t('connection_links.actions.destroy'), referential_connection_link_path(@referential, @connection_link), :method => :delete, :confirm =>  t('connection_links.actions.destroy_confirm'), :class => "remove" %></li>
+<!--
+  <li><%= link_to t('connection_links.actions.select_departure'), select_departure_referential_connection_link_path(@referential, @connection_link), :class => "select_departure" %></li>
+  <li><%= link_to t('connection_links.actions.select_arrival'), select_arrival_referential_connection_link_path(@referential, @connection_link), :class => "select_arrival" %></li>
+-->
+  <li><%= link_to t('connection_links.actions.select_areas'), select_areas_referential_connection_link_path(@referential, @connection_link), :class => "select_areas" %></li>
   <br>
 </ul>
 <% end %>
