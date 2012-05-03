@@ -32,8 +32,8 @@
       <%= @stop_area.registration_number %>
     </p>
     <p>
-      <label><%= @stop_area.human_attribute_name("type") %>: </label>
-      <%= t("area_types.label.#{@stop_area.type}") %>
+      <label><%= @stop_area.human_attribute_name("stop_area_type") %>: </label>
+      <%= t("area_types.label.#{@stop_area.stop_area_type}") %>
     </p>
     <p> <label><%= t('stop_areas.show.geographic_data') %> </label></p>
     <% if @stop_area.projectiontype == nil && @stop_area.longlattype == nil %>
@@ -100,7 +100,7 @@
 
     <% if @stop_area.parent.present? || @stop_area.children.present? %>
     <div class="target">
-      <%= image_tag "map/" + @stop_area.type + ".png"%><span><%= @stop_area.name %></span>
+      <%= image_tag "map/" + @stop_area.stop_area_type + ".png"%><span><%= @stop_area.name %></span>
     </div> 
     <% end %>
     
@@ -110,7 +110,7 @@
       <% @stop_area.children.each do |child| %>
       <div class="child">
         <%= link_to([@referential, child]) do %> 
-          <%= image_tag "map/" + child.type + ".png"   %><span><%= child.name %></span>         
+          <%= image_tag "map/" + child.stop_area_type + ".png"   %><span><%= child.name %></span>         
         <% end %>  
         <%= link_to image_tag("user_interface/ui/remove.png"), referential_stop_area_path(@referential, child), :method => :delete, :confirm =>  t('stop_areas.actions.destroy_confirm'), :class => "remove" %>
       </div>

@@ -31,7 +31,7 @@
 <h4><%= t(".area_type") %></h4>
 
 <ul class="selection">
-<% Chouette::StopArea.types.each do |area_type| %>
+<% Chouette::StopArea.stop_area_types.each do |area_type| %>
 <li><%= link_with_search (image_tag("map/" + area_type + ".png")+t("area_types.label.#{area_type.to_s}")), "areatype_eq" => area_type.name %></li>
 <% end %>
 <li><%= link_with_search (image_tag("map/all.png")+t(".selection_all")), {"areatype_eq" => nil}, :class => "all" %></li>
