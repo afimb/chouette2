@@ -26,10 +26,10 @@ describe "ConnectionLinks" do
     
     it "display map" do
       pending ": map not yet implemented"
-#      subject.stub(:stop_areas).and_return(Array.new(2) { Factory(:stop_area) })
-#      visit referential_connection_links_path(referential)
-#      click_link "#{connection_links.first.name}"
-#      page.should have_selector("#map", :class => 'connection_link')
+      subject.stub(:stop_areas).and_return(Array.new(2) { Factory(:stop_area) })
+      visit referential_connection_links_path(referential)
+      click_link "#{connection_links.first.name}"
+      page.should have_selector("#map", :class => 'connection_link')
     end
     
   end

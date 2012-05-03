@@ -29,5 +29,4 @@ les action suivantes ne sont pas encore disponible :
 * associer des arr&ecirc;ts &agrave; une s&eacute;quences d'arr&ecirc;ts
 * ajouter des fils &agrave; un arr&ecirc;t
 * associer une ITL &agrave; une ligne
-* affichage de la carte des arr&ecirc;ts d'une correspondance
 

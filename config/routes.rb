@@ -48,6 +48,13 @@ ChouetteIhm::Application.routes.draw do
         get 'select_arrival'
         get 'select_areas'
       end
+      resources :stop_areas do
+        resources :stop_area_parents
+        member do
+          get 'add_children'
+          get 'select_parent'
+        end
+      end        
     end
 
   end 

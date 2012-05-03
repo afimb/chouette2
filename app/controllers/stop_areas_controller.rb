@@ -4,6 +4,7 @@ class StopAreasController < ChouetteController
   belongs_to :referential do
     belongs_to :line, :parent_class => Chouette::Line, :optional => true, :polymorphic => true
     belongs_to :network, :parent_class => Chouette::Network, :optional => true, :polymorphic => true
+    belongs_to :connection_link, :parent_class => Chouette::Network, :optional => true, :polymorphic => true
   end
 
   respond_to :html, :kml, :xml, :json

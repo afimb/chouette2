@@ -1,7 +1,8 @@
 <%= title_tag t('connection_links.show.title', :connection_link => @connection_link.name ) %>
 
 <div class="connection_link_show">
-
+  <%= @map.to_html.html_safe %>
+  
   <div class="summary">
     <p>
       <label><%= @connection_link.human_attribute_name(:departure) %>: </label>

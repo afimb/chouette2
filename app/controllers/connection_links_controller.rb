@@ -8,6 +8,11 @@ class ConnectionLinksController < ChouetteController
 
   respond_to :html, :xml, :json
 
+  def show
+    @map = ConnectionLinkMap.new referential, resource
+    show!
+  end
+
   def select_areas
     @connection_link = connection_link
     @departure = connection_link.departure
