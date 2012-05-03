@@ -21,11 +21,7 @@ class StopAreasController < ChouetteController
 
   def add_children
     @stop_area = stop_area
-  end
-  
-  def possible_children
-    @possible_children= stop_area.possible_children
-    render :layout => false
+    @children = stop_area.children
   end
 
   def index     
