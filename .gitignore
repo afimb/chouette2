@@ -19,3 +19,4 @@ public/assets/
 # for vim users
 *.swp
 *.swo
+.DS_Store

@@ -2,6 +2,7 @@ class RoutesController < ChouetteController
   defaults :resource_class => Chouette::Route
 
   respond_to :html, :xml, :json
+  respond_to :kml, :only => :show
 
   belongs_to :referential do
     belongs_to :line, :parent_class => Chouette::Line, :optional => true, :polymorphic => true
@@ -14,6 +15,7 @@ class RoutesController < ChouetteController
   end
 
   def show
+    @map = RouteMap.new referential, resource
     @stop_areas = resource.stop_areas.paginate(:page => params[:page], :per_page => 10)
     show!
   end
