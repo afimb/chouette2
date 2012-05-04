@@ -44,8 +44,6 @@ ChouetteIhm::Application.routes.draw do
     resources :connection_links do
       resources :connection_link_areas 
       member do
-        get 'select_departure'
-        get 'select_arrival'
         get 'select_areas'
       end
       resources :stop_areas do
