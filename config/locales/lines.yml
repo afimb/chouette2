@@ -24,7 +24,7 @@ en:
       line:
         network: Network
         company: Company
-        registration_number: Registration number
+        registrationnumber: Registration number
         name: Name
         published_name: Published name        
         number: Number
@@ -37,7 +37,7 @@ en:
   formtastic:
     hints:
       line:
-        registration_number: only alphanumerical or underscore characters 
+        registrationnumber: only alphanumerical or underscore characters 
         objectid: "[prefix]:Line:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
 
 fr:
@@ -66,7 +66,7 @@ fr:
       line:
         network: Réseau
         company: Transporteur
-        registration_number: "Numéro d'enregistrement"
+        registrationnumber: "Numéro d'enregistrement"
         name: Nom
         published_name: Nom public        
         number: Indice
@@ -79,6 +79,6 @@ fr:
   formtastic:
     hints:
       line:
-        registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
+        registrationnumber: "caractères autorisés : alphanumériques et 'souligné'" 
         objectid: "[prefixe]:Line:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
 

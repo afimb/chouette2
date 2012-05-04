@@ -3,6 +3,7 @@ en:
     edit: Edit
     destroy: Destroy
     search: Search
+    add: Add new
   or: or
   cancel: cancel
 fr:
@@ -10,5 +11,6 @@ fr:
     edit: Modifier
     destroy: Supprimer
     search: Chercher
+    add: Ajouter
   or: ou
   cancel: annuler

@@ -1,0 +1,29 @@
+<%= title_tag t('stop_areas.add_children.title', :stop_area => @stop_area.name ) %>
+
+<%= semantic_form_for [@referential, @stop_area] do |form| %>
+<div>
+  <%= form.inputs do %> 
+    <%= form.input :children_ids, :as => :text, :input_html => { :"data-pre" => ( @children.map { |child| { :id => child.id.to_s, :name => "#{child.name} #{child.country_code}" } } ).to_json }  %>
+  <% end %>  
+  
+  <%= form.buttons do %>
+    <%= form.commit_button %>
+    ou <%= link_to "revenir", [@referential, @stop_area] %>
+  <% end %>
+</div>
+<% end %>
+
+<script>
+	$(function() {
+		$( "#stop_area_children_ids" ).tokenInput('<%= referential_stop_area_stop_area_children_path(@referential, @stop_area, :format => :json) %>', { 
+       crossDomain: false, 
+       prePopulate: $('#stop_area_children_id').data('pre'),
+       minChars: 3,
+    });
+	});
+</script>
+                         
+<% content_for :sidebar do %>
+<ul class="actions">
+</ul>
+<% end %>

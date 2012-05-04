@@ -46,3 +46,145 @@
     }
 }        
 
+#workspace.time_tables.edit
+{
+  .day_type ol {
+      float: left;
+      margin: 0;
+      padding: 0 0 0 0;
+      width: 100%;
+      list_style: none outside none;
+    }
+  .day_type ol li {
+      float: left;
+      margin: 0 O 0 0;
+      width: auto;
+      padding: 0;
+    }
+  .day_type_label {
+      float: left;
+      margin-top: 0;
+      width: 25%;
+    }
+  .day_type ol li label {
+      padding-left: 10%;
+    }
+  .periods ol {
+      float: left;
+      margin: 0;
+      padding: 0 0 0 25%;
+      width: 74%;
+      list_style: none outside none;
+  }
+  .periods ol li {
+      float: left;
+      margin: 0 O 0 0;
+      width: auto;
+      padding: 0;
+    }
+  .periods ol li fieldset legend label {
+      width: auto;
+    }
+  .periods ol li fieldset ol  {
+      padding: 0 10% 0 15%;
+      width: auto;
+    }
+  .period_add {
+    padding: 0 0 0 25%;
+   }
+  .dates ol {
+      float: left;
+      margin: 0;
+      padding: 0 0 0 25%;
+      width: 74%;
+      list_style: none outside none;
+  }
+  .dates ol li {
+      float: left;
+      margin: 0 O 0 0;
+      width: auto;
+      padding: 0;
+    }
+  .dates ol li fieldset legend label {
+      width: auto;
+    }
+  .dates ol li fieldset ol  {
+      padding: 0 10% 0 15%;
+      width: auto;
+    }
+  .date_add {
+    padding: 0 0 0 25%;
+   }
+  
+}
+#workspace.time_tables.new
+{
+  .day_type ol {
+      float: left;
+      margin: 0;
+      padding: 0 0 0 0;
+      width: 100%;
+      list_style: none outside none;
+    }
+  .day_type ol li {
+      float: left;
+      margin: 0 O 0 0;
+      width: auto;
+      padding: 0;
+    }
+  .day_type_label {
+      float: left;
+      margin-top: 0;
+      width: 25%;
+    }
+  .day_type ol li label {
+      padding-left: 10%;
+    }
+  .periods ol {
+      float: left;
+      margin: 0;
+      padding: 0 0 0 25%;
+      width: 74%;
+      list_style: none outside none;
+  }
+  .periods ol li {
+      float: left;
+      margin: 0 O 0 0;
+      width: auto;
+      padding: 0;
+    }
+  .periods ol li fieldset legend label {
+      width: auto;
+    }
+  .periods ol li fieldset ol  {
+      padding: 0 10% 0 15%;
+      width: auto;
+    }
+  .period_add {
+    padding: 0 0 0 25%;
+   }
+  .dates ol {
+      float: left;
+      margin: 0;
+      padding: 0 0 0 25%;
+      width: 74%;
+      list_style: none outside none;
+  }
+  .dates ol li {
+      float: left;
+      margin: 0 O 0 0;
+      width: auto;
+      padding: 0;
+    }
+  .dates ol li fieldset legend label {
+      width: auto;
+    }
+  .dates ol li fieldset ol  {
+      padding: 0 10% 0 15%;
+      width: auto;
+    }
+  .date_add {
+    padding: 0 0 0 25%;
+   }
+  
+}

@@ -21,8 +21,8 @@ gem "map_layers", "~> 0.0.4"
 
 gem 'user_interface', :git => 'git://sim.dryade.priv/user_interface'
 gem 'json'
-gem 'formtastic'
 gem 'cocoon'
+gem 'formtastic', '2.0.2'
 gem 'inherited_resources'
 gem 'will_paginate', '~> 3.0'
 gem 'ransack'

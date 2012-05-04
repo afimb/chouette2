@@ -27,6 +27,8 @@ en:
       area_type: Area Type
     select_parent:
       title: Select parent of stop area %{stop_area} 
+    add_children:
+      title: Add children of stop area %{stop_area} 
   activerecord:        
     models:        
       stop_area: Stop area
@@ -50,6 +52,8 @@ en:
         object_version: Version
         creation_time: Created on
         creator_id: Created by 
+        children_ids: Children 
+        parent: Parent
   formtastic:
     hints:
       stop_area:
@@ -85,6 +89,8 @@ fr:
       area_type: Type d'arrêt 
     select_parent:
       title: Sélection du parent de l'arrêt %{stop_area} 
+    add_children:
+      title: Ajouter les enfants de l'arrêt %{stop_area} 
   activerecord:        
     models:        
       stop_area: Arrêt
@@ -109,6 +115,8 @@ fr:
         object_version: Version
         creation_time: Créé le
         creator_id: Créé par
+        children_ids: Enfants 
+        parent: Parent
   formtastic:
     hints:
       stop_area:

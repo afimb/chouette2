@@ -11,53 +11,6 @@
       <label><%= @time_table.human_attribute_name("version") %>: </label>
       <%= @time_table.version %>
     </p>
-    <!-- 
-    <p>
-      <label><%= @time_table.human_attribute_name("day_types") %>:&nbsp;&nbsp;</label>
-      <% if @time_table.monday %> 
-      	<%= image_tag "icons/checked.png" %>
-      <% else %>	
-        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-      <% end %>	
-      <label><%= @time_table.human_attribute_name("monday") %>&nbsp;&nbsp;</label>
-      <% if @time_table.tuesday %> 
-      	<%= image_tag "icons/checked.png" %>
-      <% else %>	
-        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-      <% end %>	
-      <label><%= @time_table.human_attribute_name("tuesday") %>&nbsp;&nbsp;</label>
-      <% if @time_table.wednesday %> 
-      	<%= image_tag "icons/checked.png" %>
-      <% else %>	
-        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-      <% end %>	
-      <label><%= @time_table.human_attribute_name("wednesday") %>&nbsp;&nbsp;</label>
-      <% if @time_table.thursday %> 
-      	<%= image_tag "icons/checked.png" %>
-      <% else %>	
-        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-      <% end %>	
-      <label><%= @time_table.human_attribute_name("thursday") %>&nbsp;&nbsp;</label>
-      <% if @time_table.friday %> 
-      	<%= image_tag "icons/checked.png" %>
-      <% else %>	
-        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-      <% end %>	
-      <label><%= @time_table.human_attribute_name("friday") %>&nbsp;&nbsp;</label>
-      <% if @time_table.saturday %> 
-      	<%= image_tag "icons/checked.png" %>
-      <% else %>	
-        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-      <% end %>	
-      <label><%= @time_table.human_attribute_name("saturday") %>&nbsp;&nbsp;</label>
-      <% if @time_table.sunday %> 
-      	<%= image_tag "icons/checked.png" %>
-      <% else %>	
-        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-      <% end %>	
-      <label><%= @time_table.human_attribute_name("sunday") %></label>
-    </p>
-    -->
     <p>
       <label><%= @time_table.human_attribute_name("day_types") %>:&nbsp;&nbsp;</label>
       <% if @time_table.intdaytypes == 0 %>
@@ -117,6 +70,7 @@
       <%= @time_table.creator_id %>
     </p>
   </div>
+  
 </div>
 
 <% content_for :sidebar do %>

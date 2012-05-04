@@ -171,6 +171,16 @@ fr:
         <<: *errors_template
       full_messages:
         format: "%{attribute} %{message}"
+  flash:
+    actions:
+      create:
+        notice: '%{resource_name} créé(e) avec succès.'
+      update:
+        notice: '%{resource_name} mise(e) à jour avec succès.'
+      destroy:
+        notice: '%{resource_name} détruit(e) avec succès.'
+        alert: '%{resource_name} ne peut être détruit(e).'
+
 # FIN: https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/fr.yml
   or: ou
   back: Revenir

@@ -2,14 +2,18 @@
   <%= form.inputs do %> 
     <%= form.input :comment %>
     <%= form.input :version %> 
-    <%= form.input :monday, :as => :boolean %> 
+  <% end %>
+  <%= form.inputs :class => 'day_type' do %> 
+    <label class="day_type_label"><%= @time_table.human_attribute_name("day_types") %></label>
+    <%= form.input :monday, :as => :boolean, :class => "others" %> 
     <%= form.input :tuesday, :as => :boolean %> 
     <%= form.input :wednesday, :as => :boolean %> 
     <%= form.input :thursday, :as => :boolean %> 
     <%= form.input :friday, :as => :boolean %> 
     <%= form.input :saturday, :as => :boolean %> 
     <%= form.input :sunday, :as => :boolean %> 
-
+  <% end %>
+  <%= form.inputs do %> 
     <% if @time_table.new_record? %>
       <%= form.input :objectid %>  
     <% else %>
@@ -19,20 +23,16 @@
       </li>
     <% end %>
   <% end %>
-  <!-- 
-  <% if not @time_table.new_record? %>
-    <label><%= @time_table.human_attribute_name("periods") %>: </label>
-    <%= form.inputs  :for => :periods do |period_form| %>
-      <%= period_form.input :period_start, :as => :date ,:label => @time_table.human_attribute_name("period_start")%>
-      <%= period_form.input :period_end, :as => :date ,:label => @time_table.human_attribute_name("period_end")%>
-    <% end %> 
-    <label><%= @time_table.human_attribute_name("dates") %>: </label>
-    <%= form.inputs  :for => :dates do |date_form| %>
-      <%= date_form.input :date, :as => :date %>
-    <% end %> 
-     
-  <% end%>
-  -->
+  
+  <label><%= @time_table.human_attribute_name("periods") %>: </label>
+  <%= form.semantic_fields_for :periods do |period| %>
+     <%= render 'period_fields', :f => period %>
+  <% end %> 
+  <p/>
+  <label><%= @time_table.human_attribute_name("dates") %>: </label>
+  <%= form.semantic_fields_for :dates do |date| %>
+     <%= render 'date_fields', :f => date %>
+  <% end %> 
 
   <%= form.buttons do %>
     <%= form.commit_button %>
@@ -40,3 +40,12 @@
     <li><%= link_to t('cancel'), :back %></li>
   <% end %>
 <% end %>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to_add_association t('time_tables.edit.add_period'), form, :periods %></li>
+  <li><%= link_to_add_association t('time_tables.edit.add_date'), form, :dates %></li>
+  <br>
+</ul>
+<% end %>
+

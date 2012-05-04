@@ -12,6 +12,8 @@ en:
       title: Update timetable %{time_table}
     show:
       title: Timetable %{time_table}
+      add_period: Add a period
+      add_date: Add a date
     index:
       title: Timetables
       comment: Comment
@@ -38,9 +40,11 @@ en:
         creation_time: Created on
         creator_id: Created by 
         dates: Application dates
+        date: Le
         periods: Application periods
-        periodstart: From
-        periodend: to
+        period_start: From
+        period_end: to
+        
   formtastic:
     hints:
       time_table:
@@ -58,6 +62,8 @@ fr:
       title: Ajouter un calendrier
     edit:
       title: "Modifier le calendrier %{time_table}"
+      add_period: Ajouter une période
+      add_date: Ajouter une date
     show:
       title: Calendrier %{time_table}
     index:
@@ -86,9 +92,10 @@ fr:
         creation_time: Créé le
         creator_id: Créé par
         dates: "Dates d'application"
+        date: Date
         periods: "Périodes d'application"
-        periodstart: Du 
-        periodend: au
+        period_start: Du 
+        period_end: au
 
   formtastic:
     hints:

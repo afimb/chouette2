@@ -1,6 +1,7 @@
-<%= title_tag t('routes.show.title', :route => @route.name, :line => @line.name ) %>
+<%= title_tag t('routes.show.title', :route => @route.name, :line => @route.line.name ) %>
 
 <div class="route_show">
+  <%= @map.to_html.html_safe %>
 
   <div class="summary">
     <p>
@@ -63,7 +64,7 @@
 
 </div>
 
-<h3><%= t('.stop_areas') %></h3>
+<h3 class="route_stop_areas"><%= t('.stop_areas') %></h3>
 <%= will_paginate @stop_areas %>
 <div class="stop_areas paginated_content">
   <%= render :partial => "stop_areas/stop_area", :collection => @stop_areas %>

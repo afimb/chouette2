@@ -70,6 +70,10 @@
         @include content_to_clear;
     }
     
+    .route_stop_areas {
+        clear: both;
+    }
+
     .stop_area {
         @include div_for_object;
         /* to create multi-column index */
