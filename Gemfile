@@ -22,6 +22,7 @@ gem "map_layers", "~> 0.0.4"
 gem 'user_interface', :git => 'git://sim.dryade.priv/user_interface'
 gem 'json'
 gem 'formtastic'
+gem 'cocoon'
 gem 'inherited_resources'
 gem 'will_paginate', '~> 3.0'
 gem 'ransack'
@@ -29,8 +30,10 @@ gem 'squeel'
 gem 'RedCloth'
 
 gem "acts_as_tree", :git => "git://github.com/dryade/acts_as_tree.git"
+gem "acts_as_list"
 gem 'apartment', :git => 'git://github.com/dryade/apartment.git'
 gem 'ninoxe', :git => 'git://chouette.dryade.priv/ninoxe' #, :path => '~/Projects/Ninoxe'
+#gem 'ninoxe', :path => '~/workspace/chouette/ninoxe'
 
 # Gems used only for assets and not required
 # in production environments by default.
