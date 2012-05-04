@@ -125,10 +125,10 @@
 <ul class="actions">
   <li><%= link_to t('stop_areas.actions.edit'), edit_referential_stop_area_path(@referential, @stop_area), :class => "edit" %></li>
   <li><%= link_to  t('stop_areas.actions.destroy'), referential_stop_area_path(@referential, @stop_area), :method => :delete, :confirm =>  t('stop_areas.actions.destroy_confirm'), :class => "remove" %></li>
-  <% if @stop_area.type != 'itl' %>
+  <% if @stop_area.stop_area_type != 'itl' %>
     <li><%= link_to  t('stop_areas.actions.select_parent'), select_parent_referential_stop_area_path(@referential, @stop_area), :class => "select_parent" %></li>
   <% end %>
-  <% if @stop_area.type != 'boarding_position' && @stop_area.type != 'quay' %>
+  <% if @stop_area.stop_area_type != 'boarding_position' && @stop_area.stop_area_type != 'quay' %>
     <li><%= link_to  t('stop_areas.actions.add_children'), add_children_referential_stop_area_path(@referential, @stop_area), :class => "add_children" %></li>
   <% end %>
   <br>
