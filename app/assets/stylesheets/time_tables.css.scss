@@ -89,8 +89,10 @@
       padding: 0 10% 0 15%;
       width: auto;
     }
-  .period_add {
-    padding: 0 0 0 25%;
+  .links {
+    margin-left: 25%;
+    padding-left: 20px;
+    background: url(image-path('user_interface/ui/add.png')) no-repeat;
    }
   .dates ol {
       float: left;
@@ -112,9 +114,6 @@
       padding: 0 10% 0 15%;
       width: auto;
     }
-  .date_add {
-    padding: 0 0 0 25%;
-   }
   
 }
 #workspace.time_tables.new
@@ -160,8 +159,10 @@
       padding: 0 10% 0 15%;
       width: auto;
     }
-  .period_add {
-    padding: 0 0 0 25%;
+  .links {
+    margin-left: 25%;
+    padding-left: 20px;
+    background: url(image-path('user_interface/ui/add.png')) no-repeat;
    }
   .dates ol {
       float: left;
@@ -183,8 +184,4 @@
       padding: 0 10% 0 15%;
       width: auto;
     }
-  .date_add {
-    padding: 0 0 0 25%;
-   }
-  
 }

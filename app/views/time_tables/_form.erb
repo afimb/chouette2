@@ -23,17 +23,27 @@
       </li>
     <% end %>
   <% end %>
-  
-  <label><%= @time_table.human_attribute_name("periods") %>: </label>
-  <%= form.semantic_fields_for :periods do |period| %>
-     <%= render 'period_fields', :f => period %>
-  <% end %> 
+<!--  
+  <div id='periods'>
+    <label><%= @time_table.human_attribute_name("periods") %>: </label>
+    <%= form.semantic_fields_for :periods do |period| %>
+      <%= render 'period_fields', :f => period %>
+    <% end %> 
+    <div class='links'>
+      <%= link_to_add_association t('time_tables.edit.add_period'), form, :periods %>
+    </div>
+  </div>
   <p/>
-  <label><%= @time_table.human_attribute_name("dates") %>: </label>
-  <%= form.semantic_fields_for :dates do |date| %>
-     <%= render 'date_fields', :f => date %>
-  <% end %> 
-
+  <div id='dates'>
+    <label><%= @time_table.human_attribute_name("dates") %>: </label>
+    <%= form.semantic_fields_for :dates do |date| %>
+      <%= render 'date_fields', :f => date %>
+    <% end %> 
+    <div class='links'>
+      <%= link_to_add_association t('time_tables.edit.add_date'), form, :dates %>
+    </div>
+  </div>
+-->
   <%= form.buttons do %>
     <%= form.commit_button %>
     <li><%= t('or') %></li>
@@ -41,11 +51,13 @@
   <% end %>
 <% end %>
 
+<!-- 
 <% content_for :sidebar do %>
 <ul class="actions">
   <li><%= link_to_add_association t('time_tables.edit.add_period'), form, :periods %></li>
   <li><%= link_to_add_association t('time_tables.edit.add_date'), form, :dates %></li>
   <br>
 </ul>
+-->
 <% end %>
 
