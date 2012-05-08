@@ -30,10 +30,10 @@ gem 'squeel'
 gem 'RedCloth'
 
 gem "acts_as_tree", :git => "git://github.com/dryade/acts_as_tree.git"
-gem "acts_as_list"
+gem "acts_as_list", :git => "git://github.com/swanandp/acts_as_list.git"
 gem 'apartment', :git => 'git://github.com/dryade/apartment.git'
-gem 'ninoxe', :git => 'git://chouette.dryade.priv/ninoxe' #, :path => '~/Projects/Ninoxe'
-#gem 'ninoxe', :path => '~/workspace/chouette/ninoxe'
+#gem 'ninoxe', :git => 'git://chouette.dryade.priv/ninoxe' #, :path => '~/Projects/Ninoxe'
+gem 'ninoxe', :path => '~/workspace/chouette/ninoxe'
 
 # Gems used only for assets and not required
 # in production environments by default.

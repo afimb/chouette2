@@ -2,6 +2,8 @@
   <%= f.inputs :class => 'periods' do %> 
     <%= f.input :period_start, :as => :date , :label => @time_table.human_attribute_name("period_start")%>
     <%= f.input :period_end, :as => :date , :label => @time_table.human_attribute_name("period_end")%>
+    <%= f.input :time_table_id, :as => :hidden %>
+    <%= f.input :position, :as => :hidden %>
     <%= link_to_remove_association t('actions.destroy'), f %>
   <% end %>
 </div>

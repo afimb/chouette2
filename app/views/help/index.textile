@@ -10,10 +10,11 @@ Cette it&eacute;ration pr&eacute;sente les formulaires de :
 * r&eacute;seaux
 * transporteurs
 * lignes
+** s&eacute;quences d'arr&ecirc;ts
 * arr&ecirc;ts
 * calendriers d'application
 * correspondances
-* s&eacute;quences d'arr&ecirc;ts
+* import Neptune (actuellement uniquement lors de la cr&eacute;ation d'un espace de donn&eacute;)
 
 l'avancement actuel permet de : 
 
@@ -21,12 +22,12 @@ l'avancement actuel permet de :
 * consulter les cartes
 * d&eacute;placer un arr&ecirc;t depuis la carte (voir mode op&eacute;ratoire dans l'aide des arr&ecirc;ts)
 * associer les arr&ecirc;ts &agrave; leurs parents
+* ajouter des fils &agrave; un arr&ecirc;t
 
 les action suivantes ne sont pas encore disponible : 
 
 * afficher le fond G&eacute;oportail
 * ajouter ou supprimer des dates et des p&eacute;riodes aux calendriers
 * associer des arr&ecirc;ts &agrave; une s&eacute;quences d'arr&ecirc;ts
-* ajouter des fils &agrave; un arr&ecirc;t
 * associer une ITL &agrave; une ligne
 
