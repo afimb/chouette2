@@ -91,7 +91,7 @@
     <% if @stop_area.parent.present? %> 
     <div class="parent">
       <%= link_to([@referential, @stop_area.parent]) do %> 
-        <%= image_tag "map/" + @stop_area.parent.type + ".png"   %><span><%= @stop_area.parent.name %></span>        
+        <%= image_tag "map/" + @stop_area.parent.stop_area_type + ".png"   %><span><%= @stop_area.parent.name %></span>        
       <% end %>
       <%= link_to image_tag("user_interface/ui/remove.png"), referential_stop_area_path(@referential, @stop_area.parent), :method => :delete, :confirm =>  t('stop_areas.actions.destroy_confirm'), :class => "remove" %>
     </div> 

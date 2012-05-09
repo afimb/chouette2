@@ -3,11 +3,11 @@ en:
     actions:
       new: Add a new connection link
       edit: Edit this connection link
-      destroy: Remove this liconnection linkne
+      destroy: Remove this connection link
       destroy_confirm: Are you sure you want destroy this connection link?
       select_departure: Select start of link
       select_arrival: Select end of link
-      select_areas: "Select stop areas"
+      select_areas: "Select start/end of link"
     new:
       title: Add a new connection link
     edit:
@@ -66,7 +66,7 @@ fr:
       destroy_confirm: Etes vous sûr de détruire cette correspondance ?
       select_departure: "Sélectionner l'arrêt de départ"
       select_arrival: "Sélectionner l'arrêt d'arrivée"
-      select_areas: "Sélectionner les arrêts"
+      select_areas: "Sélectionner les départ/arrivée"
     new:
       title: Ajouter une correspondance
     edit:
