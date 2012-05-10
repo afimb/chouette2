@@ -46,17 +46,6 @@
       <% end %>	
       
     </p>
-    
-  	<p>
-  	<label><%= @time_table.human_attribute_name("periods") %>: </label>
-  	</p>
-  	<%= render :partial => "period", :collection => @time_table.periods %>
-  	
-  	<p>
-  	<label><%= @time_table.human_attribute_name("dates") %>: </label>
-  	</p>
-  	<%= render :partial => "date", :collection => @time_table.dates %>
-  	
     <p>
       <label><%= @time_table.human_attribute_name("objectid") %>: </label>
       <%= @time_table.objectid %>
@@ -71,10 +60,13 @@
     </p>
   </div>
   
+  <h3 class="dates"><%= t('.dates') %></h3>
+  <%= render "dates" %>
 </div>
 
 <% content_for :sidebar do %>
 <ul class="actions">
+  <li><%= link_to t('time_tables.edit.add_date'), new_referential_time_table_time_table_date_path(@referential, @time_table), :class => 'add' %></li>
   <li><%= link_to t('time_tables.actions.edit'), edit_referential_time_table_path(@referential, @time_table), :class => "edit" %></li>
   <li><%= link_to  t('time_tables.actions.destroy'), referential_time_table_path(@referential, @time_table), :method => :delete, :confirm =>  t('time_tables.actions.destroy_confirm'), :class => "remove" %></li>
   <br>

@@ -1,0 +1,7 @@
+<p>:;,:;,</p>
+  <ul class='dates'>
+    <% @time_table.dates.each do |tmd| %>
+    <li class="<%= (tmd.position%2==0) ? 'odd' : 'even' %>"><%= tmd.date %></li>
+    <% end %>
+  </ul>
+
