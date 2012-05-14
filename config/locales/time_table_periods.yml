@@ -1,0 +1,23 @@
+en:
+  time_table_periods:
+    new:
+      title: "Timetable : add a new period"
+  activerecord:        
+    models:        
+      time_table_period: Period
+    attributes:
+      time_table_period:
+        period_start: From
+        period_end: To
+
+fr:
+  time_table_periods:
+    new:
+      title: "Calendrier : ajouter une période d'application"
+  activerecord:        
+    models:        
+      time_table_period: Période
+    attributes:
+      time_table_period:
+        period_start: Du
+        period_end: Au

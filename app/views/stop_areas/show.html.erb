@@ -28,7 +28,7 @@
       <%= @stop_area.fare_code %>
     </p>
     <p>
-      <label><%= @stop_area.human_attribute_name("registration_number") %>: </label>
+      <label><%= @stop_area.human_attribute_name("registrationnumber") %>: </label>
       <%= @stop_area.registration_number %>
     </p>
     <p>
@@ -74,7 +74,7 @@
     </p>
     <p>
       <label><%= @stop_area.human_attribute_name("creation_time") %>: </label>
-      <%= @stop_area.creation_time %>
+      <%= l(@stop_area.creation_time) %>
     </p>
     <p>
       <label><%= @stop_area.human_attribute_name("creator_id") %>: </label>

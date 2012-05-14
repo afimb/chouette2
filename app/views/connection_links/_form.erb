@@ -3,7 +3,16 @@
   <%= form.inputs do %> 
     <%= form.input :name %>
     <%= form.input :connection_link_type, :as => :select, :collection => Chouette::ConnectionLink.connection_link_types, :include_blank => false, :member_label => Proc.new { |type| t("connection_link_types.label.#{type}") }  %>
-    <%= form.input :comment %>              
+    <%= form.input :comment %>  
+    <%= form.input :link_distance %> 
+    <%= form.input :defaultduration, :as => :time ,:include_seconds => true , :label => @connection_link.human_attribute_name("default_duration")%>
+    <%= form.input :frequenttravellerduration, :as => :time ,:include_seconds => true , :label => @connection_link.human_attribute_name("frequent_traveller_duration")%>
+    <%= form.input :occasionaltravellerduration, :as => :time ,:include_seconds => true , :label => @connection_link.human_attribute_name("occasional_traveller_duration")%>
+    <%= form.input :mobilityrestrictedtravellerduration, :as => :time ,:include_seconds => true , :label => @connection_link.human_attribute_name("mobility_restricted_traveller_duration")%>
+    <%= form.input :mobility_restricted_suitability,:as => :boolean %>
+    <%= form.input :stairs_availability,:as => :boolean %>
+    <%= form.input :lift_availability,:as => :boolean %>
+
     <% if @connection_link.new_record? %>
       <%= form.input :objectid %>  
     <% else %>

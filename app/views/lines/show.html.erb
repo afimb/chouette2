@@ -21,7 +21,7 @@
       <%= @line.publishedname %>
     </p>
     <p>
-      <label><%= @line.human_attribute_name("registration_number") %>: </label>
+      <label><%= @line.human_attribute_name("registrationnumber") %>: </label>
       <%= @line.registration_number %>
     </p>
     <p>
@@ -42,7 +42,7 @@
     </p>
     <p>
       <label><%= @line.human_attribute_name("creation_time") %>: </label>
-      <%= @line.creation_time %>
+      <%= l(@line.creation_time) %>
     </p>
     <p>
       <label><%= @line.human_attribute_name("creator_id") %>: </label>

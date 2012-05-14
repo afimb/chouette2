@@ -1,5 +1,5 @@
-class TimeTableDatesController < ChouetteController
-  defaults :resource_class => Chouette::TimeTableDate, :collection_name => 'dates'
+class TimeTablePeriodsController < ChouetteController
+  defaults :resource_class => Chouette::TimeTablePeriod, :collection_name => 'periods'
 
   respond_to :html
 

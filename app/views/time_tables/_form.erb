@@ -33,16 +33,4 @@
 <h3 class="dates"><%= t('.dates') %></h3>
 <%= render "dates" %>
 
-<% content_for :sidebar do %>
-<ul class="actions">
-  <% unless @time_table.new_record? %>
-  <li><%= link_to t('time_tables.edit.add_date'), new_referential_time_table_time_table_date_path(@referential, @time_table) %></li>
-  <% end %>
-<!-- 
-  <li><%= link_to_add_association t('time_tables.edit.add_period'), form, :periods %></li>
-  <li><%= link_to_add_association t('time_tables.edit.add_date'), form, :dates %></li>
--->
-  <br>
-</ul>
-<% end %>
 

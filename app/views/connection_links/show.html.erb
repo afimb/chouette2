@@ -33,12 +33,51 @@
       <%= @connection_link.comment %>
     </p>
     <p>
+      <label><%= @connection_link.human_attribute_name("link_distance") %>: </label>
+      <%= @connection_link.link_distance %> 
+    </p>
+    <p>
+      <label><%= @connection_link.human_attribute_name("default_duration") %>: </label>
+      <% if (@connection_link.default_duration.present?) %>
+         <%= @connection_link.default_duration.strftime('%Hh %Mm %Ss') %>
+      <% end %>
+    </p>
+    <p>
+      <label><%= @connection_link.human_attribute_name("frequent_traveller_duration") %>: </label>
+      <% if (@connection_link.frequent_traveller_duration.present?) %>
+         <%= @connection_link.frequent_traveller_duration.strftime('%Hh %Mm %Ss') %>
+      <% end %>
+    </p>
+    <p>
+      <label><%= @connection_link.human_attribute_name("occasional_traveller_duration") %>: </label>
+      <% if (@connection_link.occasional_traveller_duration.present?) %>
+         <%= @connection_link.occasional_traveller_duration.strftime('%Hh %Mm %Ss') %>
+      <% end %>
+    </p>
+    <p>
+      <label><%= @connection_link.human_attribute_name("mobility_restricted_traveller_duration") %>: </label>
+      <% if (@connection_link.mobility_restricted_traveller_duration.present?) %>
+         <%= @connection_link.mobility_restricted_traveller_duration.strftime('%Hh %Mm %Ss') %>
+      <% end %>
+    </p>
+    <p>
+      <label><%= @connection_link.human_attribute_name("mobility_restricted_suitability") %>: </label>
+      <%= @connection_link.mobility_restricted_suitability %>
+    </p>
+    <p>
+      <label><%= @connection_link.human_attribute_name("stairs_availability") %>: </label>
+      <%= @connection_link.stairs_availability %>
+    </p>
+    <p>
+      <label><%= @connection_link.human_attribute_name("lift_availability") %>: </label>
+      <%= @connection_link.lift_availability %>
+    </p>
       <label><%= @connection_link.human_attribute_name("objectid") %>: </label>
       <%= @connection_link.objectid %>
     </p>
     <p>
       <label><%= @connection_link.human_attribute_name("creation_time") %>: </label>
-      <%= @connection_link.creation_time %>
+      <%= l(@connection_link.creation_time) %>
     </p>
     <p>
       <label><%= @connection_link.human_attribute_name("creator_id") %>: </label>

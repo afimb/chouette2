@@ -23,15 +23,15 @@ en:
         registrationnumber: "Registration number"
         name: "Name"
         comment: "Comments"
-        versiondate: "Date of this network's version"
+        version_date: "Date of this network's version"
         description: Description
-        sourcetype: Source type
-        sourcename: Source name
-        sourceidentifier: Source identifier        
+        source_type: Source type
+        source_name: Source name
+        source_identifier: Source identifier        
         objectid: Neptune identifier
-        objectversion: Version
-        creationtime: Created on
-        creatorid: Created by 
+        object_version: Version
+        creation_time: Created on
+        creator_id: Created by 
   formtastic:
     hints:
       network:
@@ -62,15 +62,15 @@ fr:
         registrationnumber: "Numéro d'enregistrement"
         name: "Nom"
         comment: "Commentaire"
-        versiondate: Date de version
+        version_date: Date de version
         description: Description
-        sourcetype: "Type de système origine"
-        sourcename: "Nom du système origine"
-        sourceidentifier: "Identifiant du système origine"        
+        source_type: "Type de système origine"
+        source_name: "Nom du système origine"
+        source_identifier: "Identifiant du système origine"        
         objectid: "Identifiant Neptune"
-        objectversion: "Version"
-        creationtime: "Créé le"
-        creatorid: "Créé par"
+        object_version: "Version"
+        creation_time: "Créé le"
+        creator_id: "Créé par"
   formtastic:
     hints:
       network:

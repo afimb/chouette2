@@ -6,12 +6,18 @@ en:
       edit: Edit this timetable
       destroy: Remove this timetable
       destroy_confirm: Are you sure you want destroy this timetable?
+      destroy_date_confirm: Are you sure you want destroy this date ?
+      destroy_period_confirm: Are you sure you want destroy this period ?
     new:
       title: Add a new timetable
     edit:
       title: Update timetable %{time_table}
     show:
       title: Timetable %{time_table}
+      dates: "Application dates"
+      periods: "Application periods"
+      from: from
+      to: to
       add_period: Add a period
       add_date: Add a date
     index:
@@ -58,14 +64,20 @@ fr:
       edit: Modifier ce calendrier
       destroy: Supprimer ce calendrier
       destroy_confirm: Etes vous sûr de détruire ce calendrier ?
+      destroy_date_confirm: Etes vous sûr de détruire cette date ?
+      destroy_period_confirm: Etes vous sûr de détruire cette période ?
     new:
       title: Ajouter un calendrier
     edit:
       title: "Modifier le calendrier %{time_table}"
-      add_period: Ajouter une période
-      add_date: Ajouter une date
     show:
       title: Calendrier %{time_table}
+      dates: "Dates d'application"
+      periods: "Périodes d'application"
+      from: du
+      to: au
+      add_period: Ajouter une période
+      add_date: Ajouter une date
     index:
       comment: Description
       title: calendriers

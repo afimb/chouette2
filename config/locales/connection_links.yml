@@ -5,9 +5,7 @@ en:
       edit: Edit this connection link
       destroy: Remove this connection link
       destroy_confirm: Are you sure you want destroy this connection link?
-      select_departure: Select start of link
-      select_arrival: Select end of link
-      select_areas: "Select start/end of link"
+      select_areas: "Update start/end of link"
     new:
       title: Add a new connection link
     edit:
@@ -39,15 +37,15 @@ en:
         undefined: not yet set
         name: Name
         comment: Comment
-        linkdistance: Distance
+        link_distance: Distance
         connection_link_type: Type
-        defaultduration: Average duration
-        frequenttravellerduration: Regular passenger duration
-        occasionaltravellerduration: Occasional passenger duration
-        mobilityrestrictedtravellerduration: Mobility reduced passenger duration
-        mobilityrestrictedsuitability: Mobility reduced passenger suitable
-        stairsavailability: Escalator
-        liftavailability: Lift
+        default_duration: Average duration
+        frequent_traveller_duration: Regular passenger duration
+        occasional_traveller_duration: Occasional passenger duration
+        mobilit_yrestricted_traveller_duration: Mobility reduced passenger duration
+        mobility_restricted_suitability: Mobility reduced passenger suitable
+        stairs_availability: Escalator
+        lift_availability: Lift
         objectid: Neptune identifier
         object_version: Version
         creation_time: Created on
@@ -64,9 +62,7 @@ fr:
       edit: Modifier cette correspondance
       destroy: Supprimer cette correspondance
       destroy_confirm: Etes vous sûr de détruire cette correspondance ?
-      select_departure: "Sélectionner l'arrêt de départ"
-      select_arrival: "Sélectionner l'arrêt d'arrivée"
-      select_areas: "Sélectionner les départ/arrivée"
+      select_areas: "Modifier les départs/arrivées"
     new:
       title: Ajouter une correspondance
     edit:
@@ -98,15 +94,15 @@ fr:
         undefined: non défini
         name: Nom
         comment: Commentaire
-        linkdistance: Distance
+        link_distance: Distance
         connection_link_type: Type
-        defaultduration: Durée moyenne
-        frequenttravellerduration: Durée pour un habitué
-        occasionaltravellerduration: Durée pour un voyageur occasionnel
-        mobilityrestrictedtravellerduration: Durée pour un voyageur à mobilité réduite
-        mobilityrestrictedsuitability: Accès pour personne à mobilité réduite
-        stairsavailability: Escalator
-        liftavailability: Ascenseur
+        default_duration: Durée moyenne
+        frequent_traveller_duration: Durée pour un habitué
+        occasional_traveller_duration: Durée pour un voyageur occasionnel
+        mobility_restricted_traveller_duration: Durée pour un voyageur à mobilité réduite
+        mobility_restricted_suitability: Accès pour personne à mobilité réduite
+        stairs_availability: Escalator
+        lift_availability: Ascenseur
         objectid: Identifiant Neptune
         object_version: Version
         creation_time: Créé le

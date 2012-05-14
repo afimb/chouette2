@@ -1,6 +1,6 @@
 <%= semantic_form_for [@referential, @time_table, @time_table_date] do |form| %>
   <%= form.inputs do %> 
-    <%= form.input :date, :as => :date, :label => @time_table.human_attribute_name("date") %>
+    <%= form.input :date, :as => :date, :label => @time_table_date.human_attribute_name("date") %>
   <% end %>
   <%= form.buttons do %>
     <%= form.commit_button %>

@@ -52,23 +52,25 @@
     </p>
     <p>
       <label><%= @time_table.human_attribute_name("creation_time") %>: </label>
-      <%= @time_table.creation_time %>
+      <%= l @time_table.creation_time %>
     </p>
     <p>
       <label><%= @time_table.human_attribute_name("creator_id") %>: </label>
       <%= @time_table.creator_id %>
     </p>
   </div>
-  
   <h3 class="dates"><%= t('.dates') %></h3>
   <%= render "dates" %>
+  <h3 class="periods"><%= t('.periods') %></h3>
+  <%= render "periods" %>
 </div>
 
 <% content_for :sidebar do %>
 <ul class="actions">
-  <li><%= link_to t('time_tables.edit.add_date'), new_referential_time_table_time_table_date_path(@referential, @time_table), :class => 'add' %></li>
   <li><%= link_to t('time_tables.actions.edit'), edit_referential_time_table_path(@referential, @time_table), :class => "edit" %></li>
-  <li><%= link_to  t('time_tables.actions.destroy'), referential_time_table_path(@referential, @time_table), :method => :delete, :confirm =>  t('time_tables.actions.destroy_confirm'), :class => "remove" %></li>
+  <li><%= link_to t('time_tables.actions.destroy'), referential_time_table_path(@referential, @time_table), :method => :delete, :confirm =>  t('time_tables.actions.destroy_confirm'), :class => "remove" %></li>
+  <li><%= link_to t('time_tables.show.add_date'), new_referential_time_table_time_table_date_path(@referential, @time_table), :class => 'add' %></li>
+  <li><%= link_to t('time_tables.show.add_period'), new_referential_time_table_time_table_period_path(@referential, @time_table), :class => 'add' %></li>
   <br>
 </ul>
 <% end %>

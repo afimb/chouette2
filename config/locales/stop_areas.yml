@@ -35,9 +35,9 @@ en:
     attributes:
       stop_area:
         name: Name
-        registration_number: Registration number
+        registrationnumber: Registration number
         comment: Comments
-        areatype: Area type
+        stop_area_type: Area type
         nearest_topic_name: Nearest point of interest
         street_name: Street name
         country_code: INSEE code
@@ -51,7 +51,7 @@ en:
         objectid: Neptune identifier
         object_version: Version
         creation_time: Created on
-        creator_id: Created by 
+        creatorid: Created by 
         children_ids: Children 
         parent: Parent
   formtastic:
@@ -97,10 +97,10 @@ fr:
     attributes:
       stop_area:
         name: Nom
-        registration_number: "Numéro d'enregistrement"
+        registrationnumber: "Numéro d'enregistrement"
         published_name: Nom public        
         comment: Commentaire
-        area_type: "Type d'arrêt"
+        stop_area_type: "Type d'arrêt"
         nearest_topic_name: "Point d'intérêt le plus proche"
         street_name: Nom de la rue
         country_code: Code INSEE
@@ -111,7 +111,7 @@ fr:
         longlattype: Projection
         longitude: Longitude
         latitude: Latitude
-        object_id: Identifiant Neptune
+        objectid: Identifiant Neptune
         object_version: Version
         creation_time: Créé le
         creator_id: Créé par
@@ -120,7 +120,7 @@ fr:
   formtastic:
     hints:
       stop_area:
-        registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
+        registrationnumber: "caractères autorisés : alphanumériques et 'souligné'" 
         objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
 
 

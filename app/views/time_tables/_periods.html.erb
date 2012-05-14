@@ -1,0 +1,10 @@
+  <ul class='periods'>
+    <% @time_table.periods.each do |tmp| %>
+    <li class='period'><%= t('time_tables.show.from')%> <%= l tmp.period_start %> <%= t('time_tables.show.to')%> <%= l tmp.period_end %>
+    <div class="actions">  
+      <%= link_to t("actions.destroy"), referential_time_table_time_table_period_path(@referential, @time_table,tmp), :method => :delete, :confirm =>  t('time_tables.actions.destroy_period_confirm'), :class => "remove" %>
+    </div>
+    </li>
+    <% end %>
+  </ul>
+

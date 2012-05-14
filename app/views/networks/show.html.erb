@@ -8,7 +8,7 @@
       <%= @network.name %>
     </p>
     <p>
-      <label><%= Chouette::Network.human_attribute_name("registration_number") %>: </label>
+      <label><%= Chouette::Network.human_attribute_name("registrationnumber") %>: </label>
       <%= @network.registrationnumber %>
     </p>
     <p>
@@ -17,7 +17,7 @@
     </p>
     <p>
       <label><%= Chouette::Network.human_attribute_name("version_date") %>: </label>
-      <%= @network.version_date %>
+      <%= l(@network.version_date) %>
     </p>
     <p>
       <label><%= Chouette::Network.human_attribute_name("description") %>: </label>
@@ -37,7 +37,7 @@
     </p>
     <p>
       <label><%= @network.human_attribute_name("creation_time") %>: </label>
-      <%= @network.creation_time %>
+      <%= l(@network.creation_time) %>
     </p>
     <p>
       <label><%= @network.human_attribute_name("creator_id") %>: </label>

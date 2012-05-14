@@ -36,7 +36,7 @@
       <%= @company.email %>
     </p>
     <p>
-      <label><%= Chouette::Company.human_attribute_name("registration_number") %>: </label>
+      <label><%= Chouette::Company.human_attribute_name("registrationnumber") %>: </label>
       <%= @company.registration_number %>
     </p>
     <p>
@@ -45,7 +45,7 @@
     </p>
     <p>
       <label><%= @company.human_attribute_name("creation_time") %>: </label>
-      <%= @company.creation_time %>
+      <%= l(@company.creation_time) %>
     </p>
     <p>
       <label><%= @company.human_attribute_name("creator_id") %>: </label>
