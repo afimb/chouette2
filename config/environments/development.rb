@@ -32,7 +32,7 @@ ChouetteIhm::Application.configure do
 
   config.to_prepare do
     Chouette::Loader.chouette_command = "true"
-    Chouette::Loader.chouette_command = "/var/lib/chouette"
+    Chouette::Loader.chouette_command = "/var/lib/chouette/chouette.sh"
   end
   
 end
