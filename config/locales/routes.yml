@@ -11,7 +11,7 @@ en:
       title: Update route %{route}
     show:
       title: Route %{route}
-      stop_areas: "Routes's stop areas list" 
+      stop_points: "Stop point on route list" 
       no_opposite_route: No reversed route associated
       undefined: Undefined
     index:
@@ -49,7 +49,7 @@ fr:
       title: "Modifier l'itinéraire %{route}"
     show:
       title: Itinéraire %{route} de la ligne %{line}
-      stop_areas: "Liste des arrêts de l'itinéraire" 
+      stop_points: "Liste des arrêts de l'itinéraire" 
       no_opposite_route: Aucun itinéraire associé en sens opposé
       undefined: Non défini
     index:

@@ -1,0 +1,56 @@
+// Place all the styles related to the lines controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "common";
+
+#workspace.stop_points.index
+{
+    .stop_point {
+        margin-top: 8px;
+        margin-bottom: 8px;
+
+        .description:after {
+          clear: both;
+          float: left;
+        }
+
+        .description {
+          .position {
+              width: 25px;
+              height: 20px;
+              float: left;
+              background-color: #61970B;
+              font-weight: bold;
+              color: white;
+              margin-right: 10px;
+              padding-left: 4px;
+          }
+          .info {
+            margin-bottom: 5px;
+            font-size: 10px;
+            color: #777;
+            font-weight: normal;
+            line-height: 14px;
+            .actions {
+              margin-top: 3px;
+              a {
+                padding-left: 15px;
+              }
+              a.link {
+                  background: url(image-path('icons/link-small.png')) no-repeat 0% 50%;
+              }
+              a.remove {
+                  background: url(image-path('user_interface/ui/remove-small.png')) no-repeat 0% 50%;
+              }
+            }
+          }
+        }
+        .handle {
+          float: left;
+          cursor: move;
+          margin-right: 7px;
+          margin-bottom: 20px;
+        }
+    }
+}
+

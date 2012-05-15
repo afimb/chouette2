@@ -1,0 +1,20 @@
+<%= div_for(stop_point) do %>
+  <span class="position">
+    <%= stop_point.position + 1 %>
+  </span>
+  <%= link_to stop_point.stop_area.name, [@referential, stop_point.stop_area] %>
+  <div class="info">
+    <p>      
+      <% unless stop_point.stop_area.geometry %>
+      <span class="warning"><%= t('.no_position') %></span> -
+      <% end %>
+    </p>
+    <p> 
+      <%= t('.lines') %> <% stop_point.stop_area.lines.each do |line| %>
+        <span class="line"><%= line.number %></span>
+      <% end %> -
+      <%= stop_point.stop_area.human_attribute_name('country_code') %> <%= stop_point.stop_area.country_code %>
+    </p>
+  </div>
+<% end %>
+

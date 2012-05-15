@@ -1,0 +1,70 @@
+<%= title_tag t('stop_points.index.title', :route => @route.name ) %>
+
+<div class="stop_points_index">
+  <div class="summary">
+    <p>
+      <label><%= @route.class.model_name.human %>: </label>
+      <%= link_to @route.name, [@referential, @line, @route] %>
+    </p>
+    <p>
+      <label><%= @route.human_attribute_name(:line) %>: </label>
+      <%= link_to line_formatted_name( @line), [@referential, @line] %>
+    </p>
+  </div>
+  
+  <h3><%= t('stop_points.index.subtitle')%></h3>
+<% if @route.stop_points.empty? %>
+  <p><%= t('.no_stop_point') %></p>
+<% end %>
+  <ul id="stop_areas">
+    <% for stop_point in @route.stop_points %>
+      <%= content_tag_for :li, stop_point do %>
+        <div class="handle" alt="<%= t('stop_points.index.move') %>" title="<%= t('stop_points.index.move') %>" ><%= image_tag "icons/move.png" %></div>
+        <div class="description">
+          <span class="position">
+            <%= stop_point.position + 1 %>
+          </span>
+          <%= stop_point.stop_area.name %>
+          <div class="info">
+            <%= stop_point.stop_area.human_attribute_name('country_code') %> <%= stop_point.stop_area.country_code %>
+            <div class="actions">  
+              <%= link_to t("stop_points.actions.show"), referential_stop_area_path(@referential, stop_point.stop_area), :class => "link" %> |
+              <%= link_to t("actions.destroy"), referential_line_route_stop_point_path(@referential, @line, @route, stop_point), :method => :delete, :confirm =>  t('stop_points.actions.destroy_confirm'), :class => "remove" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </ul>
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('stop_points.actions.new'), new_referential_line_route_stop_point_path(@referential, @line, @route), :class => "add" %>
+  </li>
+</ul>
+<% end %>
+<script>
+// Sorting the list
+
+  $(document).ready(function(){
+    $('#stop_areas').sortable({
+      axis: 'y',
+      dropOnEmpty: false,
+      handle: '.handle',
+      cursor: 'crosshair',
+      items: 'li',
+      opacity: 0.4,
+      scroll: true,
+      update: function(){
+      $.ajax({
+        type: 'post',
+        data: $('#stop_areas').sortable('serialize'),
+        dataType: 'script',
+        complete: function(request){
+        $('#stop_areas').effect('highlight');
+      },
+      url: "<%= sort_referential_line_route_stop_points_path( @referential, @line, @route)%>"})
+      }
+    });
+  });
+</script>
+</div>

@@ -1,80 +1,45 @@
 en:
   stop_points:
     actions:
-      new: Add a new stop
-      edit: Edit this stop
-      destroy: Remove this stop
-      destroy_confirm: Are you sure you want destroy this stop?
+      show: Show
+      index: Stops on route list
+      new: Add a new stop on route
+      edit: Edit this stop on route
+      destroy: Remove this stop on route
+      destroy_confirm: Are you sure you want destroy this stop on route ?
     new:
-      title: Add a new stop
-    edit:
-      title: Update stop %{stop_point}
-    show:
-      title: Stop %{stop_point}
+      title: Add a new stop route
+      select_area: Select a stop area
     index:
-      title: Stop areas
-      name: Name
-      selection: Selection
-      selection_all: All
+      title: Stops on route %{route}
+      subtitle: Stops on route ordered
+      move: Move
+      no_stop_point: No stop point on route
   activerecord:        
     models:        
-      stop_point: Stop area
+      stop_point: Stop point on route
     attributes:
       stop_point:
-        name: Name
-        registration_number: Registration number
-        comment: Comments
-        areatype: Area type
-        nearest_topic_name: Nearest point of interest
-        street_name: Street name
-        country_code: INSEE code
-        fare_code: Fare code
-        x: x-position
-        y: y-position
-        longitude: Longitude
-        latitude: Latitude
-        objectid: Neptune identifier
-        object_version: Version
-        creation_time: Created on
-        creator_id: Created by 
 
 fr:
   stop_points:
     actions:
-      new: Ajouter un arrêt
-      edit: Modifier cet arrêt
-      destroy: Supprimer cet arrêt
-      destroy_confirm: Etes vous sûr de détruire cet arrêt ?
+      show: Consulter
+      index: Liste des arrêts sur itinéraire
+      new: Ajouter un arrêt sur itinéraire
+      edit: Modifier cet arrêt sur itinéraire
+      destroy: Supprimer cet arrêt sur itinéraire
+      destroy_confirm: Etes vous sûr de détruire cet arrêt sur itinéraire ?
     new:
-      title: Ajouter un arrêt
-    edit:
-      title: "Modifier l'arrêt %{stop_point}"
-    show:
-      title: Arrêt %{stop_point}
+      title: "Ajouter un arrêt à l'itinéraire %{route}"
+      select_area: "Sélectionner un arrêt"
     index:
-      name: Nom
-      title: Arrêts
-      selection: Sélection
-      selection_all: Tous
+      title: "Liste des arrêts de l'itinéraire %{route}"
+      subtitle: "Arrêts dans l'ordre du parcours "
+      move: Déplacer
+      no_stop_point: Aucun arrêt sur itinéraire
   activerecord:        
     models:        
-      stop_point: Arrêt
+      stop_point: Arrêt sur itinéraire
     attributes:
       stop_point:
-        name: Nom
-        registration_number: "Numéro d'enregistrement"
-        published_name: Nom public        
-        comment: Commentaire
-        area_type: "Type d'arrêt"
-        nearest_topic_name: "Point d'intérêt le plus proche"
-        street_name: Nom de la rue
-        country_code: Code INSEE
-        fare_code: Zone tarifaire
-        x: Position X
-        y: Position Y
-        longitude: Longitude
-        latitude: Latitude
-        object_id: Identifiant Neptune
-        object_version: Version
-        creation_time: Créé le
-        creator_id: Créé par
