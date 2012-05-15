@@ -81,51 +81,6 @@
   .day_type ol li label {
       padding-left: 10%;
     }
-  .periods ol {
-      float: left;
-      margin: 0;
-      padding: 0 0 0 25%;
-      width: 74%;
-      list_style: none outside none;
-  }
-  .periods ol li {
-      float: left;
-      margin: 0 O 0 0;
-      width: auto;
-      padding: 0;
-    }
-  .periods ol li fieldset legend label {
-      width: auto;
-    }
-  .periods ol li fieldset ol  {
-      padding: 0 10% 0 15%;
-      width: auto;
-    }
-  .links {
-    margin-left: 25%;
-    padding-left: 20px;
-    background: url(image-path('user_interface/ui/add.png')) no-repeat;
-   }
-  .dates ol {
-      float: left;
-      margin: 0;
-      padding: 0 0 0 25%;
-      width: 74%;
-      list_style: none outside none;
-  }
-  .dates ol li {
-      float: left;
-      margin: 0 O 0 0;
-      width: auto;
-      padding: 0;
-    }
-  .dates ol li fieldset legend label {
-      width: auto;
-    }
-  .dates ol li fieldset ol  {
-      padding: 0 10% 0 15%;
-      width: auto;
-    }
   
 }
 #workspace.time_tables.new
