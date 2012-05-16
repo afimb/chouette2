@@ -35,6 +35,8 @@ gem 'ninoxe', :git => 'git://chouette.dryade.priv/ninoxe' #, :path => '~/Project
 gem 'acts_as_list', '0.1.6'
 gem 'composite_primary_keys', '4.1.2'
 
+gem 'delayed_job_active_record'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

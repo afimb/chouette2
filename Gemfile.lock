@@ -121,6 +121,11 @@ GEM
     composite_primary_keys (4.1.2)
       activerecord (~> 3.1)
     database_cleaner (0.7.2)
+    delayed_job (3.0.2)
+      activesupport (~> 3.0)
+    delayed_job_active_record (0.3.2)
+      activerecord (> 2.1.0)
+      delayed_job (~> 3.0.0)
     devise (2.0.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -161,6 +166,7 @@ GEM
     jruby-openssl (0.7.6.1)
       bouncy-castle-java (>= 1.5.0146.1)
     jruby-rack (1.1.5)
+    json (1.7.3)
     json (1.7.3-java)
     launchy (2.1.0)
       addressable (~> 2.2.6)
@@ -311,6 +317,7 @@ DEPENDENCIES
   coffee-script-source
   composite_primary_keys (= 4.1.2)
   database_cleaner
+  delayed_job_active_record
   devise
   factory_girl_rails (= 1.7)
   formtastic (= 2.0.2)

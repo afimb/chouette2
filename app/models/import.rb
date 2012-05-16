@@ -26,19 +26,44 @@ class Import < ActiveRecord::Base
     self.status ||= "pending"
   end
 
-  after_create :import
+  after_create :delayed_import
+  def delayed_import
+    save_resources
+    delay.import
+  end
+
+  @@root = "#{Rails.root}/tmp/imports"
+  cattr_accessor :root
+
+  def save_resources
+    FileUtils.mkdir_p root
+    FileUtils.cp resources.path, saved_resources 
+  end
+
+  after_destroy :destroy_resources
+  def destroy_resources
+    FileUtils.rm saved_resources if File.exists? saved_resources
+  end
+
+  def saved_resources
+    "#{root}/#{id}.zip"
+  end
+
   def import
     begin
-      with_original_filename do |file|
-        # chouette-command checks the file extension (and requires .zip) :(
-        loader.import file
+      if resources
+        with_original_filename do |file|
+          # chouette-command checks the file extension (and requires .zip) :(
+          loader.import file
+        end
+      else
+        loader.import saved_resources
       end
       update_attribute :status, "completed"
-    rescue
+    rescue => e
+      Rails.logger.error "Import #{id} failed : #{e}, #{e.backtrace}"
       update_attribute :status, "failed"
     end
   end
-
-  
 
 end
