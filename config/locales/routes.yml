@@ -49,7 +49,7 @@ fr:
       title: "Modifier la séquence d'arrêts %{route}"
     show:
       title: "Séquence d'arrêts %{route} de la ligne %{line}"
-      stop_areas: "Liste des arrêts de la séquence d'arrêts" 
+      stop_points: "Liste des arrêts de la séquence d'arrêts" 
       no_opposite_route: "Aucune séquence d'arrêts associée en sens opposé"
       undefined: Non défini
     index:

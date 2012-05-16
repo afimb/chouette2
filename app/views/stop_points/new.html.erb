@@ -7,8 +7,9 @@
   <% end %>  
   
   <%= form.buttons do %>
-    <%= form.commit_button %>
-    ou <%= link_to "revenir", referential_line_route_stop_points_path(@referential, @line, @route) %>
+    <%= form.commit_button true %>
+    <li><%= t('or') %></li>
+    <li><%= link_to t('cancel'), :back %></li>
   <% end %>
 </div>
 <% end %>

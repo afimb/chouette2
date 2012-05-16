@@ -12,6 +12,11 @@ describe StopPointsController do
 
   it { should be_kind_of(ChouetteController) }
 
+  shared_examples_for "redirected to referential_line_stop_points_path(referential,line,route)" do
+    it "should redirect_to referential_line_route_stop_points_path(referential,line,route)" do
+      response.should redirect_to( referential_line_route_stop_points_path(referential,route.line,route) )
+    end
+  end
   shared_examples_for "route, line and referential linked (stop_points)" do
     it "assigns route as @route" do
       assigns[:route].should == route
@@ -44,12 +49,13 @@ describe StopPointsController do
           :stop_point => permutated_stop_point_ids
     end
     it_behaves_like "route, line and referential linked (stop_points)"
+    it_behaves_like "redirected to referential_line_stop_points_path(referential,line,route)"
   end
 
   describe "#sort" do
     it "should delegate to route.sort! with permutated_stop_point_ids" do
       controller.stub!(:route => route, :params => { :stop_point => permutated_stop_point_ids})
-      controller.stub!(:respond_to => nil)
+      controller.stub!(:redirect_to => nil)
       route.should_receive(:reorder!).with(permutated_stop_point_ids)
       controller.sort
     end
@@ -71,5 +77,6 @@ describe StopPointsController do
 
     end
     it_behaves_like "route, line and referential linked (stop_points)"
+    it_behaves_like "redirected to referential_line_stop_points_path(referential,line,route)"
   end
 end

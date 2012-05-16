@@ -3,6 +3,7 @@ en:
     reorder_success: "Reordering saved"
     reorder_failure: "Fail in reordering"
     actions:
+      sort: Reorder stop on route
       show: Show
       index: Stops on route list
       new: Add a new stop on route
@@ -29,23 +30,24 @@ fr:
     reorder_success: "L'ordre a été mis à jour"
     reorder_failure: "Echec de la mise à jour"
     actions:
+      sort: Réordonner les arrêts de la séquence
       show: Consulter
-      index: Liste des arrêts sur itinéraire
-      new: Ajouter un arrêt sur itinéraire
-      edit: Modifier cet arrêt sur itinéraire
-      destroy: Supprimer cet arrêt sur itinéraire
-      destroy_confirm: Etes vous sûr de détruire cet arrêt sur itinéraire ?
+      index: Liste des arrêts de la séquence
+      new: Ajouter un arrêt à la séquence
+      edit: Modifier cet arrêt de la séquence
+      destroy: Supprimer cet arrêt de la séquence
+      destroy_confirm: Etes vous sûr de retirer cet arrêt de la séquence ?
     new:
-      title: "Ajouter un arrêt à l'itinéraire %{route}"
+      title: "Ajouter un arrêt à la séquence %{route}"
       select_area: "Sélectionner un arrêt"
     index:
-      reorder_button: "Mettre à jour l'ordre de parcours"
-      title: "Liste des arrêts de l'itinéraire %{route}"
-      subtitle: "Arrêts dans l'ordre "
+      reorder_button: "Mettre à jour l'ordre"
+      title: "Liste ordonnée des arrêts de la séquence d'arrêts %{route}"
+      subtitle: "Arrêts dans l'ordre de parcours"
       move: Déplacer
-      no_stop_point: Aucun arrêt sur itinéraire
+      no_stop_point: Aucun arrêt dans la séquence
   activerecord:        
     models:        
-      stop_point: Arrêt sur itinéraire
+      stop_point: "Arrêt sur séquence d'arrêts"
     attributes:
       stop_point:

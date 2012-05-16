@@ -23,9 +23,7 @@ class StopPointsController < ChouetteController
     else
       flash[:alert] = t("stop_points.reorder_failure")
     end
-    respond_to do |format|
-      format.html { redirect_to :action => :index }
-    end
+    redirect_to :action => :index
   end
 
 end
