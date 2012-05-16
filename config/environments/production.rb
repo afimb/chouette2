@@ -65,8 +65,8 @@ ChouetteIhm::Application.configure do
   config.action_mailer.default_url_options = { :host => 'chouette.dryade.net/chouette2' }
 
   config.to_prepare do
-    Chouette::Loader.chouette_command = "true"
-    Chouette::Loader.chouette_command = "/var/lib/chouette/chouette.sh"
+    Chouette::Loader.chouette_command = "/usr/local/lib/chouette-command/chouette"
+    Import.root = "/var/lib/chouette/imports"
   end
 
 end
