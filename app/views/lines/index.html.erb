@@ -23,7 +23,6 @@
 </p>
 <% end %>
 
-
 <div class="pagination">
   <div class="page_info">
     <%= page_entries_info @lines %>
@@ -40,6 +39,10 @@
 <% content_for :sidebar do %>
 <ul class="actions">
   <li><%= link_to t('lines.actions.new'), new_referential_line_path(@referential), :class => "add" %></li> 
+</ul>
+
+<ul class="actions">
+  <li><%= link_to t('lines.actions.import'), new_referential_import_path(@referential), :class => "import" %></li> 
 </ul>
 
 <h3><%= t(".selection") %></h3>

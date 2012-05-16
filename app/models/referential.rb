@@ -2,6 +2,8 @@ class Referential < ActiveRecord::Base
   validates_presence_of :name 
   validates_presence_of :slug
 
+  has_many :imports, :dependent => :destroy
+
   def lines
     Chouette::Line.scoped
   end

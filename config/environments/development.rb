@@ -31,8 +31,12 @@ ChouetteIhm::Application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   config.to_prepare do
-    Chouette::Loader.chouette_command = "true"
-    Chouette::Loader.chouette_command = "/var/lib/chouette/chouette.sh"
+    chouette_command_script = "tmp/chouette-command/chouette"
+    if File.exists? chouette_command_script
+      Chouette::Loader.chouette_command = "tmp/chouette-command/chouette"
+    else
+      Chouette::Loader.chouette_command = "true"
+    end
   end
   
 end
