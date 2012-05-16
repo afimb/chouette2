@@ -11,6 +11,12 @@ class StopPointsController < ChouetteController
 
   alias_method :route, :parent
 
+  def create
+    create! do |success, failure|
+      success.html { redirect_to :action => :index }
+    end
+  end
+
   def sort
     if route.reorder!( params[:stop_point])
       flash[:notice] = t("stop_points.reorder_success")
@@ -18,7 +24,7 @@ class StopPointsController < ChouetteController
       flash[:alert] = t("stop_points.reorder_failure")
     end
     respond_to do |format|
-      format.html { redirect_to referential_line_route_stop_points_path(@referential,@line,@route) }
+      format.html { redirect_to :action => :index }
     end
   end
 
