@@ -31,7 +31,7 @@ gem 'RedCloth'
 
 gem "acts_as_tree", :git => "git://github.com/dryade/acts_as_tree.git"
 gem 'apartment', :git => 'git://github.com/dryade/apartment.git'
-gem 'ninoxe', :path => '~/dev/chouette-ninoxe' #:git => 'git://chouette.dryade.priv/ninoxe' #, :path => '~/Projects/Ninoxe'
+gem 'ninoxe', :git => 'git://chouette.dryade.priv/ninoxe' #, :path => '~/Projects/Ninoxe'
 gem 'acts_as_list', '0.1.6'
 gem 'composite_primary_keys', '4.1.2'
 

@@ -10,7 +10,7 @@
       <% end %>
     </p>
     <p> 
-      <%= t('.lines') %> <% stop_point.stop_area.lines.each do |line| %>
+      <%= t('.lines') %> <% stop_point.stop_area.lines.reject { |l| l.id==@line.id}.each do |line| %>
         <span class="line"><%= line.number %></span>
       <% end %> -
       <%= stop_point.stop_area.human_attribute_name('country_code') %> <%= stop_point.stop_area.country_code %>

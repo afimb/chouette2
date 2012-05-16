@@ -13,29 +13,26 @@
   </div>
   
   <h3><%= t('stop_points.index.subtitle')%></h3>
-<% if @route.stop_points.empty? %>
+  <% if @route.stop_points.empty? %>
   <p><%= t('.no_stop_point') %></p>
-<% end %>
-  <ul id="stop_areas">
-    <% for stop_point in @route.stop_points %>
-      <%= content_tag_for :li, stop_point do %>
-        <div class="handle" alt="<%= t('stop_points.index.move') %>" title="<%= t('stop_points.index.move') %>" ><%= image_tag "icons/move.png" %></div>
-        <div class="description">
-          <span class="position">
-            <%= stop_point.position + 1 %>
-          </span>
-          <%= stop_point.stop_area.name %>
-          <div class="info">
-            <%= stop_point.stop_area.human_attribute_name('country_code') %> <%= stop_point.stop_area.country_code %>
-            <div class="actions">  
-              <%= link_to t("stop_points.actions.show"), referential_stop_area_path(@referential, stop_point.stop_area), :class => "link" %> |
-              <%= link_to t("actions.destroy"), referential_line_route_stop_point_path(@referential, @line, @route, stop_point), :method => :delete, :confirm =>  t('stop_points.actions.destroy_confirm'), :class => "remove" %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+  <% end %>
+
+  <div id="sortable_stop_points">
+  <%= render :partial => "stop_point_draggable", :collection => @route.stop_points, :as => :stop_point %>
+  </div>
+  <%= semantic_form_for( Chouette::StopPoint.new, 
+                        :url => sort_referential_line_route_stop_points_path( @referential, @line, @route),
+                        :html => {:class => "formtastic stop_points_form"}) do |form| %>
+    <% @stop_points.each do |sp| %>
+      <input type="hidden" id="<%= "pos_#{sp.position}" %>" name="stop_point[]" value="<%= sp.id %>" />
     <% end %>
-  </ul>
+    <%= form.buttons do %>
+      <%= form.commit_button t('.reorder_button') %>
+      <li><%= t('or') %></li>
+      <li><%= link_to t('cancel'), referential_line_route_stop_points_path(@referential, @line, @route) %></li>
+    <% end %>
+  <% end %>
+</div>
 <% content_for :sidebar do %>
 <ul class="actions">
   <li><%= link_to t('stop_points.actions.new'), new_referential_line_route_stop_point_path(@referential, @line, @route), :class => "add" %>
@@ -46,25 +43,31 @@
 // Sorting the list
 
   $(document).ready(function(){
-    $('#stop_areas').sortable({
+    $('#sortable_stop_points').sortable({
       axis: 'y',
       dropOnEmpty: false,
       handle: '.handle',
       cursor: 'crosshair',
-      items: 'li',
+      items: '.stop_point',
       opacity: 0.4,
       scroll: true,
       update: function(){
-      $.ajax({
-        type: 'post',
-        data: $('#stop_areas').sortable('serialize'),
-        dataType: 'script',
-        complete: function(request){
-        $('#stop_areas').effect('highlight');
-      },
-      url: "<%= sort_referential_line_route_stop_points_path( @referential, @line, @route)%>"})
+        $('.stop_points_form input[name="stop_point[]"]').map(function(index,element){
+          var stop_point_id =$('#sortable_stop_points .stop_point')[index].id.replace("stop_point_","");
+          var before = $( element).attr("value");
+          $( element).attr("value",stop_point_id);
+          var after = $( element).attr("value");
+          console.log( "pos: "+index+", before: "+before+", after:"+after);
+        });
+     // $.ajax({
+     //   type: 'post',
+     //   data: $('#sortable_stop_points').sortable('serialize'),
+     //   dataType: 'script',
+     //   complete: function(request){
+     //   $('#sortable_stop_points').effect('highlight');
+     // },
+     // url: "<%= sort_referential_line_route_stop_points_path( @referential, @line, @route)%>"})
       }
     });
   });
 </script>
-</div>

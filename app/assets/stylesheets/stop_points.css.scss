@@ -5,52 +5,47 @@
 
 #workspace.stop_points.index
 {
+    .stop_point:after { 
+        @include after_div_for_object;  
+    }
+
+    .stop_points {
+    }
+
+    .stop_points:after {
+        @include content_to_clear;
+    }
+
+    .formtastic .buttons {
+      a {
+        margin-top: 0px;
+      }
+    }
+    
     .stop_point {
-        margin-top: 8px;
-        margin-bottom: 8px;
+        @include div_for_object;
+        /* to create multi-column index */
+        width: 350px;
+        padding-right: 10px;
 
-        .description:after {
-          clear: both;
-          float: left;
-        }
-
-        .description {
-          .position {
-              width: 25px;
-              height: 20px;
-              float: left;
-              background-color: #61970B;
-              font-weight: bold;
-              color: white;
-              margin-right: 10px;
-              padding-left: 4px;
-          }
-          .info {
-            margin-bottom: 5px;
-            font-size: 10px;
-            color: #777;
-            font-weight: normal;
-            line-height: 14px;
-            .actions {
-              margin-top: 3px;
-              a {
-                padding-left: 15px;
-              }
-              a.link {
-                  background: url(image-path('icons/link-small.png')) no-repeat 0% 50%;
-              }
-              a.remove {
-                  background: url(image-path('user_interface/ui/remove-small.png')) no-repeat 0% 50%;
-              }
-            }
-          }
-        }
         .handle {
-          float: left;
-          cursor: move;
-          margin-right: 7px;
-          margin-bottom: 20px;
+            cursor: move;
+            margin-right: 7px;
+            margin-bottom: 20px;
         }
+
+        a.link {
+            background: url(image-path('icons/link-small.png')) no-repeat 0% 50%;
+        }
+        
+        .position {
+          background-color: #61970B;
+          font-weight: bold;
+          color: white;
+          margin-right: 10px;
+          padding-left: 4px;
+        }
+
     }
 }
 

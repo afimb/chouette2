@@ -17,7 +17,7 @@ en:
 
   activerecord:
     models:
-      company: "Companies"
+      company: Company
     attributes:
       company:
         registrationnumber: "Registration number"
@@ -58,7 +58,7 @@ fr:
 
   activerecord:
     models:
-      company: "Transporteurs"
+      company: Transporteur
     attributes:
       company:
         registrationnumber: "Numéro d'enregistrement"

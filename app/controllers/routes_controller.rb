@@ -15,8 +15,8 @@ class RoutesController < ChouetteController
   end
 
   def show
-    @map = RouteMap.new referential, resource
-    @stop_points = resource.stop_points.paginate(:page => params[:page], :per_page => 10)
+    @map = RouteMap.new referential, route
+    @stop_points = route.stop_points.paginate(:page => params[:page], :per_page => 10)
     show!
   end
 

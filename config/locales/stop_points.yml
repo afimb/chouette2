@@ -1,5 +1,7 @@
 en:
   stop_points:
+    reorder_success: "Reordering saved"
+    reorder_failure: "Fail in reordering"
     actions:
       show: Show
       index: Stops on route list
@@ -11,6 +13,7 @@ en:
       title: Add a new stop route
       select_area: Select a stop area
     index:
+      reorder_button: Save reordering
       title: Stops on route %{route}
       subtitle: Stops on route ordered
       move: Move
@@ -23,6 +26,8 @@ en:
 
 fr:
   stop_points:
+    reorder_success: "L'ordre a été mis à jour"
+    reorder_failure: "Echec de la mise à jour"
     actions:
       show: Consulter
       index: Liste des arrêts sur itinéraire
@@ -34,8 +39,9 @@ fr:
       title: "Ajouter un arrêt à l'itinéraire %{route}"
       select_area: "Sélectionner un arrêt"
     index:
+      reorder_button: "Mettre à jour l'ordre de parcours"
       title: "Liste des arrêts de l'itinéraire %{route}"
-      subtitle: "Arrêts dans l'ordre du parcours "
+      subtitle: "Arrêts dans l'ordre "
       move: Déplacer
       no_stop_point: Aucun arrêt sur itinéraire
   activerecord:        
