@@ -17,7 +17,7 @@ en:
 
   activerecord:
     models:
-      network: Networks
+      network: Network
     attributes:
       network:
         registrationnumber: "Registration number"

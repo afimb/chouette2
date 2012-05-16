@@ -39,26 +39,26 @@ en:
 fr:
   routes:
     actions:
-      new: Ajouter un itinéraire
-      edit: Modifier cet itinéraire
-      destroy: Supprimer cet itinéraire
-      destroy_confirm: Etes vous sûr de détruire cet itinéraire ?
+      new: "Ajouter une séquence d'arrêts"
+      edit: "Modifier cette séquence d'arrêts"
+      destroy: "Supprimer cette séquence d'arrêts"
+      destroy_confirm: "Etes vous sûr de détruire cette séquence d'arrêts ?"
     new:
-      title: Ajouter un itinéraire
+      title: "Ajouter une séquence d'arrêts"
     edit:
-      title: "Modifier l'itinéraire %{route}"
+      title: "Modifier la séquence d'arrêts %{route}"
     show:
-      title: Itinéraire %{route} de la ligne %{line}
-      stop_areas: "Liste des arrêts de l'itinéraire" 
-      no_opposite_route: Aucun itinéraire associé en sens opposé
+      title: "Séquence d'arrêts %{route} de la ligne %{line}"
+      stop_areas: "Liste des arrêts de la séquence d'arrêts" 
+      no_opposite_route: "Aucune séquence d'arrêts associée en sens opposé"
       undefined: Non défini
     index:
-      title: Itinéraires
+      title: "Séquences d'arrêts"
       selection: Sélection
       selection_all: Tous
   activerecord:        
     models:        
-      route: Itinéraire
+      route: "Séquence d'arrêts"
     attributes:
       route:
         line: Ligne
@@ -68,7 +68,7 @@ fr:
         comment: Commentaire
         direction_code: Direction
         wayback_code: Sens
-        opposite_route: Itinéraire associé en sens opposé
+        opposite_route: "Séquence d'arrêts associée en sens opposé"
         objectid: Identifiant Neptune
         object_version: Version
         creation_time: Créé le
