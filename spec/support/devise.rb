@@ -28,7 +28,7 @@ module DeviseRequestHelper
 
 end
 
-module DeviseControllerhelper
+module DeviseControllerHelper
   def login_user
     before(:each) do
       @request.env["devise.mapping"] = Devise.mappings[:user]
@@ -39,7 +39,7 @@ end
 
 RSpec.configure do |config|
   config.include Devise::TestHelpers, :type => :controller
-  config.extend DeviseControllerhelper, :type => :controller
+  config.extend DeviseControllerHelper, :type => :controller
 
   config.include DeviseRequestHelper, :type => :request
 end

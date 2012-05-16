@@ -1,0 +1,73 @@
+<%= title_tag t('stop_points.index.title', :route => @route.name ) %>
+
+<div class="stop_points_index">
+  <div class="summary">
+    <p>
+      <label><%= @route.class.model_name.human %>: </label>
+      <%= link_to @route.name, [@referential, @line, @route] %>
+    </p>
+    <p>
+      <label><%= @route.human_attribute_name(:line) %>: </label>
+      <%= link_to line_formatted_name( @line), [@referential, @line] %>
+    </p>
+  </div>
+  
+  <h3><%= t('stop_points.index.subtitle')%></h3>
+  <% if @route.stop_points.empty? %>
+  <p><%= t('.no_stop_point') %></p>
+  <% end %>
+
+  <div id="sortable_stop_points">
+  <%= render :partial => "stop_point_draggable", :collection => @route.stop_points, :as => :stop_point %>
+  </div>
+  <%= semantic_form_for( Chouette::StopPoint.new, 
+                        :url => sort_referential_line_route_stop_points_path( @referential, @line, @route),
+                        :html => {:class => "formtastic stop_points_form"}) do |form| %>
+    <% @stop_points.each do |sp| %>
+      <input type="hidden" id="<%= "pos_#{sp.position}" %>" name="stop_point[]" value="<%= sp.id %>" />
+    <% end %>
+    <%= form.buttons do %>
+      <%= form.commit_button t('.reorder_button') %>
+      <li><%= t('or') %></li>
+      <li><%= link_to t('cancel'), referential_line_route_stop_points_path(@referential, @line, @route) %></li>
+    <% end %>
+  <% end %>
+</div>
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('stop_points.actions.new'), new_referential_line_route_stop_point_path(@referential, @line, @route), :class => "add" %>
+  </li>
+</ul>
+<% end %>
+<script>
+// Sorting the list
+
+  $(document).ready(function(){
+    $('#sortable_stop_points').sortable({
+      axis: 'y',
+      dropOnEmpty: false,
+      handle: '.handle',
+      cursor: 'crosshair',
+      items: '.stop_point',
+      opacity: 0.4,
+      scroll: true,
+      update: function(){
+        $('.stop_points_form input[name="stop_point[]"]').map(function(index,element){
+          var stop_point_id =$('#sortable_stop_points .stop_point')[index].id.replace("stop_point_","");
+          var before = $( element).attr("value");
+          $( element).attr("value",stop_point_id);
+          var after = $( element).attr("value");
+          console.log( "pos: "+index+", before: "+before+", after:"+after);
+        });
+     // $.ajax({
+     //   type: 'post',
+     //   data: $('#sortable_stop_points').sortable('serialize'),
+     //   dataType: 'script',
+     //   complete: function(request){
+     //   $('#sortable_stop_points').effect('highlight');
+     // },
+     // url: "<%= sort_referential_line_route_stop_points_path( @referential, @line, @route)%>"})
+      }
+    });
+  });
+</script>

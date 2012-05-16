@@ -64,18 +64,26 @@
 
 </div>
 
-<h3 class="route_stop_areas"><%= t('.stop_areas') %></h3>
-<%= will_paginate @stop_areas %>
-<div class="stop_areas paginated_content">
-  <%= render :partial => "stop_areas/stop_area", :collection => @stop_areas %>
+<h3 class="route_stop_points"><%= t('.stop_points') %></h3>
+<div class="pagination">
+  <div class="page_info">
+    <%= page_entries_info @stop_points %>
+  </div>
+  <%= will_paginate @stop_points, :container => false %>
 </div>
-<%= will_paginate @stop_areas %>
+<div class="stop_points paginated_content">
+  <%= render :partial => "stop_points/stop_point", :collection => @stop_points %>
+</div>
+<div class="pagination">
+  <%= will_paginate @stop_points, :container => false %>
+</div>
 
 <% content_for :sidebar do %>
 <ul class="actions">
   <li><%= link_to t('routes.actions.edit'), edit_referential_line_route_path(@referential, @line, @route), :class => "edit" %></li>
   <li><%= link_to  t('routes.actions.destroy'), referential_line_route_path(@referential, @line, @route), :method => :delete, :confirm =>  t('routes.actions.destroy_confirm'), :class => "remove" %></li>
   <li>
+    <%= link_to  t('stop_points.actions.index'), referential_line_route_stop_points_path(@referential, @line, @route), :class => "edit" %>
   </li>
 </ul>
 <% end %>

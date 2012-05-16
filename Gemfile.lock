@@ -1,6 +1,6 @@
 GIT
   remote: git://chouette.dryade.priv/ninoxe
-  revision: 0f2f0ab0d030c395464f43e4d5da79f5b74a89c6
+  revision: 9deb81a3121fdf295512f875a91ba7b5d0d106a4
   specs:
     ninoxe (0.0.8)
       GeoRuby
@@ -245,8 +245,8 @@ GEM
     rspec-core (2.10.0)
     rspec-expectations (2.10.0)
       diff-lcs (~> 1.1.3)
-    rspec-mocks (2.10.0)
-    rspec-rails (2.10.0)
+    rspec-mocks (2.10.1)
+    rspec-rails (2.10.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)

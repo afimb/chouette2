@@ -12,11 +12,11 @@
       <%= form.input :objectid %>  
     <% else %>
       <li>
-      <label><%= @stop_area.human_attribute_name("stop_area_type") %>: </label>
-      <%= @stop_area.stop_area_type %>
+      <label><%= @stop_area.human_attribute_name("stop_area_type") %></label>
+      <%= t("area_types.label.#{@stop_area.stop_area_type}") %>
       </li>
       <li>
-      <label><%= @stop_area.human_attribute_name("objectid") %>: </label>
+      <label><%= @stop_area.human_attribute_name("objectid") %></label>
       <%= @stop_area.objectid %>
       </li>
     <% end %>

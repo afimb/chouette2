@@ -19,6 +19,7 @@ ChouetteIhm::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :referentials do
+    resources :stop_point_areas
     resources :lines, :networks do
       resources :stop_areas do
         resources :stop_area_parents
@@ -28,7 +29,13 @@ ChouetteIhm::Application.routes.draw do
           get 'select_parent'
         end
       end        
-      resources :routes
+      resources :routes do
+        resources :stop_points do
+          collection do
+              post :sort
+          end
+        end
+      end
     end
 
     resources :imports

@@ -66,21 +66,21 @@
 </ul>
 
 <div id="multiple_selection_menu">
-  <h3>Sélection multiple</h3>
+  <h3><%= t(".multi_selection") %> </h3>
   <div class="disabled">
-    <a class="enable" href="#">Activer la sélection multiple</a>
+    <a class="enable" href="#"><%= t(".multi_selection_enable") %></a>
   </div>
 
   <div class="enabled" style="display: none;">
-    <a class="disable" href="#">Désactiver la sélection multiple</a>
+    <a class="disable" href="#"><%= t(".multi_selection_disable") %></a>
     
     <ul class="actions">
-      <li><a href="#" class="remove">Supprimer les lignes</a></li>
-      <li><a href="#" class="export">Exporter les lignes</a></li>
+      <li><a href="#" class="remove"><%= t(".delete_selected") %></a></li>
+      <li><a href="#" class="export"><%= t(".export_selected") %></a></li>
     </ul>
 
-    <a class="select_all" href="#">Tout sélectionner</a> | <a class="deselect_all" href="#">désélectionner</a>
-  </div>
+    <a class="select_all" href="#"><%= t(".select_all") %></a> | <a class="deselect_all" href="#"><%= t(".deselect_all") %></a>
+  </div> 
 </div>
 
 <% end %>

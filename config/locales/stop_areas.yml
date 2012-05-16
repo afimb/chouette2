@@ -22,7 +22,7 @@ en:
     index:
       title: Stop areas
       name_or_country_code: Name or Country code
-      selection: Selection
+      selection: Filter on
       selection_all: All
       area_type: Area Type
     select_parent:
@@ -84,7 +84,7 @@ fr:
     index:
       name_or_country_code: Nom ou Code Postal
       title: Arrêts
-      selection: Sélection
+      selection: Filtrer sur
       selection_all: Tous
       area_type: Type d'arrêt 
     select_parent:

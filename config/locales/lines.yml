@@ -16,8 +16,15 @@ en:
     index:
       title: Lines
       name_or_number: Name or number
-      selection: Selection
+      selection: Filter on
       selection_all: All
+      multi_selection: Multiple selection
+      multi_selection_enable: Enable multiple selection
+      multi_selection_disable: Disable multiple selection
+      delete_selected: Delete lines
+      export_selected: Export linges
+      select_all: Select all
+      deselect_all: Deselect all
   activerecord:        
     models:        
       line: Line
@@ -55,12 +62,19 @@ fr:
       title: Modifier la ligne %{line}
     show:
       title: Ligne %{line}
-      itineraries: "Liste des itinéraires de la ligne"
+      itineraries: "Liste des séquences d'arrêts de la ligne"
     index:
       name_or_number: Nom ou indice
       title: Lignes
-      selection: Sélection
+      selection: Filtrer sur
       selection_all: Tous
+      multi_selection: Sélection multiple
+      multi_selection_enable: Activer la sélection multiple
+      multi_selection_disable: Désactiver la sélection multiple
+      delete_selected: Supprimer les lignes
+      export_selected: Exporter les lignes
+      select_all: Tout sélectionner
+      deselect_all: Tout désélectionner
   activerecord:        
     models:        
       line: Ligne

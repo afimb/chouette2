@@ -58,39 +58,40 @@
         font-weight: bold;
     }
     
-    .stop_area:after { 
+    .stop_point:after { 
         @include after_div_for_object;  
     }
 
-    .stop_areas {
+    .stop_points {
         margin-top: 20px;
     }
 
-    .stop_areas:after {
+    .stop_points:after {
         @include content_to_clear;
     }
     
-    .route_stop_areas {
+    .route_stop_points {
         clear: both;
+        margin: 0px;
+        padding: 0px;
     }
 
-    .stop_area {
+    .stop_point {
         @include div_for_object;
         /* to create multi-column index */
         width: 350px;
         float: left;
         padding-right: 10px;
 
-        .area_type {
+        .position {
             width: 25px;
-            height: 64px;
+            height: 20px;
             float: left;
+            background-color: #61970B;
+            font-weight: bold;
+            color: white;
             margin-right: 10px;
-            
-
-            a {
-                text-decoration: none;                   
-            }            
+            padding-left: 4px;
         }
     }
     

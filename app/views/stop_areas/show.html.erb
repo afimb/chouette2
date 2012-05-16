@@ -96,6 +96,8 @@
       <%= link_to image_tag("user_interface/ui/remove.png"), referential_stop_area_path(@referential, @stop_area.parent), :method => :delete, :confirm =>  t('stop_areas.actions.destroy_confirm'), :class => "remove" %>
     </div> 
     <div class="link"><%= image_tag "icons/link.png"%></div>
+    <% else %>
+    <div class="no_parent">&nbsp;</div>
     <% end %>
 
     <% if @stop_area.parent.present? || @stop_area.children.present? %>
