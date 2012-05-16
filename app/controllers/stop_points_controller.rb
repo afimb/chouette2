@@ -12,10 +12,9 @@ class StopPointsController < ChouetteController
   alias_method :route, :parent
 
   def sort
-    begin
-      route.reorder!( params[:stop_point])
+    if route.reorder!( params[:stop_point])
       flash[:notice] = t("stop_points.reorder_success")
-    rescue => e
+    else
       flash[:alert] = t("stop_points.reorder_failure")
     end
     respond_to do |format|

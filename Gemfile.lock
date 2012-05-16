@@ -1,6 +1,6 @@
 GIT
   remote: git://chouette.dryade.priv/ninoxe
-  revision: f5bceada23c96488b4d830947a7c6eb38bd22d4f
+  revision: 9deb81a3121fdf295512f875a91ba7b5d0d106a4
   specs:
     ninoxe (0.0.8)
       GeoRuby
@@ -161,7 +161,6 @@ GEM
     jruby-openssl (0.7.6.1)
       bouncy-castle-java (>= 1.5.0146.1)
     jruby-rack (1.1.5)
-    json (1.7.3)
     json (1.7.3-java)
     launchy (2.1.0)
       addressable (~> 2.2.6)
