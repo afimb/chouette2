@@ -1,72 +1,49 @@
 class StyleMap::EditStopAreaStyleMap < StyleMap::GenericStyleMap
+  attr_accessor :default_style, :select_style, :context
   
-  attr_accessor :styles, :display_label
+  @@default_style_class = {
+    #:label => "${label}",
+    :fontColor => "black",
+    :fontSize => "11px",
+    :fontWeight => "bold",
+    :labelAlign => "ct",
+    :labelXOffset => 0,
+    :labelYOffset => -15,
+    :pointRadius => 4,
+    :fillColor => "white",
+    :fillOpacity => 1,
+    :strokeColor => "black",
+    :strokeOpacity => 1,
+    :strokeWidth => 2
+  }
 
-  def initialize(display_label = false, styles = {})
-    @display_label = display_label
-    @styles = styles
+  @@select_style_class = {
+    :fontColor => "black", 
+    :fontSize => "11px",
+    :fontWeight => "bold",
+    :pointRadius => 4,
+    :fillColor => "#86b41d",
+    :fillOpacity => 1,
+    :strokeColor => "black",
+    :strokeOpacity => 1,
+    :strokeWidth => 2
+  }
+
+  def initialize(options = {})
+    @default_style = options[:default_style].present? ? options[:default_style].merge(@@default_style_class) : @@default_style_class
+    @select_style = options[:select_style].present? ? options[:select_style].merge(@@select_style_class) : @@select_style_class
   end
 
-  def default_style
-    style = {
-      :label => ("${label}" if display_label),
-      :fontColor => "black",
-      :fontSize => "11px",
-      :fontWeight => "bold",
-      :labelAlign => "ct",
-      :labelXOffset => 0,
-      :labelYOffset => -15,
-      :pointRadius => 4,
-      :fillColor => "white",
-      :fillOpacity => 1,
-      :strokeColor => "black",
-      :strokeOpacity => 1,
-      :strokeWidth => 2,
-      :display => true
-    }   
-    
-    if styles["default"].present?
-      style.merge styles["default"] 
-    else
-      style
-    end
-  end
-
-  def select_style
-    select_style = {
-      :label => ("${label}" if display_label),
-      :fontColor => "black", 
-      :fontSize => "11px",
-      :fontWeight => "bold",
-      :labelAlign => "ct",
-      :labelXOffset => 0,
-      :labelYOffset => -15,
-      :pointRadius => 4,
-      :fillColor => "white",
-      :fillOpacity => 1,
-      :strokeColor => "black",
-      :strokeOpacity => 1,
-      :strokeWidth => 2,
-      :display => true
-    }
-
-    if styles["select"].present?
-      select_style.merge styles["select"]
-    else
-      select_style
-    end
-  end
-  
   def context
-    context = { 
-      :label => :" function(feature) {if(feature.layer.map.getZoom() > 13) { return feature.attributes.name;} else {return '';}} ", 
-      :areaType => :" function(feature) { console.log(feature); return feature.attributes.stop_area_type.toLowerCase();} "
+    { 
+      :label => :" function(feature) {if(feature.layer.map.getZoom() > 13) { return feature.attributes.name;} else {return '';}} "
     }
   end
 
   def style_map
-    OpenLayers::StyleMap.new(:default => OpenLayers::Style.new(default_style,  { :context => context}),
-                             :select => OpenLayers::Style.new(select_style,  { :context => context})
+    OpenLayers::StyleMap.new(
+                             :default => OpenLayers::Style.new(default_style,  { :context => context}),
+                             :select => OpenLayers::Style.new(select_style)
                              )
   end
 
