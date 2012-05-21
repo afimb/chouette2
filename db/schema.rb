@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120426141032) do
+ActiveRecord::Schema.define(:version => 20120516172252) do
 
   create_table "company", :force => true do |t|
     t.string   "objectid"
@@ -53,6 +53,31 @@ ActiveRecord::Schema.define(:version => 20120426141032) do
   end
 
   add_index "connectionlink", ["objectid"], :name => "connectionlink_objectid_key", :unique => true
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "imports", :force => true do |t|
+    t.integer  "referential_id"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "imports", ["referential_id"], :name => "index_imports_on_referential_id"
 
   create_table "line", :force => true do |t|
     t.integer  "ptnetworkid",                :limit => 8
