@@ -4,6 +4,9 @@ gem 'rails', '3.1.3'
 gem 'jquery-rails'
 gem 'devise'
 
+gem "ffi-proj4", :git => 'git://github.com/dryade/ffi-proj4.git'
+
+
 platforms :jruby do
   gem 'activerecord-jdbcpostgresql-adapter', :git => 'git://github.com/dryade/activerecord-jdbc-adapter.git'
   gem 'activerecord-jdbcsqlite3-adapter'
@@ -11,13 +14,13 @@ platforms :jruby do
   gem 'warbler'   
 end
 
-platforms :ruby do
+platforms :ruby do    
   gem 'pg', '~> 0.11.0' 
   gem 'sqlite3'
-  gem 'capybara-webkit'   
 end
 
 gem "map_layers", "~> 0.0.4"
+gem "georuby-ext", :git => 'git://github.com/dryade/georuby-ext.git'
 
 gem 'user_interface', :git => 'git://sim.dryade.priv/user_interface'
 gem 'json'

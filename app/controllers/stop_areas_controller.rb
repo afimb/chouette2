@@ -32,7 +32,7 @@ class StopAreasController < ChouetteController
   def show
     @map = StopAreaMap.new referential, stop_area
     show! do |format|
-      unless stop_area.geometry
+      unless stop_area.position or params[:default]
         format.kml {
           render :nothing => true, :status => :not_found 
         }
@@ -42,7 +42,7 @@ class StopAreasController < ChouetteController
   end
   
   def edit
-    #stop_area.position ||= stop_area.default_position
+    stop_area.position ||= stop_area.default_position
 
     @map = StopAreaMap.new referential, stop_area
     @map.editable = true

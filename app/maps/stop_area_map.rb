@@ -36,18 +36,12 @@ EOF
 
       end
 
-      page << map.zoom_to_extent(bounds) if bounds
-      #page << map.set_center(center.to_google.to_openlayers, 16, false, true)
+      page << map.set_center(center.to_google.to_openlayers, 16, false, true)
     end
   end
 
-  def bounds
-    wgs84_bounds = Chouette::StopArea.bounds
-    @bounds ||= OpenLayers::Bounds.new(wgs84_bounds.lower_corner.x, wgs84_bounds.lower_corner.y, wgs84_bounds.upper_corner.x, wgs84_bounds.upper_corner.y).transform(OpenLayers::Projection.new("EPSG:4326"), OpenLayers::Projection.new("EPSG:900913"))
-  end
-
   def center
-    stop_area.position or stop_area.default_position
+    stop_area.geometry or stop_area.default_position
   end
 
 end

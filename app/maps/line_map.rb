@@ -18,7 +18,7 @@ class LineMap < ApplicationMap
       page << map.add_layer(google_satellite) 
 
       #page << map.add_layer(kml_layer(line, :styleMap => StyleMap::LineStyleMap.new( :style => line_style).style_map))
-      page << map.add_layer(kml_layer(polymorphic_path([referential, line, :stop_areas], :format => :kml), :styleMap => StyleMap::StopAreasStyleMap.new(true).style_map))
+      page << map.add_layer(kml_layer(polymorphic_path([referential, line, :stop_areas], :format => :kml), :styleMap => StyleMap::StopAreasStyleMap.new.style_map))
       page << map.zoom_to_extent(bounds) if bounds
     end
   end

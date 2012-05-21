@@ -14,8 +14,7 @@ class ApplicationMap
       OpenLayers::Control::ScaleLine.new,
       OpenLayers::Control::Navigation.new,
       OpenLayers::Control::PanZoomBar.new,
-      OpenLayers::Control::Attribution.new
-    ]
+      OpenLayers::Control::Attribution.new]
   end
 
   def id
