@@ -40,7 +40,7 @@ describe "StopAreas" do
       fill_in "Nom", :with => "StopArea 1"
       fill_in "Numéro d'enregistrement", :with => "test-1"
       #fill_in "Identifiant Neptune", :with => "test:StopArea:1"        
-      click_button("Créer Arrêt")
+      click_button("Créer arrêt")
       page.should have_content("StopArea 1")
     end
   end
@@ -51,7 +51,7 @@ describe "StopAreas" do
       click_link "Modifier cet arrêt"
       fill_in "Nom", :with => "StopArea Modified"
       fill_in "Numéro d'enregistrement", :with => "test-1"
-      click_button("Modifier Arrêt")
+      click_button("Modifier arrêt")
       page.should have_content("StopArea Modified")
     end
   end
