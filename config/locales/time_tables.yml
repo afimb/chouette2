@@ -27,7 +27,10 @@ en:
       selection_all: All
   activerecord:        
     models:        
-      time_table: Timetable
+      time_table: 
+        zero:  timetable
+        one:   timetable
+        other: timetables
     attributes:
       time_table:
         comment: Comment
@@ -85,7 +88,10 @@ fr:
       selection_all: Tous
   activerecord:        
     models:        
-      time_table: Calendrier
+      time_table: 
+        zero:  calendrier
+        one:   calendrier
+        other: calendriers
     attributes:
       time_table:
         comment: Description

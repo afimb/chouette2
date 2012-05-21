@@ -22,12 +22,15 @@ en:
       multi_selection_enable: Enable multiple selection
       multi_selection_disable: Disable multiple selection
       delete_selected: Delete lines
-      export_selected: Export linges
+      export_selected: Export lines
       select_all: Select all
       deselect_all: Deselect all
   activerecord:        
     models:        
-      line: Line
+      line: 
+        zero:  line
+        one:   line
+        other: lines
     attributes:
       line:
         network: Network
@@ -77,7 +80,10 @@ fr:
       deselect_all: Tout désélectionner
   activerecord:        
     models:        
-      line: Ligne
+      line:
+        zero:  ligne
+        one:   ligne
+        other: lignes
     attributes:
       line:
         network: Réseau
@@ -97,4 +103,3 @@ fr:
       line:
         registrationnumber: "caractères autorisés : alphanumériques et 'souligné'" 
         objectid: "[prefixe]:Line:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
-

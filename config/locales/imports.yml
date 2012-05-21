@@ -9,6 +9,11 @@ en:
     index:
       title: Imports
   activerecord:        
+    models:        
+      import:
+        zero:  import
+        one:   import
+        other: imports
     attributes:
       import:
         resources: File to import
@@ -23,6 +28,11 @@ fr:
     index:
       title: Imports
   activerecord:        
+    models:        
+      import:
+        zero:  import
+        one:   import
+        other: imports
     attributes:
       import:
         resources: Fichier à importer

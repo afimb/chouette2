@@ -21,7 +21,10 @@ en:
       no_stop_point: No stop point on route
   activerecord:        
     models:        
-      stop_point: Stop point on route
+      stop_point: 
+        zero:  stop point on route
+        one:   stop point on route
+        other: stop points on route
     attributes:
       stop_point:
 
@@ -48,6 +51,9 @@ fr:
       no_stop_point: Aucun arrêt dans la séquence
   activerecord:        
     models:        
-      stop_point: "Arrêt sur séquence d'arrêts"
+      stop_point: 
+        zero:  "arrêt sur séquence d'arrêts"
+        one:   "arrêt sur séquence d'arrêts"
+        other: "arrêts sur séquence d'arrêts"
     attributes:
       stop_point:

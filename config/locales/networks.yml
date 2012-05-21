@@ -17,7 +17,10 @@ en:
 
   activerecord:
     models:
-      network: Network
+      network: 
+        zero:  network
+        one:   network
+        other: networks
     attributes:
       network:
         registrationnumber: "Registration number"
@@ -56,7 +59,10 @@ fr:
       name: Nom
   activerecord:
     models:
-      network: Réseau
+      network: 
+        zero:  réseau
+        one:   réseau
+        other: réseaux
     attributes:
       network:
         registrationnumber: "Numéro d'enregistrement"
