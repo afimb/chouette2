@@ -20,7 +20,10 @@ en:
       selection_all: All
   activerecord:        
     models:        
-      route: Route
+      route: 
+        zero:  route
+        one:   route
+        other: routes
     attributes:
       route:
         line: Line
@@ -58,7 +61,10 @@ fr:
       selection_all: Tous
   activerecord:        
     models:        
-      route: "Séquence d'arrêts"
+      route: 
+        zero:  "Séquence d'arrêts"
+        one:   "Séquence d'arrêts"
+        other: "Séquences d'arrêts"
     attributes:
       route:
         line: Ligne

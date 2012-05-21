@@ -27,7 +27,10 @@ en:
       title: "Select start and end stops for %{connection_link}"
   activerecord:        
     models:        
-      connection_link: Connection link
+      connection_link: 
+        zero:  connection link
+        one:   connection link
+        other: connection links
     attributes:
       connection_link:
         departure: Start of link
@@ -84,7 +87,10 @@ fr:
       title: "Sélection des arrêts de départ et d'arrivée de %{connection_link}"
   activerecord:        
     models:        
-      connection_link: Correspondance
+      connection_link: 
+        zero:  correspondance
+        one:   correspondance
+        other: correspondances
     attributes:
       connection_link:
         departure: Arrêt de départ

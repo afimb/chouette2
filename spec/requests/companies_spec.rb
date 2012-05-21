@@ -33,7 +33,7 @@ describe "Companies" do
       fill_in "Nom", :with => "Company 1"
       fill_in "Numéro d'enregistrement", :with => "test-1"
       fill_in "Identifiant Neptune", :with => "test:Company:1"        
-      click_button("Créer Transporteur")
+      click_button("Créer transporteur")
       page.should have_content("Company 1")
     end
   end
@@ -44,7 +44,7 @@ describe "Companies" do
       click_link "Modifier ce transporteur"
       fill_in "Nom", :with => "Company Modified"
       fill_in "Numéro d'enregistrement", :with => "test-1"
-      click_button("Modifier Transporteur")
+      click_button("Modifier transporteur")
       page.should have_content("Company Modified")
     end
   end

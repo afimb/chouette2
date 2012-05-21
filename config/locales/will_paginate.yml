@@ -6,11 +6,11 @@ en:
 
     page_entries_info:
       single_page:
-        zero:  "No %{model} found"
+        zero:  "No item found"
         one:   "1 %{model} shown"
         other: "%{count} %{model} shown"
       single_page_html:
-        zero:  "No %{model} found"
+        zero:  "No item found"
         one:   "<b>1</b> %{model} shown"
         other: "<b>%{count}</b> %{model} shown"
 
@@ -25,12 +25,12 @@ fr:
 
     page_entries_info:
       single_page:
-        zero:  "Aucun(e) %{model} trouvé(e)"
+        zero:  "Aucun élément trouvé"
         one:   "1 %{model} affiché(e)"
         other: "%{count} %{model} affiché(e)s"
       single_page_html:
-        zero:  "Aucun(e) %{model} trouvé(e)"
-        one:   "<b>1</b> %{model} affiché(e)s"
+        zero:  "Aucun élément trouvé"
+        one:   "<b>1</b> %{model} affiché(e)"
         other: "<b>%{count}</b> %{model} affiché(e)s"
 
       multi_page: "%{model} %{from} - %{to} sur %{count} au total"

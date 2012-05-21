@@ -28,6 +28,7 @@ gem 'cocoon'
 gem 'formtastic', '2.0.2'
 gem 'inherited_resources'
 gem 'will_paginate', '~> 3.0'
+# gem 'will-paginate-i18n','~> 0.1.5'
 gem 'ransack'
 gem 'squeel'
 gem 'RedCloth'
@@ -43,7 +44,7 @@ gem 'delayed_job_active_record'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.1.5'
+  gem 'sass-rails',   '= 3.1.4'
   gem 'coffee-rails', '~> 3.1.1'
   gem 'coffee-script-source'
   gem 'uglifier', '>= 1.0.3'

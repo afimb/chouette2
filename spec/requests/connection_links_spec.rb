@@ -40,7 +40,7 @@ describe "ConnectionLinks" do
       click_link "Ajouter une correspondance"
       fill_in "Nom", :with => "ConnectionLink 1"
       fill_in "Identifiant Neptune", :with => "test:ConnectionLink:1"        
-      click_button("Créer Correspondance")
+      click_button("Créer correspondance")
       page.should have_content("ConnectionLink 1")
     end
   end
@@ -50,7 +50,7 @@ describe "ConnectionLinks" do
       visit referential_connection_link_path(referential, subject)
       click_link "Modifier cette correspondance"
       fill_in "Nom", :with => "ConnectionLink Modified"
-      click_button("Modifier Correspondance")
+      click_button("Modifier correspondance")
       page.should have_content("ConnectionLink Modified")
     end
   end

@@ -31,7 +31,10 @@ en:
       title: Add children of stop area %{stop_area} 
   activerecord:        
     models:        
-      stop_area: Stop area
+      stop_area: 
+        zero:  stop area
+        one:   stop area
+        other: stop areas
     attributes:
       stop_area:
         name: Name
@@ -93,7 +96,10 @@ fr:
       title: Ajouter les enfants de l'arrêt %{stop_area} 
   activerecord:        
     models:        
-      stop_area: Arrêt
+      stop_area: 
+        zero:  arrêt
+        one:   arrêt
+        other: arrêts
     attributes:
       stop_area:
         name: Nom

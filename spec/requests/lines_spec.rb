@@ -45,7 +45,7 @@ describe "Lines" do
       fill_in "Nom", :with => "Line 1"
       fill_in "Numéro d'enregistrement", :with => "test-1"
       fill_in "Identifiant Neptune", :with => "test:Line:1"        
-      click_button("Créer Ligne")
+      click_button("Créer ligne")
       page.should have_content("Line 1")
     end
   end
@@ -57,7 +57,7 @@ describe "Lines" do
       click_link "Modifier cette ligne"
       fill_in "Nom", :with => "Line Modified"
       fill_in "Numéro d'enregistrement", :with => "test-1"
-      click_button("Modifier Ligne")
+      click_button("Modifier ligne")
       page.should have_content("Line Modified")
     end
   end

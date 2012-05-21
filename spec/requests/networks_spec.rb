@@ -42,7 +42,7 @@ describe "Networks" do
       fill_in "Nom", :with => "Network 1"
       fill_in "Numéro d'enregistrement", :with => "test-1"
       fill_in "Identifiant Neptune", :with => "test:GroupOfLine:1"        
-      click_button("Créer Réseau")
+      click_button("Créer réseau")
       page.should have_content("Network 1")
     end
   end
@@ -54,7 +54,7 @@ describe "Networks" do
       click_link "Modifier ce réseau"
       fill_in "Nom", :with => "Network Modified"
       fill_in "Numéro d'enregistrement", :with => "test-1"
-      click_button("Modifier Réseau")
+      click_button("Modifier réseau")
       page.should have_content("Network Modified")
     end
   end
