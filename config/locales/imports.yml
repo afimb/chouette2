@@ -1,0 +1,28 @@
+en:
+  imports:
+    actions:
+      new: New import
+      destroy: Destroy
+      destroy_confirm: Are you sure you want destroy this import?
+    new:
+      title: New import
+    index:
+      title: Imports
+  activerecord:        
+    attributes:
+      import:
+        resources: File to import
+fr:
+  imports:
+    actions:
+      new: Nouvel import
+      destroy: Supprimer
+      destroy_confirm: Etes vous sûr de détruire cet import ?
+    new:
+      title: Nouvel import
+    index:
+      title: Imports
+  activerecord:        
+    attributes:
+      import:
+        resources: Fichier à importer

@@ -1,0 +1,20 @@
+<%= title_tag t('.title') %> 
+
+<div class="pagination">
+  <div class="page_info">
+    <%= page_entries_info @imports %>
+  </div>
+  <%= will_paginate @imports, :container => false %>
+</div>
+<div class="imports paginated_content">
+  <%= render @imports %>
+</div>
+<div class="pagination">
+  <%= will_paginate @imports, :container => false %>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('imports.actions.new'), new_referential_import_path(@referential), :class => "add" %></li> 
+</ul>
+<% end %>

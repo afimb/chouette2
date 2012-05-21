@@ -1,0 +1,25 @@
+@import "common";
+
+#workspace.imports.index
+{
+    .import:after { 
+        @include after_div_for_object;  
+    }
+
+    .imports {
+        margin-top: 20px;
+    }
+
+    .imports:after {
+        @include content_to_clear;
+    }
+    
+    .import {
+        @include div_for_object;
+
+        /* to create multi-column index */
+        width: 300px;
+        float: left;
+        padding-right: 10px;
+    }
+}

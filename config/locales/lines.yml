@@ -5,6 +5,7 @@ en:
       edit: Edit this line
       destroy: Remove this line
       destroy_confirm: Are you sure you want destroy this line?
+      import: Import lines
     new:
       title: Add a new line
     edit:
@@ -54,6 +55,7 @@ fr:
       edit: Modifier cette ligne
       destroy: Supprimer cette ligne
       destroy_confirm: Etes vous sûr de détruire cette ligne ?
+      import: Importer des lignes
     new:
       title: Ajouter une ligne
     edit:

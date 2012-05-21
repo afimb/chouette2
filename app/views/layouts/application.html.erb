@@ -43,6 +43,8 @@
             <li><%= tab_link_to Chouette::StopArea, referential_stop_areas_path(@referential) %></li>
             <li><%= tab_link_to Chouette::ConnectionLink, referential_connection_links_path(@referential) %></li>
             <li><%= tab_link_to Chouette::TimeTable, referential_time_tables_path(@referential) %></li>
+
+            <li><%= tab_link_to Import, referential_imports_path(@referential) %></li>
           <% end %>    
         </ul>
       </div>
