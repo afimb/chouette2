@@ -23,7 +23,7 @@ test:
 
 production:
   adapter: jdbcpostgresql
-  database: chouette_prod
+  database: chouette2
   encoding: utf8
   host: localhost
   username: chouette
