@@ -20,3 +20,5 @@ public/assets/
 *.swp
 *.swo
 .DS_Store
+chouette2.war
+vendor/bundle
