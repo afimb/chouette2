@@ -5,7 +5,7 @@ gem 'jquery-rails'
 gem 'devise'
 
 gem "ffi-proj4", :git => 'git://github.com/dryade/ffi-proj4.git'
-
+gem "jruby-rack-worker"
 
 platforms :jruby do
   gem 'activerecord-jdbcpostgresql-adapter', :git => 'git://github.com/dryade/activerecord-jdbc-adapter.git'

@@ -36,7 +36,7 @@ ChouetteIhm::Application.configure do
   # Use a different logger for distributed setups
 	require 'syslog_logger'
   config.logger = SyslogLogger.new("rails/chouette2").tap do |logger|
-	  logger.level = Logger::INFO
+	  # logger.level = Logger::INFO
 	end
 
   # Use a different cache store in production

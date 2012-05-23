@@ -26,7 +26,7 @@ class Import < ActiveRecord::Base
     self.status ||= "pending"
   end
 
-  after_create :import
+  after_create :delayed_import
   def delayed_import
     save_resources
     delay.import
