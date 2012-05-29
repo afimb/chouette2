@@ -2,11 +2,11 @@
   <%= link_to([@referential, line], :class => "preview", :title => "Ligne #{line.number}") do %>
     <div class="color">
       <% if line.number and line.number.length <= 3 %>
-      <div class="number"><%= line.number %></div>
+        <div class="number"><%= line.number %></div>
       <% end %>
-      <%= check_box_tag "ids[]", line.id, false, :class => "multiple_selection", :style => "display: none;" %>
     </div>
   <% end %>
+  <%= check_box_tag "ids[]", line.id, false, :class => "multiple_selection", :style => "display: none;" %>
   <%= link_to truncate(line.name, :length => 30), [@referential, line], :title => "Ligne #{line.name}" %>
   <div class="info">
     <%= line.human_attribute_name('network') %> <%= link_to_if line.network, line.network.name, referential_network_path(@referential, line.network), :title => "#{line.human_attribute_name('network')} #{line.network.name}" %> -

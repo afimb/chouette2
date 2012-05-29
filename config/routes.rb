@@ -20,6 +20,7 @@ ChouetteIhm::Application.routes.draw do
   #   resources :products
   resources :referentials do
     resources :stop_point_areas
+    match 'lines' => 'lines#destroy_all', :via => :delete
     resources :lines, :networks do
       resources :stop_areas do
         resources :stop_area_parents

@@ -12,6 +12,13 @@ class LinesController < ChouetteController
     show!
   end
 
+  def destroy_all
+    objects =
+      get_collection_ivar || set_collection_ivar(end_of_association_chain.where(:id => params[:ids]))
+    objects.destroy_all
+    respond_with(objects, :location => smart_collection_url)
+  end
+
   protected
 
   def collection
