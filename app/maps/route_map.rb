@@ -22,12 +22,18 @@ class RouteMap < ApplicationMap
     end
   end
 
+  def ready?
+    route_bounds.present?
+  end
+
+  def route_bounds
+    @route_bound ||= (route.geometry.empty? ? Chouette::StopArea.bounds : route.geometry.envelope)
+  end
+
   def bounds
-    wgs84_bounds = ( route.geometry.empty?) ? Chouette::StopArea.bounds : route.geometry.envelope
-    
     @bounds ||= OpenLayers::Bounds.new(
-        wgs84_bounds.lower_corner.x, wgs84_bounds.lower_corner.y, 
-        wgs84_bounds.upper_corner.x, wgs84_bounds.upper_corner.y).
+        route_bounds.lower_corner.x, route_bounds.lower_corner.y, 
+        route_bounds.upper_corner.x, route_bounds.upper_corner.y).
       transform(OpenLayers::Projection.new("EPSG:4326"), OpenLayers::Projection.new("EPSG:900913"))
   end
 

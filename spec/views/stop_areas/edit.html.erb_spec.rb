@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "/stop_areas/edit" do
   let!(:referential) { assign(:referential, create(:referential)) }
   let!(:stop_area) { assign(:stop_area, create(:stop_area)) }
-  let!(:map) { assign(:map, mock(:to_html => '<div id="map"/>')) }
+  let!(:map) { assign(:map, mock(:to_html => '<div id="map"/>'.html_safe)) }
 
   describe "test" do
     it "should render h2 with the group name" do
