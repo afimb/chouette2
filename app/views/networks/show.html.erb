@@ -1,7 +1,7 @@
 <%= title_tag t('networks.show.title', :network => @network.name )%>
 
 <div class="network_show">
-  <%= @map.to_html.html_safe %>
+  <%= @map.to_html %>
   <div class="summary">
     <p>
       <label><%= Chouette::Network.human_attribute_name("name") %>: </label>
