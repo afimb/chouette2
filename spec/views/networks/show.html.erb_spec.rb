@@ -13,7 +13,6 @@ describe "/networks/show" do
 
   it "should display a map with class 'network'" do
     render
-    puts rendered
     rendered.should have_selector("#map")
   end
 
