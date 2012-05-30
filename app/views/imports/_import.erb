@@ -1,8 +1,8 @@
 <%= div_for(import) do %>
-  <%= link_to("#", :class => "preview") do %>
+  <%= link_to(referential_import_path(@referential, import), :class => "preview") do %>
     <%= image_tag "import-#{import.status}.png" %>
   <% end %>
-  <%= Import.model_name.humanize %> <%= import.id %>
+  <%= link_to(import.name, referential_import_path(@referential, import)) %>
   <div class="info">
     <%= l import.created_at %>
 

@@ -11,4 +11,14 @@ FactoryGirl.define do
     f.password_confirmation "secret"
   end
 
+  factory :import do |f|
+    f.resources { Rack::Test::UploadedFile.new 'spec/fixtures/neptune.zip', 'application/zip', false }
+    f.association :referential
+  end
+
+  factory :import_log_message do |f|
+    f.association :import
+    f.sequence(:key) { "key_#{n}" }
+  end
+
 end

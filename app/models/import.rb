@@ -9,6 +9,8 @@ class Import < ActiveRecord::Base
   attr_accessor :resources
   attr_accessor :loader
 
+  has_many :log_messages, :class_name => "ImportLogMessage", :order => :position, :dependent => :destroy
+
   def loader
     @loader ||= ::Chouette::Loader.new(referential.slug)
   end
@@ -49,8 +51,13 @@ class Import < ActiveRecord::Base
     "#{root}/#{id}.zip"
   end
 
+  def name
+    "#{Import.model_name.humanize} #{id}"
+  end
+
   def import
     begin
+      log_messages.create :key => :started
       if resources
         with_original_filename do |file|
           # chouette-command checks the file extension (and requires .zip) :(
@@ -64,6 +71,7 @@ class Import < ActiveRecord::Base
       Rails.logger.error "Import #{id} failed : #{e}, #{e.backtrace}"
       update_attribute :status, "failed"
     end
+    log_messages.create :key => status
   end
 
 end

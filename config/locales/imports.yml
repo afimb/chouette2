@@ -8,6 +8,21 @@ en:
       title: New import
     index:
       title: Imports
+    show:
+      report: Report
+    statuses:
+      pending: Pending
+      completed: Completed
+      failed: Failed
+  import_log_messages:
+    messages:
+      started: Started import
+      completed: Completed import
+      failed: Failed import
+    severities:
+      info: Information
+      warning: Warning
+      error: Error
   activerecord:        
     models:        
       import:
@@ -17,16 +32,36 @@ en:
     attributes:
       import:
         resources: File to import
+        status: Status
+      import_log_message:
+        created_at: Date
+        position: N.
+        full_message: Message
 fr:
   imports:
     actions:
       new: Nouvel import
-      destroy: Supprimer
+      destroy: Supprimer cet import
       destroy_confirm: Etes vous sûr de détruire cet import ?
     new:
       title: Nouvel import
     index:
       title: Imports
+    show:
+      report: Rapport
+    statuses:
+      pending: En cours
+      completed: Achevé
+      failed: Echoué
+  import_log_messages:
+    messages:
+      started: Import démarré
+      completed: Import achevé avec succès
+      failed: Import interromptu
+    severities:
+      info: Information
+      warning: Alerte
+      error: Erreur
   activerecord:        
     models:        
       import:
@@ -36,3 +71,8 @@ fr:
     attributes:
       import:
         resources: Fichier à importer
+        status: Status
+      import_log_message:
+        created_at: Date
+        position: "No"
+        full_message: Message
