@@ -9,3 +9,4 @@ module ::ArJdbc
     end
   end
 end
+ActiveRecord::ConnectionAdapters::PostgreSQLAdapter::NATIVE_DATABASE_TYPES[:primary_key] = "bigserial primary key"

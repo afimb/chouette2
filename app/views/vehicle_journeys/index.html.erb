@@ -1,0 +1,44 @@
+<%= title_tag t('vehicle_journeys.index.title', :route => @route.name ) %>
+
+<div class="vehicle_journey_index">
+  <div class="summary">
+    <p>
+      <label><%= @route.human_attribute_name(:line) %>: </label>
+      <%= link_to line_formatted_name( @line), [@referential, @line] %>
+    </p>
+    <p>
+      <label><%= Chouette::Route.model_name.human %>: </label>
+      <%= link_to @route.name, [@referential, @line, @route] %>
+    </p>
+  <div>
+<div>
+<h3 class="vehicle_journeys"><%= t('.vehicle_journeys') %></h3>
+<div class="pagination">
+  <div class="page_info">
+    <%= page_entries_info @vehicle_journeys %>
+  </div>
+  <%= will_paginate @vehicle_journeys, :container => false %>
+</div>
+<div class="vehicle_journeys paginated_content">
+  <table border="1">
+  <tr>
+  <th> "vide"</th>
+  <% @vehicle_journeys.each do |vj| %>
+    <th> <%= link_to "c", [@referential, @line, @route, vj]%></th>
+  <% end %>
+  </tr>
+  <% @route.stop_points.each_with_index do |sp, index| %>
+  <tr>
+    <td><%= sp.stop_area.name %></td>
+    <% @vehicle_journeys.each do |vj| %>
+      <td><%= @matrix["#{vj.id}-#{sp.id}"] ? l( @matrix["#{vj.id}-#{sp.id}"].departure_time, :format => :hour) : "" %></td>
+    <% end %>
+  </tr>
+  <% end %>
+  </table>
+</div>
+<% content_for :sidebar do %>
+<ul class="actions">
+</ul>
+<% end %>
+

@@ -23,7 +23,7 @@ en:
         other: networks
     attributes:
       network:
-        registrationnumber: "Registration number"
+        registration_number: "Registration number"
         name: "Name"
         comment: "Comments"
         version_date: "Date of this network's version"
@@ -38,7 +38,7 @@ en:
   formtastic:
     hints:
       network:
-        registrationnumber: only alphanumerical or underscore characters 
+        registration_number: only alphanumerical or underscore characters 
         objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
 
 fr:
@@ -65,7 +65,7 @@ fr:
         other: réseaux
     attributes:
       network:
-        registrationnumber: "Numéro d'enregistrement"
+        registration_number: "Numéro d'enregistrement"
         name: "Nom"
         comment: "Commentaire"
         version_date: Date de version
@@ -80,6 +80,6 @@ fr:
   formtastic:
     hints:
       network:
-        registrationnumber: "caractères autorisés : alphanumériques et 'souligné'" 
+        registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
         objectid: "[prefixe]:GroupOfLine:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
 

@@ -1,0 +1,24 @@
+<%= semantic_form_for [@referential, @line, @route, @journey_pattern] do |form| %>
+  <%= form.inputs do %> 
+    <%= form.input :name %>
+    <%= form.input :published_name %>
+    <%= form.input :registration_number %>              
+    <%= form.input :comment %>              
+    <%= form.input :stop_point_ids, :as => :check_boxes, :collection => @route.stop_points.map { |s| [s.stop_area.name, s.id.to_s]} %>              
+    <% if @route.new_record? %>
+      <%= form.input :objectid %>  
+    <% else %>
+      <li>
+      <label><%= @journey_pattern.human_attribute_name("objectid") %>: </label>
+      <%= @journey_pattern.objectid %>
+      </li>
+    <% end %>
+  <% end %>
+
+  <%= form.buttons do %>
+    <%= form.commit_button true %>
+    <li><%= t('or') %></li>
+    <li><%= link_to t('cancel'), :back %></li>
+  <% end %>
+<% end %>
+

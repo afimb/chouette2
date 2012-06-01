@@ -1,38 +1,38 @@
 class CreateTimeTable < ActiveRecord::Migration
   def up
-  create_table "timetable", :force => true do |t|
+  create_table "time_tables", :force => true do |t|
     t.string   "objectid",      :null => false
-    t.integer  "objectversion", :default => 1
-    t.datetime "creationtime"
-    t.string   "creatorid"
+    t.integer  "object_version", :default => 1
+    t.datetime "creation_time"
+    t.string   "creator_id"
     t.string   "version"
     t.string   "comment"
-    t.integer  "intdaytypes", :default => 0
+    t.integer  "int_day_types", :default => 0
   end
 
-  add_index "timetable", ["objectid"], :name => "timetable_objectid_key", :unique => true
+  add_index "time_tables", ["objectid"], :name => "time_tables_objectid_key", :unique => true
 
-  create_table "timetable_date", :id => false, :force => true do |t|
-    t.integer "timetableid", :limit => 8, :null => false
+  create_table "time_table_dates", :id => false, :force => true do |t|
+    t.integer "time_table_id", :limit => 8, :null => false
     t.date    "date"
     t.integer "position",                 :null => false
   end
 
-  add_index "timetable_date", ["timetableid"], :name => "index_timetable_date_on_timetableid"
+  add_index "time_table_dates", ["time_table_id"], :name => "index_time_table_dates_on_time_table_id"
 
-  create_table "timetable_period", :id => false, :force => true do |t|
-    t.integer "timetableid", :limit => 8, :null => false
-    t.date    "periodstart"
-    t.date    "periodend"
+  create_table "time_table_periods", :id => false, :force => true do |t|
+    t.integer "time_table_id", :limit => 8, :null => false
+    t.date    "period_start"
+    t.date    "period_end"
     t.integer "position",                 :null => false
   end
 
-  add_index "timetable_period", ["timetableid"], :name => "index_timetable_period_on_timetableid"
+  add_index "time_table_periods", ["time_table_id"], :name => "index_time_table_periods_on_time_table_id"
   end
 
   def down
-    drop_table "timetable_period"
-    drop_table "timetable_date"
-    drop_table "timetable"
+    drop_table "time_table_periods"
+    drop_table "time_table_dates"
+    drop_table "time_tables"
   end
 end

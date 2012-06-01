@@ -2,7 +2,7 @@
 
 <%= search_form_for @q, :url => referential_stop_areas_path(@referential), :html => {:method => :get} do |f| %>
   <%= f.label :name_or_country_code_cont, "#{t('.name_or_country_code')} :" %>
-  <%= f.text_field :name_or_countrycode_cont %>
+  <%= f.text_field :name_or_country_code_cont %>
 
   <%= f.submit t('actions.search') %> <%= t("or") %>
   <%= link_to t("cancel"), referential_stop_areas_path(@referential) %>
@@ -32,9 +32,9 @@
 
 <ul class="selection">
 <% Chouette::StopArea.stop_area_types.each do |area_type| %>
-<li><%= link_with_search (image_tag("map/" + area_type + ".png")+t("area_types.label.#{area_type.to_s}")), "areatype_eq" => area_type.name %></li>
+<li><%= link_with_search (image_tag("map/" + area_type + ".png")+t("area_types.label.#{area_type.to_s}")), "area_type_eq" => area_type.name %></li>
 <% end %>
-<li><%= link_with_search (image_tag("map/all.png")+t(".selection_all")), {"areatype_eq" => nil}, :class => "all" %></li>
+<li><%= link_with_search (image_tag("map/all.png")+t(".selection_all")), {"area_type_eq" => nil}, :class => "all" %></li>
 </ul>
 
 <% end %>

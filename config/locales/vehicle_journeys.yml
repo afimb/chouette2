@@ -1,0 +1,80 @@
+en:
+  vehicle_journeys:
+    actions:
+      new: Add a new vehicle journey
+      edit: Edit this vehicle journey
+      destroy: Remove this vehicle journey
+      destroy_confirm: Are you sure you want destroy this vehicle journey?
+    new:
+      title: Add a new vehicle journey
+    edit:
+      title: Update vehicle journey %{vehicle journey}
+    show:
+      title: Vehicle Journey %{vehicle journey}
+    index:
+      title: Vehicle journeys on route {%route}
+  activerecord:        
+    models:        
+      vehicle_journey: 
+        zero:  vehicle journey
+        one:   vehicle journey
+        other: vehicle journeys
+    attributes:
+      vehicle_journey:
+        line: Line
+        route: Route
+        journey_pattern: Journey Pattern
+        time_slot: Time Slot
+        company: Company
+        comment: Comments
+        status_value: Status Value
+        transport_mode: Transport Mode
+        published_journey_name: Published Name
+        published_journey_identifier: Published Identifier
+        facility: Facility
+        vehicletypeidentifier: Vehicle Type Identifier
+        objectid: Neptune identifier
+        object_version: Version
+        creation_time: Created on
+        creator_id: Created by 
+
+fr:
+  vehicle_journeys:
+    actions:
+      new: "Ajouter une course"
+      edit: "Modifier cette course"
+      destroy: "Supprimer cette course"
+      destroy_confirm: "Etes vous sûr de détruire cette course ?"
+    new:
+      title: "Ajouter une course"
+    edit:
+      title: "Modifier la course au départ de %{stop} à %{time} sur la séquence %{route}"
+    show:
+      title: "Course au départ de %{stop} à %{time} sur la séquence %{route}"
+    index:
+      title: "Courses de la séquence d'arrêts %{route}"
+  activerecord:        
+    models:        
+      vehicle_journey: 
+        zero:  "Course"
+        one:   "Course"
+        other: "Courses"
+    attributes:
+      vehicle_journey:
+        line: Ligne
+        route: "Séquence d'arrêt"
+        journey_pattern: Mission
+        time_slot: Fréquence
+        company: Transporteur
+        comment: Commentaires
+        status_value: Etat de trafic
+        transport_mode: Mode de transport
+        published_journey_name: Nom public
+        published_journey_identifier: Identifiant public
+        facility: Equipement
+        vehicle_type_identifier: "Type d'identifiant du véhicule"
+        objectid: Identifiant Neptune
+        object_version: Version
+        creation_time: Créé le
+        creator_id: Créé par
+

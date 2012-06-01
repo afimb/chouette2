@@ -12,6 +12,7 @@ en:
     show:
       title: Route %{route}
       stop_points: "Stop point on route list" 
+      journey_patterns: "Route journey patterns list" 
       no_opposite_route: No reversed route associated
       undefined: Undefined
     index:
@@ -53,6 +54,7 @@ fr:
     show:
       title: "Séquence d'arrêts %{route} de la ligne %{line}"
       stop_points: "Liste des arrêts de la séquence d'arrêts" 
+      journey_patterns: "Liste des missions" 
       no_opposite_route: "Aucune séquence d'arrêts associée en sens opposé"
       undefined: Non défini
     index:

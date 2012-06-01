@@ -1,0 +1,60 @@
+<%= title_tag t('vehicle_journeys.edit.title' ) %>
+
+<div class="vehicle_journey">
+  <div class="summary">
+    <p>
+      <label><%= @route.human_attribute_name(:line) %>: </label>
+      <%= link_to line_formatted_name( @line), [@referential, @line] %>
+    </p>
+    <p>
+      <label><%= Chouette::Route.model_name.human %>: </label>
+      <%= link_to @route.name, [@referential, @line, @route] %>
+    </p>
+    <p>
+      <label><%= Chouette::JourneyPattern.model_name.human %>: </label>
+      <%= link_to journey_name(@vehicle_journey.journey_pattern), [@referential, @line, @route, @vehicle_journey.journey_pattern] %>
+    </p>
+    <p>
+      <label><%= @vehicle_journey.human_attribute_name("published_journey_name") %>: </label>
+      <%= @vehicle_journey.published_journey_name %>
+    </p>
+    <p>
+      <label><%= @vehicle_journey.human_attribute_name("published_journey_identifier") %>: </label>
+      <%= @vehicle_journey.published_journey_identifier %>
+    </p>
+    <p>
+      <label><%= @vehicle_journey.human_attribute_name("comment") %>: </label>
+      <%= @vehicle_journey.comment %>
+    </p>
+    <p>
+      <label><%= @vehicle_journey.human_attribute_name("status_value") %>: </label>
+      <%= @vehicle_journey.status_value %>
+    </p>
+    <p>
+      <label><%= @vehicle_journey.human_attribute_name("facility") %>: </label>
+      <%= @vehicle_journey.facility %>
+    </p>
+    <p>
+      <label><%= @vehicle_journey.human_attribute_name("vehicle_type_identifier") %>: </label>
+      <%= @vehicle_journey.vehicle_type_identifier %>
+    </p>
+    <p>
+      <label><%= @vehicle_journey.human_attribute_name("objectid") %>: </label>
+      <%= @vehicle_journey.objectid %>
+    </p>
+    <p>
+      <label><%= @vehicle_journey.human_attribute_name("creation_time") %>: </label>
+      <%= l @vehicle_journey.creation_time %>
+    </p>
+    <p>
+      <label><%= @vehicle_journey.human_attribute_name("creator_id") %>: </label>
+      <%= @vehicle_journey.creator_id %>
+    </p>
+  </div>
+</div>
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('vehicle_journeys.actions.edit'), edit_referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey), :class => "edit" %></li>
+  <li><%= link_to  t('vehicle_journeys.actions.destroy'), referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey), :method => :delete, :confirm =>  t('vehicle_journeys.actions.destroy_confirm'), :class => "remove" %></li>
+</ul>
+<% end %>

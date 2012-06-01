@@ -1,0 +1,62 @@
+<%= title_tag t('journey_patterns.show.title', :journey_pattern => journey_name( @journey_pattern), :route => @route.name ) %>
+
+<div class="route_show">
+
+  <div class="summary">
+    <p>
+      <label><%= @journey_pattern.human_attribute_name(:route) %>: </label>
+      <%= link_to @route.name, [@referential, @line, @route] %>
+    </p>
+    <p>
+      <label><%= @journey_pattern.human_attribute_name(:name) %>: </label>
+      <%= @journey_pattern.name %>
+    </p>
+    <p>
+      <label><%= @journey_pattern.human_attribute_name(:published_name) %>: </label>
+      <%= @journey_pattern.published_name %>
+    </p>
+    <p>
+      <label><%= @journey_pattern.human_attribute_name(:registration_number) %>: </label>
+      <%= @journey_pattern.registration_number %>
+    </p>
+    <p>
+      <label><%= @journey_pattern.human_attribute_name(:comment) %>: </label>
+      <%= @journey_pattern.comment %>
+    </p>
+    <p>
+      <label><%= @journey_pattern.human_attribute_name("objectid") %>: </label>
+      <%= @journey_pattern.objectid %>
+    </p>
+    <p>
+      <label><%= @journey_pattern.human_attribute_name("creation_time") %>: </label>
+      <%= l @journey_pattern.creation_time %>
+    </p>
+    <p>
+      <label><%= @journey_pattern.human_attribute_name("creator_id") %>: </label>
+      <%= @journey_pattern.creator_id %>
+    </p>
+  </div>
+
+</div>
+
+<h3 class="journey_pattern_stop_points"><%= t('.stop_points') %></h3>
+<div class="pagination">
+  <div class="page_info">
+    <%= page_entries_info @stop_points %>
+  </div>
+  <%= will_paginate @stop_points, :container => false %>
+</div>
+<div class="stop_points paginated_content">
+  <%= render :partial => "stop_points/stop_point", :collection => @stop_points %>
+</div>
+<div class="pagination">
+  <%= will_paginate @stop_points, :container => false %>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('journey_patterns.actions.edit'), edit_referential_line_route_journey_pattern_path(@referential, @line, @route, @journey_pattern), :class => "edit" %></li>
+  <li><%= link_to  t('journey_patterns.actions.destroy'), referential_line_route_path(@referential, @line, @route, @journey_pattern), :method => :delete, :confirm =>  t('journey_patterns.actions.destroy_confirm'), :class => "remove" %></li>
+</ul>
+<% end %>
+

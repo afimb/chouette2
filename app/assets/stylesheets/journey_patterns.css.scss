@@ -1,0 +1,91 @@
+// Place all the styles related to the routes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "common";
+
+#workspace.routes.show
+{
+    .jouerney_pattern:after { 
+        @include after_div_for_object;  
+    }
+
+    .journey_patterns {
+        margin-top: 20px;
+    }
+
+    .journey_patterns:after {
+        @include content_to_clear;
+    }
+    
+    .journey_pattern {
+        @include div_for_object;
+
+        /* to create multi-column index */
+        width: 350px;
+        padding-right: 10px;
+
+        .name {
+            line-height: 16px;
+            float: left;
+        }
+        
+    }
+}
+
+#workspace.journey_patterns.edit, #workspace.journey_patterns.new
+{
+    #route_color{ width: 100px;
+                 color: white;
+                 font-weight: bold;}
+}
+
+#workspace.journey_patterns.show
+{
+    .journey_pattern_color{ color: white;
+                  font-weight: bold;
+                  padding: 0 5px 0 5px;}
+
+    .summary p label {
+        font-weight: bold;
+    }
+    
+    .stop_point:after { 
+        @include after_div_for_object;  
+    }
+
+    .stop_points {
+        margin-top: 20px;
+    }
+
+    .stop_points:after {
+        @include content_to_clear;
+    }
+    
+    .journey_pattern_stop_points {
+        clear: both;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .stop_point {
+        @include div_for_object;
+        /* to create multi-column index */
+        width: 350px;
+        float: left;
+        padding-right: 10px;
+
+        .position {
+            width: 25px;
+            height: 20px;
+            float: left;
+            background-color: #61970B;
+            font-weight: bold;
+            color: white;
+            margin-right: 10px;
+            padding-left: 4px;
+        }
+    }
+    
+}        
+
+

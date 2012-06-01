@@ -38,17 +38,17 @@ en:
     attributes:
       stop_area:
         name: Name
-        registrationnumber: Registration number
+        registration_number: Registration number
         comment: Comments
         stop_area_type: Area type
         nearest_topic_name: Nearest point of interest
         street_name: Street name
         country_code: INSEE code
         fare_code: Fare code
-        projectiontype: Projection type
+        projection_type: Projection type
         x: x-position
         y: y-position
-        longlattype: Projection type
+        long_lat_type: Projection type
         longitude: Longitude
         latitude: Latitude
         objectid: Neptune identifier
@@ -89,11 +89,11 @@ fr:
       title: Arrêts
       selection: Filtrer sur
       selection_all: Tous
-      area_type: Type d'arrêt 
+      area_type: "Type d'arrêt"
     select_parent:
-      title: Sélection du parent de l'arrêt %{stop_area} 
+      title: "Sélection du parent de l'arrêt %{stop_area}"
     add_children:
-      title: Ajouter les enfants de l'arrêt %{stop_area} 
+      title: "Ajouter les enfants de l'arrêt %{stop_area}"
   activerecord:        
     models:        
       stop_area: 
@@ -103,7 +103,7 @@ fr:
     attributes:
       stop_area:
         name: Nom
-        registrationnumber: "Numéro d'enregistrement"
+        registration_number: "Numéro d'enregistrement"
         published_name: Nom public        
         comment: Commentaire
         stop_area_type: "Type d'arrêt"
@@ -111,10 +111,10 @@ fr:
         street_name: Nom de la rue
         country_code: Code INSEE
         fare_code: Zone tarifaire
-        projectiontype: Projection
+        projection_type: Projection
         x: Position X
         y: Position Y
-        longlattype: Projection
+        long_lat_type: Projection
         longitude: Longitude
         latitude: Latitude
         objectid: Identifiant Neptune
@@ -126,7 +126,7 @@ fr:
   formtastic:
     hints:
       stop_area:
-        registrationnumber: "caractères autorisés : alphanumériques et 'souligné'" 
+        registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
         objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
 
 

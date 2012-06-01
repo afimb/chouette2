@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <Placemark id="route_<%= @journey_pattenr.id %>" >
+      <name><%= @journey_pattenr.name %></name>
+      <%= @journey_pattenr.geometry.kml_representation.html_safe %>
+    </Placemark>
+    <% @journey_pattenr.stop_areas.where("latitude is not null and longitude is not null").each_with_index do |stop_area, index| %>
+      <Placemark id="<%= stop_area.id %>" >
+        <name><%= "#{stop_area.name} (#{index+1})" %></name>
+        <% if stop_area.id==@journey_pattenr.stop_areas.first.id %>
+        <departure>true</departure>
+        <% elsif stop_area.id==@journey_pattenr.stop_areas.last.id %>
+        <arrival>true</arrival>
+        <% end %>
+        <%= stop_area.geometry.kml_representation.html_safe %>
+      </Placemark>
+    <% end %>
+  </Document>
+</kml>
+

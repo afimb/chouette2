@@ -28,7 +28,7 @@
       <%= @stop_area.fare_code %>
     </p>
     <p>
-      <label><%= @stop_area.human_attribute_name("registrationnumber") %>: </label>
+      <label><%= @stop_area.human_attribute_name("registration_number") %>: </label>
       <%= @stop_area.registration_number %>
     </p>
     <p>
@@ -36,13 +36,13 @@
       <%= t("area_types.label.#{@stop_area.stop_area_type}") %>
     </p>
     <p> <label><%= t('stop_areas.show.geographic_data') %> </label></p>
-    <% if @stop_area.projectiontype == nil && @stop_area.longlattype == nil %>
+    <% if @stop_area.projection_type == nil && @stop_area.long_lat_type == nil %>
 	    <span class='geo_data'><%= t('stop_areas.show.no_geographic_data') %></span>
     <% else %>
-	    <% if @stop_area.projectiontype != nil %>
+	    <% if @stop_area.projection_type != nil %>
 	    <p>
-	      <span class='geo_data'><%= @stop_area.human_attribute_name("projectiontype") %>: </span>
-	      <%= @stop_area.projectiontype %>
+	      <span class='geo_data'><%= @stop_area.human_attribute_name("projection_type") %>: </span>
+	      <%= @stop_area.projection_type %>
 	    </p>
 	    <p>
 	      <span class='geo_data'><%= @stop_area.human_attribute_name("x") %>: </span>
@@ -53,10 +53,10 @@
 	      <%= @stop_area.y %>
 	    </p>
 	    <% end %>
-	    <% if @stop_area.longlattype != nil %>
+	    <% if @stop_area.long_lat_type != nil %>
 	    <p>
-	      <span class='geo_data'><%= @stop_area.human_attribute_name("longlattype") %>: </span>
-	      <%= @stop_area.longlattype %>
+	      <span class='geo_data'><%= @stop_area.human_attribute_name("long_lat_type") %>: </span>
+	      <%= @stop_area.long_lat_type %>
 	    </p>
 	    <p>
 	      <span class='geo_data'><%= @stop_area.human_attribute_name("longitude") %>: </span>

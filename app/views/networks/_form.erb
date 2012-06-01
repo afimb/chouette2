@@ -1,7 +1,7 @@
 <%= semantic_form_for [@referential, @network] do |form| %>
   <%= form.inputs do %> 
     <%= form.input :name %> 
-    <%= form.input :registrationnumber %>  
+    <%= form.input :registration_number %>  
     <%= form.input :comment %>
     <%= form.input :versiondate, :as => :date , :label => @network.human_attribute_name("version_date")%> 
     <%= form.input :description %>              

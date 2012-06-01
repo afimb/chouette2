@@ -23,7 +23,7 @@ en:
         other: companies
     attributes:
       company:
-        registrationnumber: "Registration number"
+        registration_number: "Registration number"
         name: "Name"
         short_name: "Short name"
         organizational_unit: "Unit"
@@ -39,7 +39,7 @@ en:
   formtastic:
     hints:
       company:
-        registrationnumber: only alphanumerical or underscore characters 
+        registration_number: only alphanumerical or underscore characters 
         objectid: "[prefix]:Company:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
 
 fr:
@@ -67,7 +67,7 @@ fr:
         other: transporteurs
     attributes:
       company:
-        registrationnumber: "Numéro d'enregistrement"
+        registration_number: "Numéro d'enregistrement"
         name: "Nom"
         short_name: "Nom court"
         organizational_unit: "Nom d'unité dans la société"
@@ -83,6 +83,6 @@ fr:
   formtastic:
     hints:
       company:
-        registrationnumber: "caractères autorisés : alphanumériques et 'souligné'" 
+        registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
         objectid: "[prefixe]:Company:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
 

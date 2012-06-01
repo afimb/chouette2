@@ -1,24 +1,24 @@
 class CreateChouetteLine < ActiveRecord::Migration
   def up
-    create_table "line", :force => true do |t|
-      t.integer  "ptnetworkid",                :limit => 8
-      t.integer  "companyid",                  :limit => 8
-      t.string   "objectid"
-      t.integer  "objectversion"
-      t.datetime "creationtime"
-      t.string   "creatorid"
+    create_table "lines", :force => true do |t|
+      t.integer  "network_id",                :limit => 8
+      t.integer  "company_id",                  :limit => 8
+      t.string   "objectid", :null => false
+      t.integer  "object_version"
+      t.datetime "creation_time"
+      t.string   "creator_id"
       t.string   "name"
       t.string   "number"
-      t.string   "publishedname"
-      t.string   "transportmodename"
-      t.string   "registrationnumber"
+      t.string   "published_name"
+      t.string   "transport_mode_name"
+      t.string   "registration_number"
       t.string   "comment"
-      t.boolean  "mobilityrestrictedsuitable"
-      t.integer  "userneeds",                  :limit => 8
+      t.boolean  "mobility_restricted_suitability"
+      t.integer  "int_user_needs"
     end
 
-    add_index "line", ["objectid"], :name => "line_objectid_key", :unique => true
-    add_index "line", ["registrationnumber"], :name => "line_registrationnumber_key", :unique => true
+    add_index "lines", ["objectid"], :name => "lines_objectid_key", :unique => true
+    add_index "lines", ["registration_number"], :name => "lines_registration_number_key", :unique => true
   end
 
   def down    

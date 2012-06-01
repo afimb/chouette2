@@ -1,0 +1,77 @@
+en:
+  journey_patterns:
+    journey_pattern:
+      from_to: "From '%{departure}' to '%{arrival}'"
+      stop_count: "%{count}/%{route_count} stops"
+      vehicle_journeys_count: "Vehicle journeys: %{count}"
+    actions:
+      new: Add a new journey_pattern
+      edit: Edit this journey pattern
+      destroy: Remove this journey pattern
+      destroy_confirm: Are you sure you want destroy this journey pattern ?
+    new:
+      title: Add a new journey pattern
+    edit:
+      title: Update journey pattern %{journey_pattern}
+    show:
+      title: Journey Pattern %{journey_pattern}
+      stop_points: "Stop point on journey pattern list" 
+    index:
+      title: Journey Patterns
+  activerecord:        
+    models:        
+      journey_pattern: 
+        zero:  journey pattern
+        one:   journey pattern
+        other: journey patterns
+    attributes:
+      journey_pattern:
+        route: Route
+        name: Name
+        published_name: Published name        
+        comment: Comments
+        registration_number: Registration number
+        stop_point_ids: "Route's stop selection"
+        objectid: Neptune identifier
+        object_version: Version
+        creation_time: Created on
+        creator_id: Created by 
+
+fr:
+  journey_patterns:
+    journey_pattern:
+      from_to: "De '%{departure}' à '%{arrival}'"
+      stop_count: "%{count}/%{route_count} arrêts"
+      vehicle_journeys_count: "Courses: %{count}"
+    actions:
+      new: Ajouter une mission
+      edit: Modifier cette mission
+      destroy: Supprimer cette mission
+      destroy_confirm: "Etes vous sûr de vouloir détruire cette mission ?"
+    new:
+      title: Ajouter une mission
+    edit:
+      title: Modifier la mission %{journey_pattern}
+    show:
+      title: Mission %{journey_pattern}
+      stop_points: "Liste des arrêts de la mission" 
+    index:
+      title: Missions
+  activerecord:        
+    models:        
+      journey_pattern: 
+        zero:  mission
+        one:   mission
+        other: missions
+    attributes:
+      journey_pattern:
+        route: "Séquence d'arrêts"
+        name: Nom
+        published_name: Nom public        
+        comment: Commentaire
+        registration_number: "Numéro d'enregistrement"
+        stop_point_ids: Sélection des arrêts desservis
+        objectid: Identifiant Neptune
+        object_version: Version
+        creation_time: Créé le
+        creator_id: Créé par
