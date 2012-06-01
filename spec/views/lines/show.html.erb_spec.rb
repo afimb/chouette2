@@ -5,7 +5,7 @@ describe "/lines/show" do
   let!(:referential) { assign :referential, create(:referential) }
   let!(:line) { assign :line, create(:line) }
   let!(:routes) { assign :routes, Array.new(2) { create(:route, :line => line) }.paginate }
-  let!(:map) { assign(:map, mock(:to_html => '<div id="map"/>')) }
+  let!(:map) { assign(:map, mock(:to_html => '<div id="map"/>'.html_safe)) }
 
   it "should render h2 with the line name" do
     render

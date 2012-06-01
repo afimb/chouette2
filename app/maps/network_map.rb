@@ -28,4 +28,8 @@ class NetworkMap < ApplicationMap
 
   end
 
+  def ready?
+    Chouette::StopArea.bounds.present?
+  end
+
 end

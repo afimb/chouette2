@@ -29,4 +29,8 @@ class LineMap < ApplicationMap
 
   end
 
+  def ready?
+    Chouette::StopArea.bounds.present?
+  end
+
 end

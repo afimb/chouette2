@@ -1,0 +1,38 @@
+<%= title_tag @import.name %>
+
+<div class="import_show">
+  <div class="summary">
+    <p>
+      <label><%= Import.human_attribute_name(:created_at) %>: </label>
+      <%= l @import.created_at %>
+    </p>
+    <p>
+      <label><%= Import.human_attribute_name(:status) %>: </label>
+      <%= t @import.status, :scope => "imports.statuses" %>
+    </p>
+  </div>
+
+  <h3><%= t(".report") %></h3>
+  <table>
+    <tr>
+      <th></th>
+      <th><%= ImportLogMessage.human_attribute_name(:created_at) %></th>
+      <th><%= ImportLogMessage.human_attribute_name(:position) %></th>
+      <th><%= ImportLogMessage.human_attribute_name(:full_message) %></th>
+    </tr>
+    <% @import.log_messages.each do |message| %>
+    <tr>
+      <td class="severity"><%= image_tag "severity-#{message.severity}.png", :alt => t(message.severity, :scope => "import_log_messages.severities") %></td>
+      <td class="created_at"><%= l message.created_at, :format => :short %></td>
+      <td class="position"><%= message.position %></td>
+      <td class="message"><%= message.full_message %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to  t('imports.actions.destroy'), referential_import_path(@referential, @import), :method => :delete, :confirm =>  t('imports.actions.destroy_confirm'), :class => "remove" %></li>
+</ul>
+<% end %>

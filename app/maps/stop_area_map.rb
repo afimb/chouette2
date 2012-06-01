@@ -40,6 +40,10 @@ EOF
     end
   end
 
+  def ready?
+    center.present?
+  end
+
   def center
     stop_area.geometry or stop_area.default_position
   end

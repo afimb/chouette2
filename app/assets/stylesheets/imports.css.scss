@@ -23,3 +23,15 @@
         padding-right: 10px;
     }
 }
+
+#workspace.imports.show {
+    table {
+        th {
+            text-align: center;
+            font-style: italic;
+        }
+        td.message, td.created_at, td.position {
+            padding: 0 20px;
+        }
+    }                       
+}

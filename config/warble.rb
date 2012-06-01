@@ -42,7 +42,7 @@ Warbler::Config.new do |config|
 
   # An array of Bundler groups to avoid including in the war file.
   # Defaults to ["development", "test"].
-  # config.bundle_without = []
+  config.bundle_without = %w{development test assets}
 
   # Other gems to be included. If you don't use Bundler or a gemspec
   # file, you need to tell Warbler which gems your application needs
@@ -78,7 +78,7 @@ Warbler::Config.new do |config|
 
   # Name of the archive (without the extension). Defaults to the basename
   # of the project directory.
-  # config.jar_name = "mywar"
+  config.jar_name = "chouette2"
 
   # Name of the MANIFEST.MF template for the war file. Defaults to a simple
   # MANIFEST.MF that contains the version of Warbler used to create the war file.
@@ -134,9 +134,22 @@ Warbler::Config.new do |config|
   # Control the pool of Rails runtimes. Leaving unspecified means
   # the pool will grow as needed to service requests. It is recommended
   # that you fix these values when running a production server!
-  # config.webxml.jruby.min.runtimes = 2
-  # config.webxml.jruby.max.runtimes = 4
+  config.webxml.jruby.min.runtimes = 2
+  config.webxml.jruby.max.runtimes = 4
+
+  config.webxml.jruby.worker.script = <<EOF
+Rails.logger.info "start Delayed::JRubyWorker"
+begin
+require 'delayed/jruby_worker'
+Delayed::JRubyWorker.new(:quiet => false).start
+rescue => e
+  Rails.logger.fatal(e)
+  raise e
+end
+EOF
 
   # JNDI data source name
   # config.webxml.jndi = 'jdbc/rails'
+
+  config.init_contents << "config/war_init.rb"
 end

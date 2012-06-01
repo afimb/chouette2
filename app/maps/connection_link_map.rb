@@ -23,6 +23,10 @@ class ConnectionLinkMap < ApplicationMap
     end
   end
 
+  def ready?
+    Chouette::StopArea.bounds.present?
+  end
+
   def bounds
     wgs84_bounds = Chouette::StopArea.bounds
     @bounds ||= OpenLayers::Bounds.new(wgs84_bounds.lower_corner.x, wgs84_bounds.lower_corner.y, wgs84_bounds.upper_corner.x, wgs84_bounds.upper_corner.y).transform(OpenLayers::Projection.new("EPSG:4326"), OpenLayers::Projection.new("EPSG:900913"))

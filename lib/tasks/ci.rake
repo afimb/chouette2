@@ -3,7 +3,7 @@ namespace :ci do
     cp "config/database.yml.ccontrol", "config/database.yml"
   end
   task :deploy do
-    cp "workspace.war", "/var/lib/tomcat6/webapps/chouette2.war"
+    cp "chouette2.war", "/var/lib/tomcat6/webapps/"
   end
   task :build => ["db:migrate", "spec", "war", "ci:deploy"]
 end

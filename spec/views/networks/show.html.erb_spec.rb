@@ -4,7 +4,7 @@ describe "/networks/show" do
   
   let!(:referential) { assign(:referential, create(:referential)) }
   let!(:network) { assign(:network, create(:network)) }
-  let!(:map) { assign(:map, mock(:to_html => '<div id="map"/>')) }
+  let!(:map) { assign(:map, mock(:to_html => '<div id="map"/>'.html_safe)) }
 
   it "should render h2 with the network name" do
     render

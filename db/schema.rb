@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120516172252) do
+ActiveRecord::Schema.define(:version => 20120529154848) do
 
   create_table "company", :force => true do |t|
     t.string   "objectid"
@@ -69,6 +69,18 @@ ActiveRecord::Schema.define(:version => 20120516172252) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "import_log_messages", :force => true do |t|
+    t.integer  "import_id"
+    t.string   "key"
+    t.string   "arguments"
+    t.integer  "position"
+    t.string   "severity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "import_log_messages", ["import_id"], :name => "index_import_log_messages_on_import_id"
 
   create_table "imports", :force => true do |t|
     t.integer  "referential_id"

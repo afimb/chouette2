@@ -27,11 +27,27 @@ jQuery ->
 
   $('#multiple_selection_menu a.deselect_all').click(deselect_all)
 
-  disabled_action = (event) ->
+  handle_multiple_action = (event) ->
     event.preventDefault()
-    alert("Fonction activee au prochain milestone")
+    link = $(event.target)
 
-  $('#multiple_selection_menu .actions a').click(disabled_action)
+    href = link.attr("href")
+    method = link.data('multiple-method')
+    csrf_token = $('meta[name=csrf-token]').attr('content')
+    csrf_param = $('meta[name=csrf-param]').attr('content')
+    form = $('<form method="post" action="' + href + '"></form>')
+    target = link.attr('target')
 
+    metadata_input = '<input name="_method" value="' + method + '" type="hidden" />'
 
+    if csrf_param? and csrf_token? 
+      metadata_input += '<input name="' + csrf_param + '" value="' + csrf_token + '" type="hidden" />'
 
+    form.append($(input).clone()) for input in $('input[type=checkbox].multiple_selection:checked')
+    
+    form.attr('target', target) if target?
+
+    form.hide().append(metadata_input).appendTo('body')
+    form.submit()
+
+  $('#multiple_selection_menu .actions a.remove').click(handle_multiple_action)
