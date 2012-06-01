@@ -15,7 +15,7 @@ class StyleMap::StopAreasStyleMap < StyleMap::GenericStyleMap
     :graphicHeight => 25, 
     :graphicOpacity => 1,    
     :graphicXOffset => -12.5,
-    :graphicYOffset => 12.5
+    :graphicYOffset => -12.5
   }
 
   def initialize(options = {})

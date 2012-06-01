@@ -14,10 +14,14 @@ class NetworkMap < ApplicationMap
       page << map.add_layer(google_physical) 
       page << map.add_layer(google_streets) 
       page << map.add_layer(google_hybrid) 
-      page << map.add_layer(google_satellite) 
+      page << map.add_layer(google_satellite)
+      
+      page.assign "stop_areas_layer", kml_layer(polymorphic_path([referential, network, :stop_areas], :format => :kml), :styleMap => StyleMap::StopAreasStyleMap.new.style_map) 
+
+      page << map.add_layer(:stop_areas_layer)
+      page << map.add_control( hover_control_display_name(:stop_areas_layer) )
 
       #page << map.add_layer(kml_layer(network, :styleMap => StyleMap::NetworkStyleMap.new( :style => network_style).style_map))
-      page << map.add_layer(kml_layer(polymorphic_path([referential, network, :stop_areas], :format => :kml), :styleMap => StyleMap::StopAreasStyleMap.new.style_map))
       page << map.zoom_to_extent(bounds) if bounds
     end
   end

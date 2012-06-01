@@ -18,7 +18,11 @@ class LineMap < ApplicationMap
       page << map.add_layer(google_satellite) 
 
       #page << map.add_layer(kml_layer(line, :styleMap => StyleMap::LineStyleMap.new( :style => line_style).style_map))
-      page << map.add_layer(kml_layer(polymorphic_path([referential, line, :stop_areas], :format => :kml), :styleMap => StyleMap::StopAreasStyleMap.new.style_map))
+      page.assign "stop_areas_layer", kml_layer(polymorphic_path([referential, line, :stop_areas], :format => :kml), :styleMap => StyleMap::StopAreasStyleMap.new.style_map)
+
+      page << map.add_layer(:stop_areas_layer)
+      page << map.add_control( hover_control_display_name(:stop_areas_layer) )
+
       page << map.zoom_to_extent(bounds) if bounds
     end
   end
