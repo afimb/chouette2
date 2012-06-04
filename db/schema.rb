@@ -184,6 +184,8 @@ ActiveRecord::Schema.define(:version => 20120531091529) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type"
+    t.string   "options"
   end
 
   add_index "imports", ["referential_id"], :name => "index_imports_on_referential_id"

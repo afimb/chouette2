@@ -34,4 +34,12 @@ describe Import do
 
   end
 
+  describe "#options" do
+    
+    it "should be empty by default" do
+      subject.options.should be_empty
+    end
+
+  end
+
 end
