@@ -64,6 +64,33 @@ class ApplicationMap
     OpenLayers::Layer::Google.new "Google Satellite", :type => :"google.maps.MapTypeId.SATELLITE", :numZoomLevels => 22
   end
 
+  def hover_control_display_name(layer)
+    OpenLayers::Control::SelectFeature.new( layer, { 
+                                              :autoActivate => true,
+                                              :hover => true,
+                                              :renderIntent => "temporary",
+                                              :eventListeners => {
+                                                :featurehighlighted => JsExpr.new("function(e) {
+          feature = e.feature ;
+          popup = new OpenLayers.Popup.AnchoredBubble('chicken', 
+                                                 new OpenLayers.LonLat(feature.geometry.x, feature.geometry.y),
+                                                 null,
+                                                 \"<div class='popup_hover'><b>\" + feature.attributes.name +\"</b></div> \", null, false, null);
+          popup.autoSize = true;
+          popup.displayClass = 'popup_hover';
+
+          feature.popup = popup;
+          map.addPopup(popup);
+        }"),
+                                                :featureunhighlighted => JsExpr.new("function(e) {
+          feature = e.feature;
+          map.removePopup(feature.popup);
+          feature.popup.destroy();
+          feature.popup = null;  
+        }")
+                                              } } )
+  end
+
   def kml_layer(url, options = {})   
     url = polymorphic_path([url.referential, url], :format => :kml) unless String === url 
     protocol = OpenLayers::Protocol::HTTP.new :url => url, :format => kml
