@@ -32,7 +32,11 @@ ChouetteIhm::Application.routes.draw do
       end        
       resources :routes do
         resources :journey_patterns
-        resources :vehicle_journeys 
+        resources :vehicle_journeys do
+          member do
+            get 'select_journey_pattern'
+          end
+        end
         resources :stop_points do
           collection do
               post :sort

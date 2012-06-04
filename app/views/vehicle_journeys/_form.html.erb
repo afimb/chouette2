@@ -1,5 +1,6 @@
 <%= semantic_form_for [@referential, @line, @route, @vehicle_journey] do |form| %>
   <%= form.inputs do %> 
+    <%= form.input :journey_pattern, :as => :select, :collection => @route.journey_patterns, :include_blank => false, :member_label => Proc.new { |jp| journey_name(jp) }  %>
     <%= form.input :published_journey_name %>
     <%= form.input :published_journey_identifier %>
     <%= form.input :comment %>              
@@ -16,7 +17,9 @@
       </li>
     <% end %>
     
-    <%= render :partial => "vehicle_journeys/vehicle_journey_at_stop_fields" %>
+    <%= form.inputs :class => "stop_times" do %>
+      <%= render :partial => "vehicle_journeys/vehicle_journey_at_stop_fields" %>
+    <% end %>
     
   <% end %>
 
@@ -26,4 +29,17 @@
     <li><%= link_to t('cancel'), :back %></li>
   <% end %>
 <% end %>
+
+<script>
+  $("#vehicle_journey_journey_pattern_id").change(
+     $.ajax({
+       type: 'get',
+       data: "journey_pattern_id="+$("#vehicle_journey_journey_pattern_input select option:selected").attr("value"),
+       dataType: 'script',
+       complete: function(request){
+       $('.stop_times').effect('highlight');
+     },
+     url: "<%= select_journey_pattern_referential_line_route_vehicle_journey_path( @referential, @line, @route, @vehicle_journey)%>"})
+  );
+</script>
 

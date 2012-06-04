@@ -10,10 +10,6 @@
       <label><%= Chouette::Route.model_name.human %>: </label>
       <%= link_to @route.name, [@referential, @line, @route] %>
     </p>
-    <p>
-      <label><%= Chouette::JourneyPattern.model_name.human %>: </label>
-      <%= link_to journey_name(@vehicle_journey.journey_pattern), [@referential, @line, @route, @vehicle_journey.journey_pattern] %>
-    </p>
   <div>
 <div>
 
