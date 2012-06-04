@@ -7,11 +7,11 @@ class CreateChouetteVehicleJourneyAtStop < ActiveRecord::Migration
       t.string  "connecting_service_id"
       t.string  "boarding_alighting_possibility"
       
-      t.datetime "arrival_time"
-      t.datetime "departure_time"
-      t.datetime "waiting_time"
-      t.datetime "elapse_duration"
-      t.datetime "headway_frequency"
+      t.time "arrival_time"
+      t.time "departure_time"
+      t.time "waiting_time"
+      t.time "elapse_duration"
+      t.time "headway_frequency"
     end
    add_index "vehicle_journey_at_stops", ["vehicle_journey_id"], :name => "index_vehicle_journey_at_stops_on_vehicle_journey_id"
    add_index "vehicle_journey_at_stops", ["stop_point_id"], :name => "index_vehicle_journey_at_stops_on_stop_pointid"

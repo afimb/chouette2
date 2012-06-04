@@ -10,49 +10,99 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120529154848) do
+ActiveRecord::Schema.define(:version => 20120531091529) do
 
-  create_table "company", :force => true do |t|
-    t.string   "objectid"
-    t.integer  "objectversion"
-    t.datetime "creationtime"
-    t.string   "creatorid"
+  create_table "access_links", :force => true do |t|
+    t.integer  "access_point_id",                        :limit => 8
+    t.integer  "stop_area_id",                           :limit => 8
+    t.string   "objectid",                                                                           :null => false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id"
     t.string   "name"
-    t.string   "shortname"
-    t.string   "organizationalunit"
-    t.string   "operatingdepartmentname"
+    t.string   "comment"
+    t.decimal  "link_distance",                                       :precision => 19, :scale => 2
+    t.boolean  "lift_availability"
+    t.boolean  "mobility_restricted_suitability"
+    t.boolean  "stairs_availability"
+    t.time     "default_duration"
+    t.time     "frequent_traveller_duration"
+    t.time     "occasional_traveller_duration"
+    t.time     "mobility_restricted_traveller_duration"
+    t.string   "link_type"
+    t.integer  "int_user_needs"
+    t.string   "link_orientation"
+  end
+
+  add_index "access_links", ["objectid"], :name => "access_links_objectid_key", :unique => true
+
+  create_table "access_points", :force => true do |t|
+    t.string   "objectid"
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id"
+    t.string   "name"
+    t.string   "comment"
+    t.decimal  "longitude",                       :precision => 19, :scale => 16
+    t.decimal  "latitude",                        :precision => 19, :scale => 16
+    t.string   "long_lat_type"
+    t.decimal  "x",                               :precision => 19, :scale => 2
+    t.decimal  "y",                               :precision => 19, :scale => 2
+    t.string   "projection_type"
+    t.string   "country_code"
+    t.string   "street_name"
+    t.string   "contained_in"
+    t.datetime "openning_time"
+    t.datetime "closing_time"
+    t.string   "type"
+    t.boolean  "lift_availability"
+    t.datetime "mobility_restricted_suitability"
+    t.datetime "stairs_availability"
+  end
+
+  add_index "access_points", ["objectid"], :name => "access_points_objectid_key", :unique => true
+
+  create_table "companies", :force => true do |t|
+    t.string   "objectid",                  :null => false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id"
+    t.string   "name"
+    t.string   "short_name"
+    t.string   "organizational_unit"
+    t.string   "operating_department_name"
     t.string   "code"
     t.string   "phone"
     t.string   "fax"
     t.string   "email"
-    t.string   "registrationnumber"
+    t.string   "registration_number"
   end
 
-  add_index "company", ["objectid"], :name => "company_objectid_key", :unique => true
-  add_index "company", ["registrationnumber"], :name => "company_registrationnumber_key", :unique => true
+  add_index "companies", ["objectid"], :name => "companies_objectid_key", :unique => true
+  add_index "companies", ["registration_number"], :name => "companies_registration_number_key", :unique => true
 
-  create_table "connectionlink", :force => true do |t|
-    t.integer  "departureid",                         :limit => 8
-    t.integer  "arrivalid",                           :limit => 8
-    t.string   "objectid",                                                                        :null => false
-    t.integer  "objectversion"
-    t.datetime "creationtime"
-    t.string   "creatorid"
+  create_table "connection_links", :force => true do |t|
+    t.integer  "departure_id",                           :limit => 8
+    t.integer  "arrival_id",                             :limit => 8
+    t.string   "objectid",                                                                           :null => false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id"
     t.string   "name"
     t.string   "comment"
-    t.decimal  "linkdistance",                                     :precision => 19, :scale => 2
-    t.string   "linktype"
-    t.time     "defaultduration"
-    t.time     "frequenttravellerduration"
-    t.time     "occasionaltravellerduration"
-    t.time     "mobilityrestrictedtravellerduration"
-    t.boolean  "mobilityrestrictedsuitability"
-    t.boolean  "stairsavailability"
-    t.boolean  "liftavailability"
-    t.integer  "intuserneeds"
+    t.decimal  "link_distance",                                       :precision => 19, :scale => 2
+    t.string   "link_type"
+    t.time     "default_duration"
+    t.time     "frequent_traveller_duration"
+    t.time     "occasional_traveller_duration"
+    t.time     "mobility_restricted_traveller_duration"
+    t.boolean  "mobility_restricted_suitability"
+    t.boolean  "stairs_availability"
+    t.boolean  "lift_availability"
+    t.integer  "int_user_needs"
   end
 
-  add_index "connectionlink", ["objectid"], :name => "connectionlink_objectid_key", :unique => true
+  add_index "connection_links", ["objectid"], :name => "connection_links_objectid_key", :unique => true
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -69,6 +119,53 @@ ActiveRecord::Schema.define(:version => 20120529154848) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "facilities", :force => true do |t|
+    t.integer  "stop_area_id",       :limit => 8
+    t.integer  "line_id",            :limit => 8
+    t.integer  "connection_link_id", :limit => 8
+    t.integer  "stop_point_id",      :limit => 8
+    t.string   "objectid",                                                        :null => false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id"
+    t.string   "name"
+    t.string   "comment"
+    t.string   "description"
+    t.boolean  "free_access"
+    t.decimal  "longitude",                       :precision => 19, :scale => 16
+    t.decimal  "latitude",                        :precision => 19, :scale => 16
+    t.string   "long_lat_type"
+    t.decimal  "x",                               :precision => 19, :scale => 2
+    t.decimal  "y",                               :precision => 19, :scale => 2
+    t.string   "projection_type"
+    t.string   "country_code"
+    t.string   "street_name"
+    t.string   "contained_in"
+  end
+
+  add_index "facilities", ["objectid"], :name => "facilities_objectid_key", :unique => true
+
+  create_table "facilities_features", :id => false, :force => true do |t|
+    t.integer "facility_id", :limit => 8
+    t.integer "choice_code"
+  end
+
+  create_table "group_of_lines", :force => true do |t|
+    t.string   "objectid",       :null => false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id"
+    t.string   "name"
+    t.string   "comment"
+  end
+
+  add_index "group_of_lines", ["objectid"], :name => "group_of_lines_objectid_key", :unique => true
+
+  create_table "group_of_lines_lines", :id => false, :force => true do |t|
+    t.integer "group_of_line_id", :limit => 8
+    t.integer "line_id",          :limit => 8
+  end
 
   create_table "import_log_messages", :force => true do |t|
     t.integer  "import_id"
@@ -91,42 +188,81 @@ ActiveRecord::Schema.define(:version => 20120529154848) do
 
   add_index "imports", ["referential_id"], :name => "index_imports_on_referential_id"
 
-  create_table "line", :force => true do |t|
-    t.integer  "ptnetworkid",                :limit => 8
-    t.integer  "companyid",                  :limit => 8
-    t.string   "objectid"
-    t.integer  "objectversion"
-    t.datetime "creationtime"
-    t.string   "creatorid"
+  create_table "journey_patterns", :force => true do |t|
+    t.integer  "route_id",                :limit => 8
+    t.string   "objectid",                             :null => false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id"
+    t.string   "name"
+    t.string   "comment"
+    t.string   "registration_number"
+    t.string   "published_name"
+    t.integer  "departure_stop_point_id", :limit => 8
+    t.integer  "arrival_stop_point_id",   :limit => 8
+  end
+
+  add_index "journey_patterns", ["objectid"], :name => "journey_patterns_objectid_key", :unique => true
+
+  create_table "journey_patterns_stop_points", :id => false, :force => true do |t|
+    t.integer "journey_pattern_id", :limit => 8
+    t.integer "stop_point_id",      :limit => 8
+  end
+
+  add_index "journey_patterns_stop_points", ["journey_pattern_id"], :name => "index_journey_pattern_id_on_journey_patterns_stop_points"
+
+  create_table "lines", :force => true do |t|
+    t.integer  "network_id",                      :limit => 8
+    t.integer  "company_id",                      :limit => 8
+    t.string   "objectid",                                     :null => false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id"
     t.string   "name"
     t.string   "number"
-    t.string   "publishedname"
-    t.string   "transportmodename"
-    t.string   "registrationnumber"
+    t.string   "published_name"
+    t.string   "transport_mode_name"
+    t.string   "registration_number"
     t.string   "comment"
-    t.boolean  "mobilityrestrictedsuitable"
-    t.integer  "userneeds",                  :limit => 8
+    t.boolean  "mobility_restricted_suitability"
+    t.integer  "int_user_needs"
   end
 
-  add_index "line", ["objectid"], :name => "line_objectid_key", :unique => true
-  add_index "line", ["registrationnumber"], :name => "line_registrationnumber_key", :unique => true
+  add_index "lines", ["objectid"], :name => "lines_objectid_key", :unique => true
+  add_index "lines", ["registration_number"], :name => "lines_registration_number_key", :unique => true
 
-  create_table "ptnetwork", :force => true do |t|
-    t.string   "objectid"
-    t.integer  "objectversion"
-    t.datetime "creationtime"
-    t.string   "creatorid"
-    t.date     "versiondate"
+  create_table "networks", :force => true do |t|
+    t.string   "objectid",            :null => false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id"
+    t.date     "version_date"
     t.string   "description"
     t.string   "name"
-    t.string   "registrationnumber"
-    t.string   "sourcename"
-    t.string   "sourceidentifier"
+    t.string   "registration_number"
+    t.string   "source_name"
+    t.string   "source_type"
+    t.string   "source_identifier"
     t.string   "comment"
   end
 
-  add_index "ptnetwork", ["objectid"], :name => "ptnetwork_objectid_key", :unique => true
-  add_index "ptnetwork", ["registrationnumber"], :name => "ptnetwork_registrationnumber_key", :unique => true
+  add_index "networks", ["objectid"], :name => "networks_objectid_key", :unique => true
+  add_index "networks", ["registration_number"], :name => "networks_registration_number_key", :unique => true
+
+  create_table "pt_links", :force => true do |t|
+    t.integer  "start_of_link_id", :limit => 8
+    t.integer  "end_of_link_id",   :limit => 8
+    t.integer  "route_id",         :limit => 8
+    t.string   "objectid",                                                     :null => false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id"
+    t.string   "name"
+    t.string   "comment"
+    t.decimal  "link_distance",                 :precision => 19, :scale => 2
+  end
+
+  add_index "pt_links", ["objectid"], :name => "pt_links_objectid_key", :unique => true
 
   create_table "referentials", :force => true do |t|
     t.string   "name"
@@ -135,85 +271,120 @@ ActiveRecord::Schema.define(:version => 20120529154848) do
     t.datetime "updated_at"
   end
 
-  create_table "route", :force => true do |t|
-    t.integer  "lineid",          :limit => 8
-    t.string   "objectid"
-    t.integer  "objectversion"
-    t.datetime "creationtime"
-    t.string   "creatorid"
+  create_table "routes", :force => true do |t|
+    t.integer  "line_id",           :limit => 8
+    t.string   "objectid",                       :null => false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id"
     t.string   "name"
     t.string   "comment"
-    t.integer  "oppositerouteid", :limit => 8
-    t.string   "publishedname"
+    t.integer  "opposite_route_id", :limit => 8
+    t.string   "published_name"
     t.string   "number"
     t.string   "direction"
     t.string   "wayback"
   end
 
-  create_table "stoparea", :force => true do |t|
-    t.integer  "parentid",           :limit => 8
-    t.string   "objectid"
-    t.integer  "objectversion"
-    t.datetime "creationtime"
-    t.string   "creatorid"
-    t.string   "name"
-    t.string   "comment"
-    t.string   "areatype"
-    t.string   "registrationnumber"
-    t.string   "nearesttopicname"
-    t.integer  "farecode"
-    t.decimal  "longitude",                       :precision => 19, :scale => 16
-    t.decimal  "latitude",                        :precision => 19, :scale => 16
-    t.string   "longlattype"
-    t.decimal  "x",                               :precision => 19, :scale => 2
-    t.decimal  "y",                               :precision => 19, :scale => 2
-    t.string   "projectiontype"
-    t.string   "countrycode"
-    t.string   "streetname"
-    t.integer  "modes",                                                           :default => 0
+  add_index "routes", ["objectid"], :name => "routes_objectid_key", :unique => true
+
+  create_table "routing_constraints_lines", :id => false, :force => true do |t|
+    t.integer "stop_area_id", :limit => 8
+    t.integer "line_id",      :limit => 8
   end
 
-  add_index "stoparea", ["objectid"], :name => "stoparea_objectid_key", :unique => true
-  add_index "stoparea", ["parentid"], :name => "index_stoparea_on_parentid"
+  create_table "stop_areas", :force => true do |t|
+    t.integer  "parent_id",           :limit => 8
+    t.string   "objectid",                                                         :null => false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id"
+    t.string   "name"
+    t.string   "comment"
+    t.string   "area_type"
+    t.string   "registration_number"
+    t.string   "nearest_topic_name"
+    t.integer  "fare_code"
+    t.decimal  "longitude",                        :precision => 19, :scale => 16
+    t.decimal  "latitude",                         :precision => 19, :scale => 16
+    t.string   "long_lat_type"
+    t.decimal  "x",                                :precision => 19, :scale => 2
+    t.decimal  "y",                                :precision => 19, :scale => 2
+    t.string   "projection_type"
+    t.string   "country_code"
+    t.string   "street_name"
+  end
 
-  create_table "stoppoint", :force => true do |t|
-    t.integer  "routeid",       :limit => 8
-    t.integer  "stopareaid",    :limit => 8
-    t.string   "objectid"
-    t.integer  "objectversion"
-    t.datetime "creationtime"
-    t.string   "creatorid"
+  add_index "stop_areas", ["objectid"], :name => "stop_areas_objectid_key", :unique => true
+  add_index "stop_areas", ["parent_id"], :name => "index_stop_areas_on_parent_id"
+
+  create_table "stop_areas_stop_areas", :id => false, :force => true do |t|
+    t.integer "child_id",  :limit => 8
+    t.integer "parent_id", :limit => 8
+  end
+
+  create_table "stop_points", :force => true do |t|
+    t.integer  "route_id",       :limit => 8
+    t.integer  "stop_area_id",   :limit => 8
+    t.string   "objectid",                    :null => false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id"
     t.integer  "position"
   end
 
-  create_table "timetable", :force => true do |t|
+  add_index "stop_points", ["objectid"], :name => "stop_points_objectid_key", :unique => true
+
+  create_table "time_slots", :force => true do |t|
     t.string   "objectid",                     :null => false
-    t.integer  "objectversion", :default => 1
-    t.datetime "creationtime"
-    t.string   "creatorid"
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id"
+    t.string   "name"
+    t.time     "beginning_slot_time"
+    t.time     "end_slot_time"
+    t.time     "first_departure_time_in_slot"
+    t.time     "last_departure_time_in_slot"
+  end
+
+  add_index "time_slots", ["objectid"], :name => "time_slots_objectid_key", :unique => true
+
+  create_table "time_table_dates", :id => false, :force => true do |t|
+    t.integer "time_table_id", :limit => 8, :null => false
+    t.date    "date"
+    t.integer "position",                   :null => false
+  end
+
+  add_index "time_table_dates", ["time_table_id"], :name => "index_time_table_dates_on_time_table_id"
+
+  create_table "time_table_periods", :id => false, :force => true do |t|
+    t.integer "time_table_id", :limit => 8, :null => false
+    t.date    "period_start"
+    t.date    "period_end"
+    t.integer "position",                   :null => false
+  end
+
+  add_index "time_table_periods", ["time_table_id"], :name => "index_time_table_periods_on_time_table_id"
+
+  create_table "time_tables", :force => true do |t|
+    t.string   "objectid",                      :null => false
+    t.integer  "object_version", :default => 1
+    t.datetime "creation_time"
+    t.string   "creator_id"
     t.string   "version"
     t.string   "comment"
-    t.integer  "intdaytypes",   :default => 0
+    t.integer  "int_day_types",  :default => 0
   end
 
-  add_index "timetable", ["objectid"], :name => "timetable_objectid_key", :unique => true
+  add_index "time_tables", ["objectid"], :name => "time_tables_objectid_key", :unique => true
 
-  create_table "timetable_date", :id => false, :force => true do |t|
-    t.integer "timetableid", :limit => 8, :null => false
-    t.date    "date"
-    t.integer "position",                 :null => false
+  create_table "time_tables_vehicle_journeys", :id => false, :force => true do |t|
+    t.integer "time_table_id",      :limit => 8
+    t.integer "vehicle_journey_id", :limit => 8
   end
 
-  add_index "timetable_date", ["timetableid"], :name => "index_timetable_date_on_timetableid"
-
-  create_table "timetable_period", :id => false, :force => true do |t|
-    t.integer "timetableid", :limit => 8, :null => false
-    t.date    "periodstart"
-    t.date    "periodend"
-    t.integer "position",                 :null => false
-  end
-
-  add_index "timetable_period", ["timetableid"], :name => "index_timetable_period_on_timetableid"
+  add_index "time_tables_vehicle_journeys", ["time_table_id"], :name => "index_time_tables_vehicle_journeys_on_time_table_id"
+  add_index "time_tables_vehicle_journeys", ["vehicle_journey_id"], :name => "index_time_tables_vehicle_journeys_on_vehicle_journey_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -232,5 +403,42 @@ ActiveRecord::Schema.define(:version => 20120529154848) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "vehicle_journey_at_stops", :force => true do |t|
+    t.integer "vehicle_journey_id",             :limit => 8
+    t.integer "stop_point_id",                  :limit => 8
+    t.string  "connecting_service_id"
+    t.string  "boarding_alighting_possibility"
+    t.time    "arrival_time"
+    t.time    "departure_time"
+    t.time    "waiting_time"
+    t.time    "elapse_duration"
+    t.time    "headway_frequency"
+  end
+
+  add_index "vehicle_journey_at_stops", ["stop_point_id"], :name => "index_vehicle_journey_at_stops_on_stop_pointid"
+  add_index "vehicle_journey_at_stops", ["vehicle_journey_id"], :name => "index_vehicle_journey_at_stops_on_vehicle_journey_id"
+
+  create_table "vehicle_journeys", :force => true do |t|
+    t.integer  "route_id",                     :limit => 8
+    t.integer  "journey_pattern_id",           :limit => 8
+    t.integer  "time_slot_id",                 :limit => 8
+    t.integer  "company_id",                   :limit => 8
+    t.string   "objectid",                                  :null => false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id"
+    t.string   "comment"
+    t.string   "status_value"
+    t.string   "transport_mode"
+    t.string   "published_journey_name"
+    t.string   "published_journey_identifier"
+    t.string   "facility"
+    t.string   "vehicle_type_identifier"
+    t.integer  "number"
+  end
+
+  add_index "vehicle_journeys", ["objectid"], :name => "vehicle_journeys_objectid_key", :unique => true
+  add_index "vehicle_journeys", ["route_id"], :name => "index_vehicle_journeys_on_route_id"
 
 end
