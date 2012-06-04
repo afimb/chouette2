@@ -269,6 +269,9 @@ ActiveRecord::Schema.define(:version => 20120531091529) do
     t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "prefix"
+    t.string   "projection_type"
+    t.string   "time_zone"
   end
 
   create_table "routes", :force => true do |t|

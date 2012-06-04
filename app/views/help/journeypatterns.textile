@@ -1,29 +1,26 @@
 ---
 layout: default
-title: Séquence d'arrêts
+title: Missions
 ---
 
 h3. D&eacute;finition
 
-La s&eacute;quence d'arr&ecirc;ts est une s&eacute;lection ordonn&eacute;e de r&eacute;f&eacute;rences aux points d'arr&ecirc;t (exemple: itin&eacute;raires aller et retour d'une ligne). Une s&eacute;quence d'arr&ecirc;ts est sp&eacute;cifique &agrave; une ligne; les s&eacute;quences d'arr&ecirc;ts peuvent r&eacute;f&eacute;rencer des arr&ecirc;ts communs.
+Si on consid&egrave;re la suite ordonn&eacute;e des arr&ecirc;ts d'une s&eacute;quence d'arr&ecirc;ts, la mission se d&eacute;finit comme une suite extraite. Autrement dit, toutes les courses d'une s&eacute;quence d'arr&ecirc;ts qui desservent les m&ecirc;mes arr&ecirc;ts et dans le m&ecirc;me ordre, &agrave; des horaires diff&eacute;rents &eacute;ventuellement, r&eacute;f&eacute;rencent la m&ecirc;me mission. La mission correspond donc &agrave; une suite ordonn&eacute;e d'arr&ecirc;ts de la s&eacute;quence d'arr&ecirc;ts. 
 
 h3. Attributs
 
-- Nom := nom de la s&eacute;quence d'arr&ecirc;ts  
+- Nom := nom de la mission
 - Nom public := nom public pour les voyageurs
-- Commentaire := zone de texte libre sur le r&eacute;seau
-- Direction := orientation principale (points cardinaux, circulaire ou aller/retour)
-- Indice := num&eacute;ro de la s&eacute;quence d'arr&ecirc;ts
-- Sens := aller ou retour
-- Itin&eacute;raire associ&eacute; en sens oppos&eacute; := r&eacute;f&eacute;rence de l'itin&eacute;raire de sens oppos&eacute; associ&eacute;
+- Num&eacute;ro d'enregistrement := Le num&eacute;ro d'enregistrement est unique. Aucune r&egrave;gle de nommage ne s'applique sur ce num&eacute;ro. Celui-ci doit &ecirc;tre unique sur l'ensemble des missions de la ligne.
+- Commentaire := zone de texte libre 
 
 p(attr_data). Donn&eacute;es de gestion :
 
 - Identifiant Neptune := 
-cl&eacute; unique p&eacute;renne identifiant la s&eacute;quence d'arr&ecirc;ts pour les &eacute;changes Neptune
+cl&eacute; unique p&eacute;renne identifiant la mission pour les &eacute;changes Neptune
 cet identifiant est compos&eacute; de 3 parties : pr&eacute;fixe:type:id_technique
 * pr&eacute;fixe : cl&eacute; identifiant un producteur de donn&eacute;es unique
-* type = Route : cl&eacute; identifiant le type d'objet (valeur impos&eacute;e)
+* type = JourneyPattern : cl&eacute; identifiant le type d'objet (valeur impos&eacute;e)
 * id_technique : valeur identifiant un seul object d'un type donn&eacute; pour un m&ecirc;me producteur
 ce champ obligatoire est automatiquement g&eacute;n&eacute;r&eacute; s'il n'est pas renseign&eacute; 
 il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera compl&eacute;t&eacute;e automatiquement.
