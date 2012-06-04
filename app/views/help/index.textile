@@ -3,7 +3,7 @@ layout: default
 title: Présentation
 ---
 
-Chouette v2 : it&eacute;ration 6 du 22/05/2012
+Chouette v2 : it&eacute;ration 7 du 04/06/2012
 
 Cette it&eacute;ration pr&eacute;sente les formulaires de :
 
@@ -11,6 +11,7 @@ Cette it&eacute;ration pr&eacute;sente les formulaires de :
 * transporteurs
 * lignes
 ** s&eacute;quences d'arr&ecirc;ts
+** missions
 * arr&ecirc;ts
 * calendriers d'application
 * correspondances
@@ -20,12 +21,16 @@ l'avancement actuel permet de :
 
 * cr&eacute;er, modifier et supprimer les objets
 * consulter les cartes
+** les noms des arr&ecirc;ts sont affich&eacute; sous forme de bulle d'aide sur les cartes du r&eacute;seau, des lignes et des correspondances
 * d&eacute;placer un arr&ecirc;t depuis la carte (voir mode op&eacute;ratoire dans l'aide des arr&ecirc;ts)
 * associer les arr&ecirc;ts &agrave; leurs parents
 * ajouter des fils &agrave; un arr&ecirc;t
 * importer des lignes au format Neptune (fichier ZIP uniquement)
 * &eacute;diter des s&eacute;quences d'arr&ecirc;ts : 
 ** ajouter, d&eacute;placer et retirer des arr&ecirc;ts dans la s&eacute;quence
+** ajouter, modifier les missions de la s&eacute;quence
+* pr&eacute;ciser des param&egrave;tres g&eacute;n&eacute;raux de l'espace de donn&eacute;es
+
 
 les actions suivantes ne sont pas encore disponible : 
 
@@ -33,5 +38,7 @@ les actions suivantes ne sont pas encore disponible :
 * associer une ITL &agrave; une ligne
 * imports &agrave; d'autres formats que Neptune
 * exports de donn&eacute;es
-* consulter les missions et les horaires des lignes
+* d&eacute;finir l'emprise g&eacute;n&eacute;rale du r&eacute;seau
+* g&eacute;rer le second r&eacute;f&eacute;rentiel de projection
+* consulter/cr&eacute;er/&eacute;diter les courses et les horaires
 

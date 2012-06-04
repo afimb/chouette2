@@ -12,7 +12,8 @@ h3. Sommaire
 # "Transporteurs":companies
 # "Lignes":lines
 ## "S&eacute;quences d'arr&ecirc;ts":routes
-## Horaires
+## "Missions":journeypatterns
+## "Courses/Horaires":vehiclejourneys
 # "Arr&ecirc;ts":stop_areas
 ## "Correspondances":connection_links
 ## Acc&egrave;s
@@ -20,6 +21,7 @@ h3. Sommaire
 # "Calendriers d'application":timetables
 # Outils
 ## Imports
+## Exports
 ## Validation
 # Divers
 ## "API Rest":restapis

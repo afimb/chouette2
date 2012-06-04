@@ -5,11 +5,24 @@
   <label><%= Referential.human_attribute_name("slug") %>: </label>
   <%= @referential.slug %>
   </p>
+  <p>
+  <label><%= Referential.human_attribute_name("prefix") %>: </label>
+  <%= @referential.prefix %>
+  </p>
+  <p>
+  <label><%= Referential.human_attribute_name("projection_type") %>: </label>
+  <%= @referential.projection_type %>
+  </p>
+  <p>
+  <label><%= Referential.human_attribute_name("time_zone") %>: </label>
+  <%= @referential.time_zone %>
+  </p>
 </div>  
 
 <% content_for :sidebar do %>
 <ul class="actions">
-  <li><%= link_to  t('referentials.actions.destroy'), referential_path(@referential), :method => :delete, :confirm =>  t('referentials.actions.destroy_confirm'), :class => "remove" %></li>
+  <li><%= link_to t('referentials.actions.edit'), edit_referential_path(@referential), :class => "edit" %></li>
+  <li><%= link_to t('referentials.actions.destroy'), referential_path(@referential), :method => :delete, :confirm =>  t('referentials.actions.destroy_confirm'), :class => "remove" %></li>
   <br>
 </ul>
 <% end %>

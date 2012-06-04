@@ -3,6 +3,8 @@ FactoryGirl.define do
   factory :referential do |f|
     f.sequence(:name) { |n| "Test #{n}" }
     f.sequence(:slug) { |n| "test_#{n}" }
+    f.sequence(:prefix) { |n| "test_#{n}" }
+    f.time_zone "Europe/Paris"
   end
 
   factory :user do |f|

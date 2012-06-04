@@ -1,8 +1,18 @@
 class Referential < ActiveRecord::Base
   validates_presence_of :name 
   validates_presence_of :slug
+  validates_presence_of :prefix
+  validates_presence_of :time_zone
+  validates_uniqueness_of :slug
+  validates_uniqueness_of :name
+  validates_format_of :slug, :with => %r{\A[0-9a-z_]+\Z}
+  validates_format_of :prefix, :with => %r{\A[0-9a-zA-Z_]+\Z}
 
   has_many :imports, :dependent => :destroy
+
+  def human_attribute_name(*args)
+    self.class.human_attribute_name(*args)
+  end
 
   def lines
     Chouette::Line.scoped
