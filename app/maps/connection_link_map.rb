@@ -17,8 +17,11 @@ class ConnectionLinkMap < ApplicationMap
       page << map.add_layer(google_hybrid) 
       page << map.add_layer(google_satellite) 
 
+      page.assign "stop_areas_layer", kml_layer(polymorphic_path([referential, connection_link, :stop_areas], :format => :kml), :styleMap => StyleMap::StopAreasStyleMap.new.style_map) 
+      page << map.add_layer(:stop_areas_layer)
+      page << map.add_control( hover_control_display_name(:stop_areas_layer) )
       #page << map.add_layer(kml_layer(connection_link, :styleMap => StyleMap::ConnectionLinkStyleMap.new( :style => connection_link_style).style_map))
-      page << map.add_layer(kml_layer(polymorphic_path([referential, connection_link, :stop_areas], :format => :kml), :styleMap => StyleMap::StopAreasStyleMap.new.style_map))
+      #page << map.add_layer(kml_layer(polymorphic_path([referential, connection_link, :stop_areas], :format => :kml), :styleMap => StyleMap::StopAreasStyleMap.new.style_map))
       page << map.zoom_to_extent(bounds) if bounds
     end
   end
