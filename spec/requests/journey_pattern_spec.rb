@@ -5,9 +5,9 @@ describe "JourneyPatterns" do
   login_user
 
   let!(:referential) { create(:referential).switch }
-  let!(:line) { referential; Factory(:line) }
-  let!(:route) { referential; Factory(:route, :line => line) }
-  let!(:journey_pattern) { referential; Factory(:journey_pattern, :route => route) }
+  let(:line) { Factory(:line) }
+  let(:route) { Factory(:route, :line => line) }
+  let(:journey_pattern) { Factory(:journey_pattern, :route => route) }
 
   describe "from routes page to a journey_pattern page" do
     it "display route's journey_patterns" do
