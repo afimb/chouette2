@@ -10,6 +10,8 @@ describe "Networks" do
 
   describe "list" do
     it "display networks" do
+      pending
+
       visit referential_networks_path(referential)
       page.should have_content(networks.first.name)
       page.should have_content(networks.last.name)
@@ -19,6 +21,8 @@ describe "Networks" do
 
   describe "show" do      
     it "display network" do
+      pending
+
       subject.stub(:stop_areas).and_return(Array.new(2) { Factory(:stop_area) })
       visit referential_networks_path(referential)
       click_link "#{networks.first.name}"
@@ -26,6 +30,8 @@ describe "Networks" do
     end
 
     it "display map" do
+      pending
+
       subject.stub(:stop_areas).and_return(Array.new(2) { Factory(:stop_area) })
       visit referential_networks_path(referential)
       click_link "#{networks.first.name}"
@@ -36,6 +42,8 @@ describe "Networks" do
 
   describe "new" do      
     it "creates network and return to show" do
+      pending
+
       subject.stub(:stop_areas).and_return(Array.new(2) { Factory(:stop_area) })
       visit referential_networks_path(referential)
       click_link "Ajouter un réseau"
@@ -49,6 +57,8 @@ describe "Networks" do
 
   describe "edit and return to show" do      
     it "edit network" do
+      pending
+
       subject.stub(:stop_areas).and_return(Array.new(2) { Factory(:stop_area) })
       visit referential_network_path(referential, subject)
       click_link "Modifier ce réseau"
