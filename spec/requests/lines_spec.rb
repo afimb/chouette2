@@ -4,10 +4,10 @@ require 'spec_helper'
 describe "Lines" do
   login_user
 
-  let!(:referential) { create(:referential).switch }
-  let!(:network) { Factory(:network) }
-  let!(:company) { Factory(:company) }
-  let!(:lines) { referential; Array.new(2) { Factory(:line, :network => network, :company => company) } }
+  let(:referential) { create(:referential).switch }
+  let(:network) { Factory(:network) }
+  let(:company) { Factory(:company) }
+  let(:lines) { referential; Array.new(2) { Factory(:line, :network => network, :company => company) } }
   subject { lines.first }
 
   describe "list" do

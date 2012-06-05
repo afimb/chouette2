@@ -4,8 +4,8 @@ require 'spec_helper'
 describe "TimeTables" do
   login_user
 
-  let!(:referential) { create(:referential).switch }
-  let!(:time_tables) { referential; Array.new(2) { create(:time_table) } }
+  let(:referential) { create(:referential).switch }
+  let(:time_tables) { referential; Array.new(2) { create(:time_table) } }
   subject { time_tables.first }
 
   describe "list" do

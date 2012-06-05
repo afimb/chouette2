@@ -4,8 +4,8 @@ require 'spec_helper'
 describe "StopAreas" do
   login_user
 
-  let!(:referential) { create(:referential).switch }
-  let!(:stop_areas) { referential; Array.new(2) { Factory(:stop_area) } }
+  let(:referential) { create(:referential).switch }
+  let(:stop_areas) { referential; Array.new(2) { Factory(:stop_area) } }
   subject { stop_areas.first }
 
   describe "list" do

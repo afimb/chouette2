@@ -4,7 +4,7 @@ require 'spec_helper'
 describe "JourneyPatterns" do
   login_user
 
-  let!(:referential) { create(:referential).switch }
+  let(:referential) { create(:referential).switch }
   let(:line) { Factory(:line) }
   let(:route) { Factory(:route, :line => line) }
   let(:journey_pattern) { Factory(:journey_pattern, :route => route) }
