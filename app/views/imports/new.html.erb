@@ -1,13 +1,27 @@
 <%= title_tag t(".title") %>
 
-<%= semantic_form_for [@referential, @import] do |form| %>
-  <%= form.inputs do %> 
-    <%= form.input :resources, :as => :file %>
-  <% end %>
+<%= form_for([@referential, @import], :as => :import, :url => new_referential_import_path(@referential), :method => :get) do |form| %>
+  <%= form.label :type %>
+  <%= form.collection_select :type, Import.types, :to_s, :to_s %>
+  <%= form.submit "Sélectionner", :id => "import_type_submit" %>
+<% end %>
 
-  <%= form.buttons do %>
-    <%= form.commit_button true %>
-    <li><%= t('or') %></li>
-    <li><%= link_to t('back'), :back %></li>
+<% @available_imports.each do |import| %>
+  <%= semantic_form_for [@referential, import], :as => :import, :url => referential_imports_path(@referential), :html => { :id => "#{import.type}_new",  :style => ('display: none' unless @import == import)} do |form| %>
+
+    <%= form.inputs do %> 
+      <%= fields_for_import_type form %>
+    <% end %>
+
+    <%= form.inputs do %> 
+      <%= form.input :type, :as => :hidden %>
+      <%= form.input :resources, :as => :file %>
+    <% end %>
+
+    <%= form.buttons do %>
+      <%= form.commit_button true %>
+      <li><%= t('or') %></li>
+      <li><%= link_to t('back'), :back %></li>
+    <% end %>
   <% end %>
 <% end %>

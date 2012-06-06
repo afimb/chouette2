@@ -1,4 +1,4 @@
-<%= div_for(import) do %>
+<%= div_for(import, :class => :import) do %>
   <%= link_to(referential_import_path(@referential, import), :class => "preview") do %>
     <%= image_tag "import-#{import.status}.png" %>
   <% end %>
