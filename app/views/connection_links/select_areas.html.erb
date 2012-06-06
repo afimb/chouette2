@@ -9,7 +9,8 @@
   
   <%= form.buttons do %>
     <%= form.commit_button %>
-    ou <%= link_to "revenir", [@referential, @connection_link] %>
+    <%= t('or') %>
+    <%= link_to t('cancel'), [@referential, @connection_link] %>
   <% end %>
 </div>
 <% end %>

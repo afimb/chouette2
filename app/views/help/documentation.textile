@@ -1,0 +1,6 @@
+---
+layout: default
+title: Documentation
+---
+
+La documentation de Chouette est disponible sur le site "Chouette.mobi":http://www.chouette.mobi/spip.php?rubrique15

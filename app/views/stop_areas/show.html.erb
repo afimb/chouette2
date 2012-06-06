@@ -93,7 +93,6 @@
       <%= link_to([@referential, @stop_area.parent]) do %> 
         <%= image_tag "map/" + @stop_area.parent.stop_area_type + ".png"   %><span><%= @stop_area.parent.name %></span>        
       <% end %>
-      <%= link_to image_tag("user_interface/ui/remove.png"), referential_stop_area_path(@referential, @stop_area.parent), :method => :delete, :confirm =>  t('stop_areas.actions.destroy_confirm'), :class => "remove" %>
     </div> 
     <div class="link"><%= image_tag "icons/link.png"%></div>
     <% else %>
@@ -114,7 +113,6 @@
         <%= link_to([@referential, child]) do %> 
           <%= image_tag "map/" + child.stop_area_type + ".png"   %><span><%= child.name %></span>         
         <% end %>  
-        <%= link_to image_tag("user_interface/ui/remove.png"), referential_stop_area_path(@referential, child), :method => :delete, :confirm =>  t('stop_areas.actions.destroy_confirm'), :class => "remove" %>
       </div>
       <% end %>
     </div> 
