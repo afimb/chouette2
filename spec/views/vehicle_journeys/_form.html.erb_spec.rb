@@ -31,6 +31,11 @@ describe "/vehicle_journeys/_form" do
         end
       end
     end
+    it "renders _vehicle_journey_at_stop_fields partial for each vehicle_journey_at_stop" do
+      render
+      view.should render_template(:partial => "_vehicle_journey_at_stop_fields", :count => vehicle_journey.vehicle_journey_at_stops.count)
+    end
+    
     it "should render vehicle_journey_at_stop's departure time" do
       render
       rendered.should have_selector("form") do |form_node| 

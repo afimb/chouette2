@@ -1,4 +1,6 @@
-$('#stop_times').html('<%= escape_javascript render(:partial => 
-'vehicle_journeys/vehicle_journey_at_stop_fields')%>') 
+$('.journey_pattern_dependent_list').html('<%= escape_javascript(
+  render(:partial => 'vehicle_journeys/vehicle_journey_at_stop_fields',
+         :collection => @vehicle_journey.vehicle_journey_at_stops, 
+         :as => :vehicle_journey_at_stop)).html_safe %>'); 
 
 

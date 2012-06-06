@@ -1,6 +1,8 @@
 class VehicleJourneysController < ChouetteController
   defaults :resource_class => Chouette::VehicleJourney
 
+  respond_to :js, :only => [:select_journey_pattern, :edit]
+
   belongs_to :referential do
     belongs_to :line, :parent_class => Chouette::Line do
       belongs_to :route, :parent_class => Chouette::Route
@@ -9,29 +11,12 @@ class VehicleJourneysController < ChouetteController
 
   def select_journey_pattern
     if params[:journey_pattern_id]
+      selected_journey_pattern = Chouette::JourneyPattern.find( params[:journey_pattern_id])
+
       @vehicle_journey = vehicle_journey
-      @vehicle_journey_at_stops = pseudo_vehicle_journey_at_stops
-      puts "@vehicle_journey=#{@vehicle_journey.inspect}"
+      @vehicle_journey.update_journey_pattern(selected_journey_pattern)
     end
   end
-
-  def pseudo_vehicle_journey_at_stops
-    vjas_by_sp_id = {}.tap do |hash|
-      @vehicle_journey.vehicle_journey_at_stops.each do |vjas|
-        hash.merge!( vjas.stop_point_id => vjas)
-      end
-    end
-    [].tap do |vjas_array|
-      @selected_journey_pattern.stop_points.each do |sp|
-        if vjas_by_sp_id.include?( sp.id)
-          vjas_array << vjas_by_sp_id[ sp.id]
-        else
-          vjas_array << @vehicle_journey.vehicle_journey_at_stops.build( :stop_point_id => sp.id)
-        end
-      end
-    end
-  end
-
 
   protected
   

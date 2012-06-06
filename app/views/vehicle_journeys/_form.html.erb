@@ -18,7 +18,18 @@
     <% end %>
     
     <%= form.inputs :class => "stop_times" do %>
-      <%= render :partial => "vehicle_journeys/vehicle_journey_at_stop_fields" %>
+      <div class="journey_pattern_dependent_list">
+        <!--
+        <= form.semantic_fields_for :vehicle_journey_at_stops do |vjas| >
+          <= vjas.object.stop_point.stop_area.name >
+          <= vjas.input :_destroy, :as => :hidden >
+          <= vjas.input :departure_time, :as => :time >
+
+        < end >
+        -->
+        <%= render :partial => "vehicle_journeys/vehicle_journey_at_stop_fields",
+          :collection => @vehicle_journey.vehicle_journey_at_stops, :as => :vehicle_journey_at_stop %> 
+      </div>
     <% end %>
     
   <% end %>
@@ -30,16 +41,7 @@
   <% end %>
 <% end %>
 
-<script>
-  $("#vehicle_journey_journey_pattern_id").change(
-     $.ajax({
-       type: 'get',
-       data: "journey_pattern_id="+$("#vehicle_journey_journey_pattern_input select option:selected").attr("value"),
-       dataType: 'script',
-       complete: function(request){
-       $('.stop_times').effect('highlight');
-     },
-     url: "<%= select_journey_pattern_referential_line_route_vehicle_journey_path( @referential, @line, @route, @vehicle_journey)%>"})
-  );
-</script>
+<% unless @vehicle_journey.new_record? %>
+  <%= javascript_include_tag edit_referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey, :format => :js) %>
+<% end %>
 
