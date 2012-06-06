@@ -13,6 +13,7 @@ h3. Attributs
 - Code := code de l'espace de donn&eacute;es
 - Pr&eacute;fixe Neptune := pr&eacute;fixe utilis&eacute; par d&eacute;faut pour la g&eacute;n&eacute;ration des identifiants Neptune
 - Projection g&eacute;ographique := r&eacute;f&eacute;rentiel de projection des coordonn&eacute;es cartographiques en compl&eacute;ment du WGS84
+- Fuseau horaire := fuseau horaire applicable pour les horaires des courses. (cf "Tz_database":http://fr.wikipedia.org/wiki/Tz_database) 
 
 h3. Impl&eacute;mentation
 

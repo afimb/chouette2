@@ -7,12 +7,14 @@ h3. Sommaire
 
 # "G&eacute;n&eacute;ralit&eacute;s":introduction
 ## "Normalisation":normalisation
+## "Documentation":documentation
 # "Espaces de donn&eacute;es":dataspaces
 # "R&eacute;seaux":networks
 # "Transporteurs":companies
 # "Lignes":lines
 ## "S&eacute;quences d'arr&ecirc;ts":routes
-## Horaires
+## "Missions":journeypatterns
+## "Courses/Horaires":vehiclejourneys
 # "Arr&ecirc;ts":stop_areas
 ## "Correspondances":connection_links
 ## Acc&egrave;s
@@ -20,6 +22,7 @@ h3. Sommaire
 # "Calendriers d'application":timetables
 # Outils
 ## Imports
+## Exports
 ## Validation
 # Divers
 ## "API Rest":restapis

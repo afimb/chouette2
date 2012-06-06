@@ -1,6 +1,6 @@
 GIT
   remote: git://chouette.dryade.priv/ninoxe
-  revision: 309a0bbec119e9ec57acb6cefa5b2b913278cd3b
+  revision: 1b68352e83c2ef898fdab7cd4c4eeddba6a977d5
   specs:
     ninoxe (0.0.8)
       GeoRuby
@@ -190,7 +190,6 @@ GEM
     jruby-rack (1.1.5)
     jruby-rack-worker (0.3-java)
       jruby-rack (>= 1.0.1)
-    json (1.7.3)
     json (1.7.3-java)
     json_pure (1.7.3)
     launchy (2.1.0)
@@ -207,7 +206,7 @@ GEM
       treetop (~> 1.4.8)
     map_layers (0.0.5)
     mime-types (1.18)
-    multi_json (1.3.5)
+    multi_json (1.3.6)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)

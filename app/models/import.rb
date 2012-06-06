@@ -11,6 +11,14 @@ class Import < ActiveRecord::Base
 
   has_many :log_messages, :class_name => "ImportLogMessage", :order => :position, :dependent => :destroy
 
+  serialize :options
+
+  after_initialize :define_options
+
+  def define_options
+    self.options = {}
+  end
+
   def loader
     @loader ||= ::Chouette::Loader.new(referential.slug)
   end
@@ -55,6 +63,10 @@ class Import < ActiveRecord::Base
     "#{Import.model_name.humanize} #{id}"
   end
 
+  def import_options
+    {}
+  end
+
   def import
     begin
       log_messages.create :key => :started
@@ -64,7 +76,7 @@ class Import < ActiveRecord::Base
           loader.import file
         end
       else
-        loader.import saved_resources
+        loader.import saved_resources, import_options
       end
       update_attribute :status, "completed"
     rescue => e

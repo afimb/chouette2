@@ -19,6 +19,14 @@ en:
       referential:
         name: Name
         slug: Code
+        prefix: Neptune Object Id prefix
+        projection_type: Alternate projection code (SRID)
+        time_zone: time zone
+  formtastic:
+    hints:
+      referential:
+        slug: only lowercase alphanumerical or underscore characters 
+        prefix: only alphanumerical or underscore characters
 
 fr:
   referentials:
@@ -41,3 +49,11 @@ fr:
       referential:
         name: Nom
         slug: Code
+        prefix: Préfixe des identifiants Neptune
+        projection_type: Code (SRID) de la seconde projection
+        time_zone: Fuseau horaire
+  formtastic:
+    hints:
+      referential:
+        slug: "caractères autorisés : alphanumériques minuscules et 'souligné'"  
+        prefix: "caractères autorisés : alphanumériques et 'souligné'" 

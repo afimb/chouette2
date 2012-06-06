@@ -4,10 +4,10 @@ require 'spec_helper'
 describe "StopPoints" do
   login_user
 
-  let!(:referential) { create(:referential).switch }
-  let!(:line) { referential; Factory(:line) }
-  let!(:route) { referential; Factory(:route, :line => line) }
-  let!(:route2) { referential; Factory(:route, :line => line) }
+  let(:referential) { create(:referential).switch }
+  let(:line) { referential; Factory(:line) }
+  let(:route) { referential; Factory(:route, :line => line) }
+  let(:route2) { referential; Factory(:route, :line => line) }
 
   describe "from route's page to a stop points page" do
     it "display route's stop points" do
