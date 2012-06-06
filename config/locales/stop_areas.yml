@@ -10,6 +10,8 @@ en:
       destroy_confirm: Are you sure you want destroy this stop?
       select_parent: Manage Parent
       add_children: Manage Children
+      add_lines: "Manage constraint's lines"
+      add_stops: "Manage constraint's stops"
     new:
       title: Add a new stop
     edit:
@@ -19,6 +21,7 @@ en:
       geographic_data: Geographic data 
       no_geographic_data: None
       genealogical: Links between stop area
+      genealogical_routing: "Routing constraint's links"
     index:
       title: Stop areas
       name_or_country_code: Name or Country code
@@ -75,6 +78,8 @@ fr:
       destroy_confirm: Etes vous sûr de détruire cet arrêt ?
       select_parent: Gérer le parent
       add_children: Gérer les fils
+      add_lines: "Gérer les lignes de l'ITL"
+      add_stops: "Gérer les arrêts de l'ITL"
     new:
       title: Ajouter un arrêt
     edit:
@@ -84,6 +89,7 @@ fr:
       geographic_data: Données géographiques 
       no_geographic_data: Aucune
       genealogical: Lien entre arrêts 
+      genealogical_routing: "Liens de l'ITL"
     index:
       name_or_country_code: Nom ou Code Postal
       title: Arrêts
