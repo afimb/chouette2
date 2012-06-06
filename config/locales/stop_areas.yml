@@ -8,8 +8,8 @@ en:
       edit: Edit this stop
       destroy: Remove this stop
       destroy_confirm: Are you sure you want destroy this stop?
-      select_parent: Select Parent
-      add_children: Add Children
+      select_parent: Manage Parent
+      add_children: Manage Children
     new:
       title: Add a new stop
     edit:
@@ -26,9 +26,9 @@ en:
       selection_all: All
       area_type: Area Type
     select_parent:
-      title: Select parent of stop area %{stop_area} 
+      title: Manage parent of stop area %{stop_area} 
     add_children:
-      title: Add children of stop area %{stop_area} 
+      title: Manage children of stop area %{stop_area} 
   activerecord:        
     models:        
       stop_area: 
@@ -73,8 +73,8 @@ fr:
       edit: Modifier cet arrêt
       destroy: Supprimer cet arrêt
       destroy_confirm: Etes vous sûr de détruire cet arrêt ?
-      select_parent: Sélectionner le parent
-      add_children: Ajouter un fils
+      select_parent: Gérer le parent
+      add_children: Gérer les fils
     new:
       title: Ajouter un arrêt
     edit:
@@ -91,9 +91,9 @@ fr:
       selection_all: Tous
       area_type: "Type d'arrêt"
     select_parent:
-      title: "Sélection du parent de l'arrêt %{stop_area}"
+      title: "Gérer le parent de l'arrêt %{stop_area}"
     add_children:
-      title: "Ajouter les enfants de l'arrêt %{stop_area}"
+      title: "Gérer les fils de l'arrêt %{stop_area}"
   activerecord:        
     models:        
       stop_area: 
@@ -121,7 +121,7 @@ fr:
         object_version: Version
         creation_time: Créé le
         creator_id: Créé par
-        children_ids: Enfants 
+        children_ids: Fils 
         parent: Parent
   formtastic:
     hints:
