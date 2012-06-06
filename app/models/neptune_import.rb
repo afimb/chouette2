@@ -1,7 +1,7 @@
 class NeptuneImport < Import
 
   def import_options
-    { :format => :neptune }
+    super.merge(:format => :neptune)
   end
 
 end
