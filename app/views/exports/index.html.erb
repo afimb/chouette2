@@ -1,0 +1,20 @@
+<%= title_tag t('.title') %> 
+
+<div class="pagination">
+  <div class="page_info">
+    <%= page_entries_info @exports %>
+  </div>
+  <%= will_paginate @exports, :container => false %>
+</div>
+<div class="exports paginated_content">
+  <%= render :partial => "export", :collection => @exports %>
+</div>
+<div class="pagination">
+  <%= will_paginate @exports, :container => false %>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('exports.actions.new'), new_referential_export_path(@referential), :class => "add" %></li> 
+</ul>
+<% end %>

@@ -1,0 +1,9 @@
+<%= title_tag t(".title") %>
+
+<%= semantic_form_for [@referential, @export], :as => :export, :url => referential_exports_path(@referential) do |form| %>
+  <%= form.buttons do %>
+    <%= form.commit_button true %>
+    <li><%= t('or') %></li>
+    <li><%= link_to t('cancel'), :back %></li>
+  <% end %>
+<% end %>

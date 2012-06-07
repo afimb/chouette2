@@ -1,8 +1,4 @@
 ChouetteIhm::Application.routes.draw do
-  get "imports/new"
-
-  get "imports/index"
-
   devise_for :users
 
   # The priority is based upon order of creation:
@@ -42,6 +38,7 @@ ChouetteIhm::Application.routes.draw do
     end
 
     resources :imports
+    resources :exports
 
     resources :companies, :stop_areas  
     

@@ -1,0 +1,14 @@
+<%= div_for(export, :class => :export) do %>
+  <%= link_to(referential_export_path(@referential, export), :class => "preview") do %>
+    <%= image_tag "export-#{export.status}.png" %>
+  <% end %>
+  <%= link_to(export.name, referential_export_path(@referential, export)) %>
+  <div class="info">
+    <%= l export.created_at %>
+
+    <div class="actions">  
+      <%= link_to t("exports.actions.download"), referential_export_path(@referential, export, :format => :zip), :class => "download" %>
+      <%= link_to t("actions.destroy"), referential_export_path(@referential, export), :method => :delete, :confirm =>  t('exports.actions.destroy_confirm'), :class => "remove" %>
+    </div>
+  </div>
+<% end %>

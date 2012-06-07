@@ -1,0 +1,41 @@
+// Place all the styles related to the Exports controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "common";
+
+#workspace.exports.index
+{
+    .export:after { 
+        @include after_div_for_object;  
+    }
+
+    .exports {
+        margin-top: 20px;
+    }
+
+    .exports:after {
+        @include content_to_clear;
+    }
+    
+    .export {
+        @include div_for_object;
+
+        /* to create multi-column index */
+        width: 300px;
+        float: left;
+        padding-right: 10px;
+    }
+}
+
+#workspace.exports.show {
+    table {
+        th {
+            text-align: center;
+            font-style: italic;
+        }
+        td.message, td.created_at, td.position {
+            padding: 0 20px;
+        }
+    }                       
+}

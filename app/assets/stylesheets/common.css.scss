@@ -49,6 +49,9 @@
             a.remove {
                 background: url(image-path('user_interface/ui/remove-small.png')) no-repeat 0% 50%;
             }
+            a.download {
+                background: url(image-path('download-small.png')) no-repeat 0% 50%;
+            }
         }
 
         p {
