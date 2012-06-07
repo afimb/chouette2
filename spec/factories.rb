@@ -23,4 +23,13 @@ FactoryGirl.define do
     f.sequence(:key) { "key_#{n}" }
   end
 
+  factory :export do |f|
+    f.association :referential
+  end
+
+  factory :export_log_message do |f|
+    f.association :export
+    f.sequence(:key) { "key_#{n}" }
+  end
+
 end

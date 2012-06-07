@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120531091529) do
+ActiveRecord::Schema.define(:version => 20120607064625) do
 
   create_table "access_links", :force => true do |t|
     t.integer  "access_point_id",                        :limit => 8
@@ -119,6 +119,29 @@ ActiveRecord::Schema.define(:version => 20120531091529) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "export_log_messages", :force => true do |t|
+    t.integer  "export_id"
+    t.string   "key"
+    t.string   "arguments"
+    t.integer  "position"
+    t.string   "severity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "export_log_messages", ["export_id"], :name => "index_export_log_messages_on_export_id"
+
+  create_table "exports", :force => true do |t|
+    t.integer  "referential_id"
+    t.string   "status"
+    t.string   "type"
+    t.string   "options"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "exports", ["referential_id"], :name => "index_exports_on_referential_id"
 
   create_table "facilities", :force => true do |t|
     t.integer  "stop_area_id",       :limit => 8
