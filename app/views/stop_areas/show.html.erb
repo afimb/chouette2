@@ -147,7 +147,6 @@
 <ul class="actions">
   <li><%= link_to t('stop_areas.actions.edit'), edit_referential_stop_area_path(@referential, @stop_area), :class => "edit" %></li>
   <li><%= link_to  t('stop_areas.actions.destroy'), referential_stop_area_path(@referential, @stop_area), :method => :delete, :confirm =>  t('stop_areas.actions.destroy_confirm'), :class => "remove" %></li>
-  <p>
   <% if @stop_area.stop_area_type == 'itl' %>
     <li><%= link_to  t('stop_areas.actions.add_routing_lines'), add_routing_lines_referential_stop_area_path(@referential, @stop_area), :class => "add_routing_lines" %></li>
   <% else %>
