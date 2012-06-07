@@ -296,6 +296,7 @@ ActiveRecord::Schema.define(:version => 20120607064625) do
     t.datetime "updated_at"
     t.string   "prefix"
     t.string   "projection_type"
+    t.string   "bounding_box",    :limit => nil
     t.string   "time_zone"
   end
 
