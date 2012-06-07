@@ -10,8 +10,8 @@ en:
       destroy_confirm: Are you sure you want destroy this stop?
       select_parent: Manage Parent
       add_children: Manage Children
-      add_lines: "Manage constraint's lines"
-      add_stops: "Manage constraint's stops"
+      add_routing_lines: "Manage constraint's lines"
+      add_routing_stops: "Manage constraint's stops"
     new:
       title: Add a new stop
     edit:
@@ -32,6 +32,10 @@ en:
       title: Manage parent of stop area %{stop_area} 
     add_children:
       title: Manage children of stop area %{stop_area} 
+    add_lines:
+      title: Manage lines of routing constraint %{stop_area} 
+    add_stops:
+      title: Manage stop areas of routing constraint %{stop_area} 
   activerecord:        
     models:        
       stop_area: 
@@ -59,6 +63,8 @@ en:
         creation_time: Created on
         creatorid: Created by 
         children_ids: Children 
+        routing_stop_ids: Attached stops
+        routing_line_ids: Attached lines
         parent: Parent
   formtastic:
     hints:
@@ -78,8 +84,8 @@ fr:
       destroy_confirm: Etes vous sûr de détruire cet arrêt ?
       select_parent: Gérer le parent
       add_children: Gérer les fils
-      add_lines: "Gérer les lignes de l'ITL"
-      add_stops: "Gérer les arrêts de l'ITL"
+      add_routing_lines: "Gérer les lignes de l'ITL"
+      add_routing_stops: "Gérer les arrêts de l'ITL"
     new:
       title: Ajouter un arrêt
     edit:
@@ -100,6 +106,10 @@ fr:
       title: "Gérer le parent de l'arrêt %{stop_area}"
     add_children:
       title: "Gérer les fils de l'arrêt %{stop_area}"
+    add_routing_lines:
+      title: "Gérer les lignes de l'ITL %{stop_area} "
+    add_routing_stops:
+      title: "Gérer les arrêts de l'ITL %{stop_area} "
   activerecord:        
     models:        
       stop_area: 
@@ -128,6 +138,8 @@ fr:
         creation_time: Créé le
         creator_id: Créé par
         children_ids: Fils 
+        routing_stop_ids: "Arrêts concernés par l'ITL"
+        routing_line_ids: "Lignes affectées par l'ITL"
         parent: Parent
   formtastic:
     hints:

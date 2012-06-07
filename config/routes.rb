@@ -25,9 +25,13 @@ ChouetteIhm::Application.routes.draw do
       resources :stop_areas do
         resources :stop_area_parents
         resources :stop_area_children
+        resources :stop_area_routing_lines
+        resources :stop_area_routing_stops
         member do
           get 'add_children'
           get 'select_parent'
+          get 'add_routing_lines'
+          get 'add_routing_stops'
         end
       end        
       resources :routes do
@@ -53,13 +57,13 @@ ChouetteIhm::Application.routes.draw do
     resources :stop_areas do
         resources :stop_area_parents
         resources :stop_area_children
-        resources :stop_area_lines
-        resources :stop_area_stops
+        resources :stop_area_routing_lines
+        resources :stop_area_routing_stops
         member do
           get 'add_children'
           get 'select_parent'
-          get 'add_lines'
-          get 'add_stops'
+          get 'add_routing_lines'
+          get 'add_routing_stops'
         end
     end
 
@@ -70,9 +74,14 @@ ChouetteIhm::Application.routes.draw do
       end
       resources :stop_areas do
         resources :stop_area_parents
+        resources :stop_area_children
+        resources :stop_area_routing_lines
+        resources :stop_area_routing_stops
         member do
           get 'add_children'
           get 'select_parent'
+          get 'add_routing_lines'
+          get 'add_routing_stops'
         end
       end        
     end

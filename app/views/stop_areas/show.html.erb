@@ -147,13 +147,14 @@
 <ul class="actions">
   <li><%= link_to t('stop_areas.actions.edit'), edit_referential_stop_area_path(@referential, @stop_area), :class => "edit" %></li>
   <li><%= link_to  t('stop_areas.actions.destroy'), referential_stop_area_path(@referential, @stop_area), :method => :delete, :confirm =>  t('stop_areas.actions.destroy_confirm'), :class => "remove" %></li>
+  <p>
   <% if @stop_area.stop_area_type == 'itl' %>
-    <li><%= link_to  t('stop_areas.actions.add_lines'), add_lines_referential_stop_area_path(@referential, @stop_area), :class => "add_lines" %></li>
+    <li><%= link_to  t('stop_areas.actions.add_routing_lines'), add_routing_lines_referential_stop_area_path(@referential, @stop_area), :class => "add_routing_lines" %></li>
   <% else %>
     <li><%= link_to  t('stop_areas.actions.select_parent'), select_parent_referential_stop_area_path(@referential, @stop_area), :class => "select_parent" %></li>
   <% end %>
   <% if @stop_area.stop_area_type == 'itl' %>
-    <li><%= link_to  t('stop_areas.actions.add_stops'), add_stops_referential_stop_area_path(@referential, @stop_area), :class => "add_stops" %></li>
+    <li><%= link_to  t('stop_areas.actions.add_routing_stops'), add_routing_stops_referential_stop_area_path(@referential, @stop_area), :class => "add_routing_stops" %></li>
   <% elsif @stop_area.stop_area_type != 'boarding_position' && @stop_area.stop_area_type != 'quay' %>
     <li><%= link_to  t('stop_areas.actions.add_children'), add_children_referential_stop_area_path(@referential, @stop_area), :class => "add_children" %></li>
   <% end %>
