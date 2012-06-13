@@ -30,7 +30,8 @@ class ImportLogMessage < ActiveRecord::Base
   end
  
   def full_message
-    I18n.translate key, arguments.symbolize_keys.merge(:scope => "import_log_messages.messages")
+    last_key=key.rpartition("|").last
+    I18n.translate last_key, arguments.symbolize_keys.merge(:scope => "import_log_messages.messages").merge(:default => :undefined).merge(:key => last_key)
   end
 
 end

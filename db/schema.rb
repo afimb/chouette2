@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120607064625) do
+ActiveRecord::Schema.define(:version => 20120612071936) do
 
   create_table "access_links", :force => true do |t|
     t.integer  "access_point_id",                        :limit => 8
@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(:version => 20120607064625) do
   create_table "export_log_messages", :force => true do |t|
     t.integer  "export_id"
     t.string   "key"
-    t.string   "arguments"
+    t.string   "arguments",  :limit => 1000
     t.integer  "position"
     t.string   "severity"
     t.datetime "created_at"
@@ -193,7 +193,7 @@ ActiveRecord::Schema.define(:version => 20120607064625) do
   create_table "import_log_messages", :force => true do |t|
     t.integer  "import_id"
     t.string   "key"
-    t.string   "arguments"
+    t.string   "arguments",  :limit => 1000
     t.integer  "position"
     t.string   "severity"
     t.datetime "created_at"
@@ -209,6 +209,7 @@ ActiveRecord::Schema.define(:version => 20120607064625) do
     t.datetime "updated_at"
     t.string   "type"
     t.string   "options"
+    t.string   "file_type"
   end
 
   add_index "imports", ["referential_id"], :name => "index_imports_on_referential_id"

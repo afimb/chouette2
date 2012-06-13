@@ -19,10 +19,50 @@ en:
       started: Started import
       completed: Completed import
       failed: Failed import
+      undefined: %{key} undefined
+      NEPTUNE_ONE: Conformité du fichier
+      NEPTUNE_Test1_Sheet1: 'Fiche n° 1.1 : Conformité à la syntaxe XML suivant les recommandations du W3C'
+      NEPTUNE_Test1_Sheet1_Step1: Conformité à la syntaxe XML
+      NEPTUNE_Test1_Sheet1_Step2: Conformité au schéma XML du profil CHOUETTE
+      NEPTUNE_TooMuchDetails: ( %{0} erreurs / warnings supplémentaires )
+      NEPTUNE_Test1_Sheet1_Step0_fatal: "Erreur fatale : Impossible d'ouvrir le fichier %{0}"
+      NEPTUNE_Test1_Sheet1_Step0_error: "Impossible d'importer cette entrée %{0} du zip"
+      NEPTUNE_Test1_Sheet1_Step0_warning: "Cette entrée %{0} du zip n'est pas un fichier xml et a été ignoré"
+      NEPTUNE_Test1_Sheet1_Step1_error: "le fichier %{0} n'est pas correctement formé selon les recommandations du W3C"
+      NEPTUNE_Test1_Sheet1_Step2_error: "le fichier %{0} ne respecte pas le modèle CHOUETTE"
+      NEPTUNE_Test1_Sheet1_Step2_fatal: "Erreur fatale \: Aucune entrée valide trouvée dans le fichier"
+      CSV_IMPORT: Import CVS file
+      CSV_OK_LINE: line %{0} imported
+      CSV_OK_TIMETABLE: timetables %{0} (%{1}) imported
+      CSV_OK_PTNETWORK: "network %{0} : %{1} imported"
+      CSV_OK_COMPANY: company %{0} imported
+      CSV_FILE_NOT_FOUND: "file %{0} : error %{1}"
+      CSV_FILE_IGNORED: file %{0} ignored (not XML) 
+      CSV_VALIDATION_ERROR: "XML file don't agree with Neptune XSD : %{0}"
+      CSV_VALIDATION_CAUSE: %{0}
+      CSV_PARSE_OBJECT: Analyse %{0}
+      CSV_MANDATORY_TAG: "missing or empty mandatory tag : %{0}"
+      CSV_UNKNOWN_ENUM: "Unknown %{0} enumaration value : %{1}"
+      CSV_EMPTY_TAG: "empty tag : %{0}"
+      CSV_TIMETABLE_COUNT: "timetable count : %{0}"
+      CSV_LINE_COUNT: "line count : %{0}"
+      CSV_END_OF_FILE: Unexpected end of file
+      CSV_BAD_TIMETABLE_PERIODS: Bad timetable periods
+      CSV_INVALID_LINE: "invalid line : %{0}"
+      CSV_STOP_WITHOUT_COORDS: "Stop without coords : %{0}"
+      CSV_VJ_MISSING_TIMETABLE: "Unable to find timetable of vehicle journey : %{0}"
+      CSV_FILE_FORMAT: Invalid or deprecated CSV format
+      CSV_BAD_ID: "Invalid built Neptune Object ID : %{1} for %{0} "
+      CSV_UNUSED_TIMETABLE: Unused timetable %{0} (%{1})
+      SAVE: Save 
+      SAVE_OK: %{0} saved
     severities:
       info: Information
+      uncheck: Unchecked
+      ok: Ok
       warning: Warning
       error: Error
+      fatal: Fatal
   activerecord:        
     models:        
       import:
@@ -57,11 +97,51 @@ fr:
     messages:
       started: Import démarré
       completed: Import achevé avec succès
-      failed: Import interromptu
+      failed: Import interrompu
+      undefined: %{key} non défini
+      NEPTUNE_ONE: Conformité du fichier
+      NEPTUNE_Test1_Sheet1: 'Fiche n° 1.1 : Conformité à la syntaxe XML suivant les recommandations du W3C'
+      NEPTUNE_Test1_Sheet1_Step1: Conformité à la syntaxe XML
+      NEPTUNE_Test1_Sheet1_Step2: Conformité au schéma XML du profil CHOUETTE
+      NEPTUNE_TooMuchDetails: ( %{0} erreurs / warnings supplémentaires )
+      NEPTUNE_Test1_Sheet1_Step0_fatal: "Erreur fatale : Impossible d'ouvrir le fichier %{0}"
+      NEPTUNE_Test1_Sheet1_Step0_error: "Impossible d'importer cette entrée %{0} du zip"
+      NEPTUNE_Test1_Sheet1_Step0_warning: "Cette entrée %{0} du zip n'est pas un fichier xml et a été ignoré"
+      NEPTUNE_Test1_Sheet1_Step1_error: "le fichier %{0} n'est pas correctement formé selon les recommandations du W3C"
+      NEPTUNE_Test1_Sheet1_Step2_error: "le fichier %{0} ne respecte pas le modèle CHOUETTE"
+      NEPTUNE_Test1_Sheet1_Step2_fatal: "Erreur fatale : Aucune entrée valide trouvée dans le fichier"
+      CSV_IMPORT: Import de fichier au format CSV
+      CSV_OK_LINE: Ligne %{0} importée
+      CSV_OK_TIMETABLE: Tableau de marche %{0} (%{1}) importé
+      CSV_OK_PTNETWORK: "Réseau %{0} : %{1} importé"
+      CSV_OK_COMPANY: "Transporteur %{0} importé"
+      CSV_FILE_ERROR: "Fichier %{0} : erreur %{1}"
+      CSV_FILE_IGNORED: "Fichier %{0} ignoré (non CSV) "
+      CSV_VALIDATION_ERROR: "Fichier CSV ne respecte pas le format Chouette : %{0}"
+      CSV_VALIDATION_CAUSE: %{0}
+      CSV_PARSE_OBJECT: Analyse %{0}
+      CSV_MANDATORY_TAG: "Tag obligatoire absent ou vide : %{0}"
+      CSV_UNKNOWN_ENUM: "Valeur de l'enum %{0} inconnue : %{1}"
+      CSV_EMPTY_TAG: "Tag vide : %{0}"
+      CSV_TIMETABLE_COUNT: "Nombre de tableaux de marche : %{0}"
+      CSV_LINE_COUNT: "Nombre de lignes : %{0}"
+      CSV_END_OF_FILE: Fichier tronqué
+      CSV_BAD_TIMETABLE_PERIODS: Mauvaises périodes dans le tableau de marche
+      CSV_INVALID_LINE: "ligne invalide : %{0}"
+      CSV_STOP_WITHOUT_COORDS: "Arret sans coordonnées : %{0}"
+      CSV_VJ_MISSING_TIMETABLE: "Impossible de trouver le tableau de marche de la course : %{0}"
+      CSV_FILE_FORMAT: Format CSV invalide ou obsolète
+      CSV_BAD_ID: "Identifiant Neptune produit invalide : %{1} pour %{0} "
+      CSV_UNUSED_TIMETABLE: "Tableau de marche %{0} (%{1}) inutilisé"
+      SAVE: Sauvegarde 
+      SAVE_OK: %{0} enregistré
     severities:
       info: Information
+      uncheck: Non testé
+      ok: Ok
       warning: Alerte
       error: Erreur
+      fatal: Fatal
   activerecord:        
     models:        
       import:

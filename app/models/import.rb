@@ -61,6 +61,11 @@ class Import < ActiveRecord::Base
     self.status ||= "pending"
   end
 
+  before_validation :extract_file_type, :on => :create
+  def extract_file_type
+    self.file_type = resources.original_filename.rpartition(".").last
+  end
+
   after_create :delayed_import
   def delayed_import
     save_resources
@@ -81,7 +86,7 @@ class Import < ActiveRecord::Base
   end
 
   def saved_resources
-    "#{root}/#{id}.zip"
+    "#{root}/#{id}.#{file_type}"
   end
 
   def name
@@ -89,7 +94,7 @@ class Import < ActiveRecord::Base
   end
 
   def import_options
-    { :import_id => self.id }
+    { :import_id => self.id , :file_format => self.file_type }
   end
 
   def import

@@ -33,9 +33,9 @@ ChouetteIhm::Application.configure do
   config.to_prepare do
     chouette_command_script = "tmp/chouette-command/chouette"
     if File.exists? chouette_command_script
-      Chouette::Loader.chouette_command = "tmp/chouette-command/chouette"
+      Chouette::Command.command = "tmp/chouette-command/chouette"
     else
-      Chouette::Loader.chouette_command = "true"
+      Chouette::Command.command = "true"
     end
   end
   
