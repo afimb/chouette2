@@ -50,6 +50,9 @@ ChouetteIhm::Application.routes.draw do
     resources :companies, :stop_areas  
     
     resources :time_tables do
+      collection do
+        get :comment_filter
+      end
       resources :time_table_dates
       resources :time_table_periods
     end

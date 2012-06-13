@@ -21,12 +21,27 @@
 </div>
 <div class="vehicle_journeys paginated_content">
   <table border="1">
-  <tr>
-  <th> "vide"</th>
-  <% @vehicle_journeys.each do |vj| %>
-    <th> <%= link_to "c", [@referential, @line, @route, vj]%></th>
-  <% end %>
-  </tr>
+  <thead>
+    <tr>
+      <th>mission</th>
+      <% @vehicle_journeys.each do |vj| %>
+        <th> <%= link_to vj.journey_pattern.published_name.blank? ? vj.journey_pattern.id: vj.journey_pattern.published_name,
+                  [@referential, @line, @route, vj.journey_pattern]%></th>
+      <% end %>
+    </tr>
+    <tr>
+      <th>calendriers</th>
+      <% @vehicle_journeys.each do |vj| %>
+        <th title="<%= time_tables_info( vj) %>" class="calendars"> <%= time_tables_shortest_info( vj) %></th>
+      <% end %>
+    </tr>
+    <tr>
+      <th>courses</th>
+      <% @vehicle_journeys.each do |vj| %>
+      <th> <%= link_to "c", [@referential, @line, @route, vj]%></th>
+      <% end %>
+    </tr>
+  <thead>
   <% @route.stop_points.each_with_index do |sp, index| %>
   <tr>
     <td><%= sp.stop_area.name %></td>

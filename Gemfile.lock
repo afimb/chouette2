@@ -1,6 +1,6 @@
 GIT
   remote: git://chouette.dryade.priv/ninoxe
-  revision: 1b68352e83c2ef898fdab7cd4c4eeddba6a977d5
+  revision: b873a0f2de6ec4358148dc6c1400a34baf2343a3
   specs:
     ninoxe (0.0.8)
       GeoRuby
@@ -190,6 +190,7 @@ GEM
     jruby-rack (1.1.5)
     jruby-rack-worker (0.3-java)
       jruby-rack (>= 1.0.1)
+    json (1.7.3)
     json (1.7.3-java)
     json_pure (1.7.3)
     launchy (2.1.0)
@@ -267,7 +268,7 @@ GEM
       rspec-core (~> 2.10.0)
       rspec-expectations (~> 2.10.0)
       rspec-mocks (~> 2.10.0)
-    rspec-core (2.10.0)
+    rspec-core (2.10.1)
     rspec-expectations (2.10.0)
       diff-lcs (~> 1.1.3)
     rspec-mocks (2.10.1)

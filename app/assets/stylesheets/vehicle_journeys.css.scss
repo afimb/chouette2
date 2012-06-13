@@ -13,12 +13,55 @@
           display: none;
         }
     }
+    .time_table_list {
+        padding-left: 25%;
+    }
+}
+
+#workspace.vehicle_journeys.index
+{
+    th.calendars {
+        font-size: 11px;
+    }
 }
 
 #workspace.vehicle_journeys.show
 {
     .summary p label {
         font-weight: bold;
+    }
+    
+    .time_table:after { 
+        @include after_div_for_object;  
+    }
+
+    .time_tables {
+        margin-top: 20px;
+    }
+
+    .time_tables:after {
+        @include content_to_clear;
+    }
+    
+    .vehicle_journey_time_tables {
+        clear: both;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .time_table {
+        @include div_for_object;
+        /* to create multi-column index */
+        width: 350px;
+        float: left;
+        padding-right: 10px;
+
+        span.included_day_type {
+            font-weight: bolder;
+            color: black;
+        }
+        span.excluded_day_type {
+        }
     }
 }        
 

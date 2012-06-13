@@ -23,14 +23,15 @@ class VehicleJourneysController < ChouetteController
   alias_method :vehicle_journey, :resource
 
   def collection
-    @q = parent.vehicle_journeys.search(params[:q])
-    @vehicle_journeys ||= @q.result(:distinct => true).paginate(:page => params[:page], :per_page => 10)
+    @q = parent.sorted_vehicle_journeys.search(params[:q])
+    @vehicle_journeys ||= @q.result(:distinct => true).order( "vehicle_journey_at_stops.departure_time").paginate(:page => params[:page], :per_page => 10)
     @matrix ||= matrix 
   end
 
   def matrix
     {}.tap do |hash|
-      @vehicle_journeys.each do |vj|
+      Chouette::VehicleJourney.find( @vehicle_journeys.map { |v| v.id } ).
+        each do |vj|
         vj.vehicle_journey_at_stops.each do |vjas|
           hash[ "#{vj.id}-#{vjas.stop_point_id}"] = vjas 
         end

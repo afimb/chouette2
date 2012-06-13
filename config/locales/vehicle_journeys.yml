@@ -1,5 +1,8 @@
 en:
   vehicle_journeys:
+    vehicle_journey:
+      title_stopless: Vehicle journey %{name}
+      title: Vehicle journey %{name} leaving from %{stop} at %{time}
     actions:
       new: Add a new vehicle journey
       edit: Edit this vehicle journey
@@ -8,11 +11,16 @@ en:
     new:
       title: Add a new vehicle journey
     edit:
-      title: Update vehicle journey %{vehicle journey}
+      title_stopless: Update vehicle journey %{name}
+      title: Update vehicle journey %{name} leaving from %{stop} at %{time}
+    form:
+      time_tables: Associated calendars to vehicle journey
     show:
       title: Vehicle Journey %{vehicle journey}
+      time_tables: Calendars list
+      bounding: From %{start} to %{end}
     index:
-      title: Vehicle journeys on route {%route}
+      title: Vehicle journeys on route %{route}
   activerecord:        
     models:        
       vehicle_journey: 
@@ -33,6 +41,8 @@ en:
         published_journey_identifier: Published Identifier
         facility: Facility
         vehicletypeidentifier: Vehicle Type Identifier
+        time_table_ids: Calendar list
+        vehicle_journey_at_stop_ids: Time list
         objectid: Neptune identifier
         object_version: Version
         creation_time: Created on
@@ -40,6 +50,9 @@ en:
 
 fr:
   vehicle_journeys:
+    vehicle_journey:
+      title_stopless: Course %{name}
+      title: Course %{name} partant de %{stop} à %{time}
     actions:
       new: "Ajouter une course"
       edit: "Modifier cette course"
@@ -48,9 +61,14 @@ fr:
     new:
       title: "Ajouter une course"
     edit:
-      title: "Modifier la course au départ de %{stop} à %{time} sur la séquence %{route}"
+      title_stopless: "Modifier la course %{name}"
+      title: "Modifier la course partant de %{stop} à %{time}"
+    form:
+      time_tables: Calendriers associés à la course
     show:
       title: "Course au départ de %{stop} à %{time} sur la séquence %{route}"
+      time_tables: Liste des calendriers
+      bounding: De %{start} à %{end}
     index:
       title: "Courses de la séquence d'arrêts %{route}"
   activerecord:        
@@ -73,6 +91,8 @@ fr:
         published_journey_identifier: Identifiant public
         facility: Equipement
         vehicle_type_identifier: "Type d'identifiant du véhicule"
+        time_table_ids: "Liste des calendriers"
+        vehicle_journey_at_stop_ids: Liste des horaires
         objectid: Identifiant Neptune
         object_version: Version
         creation_time: Créé le

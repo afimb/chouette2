@@ -17,7 +17,7 @@
       </li>
     <% end %>
     
-    <%= form.inputs :class => "stop_times" do %>
+    <%= form.inputs :class => "stop_times", :name => @vehicle_journey.human_attribute_name(:vehicle_journey_at_stop_ids) do %>
       <div class="journey_pattern_dependent_list">
         <!--
         <= form.semantic_fields_for :vehicle_journey_at_stops do |vjas| >
@@ -29,6 +29,11 @@
         -->
         <%= render :partial => "vehicle_journeys/vehicle_journey_at_stop_fields",
           :collection => @vehicle_journey.vehicle_journey_at_stops, :as => :vehicle_journey_at_stop %> 
+      </div>
+    <% end %>
+    <%= form.inputs :class => "time_tables", :name=> @vehicle_journey.human_attribute_name(:time_table_ids) do %>
+      <div class="time_table_list">
+      <%= form.input :time_table_ids, :label => t('.time_tables'), :as => :text, :input_html => { :"data-pre" => ( @vehicle_journey.time_tables.map { |time_table| { :id => time_table.id.to_s, :name => time_table.comment } } ).to_json }  %>
       </div>
     <% end %>
     
@@ -44,4 +49,14 @@
 <% unless @vehicle_journey.new_record? %>
   <%= javascript_include_tag edit_referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey, :format => :js) %>
 <% end %>
+
+<script>
+	$(function() {
+          $( "#vehicle_journey_time_table_ids" ).tokenInput('<%= comment_filter_referential_time_tables_path(@referential, :format => :json) %>', { 
+       crossDomain: false, 
+       prePopulate: $('#time_table_ids').data('pre'),
+       minChars: 3,
+    });
+	});
+</script>
 

@@ -6,7 +6,23 @@ class TimeTablesController < ChouetteController
 
   belongs_to :referential
 
+  def comment_filter
+    respond_to do |format|  
+      format.json { render :json => filtered_time_tables_maps}  
+    end  
+    
+  end
+
   protected
+
+  def filtered_time_tables_maps
+    filtered_time_tables.collect do |time_table|
+      { :id => time_table.id.to_s, :name => time_table.comment }
+    end
+  end
+  def filtered_time_tables
+    referential.time_tables.select{ |t| t.comment =~ /#{params[:q]}/i  }
+  end
 
   def collection    
     @q = referential.time_tables.search(params[:q])

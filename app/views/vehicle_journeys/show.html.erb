@@ -1,4 +1,4 @@
-<%= title_tag t('vehicle_journeys.edit.title' ) %>
+<%= title_tag vehicle_title(@vehicle_journey) %>
 
 <div class="vehicle_journey">
   <div class="summary">
@@ -7,11 +7,11 @@
       <%= link_to line_formatted_name( @line), [@referential, @line] %>
     </p>
     <p>
-      <label><%= Chouette::Route.model_name.human %>: </label>
+      <label><%= @vehicle_journey.human_attribute_name(:route) %>: </label>
       <%= link_to @route.name, [@referential, @line, @route] %>
     </p>
     <p>
-      <label><%= Chouette::JourneyPattern.model_name.human %>: </label>
+      <label><%= @vehicle_journey.human_attribute_name(:journey_pattern) %>: </label>
       <%= link_to journey_name(@vehicle_journey.journey_pattern), [@referential, @line, @route, @vehicle_journey.journey_pattern] %>
     </p>
     <p>
@@ -51,6 +51,10 @@
       <%= @vehicle_journey.creator_id %>
     </p>
   </div>
+</div>
+<h3><%= t('.time_tables') %></h3>
+<div class="vehicle_journey_time_tables">
+<%= render :partial => "vehicle_journeys/time_table", :collection => @vehicle_journey.time_tables %>
 </div>
 <% content_for :sidebar do %>
 <ul class="actions">

@@ -1,6 +1,15 @@
 <%= div_for(time_table, :class => "time_table") do %>
   <%= link_to time_table.comment, [@referential, time_table] %>
   <div class="info">
+    <%= composition_info(time_table) %> -
+    <% unless time_table.periods.empty? %>
+      <% %w(monday tuesday wednesday thursday friday saturday sunday).each do |day_type| %>
+        <span class="<%= time_table.send( day_type) ? "included_day_type" : "excluded_day_type" %>">
+          <%= time_table.human_attribute_name(day_type).first(2) %>
+        </span>
+      <% end %>
+    <% end %> -
+    <%= bounding_info(time_table) %>
     <div class="actions">  
       <%= link_to t("actions.edit"), edit_referential_time_table_path(@referential, time_table), :class => "edit" %>
     </div>

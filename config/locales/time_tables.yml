@@ -1,6 +1,11 @@
 en:
   time_tables:
     time_table:
+      empty: empty
+      bounding: from %{start} to %{end}
+      periods_count: "periods: %{count}"
+      dates_count: "dates: %{count}"
+      periods_dates_count: "dates: %{dates_count}, periods: %{periods_count}"
     actions:
       new: Add a new timetable
       edit: Edit this timetable
@@ -62,6 +67,11 @@ en:
 fr:
   time_tables:
     time_table:
+      empty: vide
+      bounding: du %{start} au %{end}
+      periods_count: "périodes: %{count}"
+      dates_count: "dates: %{count}"
+      periods_dates_count: "dates: %{dates_count}, périodes: %{periods_count}"
     actions:
       new: Ajouter un calendrier
       edit: Modifier ce calendrier
