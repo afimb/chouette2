@@ -24,6 +24,16 @@ class StopAreasController < ChouetteController
     @children = stop_area.children
   end
 
+  def add_routing_lines
+    @stop_area = stop_area
+    @lines = stop_area.routing_lines
+  end
+
+  def add_routing_stops
+    @stop_area = stop_area
+    @stops = stop_area.routing_stops
+  end
+
   def index     
     request.format.kml? ? @per_page = nil : @per_page = 10
     index!
@@ -48,6 +58,11 @@ class StopAreasController < ChouetteController
     @map.editable = true
     edit!
   end
+
+#  def update     
+#    puts :resource
+#    update!
+#  end
 
   protected
   

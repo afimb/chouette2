@@ -7,7 +7,7 @@
   <%= will_paginate @imports, :container => false %>
 </div>
 <div class="imports paginated_content">
-  <%= render @imports %>
+  <%= render :partial => "import", :collection => @imports %>
 </div>
 <div class="pagination">
   <%= will_paginate @imports, :container => false %>

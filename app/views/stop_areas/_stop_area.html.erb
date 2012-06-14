@@ -12,8 +12,14 @@
       <% end %>
     </p>
     <p> 
-      <%= t('.lines') %> <% stop_area.lines.each do |line| %>
-        <span class="line"><%= line.number %></span>
+      <% if stop_area.area_type == 'ITL' %>
+        <%= t('.lines') %> <% stop_area.routing_lines.each do |line| %>
+          <span class="line"><%= line.number %></span>
+        <% end %>
+      <% else %>
+        <%= t('.lines') %> <% stop_area.lines.each do |line| %>
+          <span class="line"><%= line.number %></span>
+        <% end %>
       <% end %>
     </p>
     <div class="actions">  

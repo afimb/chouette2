@@ -1,0 +1,39 @@
+<%= title_tag @export.name %>
+
+<div class="export_show">
+  <div class="summary">
+    <p>
+      <label><%= Export.human_attribute_name(:created_at) %>: </label>
+      <%= l @export.created_at %>
+    </p>
+    <p>
+      <label><%= Export.human_attribute_name(:status) %>: </label>
+      <%= t @export.status, :scope => "exports.statuses" %>
+    </p>
+  </div>
+
+  <h3><%= t(".report") %></h3>
+  <table>
+    <tr>
+      <th></th>
+      <th><%= ExportLogMessage.human_attribute_name(:created_at) %></th>
+      <th><%= ExportLogMessage.human_attribute_name(:position) %></th>
+      <th><%= ExportLogMessage.human_attribute_name(:full_message) %></th>
+    </tr>
+    <% @export.log_messages.each do |message| %>
+    <tr>
+      <td class="severity"><%= image_tag "severity-#{message.severity}.png", :alt => t(message.severity, :scope => "export_log_messages.severities") %></td>
+      <td class="created_at"><%= l message.created_at, :format => :short %></td>
+      <td class="position"><%= message.position %></td>
+      <td class="message"><%= message.full_message %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to  t('exports.actions.download'), referential_export_path(@referential, @export, :format => :zip), :class => "download" %></li>
+  <li><%= link_to  t('exports.actions.destroy'), referential_export_path(@referential, @export), :method => :delete, :confirm =>  t('exports.actions.destroy_confirm'), :class => "remove" %></li>
+</ul>
+<% end %>

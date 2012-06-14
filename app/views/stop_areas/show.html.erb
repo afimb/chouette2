@@ -84,7 +84,9 @@
   
 
   <div class="genealogical">
-    <% if @stop_area.parent.present? || @stop_area.children.present? %>
+  	<% if @stop_area.stop_area_type == 'itl' %>
+      <h3><%= t(".genealogical_routing") %></h3>
+    <% else %>
       <h3><%= t(".genealogical") %></h3>
     <% end %>
 
@@ -95,15 +97,24 @@
       <% end %>
     </div> 
     <div class="link"><%= image_tag "icons/link.png"%></div>
+    <% elsif @stop_area.routing_lines.present? %> 
+    <div class="lines">
+      <% @stop_area.routing_lines.each do |line| %>
+      <div class="line">
+        <%= link_to([@referential, line]) do %> 
+          <span><%= line.name %></span>         
+        <% end %>  
+      </div>
+      <% end %>
+    </div> 
+    <div class="link"><%= image_tag "icons/link.png"%></div>
     <% else %>
     <div class="no_parent">&nbsp;</div>
     <% end %>
 
-    <% if @stop_area.parent.present? || @stop_area.children.present? %>
     <div class="target">
       <%= image_tag "map/" + @stop_area.stop_area_type + ".png"%><span><%= @stop_area.name %></span>
     </div> 
-    <% end %>
     
     <% if @stop_area.children.present? %>
     <div class="link"><%= image_tag "icons/link.png"%></div>
@@ -112,6 +123,17 @@
       <div class="child">
         <%= link_to([@referential, child]) do %> 
           <%= image_tag "map/" + child.stop_area_type + ".png"   %><span><%= child.name %></span>         
+        <% end %>  
+      </div>
+      <% end %>
+    </div> 
+    <% elsif @stop_area.routing_stops.present? %>
+    <div class="link"><%= image_tag "icons/link.png"%></div>
+    <div class="children">
+      <% @stop_area.routing_stops.each do |stop| %>
+      <div class="child">
+        <%= link_to([@referential, stop]) do %> 
+          <%= image_tag "map/" + stop.stop_area_type + ".png"   %><span><%= stop.name %></span>         
         <% end %>  
       </div>
       <% end %>
@@ -125,10 +147,14 @@
 <ul class="actions">
   <li><%= link_to t('stop_areas.actions.edit'), edit_referential_stop_area_path(@referential, @stop_area), :class => "edit" %></li>
   <li><%= link_to  t('stop_areas.actions.destroy'), referential_stop_area_path(@referential, @stop_area), :method => :delete, :confirm =>  t('stop_areas.actions.destroy_confirm'), :class => "remove" %></li>
-  <% if @stop_area.stop_area_type != 'itl' %>
+  <% if @stop_area.stop_area_type == 'itl' %>
+    <li><%= link_to  t('stop_areas.actions.add_routing_lines'), add_routing_lines_referential_stop_area_path(@referential, @stop_area), :class => "add_routing_lines" %></li>
+  <% else %>
     <li><%= link_to  t('stop_areas.actions.select_parent'), select_parent_referential_stop_area_path(@referential, @stop_area), :class => "select_parent" %></li>
   <% end %>
-  <% if @stop_area.stop_area_type != 'boarding_position' && @stop_area.stop_area_type != 'quay' %>
+  <% if @stop_area.stop_area_type == 'itl' %>
+    <li><%= link_to  t('stop_areas.actions.add_routing_stops'), add_routing_stops_referential_stop_area_path(@referential, @stop_area), :class => "add_routing_stops" %></li>
+  <% elsif @stop_area.stop_area_type != 'boarding_position' && @stop_area.stop_area_type != 'quay' %>
     <li><%= link_to  t('stop_areas.actions.add_children'), add_children_referential_stop_area_path(@referential, @stop_area), :class => "add_children" %></li>
   <% end %>
   <br>

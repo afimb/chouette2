@@ -13,10 +13,35 @@ class Import < ActiveRecord::Base
 
   serialize :options
 
-  after_initialize :define_options
+  def self.option(name)
+    name = name.to_s
 
-  def define_options
-    self.options = {}
+    define_method(name) do
+      self.options[name]
+    end
+
+    define_method("#{name}=") do |prefix|
+      self.options[name] = prefix
+    end
+  end
+
+  def options
+    read_attribute(:options) || write_attribute(:options, {})
+  end
+
+  def self.types
+    # if Rails.env.development? and subclasses.blank?
+    #   Dir[File.expand_path("../*_import.rb", __FILE__)].each do |f| 
+    #     require f
+    #   end
+    # end
+
+    unless Rails.env.development?
+      subclasses.map(&:to_s)
+    else
+      # FIXME
+      %w{NeptuneImport CsvImport}
+    end
   end
 
   def loader
@@ -34,6 +59,11 @@ class Import < ActiveRecord::Base
   before_validation :define_default_attributes, :on => :create
   def define_default_attributes
     self.status ||= "pending"
+  end
+
+  before_validation :extract_file_type, :on => :create
+  def extract_file_type
+    self.file_type = resources.original_filename.rpartition(".").last
   end
 
   after_create :delayed_import
@@ -56,7 +86,7 @@ class Import < ActiveRecord::Base
   end
 
   def saved_resources
-    "#{root}/#{id}.zip"
+    "#{root}/#{id}.#{file_type}"
   end
 
   def name
@@ -64,7 +94,7 @@ class Import < ActiveRecord::Base
   end
 
   def import_options
-    {}
+    { :import_id => self.id , :file_format => self.file_type }
   end
 
   def import
@@ -84,6 +114,14 @@ class Import < ActiveRecord::Base
       update_attribute :status, "failed"
     end
     log_messages.create :key => status
+  end
+
+  def self.new(attributes = {}, options = {}, &block)
+    if self == Import
+      Object.const_get(attributes.delete(:type) || "NeptuneImport").new(attributes, options)
+    else
+      super
+    end
   end
 
 end

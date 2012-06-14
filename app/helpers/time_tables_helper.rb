@@ -6,7 +6,8 @@ module TimeTablesHelper
         :end => l(time_table.bounding_dates.max))
   end
   def time_tables_shortest_info( vehicle)
-    "#{l(vehicle.bounding_dates.min)} #{l(vehicle.bounding_dates.max)}"
+    return vehicle.bounding_dates.inspect
+    #"#{l(vehicle.bounding_dates.min)} #{l(vehicle.bounding_dates.max)}"
   end
   def time_tables_info( vehicle)
     vehicle.time_tables.map do |time_table|

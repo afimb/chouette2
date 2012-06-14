@@ -1,0 +1,79 @@
+en:
+  exports:
+    actions:
+      new: New export
+      destroy: Destroy
+      destroy_confirm: Are you sure you want destroy this export?
+      download: Download
+    new:
+      title: New export
+    index:
+      title: Exports
+    show:
+      report: Report
+    statuses:
+      pending: Pending
+      completed: Completed
+      failed: Failed
+  export_log_messages:
+    messages:
+      started: Started export
+      completed: Completed export
+      failed: Failed export
+    severities:
+      info: Information
+      warning: Warning
+      error: Error
+  activerecord:        
+    models:        
+      export:
+        zero:  export
+        one:   export
+        other: exports
+    attributes:
+      export:
+        status: Status
+      export_log_message:
+        created_at: Date
+        position: N.
+        full_message: Message
+fr:
+  exports:
+    actions:
+      new: Nouvel export
+      destroy: Supprimer cet export
+      destroy_confirm: Etes vous sûr de détruire cet export ?
+      download: Télécharger
+    new:
+      title: Nouvel export
+    index:
+      title: Exports
+    show:
+      report: Rapport
+    statuses:
+      pending: En cours
+      completed: Achevé
+      failed: Echoué
+  export_log_messages:
+    messages:
+      started: Export démarré
+      completed: Export achevé avec succès
+      failed: Export interromptu
+    severities:
+      info: Information
+      warning: Alerte
+      error: Erreur
+  activerecord:        
+    models:        
+      export: Export
+      neptune_export: 
+        zero:  Export Neptune
+        one:   Export Neptune
+        other: Exports Neptune
+    attributes:
+      export:
+        status: Status
+      export_log_message:
+        created_at: Date
+        position: "No"
+        full_message: Message

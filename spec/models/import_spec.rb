@@ -42,4 +42,20 @@ describe Import do
 
   end
 
+  describe ".types" do
+    
+    it "should return available Import implementations" do
+      Import.types.should =~ %w{NeptuneImport CsvImport}
+    end
+
+  end
+
+  describe ".new" do
+    
+    it "should use type attribute to create a subclass" do
+      Import.new(:type => "NeptuneImport").should be_an_instance_of(NeptuneImport)
+    end
+
+  end
+
 end

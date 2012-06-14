@@ -9,6 +9,7 @@ class Referential < ActiveRecord::Base
   validates_format_of :prefix, :with => %r{\A[0-9a-zA-Z_]+\Z}
 
   has_many :imports, :dependent => :destroy
+  has_many :exports, :dependent => :destroy
 
   def human_attribute_name(*args)
     self.class.human_attribute_name(*args)

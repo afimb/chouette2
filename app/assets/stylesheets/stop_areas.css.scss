@@ -65,6 +65,19 @@
             span { margin-left: 7px; }
             img { margin: 0px 5px 0px 5px;}
         }
+        .lines{
+            float: left;
+
+            .line{
+                border: 2px solid black;
+                padding: 3px 15px 3px 3px;
+                height: 25px;
+                margin-bottom: 5px;
+                * { vertical-align:middle; }
+                span { margin-left: 7px; }
+                img { margin: 0px 5px 0px 5px;}
+            }
+        }
         .no_parent{
             float: left;
             padding: 3px 15px 3px 3px;
