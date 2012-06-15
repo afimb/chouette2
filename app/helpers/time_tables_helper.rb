@@ -5,13 +5,19 @@ module TimeTablesHelper
         :start => l(time_table.bounding_dates.min),
         :end => l(time_table.bounding_dates.max))
   end
+  def bounding_short_info(dates)
+    return t('time_tables.time_table.empty') if dates.empty?
+    "#{l(dates.min)} #{l(dates.max)}"
+  end
+  def time_table_bounding( time_table)
+    bounding_short_info( time_table.bounding_dates)
+  end
   def time_tables_shortest_info( vehicle)
-    return vehicle.bounding_dates.inspect
-    #"#{l(vehicle.bounding_dates.min)} #{l(vehicle.bounding_dates.max)}"
+    bounding_short_info( vehicle.bounding_dates)
   end
   def time_tables_info( vehicle)
     vehicle.time_tables.map do |time_table|
-      composition_info(time_table)
+      "#{time_table_bounding( time_table)} - #{composition_info(time_table)}"
     end.join( "\n")
   end
 
@@ -19,7 +25,7 @@ module TimeTablesHelper
     return if time_table.bounding_dates.empty?
     if time_table.dates.empty?
       t('time_tables.time_table.periods_count', :count => time_table.periods.count)
-    elsif
+    elsif time_table.periods.empty?
       t('time_tables.time_table.dates_count', :count => time_table.dates.count)
     else
       t('time_tables.time_table.periods_dates_count', 

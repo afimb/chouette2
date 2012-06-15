@@ -27,6 +27,9 @@ en:
         other: routes
     attributes:
       route:
+        wayback: 
+          positive: forward
+          negative: backward
         line: Line
         name: Name
         published_name: Published name        
@@ -69,6 +72,9 @@ fr:
         other: "Séquences d'arrêts"
     attributes:
       route:
+        wayback: 
+          positive: Aller
+          negative: Retour
         line: Ligne
         name: Nom
         published_name: Nom public        

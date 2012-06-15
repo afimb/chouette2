@@ -30,6 +30,26 @@
     .summary p label {
         font-weight: bold;
     }
+
+    .vehicle_journey_at_stops thead th {
+      text-align: center;
+    }
+    .vehicle_journey_at_stops thead th.hour {
+      width: 70px;
+    }
+    .vehicle_journey_at_stops tbody td.hour {
+      text-align: center;
+    }
+    .vehicle_journey_at_stops thead tr {
+      background-color: #75B80D;
+      color: white;
+    }
+    .vehicle_journey_at_stops tbody tr.odd {
+      background-color: #BDF366;
+    }
+    .vehicle_journey_at_stops tbody tr.even {
+      background-color: #85CF10;
+    }
     
     .time_table:after { 
         @include after_div_for_object;  
@@ -53,6 +73,7 @@
         @include div_for_object;
         /* to create multi-column index */
         width: 350px;
+        height: 100px;
         float: left;
         padding-right: 10px;
 

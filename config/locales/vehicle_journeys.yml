@@ -4,6 +4,7 @@ en:
       title_stopless: Vehicle journey %{name}
       title: Vehicle journey %{name} leaving from %{stop} at %{time}
     actions:
+      index: "Vehicle time's board"
       new: Add a new vehicle journey
       edit: Edit this vehicle journey
       destroy: Remove this vehicle journey
@@ -17,10 +18,14 @@ en:
       time_tables: Associated calendars to vehicle journey
     show:
       title: Vehicle Journey %{vehicle journey}
+      stop_title: Stop
+      departure: Departure
+      arrival: Arrival
       time_tables: Calendars list
       bounding: From %{start} to %{end}
     index:
       title: Vehicle journeys on route %{route}
+      vehicle_journeys: "Departure's times"
   activerecord:        
     models:        
       vehicle_journey: 
@@ -54,6 +59,7 @@ fr:
       title_stopless: Course %{name}
       title: Course %{name} partant de %{stop} à %{time}
     actions:
+      index: "Horaires des courses"
       new: "Ajouter une course"
       edit: "Modifier cette course"
       destroy: "Supprimer cette course"
@@ -67,10 +73,14 @@ fr:
       time_tables: Calendriers associés à la course
     show:
       title: "Course au départ de %{stop} à %{time} sur la séquence %{route}"
+      stop_title: Arrêt
+      departure: Départ
+      arrival: Arrivée
       time_tables: Liste des calendriers
       bounding: De %{start} à %{end}
     index:
       title: "Courses de la séquence d'arrêts %{route}"
+      vehicle_journeys: "Horaires de départ aux arrêts"
   activerecord:        
     models:        
       vehicle_journey: 

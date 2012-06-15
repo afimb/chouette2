@@ -25,14 +25,16 @@
     <tr>
       <th>mission</th>
       <% @vehicle_journeys.each do |vj| %>
-        <th> <%= link_to vj.journey_pattern.published_name.blank? ? vj.journey_pattern.id: vj.journey_pattern.published_name,
+        <th> <%= link_to vj.journey_pattern.published_name.blank? ? vj.journey_pattern.id: vj.journey_pattern.published_name.first(8),
                   [@referential, @line, @route, vj.journey_pattern]%></th>
       <% end %>
     </tr>
     <tr>
       <th>calendriers</th>
       <% @vehicle_journeys.each do |vj| %>
-        <th title="<%= time_tables_info( vj) %>" class="calendars"> <%= time_tables_shortest_info( vj) %></th>
+        <th title="<%= time_tables_info( vj) %>" class="calendars"> 
+          <%= time_tables_shortest_info( vj) %>
+        </th>
       <% end %>
     </tr>
     <tr>
@@ -54,6 +56,9 @@
 </div>
 <% content_for :sidebar do %>
 <ul class="actions">
+  <li>
+    <%= link_to  t('vehicle_journeys.actions.new'), new_referential_line_route_vehicle_journey_path(@referential, @line, @route), :class => "link" %>
+  </li>
 </ul>
 <% end %>
 

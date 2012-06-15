@@ -93,6 +93,9 @@
   <li>
     <%= link_to  t('journey_patterns.actions.new'), new_referential_line_route_journey_pattern_path(@referential, @line, @route), :class => "add" %>
   </li>
+  <li>
+    <%= link_to  t('vehicle_journeys.actions.index'), referential_line_route_vehicle_journeys_path(@referential, @line, @route), :class => "link" %>
+  </li>
 </ul>
 <% end %>
 

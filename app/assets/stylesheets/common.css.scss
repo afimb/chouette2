@@ -43,6 +43,9 @@
                 padding-left: 12px;
             }
 
+            a.link {
+                background: url(image-path('icons/link-small.png')) no-repeat 0% 50%;
+            }
             a.edit {
                 background: url(image-path('user_interface/ui/edit-small.png')) no-repeat 0% 50%;
             }
