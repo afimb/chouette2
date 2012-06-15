@@ -20,9 +20,47 @@
 
 #workspace.vehicle_journeys.index
 {
-    th.calendars {
-        font-size: 11px;
+    table{ margin: 20px 0 0 0;  }
+    
+    tr.odd{}
+    tr.even{ background-color: #DEFFA8; }
+
+    thead tr{ background-color: #95CB3E; }
+
+    tbody { margin: 10px;}
+
+    tr{  
+        
+        th{ 
+            padding: 5px 7px 5px 7px;
+            text-align: center;            
+        }    
+        
+        th.calendars {
+            font-size: 11px;
+        }                  
+
+        th.title {
+            text-align: left;
+        }          
+        
+        td{ 
+            padding: 5px 7px 5px 7px;
+            text-align: center;           
+        }
+
+        td.hours{
+            font-size: 12px;
+            color: #516a29; 
+        }
+
+        td.stop_area{ 
+            text-align: left;
+            font-size: 12px;
+            font-weight: bold;
+        }
     }
+    
 }
 
 #workspace.vehicle_journeys.show
