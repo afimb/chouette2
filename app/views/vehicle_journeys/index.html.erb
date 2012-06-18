@@ -20,17 +20,17 @@
   <%= will_paginate @vehicle_journeys, :container => false %>
 </div>
 <div class="vehicle_journeys paginated_content">
-  <table border="1">
+  <table>
   <thead>
     <tr>
-      <th>mission</th>
+      <th class="title">Missions : </th>
       <% @vehicle_journeys.each do |vj| %>
         <th> <%= link_to vj.journey_pattern.published_name.blank? ? vj.journey_pattern.id: vj.journey_pattern.published_name.first(8),
                   [@referential, @line, @route, vj.journey_pattern]%></th>
       <% end %>
     </tr>
     <tr>
-      <th>calendriers</th>
+      <th class="title">Calendriers : </th>
       <% @vehicle_journeys.each do |vj| %>
         <th title="<%= time_tables_info( vj) %>" class="calendars"> 
           <%= time_tables_shortest_info( vj) %>
@@ -38,20 +38,22 @@
       <% end %>
     </tr>
     <tr>
-      <th>courses</th>
+      <th class="title">Courses : </th>
       <% @vehicle_journeys.each do |vj| %>
       <th> <%= link_to "c", [@referential, @line, @route, vj]%></th>
       <% end %>
     </tr>
-  <thead>
+  </thead>
+  <tbody>
   <% @route.stop_points.each_with_index do |sp, index| %>
-  <tr>
-    <td><%= sp.stop_area.name %></td>
+  <tr class="<%= cycle('odd', 'even') %>">
+    <td class="stop_area"><%= sp.stop_area.name %></td>
     <% @vehicle_journeys.each do |vj| %>
-      <td><%= @matrix["#{vj.id}-#{sp.id}"] ? l( @matrix["#{vj.id}-#{sp.id}"].departure_time, :format => :hour) : "" %></td>
+      <td class="hours"><%= @matrix["#{vj.id}-#{sp.id}"] ? l( @matrix["#{vj.id}-#{sp.id}"].departure_time, :format => :hour) : "" %></td>
     <% end %>
   </tr>
   <% end %>
+  </tbody>
   </table>
 </div>
 <% content_for :sidebar do %>
