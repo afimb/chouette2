@@ -1,6 +1,0 @@
-<%= div_for(vehicle_journey_at_stop, :class => "vehicle_journey_at_stop") do %>
-  <span class="stop_name">
-    <%= link_to vehicle_journey_at_stop.stop_point.stop_area.name, [@referential, vehicle_journey_at_stop.stop_point.stop_area] %>
-  </span><%= l(vehicle_journey_at_stop.departure_time, :format => :hour) %>
-<% end %>
-

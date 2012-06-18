@@ -69,15 +69,15 @@
             th { text-align: center; }
             th.hour { width: 130px; }
             tr {
-              background-color: #75B80D;
+              background-color: #95CB3E;
               color: white;
             }
         }
         tbody {
             td.hour { text-align: center; }
             tr label { width: 100% }
-            tr.odd { background-color: #BDF366; }
-            tr.even { background-color: #85CF10; }
+            tr.odd { }
+            tr.even { background-color: #DEFFA8; }
         }
     }
 }

@@ -18,12 +18,12 @@
     <% end %>
     
     <%= form.inputs :class => "stop_times", :name => @vehicle_journey.human_attribute_name(:vehicle_journey_at_stop_ids) do %>
-      <table border="1" class="vehicle_journey_at_stops">
+      <table border="0" class="vehicle_journey_at_stops">
         <thead>
           <tr>
+            <th class="hour title"><%= t('.arrival') %></th>
             <th class="stop title" ><%= t('.stop_title') %></th>
             <th class="hour title"><%= t('.departure') %></th>
-            <th class="hour title"><%= t('.arrival') %></th>
           </tr>
         </thead>
         <!--
