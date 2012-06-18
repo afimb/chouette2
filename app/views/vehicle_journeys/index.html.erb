@@ -10,8 +10,8 @@
       <label><%= Chouette::Route.model_name.human %>: </label>
       <%= link_to @route.name, [@referential, @line, @route] %>
     </p>
-  <div>
-<div>
+  </div>
+</div>
 <h3 class="vehicle_journeys"><%= t('.vehicle_journeys') %></h3>
 <div class="pagination">
   <div class="page_info">
@@ -59,8 +59,18 @@
 <% content_for :sidebar do %>
 <ul class="actions">
   <li>
-    <%= link_to  t('vehicle_journeys.actions.new'), new_referential_line_route_vehicle_journey_path(@referential, @line, @route), :class => "link" %>
+    <%= link_to  t('vehicle_journeys.actions.new'), new_referential_line_route_vehicle_journey_path(@referential, @line, @route), :class => "add" %>
   </li>
 </ul>
+<h3><%= t(".selection") %></h3>
+
+<h4><%= Chouette::JourneyPattern.model_name.human.pluralize %></h4>
+
+<ul class="selection">
+<% @route.journey_patterns.each do |journey_pattern| %>
+<li><%= link_with_search journey_pattern.name, "journey_pattern_id_eq" => journey_pattern.id %></li>
 <% end %>
+<li><%= link_with_search t(".selection_all"), {"journey_pattern_id_eq" => nil}, :class => "all" %></li>
+</ul>
+
 
