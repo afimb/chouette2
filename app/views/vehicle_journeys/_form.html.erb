@@ -18,7 +18,14 @@
     <% end %>
     
     <%= form.inputs :class => "stop_times", :name => @vehicle_journey.human_attribute_name(:vehicle_journey_at_stop_ids) do %>
-      <div class="journey_pattern_dependent_list">
+      <table border="1" class="vehicle_journey_at_stops">
+        <thead>
+          <tr>
+            <th class="stop title" ><%= t('.stop_title') %></th>
+            <th class="hour title"><%= t('.departure') %></th>
+            <th class="hour title"><%= t('.arrival') %></th>
+          </tr>
+        </thead>
         <!--
         <= form.semantic_fields_for :vehicle_journey_at_stops do |vjas| >
           <= vjas.object.stop_point.stop_area.name >
@@ -27,9 +34,11 @@
 
         < end >
         -->
+        <tbody class="journey_pattern_dependent_list">
         <%= render :partial => "vehicle_journeys/vehicle_journey_at_stop_fields",
           :collection => @vehicle_journey.vehicle_journey_at_stops, :as => :vehicle_journey_at_stop %> 
-      </div>
+        </tbody>
+      </table>
     <% end %>
     <%= form.inputs :class => "time_tables", :name=> @vehicle_journey.human_attribute_name(:time_table_ids) do %>
       <div class="time_table_list">

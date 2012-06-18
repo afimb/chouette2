@@ -9,7 +9,7 @@
                  color: white;
                  font-weight: bold;}
     .journey_pattern_dependent_list {
-        li.no_stop {
+        tr.no_stop {
           display: none;
         }
     }
@@ -25,30 +25,29 @@
     }
 }
 
+#workspace.vehicle_journeys.show, #workspace.vehicle_journeys.edit {
+    .vehicle_journey_at_stops {
+        thead {
+            th { text-align: center; }
+            th.hour { width: 130px; }
+            tr {
+              background-color: #75B80D;
+              color: white;
+            }
+        }
+        tbody {
+            td.hour { text-align: center; }
+            tr label { width: 100% }
+            tr.odd { background-color: #BDF366; }
+            tr.even { background-color: #85CF10; }
+        }
+    }
+}
+
 #workspace.vehicle_journeys.show
 {
     .summary p label {
         font-weight: bold;
-    }
-
-    .vehicle_journey_at_stops thead th {
-      text-align: center;
-    }
-    .vehicle_journey_at_stops thead th.hour {
-      width: 70px;
-    }
-    .vehicle_journey_at_stops tbody td.hour {
-      text-align: center;
-    }
-    .vehicle_journey_at_stops thead tr {
-      background-color: #75B80D;
-      color: white;
-    }
-    .vehicle_journey_at_stops tbody tr.odd {
-      background-color: #BDF366;
-    }
-    .vehicle_journey_at_stops tbody tr.even {
-      background-color: #85CF10;
     }
     
     .time_table:after { 

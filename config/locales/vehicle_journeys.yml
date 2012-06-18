@@ -15,6 +15,9 @@ en:
       title_stopless: Update vehicle journey %{name}
       title: Update vehicle journey %{name} leaving from %{stop} at %{time}
     form:
+      stop_title: Stop
+      departure: Departure
+      arrival: Arrival
       time_tables: Associated calendars to vehicle journey
     show:
       title: Vehicle Journey %{vehicle journey}
@@ -70,6 +73,9 @@ fr:
       title_stopless: "Modifier la course %{name}"
       title: "Modifier la course partant de %{stop} à %{time}"
     form:
+      stop_title: Arrêt
+      departure: Départ
+      arrival: Arrivée
       time_tables: Calendriers associés à la course
     show:
       title: "Course au départ de %{stop} à %{time} sur la séquence %{route}"

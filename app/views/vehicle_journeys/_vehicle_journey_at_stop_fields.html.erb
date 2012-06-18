@@ -1,13 +1,25 @@
 <% vjas = vehicle_journey_at_stop %>
-<li class="time input optional <%= vjas._destroy ? "no_stop" : "" %>">
+<tr class="time input optional <%= vjas._destroy ? "no_stop" : "" %> <%= (vehicle_journey_at_stop_counter%2==0) ? "odd" : "even" %>">
+  <td>
+    <%= vehicle_journey_at_stop_counter %>
   <input name=<%= "vehicle_journey[vehicle_journey_at_stops_attributes][#{vehicle_journey_at_stop_counter}][id]" %> type="hidden" value="<%= vjas.id %>">
   <input name=<%= "vehicle_journey[vehicle_journey_at_stops_attributes][#{vehicle_journey_at_stop_counter}][_destroy]" %> type="hidden" value="<%= vjas._destroy ? "1" : "0" %>">
   <input name=<%= "vehicle_journey[vehicle_journey_at_stops_attributes][#{vehicle_journey_at_stop_counter}][stop_point_id]" %> type="hidden" value="<%= vjas.stop_point_id %>">
    <input name=<%= "vehicle_journey[vehicle_journey_at_stops_attributes][#{vehicle_journey_at_stop_counter}][departure_time(3i)]" %> type="hidden" value="1">
    <input name=<%= "vehicle_journey[vehicle_journey_at_stops_attributes][#{vehicle_journey_at_stop_counter}][departure_time(2i)]" %> type="hidden" value="1">
    <input name=<%= "vehicle_journey[vehicle_journey_at_stops_attributes][#{vehicle_journey_at_stop_counter}][departure_time(1i)]" %> type="hidden" value="2000">
+   <input name=<%= "vehicle_journey[vehicle_journey_at_stops_attributes][#{vehicle_journey_at_stop_counter}][arrival_time(3i)]" %> type="hidden" value="1">
+   <input name=<%= "vehicle_journey[vehicle_journey_at_stops_attributes][#{vehicle_journey_at_stop_counter}]arrival_time(2i)]" %> type="hidden" value="1">
+   <input name=<%= "vehicle_journey[vehicle_journey_at_stops_attributes][#{vehicle_journey_at_stop_counter}][arrival_time(1i)]" %> type="hidden" value="2000">
    <label for=<%= "vehicle_journey_vehicle_journey_at_stops_attributes_#{vehicle_journey_at_stop_counter}_departure_time_5i" %>><%= vjas.stop_point.stop_area.name %></label>
+   </td>
+   <td>
    <%= select_hour(vjas.departure_time ? vjas.departure_time.hour : 0, :prefix => "vehicle_journey", :field_name => "vehicle_journey_at_stops_attributes[#{vehicle_journey_at_stop_counter}][departure_time(4i)]") %>
    <%= select_minute(vjas.departure_time ? vjas.departure_time.min : 0, :prefix => "vehicle_journey", :field_name => "vehicle_journey_at_stops_attributes[#{vehicle_journey_at_stop_counter}][departure_time(5i)]") %>
- </li>
+   </td>
+   <td>
+   <%= select_hour(vjas.arrival_time ? vjas.arrival_time.hour : 0, :prefix => "vehicle_journey", :field_name => "vehicle_journey_at_stops_attributes[#{vehicle_journey_at_stop_counter}][arrival_time(4i)]") %>
+   <%= select_minute(vjas.arrival_time ? vjas.arrival_time.min : 0, :prefix => "vehicle_journey", :field_name => "vehicle_journey_at_stops_attributes[#{vehicle_journey_at_stop_counter}][arrival_time(5i)]") %>
+   </td>
+ </tr>
 
