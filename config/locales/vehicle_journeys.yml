@@ -29,6 +29,8 @@ en:
     index:
       title: Vehicle journeys on route %{route}
       vehicle_journeys: "Departure's times"
+      selection: Filter on
+      selection_all: All
   activerecord:        
     models:        
       vehicle_journey: 
@@ -87,6 +89,8 @@ fr:
     index:
       title: "Courses de la séquence d'arrêts %{route}"
       vehicle_journeys: "Horaires de départ aux arrêts"
+      selection: Filtrer sur
+      selection_all: Tous
   activerecord:        
     models:        
       vehicle_journey: 
