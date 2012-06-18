@@ -17,7 +17,7 @@ class TimeTablesController < ChouetteController
 
   def filtered_time_tables_maps
     filtered_time_tables.collect do |time_table|
-      { :id => time_table.id.to_s, :name => time_table.comment }
+      { :id => time_table.id, :name => time_table.comment }
     end
   end
   def filtered_time_tables

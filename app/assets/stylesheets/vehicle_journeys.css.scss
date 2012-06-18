@@ -9,7 +9,7 @@
                  color: white;
                  font-weight: bold;}
     .journey_pattern_dependent_list {
-        li.no_stop {
+        tr.no_stop {
           display: none;
         }
     }
@@ -63,6 +63,25 @@
     
 }
 
+#workspace.vehicle_journeys.show, #workspace.vehicle_journeys.edit {
+    .vehicle_journey_at_stops {
+        thead {
+            th { text-align: center; }
+            th.hour { width: 130px; }
+            tr {
+              background-color: #95CB3E;
+              color: white;
+            }
+        }
+        tbody {
+            td.hour { text-align: center; }
+            tr label { width: 100% }
+            tr.odd { }
+            tr.even { background-color: #DEFFA8; }
+        }
+    }
+}
+
 #workspace.vehicle_journeys.show
 {
     .summary p label {
@@ -91,6 +110,7 @@
         @include div_for_object;
         /* to create multi-column index */
         width: 350px;
+        height: 100px;
         float: left;
         padding-right: 10px;
 

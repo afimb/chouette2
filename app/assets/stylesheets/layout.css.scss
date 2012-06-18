@@ -58,6 +58,10 @@ $text_color: #222;
         background: url(image-path('user_interface/ui/add.png')) no-repeat;
     }
 
+    a.link {
+        background: url(image-path('icons/link.png')) no-repeat;
+    }
+
     a.select_parent {
         background: url(image-path('icons/select_parent.png')) no-repeat;
     }

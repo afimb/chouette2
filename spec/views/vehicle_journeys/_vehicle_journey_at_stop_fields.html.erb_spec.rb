@@ -55,7 +55,6 @@ describe "/vehicle_journeys/_vehicle_journey_at_stop_fields" do
     end
     it "should not render li.no_stop" do
       render_collection
-      puts rendered.inspect
       rendered.should_not have_selector("li.no_stop")
     end
   end

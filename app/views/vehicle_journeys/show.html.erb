@@ -52,6 +52,28 @@
     </p>
   </div>
 </div>
+<h3><%= @vehicle_journey.human_attribute_name(:vehicle_journey_at_stop_ids) %></h3>
+<div class="vehicle_journey_at_stops">
+  <table border="0" >
+  <thead>
+    <tr>
+      <th class="hour title"><%= t('.arrival') %></th>
+      <th class="stop title" ><%= t('.stop_title') %></th>
+      <th class="hour title"><%= t('.departure') %></th>
+    </tr>
+  <thead>
+    <tbody>
+      <% @vehicle_journey.vehicle_journey_at_stops.each_with_index do |vjas, index| %>
+      <tr class="<%= index%2==0 ? "odd" : "even" %>">
+        <td class="hour"><%= vjas.arrival_time ? l( vjas.arrival_time, :format => :hour) : "" %></td>
+        <td><%= link_to vjas.stop_point.stop_area.name, [@referential, vjas.stop_point.stop_area] %></td>
+        <td class="hour"><%= vjas.departure_time ? l( vjas.departure_time, :format => :hour) : "" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
 <h3><%= t('.time_tables') %></h3>
 <div class="vehicle_journey_time_tables">
 <%= render :partial => "vehicle_journeys/time_table", :collection => @vehicle_journey.time_tables %>
