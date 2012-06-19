@@ -1,9 +1,20 @@
 <%= div_for(route) do %>
-    <div class="wayback">
-      <%= link_to image_tag("icons/#{route.wayback}.png"), referential_line_route_path( @referential, @line, route) %>
-    </div>
-    <div class="route">
+    <%= link_to image_tag("icons/#{route.wayback}.png"), referential_line_route_path( @referential, @line, route) %>
+    <div>
       <%= link_to route.name, referential_line_route_path( @referential, @line, route) %>
     </div> 
+  <div class="info">
+    <% if route.number.blank? %>
+      <%= route.human_attribute_name('number') %> <%= route.number %> -
+    <% end %>
+    <% if route.direction.blank? %>
+      <%= route.human_attribute_name('direction') %> <%= route.direction %> - 
+    <% end %>
+    <%= route.human_attribute_name('wayback_code') %> <%= (route.wayback=="A") ? t('route.wayback.positive') : t('wayback.negative') %>
+    <div class="actions">  
+      <%= link_to t("routes.actions.edit"), edit_referential_line_route_path(@referential, @line, route), :class => "edit" %> |
+      <%= link_to t("vehicle_journeys.actions.index"), referential_line_route_vehicle_journeys_path(@referential, @line, route), :class => "link" %>
+    </div>
+  </div>
 <% end %>
 

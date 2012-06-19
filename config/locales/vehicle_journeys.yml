@@ -1,6 +1,10 @@
 en:
   vehicle_journeys:
+    vehicle_journey:
+      title_stopless: Vehicle journey %{name}
+      title: Vehicle journey %{name} leaving from %{stop} at %{time}
     actions:
+      index: "Vehicle time's board"
       new: Add a new vehicle journey
       edit: Edit this vehicle journey
       destroy: Remove this vehicle journey
@@ -8,11 +12,25 @@ en:
     new:
       title: Add a new vehicle journey
     edit:
-      title: Update vehicle journey %{vehicle journey}
+      title_stopless: Update vehicle journey %{name}
+      title: Update vehicle journey %{name} leaving from %{stop} at %{time}
+    form:
+      stop_title: Stop
+      departure: Departure
+      arrival: Arrival
+      time_tables: Associated calendars to vehicle journey
     show:
       title: Vehicle Journey %{vehicle journey}
+      stop_title: Stop
+      departure: Departure
+      arrival: Arrival
+      time_tables: Calendars list
+      bounding: From %{start} to %{end}
     index:
-      title: Vehicle journeys on route {%route}
+      title: Vehicle journeys on route %{route}
+      vehicle_journeys: "Departure's times"
+      selection: Filter on
+      selection_all: All
   activerecord:        
     models:        
       vehicle_journey: 
@@ -33,6 +51,8 @@ en:
         published_journey_identifier: Published Identifier
         facility: Facility
         vehicletypeidentifier: Vehicle Type Identifier
+        time_table_ids: Calendar list
+        vehicle_journey_at_stop_ids: Time list
         objectid: Neptune identifier
         object_version: Version
         creation_time: Created on
@@ -40,7 +60,11 @@ en:
 
 fr:
   vehicle_journeys:
+    vehicle_journey:
+      title_stopless: Course %{name}
+      title: Course %{name} partant de %{stop} à %{time}
     actions:
+      index: "Horaires des courses"
       new: "Ajouter une course"
       edit: "Modifier cette course"
       destroy: "Supprimer cette course"
@@ -48,11 +72,25 @@ fr:
     new:
       title: "Ajouter une course"
     edit:
-      title: "Modifier la course au départ de %{stop} à %{time} sur la séquence %{route}"
+      title_stopless: "Modifier la course %{name}"
+      title: "Modifier la course partant de %{stop} à %{time}"
+    form:
+      stop_title: Arrêt
+      departure: Départ
+      arrival: Arrivée
+      time_tables: Calendriers associés à la course
     show:
       title: "Course au départ de %{stop} à %{time} sur la séquence %{route}"
+      stop_title: Arrêt
+      departure: Départ
+      arrival: Arrivée
+      time_tables: Liste des calendriers
+      bounding: De %{start} à %{end}
     index:
       title: "Courses de la séquence d'arrêts %{route}"
+      vehicle_journeys: "Horaires de départ aux arrêts"
+      selection: Filtrer sur
+      selection_all: Tous
   activerecord:        
     models:        
       vehicle_journey: 
@@ -73,6 +111,8 @@ fr:
         published_journey_identifier: Identifiant public
         facility: Equipement
         vehicle_type_identifier: "Type d'identifiant du véhicule"
+        time_table_ids: "Liste des calendriers"
+        vehicle_journey_at_stop_ids: Liste des horaires
         objectid: Identifiant Neptune
         object_version: Version
         creation_time: Créé le

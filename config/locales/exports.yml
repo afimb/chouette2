@@ -20,10 +20,15 @@ en:
       started: Started export
       completed: Completed export
       failed: Failed export
+      undefined: %{key} undefined
+      NEPTUNE_EXPORT: Neptune Export
+      NEPTUNE_EXPORTED_LINE: "Line %{0} (%{1}) exported"
     severities:
       info: Information
+      ok: Ok
       warning: Warning
       error: Error
+      fatal: Fatal
   activerecord:        
     models:        
       export:
@@ -59,13 +64,21 @@ fr:
       started: Export démarré
       completed: Export achevé avec succès
       failed: Export interromptu
+      undefined: %{key} non défini
+      NEPTUNE_EXPORT: Export Neptune
+      NEPTUNE_EXPORTED_LINE: "Ligne %{0} (%{1}) exportée"
     severities:
       info: Information
+      ok: Ok
       warning: Alerte
       error: Erreur
+      fatal: Fatal
   activerecord:        
-    models:        
-      export: Export
+    models:
+      export:
+        zero:  export
+        one:   export
+        other: exports
       neptune_export: 
         zero:  Export Neptune
         one:   Export Neptune

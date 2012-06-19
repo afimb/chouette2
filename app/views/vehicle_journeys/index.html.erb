@@ -10,8 +10,8 @@
       <label><%= Chouette::Route.model_name.human %>: </label>
       <%= link_to @route.name, [@referential, @line, @route] %>
     </p>
-  <div>
-<div>
+  </div>
+</div>
 <h3 class="vehicle_journeys"><%= t('.vehicle_journeys') %></h3>
 <div class="pagination">
   <div class="page_info">
@@ -20,25 +20,57 @@
   <%= will_paginate @vehicle_journeys, :container => false %>
 </div>
 <div class="vehicle_journeys paginated_content">
-  <table border="1">
-  <tr>
-  <th> "vide"</th>
-  <% @vehicle_journeys.each do |vj| %>
-    <th> <%= link_to "c", [@referential, @line, @route, vj]%></th>
-  <% end %>
-  </tr>
+  <table>
+  <thead>
+    <tr>
+      <th class="title">Missions : </th>
+      <% @vehicle_journeys.each do |vj| %>
+        <th> <%= link_to vj.journey_pattern.published_name.blank? ? vj.journey_pattern.id: vj.journey_pattern.published_name.first(8),
+                  [@referential, @line, @route, vj.journey_pattern]%></th>
+      <% end %>
+    </tr>
+    <tr>
+      <th class="title">Calendriers : </th>
+      <% @vehicle_journeys.each do |vj| %>
+        <th title="<%= time_tables_info( vj) %>" class="calendars"> 
+          <%= time_tables_shortest_info( vj) %>
+        </th>
+      <% end %>
+    </tr>
+    <tr>
+      <th class="title">Courses : </th>
+      <% @vehicle_journeys.each do |vj| %>
+      <th> <%= link_to "c", [@referential, @line, @route, vj]%></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
   <% @route.stop_points.each_with_index do |sp, index| %>
-  <tr>
-    <td><%= sp.stop_area.name %></td>
+  <tr class="<%= cycle('odd', 'even') %>">
+    <td class="stop_area"><%= sp.stop_area.name %></td>
     <% @vehicle_journeys.each do |vj| %>
-      <td><%= @matrix["#{vj.id}-#{sp.id}"] ? l( @matrix["#{vj.id}-#{sp.id}"].departure_time, :format => :hour) : "" %></td>
+      <td class="hours"><%= @matrix["#{vj.id}-#{sp.id}"] ? l( @matrix["#{vj.id}-#{sp.id}"].departure_time, :format => :hour) : "" %></td>
     <% end %>
   </tr>
   <% end %>
+  </tbody>
   </table>
 </div>
 <% content_for :sidebar do %>
 <ul class="actions">
+  <li>
+    <%= link_to  t('vehicle_journeys.actions.new'), new_referential_line_route_vehicle_journey_path(@referential, @line, @route), :class => "add" %>
+  </li>
 </ul>
-<% end %>
+<h3><%= t(".selection") %></h3>
 
+<h4><%= Chouette::JourneyPattern.model_name.human.pluralize %></h4>
+
+<ul class="selection">
+<% @route.journey_patterns.each do |journey_pattern| %>
+<li><%= link_with_search journey_pattern.name, "journey_pattern_id_eq" => journey_pattern.id %></li>
+<% end %>
+<li><%= link_with_search t(".selection_all"), {"journey_pattern_id_eq" => nil}, :class => "all" %></li>
+</ul>
+
+<% end %>

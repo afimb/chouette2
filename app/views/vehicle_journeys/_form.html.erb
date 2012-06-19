@@ -1,5 +1,6 @@
 <%= semantic_form_for [@referential, @line, @route, @vehicle_journey] do |form| %>
   <%= form.inputs do %> 
+    <%= form.input :journey_pattern, :as => :select, :collection => @route.journey_patterns, :include_blank => false, :member_label => Proc.new { |jp| journey_name(jp) }  %>
     <%= form.input :published_journey_name %>
     <%= form.input :published_journey_identifier %>
     <%= form.input :comment %>              
@@ -16,7 +17,34 @@
       </li>
     <% end %>
     
-    <%= render :partial => "vehicle_journeys/vehicle_journey_at_stop_fields" %>
+    <%= form.inputs :class => "stop_times", :name => @vehicle_journey.human_attribute_name(:vehicle_journey_at_stop_ids) do %>
+      <table border="0" class="vehicle_journey_at_stops">
+        <thead>
+          <tr>
+            <th class="hour title"><%= t('.arrival') %></th>
+            <th class="stop title" ><%= t('.stop_title') %></th>
+            <th class="hour title"><%= t('.departure') %></th>
+          </tr>
+        </thead>
+        <!--
+        <= form.semantic_fields_for :vehicle_journey_at_stops do |vjas| >
+          <= vjas.object.stop_point.stop_area.name >
+          <= vjas.input :_destroy, :as => :hidden >
+          <= vjas.input :departure_time, :as => :time >
+
+        < end >
+        -->
+        <tbody class="journey_pattern_dependent_list">
+        <%= render :partial => "vehicle_journeys/vehicle_journey_at_stop_fields",
+          :collection => @vehicle_journey.vehicle_journey_at_stops, :as => :vehicle_journey_at_stop %> 
+        </tbody>
+      </table>
+    <% end %>
+    <%= form.inputs :class => "time_tables", :name=> @vehicle_journey.human_attribute_name(:time_table_ids) do %>
+      <div class="time_table_list">
+        <%= form.input :time_table_tokens, :label => t('.time_tables'), :as => :text,  :input_html => { :"data-pre" => ( @vehicle_journey.time_tables.map { |time_table| { :id => time_table.id, :name => time_table.comment } } ).to_json }  %>
+      </div>
+    <% end %>
     
   <% end %>
 
@@ -26,4 +54,18 @@
     <li><%= link_to t('cancel'), :back %></li>
   <% end %>
 <% end %>
+
+<% unless @vehicle_journey.new_record? %>
+  <%= javascript_include_tag edit_referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey, :format => :js) %>
+<% end %>
+
+<script>
+	$(function() {
+          $( "#vehicle_journey_time_table_tokens" ).tokenInput('<%= comment_filter_referential_time_tables_path(@referential, :format => :json) %>', { 
+       crossDomain: false, 
+       prePopulate: $('#time_table_tokens').data('pre'),
+       minChars: 3,
+    });
+	});
+</script>
 

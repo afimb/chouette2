@@ -7,12 +7,16 @@ $text_color: #222;
 
 @import "user_interface/layout";
 
-#header .infos div.title h1 {
-          border: 1px solid white;
-          font-size: 30px;
-          margin: 20px 0 0 100px;
-          padding: 3px 15px 3px 15px;
-          font-weight: bold;
+#header .infos div.title
+{
+    margin: 20px 0 0 30px;
+
+    h1 {
+        font-family: "Comic Sans", "Comic Sans MS", cursive;    
+        font-size: 32px;      
+        font-weight: bold;
+        padding: 0px;
+    }
 }
 
 
@@ -52,6 +56,10 @@ $text_color: #222;
 
     a.add_fields {
         background: url(image-path('user_interface/ui/add.png')) no-repeat;
+    }
+
+    a.link {
+        background: url(image-path('icons/link.png')) no-repeat;
     }
 
     a.select_parent {

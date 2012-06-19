@@ -61,6 +61,13 @@
                  padding: 0 5px 0 5px;}
     h3.routes { clear: both; }
 
+    .route {
+        margin-bottom: 0px;
+        .info {
+            margin-bottom: 30px;
+        }
+    }
+
     .summary p label {
         font-weight: bold;
     }

@@ -4,7 +4,7 @@ class ExportLogMessage < ActiveRecord::Base
   acts_as_list :scope => :export
   
   validates_presence_of :key
-  validates_inclusion_of :severity, :in => %w{info warning error}
+  validates_inclusion_of :severity, :in => %w{info warning error ok uncheck fatal}
 
   def arguments=(arguments)
     write_attribute :arguments, (arguments.to_json if arguments.present?)
@@ -31,6 +31,7 @@ class ExportLogMessage < ActiveRecord::Base
   end
  
   def full_message
-    I18n.translate key, arguments.symbolize_keys.merge(:scope => "export_log_messages.messages")
+    last_key=key.rpartition("|").last
+    I18n.translate last_key, arguments.symbolize_keys.merge(:scope => "export_log_messages.messages").merge(:default => :undefined).merge(:key => last_key)
   end
 end

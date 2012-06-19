@@ -21,6 +21,10 @@ class Export < ActiveRecord::Base
     end
   end
 
+  def exporter
+    exporter ||= ::Chouette::Exporter.new(referential.slug)
+  end
+
   def options
     read_attribute(:options) || write_attribute(:options, {})
   end
@@ -42,7 +46,7 @@ class Export < ActiveRecord::Base
   end
 
   def export_options
-    { :export_id => self.id, :output_file => file }
+    { :export_id => self.id }
   end
 
   before_validation :define_default_attributes, :on => :create
@@ -61,8 +65,7 @@ class Export < ActiveRecord::Base
     begin
       log_messages.create :key => :started
 
-      # TODO
-      # Make real export here
+      exporter.export file, export_options
 
       update_attribute :status, "completed"
     rescue => e
