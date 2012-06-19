@@ -20,10 +20,13 @@ en:
       started: Started export
       completed: Completed export
       failed: Failed export
+      undefined: %{key} undefined
     severities:
       info: Information
+      ok: Ok
       warning: Warning
       error: Error
+      fatal: Fatal
   activerecord:        
     models:        
       export:
@@ -59,13 +62,19 @@ fr:
       started: Export démarré
       completed: Export achevé avec succès
       failed: Export interromptu
+      undefined: %{key} non défini
     severities:
       info: Information
+      ok: Ok
       warning: Alerte
       error: Erreur
+      fatal: Fatal
   activerecord:        
-    models:        
-      export: Export
+    models:
+      export:
+        zero:  export
+        one:   export
+        other: exports
       neptune_export: 
         zero:  Export Neptune
         one:   Export Neptune

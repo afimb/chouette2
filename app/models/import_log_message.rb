@@ -3,7 +3,7 @@ class ImportLogMessage < ActiveRecord::Base
   acts_as_list :scope => :import
   
   validates_presence_of :key
-  validates_inclusion_of :severity, :in => %w{info warning error}
+  validates_inclusion_of :severity, :in => %w{info warning error ok uncheck fatal}
 
   def arguments=(arguments)
     write_attribute :arguments, (arguments.to_json if arguments.present?)

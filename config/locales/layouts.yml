@@ -7,7 +7,7 @@ en:
       profile: "My Profile"
       sign_out: "Sign out"
     tabs:
-      dashboard: "Dashboard"
+      dashboard: "dashboard"
 fr:
   layouts:
     back_to_dashboard: "Retour au Tableau de Bord"
@@ -17,4 +17,4 @@ fr:
       profile: "Mon Profil"      
       sign_out: "Déconnexion"
     tabs:
-      dashboard: "Tableau de bord"
+      dashboard: "tableau de bord"
