@@ -21,6 +21,8 @@ en:
       completed: Completed export
       failed: Failed export
       undefined: %{key} undefined
+      NEPTUNE_EXPORT: Neptune Export
+      NEPTUNE_EXPORTED_LINE: "Line %{0} (%{1}) exported"
     severities:
       info: Information
       ok: Ok
@@ -63,6 +65,8 @@ fr:
       completed: Export achevé avec succès
       failed: Export interromptu
       undefined: %{key} non défini
+      NEPTUNE_EXPORT: Export Neptune
+      NEPTUNE_EXPORTED_LINE: "Ligne %{0} (%{1}) exportée"
     severities:
       info: Information
       ok: Ok
