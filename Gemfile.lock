@@ -53,19 +53,19 @@ GIT
       rgeo (~> 0.3.13)
 
 GIT
-  remote: git://github.com/dryade/user-interface.git
-  revision: c75665070cace889923bea6a0fb1f7ff724d1368
-  specs:
-    user_interface (0.0.1)
-      rails (~> 3.1.0)
-
-GIT
   remote: git://github.com/thoughtbot/shoulda.git
   revision: 269edccc7df8f2eb94a96a6a6d248a5960d7fe1f
   specs:
     shoulda (3.0.1)
       shoulda-context (~> 1.0)
       shoulda-matchers (~> 1.0)
+
+GIT
+  remote: git://sim.dryade.priv/user_interface
+  revision: c75665070cace889923bea6a0fb1f7ff724d1368
+  specs:
+    user_interface (0.0.1)
+      rails (~> 3.1.0)
 
 GEM
   remote: http://rubygems.org/
