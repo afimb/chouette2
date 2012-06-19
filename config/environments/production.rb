@@ -67,6 +67,7 @@ ChouetteIhm::Application.configure do
   config.to_prepare do
     Chouette::Command.command = "/usr/local/opt/chouette-command/chouette-gui-2.0.0/chouette"
     Import.root = "/var/lib/chouette/imports"
+    Export.root = "/var/lib/chouette/exports"
   end
 
 end
