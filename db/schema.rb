@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120612071936) do
+ActiveRecord::Schema.define(:version => 20120620064014) do
 
   create_table "access_links", :force => true do |t|
     t.integer  "access_point_id",                        :limit => 8
@@ -139,6 +139,8 @@ ActiveRecord::Schema.define(:version => 20120612071936) do
     t.string   "options"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "references_type"
+    t.string   "reference_ids"
   end
 
   add_index "exports", ["referential_id"], :name => "index_exports_on_referential_id"
@@ -297,7 +299,6 @@ ActiveRecord::Schema.define(:version => 20120612071936) do
     t.datetime "updated_at"
     t.string   "prefix"
     t.string   "projection_type"
-    t.string   "bounding_box",    :limit => nil
     t.string   "time_zone"
   end
 

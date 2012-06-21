@@ -7,6 +7,7 @@ en:
       download: Download
     new:
       title: New export
+      all: All
     index:
       title: Exports
     show:
@@ -38,6 +39,8 @@ en:
     attributes:
       export:
         status: Status
+        references_type: Associated Data Type
+        reference_ids: Associated Data
       export_log_message:
         created_at: Date
         position: N.
@@ -51,6 +54,7 @@ fr:
       download: Télécharger
     new:
       title: Nouvel export
+      all: Toutes
     index:
       title: Exports
     show:
@@ -86,6 +90,8 @@ fr:
     attributes:
       export:
         status: Status
+        references_type: Type de données incluses
+        reference_ids: Données incluses
       export_log_message:
         created_at: Date
         position: "No"
