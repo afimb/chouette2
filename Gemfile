@@ -5,13 +5,13 @@ gem 'jquery-rails'
 gem 'devise'
 
 gem "ffi-proj4", :git => 'git://github.com/dryade/ffi-proj4.git'
-gem "jruby-rack-worker"
 
 platforms :jruby do
   gem 'activerecord-jdbcpostgresql-adapter', :git => 'git://github.com/dryade/activerecord-jdbc-adapter.git'
   gem 'activerecord-jdbcsqlite3-adapter'
   gem 'jruby-openssl'
   gem 'warbler'   
+  gem "jruby-rack-worker"
 end
 
 platforms :ruby do    
@@ -49,7 +49,8 @@ group :assets do
   gem 'coffee-rails', '~> 3.1.1'
   gem 'coffee-script-source'
   gem 'uglifier', '>= 1.0.3'
-  gem 'therubyrhino'
+  gem 'therubyrhino', :platform => :jruby
+  gem 'therubyracer', :platform => :ruby
 end
 
 group :development do 
@@ -70,7 +71,7 @@ end
 group :test do
   gem 'capybara'     
   gem 'launchy'
-  gem 'database_cleaner'
+  gem 'database_cleaner', :git => 'git://github.com/dnagir/database_cleaner.git', :branch => 'postgre_jruby_issue'
   gem 'factory_girl_rails', '1.7'
 end
 
