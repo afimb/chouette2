@@ -196,6 +196,7 @@ GEM
     jruby-rack (1.1.6)
     jruby-rack-worker (0.3-java)
       jruby-rack (>= 1.0.1)
+    json (1.7.3)
     json (1.7.3-java)
     json_pure (1.7.3)
     launchy (2.1.0)
