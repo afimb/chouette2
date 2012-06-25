@@ -3,10 +3,9 @@
     <%= form.input :period_start, :as => :date, :label => @time_table_period.human_attribute_name("period_start") %>
     <%= form.input :period_end, :as => :date, :label => @time_table_period.human_attribute_name("period_end") %>
   <% end %>
-  <%= form.buttons do %>
-    <%= form.commit_button %>
-    <li><%= t('or') %></li>
-    <li><%= link_to t('cancel'), :back %></li>
-  <% end %>
+   <%= form.actions do %>
+     <%= form.action :submit, :as => :button %>
+     <%= form.action :cancel, :as => :link %>
+   <% end %>
 <% end %>
 

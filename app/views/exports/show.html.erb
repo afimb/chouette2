@@ -12,6 +12,16 @@
     </p>
   </div>
 
+  <% if @export.references.present? %>
+  <h3><%= Export.human_attribute_name(:references) %></h3>
+  <ul>
+    <% @export.references.each do |reference| %>
+    <li><%= link_to "#{reference.class.model_name.humanize} #{reference.name}", [@referential, reference] %>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <% if @export.log_messages.present? %>
   <h3><%= t(".report") %></h3>
   <table>
     <tr>
@@ -29,6 +39,7 @@
     </tr>
     <% end %>
   </table>
+  <% end %>
 </div>
 
 <% content_for :sidebar do %>

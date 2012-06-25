@@ -15,14 +15,8 @@
     .stop_points:after {
         @include content_to_clear;
     }
-
-    .formtastic .buttons {
-      a {
-        margin-top: 0px;
-      }
-    }
     
-    .stop_point {
+    #sortable_stop_points .stop_point {
         @include div_for_object;
         /* to create multi-column index */
         width: 350px;

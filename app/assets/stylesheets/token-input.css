@@ -111,3 +111,6 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item {
     background-color: #d0efa0;
 }
 
+form.formtastic .token-input-list {
+display: inline-block;
+}

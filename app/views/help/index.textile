@@ -3,7 +3,7 @@ layout: default
 title: Présentation
 ---
 
-Chouette v2 : it&eacute;ration 7 du 04/06/2012
+Chouette v2 : it&eacute;ration 8 du 19/06/2012
 
 Cette it&eacute;ration pr&eacute;sente les formulaires de :
 
@@ -11,11 +11,16 @@ Cette it&eacute;ration pr&eacute;sente les formulaires de :
 * transporteurs
 * lignes
 ** s&eacute;quences d'arr&ecirc;ts
-** missions
+*** missions
+*** courses/horaires
 * arr&ecirc;ts
+** arr&ecirc;ts physiques
+** zones d'arr&ecirc;t
+** ITL
 * calendriers d'application
 * correspondances
-* imports Neptune
+* imports Neptune et CSV
+* exports Neptune
 
 l'avancement actuel permet de : 
 
@@ -25,20 +30,20 @@ l'avancement actuel permet de :
 * d&eacute;placer un arr&ecirc;t depuis la carte (voir mode op&eacute;ratoire dans l'aide des arr&ecirc;ts)
 * associer les arr&ecirc;ts &agrave; leurs parents
 * ajouter des fils &agrave; un arr&ecirc;t
-* importer des lignes au format Neptune (fichier ZIP uniquement)
+* importer des lignes aux formats Neptune et CSV (zip et fichier non compress&eacute;)
+* exporter des lignes au format Neptune (zip)
 * &eacute;diter des s&eacute;quences d'arr&ecirc;ts : 
 ** ajouter, d&eacute;placer et retirer des arr&ecirc;ts dans la s&eacute;quence
 ** ajouter, modifier les missions de la s&eacute;quence
+** afficher, ajouter, modifier, supprimer des courses/horaires
 * pr&eacute;ciser des param&egrave;tres g&eacute;n&eacute;raux de l'espace de donn&eacute;es
 
 
 les actions suivantes ne sont pas encore disponible : 
 
 * afficher le fond G&eacute;oportail
-* associer une ITL &agrave; une ligne
-* imports &agrave; d'autres formats que Neptune
-* exports de donn&eacute;es
+* exports de donn&eacute;es &agrave; d'autres formats que Neptune (GTFS/CSV)
 * d&eacute;finir l'emprise g&eacute;n&eacute;rale du r&eacute;seau
 * g&eacute;rer le second r&eacute;f&eacute;rentiel de projection
-* consulter/cr&eacute;er/&eacute;diter les courses et les horaires
+* afficher des informations dans le tableau de bord
 

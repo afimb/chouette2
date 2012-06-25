@@ -46,7 +46,11 @@ ChouetteIhm::Application.routes.draw do
     end
 
     resources :imports
-    resources :exports
+    resources :exports do
+      collection do
+        get 'references'
+      end
+    end
 
     resources :companies, :stop_areas  
     

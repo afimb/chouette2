@@ -1,11 +1,11 @@
 <%= semantic_form_for [@referential, @time_table, @time_table_date] do |form| %>
   <%= form.inputs do %> 
     <%= form.input :date, :as => :date, :label => @time_table_date.human_attribute_name("date") %>
+    
   <% end %>
-  <%= form.buttons do %>
-    <%= form.commit_button %>
-    <li><%= t('or') %></li>
-    <li><%= link_to t('cancel'), :back %></li>
-  <% end %>
+   <%= form.actions do %>
+     <%= form.action :submit, :as => :button %>
+     <%= form.action :cancel, :as => :link %>
+   <% end %>
 <% end %>
 

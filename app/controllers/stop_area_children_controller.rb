@@ -8,6 +8,8 @@ class StopAreaChildrenController < ChouetteController
     end  
   end
 
+  protected
+
   def children_maps
     children.collect do |child|
       { :id => child.id.to_s, :name => "#{child.name} #{child.country_code}" }
