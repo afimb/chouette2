@@ -18,6 +18,10 @@ class VehicleJourneysController < ChouetteController
     end
   end
 
+  def update
+    update!(:alert => "Hey pb")
+  end
+
   protected
   
   alias_method :vehicle_journey, :resource

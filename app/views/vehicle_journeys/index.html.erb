@@ -23,14 +23,13 @@
   <table>
   <thead>
     <tr>
-      <th class="title">Missions : </th>
-      <% @vehicle_journeys.each do |vj| %>
-        <th> <%= link_to vj.journey_pattern.published_name.blank? ? vj.journey_pattern.id: vj.journey_pattern.published_name.first(8),
-                  [@referential, @line, @route, vj.journey_pattern]%></th>
-      <% end %>
+      <th class="title"><%= Chouette::JourneyPattern.model_name.human.pluralize %> :</th>
+      <% @vehicle_journeys.map(&:journey_pattern).each do |jp| %>
+        <th><%= link_to journey_name( jp), [@referential, @line, @route, jp] %></th>
+    <% end %>
     </tr>
     <tr>
-      <th class="title">Calendriers : </th>
+      <th class="title"><%= Chouette::TimeTable.model_name.human.pluralize %> :</th>
       <% @vehicle_journeys.each do |vj| %>
         <th title="<%= time_tables_info( vj) %>" class="calendars"> 
           <%= time_tables_shortest_info( vj) %>
@@ -38,9 +37,9 @@
       <% end %>
     </tr>
     <tr>
-      <th class="title">Courses : </th>
+      <th class="title"><%= Chouette::VehicleJourney.model_name.human.pluralize %> :</th>
       <% @vehicle_journeys.each do |vj| %>
-      <th> <%= link_to "c", [@referential, @line, @route, vj]%></th>
+      <th> <%= link_to vehicle_name(vj), [@referential, @line, @route, vj]%></th>
       <% end %>
     </tr>
   </thead>
@@ -49,7 +48,9 @@
   <tr class="<%= cycle('odd', 'even') %>">
     <td class="stop_area"><%= sp.stop_area.name %></td>
     <% @vehicle_journeys.each do |vj| %>
-      <td class="hours"><%= @matrix["#{vj.id}-#{sp.id}"] ? l( @matrix["#{vj.id}-#{sp.id}"].departure_time, :format => :hour) : "" %></td>
+      <td class="hours <%= missing_time_check(@matrix["#{vj.id}-#{sp.id}"]) %>">
+        <%= (@matrix["#{vj.id}-#{sp.id}"] && @matrix["#{vj.id}-#{sp.id}"].departure_time) ? l( @matrix["#{vj.id}-#{sp.id}"].departure_time, :format => :hour) : "" %>
+      </td>
     <% end %>
   </tr>
   <% end %>
@@ -57,20 +58,33 @@
   </table>
 </div>
 <% content_for :sidebar do %>
-<ul class="actions">
-  <li>
-    <%= link_to  t('vehicle_journeys.actions.new'), new_referential_line_route_vehicle_journey_path(@referential, @line, @route), :class => "add" %>
-  </li>
-</ul>
-<h3><%= t(".selection") %></h3>
+  <ul class="actions">
+    <li>
+      <%= link_to  t('vehicle_journeys.actions.new'), new_referential_line_route_vehicle_journey_path(@referential, @line, @route), :class => "add" %>
+    </li>
+  </ul>
+  <h3><%= t(".selection") %></h3>
 
-<h4><%= Chouette::JourneyPattern.model_name.human.pluralize %></h4>
+  <h4><%= Chouette::JourneyPattern.model_name.human.pluralize %></h4>
 
-<ul class="selection">
-<% @route.journey_patterns.each do |journey_pattern| %>
-<li><%= link_with_search journey_pattern.name, "journey_pattern_id_eq" => journey_pattern.id %></li>
+  <ul class="selection">
+  <% @route.journey_patterns.each do |journey_pattern| %>
+  <li><%= link_with_search journey_name(journey_pattern), "journey_pattern_id_eq" => journey_pattern.id %></li>
+  <% end %>
+  <li><%= link_with_search t(".selection_all"), {"journey_pattern_id_eq" => nil}, :class => "all" %></li>
+  </ul>
+
+  <h4><%= Chouette::TimeTable.model_name.human.pluralize %></h4>
+
+  <ul class="selection">
+  <% @route.time_tables.each do |time_table| %>
+  <li><%= link_with_search time_table.comment, "time_tables_comment_eq" => time_table.comment %></li>
+  <% end %>
+  <li><%= link_with_search t(".selection_all"), {"time_tables_comment_eq" => nil}, :class => "all" %></li>
+  </ul>
+
+  <h4><%= t('.time_range') %></h4>
+  <%= render :partial => "time_filter", :locals => { :time_field => "departure_time"} %>
 <% end %>
-<li><%= link_with_search t(".selection_all"), {"journey_pattern_id_eq" => nil}, :class => "all" %></li>
-</ul>
 
 

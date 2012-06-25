@@ -65,9 +65,9 @@
     <tbody>
       <% @vehicle_journey.vehicle_journey_at_stops.each_with_index do |vjas, index| %>
       <tr class="<%= index%2==0 ? "odd" : "even" %>">
-        <td class="hour"><%= vjas.arrival_time ? l( vjas.arrival_time, :format => :hour) : "" %></td>
+        <td class="hour <%= vjas.arrival_time.nil? ? "missing" : "" %>"><%= vjas.arrival_time ? l( vjas.arrival_time, :format => :hour) : "" %></td>
         <td><%= link_to vjas.stop_point.stop_area.name, [@referential, vjas.stop_point.stop_area] %></td>
-        <td class="hour"><%= vjas.departure_time ? l( vjas.departure_time, :format => :hour) : "" %></td>
+        <td class="hour <%= vjas.departure_time.nil? ? "missing" : "" %>"><%= vjas.departure_time ? l( vjas.departure_time, :format => :hour) : "" %></td>
       </tr>
       <% end %>
     </tbody>
