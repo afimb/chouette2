@@ -7,11 +7,10 @@
     <%= form.input :arrival_id, :as => :text, :input_html => { :"data-pre" => ( @arrival.present? ? [ { :id => @arrival.id.to_s, :name => "#{@arrival.name} [#{@arrival.country_code}]" } ]: [] ).to_json }  %>
   <% end %>  
   
-  <%= form.buttons do %>
-    <%= form.commit_button %>
-    <%= t('or') %>
-    <%= link_to t('cancel'), [@referential, @connection_link] %>
-  <% end %>
+   <%= form.actions do %>
+     <%= form.action :submit, :as => :button %>
+     <%= form.action :cancel, :as => :link %>
+   <% end %>
 </div>
 <% end %>
 

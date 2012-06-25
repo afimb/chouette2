@@ -48,11 +48,10 @@
     
   <% end %>
 
-  <%= form.buttons do %>
-    <%= form.commit_button true %>
-    <li><%= t('or') %></li>
-    <li><%= link_to t('cancel'), :back %></li>
-  <% end %>
+   <%= form.actions do %>
+     <%= form.action :submit, :as => :button %>
+     <%= form.action :cancel, :as => :link %>
+   <% end %>
 <% end %>
 
 <% unless @vehicle_journey.new_record? %>

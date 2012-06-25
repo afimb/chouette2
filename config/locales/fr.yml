@@ -188,10 +188,6 @@ fr:
   yesterday: "Hier"
   edit_periods: "Editer Périodes"   
   delete_periods: "Supprimer Périodes" 
-  formtastic:
-    actions:
-      create: "Créer %{model}"
-      update: "Modifier %{model}"
   attributes:
     author: "Modifié par"
     created_at: "Créé le"

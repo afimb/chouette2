@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
-gem 'jquery-rails'
 gem 'devise'
 
 gem "ffi-proj4", :git => 'git://github.com/dryade/ffi-proj4.git'
@@ -10,6 +9,7 @@ platforms :jruby do
   gem 'activerecord-jdbcpostgresql-adapter', :git => 'git://github.com/dryade/activerecord-jdbc-adapter.git'
   gem 'activerecord-jdbcsqlite3-adapter'
   gem 'jruby-openssl'
+  gem "jruby-rack-worker"
   gem 'warbler'   
   gem "jruby-rack-worker"
 end
@@ -26,21 +26,22 @@ gem "georuby-ext", :git => 'git://github.com/dryade/georuby-ext.git'
 gem 'user_interface', :git => 'git://sim.dryade.priv/user_interface'
 gem 'json'
 gem 'cocoon'
-gem 'formtastic', '2.0.2'
+gem 'formtastic'
 gem 'inherited_resources'
 gem 'will_paginate', '~> 3.0'
-# gem 'will-paginate-i18n','~> 0.1.5'
 gem 'ransack'
 gem 'squeel'
 gem 'RedCloth'
+gem 'jquery-rails'
+gem 'modernizr'
 
 gem "acts_as_tree", :git => "git://github.com/dryade/acts_as_tree.git"
-gem 'apartment', :git => 'git://github.com/dryade/apartment.git'
 gem 'ninoxe', :git => 'git://chouette.dryade.priv/ninoxe' #, :path => '~/Projects/Ninoxe'
 gem 'acts_as_list', '0.1.6'
-gem 'composite_primary_keys', '4.1.2'
 
+gem 'composite_primary_keys', '4.1.2'
 gem 'delayed_job_active_record'
+gem 'apartment', :path => '~/projects/apartment' #,:git => 'git://github.com/dryade/apartment.git'
 
 # Gems used only for assets and not required
 # in production environments by default.
