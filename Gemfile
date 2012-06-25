@@ -41,7 +41,7 @@ gem 'acts_as_list', '0.1.6'
 
 gem 'composite_primary_keys', '4.1.2'
 gem 'delayed_job_active_record'
-gem 'apartment', :path => '~/projects/apartment' #,:git => 'git://github.com/dryade/apartment.git'
+gem 'apartment',:git => 'git://github.com/dryade/apartment.git'
 
 # Gems used only for assets and not required
 # in production environments by default.
