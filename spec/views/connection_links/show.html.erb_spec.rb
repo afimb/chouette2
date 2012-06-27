@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "/connection_links/show" do
   
-  let!(:referential) { assign(:referential, create(:referential)) }
+  assign_referential
   let!(:connection_link) { assign(:connection_link, create(:connection_link)) }
   let!(:map) { assign(:map, mock(:to_html => '<div id="map"/>'.html_safe)) }
 

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "imports/new.html.erb" do
 
-  let!(:referential) { assign(:referential, create(:referential)) }
+  assign_referential
   let!(:import) { assign(:import, NeptuneImport.new) }
 
   let!(:available_imports) { assign(:available_imports, []) }

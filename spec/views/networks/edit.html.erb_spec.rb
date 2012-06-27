@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "/networks/edit" do
-  let!(:referential) { assign(:referential, create(:referential)) }
+  assign_referential
   let!(:network) { assign(:network, create(:network) ) }
 
   describe "test" do

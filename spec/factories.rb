@@ -4,6 +4,7 @@ FactoryGirl.define do
     f.sequence(:name) { |n| "Test #{n}" }
     f.sequence(:slug) { |n| "test_#{n}" }
     f.sequence(:prefix) { |n| "test_#{n}" }
+
     f.time_zone "Europe/Paris"
   end
 
@@ -15,7 +16,7 @@ FactoryGirl.define do
 
   factory :import do |f|
     f.resources { Rack::Test::UploadedFile.new 'spec/fixtures/neptune.zip', 'application/zip', false }
-    f.association :referential
+    f.referential { Referential.find_by_slug("first") }
   end
 
   factory :import_log_message do |f|
@@ -24,7 +25,7 @@ FactoryGirl.define do
   end
 
   factory :export do |f|
-    f.association :referential
+    f.referential { Referential.find_by_slug("first") }
   end
 
   factory :export_log_message do |f|

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "/networks/index" do
 
-  let!(:referential) { assign :referential, create(:referential) }
+  assign_referential
   let!(:networks) { assign :networks, Array.new(2){ create(:network) }.paginate }  
   let!(:search) { assign :q, Ransack::Search.new(Chouette::Network) }
 

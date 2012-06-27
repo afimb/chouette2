@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "/vehicle_journeys/_form" do
   
-  let!(:referential) { assign :referential, create(:referential) }
+  assign_referential
   let!(:line) { assign :line, create(:line) }
   let!(:route) { assign :route, create(:route, :line => line) }
   let!(:vehicle_journey) { assign :vehicle_journey, create(:vehicle_journey, :route => route) }

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "/time_tables/new" do
-  let!(:referential) { assign(:referential, create(:referential)) }
+  assign_referential
   let!(:time_table) {  assign(:time_table, build(:time_table)) }
 
   describe "form" do

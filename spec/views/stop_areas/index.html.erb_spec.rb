@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "/stop_areas/index" do
 
-  let!(:referential) { assign :referential, create(:referential) }
+  assign_referential
   let!(:stop_areas) { assign :stop_areas, Array.new(2) { create(:stop_area) }.paginate }  
   let!(:q) { assign :q, Ransack::Search.new(Chouette::StopArea) }
 

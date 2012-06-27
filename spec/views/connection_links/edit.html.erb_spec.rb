@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "/connection_links/edit" do
-  let!(:referential) { assign(:referential, create(:referential)) }
+  assign_referential
   let!(:connection_link) { assign(:connection_link, create(:connection_link)) }
   let!(:connection_links) { Array.new(2) { create(:connection_link) } }
 

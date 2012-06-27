@@ -4,8 +4,7 @@ require 'spec_helper'
 describe "Companies" do
   login_user
 
-  let(:referential) { create(:referential).switch }
-  let(:companies) { referential; Array.new(2) { create(:company) } }
+  let(:companies) { Array.new(2) { create :company } }
   subject { companies.first }
 
   describe "list" do

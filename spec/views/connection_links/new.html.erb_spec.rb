@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "/connection_links/new" do
-  let!(:referential) { assign(:referential, create(:referential)) }
+  assign_referential
   let!(:connection_link) { assign(:connection_link, build(:connection_link)) }
 
   describe "form" do
