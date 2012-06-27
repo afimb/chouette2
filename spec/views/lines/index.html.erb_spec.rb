@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "/lines/index" do
 
-  let!(:referential) { assign :referential, create(:referential) }
+  assign_referential
   let!(:network) { create :network }
   let!(:company) { create :company }
   let!(:lines) { assign :lines, Array.new(2) { create(:line, :network => network, :company => company) }.paginate }  

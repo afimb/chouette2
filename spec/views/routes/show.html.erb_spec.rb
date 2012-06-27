@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "/routes/show" do
   
-  let!(:referential) { assign :referential, create(:referential) }
+  assign_referential
   let!(:line) { assign :line, create(:line) }
   let!(:route) { assign :route, create(:route, :line => line) }
   let!(:stop_points) { assign :stop_points, Array.new(2) { create(:stop_point) }.paginate }

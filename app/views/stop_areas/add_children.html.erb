@@ -6,11 +6,10 @@
     <%= form.input :children_ids, :as => :text, :input_html => { :"data-pre" => ( @children.map { |child| { :id => child.id.to_s, :name => "#{child.name} #{child.country_code}" } } ).to_json }  %>
   <% end %>  
   
-  <%= form.buttons do %>
-    <%= form.commit_button %>
-    <%= t('or') %>
-    <%= link_to t('cancel'), [@referential, @stop_area] %>
-  <% end %>
+   <%= form.actions do %>
+     <%= form.action :submit, :as => :button %>
+     <%= form.action :cancel, :as => :link %>
+   <% end %>
 </div>
 <% end %>
 

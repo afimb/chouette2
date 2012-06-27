@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "/connection_links/index" do
 
-  let!(:referential) { assign( :referential, create(:referential) ) }
+  assign_referential
   let!(:connection_links) { assign :connection_links, Array.new(2) { create(:connection_link) }.paginate  }  
   let!(:search) { assign :q, Ransack::Search.new(Chouette::ConnectionLink) }
 

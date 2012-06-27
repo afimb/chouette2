@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "/vehicle_journeys/_form" do
   
-  let!(:referential) { assign :referential, create(:referential) }
+  assign_referential
   let!(:line) { assign :line, create(:line) }
   let!(:route) { assign :route, create(:route, :line => line) }
   let!(:vehicle_journey) { assign :vehicle_journey, create(:vehicle_journey, :route => route) }
@@ -49,7 +49,9 @@ describe "/vehicle_journeys/_form" do
   context "when existing vehicle_journey" do
     it "should display objectid not as an input" do
       render
-      rendered.should have_selector("form li", :text => vehicle_journey.objectid)
+      rendered.should have_selector("form") do 
+        with_selector "input[type=text][objectid=][disabled=true]", vehicle_journey.objectid
+      end
     end
   end
   context "when new vehicle_journey" do
@@ -57,7 +59,7 @@ describe "/vehicle_journeys/_form" do
     it "should render an input for objectid" do
       render
       rendered.should have_selector("form") do 
-        with_selector "input[type=text][objectid=]", vehicle_journey.objectid
+        with_selector "input[type=text][objectid=][disabled=false]", vehicle_journey.objectid
       end
     end
   end

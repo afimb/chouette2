@@ -1,0 +1,10 @@
+fr:
+  formtastic:
+    yes: 'Oui'
+    no: 'Non'
+    create: "Créer %{model}"  
+    update: "Modifier %{model}"
+    submit: 'Valider %{model}'
+    cancel: 'Annuler %{model}'
+    reset: 'Réinitialiser %{model}'
+    required: 'required'

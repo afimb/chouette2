@@ -1,0 +1,11 @@
+$(document).ready(function() {
+  $("#vehicle_journey_journey_pattern_id").change(
+    function(){
+      var url = "<%= "/referentials/#{@referential.id}/lines/#{@line.id}/routes/#{@route.id}/journey_patterns/" %>";
+      url = url + $("#vehicle_journey_journey_pattern_input select option:selected").attr("value") +
+        "/new_vehicle_journey";
+      $.get(url);
+    }
+  )
+});
+

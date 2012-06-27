@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "/companies/new" do
-  let!(:referential) { assign(:referential, create(:referential)) }
+  assign_referential
   let!(:company) { assign(:company, build(:company)) }
 
   describe "form" do

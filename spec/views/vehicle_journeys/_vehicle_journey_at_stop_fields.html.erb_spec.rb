@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "/vehicle_journeys/_vehicle_journey_at_stop_fields" do
   
-  let!(:referential) { assign :referential, create(:referential) }
+  assign_referential
   let!(:line) { assign :line, create(:line) }
   let!(:route) { assign :route, create(:route, :line => line) }
   let!(:vehicle_journey) { assign :vehicle_journey, create(:vehicle_journey, :route => route) }
@@ -49,9 +49,9 @@ describe "/vehicle_journeys/_vehicle_journey_at_stop_fields" do
       rendered.should have_selector("tr.no_stop")
     end
   end
-  context "for a destroyed vehicle_journey_at_stop" do
+  context "for a not destroyed vehicle_journey_at_stop" do
     before(:each) do
-      vehicle_journey_at_stop.stub!(:_destroy => true)
+      vehicle_journey_at_stop.stub!(:_destroy => false)
     end
     it "should not render tr.no_stop" do
       render_collection

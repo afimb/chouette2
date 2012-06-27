@@ -4,8 +4,7 @@ require 'spec_helper'
 describe "ConnectionLinks" do
   login_user
 
-  let(:referential) { create(:referential).switch }
-  let(:connection_links) { referential; Array.new(2) { create(:connection_link) } }
+  let(:connection_links) { Array.new(2) { create(:connection_link) } }
   subject { connection_links.first }
 
   describe "list" do

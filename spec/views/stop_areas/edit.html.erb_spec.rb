@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "/stop_areas/edit" do
-  let!(:referential) { assign(:referential, create(:referential)) }
+  assign_referential
   let!(:stop_area) { assign(:stop_area, create(:stop_area)) }
   let!(:map) { assign(:map, mock(:to_html => '<div id="map"/>'.html_safe)) }
 

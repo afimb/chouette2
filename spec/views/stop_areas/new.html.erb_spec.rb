@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "/stop_areas/new" do
-  let!(:referential) { assign(:referential, create(:referential)) }
+  assign_referential
   let!(:stop_area) { assign(:stop_area, build(:stop_area)) }
 
   describe "form" do

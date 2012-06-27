@@ -27,8 +27,8 @@
     <%= form.input :latitude %>              
   <% end %>
 
-  <%= form.buttons do %>
-    <%= form.commit_button %>
-    ou <%= link_to t('cancel'), [@referential, @stop_area] %>
-  <% end %>
+   <%= form.actions do %>
+     <%= form.action :submit, :as => :button %>
+     <%= form.action :cancel, :as => :link %>
+   <% end %>
 <% end %>

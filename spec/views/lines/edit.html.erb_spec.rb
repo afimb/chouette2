@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "/lines/edit" do
-  let!(:referential) { assign(:referential, create(:referential)) }
+  assign_referential
   let!(:network) { create(:network) }
   let!(:company) { create(:company) }
   let!(:line) { assign(:line, create(:line, :network => network, :company => company)) }

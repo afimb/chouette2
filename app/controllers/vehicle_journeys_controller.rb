@@ -1,7 +1,7 @@
 class VehicleJourneysController < ChouetteController
   defaults :resource_class => Chouette::VehicleJourney
 
-  respond_to :js, :only => [:select_journey_pattern, :edit]
+  respond_to :js, :only => [:select_journey_pattern, :edit, :new]
 
   belongs_to :referential do
     belongs_to :line, :parent_class => Chouette::Line do
@@ -16,6 +16,21 @@ class VehicleJourneysController < ChouetteController
       @vehicle_journey = vehicle_journey
       @vehicle_journey.update_journey_pattern(selected_journey_pattern)
     end
+  end
+
+  def create
+    create!(:alert => t('activerecord.errors.models.vehicle_journey.invalid_times'))
+  end
+
+  def update
+    update!(:alert => t('activerecord.errors.models.vehicle_journey.invalid_times'))
+  end
+
+  def new
+    @vehicle_journey = Chouette::VehicleJourney.new( :route => @route)
+    @vehicle_journey.update_journey_pattern( parent.journey_patterns.first) if parent.journey_patterns.first
+
+    new!
   end
 
   protected

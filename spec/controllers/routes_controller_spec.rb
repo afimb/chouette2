@@ -3,8 +3,7 @@ require 'spec_helper'
 describe RoutesController do
   login_user
 
-  let!(:referential) { create(:referential).switch }
-  let!(:route) { referential; Factory(:route) }
+  let!(:route) { Factory(:route) }
 
   it { should be_kind_of(ChouetteController) }
 

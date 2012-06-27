@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "referentials/new.html.erb" do
 
-  let!(:referential) { assign(:referential, Referential.new) }
+  assign_referential
   
   it "should have a textfield for name" do
     render

@@ -26,10 +26,9 @@
     <% @stop_points.each do |sp| %>
       <input type="hidden" id="<%= "pos_#{sp.position}" %>" name="stop_point[]" value="<%= sp.id %>" />
     <% end %>
-    <%= form.buttons do %>
-      <%= form.commit_button t('.reorder_button') %>
-      <li><%= t('or') %></li>
-      <li><%= link_to t('cancel'), referential_line_route_stop_points_path(@referential, @line, @route) %></li>
+    <%= form.actions do %>
+      <%= form.action :submit, :as => :button, :label => t('.reorder_button')  %>
+      <%= form.action :cancel, :as => :link , :url => referential_line_route_stop_points_path(@referential, @line, @route) %>
     <% end %>
   <% end %>
 </div>

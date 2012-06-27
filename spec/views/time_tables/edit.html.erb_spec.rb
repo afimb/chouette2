@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "/time_tables/edit" do
-  let!(:referential) { assign(:referential, create(:referential)) }
+  assign_referential
   let!(:time_table) { assign(:time_table, create(:time_table) ) }
 
   describe "test" do
