@@ -35,6 +35,7 @@
             <li><%= link_to "Aide", help_path, :class => "current" %></li>
           <% elsif ! selected_referential? %>
             <li><%= tab_link_to Referential, referentials_path, :class => "current" %></li>
+            <li><%= tab_link_to FileValidation, file_validations_path, :class => "current" %></li>
           <% else %>
             <li><%= link_to t("layouts.tabs.dashboard"), referential_path(@referential), :class => ("current" if current_page?(referential_path(@referential))) %></li>
             <li><%= tab_link_to Chouette::Network, referential_networks_path(@referential) %></li>

@@ -14,6 +14,9 @@ ChouetteIhm::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+  
+  resources :file_validations
+
   resources :referentials do
     resources :stop_point_areas
     match 'lines' => 'lines#destroy_all', :via => :delete
