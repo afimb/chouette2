@@ -4,18 +4,11 @@
     <%= form.input :published_journey_name %>
     <%= form.input :published_journey_identifier %>
     <%= form.input :comment %>              
-    <%= form.input :transport_mode, :as => :select, :collection => Chouette::Line.transport_modes, :include_blank => false, :member_label => Proc.new { |mode| t("transport_modes.label.#{mode}") }  %>
+    <%= form.input :transport_mode, :as => :select, :collection => Chouette::Line.transport_modes, :include_blank => true, :member_label => Proc.new { |mode| t("transport_modes.label.#{mode}") }  %>
     <%= form.input :status_value %>              
     <%= form.input :facility %>              
     <%= form.input :vehicle_type_identifier%>              
-    <% if @vehicle_journey.new_record? %>
-      <%= form.input :objectid %>  
-    <% else %>
-      <li>
-      <label><%= @vehicle_journey.human_attribute_name("objectid") %>: </label>
-      <%= @vehicle_journey.objectid %>
-      </li>
-    <% end %>
+    <%= form.input :objectid, :input_html => { :disabled => !@vehicle_journey.new_record? } %>  
     
     <%= form.inputs :class => "stop_times", :name => @vehicle_journey.human_attribute_name(:vehicle_journey_at_stop_ids) do %>
       <table border="0" class="vehicle_journey_at_stops">
@@ -40,11 +33,7 @@
         </tbody>
       </table>
     <% end %>
-    <%= form.inputs :class => "time_tables", :name=> @vehicle_journey.human_attribute_name(:time_table_ids) do %>
-      <div class="time_table_list">
         <%= form.input :time_table_tokens, :label => t('.time_tables'), :as => :text,  :input_html => { :"data-pre" => ( @vehicle_journey.time_tables.map { |time_table| { :id => time_table.id, :name => time_table.comment } } ).to_json }  %>
-      </div>
-    <% end %>
     
   <% end %>
 
@@ -54,7 +43,9 @@
    <% end %>
 <% end %>
 
-<% unless @vehicle_journey.new_record? %>
+<% if @vehicle_journey.new_record? %>
+  <%= javascript_include_tag new_referential_line_route_vehicle_journey_path(@referential, @line, @route, :format => :js) %>
+<% else %>
   <%= javascript_include_tag edit_referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey, :format => :js) %>
 <% end %>
 

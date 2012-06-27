@@ -60,6 +60,10 @@ en:
         object_version: Version
         creation_time: Created on
         creator_id: Created by 
+    errors:
+      models:
+        vehicle_journey:
+          invalid_times: "Invalid times"
 
 fr:
   vehicle_journeys:
@@ -123,4 +127,8 @@ fr:
         object_version: Version
         creation_time: Créé le
         creator_id: Créé par
+    errors:
+      models:
+        vehicle_journey:
+          invalid_times: "Horaires invalides"
 

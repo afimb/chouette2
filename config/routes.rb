@@ -31,7 +31,11 @@ ChouetteIhm::Application.routes.draw do
         end
       end        
       resources :routes do
-        resources :journey_patterns
+        resources :journey_patterns do
+          member do
+            get 'new_vehicle_journey'
+          end
+        end
         resources :vehicle_journeys do
           member do
             get 'select_journey_pattern'
