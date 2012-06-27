@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "/time_tables/show" do
   
-  let!(:referential) { assign(:referential, create(:referential)) }
+  assign_referential
   let!(:time_table) { assign(:time_table, create(:time_table)) }
 
   it "should render h2 with the time_table comment" do

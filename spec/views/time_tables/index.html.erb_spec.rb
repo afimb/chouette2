@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "/time_tables/index" do
 
-  let!(:referential) { assign :referential, create(:referential) }
+  assign_referential
   let!(:time_tables) { assign :time_tables, Array.new(2){ create(:time_table) }.paginate }  
   let!(:search) { assign :q, Ransack::Search.new(Chouette::TimeTable) }
 

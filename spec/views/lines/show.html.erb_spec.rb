@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "/lines/show" do
   
-  let!(:referential) { assign :referential, create(:referential) }
+  assign_referential
   let!(:line) { assign :line, create(:line) }
   let!(:routes) { assign :routes, Array.new(2) { create(:route, :line => line) }.paginate }
   let!(:map) { assign(:map, mock(:to_html => '<div id="map"/>'.html_safe)) }

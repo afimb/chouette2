@@ -4,7 +4,6 @@ require 'spec_helper'
 describe "Routes" do
   login_user
 
-  let(:referential) { create(:referential).switch }
   let(:line) { Factory(:line) }
   let(:route) { Factory(:route, :line => line) }
   let(:route2) { Factory(:route, :line => line) }

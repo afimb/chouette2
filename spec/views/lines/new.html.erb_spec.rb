@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "/lines/new" do
-  let!(:referential) { assign(:referential, create(:referential)) }
+  assign_referential
   let!(:network) { create(:network) }
   let!(:company) { create(:company) }
   let!(:line) { assign(:line, build(:line, :network => network, :company => company )) }

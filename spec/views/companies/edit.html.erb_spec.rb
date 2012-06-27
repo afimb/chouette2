@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "/companies/edit" do
-  let!(:referential) { assign(:referential, create(:referential)) }
+  assign_referential
   let!(:company) { assign(:company, create(:company)) }
   let!(:companies) { Array.new(2) { create(:company) } }
 

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "/companies/index" do
 
-  let!(:referential) { assign( :referential, create(:referential) ) }
+  assign_referential
   let!(:companies) { assign :companies, Array.new(2) { create(:company) }.paginate  }  
   let!(:search) { assign :q, Ransack::Search.new(Chouette::Company) }
 

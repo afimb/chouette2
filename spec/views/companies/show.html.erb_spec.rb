@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "/companies/show" do
   
-  let!(:referential) { assign(:referential, create(:referential)) }
+  assign_referential
   let!(:company) { assign(:company, create(:company)) }
 
   it "should render h2 with the company name" do

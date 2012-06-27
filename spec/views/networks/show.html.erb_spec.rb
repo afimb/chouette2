@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "/networks/show" do
   
-  let!(:referential) { assign(:referential, create(:referential)) }
+  assign_referential
   let!(:network) { assign(:network, create(:network)) }
   let!(:map) { assign(:map, mock(:to_html => '<div id="map"/>'.html_safe)) }
 

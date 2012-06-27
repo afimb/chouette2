@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "referentials/show.html.erb" do
-  let!(:referential) { assign(:referential, create(:referential)) }
+  assign_referential
   
   it "should have a title with name" do
     render
