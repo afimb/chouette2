@@ -12,6 +12,16 @@ class JourneyPatternsController < ChouetteController
 
   alias_method :route, :parent
 
+  def index     
+    index! do |format|
+      format.html { redirect_to referential_line_route_path(@referential,@line,@route) }
+    end
+  end
+
+  def create_resource(object)
+    object.special_update
+  end
+
   def show
     #@map = RouteMap.new referential, route
     @stop_points = resource.stop_points.paginate(:page => params[:page], :per_page => 10)
@@ -19,7 +29,6 @@ class JourneyPatternsController < ChouetteController
   end
 
   def new_vehicle_journey
-    puts resource.inspect
     @vehicle_journey = Chouette::VehicleJourney.new(:route_id => route.id)
     @vehicle_journey.update_journey_pattern(resource)
     render "vehicle_journeys/select_journey_pattern"
