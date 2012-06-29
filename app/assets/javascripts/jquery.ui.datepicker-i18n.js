@@ -39,9 +39,33 @@ jQuery(function($){
 		isRTL: false,
 		showMonthAfterYear: false,
 		yearSuffix: ''};
+    
+    if(!(Modernizr.inputtypes && Modernizr.inputtypes.date))
+    {
+        $.datepicker.setDefaults($.datepicker.regional[ "" ]);
+        $("input[type='date']").each( function(index, element)
+                                      {
+                                          $(element).datepicker(
+                                              { 
+                                                  dateFormat: "dd/mm/y",
+                                                  dayNamesShort: $.datepicker.regional[ $('html').attr('lang') ].dayNamesShort, 
+                                                  dayNames: $.datepicker.regional[ $('html').attr('lang') ].dayNames, 
+                                                  monthNamesShort: $.datepicker.regional[ $('html').attr('lang') ].monthNamesShort, 
+                                                  monthNames: $.datepicker.regional[ $('html').attr('lang') ].monthNames
+                                              } );
+                                          $(element).datepicker("setDate", $.datepicker.parseDate('yy-mm-dd', $(element).val() ) );
+                                      });
 
-    $.datepicker.setDefaults($.datepicker.regional[ "" ]);
-    $("input[type='date']").datepicker( $.datepicker.regional[ "fr" ] );
-    $("input[type='date']").datepicker( "option", $.datepicker.regional[ $('html').attr('lang') ] );
+        $("form").submit(function(event) {
+            var $this = $(event.target);
+            $this.find("input[type='date']").each( 
+                function(index, element)
+                {
+                    var date = $.datepicker.formatDate('yy-mm-dd', $.datepicker.parseDate('dd/mm/y', $(element).val() ) );                   
+                    $(element).val(date);
+                }
+            );
+        });
+    }
 
 });

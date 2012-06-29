@@ -5,8 +5,7 @@ class StopAreaMap < ApplicationMap
   attr_accessor :editable
   alias_method :editable?, :editable
 
-  def initialize(referential, stop_area)
-    @referential = referential
+  def initialize(stop_area)
     @stop_area = stop_area
   end
 
@@ -18,7 +17,7 @@ class StopAreaMap < ApplicationMap
       page << map.add_layer(google_hybrid) 
       page << map.add_layer(google_satellite) 
 
-      page.assign "edit_stop_area_layer", kml_layer( polymorphic_path( [referential, stop_area], :format => :kml, :default => editable?), :style_map => StyleMap::EditStopAreaStyleMap.new.style_map)
+      page.assign "edit_stop_area_layer", kml_layer(stop_area, { :default => editable? }, :style_map => StyleMap::EditStopAreaStyleMap.new.style_map)
       page << map.add_layer(:edit_stop_area_layer)
 
      if editable?
