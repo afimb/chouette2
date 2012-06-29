@@ -33,7 +33,7 @@ gem 'ransack'
 gem 'squeel'
 gem 'RedCloth'
 gem 'jquery-rails'
-gem 'modernizr'
+gem "modernizr-rails", "~> 2.0.6"
 
 gem "acts_as_tree", :git => "git://github.com/dryade/acts_as_tree.git"
 gem 'ninoxe', :git => 'git://chouette.dryade.priv/ninoxe' #, :path => '~/Projects/Ninoxe'

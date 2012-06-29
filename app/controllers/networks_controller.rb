@@ -7,7 +7,7 @@ class NetworksController < ChouetteController
   belongs_to :referential
 
   def show
-    @map = NetworkMap.new referential, resource
+    @map = NetworkMap.new(resource).with_helpers(self)
     show!
   end
 

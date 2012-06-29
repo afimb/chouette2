@@ -65,3 +65,15 @@ class Referential < ActiveRecord::Base
   end
   
 end
+
+Rails.application.config.after_initialize do
+  Chouette::ActiveRecord
+  puts "patch Chouette::ActiveRecord (#{__FILE__})"
+  class Chouette::ActiveRecord
+
+    def referential
+      @referential ||= Referential.where(:slug => Apartment::Database.current_database).first!
+    end
+
+  end
+end

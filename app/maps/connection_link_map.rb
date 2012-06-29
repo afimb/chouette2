@@ -1,10 +1,9 @@
 
 class ConnectionLinkMap < ApplicationMap
 
-  attr_reader :referential, :connection_link, :connection_link_style
+  attr_reader :connection_link, :connection_link_style
 
-  def initialize(referential, connection_link, connection_link_style = nil)
-    @referential = referential
+  def initialize(connection_link, connection_link_style = nil)
     @connection_link = connection_link
     @connection_link_style = connection_link_style
   end
@@ -17,7 +16,7 @@ class ConnectionLinkMap < ApplicationMap
       page << map.add_layer(google_hybrid) 
       page << map.add_layer(google_satellite) 
 
-      page.assign "stop_areas_layer", kml_layer(polymorphic_path([referential, connection_link, :stop_areas], :format => :kml), :styleMap => StyleMap::StopAreasStyleMap.new.style_map) 
+      page.assign "stop_areas_layer", kml_layer([connection_link.referential, connection_link, :stop_areas], :styleMap => StyleMap::StopAreasStyleMap.new.style_map) 
       page << map.add_layer(:stop_areas_layer)
       page << map.add_control( hover_control_display_name(:stop_areas_layer) )
       #page << map.add_layer(kml_layer(connection_link, :styleMap => StyleMap::ConnectionLinkStyleMap.new( :style => connection_link_style).style_map))
@@ -31,9 +30,11 @@ class ConnectionLinkMap < ApplicationMap
   end
 
   def bounds
-    wgs84_bounds = Chouette::StopArea.bounds
-    @bounds ||= OpenLayers::Bounds.new(wgs84_bounds.lower_corner.x, wgs84_bounds.lower_corner.y, wgs84_bounds.upper_corner.x, wgs84_bounds.upper_corner.y).transform(OpenLayers::Projection.new("EPSG:4326"), OpenLayers::Projection.new("EPSG:900913"))
-
+    @bounds ||= 
+      begin
+        wgs84_bounds = Chouette::StopArea.bounds
+        OpenLayers::Bounds.new(wgs84_bounds.lower_corner.x, wgs84_bounds.lower_corner.y, wgs84_bounds.upper_corner.x, wgs84_bounds.upper_corner.y).transform(OpenLayers::Projection.new("EPSG:4326"), OpenLayers::Projection.new("EPSG:900913"))
+      end
   end
 
 end
