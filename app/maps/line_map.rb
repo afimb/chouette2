@@ -1,10 +1,9 @@
 
 class LineMap < ApplicationMap
 
-  attr_reader :referential, :line, :line_style
+  attr_reader :line, :line_style
 
-  def initialize(referential, line, line_style = nil)
-    @referential = referential
+  def initialize(line, line_style = nil)
     @line = line
     @line_style = line_style
   end
@@ -18,7 +17,7 @@ class LineMap < ApplicationMap
       page << map.add_layer(google_satellite) 
 
       #page << map.add_layer(kml_layer(line, :styleMap => StyleMap::LineStyleMap.new( :style => line_style).style_map))
-      page.assign "stop_areas_layer", kml_layer(polymorphic_path([referential, line, :stop_areas], :format => :kml), :styleMap => StyleMap::StopAreasStyleMap.new.style_map)
+      page.assign "stop_areas_layer", kml_layer([line.referential, line, :stop_areas], :styleMap => StyleMap::StopAreasStyleMap.new.style_map)
 
       page << map.add_layer(:stop_areas_layer)
       page << map.add_control( hover_control_display_name(:stop_areas_layer) )
@@ -28,13 +27,16 @@ class LineMap < ApplicationMap
   end
 
   def bounds
-    wgs84_bounds = Chouette::StopArea.bounds
-    @bounds ||= OpenLayers::Bounds.new(wgs84_bounds.lower_corner.x, wgs84_bounds.lower_corner.y, wgs84_bounds.upper_corner.x, wgs84_bounds.upper_corner.y).transform(OpenLayers::Projection.new("EPSG:4326"), OpenLayers::Projection.new("EPSG:900913"))
+    @bounds ||= 
+      begin
+        wgs84_bounds = GeoRuby::SimpleFeatures::Point.bounds(line.stop_areas.map(&:geometry))
+        OpenLayers::Bounds.new(wgs84_bounds.lower_corner.x, wgs84_bounds.lower_corner.y, wgs84_bounds.upper_corner.x, wgs84_bounds.upper_corner.y).transform(OpenLayers::Projection.new("EPSG:4326"), OpenLayers::Projection.new("EPSG:900913")) if wgs84_bounds
+      end
 
   end
 
   def ready?
-    Chouette::StopArea.bounds.present?
+    bounds.present?
   end
 
 end

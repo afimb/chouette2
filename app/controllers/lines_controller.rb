@@ -7,7 +7,7 @@ class LinesController < ChouetteController
   belongs_to :referential
 
   def show
-    @map = LineMap.new referential, resource
+    @map = LineMap.new(resource).with_helpers(self)
     @routes = @line.routes
     show!
   end

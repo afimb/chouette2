@@ -1,9 +1,8 @@
 class RouteMap < ApplicationMap
 
-  attr_reader :referential, :route, :style
+  attr_reader :route, :style
 
-  def initialize(referential, route, style = nil)
-    @referential = referential
+  def initialize(route, style = nil)
     @route = route
     @style = style
   end
@@ -17,7 +16,7 @@ class RouteMap < ApplicationMap
       page << map.add_layer(google_satellite) 
 
       #page << map.add_layer(kml_layer(line, :styleMap => StyleMap::LineStyleMap.new( :style => line_style).style_map))
-      page << map.add_layer(kml_layer(polymorphic_path([referential, route.line, route], :format => :kml), :styleMap => StyleMap::RouteStyleMap.new.style_map))
+      page << map.add_layer(kml_layer([route.referential, route.line, route], :styleMap => StyleMap::RouteStyleMap.new.style_map))
       page << map.zoom_to_extent(bounds) if bounds
     end
   end
