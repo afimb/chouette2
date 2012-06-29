@@ -67,9 +67,8 @@ describe RoutesController do
 
     it_behaves_like "route, line and referential linked"
 
-    it "assigns RouteMap.new( referential, route) as @map" do
+    it "assigns RouteMap.new(route) as @map" do
       assigns[:map].should be_an_instance_of(RouteMap)
-      assigns[:map].referential.should == referential
       assigns[:map].route.should == route
     end
 

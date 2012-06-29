@@ -2,9 +2,27 @@ class ApplicationMap
 
   include MapLayers
   include MapLayers::ViewHelpers
-  #delegate :url_helpers, :to => :'Rails.application.routes' 
-  include Rails.application.routes.url_helpers
-  
+
+  attr_accessor :helpers
+
+  def helpers
+    @helper ||= Helpers.new
+  end
+
+  # For example, in a controller :
+  #
+  #   @map = MyMap.new(...).with_helpers(self)
+  #
+  def with_helpers(helpers)
+    self.helpers = helpers
+    self
+  end
+
+  class Helpers
+    include ActionDispatch::Routing::UrlFor
+    include Rails.application.routes.url_helpers
+  end
+
   def projection(name)
     OpenLayers::Projection.new(name)
   end
@@ -25,13 +43,10 @@ class ApplicationMap
     @map ||= MapLayers::Map.new(id, :projection => projection("EPSG:900913"), :controls => controls)
   end
 
-  def default_class
-    self.class.name.underscore.gsub(/_map$/, '')
-  end
-
   def name
     self.class.name.underscore.gsub(/_map$/, '')
   end
+  alias_method :default_class, :name
 
   def to_html(options = {})
     if not respond_to?(:ready?) or ready?
@@ -91,8 +106,26 @@ class ApplicationMap
                                               } } )
   end
 
-  def kml_layer(url, options = {})   
-    url = polymorphic_path([url.referential, url], :format => :kml) unless String === url 
+  def kml_layer(url_or_object, options_or_url_options = {}, options = nil)   
+    unless options
+      url_options = {}
+      options = options_or_url_options
+    else
+      url_options = options_or_url_options
+    end
+
+    url_options = url_options.merge(:format => :kml)
+
+    url =
+      case url_or_object
+      when String
+        url_or_object
+      when Array
+        helpers.polymorphic_path(url_or_object, url_options)
+      else
+        helpers.polymorphic_path([url_or_object.referential, url_or_object], url_options)
+      end
+    
     protocol = OpenLayers::Protocol::HTTP.new :url => url, :format => kml
     OpenLayers::Layer::Vector.new name, {:projection => projection("EPSG:4326"), :strategies => [strategy_fixed], :protocol => protocol, :displayInLayerSwitcher => false}.merge(options)
   end
