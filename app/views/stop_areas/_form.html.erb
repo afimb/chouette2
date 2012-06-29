@@ -1,30 +1,21 @@
 <%= semantic_form_for [@referential, @stop_area] do |form| %>
   <%= form.inputs do %> 
     <%= form.input :name %>
-    <%= form.input :comment %>              
-    <%= form.input :nearest_topic_name %>              
+    <%= form.input :stop_area_type, :as => :select, :input_html => { :disabled => !@stop_area.new_record? },
+      :collection => Chouette::StopArea.stop_area_types, :include_blank => false, :member_label => Proc.new { |stop_area_type| t("area_types.label.#{stop_area_type}") }  %>
+    <%= form.input :registration_number %>
     <%= form.input :street_name %>              
     <%= form.input :country_code %>              
     <%= form.input :fare_code %>              
-    <%= form.input :registration_number %>
-    <% if @stop_area.new_record? %>
-      <%= form.input :stop_area_type, :as => :select, :collection => Chouette::StopArea.stop_area_types, :include_blank => false, :member_label => Proc.new { |stop_area_type| t("area_types.label.#{stop_area_type}") }  %>
-      <%= form.input :objectid %>  
-    <% else %>
-      <li>
-      <label><%= @stop_area.human_attribute_name("stop_area_type") %></label>
-      <%= t("area_types.label.#{@stop_area.stop_area_type}") %>
-      </li>
-      <li>
-      <label><%= @stop_area.human_attribute_name("objectid") %></label>
-      <%= @stop_area.objectid %>
-      </li>
+    <%= form.input :nearest_topic_name %>              
+    <%= form.input :comment %>              
+    <%= form.input :objectid, :input_html => { :disabled => !@stop_area.new_record? } %>  
+    <%= form.inputs :name => t('stop_areas.show.geographic_data') do %> 
+      <%= form.input :x %>
+      <%= form.input :y %>
+      <%= form.input :longitude %>
+      <%= form.input :latitude %>
     <% end %>
-    <p><%= t('stop_areas.show.geographic_data') %></p>
-    <%= form.input :x %>              
-    <%= form.input :y %>              
-    <%= form.input :longitude %>              
-    <%= form.input :latitude %>              
   <% end %>
 
    <%= form.actions do %>

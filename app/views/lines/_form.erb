@@ -9,14 +9,7 @@
     <%= form.input :number %>
     <%= form.input :transport_mode, :as => :select, :collection => Chouette::Line.transport_modes, :include_blank => false, :member_label => Proc.new { |mode| t("transport_modes.label.#{mode}") }  %>
     <%= form.input :comment %>              
-    <% if @line.new_record? %>
-      <%= form.input :objectid %>  
-    <% else %>
-      <li>
-      <label><%= @line.human_attribute_name("objectid") %>: </label>
-      <%= @line.objectid %>
-      </li>
-    <% end %>
+    <%= form.input :objectid, :input_html => { :disabled => !@line.new_record? } %>  
   <% end %>
 
    <%= form.actions do %>

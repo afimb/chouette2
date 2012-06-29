@@ -13,14 +13,7 @@
     <%= form.input :stairs_availability,:as => :boolean %>
     <%= form.input :lift_availability,:as => :boolean %>
 
-    <% if @connection_link.new_record? %>
-      <%= form.input :objectid %>  
-    <% else %>
-      <li>
-      <label><%= @connection_link.human_attribute_name("objectid") %>: </label>
-      <%= @connection_link.objectid %>
-      </li>
-    <% end %>
+    <%= form.input :objectid, :input_html => { :disabled => !@connection_link.new_record? } %>  
   <% end %>
 
    <%= form.actions do %>
