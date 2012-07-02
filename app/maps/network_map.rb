@@ -21,16 +21,12 @@ class NetworkMap < ApplicationMap
       page << map.add_control( hover_control_display_name(:stop_areas_layer) )
 
       #page << map.add_layer(kml_layer(network, :styleMap => StyleMap::NetworkStyleMap.new( :style => network_style).style_map))
-      page << map.zoom_to_extent(bounds) if bounds
+      page << map.zoom_to_extent(bounds.to_google.to_openlayers) if bounds
     end
   end
 
   def bounds
-    @bounds ||= 
-      begin
-        wgs84_bounds = Chouette::StopArea.bounds
-        OpenLayers::Bounds.new(wgs84_bounds.lower_corner.x, wgs84_bounds.lower_corner.y, wgs84_bounds.upper_corner.x, wgs84_bounds.upper_corner.y).transform(OpenLayers::Projection.new("EPSG:4326"), OpenLayers::Projection.new("EPSG:900913")) if wgs84_bounds
-      end
+    @bounds ||= GeoRuby::SimpleFeatures::Point.bounds(network.stop_areas.collect(&:geometry).compact)
   end
 
   def ready?
