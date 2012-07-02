@@ -17,23 +17,16 @@ class RouteMap < ApplicationMap
 
       #page << map.add_layer(kml_layer(line, :styleMap => StyleMap::LineStyleMap.new( :style => line_style).style_map))
       page << map.add_layer(kml_layer([route.referential, route.line, route], :styleMap => StyleMap::RouteStyleMap.new.style_map))
-      page << map.zoom_to_extent(bounds) if bounds
+      page << map.zoom_to_extent(bounds.to_google.to_openlayers) if bounds
     end
   end
 
   def ready?
-    route_bounds.present?
-  end
-
-  def route_bounds
-    @route_bound ||= (route.geometry.empty? ? Chouette::StopArea.bounds : route.geometry.envelope)
+    bounds.present?
   end
 
   def bounds
-    @bounds ||= OpenLayers::Bounds.new(
-        route_bounds.lower_corner.x, route_bounds.lower_corner.y, 
-        route_bounds.upper_corner.x, route_bounds.upper_corner.y).
-      transform(OpenLayers::Projection.new("EPSG:4326"), OpenLayers::Projection.new("EPSG:900913"))
+    @bounds ||= GeoRuby::SimpleFeatures::Point.bounds(route.stop_areas.collect(&:geometry).compact)
   end
 
 end
