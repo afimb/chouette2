@@ -22,17 +22,12 @@ class LineMap < ApplicationMap
       page << map.add_layer(:stop_areas_layer)
       page << map.add_control( hover_control_display_name(:stop_areas_layer) )
 
-      page << map.zoom_to_extent(bounds) if bounds
+      page << map.zoom_to_extent(bounds.to_google.to_openlayers) if bounds
     end
   end
 
   def bounds
-    @bounds ||= 
-      begin
-        wgs84_bounds = GeoRuby::SimpleFeatures::Point.bounds(line.stop_areas.map(&:geometry))
-        OpenLayers::Bounds.new(wgs84_bounds.lower_corner.x, wgs84_bounds.lower_corner.y, wgs84_bounds.upper_corner.x, wgs84_bounds.upper_corner.y).transform(OpenLayers::Projection.new("EPSG:4326"), OpenLayers::Projection.new("EPSG:900913")) if wgs84_bounds
-      end
-
+    @bounds ||= GeoRuby::SimpleFeatures::Point.bounds(line.stop_areas.collect(&:geometry).compact)
   end
 
   def ready?
