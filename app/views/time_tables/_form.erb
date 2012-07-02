@@ -13,17 +13,7 @@
     <%= form.input :saturday, :as => :boolean %> 
     <%= form.input :sunday, :as => :boolean %> 
   <% end %>
-  <%= form.inputs do %> 
-    <% if @time_table.new_record? %>
-      <%= form.input :objectid %>  
-    <% else %>
-      <li>
-      <label><%= @time_table.human_attribute_name("objectid") %>: </label>
-      <%= @time_table.objectid %>
-      </li>
-    <% end %>
-  <% end %>
-  <p/>
+  <%= form.input :objectid, :input_html => { :disabled => !@time_table.new_record? } %>  
    <%= form.actions do %>
      <%= form.action :submit, :as => :button %>
      <%= form.action :cancel, :as => :link %>

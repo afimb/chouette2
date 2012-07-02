@@ -5,14 +5,7 @@
     <%= form.input :registration_number %>              
     <%= form.input :comment %>              
     <%= form.input :stop_point_ids, :as => :check_boxes, :collection => @route.stop_points.map { |s| [s.stop_area.name, s.id.to_s]}, :input_html => (@journey_pattern.new_record? ? { :checked => 'checked' }:{}) %>              
-    <% if @journey_pattern.new_record? %>
-      <%= form.input :objectid %>  
-    <% else %>
-      <li>
-      <label><%= @journey_pattern.human_attribute_name("objectid") %>: </label>
-      <%= @journey_pattern.objectid %>
-      </li>
-    <% end %>
+    <%= form.input :objectid, :input_html => { :disabled => !@journey_pattern.new_record? } %>  
   <% end %>
 
    <%= form.actions do %>

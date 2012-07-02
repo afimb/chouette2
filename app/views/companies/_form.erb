@@ -9,14 +9,7 @@
     <%= form.input :fax, :as => :phone %>
     <%= form.input :email, :as => :email %>              
     <%= form.input :registration_number %>
-    <% if @company.new_record? %>
-      <%= form.input :objectid %>  
-    <% else %>
-      <li>
-      <label><%= @company.human_attribute_name("objectid") %>: </label>
-      <%= @company.objectid %>
-      </li>
-    <% end %>
+    <%= form.input :objectid, :input_html => { :disabled => !@company.new_record? } %>  
   <% end %>
 
    <%= form.actions do %>

@@ -1,7 +1,7 @@
 <%= div_for(journey_pattern) do %>
   <%= link_to journey_name(journey_pattern), [@referential, @line, @route, journey_pattern] %>
   <div class="info">
-    <% unless journey_pattern.name.blank? %>
+    <% unless journey_pattern.stop_points.empty? %>
       <%= t('.from_to', :departure => journey_pattern.stop_points.first.stop_area.name, :arrival => journey_pattern.stop_points.last.stop_area.name) %> -
     <% end %>
     <%= t('.stop_count', :count => journey_pattern.stop_points.count, :route_count => @route.stop_points.count) %> -

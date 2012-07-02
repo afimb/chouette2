@@ -12,6 +12,16 @@ class JourneyPatternsController < ChouetteController
 
   alias_method :route, :parent
 
+  def index     
+    index! do |format|
+      format.html { redirect_to referential_line_route_path(@referential,@line,@route) }
+    end
+  end
+
+  def create_resource(object)
+    object.special_update
+  end
+
   def show
     #@map = RouteMap.new(route).with_helpers(self)
     @stop_points = resource.stop_points.paginate(:page => params[:page], :per_page => 10)
