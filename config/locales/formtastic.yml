@@ -5,6 +5,23 @@ fr:
     create: "Créer %{model}"  
     update: "Modifier %{model}"
     submit: 'Valider %{model}'
-    cancel: 'Annuler %{model}'
+    cancel: 'Annuler'
     reset: 'Réinitialiser %{model}'
+    required: 'requis'
+    import: "Lancer l'import"
+    export: "Lancer l'export"
+    validate: "Lancer la validation"
+
+en:
+  formtastic:
+    yes: 'Yes'
+    no: 'No'
+    create: "Create %{model}"  
+    update: "Update %{model}"
+    submit: 'Apply %{model}'
+    cancel: 'Cancel'
+    reset: 'Reset %{model}'
     required: 'required'
+    import: "Launch import"
+    export: "Launch export"
+    validate: "Launch validation"

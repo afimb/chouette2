@@ -1,0 +1,149 @@
+<%= title_tag @file_validation.name %>
+
+<div class="file_validation_show">
+  <div class="panelDataSection"><%= t(".summary") %></div>
+    
+  <div class="neptune-panel">
+      <label><%= FileValidation.human_attribute_name(:created_at) %>: </label>
+      <%= l @file_validation.created_at %><br/>
+      <label><%= FileValidation.human_attribute_name(:status) %>: </label>
+      <%= t @file_validation.status, :scope => "file_validations.statuses" %><br/>
+      <label><%= FileValidation.human_attribute_name(:file_name) %>: </label>
+      <%= @file_validation.file_name %><br/>
+      <br/>
+      <br/>
+      <% if @file_validation.status == 'completed' %>
+      <table>
+         <tbody>
+            <tr>
+               <td><%= image_tag "severity-uncheck.png" , :alt => t("uncheck", :scope => "file_validation_log_messages.severities") %>
+               	<%= t( "file_validations.uncheck_count" , :count => @file_validation.uncheck_count )%>
+               </td>
+               <td><%= image_tag "severity-ok.png" , :alt => t("ok", :scope => "file_validation_log_messages.severities") %>
+               	<%= t( "file_validations.ok_count" , :count => @file_validation.ok_count )%>
+               </td>
+               <td><%= image_tag "severity-warning.png" , :alt => t("warning", :scope => "file_validation_log_messages.severities") %>
+               	<%= t( "file_validations.warning_count" , :count => @file_validation.warning_count )%>
+               </td>
+               <td><%= image_tag "severity-error.png" , :alt => t("error", :scope => "file_validation_log_messages.severities") %>
+               	<%= t( "file_validations.error_count" , :count => @file_validation.error_count )%>
+               </td>
+               <td><%= image_tag "severity-fatal.png" , :alt => t("fatal", :scope => "file_validation_log_messages.severities") %>
+               	<%= t( "file_validations.fatal_count" , :count => @file_validation.fatal_count )%>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <% end %>
+  </div>    	 		
+<% if @file_validation.status == 'completed' %>
+  <h3><%= t(".details") %></h3>
+    <% @file_validation.log_message_tree.each do |message1| %>
+       <label class="category"><%= message1.full_message %></label>
+       <div id="<%= message1.key %>" style="margin-left: 40px;">
+       <% message1.children.each do  |message2| %>
+          <div class="panelDataSection"><%= message2.full_message %></div>
+          <div id="<%= message2.severity %>" class="neptune-panel">
+          <% message2.children.each do  |message3| %>
+	          <div class="<%= message3.severity %>">
+				<div>
+				<label id=""><%= message3.label %></label>
+				</div>
+				<div id="" class="step">
+					<%= message3.full_message %>
+	            </div>
+	          </div>
+	          <% if !message3.children.nil? %>
+	          <div id="" class="detail"> </div>
+	          <div id="detail_0_4_0" class="neptune-panel-inSide">
+				<ol>
+		          <% message3.children.each do  |message4| %>
+					<li> <%= message4.full_message %> </li>
+					<br>
+				  <% end %>
+				</ol>
+	          </div>
+	          <% end %>
+	      <% end %>
+	      </div>
+       <% end %>
+       </div>
+    <% end %>
+    <div class="panelDataSection"><%= t(".parameters") %></div>
+    <div class="neptune-panel">
+    	<label class="label"><%= t("activerecord.attributes.file_validation.test3_1_minimal_distance") %> :</label>
+        <label><%= @file_validation.test3_1_minimal_distance %></label>
+        <br>
+    	<label class="label"><%= t("activerecord.attributes.file_validation.test3_2_minimal_distance") %> :</label>
+        <label><%= @file_validation.test3_2_minimal_distance %></label>
+        <br>
+    	<label class="label"><%= t("activerecord.attributes.file_validation.test3_2_polygon_points") %> :</label>
+        <label><%= @file_validation.test3_2_polygon_points %></label>
+        <br>
+    	<label class="label"><%= t("activerecord.attributes.file_validation.test3_7_minimal_distance") %> :</label>
+        <label><%= @file_validation.test3_7_minimal_distance %></label> / 
+        <label><%= @file_validation.test3_7_maximal_distance %></label>
+        <br>
+    	<label class="label"><%= t("activerecord.attributes.file_validation.test3_8a_minimal_speed") %> :</label>
+        <label><%= @file_validation.test3_8a_minimal_speed %></label> / 
+        <label><%= @file_validation.test3_8a_maximal_speed %></label>
+        <br>
+    	<label class="label"><%= t("activerecord.attributes.file_validation.test3_8b_minimal_speed") %> :</label>
+        <label><%= @file_validation.test3_8b_minimal_speed %></label> / 
+        <label><%= @file_validation.test3_8b_maximal_speed %></label>
+        <br>
+    	<label class="label"><%= t("activerecord.attributes.file_validation.test3_8c_minimal_speed") %> :</label>
+        <label><%= @file_validation.test3_8c_minimal_speed %></label> / 
+        <label><%= @file_validation.test3_8c_maximal_speed %></label>
+        <br>
+    	<label class="label"><%= t("activerecord.attributes.file_validation.test3_8d_minimal_speed") %> :</label>
+        <label><%= @file_validation.test3_8d_minimal_speed %></label> / 
+        <label><%= @file_validation.test3_8d_maximal_speed %></label>
+        <br>
+    	<label class="label"><%= t("activerecord.attributes.file_validation.test3_9_minimal_speed") %> :</label>
+        <label><%= @file_validation.test3_9_minimal_speed %></label> / 
+        <label><%= @file_validation.test3_9_maximal_speed %></label>
+        <br>
+    	<label class="label"><%= t("activerecord.attributes.file_validation.test3_10_minimal_distance") %> :</label>
+        <label><%= @file_validation.test3_10_minimal_distance %></label>
+        <br>
+    	<label class="label"><%= t("activerecord.attributes.file_validation.test3_15_minimal_time") %> :</label>
+        <label><%= @file_validation.test3_15_minimal_time %></label>
+        <br>
+    	<label class="label"><%= t("activerecord.attributes.file_validation.test3_16_1_maximal_time") %> :</label>
+        <label><%= @file_validation.test3_16_1_maximal_time %></label>
+        <br>
+    	<label class="label"><%= t("activerecord.attributes.file_validation.test3_16_3a_maximal_time") %> :</label>
+        <label><%= @file_validation.test3_16_3a_maximal_time %></label>
+        <br>
+    	<label class="label"><%= t("activerecord.attributes.file_validation.test3_16_3b_maximal_time") %> :</label>
+        <label><%= @file_validation.test3_16_3b_maximal_time %></label>
+        <br>
+    	<label class="label"><%= t("activerecord.attributes.file_validation.test3_21a_minimal_speed") %> :</label>
+        <label><%= @file_validation.test3_21a_minimal_speed %></label> / 
+        <label><%= @file_validation.test3_21a_maximal_speed %></label>
+        <br>
+    	<label class="label"><%= t("activerecord.attributes.file_validation.test3_21b_minimal_speed") %> :</label>
+        <label><%= @file_validation.test3_21b_minimal_speed %></label> / 
+        <label><%= @file_validation.test3_21b_maximal_speed %></label>
+        <br>
+    	<label class="label"><%= t("activerecord.attributes.file_validation.test3_21c_minimal_speed") %> :</label>
+        <label><%= @file_validation.test3_21c_minimal_speed %></label> / 
+        <label><%= @file_validation.test3_21c_maximal_speed %></label>
+        <br>
+    	<label class="label"><%= t("activerecord.attributes.file_validation.test3_21d_minimal_speed") %> :</label>
+        <label><%= @file_validation.test3_21d_minimal_speed %></label> / 
+        <label><%= @file_validation.test3_21d_maximal_speed %></label>
+        <br>
+    	<label class="label"><%= t("activerecord.attributes.file_validation.projection_reference") %> :</label>
+        <label><%= @file_validation.projection_reference %></label>
+
+    </div>
+
+  <% end %>
+</div>
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to  t('file_validations.actions.destroy'), file_validation_path(@file_validation), :method => :delete, :confirm =>  t('file_validations.actions.destroy_confirm'), :class => "remove" %></li>
+</ul>
+<% end %>

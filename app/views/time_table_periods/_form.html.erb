@@ -1,7 +1,7 @@
 <%= semantic_form_for [@referential, @time_table, @time_table_period] do |form| %>
   <%= form.inputs do %> 
-    <%= form.input :period_start, :as => :date, :label => @time_table_period.human_attribute_name("period_start") %>
-    <%= form.input :period_end, :as => :date, :label => @time_table_period.human_attribute_name("period_end") %>
+    <%= form.input :period_start, :as => :date_picker, :label => @time_table_period.human_attribute_name("period_start") %>
+    <%= form.input :period_end, :as => :date_picker, :label => @time_table_period.human_attribute_name("period_end") %>
   <% end %>
    <%= form.actions do %>
      <%= form.action :submit, :as => :button %>

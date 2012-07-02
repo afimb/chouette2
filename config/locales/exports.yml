@@ -24,6 +24,7 @@ en:
       undefined: %{key} undefined
       NEPTUNE_EXPORT: Neptune Export
       NEPTUNE_EXPORTED_LINE: "Line %{0} (%{1}) exported"
+      NEPTUNE_EMPTY_LINE: "Line %{0} (%{1}) without valid vehicle journey : not exported"
     severities:
       info: Information
       ok: Ok
@@ -71,6 +72,7 @@ fr:
       undefined: %{key} non défini
       NEPTUNE_EXPORT: Export Neptune
       NEPTUNE_EXPORTED_LINE: "Ligne %{0} (%{1}) exportée"
+      NEPTUNE_EMPTY_LINE: "Ligne %{0} (%{1}) sans course valide : non exportée"
     severities:
       info: Information
       ok: Ok

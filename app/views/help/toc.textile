@@ -8,6 +8,7 @@ h3. Sommaire
 # "G&eacute;n&eacute;ralit&eacute;s":introduction
 ## "Normalisation":normalisation
 ## "Documentation":documentation
+## "Vue d'ensemble":schema
 # "Espaces de donn&eacute;es":dataspaces
 # "R&eacute;seaux":networks
 # "Transporteurs":companies
@@ -26,4 +27,5 @@ h3. Sommaire
 ## Validation
 # Divers
 ## "API Rest":restapis
+## "FAQ":faq
 
