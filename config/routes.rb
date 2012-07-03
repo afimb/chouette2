@@ -59,7 +59,7 @@ ChouetteIhm::Application.routes.draw do
       end
     end
 
-    resources :companies, :stop_areas  
+    resources :companies
     
     resources :time_tables do
       collection do
