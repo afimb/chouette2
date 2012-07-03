@@ -68,6 +68,9 @@ class StopAreasController < ChouetteController
   alias_method :stop_area, :resource
 
   def map
+    ENV.each do |key, value|
+      Rails.logger.info "ENV['#{key}'] = '#{value}'"
+    end
     @map = StopAreaMap.new(stop_area).with_helpers(self)
   end
 
