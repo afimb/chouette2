@@ -3,7 +3,7 @@ layout: default
 title: Présentation
 ---
 
-Chouette v2 : it&eacute;ration 8 du 19/06/2012
+Chouette v2 : it&eacute;ration 9 du 03/07/2012
 
 Cette it&eacute;ration pr&eacute;sente les formulaires de :
 
@@ -19,8 +19,9 @@ Cette it&eacute;ration pr&eacute;sente les formulaires de :
 ** ITL
 * calendriers d'application
 * correspondances
-* imports Neptune et CSV
-* exports Neptune
+* imports
+* exports
+* validation Neptune
 
 l'avancement actuel permet de : 
 
@@ -37,13 +38,12 @@ l'avancement actuel permet de :
 ** ajouter, modifier les missions de la s&eacute;quence
 ** afficher, ajouter, modifier, supprimer des courses/horaires
 * pr&eacute;ciser des param&egrave;tres g&eacute;n&eacute;raux de l'espace de donn&eacute;es
-
+* valider un fichier neptune
 
 les actions suivantes ne sont pas encore disponible : 
 
-* afficher le fond G&eacute;oportail
-* exports de donn&eacute;es &agrave; d'autres formats que Neptune (GTFS/CSV)
 * d&eacute;finir l'emprise g&eacute;n&eacute;rale du r&eacute;seau
 * g&eacute;rer le second r&eacute;f&eacute;rentiel de projection
 * afficher des informations dans le tableau de bord
+* cr&eacute;er des courses par translation
 
