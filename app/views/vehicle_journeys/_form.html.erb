@@ -3,37 +3,39 @@
     <%= form.input :journey_pattern, :as => :select, :collection => @route.journey_patterns, :include_blank => false, :member_label => Proc.new { |jp| journey_name(jp) }  %>
     <%= form.input :published_journey_name %>
     <%= form.input :published_journey_identifier %>
-    <%= form.input :comment %>              
+    <%= form.input :comment %>          
     <%= form.input :transport_mode, :as => :select, :collection => Chouette::Line.transport_modes, :include_blank => true, :member_label => Proc.new { |mode| t("transport_modes.label.#{mode}") }  %>
     <%= form.input :status_value %>              
     <%= form.input :facility %>              
     <%= form.input :vehicle_type_identifier%>              
     <%= form.input :objectid, :input_html => { :disabled => !@vehicle_journey.new_record? } %>  
     
-    <%= form.inputs :class => "stop_times", :name => @vehicle_journey.human_attribute_name(:vehicle_journey_at_stop_ids) do %>
-      <table border="0" class="vehicle_journey_at_stops">
-        <thead>
-          <tr>
-            <th class="hour title"><%= t('.arrival') %></th>
-            <th class="stop title" ><%= t('.stop_title') %></th>
-            <th class="hour title"><%= t('.departure') %></th>
-          </tr>
-        </thead>
-        <!--
-        <= form.semantic_fields_for :vehicle_journey_at_stops do |vjas| >
-          <= vjas.object.stop_point.stop_area.name >
-          <= vjas.input :_destroy, :as => :hidden >
-          <= vjas.input :departure_time, :as => :time >
-
-        < end >
-        -->
-        <tbody class="journey_pattern_dependent_list">
-        <%= render :partial => "vehicle_journeys/vehicle_journey_at_stop_fields",
-          :collection => @vehicle_journey.vehicle_journey_at_stops, :as => :vehicle_journey_at_stop %> 
-        </tbody>
-      </table>
+    <% if !@vehicle_journey.new_record? %>
+	    <%= form.inputs :class => "stop_times", :name => @vehicle_journey.human_attribute_name(:vehicle_journey_at_stop_ids) do %>
+	      <table border="0" class="vehicle_journey_at_stops">
+	        <thead>
+	          <tr>
+	            <th class="hour title"><%= t('.arrival') %></th>
+	            <th class="stop title" ><%= t('.stop_title') %></th>
+	            <th class="hour title"><%= t('.departure') %></th>
+	          </tr>
+	        </thead>
+	        <!--
+	        <= form.semantic_fields_for :vehicle_journey_at_stops do |vjas| >
+	          <= vjas.object.stop_point.stop_area.name >
+	          <= vjas.input :_destroy, :as => :hidden >
+	          <= vjas.input :departure_time, :as => :time >
+	
+	        < end >
+	        -->
+	        <tbody class="journey_pattern_dependent_list">
+	        <%= render :partial => "vehicle_journeys/vehicle_journey_at_stop_fields",
+	          :collection => @vehicle_journey.vehicle_journey_at_stops, :as => :vehicle_journey_at_stop %> 
+	        </tbody>
+	      </table>
+	    <% end %>
     <% end %>
-        <%= form.input :time_table_tokens, :label => t('.time_tables'), :as => :text,  :input_html => { :"data-pre" => ( @vehicle_journey.time_tables.map { |time_table| { :id => time_table.id, :name => time_table.comment } } ).to_json }  %>
+    <%= form.input :time_table_tokens, :label => t('.time_tables'), :as => :text,  :input_html => { :"data-pre" => ( @vehicle_journey.time_tables.map { |time_table| { :id => time_table.id, :name => time_table.comment } } ).to_json }  %>
     
   <% end %>
 
