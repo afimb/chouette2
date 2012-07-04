@@ -17,6 +17,41 @@
   <label><%= Referential.human_attribute_name("time_zone") %>: </label>
   <%= @referential.time_zone %>
   </p>
+  
+  <table class="count"> 
+  	<thead>
+  		<tr>
+  		<td><%= t(".objects") %></td>
+  		<td><%= t(".count") %></td>		
+  		</tr>
+  	</thead>
+  	<tbody>
+  		<tr>
+   		<td class="object"><%= Referential.human_attribute_name("networks") %></td>
+  		<td class="value"> <%= @referential.networks.size %></d>		
+  		</tr>
+  		<tr>
+   		<td class="object"><%= Referential.human_attribute_name("lines") %></td>
+  		<td class="value"> <%= @referential.lines.size %></d>		
+  		</tr>
+  		<tr>
+   		<td class="object"><%= Referential.human_attribute_name("companies") %></td>
+  		<td class="value"> <%= @referential.companies.size %></d>		
+  		</tr>
+  		<tr>
+   		<td class="object"><%= Referential.human_attribute_name("stop_areas") %></td>
+  		<td class="value"> <%= @referential.stop_areas.size %></d>		
+  		</tr>
+  		<tr>
+   		<td class="object"><%= Referential.human_attribute_name("time_tables") %></td>
+  		<td class="value"> <%= @referential.time_tables.size %></d>		
+  		</tr>
+  		<tr>
+   		<td class="object"><%= Referential.human_attribute_name("connection_links") %></td>
+  		<td class="value"> <%= @referential.connection_links.size %></d>		
+  		</tr>
+  	</tbody>
+  </table>
 </div>  
 
 <% content_for :sidebar do %>
