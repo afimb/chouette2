@@ -146,4 +146,6 @@
 <ul class="actions">
   <li><%= link_to  t('file_validations.actions.destroy'), file_validation_path(@file_validation), :method => :delete, :confirm =>  t('file_validations.actions.destroy_confirm'), :class => "remove" %></li>
 </ul>
+<%= render :partial => "test_sheet_toc" %>
+
 <% end %>

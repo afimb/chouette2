@@ -1,6 +1,15 @@
 class FileValidationsController < InheritedResources::Base
   respond_to :html, :xml, :json
 
+  def show
+    @toc = TestSheetPage.find("toc")
+    show!
+  end
+  
+  def new
+    @toc = TestSheetPage.find("toc")
+    new!
+  end
 
   def create
     create! do |success, failure|

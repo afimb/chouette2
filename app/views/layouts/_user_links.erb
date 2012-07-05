@@ -15,7 +15,7 @@
   <% if user_signed_in?  %>
   <li> | </li> 
   <li>
-  <%= link_to help_path do %>
+  <%= link_to help_path , :target => "help" do %>
     <span class="help"><%= t('layouts.help') %></span>
   <% end %>
   </li>

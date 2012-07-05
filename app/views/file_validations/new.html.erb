@@ -43,3 +43,9 @@
      <%= form.action :cancel, :as => :link %>
    <% end %>
 <% end %>
+
+<% content_for :sidebar do %>
+<%= render :partial => "test_sheet_toc" %>
+<% end %>
+
+

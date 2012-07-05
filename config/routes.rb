@@ -104,6 +104,7 @@ ChouetteIhm::Application.routes.draw do
   end 
 
   match '/help/(*slug)' => 'help#show'
+  match '/test_sheet/(*slug)' => 'test_sheet#show'
 
   # Sample resource route with options:
   #   resources :products do

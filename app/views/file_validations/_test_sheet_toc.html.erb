@@ -1,0 +1,23 @@
+<div id="sidebarhelp" class="help">
+<h3>Définition des tests</h3>
+<ol>
+	<li>Catégorie 1
+	<ol>
+		<% for i in 1..2 do %>
+           <li><%= link_to 'Fiche 1.'+i.to_s , test_sheet_path+"1."+i.to_s, :target => "test_sheets" %></li>
+        <% end %>
+	</ol></li>
+	<li>Catégorie 2
+	<ol>
+		<% for i in 1..28 do %>
+           <li><%= link_to 'Fiche 2.'+i.to_s , test_sheet_path+"2."+i.to_s, :target => "test_sheets" %></li>
+        <% end %>
+	</ol></li>
+	<li>Catégorie 3
+	<ol>
+		<% for i in 1..21 do %>
+           <li><%= link_to 'Fiche 3.'+i.to_s , test_sheet_path+"3."+i.to_s, :target => "test_sheets" %></li>
+        <% end %>
+	</ol></li>
+</ol>
+</div>
