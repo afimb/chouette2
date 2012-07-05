@@ -5,21 +5,21 @@ title: Sommaire
 
 h3. Sommaire
 
-# "G&eacute;n&eacute;ralit&eacute;s":introduction
+# "Généralités":introduction
 ## "Normalisation":normalisation
 ## "Documentation":documentation
 ## "Vue d'ensemble":schema
-# "Espaces de donn&eacute;es":dataspaces
-# "R&eacute;seaux":networks
+# "Espaces de données":dataspaces
+# "Réseaux":networks
 # "Transporteurs":companies
 # "Lignes":lines
-## "S&eacute;quences d'arr&ecirc;ts":routes
+## "Séquences d'arrêts":routes
 ## "Missions":journeypatterns
 ## "Courses/Horaires":vehiclejourneys
-# "Arr&ecirc;ts":stop_areas
+# "Arrêts":stop_areas
 ## "Correspondances":connection_links
-## Acc&egrave;s
-## Liaisons Arr&ecirc;t-Acc&egrave;s
+## Accès
+## Liaisons Arrêt-Accès
 # "Calendriers d'application":timetables
 # Outils
 ## Imports

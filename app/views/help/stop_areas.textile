@@ -3,87 +3,87 @@ layout: default
 title: Arrêts
 ---
 
-* "D&eacute;finition":#def
+* "Définition":#def
 * "Attributs":#attr
-* "Mode op&eacute;ratoire":#ope
+* "Mode opératoire":#ope
 
-h3(#def). D&eacute;finition
+h3(#def). Définition
 
-Le r&eacute;f&eacute;rentiel des arr&ecirc;ts constitue un maillon essentiel du r&eacute;seau, et se compose de plusieurs &eacute;l&eacute;ments de niveaux diff&eacute;rents. 
+Le référentiel des arrêts constitue un maillon essentiel du réseau, et se compose de plusieurs éléments de niveaux différents. 
 
-On recense tout d'abord les arr&ecirc;ts physiques, qualifi&eacute;s de *point d'embarquement* ou de *quai*.  
+On recense tout d'abord les arrêts physiques, qualifiés de *point d'embarquement* ou de *quai*.  
 
-Du fait de l'existence de deux concepts dans TRIDENT, cet arr&ecirc;t physique sera consid&eacute;r&eacute; par l'application comme une *zone d'arr&ecirc;t de premier niveau*. Cette notion est n&eacute;cessaire pour g&eacute;rer les *points d'arr&ecirc;ts sur itin&eacute;raire* utilis&eacute;s par certains r&eacute;seaux. 
+Du fait de l'existence de deux concepts dans TRIDENT, cet arrêt physique sera considéré par l'application comme une *zone d'arrêt de premier niveau*. Cette notion est nécessaire pour gérer les *points d'arrêts sur itinéraire* utilisés par certains réseaux. 
 
-L'application g&egrave;re ensuite les points d'arr&ecirc;ts sur itin&eacute;raire &agrave; partir de ces arr&ecirc;ts physiques, en assurant le regroupement des points d'arr&ecirc;t sur itin&eacute;raire dans un arr&ecirc;t physique (cas de plusieurs lignes passant par le m&ecirc;me arr&ecirc;t physique).
+L'application gère ensuite les points d'arrêts sur itinéraire à partir de ces arrêts physiques, en assurant le regroupement des points d'arrêt sur itinéraire dans un arrêt physique (cas de plusieurs lignes passant par le même arrêt physique).
 
-Par la suite, vous pourrez regrouper deux (ou plus) arr&ecirc;ts physiques au sein d'un *arr&ecirc;t commercial* (par exemple pour regrouper les points d'arr&ecirc;t physiques correspondant &agrave; deux poteaux d'arr&ecirc;t de la m&ecirc;me ligne situ&eacute;s de part et d'autre d'une chauss&eacute;e mais aussi pour regrouper l'ensemble des points d'arr&ecirc;t physiques d'un quai de gare routi&egrave;re pour lesquels vous consid&eacute;rez que le temps de correspondance est nul). Vous aurez ainsi constitu&eacute; une zone d'arr&ecirc;t, avec qualification arr&ecirc;t commercial, de deuxi&egrave;me niveau.
+Par la suite, vous pourrez regrouper deux (ou plus) arrêts physiques au sein d'un *arrêt commercial* (par exemple pour regrouper les points d'arrêt physiques correspondant à deux poteaux d'arrêt de la même ligne situés de part et d'autre d'une chaussée mais aussi pour regrouper l'ensemble des points d'arrêt physiques d'un quai de gare routière pour lesquels vous considérez que le temps de correspondance est nul). Vous aurez ainsi constitué une zone d'arrêt, avec qualification arrêt commercial, de deuxième niveau.
 
-Enfin, CHOUETTE vous offre la possibilit&eacute; de regrouper les lieux d'arr&ecirc;t agglom&eacute;r&eacute;s ainsi cr&eacute;&eacute;s au sein d'une *zone d'arr&ecirc;t de troisi&egrave;me niveau* pour constituer des *p&ocirc;les d'&eacute;change*.
+Enfin, CHOUETTE vous offre la possibilité de regrouper les lieux d'arrêt agglomérés ainsi créés au sein d'une *zone d'arrêt de troisième niveau* pour constituer des *pôles d'échange*.
 
-Ainsi on obtient les possibilit&eacute;s de regroupements suivants:
-* un arr&ecirc;t physique regroupe plusieurs arr&ecirc;ts itin&eacute;raire.
-* un arr&ecirc;t commercial regroupe plusieurs arr&ecirc;ts physiques (quai, embarquement).
-* un p&ocirc;le d'&eacute;change regroupe plusieurs arr&ecirc;ts commerciaux. 
+Ainsi on obtient les possibilités de regroupements suivants:
+* un arrêt physique regroupe plusieurs arrêts itinéraire.
+* un arrêt commercial regroupe plusieurs arrêts physiques (quai, embarquement).
+* un pôle d'échange regroupe plusieurs arrêts commerciaux. 
 
-Pour ne pas aboutir &agrave; un syst&egrave;me trop complexe, les r&egrave;gles suivantes sont pos&eacute;es:
-* un p&ocirc;le d'&eacute;change peut contenir des arr&ecirc;ts commerciaux et/ou des p&ocirc;les d'&eacute;changes (qui ne peuvent pas en contenir d'autres).
-* un arr&ecirc;t commercial ne peut contenir que des arr&ecirc;ts physiques.
+Pour ne pas aboutir à un système trop complexe, les règles suivantes sont posées:
+* un pôle d'échange peut contenir des arrêts commerciaux et/ou des pôles d'échanges (qui ne peuvent pas en contenir d'autres).
+* un arrêt commercial ne peut contenir que des arrêts physiques.
 
 Un dernier regourpement est *l'ITL* : 
 
-*L'interdiction de trafic local* est l'interdiction faite &agrave; un service routier de prendre et de laisser un m&ecirc;me voyageur &agrave; l'int&eacute;rieur du p&eacute;rim&egrave;tre des transports urbains _(cf. D&eacute;cret n&ordm;49-1473 du 14 novembre 1949)_ .
+*L'interdiction de trafic local* est l'interdiction faite à un service routier de prendre et de laisser un même voyageur à l'intérieur du périmètre des transports urbains _(cf. Décret n°49-1473 du 14 novembre 1949)_ .
 Ainsi dans CHOUETTE:
-* Une ITL est un regroupement d'arr&ecirc;ts repr&eacute;sentant le p&eacute;rim&egrave;tre d'interdiction.
-* Une ITL est associ&eacute;e &agrave; une ou plusieurs lignes 
+* Une ITL est un regroupement d'arrêts représentant le périmètre d'interdiction.
+* Une ITL est associée à une ou plusieurs lignes 
 
 h3(#attr). Attributs
 
-- Type d'arr&ecirc;t := cat&eacute;gorie de l'arr&ecirc;t
+- Type d'arrêt := catégorie de l'arrêt
 
 * !boardingposition.png! point d'embarquement
 * !quay.png! quai
-* !commercialstoppoint.png! arr&ecirc;t commercial
-* !stopplace.png! p&ocirc;le d'&eacute;change
+* !commercialstoppoint.png! arrêt commercial
+* !stopplace.png! pôle d'échange
 * !itl.png! ITL
 
 
-- Nom := nom de l'arr&ecirc;t 
+- Nom := nom de l'arrêt 
 - Commentaire := zone de texte libre
-- Point d'int&eacute;r&ecirc;t le plus proche := nom du lieu desservi par l'arr&ecirc;t
-- Nom de la rue := nom de la rue de l'arr&ecirc;t
-- Code INSEE := code INSEE de la commune de l'arr&ecirc;t
-- Zone tarifaire := zone de tarification applicable &agrave; cet arr&ecirc;t
-- Num&eacute;ro d'enregistrement := code r&eacute;f&eacute;ren&ccedil;ant un arr&ecirc;t au sein d'une autorit&eacute; sup&eacute;rieure
+- Point d'intérêt le plus proche := nom du lieu desservi par l'arrêt
+- Nom de la rue := nom de la rue de l'arrêt
+- Code INSEE := code INSEE de la commune de l'arrêt
+- Zone tarifaire := zone de tarification applicable à cet arrêt
+- Numéro d'enregistrement := code référençant un arrêt au sein d'une autorité supérieure
 
-p(attr_data). Donn&eacute;es g&eacute;ographiques :
+p(attr_data). Données géographiques :
 
-- Position X := coordonn&eacute;e horizontale de l'arr&ecirc;t dans le r&eacute;f&eacute;rentiel de projection de l'espace de donn&eacute;es
-- Position Y := coordonn&eacute;e verticale de l'arr&ecirc;t dans le r&eacute;f&eacute;rentiel de projection de l'espace de donn&eacute;es
-- Longitude := longitude de l'arr&ecirc;t dans le r&eacute;f&eacute;rentiel WGS84
-- latitude := latitude de l'arr&ecirc;t dans le r&eacute;f&eacute;rentiel WGS84
+- Position X := coordonnée horizontale de l'arrêt dans le référentiel de projection de l'espace de données
+- Position Y := coordonnée verticale de l'arrêt dans le référentiel de projection de l'espace de données
+- Longitude := longitude de l'arrêt dans le référentiel WGS84
+- latitude := latitude de l'arrêt dans le référentiel WGS84
 
-p(attr_data). Donn&eacute;es de gestion :
+p(attr_data). Données de gestion :
 
 - Identifiant Neptune :=
-cl&eacute; unique p&eacute;renne identifiant la ligne pour les &eacute;changes Neptune
-cet identifiant est compos&eacute; de 3 parties : pr&eacute;fixe:type:id_technique
-* pr&eacute;fixe : cl&eacute; identifiant un producteur de donn&eacute;es unique
-* type = Line : cl&eacute; identifiant le type d'objet (valeur impos&eacute;e)
-* id_technique : valeur identifiant un seul object d'un type donn&eacute; pour un m&ecirc;me producteur
-ce champ obligatoire est automatiquement g&eacute;n&eacute;r&eacute; s'il n'est pas renseign&eacute; 
-il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera compl&eacute;t&eacute;e automatiquement.
+clé unique pérenne identifiant la ligne pour les échanges Neptune
+cet identifiant est composé de 3 parties : préfixe:type:id_technique
+* préfixe : clé identifiant un producteur de données unique
+* type = Line : clé identifiant le type d'objet (valeur imposée)
+* id_technique : valeur identifiant un seul object d'un type donné pour un même producteur
+ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
+il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera complétée automatiquement.
 =:
-- Date de cr&eacute;ation := date &agrave; laquelle l'objet a &eacute;t&eacute; cr&eacute;&eacute; ou modifi&eacute; pour la derni&egrave;re fois
-- Version := version de l'objet (auto incr&eacute;ment&eacute; &agrave; chaque modification)
-- Cr&eacute;&eacute; par := compte utilisateur ayant proc&eacute;d&eacute; &agrave; la derni&egrave;re modification
+- Date de création := date à laquelle l'objet a été créé ou modifié pour la dernière fois
+- Version := version de l'objet (auto incrémenté à chaque modification)
+- Créé par := compte utilisateur ayant procédé à la dernière modification
 
-h3(#ope). Mode op&eacute;ratoire
+h3(#ope). Mode opératoire
 
-h4. D&eacute;placement sur la carte
+h4. Déplacement sur la carte
 
-* activer le d&eacute;placement en cliquant sur l'arr&ecirc;t -> le curseur prend la forme d'une quadruple fl&ecirc;che
-* appuyer sur le bouton gauche de la souris et maintenir appuyer lors du d&eacute;placement -> l'arr&ecirc;t suit la souris
-* relacher le bouton -> l'arr&ecirc;t a une nouvelle position fixe
-* cliquer sur la carte -> sortie du mode d&eacute;placement; les coordonn&eacute;es sont actualis&eacute;es dans le formulaire
+* activer le déplacement en cliquant sur l'arrêt -> le curseur prend la forme d'une quadruple flêche
+* appuyer sur le bouton gauche de la souris et maintenir appuyer lors du déplacement -> l'arrêt suit la souris
+* relacher le bouton -> l'arrêt a une nouvelle position fixe
+* cliquer sur la carte -> sortie du mode déplacement; les coordonnées sont actualisées dans le formulaire
 

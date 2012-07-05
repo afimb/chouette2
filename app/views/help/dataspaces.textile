@@ -3,20 +3,20 @@ layout: default
 title: Espaces de données
 ---
 
-h3. D&eacute;finition
+h3. Définition
 
-p. un espace de donn&eacute;es est le lieu de stockage d'un ensemble de donn&eacute;es de transport connect&eacute;es entre elles.
+p. un espace de données est le lieu de stockage d'un ensemble de données de transport connectées entre elles.
 
 h3. Attributs
 
-- Nom := nom de l'espace de donn&eacute;es 
-- Code := code de l'espace de donn&eacute;es
-- Pr&eacute;fixe Neptune := pr&eacute;fixe utilis&eacute; par d&eacute;faut pour la g&eacute;n&eacute;ration des identifiants Neptune
-- Projection g&eacute;ographique := r&eacute;f&eacute;rentiel de projection des coordonn&eacute;es cartographiques en compl&eacute;ment du WGS84
+- Nom := nom de l'espace de données 
+- Code := code de l'espace de données
+- Préfixe Neptune := préfixe utilisé par défaut pour la génération des identifiants Neptune
+- Projection géographique := référentiel de projection des coordonnées cartographiques en complément du WGS84
 - Fuseau horaire := fuseau horaire applicable pour les horaires des courses. (cf "Tz_database":http://fr.wikipedia.org/wiki/Tz_database) 
 
-h3. Impl&eacute;mentation
+h3. Implémentation
 
-p. L'espace de donn&eacute;es est concr&eacute;tis&eacute; dans la base de donn&eacute;es par un sch&eacute;ma au sens SQL portant le nom definit par l'attribut code, 
-les attributs sont enregistr&eacute;s dans la table REFERENTIALS du schema PUBLIC
+p. L'espace de données est concrétisé dans la base de données par un schéma au sens SQL portant le nom definit par l'attribut code, 
+les attributs sont enregistrés dans la table REFERENTIALS du schema PUBLIC
 

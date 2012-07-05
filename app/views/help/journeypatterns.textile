@@ -3,33 +3,33 @@ layout: default
 title: Missions
 ---
 
-h3. D&eacute;finition
+h3. Définition
 
-Si on consid&egrave;re la suite ordonn&eacute;e des arr&ecirc;ts d'une s&eacute;quence d'arr&ecirc;ts, la mission se d&eacute;finit comme une suite extraite. Autrement dit, toutes les courses d'une s&eacute;quence d'arr&ecirc;ts qui desservent les m&ecirc;mes arr&ecirc;ts et dans le m&ecirc;me ordre, &agrave; des horaires diff&eacute;rents &eacute;ventuellement, r&eacute;f&eacute;rencent la m&ecirc;me mission. La mission correspond donc &agrave; une suite ordonn&eacute;e d'arr&ecirc;ts de la s&eacute;quence d'arr&ecirc;ts. 
+Si on considère la suite ordonnée des arrêts d'une séquence d'arrêts, la mission se définit comme une suite extraite. Autrement dit, toutes les courses d'une séquence d'arrêts qui desservent les mêmes arrêts et dans le même ordre, à des horaires différents éventuellement, référencent la même mission. La mission correspond donc à une suite ordonnée d'arrêts de la séquence d'arrêts. 
 
 h3. Attributs
 
 - Nom := nom de la mission
 - Nom public := nom public pour les voyageurs
-- Num&eacute;ro d'enregistrement := Le num&eacute;ro d'enregistrement est unique. Aucune r&egrave;gle de nommage ne s'applique sur ce num&eacute;ro. Celui-ci doit &ecirc;tre unique sur l'ensemble des missions de la ligne.
+- Numéro d'enregistrement := Le numéro d'enregistrement est unique. Aucune règle de nommage ne s'applique sur ce numéro. Celui-ci doit être unique sur l'ensemble des missions de la ligne.
 - Commentaire := zone de texte libre 
 
-p(attr_data). Donn&eacute;es de gestion :
+p(attr_data). Données de gestion :
 
 - Identifiant Neptune := 
-cl&eacute; unique p&eacute;renne identifiant la mission pour les &eacute;changes Neptune
-cet identifiant est compos&eacute; de 3 parties : pr&eacute;fixe:type:id_technique
-* pr&eacute;fixe : cl&eacute; identifiant un producteur de donn&eacute;es unique
-* type = JourneyPattern : cl&eacute; identifiant le type d'objet (valeur impos&eacute;e)
-* id_technique : valeur identifiant un seul object d'un type donn&eacute; pour un m&ecirc;me producteur
-ce champ obligatoire est automatiquement g&eacute;n&eacute;r&eacute; s'il n'est pas renseign&eacute; 
-il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera compl&eacute;t&eacute;e automatiquement.
+clé unique pérenne identifiant la mission pour les échanges Neptune
+cet identifiant est composé de 3 parties : préfixe:type:id_technique
+* préfixe : clé identifiant un producteur de données unique
+* type = JourneyPattern : clé identifiant le type d'objet (valeur imposée)
+* id_technique : valeur identifiant un seul object d'un type donné pour un même producteur
+ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
+il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera complétée automatiquement.
 =:
-- Date de cr&eacute;ation := date &agrave; laquelle l'objet a &eacute;t&eacute; cr&eacute;&eacute; ou modifi&eacute; pour la derni&egrave;re fois
-- Version := version de l'objet (auto incr&eacute;ment&eacute; &agrave; chaque modification)
-- Cr&eacute;&eacute; par := compte utilisateur ayant proc&eacute;d&eacute; &agrave; la derni&egrave;re modification
+- Date de création := date à laquelle l'objet a été créé ou modifié pour la dernière fois
+- Version := version de l'objet (auto incrémenté à chaque modification)
+- Créé par := compte utilisateur ayant procédé à la dernière modification
 
-h3. Impl&eacute;mentation
+h3. Implémentation
 
 p. TODO
 

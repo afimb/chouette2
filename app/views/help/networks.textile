@@ -3,39 +3,39 @@ layout: default
 title: Réseaux
 ---
 
-h3. D&eacute;finition
+h3. Définition
 
-Un r&eacute;seau est constitu&eacute; par les lignes, les s&eacute;quences d'arr&ecirc;ts, les Interdictions de Trafic Local (ITL), les horaires, et les courses qui le d&eacute;finissent.
+Un réseau est constitué par les lignes, les séquences d'arrêts, les Interdictions de Trafic Local (ITL), les horaires, et les courses qui le définissent.
 
-Chaque r&eacute;seau dispose d'un identifiant fonctionnel (&laquo; num&eacute;ro d'enregistrement &raquo;) qui est utilis&eacute; dans les &eacute;changes XML pour identifier le r&eacute;seau et le mettre &agrave; jour. Il est donc important que le gestionnaire le renseigne d'une mani&egrave;re bien d&eacute;finie et p&eacute;renne.
+Chaque réseau dispose d'un identifiant fonctionnel (<< numéro d'enregistrement >>) qui est utilisé dans les échanges XML pour identifier le réseau et le mettre à jour. Il est donc important que le gestionnaire le renseigne d'une manière bien définie et pérenne.
 
 
 h3. Attributs
 
-- Nom := nom du r&eacute;seau 
-- Num&eacute;ro d'enregistrement := code r&eacute;f&eacute;ren&ccedil;ant un r&eacute;seau au sein d'une autorit&eacute; sup&eacute;rieure
-- Commentaire := zone de texte libre sur le r&eacute;seau
-- Date de version := date de mise en r&eacute;f&eacute;rence de l'ensemble des constituants du r&eacute;seau
-- Description := description du r&eacute;seau
-- Nom du syst&egrave;me origine := nom du syst&egrave;me ayant produit les donn&eacute;es du r&eacute;seau
-- Identifiant du syst&egrave;me origine := identifiant du syst&egrave;me ayant produit les donn&eacute;es du r&eacute;seau
+- Nom := nom du réseau 
+- Numéro d'enregistrement := code référençant un réseau au sein d'une autorité supérieure
+- Commentaire := zone de texte libre sur le réseau
+- Date de version := date de mise en référence de l'ensemble des constituants du réseau
+- Description := description du réseau
+- Nom du système origine := nom du système ayant produit les données du réseau
+- Identifiant du système origine := identifiant du système ayant produit les données du réseau
 
-p(attr_data). Donn&eacute;es de gestion :
+p(attr_data). Données de gestion :
 
 - Identifiant Neptune := 
-cl&eacute; unique p&eacute;renne identifiant le r&eacute;seau pour les &eacute;changes Neptune
-cet identifiant est compos&eacute; de 3 parties : pr&eacute;fixe:type:id_technique
-* pr&eacute;fixe : cl&eacute; identifiant un producteur de donn&eacute;es unique
-* type = GroupOfLine : cl&eacute; identifiant le type d'objet (valeur impos&eacute;e)
-* id_technique : valeur identifiant un seul object d'un type donn&eacute; pour un m&ecirc;me producteur
-ce champ obligatoire est automatiquement g&eacute;n&eacute;r&eacute; s'il n'est pas renseign&eacute; 
-il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera compl&eacute;t&eacute;e automatiquement.
+clé unique pérenne identifiant le réseau pour les échanges Neptune
+cet identifiant est composé de 3 parties : préfixe:type:id_technique
+* préfixe : clé identifiant un producteur de données unique
+* type = GroupOfLine : clé identifiant le type d'objet (valeur imposée)
+* id_technique : valeur identifiant un seul object d'un type donné pour un même producteur
+ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
+il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera complétée automatiquement.
 =:
-- Date de cr&eacute;ation := date &agrave; laquelle l'objet a &eacute;t&eacute; cr&eacute;&eacute; ou modifi&eacute; pour la derni&egrave;re fois
-- Version := version de l'objet (auto incr&eacute;ment&eacute; &agrave; chaque modification)
-- Cr&eacute;&eacute; par := compte utilisateur ayant proc&eacute;d&eacute; &agrave; la derni&egrave;re modification
+- Date de création := date à laquelle l'objet a été créé ou modifié pour la dernière fois
+- Version := version de l'objet (auto incrémenté à chaque modification)
+- Créé par := compte utilisateur ayant procédé à la dernière modification
 
-h3. Impl&eacute;mentation
+h3. Implémentation
 
 p. TODO
 
