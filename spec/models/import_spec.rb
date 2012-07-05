@@ -36,8 +36,8 @@ describe Import do
 
   describe "#options" do
     
-    it "should be empty by default" do
-      subject.options.should be_empty
+    it "should be nil by default" do
+      subject.options.should be_nil
     end
 
   end
