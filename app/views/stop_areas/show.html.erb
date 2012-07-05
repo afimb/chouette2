@@ -138,6 +138,21 @@
       </div>
       <% end %>
     </div> 
+    <% elsif @stop_area.routes.present? %>
+    <div class="link"><%= image_tag "icons/link.png"%></div>
+    <div class="children">
+      <% @stop_area.routes.each do |route| %>
+      <div class="child">
+        <%= link_to([@referential, route.line ]) do %> 
+          <span><%= route.line.number %></span>     
+        <% end %>  
+        &nbsp;
+        <%= link_to([@referential, route.line , route]) do %> 
+          <span><%= route.name %></span>     
+        <% end %>      
+      </div>
+      <% end %>
+    </div> 
     <% end %>
   </div>
                          

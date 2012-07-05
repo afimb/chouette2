@@ -7,6 +7,20 @@
     .summary p label {
         font-weight: bold;
     }
+    
+    .count td {
+      border: 1px solid #61970b;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    .count thead td {
+      background: #61970b;
+      color: white;
+    }
+    .value {
+      text-align: right;
+    }
+    
 }
 
 

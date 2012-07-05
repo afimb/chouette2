@@ -4,6 +4,8 @@ en:
       title: "Edit the data space"
     show:
       title: Data space
+      objects: Data space elements
+      count: count
     new:
       title: Create a new data space
       submit: "Create a data space"
@@ -22,6 +24,17 @@ en:
         prefix: Neptune Object Id prefix
         projection_type: Optional spatial reference system code (SRID)
         time_zone: time zone
+        networks: Networks
+        lines: Lines
+        companies: Companies
+        stop_areas: Stop Areas
+        time_tables: Time tables
+        connection_links: Connection links
+        quays: quays
+        boarding_positions: boarding positions
+        commercial_stops: commercial stops
+        stop_places: stop places
+        itls: routing contraints
   formtastic:
     hints:
       referential:
@@ -35,6 +48,8 @@ fr:
       title: "Modifier l'espace de données"
     show:
       title: Espace de données
+      objects: Eléments 
+      count: Qté
     new:
       title: Créer un nouvel espace de données
       submit: "Créer un espace de données"
@@ -53,6 +68,17 @@ fr:
         prefix: Préfixe des identifiants Neptune
         projection_type: Système de référence spatiale optionnel (SRID)
         time_zone: Fuseau horaire
+        networks: Réseaux
+        lines: Lignes
+        companies: Transporteurs
+        stop_areas: Arrêts
+        time_tables: Calendriers
+        connection_links: Correspondances
+        quays: quais
+        boarding_positions: "points d'embarquement"
+        commercial_stops: arrêts commerciaux
+        stop_places: "pôles d'échange"
+        itls: ITL
   formtastic:
     hints:
       referential:
