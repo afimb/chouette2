@@ -3,19 +3,19 @@ layout: default
 title: Présentation
 ---
 
-Chouette v2 : it&eacute;ration 9 du 03/07/2012
+Chouette v2 : itération 9 du 03/07/2012
 
-Cette it&eacute;ration pr&eacute;sente les formulaires de :
+Cette itération présente les formulaires de :
 
-* r&eacute;seaux
+* réseaux
 * transporteurs
 * lignes
-** s&eacute;quences d'arr&ecirc;ts
+** séquences d'arrêts
 *** missions
 *** courses/horaires
-* arr&ecirc;ts
-** arr&ecirc;ts physiques
-** zones d'arr&ecirc;t
+* arrêts
+** arrêts physiques
+** zones d'arrêt
 ** ITL
 * calendriers d'application
 * correspondances
@@ -25,25 +25,25 @@ Cette it&eacute;ration pr&eacute;sente les formulaires de :
 
 l'avancement actuel permet de : 
 
-* cr&eacute;er, modifier et supprimer les objets
+* créer, modifier et supprimer les objets
 * consulter les cartes
-** les noms des arr&ecirc;ts sont affich&eacute; sous forme de bulle d'aide sur les cartes du r&eacute;seau, des lignes et des correspondances
-* d&eacute;placer un arr&ecirc;t depuis la carte (voir mode op&eacute;ratoire dans l'aide des arr&ecirc;ts)
-* associer les arr&ecirc;ts &agrave; leurs parents
-* ajouter des fils &agrave; un arr&ecirc;t
-* importer des lignes aux formats Neptune et CSV (zip et fichier non compress&eacute;)
+** les noms des arrêts sont affiché sous forme de bulle d'aide sur les cartes du réseau, des lignes et des correspondances
+* déplacer un arrêt depuis la carte (voir mode opératoire dans l'aide des arrêts)
+* associer les arrêts à leurs parents
+* ajouter des fils à un arrêt
+* importer des lignes aux formats Neptune et CSV (zip et fichier non compressé)
 * exporter des lignes au format Neptune (zip)
-* &eacute;diter des s&eacute;quences d'arr&ecirc;ts : 
-** ajouter, d&eacute;placer et retirer des arr&ecirc;ts dans la s&eacute;quence
-** ajouter, modifier les missions de la s&eacute;quence
+* éditer des séquences d'arrêts : 
+** ajouter, déplacer et retirer des arrêts dans la séquence
+** ajouter, modifier les missions de la séquence
 ** afficher, ajouter, modifier, supprimer des courses/horaires
-* pr&eacute;ciser des param&egrave;tres g&eacute;n&eacute;raux de l'espace de donn&eacute;es
+* préciser des paramètres généraux de l'espace de données
 * valider un fichier neptune
 
 les actions suivantes ne sont pas encore disponible : 
 
-* d&eacute;finir l'emprise g&eacute;n&eacute;rale du r&eacute;seau
-* g&eacute;rer le second r&eacute;f&eacute;rentiel de projection
+* définir l'emprise générale du réseau
+* gérer le second référentiel de projection
 * afficher des informations dans le tableau de bord
-* cr&eacute;er des courses par translation
+* créer des courses par translation
 

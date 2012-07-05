@@ -3,44 +3,44 @@ layout: default
 title: Correspondances
 ---
 
-h3. D&eacute;finition
+h3. Définition
 
-Une correspondance ou un changement est, dans un voyage en transports en commun, une &eacute;tape n&eacute;cessitant de changer de ligne. Le changement peut se faire soit au sein du m&ecirc;me r&eacute;seau, soit de mani&egrave;re intermodale, c'est-&agrave;-dire en changeant &eacute;galement de mode de transport.
-La correspondance permet d'&eacute;tablir une liaison entre un arr&ecirc;t physique (ou une zone d'arr&ecirc;t de type &laquo; arr&ecirc;t commercial &raquo; ou de type &laquo; p&ocirc;le d'&eacute;change &raquo;) et un autre arr&ecirc;t physique (ou une autre zone d'arr&ecirc;t de type &laquo; arr&ecirc;t commercial &raquo; ou de type &laquo; p&ocirc;le d'&eacute;change &raquo;).
-Cette liaison d&eacute;finit aussi une dur&eacute;e de parcours entre les arr&ecirc;ts (ou zones) reli&eacute;s.
+Une correspondance ou un changement est, dans un voyage en transports en commun, une étape nécessitant de changer de ligne. Le changement peut se faire soit au sein du même réseau, soit de manière intermodale, c'est-à-dire en changeant également de mode de transport.
+La correspondance permet d'établir une liaison entre un arrêt physique (ou une zone d'arrêt de type << arrêt commercial >> ou de type << pôle d'échange >>) et un autre arrêt physique (ou une autre zone d'arrêt de type << arrêt commercial >> ou de type << pôle d'échange >>).
+Cette liaison définit aussi une durée de parcours entre les arrêts (ou zones) reliés.
 
 h3. Attributs
 
 - Nom := nom de la correspondances
 - Commentaire := zone de texte libre
-- Distance := distance en m&egrave;tres
-- Type := liste de choix parmi &laquo; A&eacute;rien &raquo;, &laquo; Souterrain&raquo; ou mixte &laquo; A&eacute;rien et souterrain &raquo;
-- D&eacute;part := arr&ecirc;t de d&eacute;part de la correspondance
-- Arriv&eacute;e := arr&ecirc;t d'arriv&eacute;e de la correspondance
-- Dur&eacute;e moyenne := champ de type horaire hh:mm
-- Dur&eacute;e pour un voyageur &agrave; mobilit&eacute; r&eacute;duite := champ de type horaire hh:mm
-- Dur&eacute;e pour un voyageur occasionnel := champ de type horaire hh:mm
-- Dur&eacute;e pour un habitu&eacute; := champ de type horaire hh:mm
+- Distance := distance en mètres
+- Type := liste de choix parmi << Aérien >>, << Souterrain>> ou mixte << Aérien et souterrain >>
+- Départ := arrêt de départ de la correspondance
+- Arrivée := arrêt d'arrivée de la correspondance
+- Durée moyenne := champ de type horaire hh:mm
+- Durée pour un voyageur à mobilité réduite := champ de type horaire hh:mm
+- Durée pour un voyageur occasionnel := champ de type horaire hh:mm
+- Durée pour un habitué := champ de type horaire hh:mm
 - Ascenseur := indicateur (Oui ou Non)
-- Acc&egrave;s pour personne &agrave; mobilit&eacute; r&eacute;duite := indicateur (Oui ou Non)
+- Accès pour personne à mobilité réduite := indicateur (Oui ou Non)
 - Escalator disponible := indicateur (Oui ou Non)
 
-p(attr_data). Donn&eacute;es de gestion :
+p(attr_data). Données de gestion :
 
 - Identifiant Neptune := 
-cl&eacute; unique p&eacute;renne identifiant la correspondance pour les &eacute;changes Neptune
-cet identifiant est compos&eacute; de 3 parties : pr&eacute;fixe:type:id_technique
-* pr&eacute;fixe : cl&eacute; identifiant un producteur de donn&eacute;es unique
-* type = ConnectionLink : cl&eacute; identifiant le type d'objet (valeur impos&eacute;e)
-* id_technique : valeur identifiant un seul object d'un type donn&eacute; pour un m&ecirc;me producteur
-ce champ obligatoire est automatiquement g&eacute;n&eacute;r&eacute; s'il n'est pas renseign&eacute; 
-il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera compl&eacute;t&eacute;e automatiquement.
+clé unique pérenne identifiant la correspondance pour les échanges Neptune
+cet identifiant est composé de 3 parties : préfixe:type:id_technique
+* préfixe : clé identifiant un producteur de données unique
+* type = ConnectionLink : clé identifiant le type d'objet (valeur imposée)
+* id_technique : valeur identifiant un seul object d'un type donné pour un même producteur
+ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
+il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera complétée automatiquement.
 =:
-- Date de cr&eacute;ation := date &agrave; laquelle l'objet a &eacute;t&eacute; cr&eacute;&eacute; ou modifi&eacute; pour la derni&egrave;re fois
-- Version := version de l'objet (auto incr&eacute;ment&eacute; &agrave; chaque modification)
-- Cr&eacute;&eacute; par := compte utilisateur ayant proc&eacute;d&eacute; &agrave; la derni&egrave;re modification
+- Date de création := date à laquelle l'objet a été créé ou modifié pour la dernière fois
+- Version := version de l'objet (auto incrémenté à chaque modification)
+- Créé par := compte utilisateur ayant procédé à la dernière modification
 
-h3. Impl&eacute;mentation
+h3. Implémentation
 
 p. TODO
 

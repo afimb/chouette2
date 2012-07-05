@@ -3,4 +3,4 @@ layout: default
 title: Foire aux questions
 ---
 
-R&eacute;daction ult&eacute;rieure
+Rédaction ultérieure

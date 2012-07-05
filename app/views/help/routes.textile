@@ -3,36 +3,36 @@ layout: default
 title: Séquence d'arrêts
 ---
 
-h3. D&eacute;finition
+h3. Définition
 
-La s&eacute;quence d'arr&ecirc;ts est une s&eacute;lection ordonn&eacute;e de r&eacute;f&eacute;rences aux points d'arr&ecirc;t (exemple: itin&eacute;raires aller et retour d'une ligne). Une s&eacute;quence d'arr&ecirc;ts est sp&eacute;cifique &agrave; une ligne; les s&eacute;quences d'arr&ecirc;ts peuvent r&eacute;f&eacute;rencer des arr&ecirc;ts communs.
+La séquence d'arrêts est une sélection ordonnée de références aux points d'arrêt (exemple: itinéraires aller et retour d'une ligne). Une séquence d'arrêts est spécifique à une ligne; les séquences d'arrêts peuvent référencer des arrêts communs.
 
 h3. Attributs
 
-- Nom := nom de la s&eacute;quence d'arr&ecirc;ts  
+- Nom := nom de la séquence d'arrêts  
 - Nom public := nom public pour les voyageurs
-- Commentaire := zone de texte libre sur le r&eacute;seau
+- Commentaire := zone de texte libre sur le réseau
 - Direction := orientation principale (points cardinaux, circulaire ou aller/retour)
-- Indice := num&eacute;ro de la s&eacute;quence d'arr&ecirc;ts
+- Indice := numéro de la séquence d'arrêts
 - Sens := aller ou retour
-- Itin&eacute;raire associ&eacute; en sens oppos&eacute; := r&eacute;f&eacute;rence de l'itin&eacute;raire de sens oppos&eacute; associ&eacute;
+- Itinéraire associé en sens opposé := référence de l'itinéraire de sens opposé associé
 
-p(attr_data). Donn&eacute;es de gestion :
+p(attr_data). Données de gestion :
 
 - Identifiant Neptune := 
-cl&eacute; unique p&eacute;renne identifiant la s&eacute;quence d'arr&ecirc;ts pour les &eacute;changes Neptune
-cet identifiant est compos&eacute; de 3 parties : pr&eacute;fixe:type:id_technique
-* pr&eacute;fixe : cl&eacute; identifiant un producteur de donn&eacute;es unique
-* type = Route : cl&eacute; identifiant le type d'objet (valeur impos&eacute;e)
-* id_technique : valeur identifiant un seul object d'un type donn&eacute; pour un m&ecirc;me producteur
-ce champ obligatoire est automatiquement g&eacute;n&eacute;r&eacute; s'il n'est pas renseign&eacute; 
-il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera compl&eacute;t&eacute;e automatiquement.
+clé unique pérenne identifiant la séquence d'arrêts pour les échanges Neptune
+cet identifiant est composé de 3 parties : préfixe:type:id_technique
+* préfixe : clé identifiant un producteur de données unique
+* type = Route : clé identifiant le type d'objet (valeur imposée)
+* id_technique : valeur identifiant un seul object d'un type donné pour un même producteur
+ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
+il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera complétée automatiquement.
 =:
-- Date de cr&eacute;ation := date &agrave; laquelle l'objet a &eacute;t&eacute; cr&eacute;&eacute; ou modifi&eacute; pour la derni&egrave;re fois
-- Version := version de l'objet (auto incr&eacute;ment&eacute; &agrave; chaque modification)
-- Cr&eacute;&eacute; par := compte utilisateur ayant proc&eacute;d&eacute; &agrave; la derni&egrave;re modification
+- Date de création := date à laquelle l'objet a été créé ou modifié pour la dernière fois
+- Version := version de l'objet (auto incrémenté à chaque modification)
+- Créé par := compte utilisateur ayant procédé à la dernière modification
 
-h3. Impl&eacute;mentation
+h3. Implémentation
 
 p. TODO
 

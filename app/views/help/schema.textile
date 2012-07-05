@@ -3,4 +3,4 @@ layout: default
 title: Vue d'ensemble
 ---
 
-R&eacute;daction ult&eacute;rieure
+Rédaction ultérieure

@@ -3,44 +3,44 @@ layout: default
 title: Lignes
 ---
 
-h3. D&eacute;finition
+h3. Définition
 
-Une ligne r&eacute;f&eacute;rence un r&eacute;seau et un transporteur; par ailleurs la ligne se compose d'un ou plusieurs itin&eacute;raires. 
-La ligne dispose aussi d'un identifiant fonctionnel (&laquo; num&eacute;ro d'enregistrement &raquo;) qui est utilis&eacute; dans les &eacute;changes XML pour identifier la ligne et la mettre &agrave; jour; il est donc important que le gestionnaire de la base CHOUETTE le renseigne d'une mani&egrave;re bien d&eacute;finie et p&eacute;renne.
+Une ligne référence un réseau et un transporteur; par ailleurs la ligne se compose d'un ou plusieurs itinéraires. 
+La ligne dispose aussi d'un identifiant fonctionnel (<< numéro d'enregistrement >>) qui est utilisé dans les échanges XML pour identifier la ligne et la mettre à jour; il est donc important que le gestionnaire de la base CHOUETTE le renseigne d'une manière bien définie et pérenne.
 
 h3. Attributs
 
-- R&eacute;seau := r&eacute;seau d'appartenance de la ligne
+- Réseau := réseau d'appartenance de la ligne
 - Transporteur := 
 transporteur principal exploitant la ligne
-les autres transporteurs de la lignes sont r&eacute;f&eacute;renc&eacute;s au niveau de chaque course
+les autres transporteurs de la lignes sont référencés au niveau de chaque course
 =:
 - Nom := nom de la ligne 
 - Nom public := nom de la ligne connu des usagers
-- Num&eacute;ro d'enregistrement := code r&eacute;f&eacute;ren&ccedil;ant une ligne au sein d'une autorit&eacute; sup&eacute;rieure
+- Numéro d'enregistrement := code référençant une ligne au sein d'une autorité supérieure
 - Indice := indice de la ligne
 - Mode de transport := 
 mode de transport principal de la ligne
-les modes de transports particuliers sont indiqu&eacute;s au niveau de chaque course 
+les modes de transports particuliers sont indiqués au niveau de chaque course 
 =:
 - Commentaire := zone de texte libre sur la ligne
 
-p(attr_data). Donn&eacute;es de gestion : 
+p(attr_data). Données de gestion : 
 
 - Identifiant Neptune := 
-cl&eacute; unique p&eacute;renne identifiant la ligne pour les &eacute;changes Neptune
-cet identifiant est compos&eacute; de 3 parties : pr&eacute;fixe:type:id_technique
-* pr&eacute;fixe : cl&eacute; identifiant un producteur de donn&eacute;es unique
-* type = Line : cl&eacute; identifiant le type d'objet (valeur impos&eacute;e)
-* id_technique : valeur identifiant un seul object d'un type donn&eacute; pour un m&ecirc;me producteur
-ce champ obligatoire est automatiquement g&eacute;n&eacute;r&eacute; s'il n'est pas renseign&eacute; 
-il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera compl&eacute;t&eacute;e automatiquement.
+clé unique pérenne identifiant la ligne pour les échanges Neptune
+cet identifiant est composé de 3 parties : préfixe:type:id_technique
+* préfixe : clé identifiant un producteur de données unique
+* type = Line : clé identifiant le type d'objet (valeur imposée)
+* id_technique : valeur identifiant un seul object d'un type donné pour un même producteur
+ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
+il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera complétée automatiquement.
 =:
-- Date de cr&eacute;ation := date &agrave; laquelle l'objet a &eacute;t&eacute; cr&eacute;&eacute; ou modifi&eacute; pour la derni&egrave;re fois
-- Version := version de l'objet (auto incr&eacute;ment&eacute; &agrave; chaque modification)
-- Cr&eacute;&eacute; par := compte utilisateur ayant proc&eacute;d&eacute; &agrave; la derni&egrave;re modification
+- Date de création := date à laquelle l'objet a été créé ou modifié pour la dernière fois
+- Version := version de l'objet (auto incrémenté à chaque modification)
+- Créé par := compte utilisateur ayant procédé à la dernière modification
 
-h3. Impl&eacute;mentation
+h3. Implémentation
 
 p. TODO
 
