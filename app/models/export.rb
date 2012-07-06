@@ -25,10 +25,6 @@ class Export < ActiveRecord::Base
     exporter ||= ::Chouette::Exporter.new(referential.slug)
   end
 
-  def options
-    read_attribute(:options) || write_attribute(:options, {})
-  end
-
   @@root = "#{Rails.root}/tmp/exports"
   cattr_accessor :root
 
@@ -63,6 +59,7 @@ class Export < ActiveRecord::Base
   before_validation :define_default_attributes, :on => :create
   def define_default_attributes
     self.status ||= "pending"
+    self.options ||= {}
   end
 
   after_create :delayed_export

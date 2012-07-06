@@ -6,11 +6,10 @@
     <%= form.input :routing_line_ids, :as => :text, :input_html => { :"data-pre" => ( @lines.map { |line| { :id => line.id.to_s, :name => "#{line.number} - #{line.name}" } } ).to_json }  %>
   <% end %>  
   
-  <%= form.buttons do %>
-    <%= form.commit_button %>
-    <%= t('or') %>
-    <%= link_to t('cancel'), [@referential, @stop_area] %>
-  <% end %>
+   <%= form.actions do %>
+     <%= form.action :submit, :as => :button %>
+     <%= form.action :cancel, :as => :link %>
+   <% end %>
 </div>
 <% end %>
 

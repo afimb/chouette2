@@ -1,0 +1,13 @@
+<%= div_for(file_validation, :class => :file_validation) do %>
+  <%= link_to(file_validation_path(file_validation), :class => "preview") do %>
+    <%= image_tag "file-validation-#{file_validation.status}.png" %>
+  <% end %>
+  <%= link_to(file_validation.name, file_validation_path(file_validation)) %>
+  <div class="info">
+    <%= l file_validation.created_at %><br/>
+    <%= file_validation.file_name %>
+    <div class="actions">  
+      <%= link_to t("actions.destroy"), file_validation_path(file_validation), :method => :delete, :confirm =>  t('file_validations.actions.destroy_confirm'), :class => "remove" %>
+    </div>
+  </div>
+<% end %>

@@ -9,11 +9,10 @@
     <% end %>
   <% end %>
 
-  <%= form.buttons do %>
-    <%= form.commit_button true %>
-    <li><%= t('or') %></li>
-    <li><%= link_to t('cancel'), :back %></li>
-  <% end %>
+   <%= form.actions do %>
+     <%= form.action :submit, :as => :button , :label => t( 'formtastic.export' ) %>
+     <%= form.action :cancel, :as => :link %>
+   <% end %>
 <% end %>
 
 <%= javascript_include_tag new_referential_export_path(@referential, :format => :js) %>

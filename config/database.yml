@@ -22,7 +22,7 @@ test:
   password: chouette
 
 production:
-  adapter: jdbcpostgresql
+  adapter: <%= RUBY_PLATFORM == "java" ? "jdbcpostgresql" : "postgresql" %>
   database: chouette2
   encoding: utf8
   host: localhost

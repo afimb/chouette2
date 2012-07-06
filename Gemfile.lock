@@ -1,14 +1,14 @@
 GIT
   remote: git://chouette.dryade.priv/ninoxe
-  revision: 1e309f84a378f19f8fb6d06d587eebfee266ae50
+  revision: 34f3b94569b35d8ce51e2b036c12e067e2222eec
   specs:
     ninoxe (0.0.8)
       GeoRuby
-      activerecord (~> 3.1.3)
+      activerecord (>= 3.1.3)
       acts_as_list (= 0.1.6)
-      composite_primary_keys (= 4.1.2)
+      composite_primary_keys (>= 4.1.2)
       geokit
-      rails (= 3.1.3)
+      rails (>= 3.1.3)
 
 GIT
   remote: git://github.com/dnagir/database_cleaner.git
@@ -60,19 +60,11 @@ GIT
       rgeo (~> 0.3.13)
 
 GIT
-  remote: git://github.com/thoughtbot/shoulda.git
-  revision: 269edccc7df8f2eb94a96a6a6d248a5960d7fe1f
-  specs:
-    shoulda (3.0.1)
-      shoulda-context (~> 1.0)
-      shoulda-matchers (~> 1.0)
-
-GIT
   remote: git://sim.dryade.priv/user_interface
-  revision: 5302812852d2bd28ae29e49bc0d64a3bfb61fbc9
+  revision: 6931e642037ffef9d3818669a5f5167a0298b30b
   specs:
     user_interface (0.0.1)
-      rails (~> 3.1.0)
+      rails (> 3.1.0)
 
 GEM
   remote: http://rubygems.org/
@@ -81,40 +73,39 @@ GEM
     RedCloth (4.2.9)
     RedCloth (4.2.9-java)
     SyslogLogger (1.4.1)
-    actionmailer (3.1.3)
-      actionpack (= 3.1.3)
-      mail (~> 2.3.0)
-    actionpack (3.1.3)
-      activemodel (= 3.1.3)
-      activesupport (= 3.1.3)
+    actionmailer (3.2.6)
+      actionpack (= 3.2.6)
+      mail (~> 2.4.4)
+    actionpack (3.2.6)
+      activemodel (= 3.2.6)
+      activesupport (= 3.2.6)
       builder (~> 3.0.0)
       erubis (~> 2.7.0)
-      i18n (~> 0.6)
-      rack (~> 1.3.5)
-      rack-cache (~> 1.1)
-      rack-mount (~> 0.8.2)
+      journey (~> 1.0.1)
+      rack (~> 1.4.0)
+      rack-cache (~> 1.2)
       rack-test (~> 0.6.1)
-      sprockets (~> 2.0.3)
-    activemodel (3.1.3)
-      activesupport (= 3.1.3)
+      sprockets (~> 2.1.3)
+    activemodel (3.2.6)
+      activesupport (= 3.2.6)
       builder (~> 3.0.0)
-      i18n (~> 0.6)
-    activerecord (3.1.3)
-      activemodel (= 3.1.3)
-      activesupport (= 3.1.3)
-      arel (~> 2.2.1)
+    activerecord (3.2.6)
+      activemodel (= 3.2.6)
+      activesupport (= 3.2.6)
+      arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
     activerecord-jdbcsqlite3-adapter (1.2.1)
       activerecord-jdbc-adapter (~> 1.2.1)
       jdbc-sqlite3 (~> 3.7.2)
-    activeresource (3.1.3)
-      activemodel (= 3.1.3)
-      activesupport (= 3.1.3)
-    activesupport (3.1.3)
+    activeresource (3.2.6)
+      activemodel (= 3.2.6)
+      activesupport (= 3.2.6)
+    activesupport (3.2.6)
+      i18n (~> 0.6)
       multi_json (~> 1.0)
     acts_as_list (0.1.6)
     addressable (2.2.8)
-    arel (2.2.3)
+    arel (3.0.2)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-java)
     bouncy-castle-java (1.5.0146.1)
@@ -137,15 +128,15 @@ GEM
     childprocess (0.3.2)
       ffi (~> 1.0.6)
     cocoon (1.0.22)
-    coffee-rails (3.1.1)
+    coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
-      railties (~> 3.1.0)
+      railties (~> 3.2.0)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
     coffee-script-source (1.3.3)
-    composite_primary_keys (4.1.2)
-      activerecord (~> 3.1)
+    composite_primary_keys (5.0.8)
+      activerecord (~> 3.2.0)
     delayed_job (3.0.3)
       activesupport (~> 3.0)
     delayed_job_active_record (0.3.2)
@@ -187,6 +178,7 @@ GEM
       has_scope (~> 0.5.0)
       responders (~> 0.6)
     jdbc-postgres (9.0.801)
+    journey (1.0.4)
     jquery-rails (1.0.19)
       railties (~> 3.0)
       thor (~> 0.14)
@@ -212,7 +204,7 @@ GEM
       rb-fchange (~> 0.0.5)
       rb-fsevent (~> 0.9.1)
       rb-inotify (~> 0.8.8)
-    mail (2.3.3)
+    mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -234,30 +226,28 @@ GEM
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
-    rack (1.3.6)
+    rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
-    rack-mount (0.8.3)
-      rack (>= 1.0.0)
     rack-ssl (1.3.2)
       rack
     rack-test (0.6.1)
       rack (>= 1.0)
-    rails (3.1.3)
-      actionmailer (= 3.1.3)
-      actionpack (= 3.1.3)
-      activerecord (= 3.1.3)
-      activeresource (= 3.1.3)
-      activesupport (= 3.1.3)
+    rails (3.2.6)
+      actionmailer (= 3.2.6)
+      actionpack (= 3.2.6)
+      activerecord (= 3.2.6)
+      activeresource (= 3.2.6)
+      activesupport (= 3.2.6)
       bundler (~> 1.0)
-      railties (= 3.1.3)
-    railties (3.1.3)
-      actionpack (= 3.1.3)
-      activesupport (= 3.1.3)
+      railties (= 3.2.6)
+    railties (3.2.6)
+      actionpack (= 3.2.6)
+      activesupport (= 3.2.6)
       rack-ssl (~> 1.3.2)
       rake (>= 0.8.7)
       rdoc (~> 3.4)
-      thor (~> 0.14.6)
+      thor (>= 0.14.6, < 2.0)
     rake (0.9.2.2)
     ransack (0.6.0)
       actionpack (~> 3.0)
@@ -296,24 +286,21 @@ GEM
       railties (>= 3.0)
       rspec (~> 2.10.0)
     rubyzip (0.9.8)
-    sass (3.1.19)
-    sass-rails (3.1.4)
-      actionpack (~> 3.1.0)
-      railties (~> 3.1.0)
-      sass (>= 3.1.4)
-      sprockets (~> 2.0.0)
-      tilt (~> 1.3.2)
+    sass (3.1.20)
+    sass-rails (3.2.5)
+      railties (~> 3.2.0)
+      sass (>= 3.1.10)
+      tilt (~> 1.3)
     selenium-webdriver (2.22.2)
       childprocess (>= 0.2.5)
       ffi (~> 1.0)
       libwebsocket (~> 0.1.3)
       multi_json (~> 1.0)
       rubyzip
-    shoulda-context (1.0.0)
     shoulda-matchers (1.1.0)
       activesupport (>= 3.0.0)
     spoon (0.0.1)
-    sprockets (2.0.4)
+    sprockets (2.1.3)
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
@@ -325,7 +312,7 @@ GEM
     therubyracer (0.10.1)
       libv8 (~> 3.3.10)
     therubyrhino (1.73.4)
-    thor (0.14.6)
+    thor (0.15.4)
     tilt (1.3.3)
     treetop (1.4.10)
       polyglot
@@ -361,9 +348,8 @@ DEPENDENCIES
   capistrano-ext
   capybara
   cocoon
-  coffee-rails (~> 3.1.1)
+  coffee-rails (~> 3.2.1)
   coffee-script-source
-  composite_primary_keys (= 4.1.2)
   database_cleaner!
   delayed_job_active_record
   devise
@@ -383,14 +369,14 @@ DEPENDENCIES
   modernizr-rails (~> 2.0.6)
   ninoxe!
   pg (~> 0.11.0)
-  rails (= 3.1.3)
+  rails (= 3.2.6)
   ransack
   remarkable (~> 4.0.0.alpha4)
   remarkable_activerecord (~> 4.0.0.alpha4)
   rspec
   rspec-rails
-  sass-rails (= 3.1.4)
-  shoulda!
+  sass-rails (~> 3.2.3)
+  shoulda-matchers
   sqlite3
   squeel
   therubyracer

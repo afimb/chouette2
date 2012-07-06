@@ -6,11 +6,10 @@
     <%= form.input :routing_stop_ids, :as => :text, :input_html => { :"data-pre" => ( @stops.map { |stop| { :id => stop.id.to_s, :name => "#{stop.name} #{stop.country_code}" } } ).to_json }  %>
   <% end %>  
   
-  <%= form.buttons do %>
-    <%= form.commit_button %>
-    <%= t('or') %>
-    <%= link_to t('cancel'), [@referential, @stop_area] %>
-  <% end %>
+   <%= form.actions do %>
+     <%= form.action :submit, :as => :button %>
+     <%= form.action :cancel, :as => :link %>
+   <% end %>
 </div>
 <% end %>
 

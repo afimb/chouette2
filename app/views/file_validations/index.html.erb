@@ -1,0 +1,20 @@
+<%= title_tag t('.title') %> 
+
+<div class="pagination">
+  <div class="page_info">
+    <%= page_entries_info @file_validations %>
+  </div>
+  <%= will_paginate @file_validations, :container => false %>
+</div>
+<div class="file_validations paginated_content">
+  <%= render :partial => "file_validation", :collection => @file_validations %>
+</div>
+<div class="pagination">
+  <%= will_paginate @file_validations, :container => false %>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('file_validations.actions.new'), new_file_validation_path(), :class => "add" %></li> 
+</ul>
+<% end %>

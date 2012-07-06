@@ -3,6 +3,7 @@
 <%= search_form_for @q, :url => referential_stop_areas_path(@referential), :html => {:method => :get} do |f| %>
   <%= f.label :name_or_country_code_cont, "#{t('.name_or_country_code')} :" %>
   <%= f.text_field :name_or_country_code_cont %>
+  <%= f.hidden_field :area_type_eq %>
 
   <%= f.submit t('actions.search') %> <%= t("or") %>
   <%= link_to t("cancel"), referential_stop_areas_path(@referential) %>

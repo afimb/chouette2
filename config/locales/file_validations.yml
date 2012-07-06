@@ -1,0 +1,347 @@
+en:
+  file_validations:
+    index:
+      title: Neptune Validations
+    edit:
+      title: "Edit the Validation"
+    show:
+      title: Neptune Validation
+      summary: Rapport de conformité à la norme NEPTUNE
+    new:
+      title: Create a new validation
+      submit: "Create a validation"
+    actions:
+      new: Add a validation
+      destroy_confirm: "Do you confirm to destroy this validation ?"
+      destroy: Destroy this validation
+      edit: Edit this validation
+    statuses:
+      pending: Pending
+      completed: Completed
+      failed: Failed
+  file_validation_log_messages:
+    messages:
+      undefined: %{key} undefined
+    severities:
+      uncheck: Unchecked
+      ok: Ok
+      warning: Warning
+      error: Error
+      fatal: Fatal
+  activerecord:
+    models:
+      file_validation: 
+        zero:  Neptune Validation
+        one:   Neptune Validation
+        other: Neptune Validations
+    attributes:
+      file_validation:
+        resources: File to validate
+        status: Status
+        file_name: Tested data
+      file_validation_log_message:
+        created_at: Date
+        position: N.
+        full_message: Message
+
+fr:
+  file_validations:
+    index:
+      title: Validations Neptune
+    edit:
+      title: "Editer la validation"
+    show:
+      title: Validation Neptune
+      summary: Rapport de conformité à la norme NEPTUNE
+      details: Détails
+      parameters: Paramètres des tests 
+    new:
+      title: Démarrer une nouvelle validation
+      submit: "Lancer la validation"
+    actions:
+      new: Ajouter une validation
+      destroy_confirm: "Voulez-vous supprimer ce résultat de validation ?"
+      destroy: Supprimer cette validation
+      edit: Editer cette validation
+    statuses:
+      pending: En cours
+      completed: Achevé
+      failed: Echoué
+    uncheck_count: 
+      zero: aucun inapplicable
+      one: un inapplicable
+      other: "%{count} inapplicables"
+    ok_count: 
+      zero: aucun test réussi
+      one: un test réussi
+      other: %{count} tests réussis
+    warning_count: 
+      zero: aucun warning
+      one: un warning
+      other: %{count} warnings
+    error_count: 
+      zero: aucune erreur
+      one: une erreur
+      other: %{count} erreurs
+    fatal_count: 
+      zero: aucune erreur fatale
+      one: une erreur fatale
+      other: %{count} erreurs fatales
+  file_validation_log_messages:
+    messages:
+      undefined: %{key} non défini
+      TooMuchDetails: ( %{0} erreurs / warnings supplémentaires )
+      ONE: "Catégorie 1 : Syntaxe"
+      Test1_Sheet1: 'Fiche n° 1.1 : Conformité à la syntaxe XML suivant les recommandations du W3C'
+      Test1_Sheet1_Step1: Conformité à la syntaxe XML
+      Test1_Sheet1_Step2: Conformité au schéma XML du profil CHOUETTE
+      Test1_Sheet1_Step0_fatal: "Erreur fatale : Impossible d'ouvrir le fichier %{0}"
+      Test1_Sheet1_Step0_error: "Impossible d'importer cette entrée %{0} du zip"
+      Test1_Sheet1_Step0_warning: "Cette entrée %{0} du zip n'est pas un fichier xml et a été ignoré"
+      Test1_Sheet1_Step1_error: "le fichier %{0} n'est pas correctement formé selon les recommandations du W3C"
+      Test1_Sheet1_Step2_error: "le fichier %{0} ne respecte pas le modèle CHOUETTE"
+      Test1_Sheet1_Step2_fatal: "Erreur fatale : Aucune entrée valide trouvée dans le fichier"
+      TWO: "Catégorie 2 : Complétude, cohérence et intégrité des données"
+      Test2_Sheet1: "Fiche n° 2.1 : Cohérence entre le réseau et ses composants"
+      Test2_Sheet1_fatal: "La ligne %{0} n'a pas de réseau"
+      Test2_Sheet1_Step1: "Correcte réference à des LIGNEs/Chouette(<Line>)"
+      Test2_Sheet1_Step1_error: "La ligne %{1} n'est pas dans la liste des identifiants de ligne de %{0}"
+      Test2_Sheet1_Step2: "Correcte référence  à la  VERSION DU RÉSEAU(< PTNetwork >) dans LIGNEs/Chouette (< Line >)"
+      Test2_Sheet1_Step2a_error: "Le réseau %{0} n'est pas celui lié à la ligne %{1} dont le raccourci est %{2}."
+      Test2_Sheet1_Step2b_error: "Le raccourci du réseau %{0} dans la ligne %{1} ne correspond à aucun réseau de la ligne"
+      Test2_Sheet2: "Fiche n° 2.2 : Cohérence entre le regroupement de lignes et ses composants"
+      Test2_Sheet2_Step1: "Correcte référence  à des LIGNEs/Chouette ( < Line >) dans GROUPE DE LIGNES ( < GroupOfLine >)"
+      Test2_Sheet2_Step1_error: "la valeur de l'élément < lineId > : %{0} de la classe d'objets < GroupOfLine > n'a pas été repérée dans l'élément < objectId > de la classe d'objets < Line >"
+      Test2_Sheet3: "Fiche n° 2.3 : Cohérence entre les arrêts et leurs composants"
+      Test2_Sheet3_Step1: "Correcte référence  à  des ARRÊTs/Chouette ( < StopArea >)  et/ou à des POINTs D''ARRÊT SUR PARCOURS ( < StopPoint >) dans les ARRÊTs/Chouette ( < StopArea >)  "
+      Test2_Sheet3_Step1_unchecked: "non implémenté"
+      Test2_Sheet3_Step1_error: "une ou plusieurs valeurs de l'élément < contains > de l'objet < StopArea > %{0} n'est pas repérée dans la classe d'objets correspondant < StopPoint > ou < StopArea >. >"
+      Test2_Sheet4: "Fiche n° 2.4 : Définition des correspondances"
+      Test2_Sheet4_Step1: "Correcte référence aux ARRÊTs/Chouette ( < StopArea >) définissant des TronçonsDeCorrespondance/Chouette  ( < ConnectionLink >)"
+      Test2_Sheet4_Step1_unchecked: "non implémenté"
+      Test2_Sheet4_Step1_error: "L'objet < ConnectionLink > %{0} a des < StartOfLink >  %{1} et < EndOfLink >  %{2} qui pointent vers le même < StopArea >"
+      Test2_Sheet4_Step1_error_a: "a : il manque au moins un identifiant d'arrêt < StartOfLink > et < EndOfLink > dans  l'objet < ConnectionLink > %{0}"
+      Test2_Sheet4_Step1_error_b: "b : un identifiant d'arrêt < StartOfLink > ou < EndOfLink > de l'objet < ConnectionLink> %{0} n'est pas repéré dans un objet < StopArea >"
+      Test2_Sheet5: "Fiche n° 2.5 : Cohérence entre les courses et les horaires"
+      Test2_Sheet5_Step1: "Correcte référence aux COURSES COMMERCIALES ( < VehicleJourney > ) dans les VERSIONs DES HORAIRES/Chouette ( < Timetable >)"
+      Test2_Sheet5_Step1_error: "un identifiant de course, situé dans l'objet < Timetable >, n'est pas référencé dans un objet < VehicleJourney >"
+      Test2_Sheet5_Step2: "Chaque COURSE COMMERCIALE ( < VehicleJourney > ) est référencée dans une VERSION DES HORAIRES/Chouette  ( < Timetable >)"
+      Test2_Sheet5_Step2_error: "une course n'est pas référencée dans aucun < TimeTable >"
+      Test2_Sheet6: "Fiche n° 2.6 : Définition des terminus"
+      Test2_Sheet6_Step1: "Correcte définition du terminus de LIGNE/Chouette  < Line >"
+      Test2_Sheet6_Step1_unchecked: "non implémenté"
+      Test2_Sheet6_Step1_error: "un identifiant de point d'arrêt de fin de trajet n'est pas repéré dans un objet < StopPoint>"
+      Test2_Sheet6_Step2: "Caractère terminus des points de fin de trajet des LIGNEs/Chouette  < Line >"
+      Test2_Sheet6_Step2_error: "un identifiant de point d'arrêt de fin de trajet n'est pas repéré comme début ou comme fin d'un trajet"
+      Test2_Sheet7: "Fiche n° 2.7 : Cohérence entre les Itinéraires/Chouette et les LIGNEs/Chouette"
+      Test2_Sheet7_Step1: "Correcte référence aux Itinéraires/Chouette ( < ChouetteRoute >) pour chaque LIGNE/Chouette ( < Line >)"
+      Test2_Sheet7_Step1_unchecked: "non implémenté"
+      Test2_Sheet7_Step1_error: "un identifiant d'Itinéraire < RouteId > situé dans l'objet < Line > n'est pas identifié dans l'objet < ChouetteRoute >"
+      Test2_Sheet8: "Fiche n° 2.8 : Cohérence entre les missions commerciales et les itinéraires"
+      Test2_Sheet8_Step1: "Correcte référence des MISSIONs COMMERCIALEs ( < JourneyPattern >)  par les Itinéraires/Chouette ( < ChouetteRoute >)"
+      Test2_Sheet8_Step1_error: "un élément < journeyPatternId > dans un objet d'Itinéraire < ChouetteRoute > n'a pas d'identifiant < ObjectId > dans un objet < JourneyPattern>"
+      Test2_Sheet8_Step2: "Correcte référence des Itinéraires/Chouette ( < ChouetteRoute >) que référencent les MISSIONs COMMERCIALEs ( < JourneyPattern >)"
+      Test2_Sheet8_Step2_error: "l'élément d'Itinéraire < routeId >, référencé dans un objet < JourneyPattern >, n'a pas d'identifiant < objectId > dans l'objet d'Itinéraire < ChouetteRoute >"
+      Test2_Sheet8_Step3: "Cohérence de la séquence des POINTs D'ARRÊT SUR PARCOURS  ( < StopPoint >)  d'une mission commerciale et celle de l'Itinéraire/Chouette ( < ChouetteRoute >) correspondant"
+      Test2_Sheet8_Step3_a_error: "a : l'identifiant du < %{0} > détecté dans l'objet < StopPoint > ne figure pas dans la liste des points d'arrêt de l'objet < JourneyPattern >"
+      Test2_Sheet8_Step3_b_error: "b : l'identifiant du  %{0} < StopPoint >  ne figure pas dans l'un des éléments < startOfLink > ou < endOfLink > du tronçon < PtLink >"
+      Test2_Sheet8_Step3_c_error: "c : l'identifiant du tronçon < PtLink > : %{0} , détecté dans le test b, n'est pas intégré dans un Itinéraire < ChouetteRoute >"
+      Test2_Sheet8_Step3_d_error: "d : les <PTLinks> de l'Itinéraire < ChouetteRoute > : %{0} ne sont pas cohérents avec les <StopPoints> du < JourneyPattern > %{1}"
+      Test2_Sheet9: "Fiche n° 2.9 : Définition de l'itinéraire retour"
+      Test2_Sheet9_Step1: "Correcte référence  à un Itinéraire/Chouette ( < ChouetteRoute >) dans le cas d'un Itinéraire de retour"
+      Test2_Sheet9_Step1_error: "un élément d'Itinéraire de retour < wayBackRouteId > dans un objet d'Itinéraire < ChouetteRoute > n'a pas d'identifiant < ObjectId > dans un autre objet d'Itinéraire <  ChouetteRoute >"
+      Test2_Sheet10: "Fiche n° 2.10 : Référence à une ligne pour un point d'arrêt"
+      Test2_Sheet10_Step1: "Correcte référence à une LIGNE/Chouette ( < Line >) pour les POINTs D'ARRÊT SUR PARCOURS  ( < StopPoint > )"
+      Test2_Sheet10_Step1_error: "Le point d'arrêt  (< StopPoint >)  fait référence à une ligne inexistante>"
+      Test2_Sheet11: "Fiche n° 2.11 : Référence à un réseau au point d'arrêt"
+      Test2_Sheet11_Step1: "Correcte référence à la VERSION DU RÉSEAU   ( < PTNetwork >) pour  chaque POINT D'ARRÊT SUR PARCOURS  \n( < StopPoint >)"
+      Test2_Sheet11_Step1_error: "Le point d'arrêt  (< StopPoint >)  fait référence à un réseau inexistant>"
+      Test2_Sheet12: "Fiche n° 2.12 : Définition de  l''Interdiction de Trafic Local"
+      Test2_Sheet12_Step1: "Cohérence entre les objets  <  ITL >  et les ARRÊTs/Chouette ( < StopArea >)"
+      Test2_Sheet12_Step1_error: "Un objet d'interdiction de trafic local  < ITL > %{0} fait référence à un arrêt du réseau < StopArea > %{1} inexistant"
+      Test2_Sheet13: "Fiche n° 2.13 : Référence à une ligne des arrêts ITL"
+      Test2_Sheet13_Step1: "Correcte référence à la LIGNE/Chouette ( < Line >) pour chaque  < ITL >"
+      Test2_Sheet13_Step1_error: "Un objet d'interdiction de trafic local  < ITL >  fait référence à une ligne inexistante"
+      Test2_Sheet14: "Fiche n° 2.14 : Association points d'arrêt, tronçons, itinéraire"
+      Test2_Sheet14_Step1: "Tout POINT D'ARRÊT SUR PARCOURS  ( < StopPoint >) est associé à un Itinéraire/Chouette (ChouetteRoute >)"
+      Test2_Sheet14_Step1a_error: "a : le point d'arrêt  (< StopPoint >)  %{0} n'appartient à aucune extrémité de tronçon"
+      Test2_Sheet14_Step1b_error: "b : le tronçon %{0} fait référence à un itinéraire inexistant"
+      Test2_Sheet14_Step2: "Continuité des tronçons COMMERCIAUX/Chouette ( < PtLink >) au sein d'un Itinéraire/Chouette ( < ChouetteRoute >)"
+      Test2_Sheet14_Step2_error: "l'analyse des tronçons d'un itinéraire fait apparaître que la valeur de l'attribut de l'élément < endOfLink > d'un premier tronçon < PtLink > n'est pas identique à la valeur de l'attribut de l'élément < startOfLink > du deuxième tronçon < PtLink >"
+      Test2_Sheet15: "Fiche n° 2.15 : Cohérence entre points d'arrêt et missions commerciales"
+      Test2_Sheet15_Step1: "Existence de définition des POINTs D'ARRÊT SUR PARCOURS  ( < StopPoint >)  d'une mission commerciale  ( < JourneyPattern >)"
+      Test2_Sheet15_Step1_error: "La liste de l'objet < JourneyPattern > %{0} fait référence à des points d'arrêt  inexistants"
+      Test2_Sheet15_Step2: "Tout POINT D'ARRÊT SUR PARCOURS  ( < StopPoint >)  appartient à une mission commerciale  ( < JourneyPattern >)"
+      Test2_Sheet15_Step2_error: "un point d'arrêt  (< StopPoint >)  n'est pas rattaché à une mission commerciale"
+      Test2_Sheet16: "Fiche n° 2.16 : Référence à une ligne des  missions commerciales"
+      Test2_Sheet16_Step1: "Correcte référence à une une LIGNE/Chouette ( < Ligne >)  pour une MISSION COMMERCIALE  ( < JourneyPattern >)"
+      Test2_Sheet16_Step1_error: "Un objet < JourneyPattern > fait référence à une ligne inexistante"
+      Test2_Sheet17: "Fiche n° 2.17 : Cohérence entre itinéraires et courses"
+      Test2_Sheet17_Step1: "Correcte référence à l'Itinéraire/Chouette ( < ChouetteRoute) pour chaque COURSE COMMERCIALE  ( < VehicleJourney > )"
+      Test2_Sheet17_Step1_error: "la course  %{0} fait référence à un itinéraire inexistant %{1}"
+      Test2_Sheet18: "Fiche n° 2.18 : Cohérence entre les  missions commerciales et les courses"
+      Test2_Sheet18_Step1: "Existence d'une MISSION COMMERCIALE ( < JourneyPattern  < ) pour chaque COURSE COMMERCIALE ( < VehicleJourney >)"
+      Test2_Sheet18_Step1_error: "la course %{0} fait référence à une mission commerciale inexistante"
+      Test2_Sheet18_Step2: "Cohérence de points entre MISSION COMMERCIALE ( < JourneyPattern  < ) et COURSE COMMERCIALE ( < VehicleJourney >)"
+      Test2_Sheet18_Step2_error_a: "a : l'identifiant (< StopPoint >)  détecté dans un objet < StopPoint >  ne figure pas dans la liste des points d'arrêts < stopPointList > de < JourneyPattern >"
+      Test2_Sheet18_Step2_error_b: "b : l'identifiant (< StopPoint >)  ne figure pas dans l'élément < stopPointId > d'un objet  < vehicleJourneyAtStop >"
+      Test2_Sheet19: "Fiche n° 2.19 : Référence à une ligne pour chaque course"
+      Test2_Sheet19_Step1: "Référence à une LIGNE/Chouette ( < Line >)  pour une COURSE COMMERCIALE ( < VehicleJourney >)"
+      Test2_Sheet19_Step1_error: "le raccourci de ligne d'une course %{0} fait référence à une ligne inexistante"
+      Test2_Sheet20: "Fiche n° 2.20 : Vérification des identifiants d''exploitants que référencent les courses"
+      Test2_Sheet20_Step1: "Correcte référence à l'EXPLOITANT/Chouette ( < Company >) dans une COURSE COMMERCIALE ( < VehicleJourney > )"
+      Test2_Sheet20_Step1_error: "la course %{0} fait référence à un exploitant inexistant"
+      Test2_Sheet21: "Fiche n° 2.21 : Référence à une tranche horaire  pour  les courses"
+      Test2_Sheet21_Step1: "Correcte référence des COURSEs COMMERCIALEs ( < VehicleJourney > ) à des TRANCHEs HORAIREs ( < TimeSlot >)"
+      Test2_Sheet21_Step1_error: "la course %{0} fait référence à une tranche horaire inexistante"
+      Test2_Sheet22: "Fiche n° 2.22 : Cohérence entre les points d'arrêts et les heures de passage"
+      Test2_Sheet22_Step1: "Correcte référence à un POINT D'ARRÊT SUR PARCOURS ( < StopPoint >) pour les HEUREs DE PASSAGE GRAPHIQUées/Chouette ( < VehicleJourneyAtStop >)"
+      Test2_Sheet22_Step1_error: "une heure de passage %{0} fait référence à un point d'arrêt  (< StopPoint >)  inexistant"
+      Test2_Sheet23: "Fiche n° 2.23 : Cohérence entre les courses et  des heures de passage"
+      Test2_Sheet23_Step1: "Correcte référence à une COURSE COMMERCIALE \n( < VehicleJourney >) dans HEURE DE PASSAGE GRAPHIQUEE/Chouette ( < VehicleJourneyAtStop >)"
+      Test2_Sheet23_Step1_error: "une heure de passage %{0} fait référence à une course inexistante"
+      Test2_Sheet24: "Fiche n° 2.24 : Cohérence entre la mission commerciale de la course et l''itinéraire de la course"
+      Test2_Sheet24_Step1: "Cohérence de la référence un Itinéraire/Chouette pour une COURSE COMMERCIALE ( < VehicleJourney >) et la MISSION COMMERCIALE ( < JourneyPattern >) correspondante"
+      Test2_Sheet24_Step1_error: "un objet < vehicleJourney > possède une valeur de l'attribut de l'élément < RouteId >. Cette valeur ne se retrouve dans un élément < RouteId > d'un objet < JourneyPattern > "
+      Test2_Sheet25: "Fiche n° 2.25 : Définition des liens d'accès"
+      Test2_Sheet25_Step1: "Correcte référence aux ARRÊTs/Chouette ( < StopArea >) et ACCES/NEPTUNE ( <AccessPoint >) définissant des LiensAccèsZoneArrêt/NEPTUNE  ( < AccessLink >)"
+      Test2_Sheet25_Step1_error_a: "a : les objets < StartOfLink > et < EndOfLink > de  l'objet < AccessLink > sont identiques"
+      Test2_Sheet25_Step1_error_b: "b : un identifiant d'arrêt ou d'accès < StartOfLink > ou < EndOfLink > de l'objet < AccessLink> n'est pas repéré dans un objet < StopArea > ou < AccessPoint >"
+      Test2_Sheet26: "Fiche n° 2.26 : Cohérence entre les accès et leurs composants"
+      Test2_Sheet26_Step1: "Correcte référence à des ARRÊTs/Chouette ( < StopArea >) et/ou à des LiensAccèsZoneArrêt/NEPTUNE  ( < AccessLink >) dans les ACCES/NEPTUNE ( < AccessPoint >)  "
+      Test2_Sheet26_Step1_error: "une ou plusieurs valeurs de l'élément < containedIn> de la classe d'objets < AccessPoint> n'est pas repérée dans la classe d'objets correspondante < StopArea > ou < AccessLink >"
+      Test2_Sheet27: "Fiche n° 2.27 : Référence aux arrêts dans les équipements"
+      Test2_Sheet27_Step1: "Correcte référence à des ARRÊTs/Chouette ( < StopArea >) dans les EQUIPEMENTs /NEPTUNE  ( <Facility>)"
+      Test2_Sheet27_Step1_error: "une valeur de l'élément < containedIn> de la classe d'objets < Facility> n'est pas repérée dans la classe d'objets correspondante < StopArea >"
+      Test2_Sheet28: "Fiche n° 2.28 : Référencement correct des composants dans les équipements"
+      Test2_Sheet28_Step1: "Correcte référence à un ARRÊT/Chouette ( < StopArea >) ou  à une LIGNE/Chouette ( < Line >)  ou à un POINT D'ARRÊT SUR PARCOURS ( < StopPoint >) ou à un TronçonsDeCorrespondance/Chouette  ( < ConnectionLink >) dans les FACILITYs /NEPTUNE  ( <Facility>)"
+      Test2_Sheet28_Step1_error: "une valeur de l'élément < stopAreaId> de la classe d'objets < Facility> n'est pas repérée dans la classe d'objets correspondant < StopArea >"
+      Test2_Sheet28_Step2_error: "une valeur de l'élément < lineId> de la classe d'objets < Facility> n'est pas repérée dans la classe d'objets correspondant < Line>"
+      Test2_Sheet28_Step3_error: "une valeur de l'élément < connectionLinkId> de la classe d'objets < Facility> n'est pas repérée dans la classe d'objets correspondant < ConnectionLink >"
+      Test2_Sheet28_Step4_error: "une valeur de l'élément < stopPointId> de la classe d'objets < Facility> n'est pas repérée dans la classe d'objets correspondant < StopPoint >"
+      THREE: "Catégorie 3 : Contenu"
+      Test3_Sheet1: "Fiche n° 3.1 : Points d'arrêt de dénomination différente et très proches"
+      Test3_Sheet1_Step1: "2 POINTs D'ARRÊT SUR PARCOURS ( < StopPoint >) très proches porte le même nom/même adresse"
+      Test3_Sheet1_Step1_warning: "deux points d'arrêt séparés par une distance  %{3} inférieure à une valeur paramétrable %{0} ne portent pas le même nom , premier : %{1} , deuxième : %{2} "
+      Test3_Sheet2: "Fiche n° 3.2 : Points d'arrêt très proches regroupés au sein d'une zone d'arrêt"
+      Test3_Sheet2_Step1: "2 POINTs D'ARRÊT SUR PARCOURS ( < StopPoint >) très proches appartiennent à un même ARRÊT1/Chouette ( < StopArea >)"
+      Test3_Sheet2_Step1_warning: "la distance calculée %{0} entre un point d'arrêt et les autres points d'arrêt est inférieure à une valeur paramétrable %{1} mais la valeur de l'attribut de l'élément < containedIn > de ces deux points d'arrêt < StopPoint > n'est pas identique, premier : %{2} , deuxième : %{3}" 
+      Test3_Sheet3: "Fiche n° 3.3 : Unicité des noms de points d'arrêt "
+      Test3_Sheet3_Step1: "Différentiation de nom pour les POINTs D'ARRÊT SUR PARCOURS ( < StopPoint >)"
+      Test3_Sheet3_Step1_warning: "deux points d'arrêt < StopPoint > : %{0} et %{1} de même nom ne sont pas suffisamment renseignés pour avoir des propriétés uniques"
+      Test3_Sheet4: "Fiche n° 3.4 :  Unicité des noms de ligne"
+      Test3_Sheet4_Step1: "Chaque LINE/Chouette ( < Line >) possède des valeurs d'attributs uniques"
+      Test3_Sheet4_Step1_error: "les éléments < name > et < number > d'une ligne ne constituent pas un identifiant unique pour la ligne < Line > référencée par l'élément < %{0} >"
+      Test3_Sheet5: "Fiche n° 3.5 : Modèle de représentation des coordonnées des points d'arrêt"
+      Test3_Sheet5_Step1: "Coordonnées géographiques de chaque POINT D'ARRÊT SUR PARCOURS ( < StopPoint >) par rapport à un modèle de projection de référence"
+      Test3_Sheet5_Step1_warning: "le point d'arrêt d'identifiant < %{0} > n'est pas dans le bon système de projection ou ses coordonnées géographiques sont nulle ou il est situé hors d'une zone dont le périmètre ou le contour est à définir"
+      Test3_Sheet6: "Fiche n° 3.6 : Localisation des points d'arrêt à l'intérieur d'un périmètre défini"
+      Test3_Sheet6_Step1: "Les coordonnées de chaque POINT D'ARRÊT SUR PARCOURS ( < StopPoint >) sont inscrites dans une zone déterminée et qu'elles sont dans le bon système de projection"
+      Test3_Sheet6_Step1_warning_a: "a : le point d'arrêt d'identifiant < %{0} > n'est pas dans le bon système de projection "
+      Test3_Sheet6_Step1_error_b: "b :  le point d'arrêt d'identifiant < %{0} > a des coordonnées qui sont hors du polygone de la zone couverte"
+      Test3_Sheet7: "Fiche n° 3.7 : Caractérisation des distances entre les points d'arrêt"
+      Test3_Sheet7_Step1: "La distance entre 2 POINTs D'ARRÊT SUR PARCOURS ( < StopPoint >) consécutifs"
+      Test3_Sheet7_Step1_warning: "la distance spatiale entre deux points d'arrêt consécutifs ne se situe pas dans une fourchette autorisée (entre %{0} pour sa valeur minimale et %{1} pour sa valeur supérieure"
+      Test3_Sheet8: "Fiche n° 3.8 : Cohérence entre le temps et la distance pour chaque correspondance"
+      Test3_Sheet8_Step1: " Les vitesses calculées à partir des attributs du TronçonDeCorrespondance/Chouette ( < ConnectionLink >) suivant les paramètres fixés"
+      Test3_Sheet8_Step1_error_a: "a : la vitesse fixée par l'élément < DefaultDuration > n'est pas conforme à la valeur paramétrable : Vitesse minimale %{0} et Vitesse maximale %{1} fixée pour la correspondance dont l'identifiant est < %{2} >"
+      Test3_Sheet8_Step1_error_b: "b : la vitesse fixée par l'élément < FrequentTravellerDuration > n'est pas conforme à la valeur paramétrable Vitesse minimale  %{0} (+/- delta) et Vitesse maximale %{1} fixée pour la correspondance dont l'identifiant est < %{2} >"
+      Test3_Sheet8_Step1_error_c: "c : la vitesse fixée par l'élément < OccasionalTravellerDuration > n'est pas conforme à la valeur paramétrable Vitesse minimale  %{0} (+/- delta) et Vitesse maximale %{1} fixée pour la correspondance dont l'identifiant est < %{2} >"
+      Test3_Sheet8_Step1_error_d: "d : la vitesse fixée par l'élément < MobilityRestrictedTravellerDuration > n'est pas conforme à la valeur paramétrable Vitesse minimale  %{0} (+/- delta) et Vitesse maximale %{1} fixée pour la correspondance dont l'identifiant est < %{2} >"
+      Test3_Sheet9: "Fiche n° 3.9 : Cohérence entre le temps et la distance pour chaque tronçon"
+      Test3_Sheet9_Step1: "La vitesse entre 2 POINTs D'ARRÊT SUR PARCOURS ( < StopPoint >) consécutifs se situe dans une fourchette autorisée"
+      Test3_Sheet9_Step1_warning: "la vitesse déterminée par la distance et le temps entre 2 points d'arrêt consécutifs (entre deux objets < %{0} > et < %{1} > ) ne se situe pas une fourchette autorisée entre %{2} et %{3}"
+      Test3_Sheet10: "Fiche n° 3.10 : Détection des boucles"
+      Test3_Sheet10_Step1: "Utilisation unique dans un Itinéraire/Chouette ( < ChouetteRoute >) d'un POINT D'ARRÊT SUR PARCOURS ( < StopPoint >)"
+      Test3_Sheet10_Step1_error_a: "a : le point d'arrêt d'identifiant < %{0} > est défini de manière unique et ne retrouve pas dans au moins deux tronçons"
+      Test3_Sheet10_Step1_error_b: "b : les identifiants de tronçon identifiés dans le 3.10.1 a ne sont pas présents dans un même itinéraire"
+      Test3_Sheet10_Step2: "Boucle dans un itinéraire/Chouette"
+      Test3_Sheet10_Step2_warning: "des tronçons < PtLink > utilisent des points d'arrêt < StopPoint > ayant la même valeur d'attribut que l'élément <  containedIn  > pour la route %{0} "
+      Test3_Sheet10_Step3: "La distance entre points d'arrêt d'un même itinéraire/Chouette"
+      Test3_Sheet10_Step3_warning: "des points d'arrêt < StopPoint > utilisés par des tronçons d'itinéraire, sont proches les uns des autres d'une distance %{0} inférieure à une valeur paramétrable %{1} "
+      Test3_Sheet11: "Fiche n° 3.11 : Détection des retours en arrière"
+      Test3_Sheet11_Step1: "Utilisation répétitive de POINTs D'ARRÊT SUR PARCOURS  d'un Itinéraire/Chouette ( < ChouetteRoute >)"
+      Test3_Sheet11_Step1_warning: "les tronçons < PtLink > d'un itinéraire utilisent des points d'arrêt < StopPoint > identiques plus de deux fois"
+      Test3_Sheet12: "Fiche n° 3.12 : Connexité du graphe des lignes et des points d'arrêt"
+      Test3_Sheet12_Step1: "Construction d'un graphe à partir de chaque POINTs D'ARRÊT SUR PARCOURS"
+      Test3_Sheet15: "Fiche n° 3.15 : Cohérence des horaires"
+      Test3_Sheet15_Step1: "Cohérence des HEUREs DE PASSAGE GRAPHIQUEEs/Chouette ( < VehicleJourneyAtStop >)  d'une COURSE ( < VehicleJourney >) pour chaque POINT D'ARRÊT SUR PARCOURS ( < StopPoint >)"
+      Test3_Sheet15_Step1_error: "la différence absolue entre la valeur de l'attribut de l'élément < arrivalTime > et la valeur de l'attribut de l'élément < departureTime > est supérieure à une valeur paramétrable %{0}"
+      Test3_Sheet16: "Fiche n° 3.16 : Cohérence des courses"
+      Test3_Sheet16_Step1: "Cohérence horaire pour 2 COURSEs ( < VehicleJourney >) utilisant le même couple de POINTs D'ARRÊT SUR PARCOURS ( < StopPoint >)"
+      Test3_Sheet16_Step1_error: "pour deux courses qui utilisent le même couple de points  A -> B, les temps de parcours : %{2} entre le point A : %{0} et le point B : %{1} ne sont pas  cohérents"
+      Test3_Sheet16_Step2: "La VERSION DES HORAIREs/Chouette ( < Timetable >) contient des COURSEs ( < VehicleJourney >)"
+      Test3_Sheet16_Step2_warning: "La course < vehicleJourney > dont l'identifiant est < %{0} > n'est pas référencée dans l'objet < TimeTable >"
+      Test3_Sheet16_Step3: "Cohérence des HEUREs DE PASSAGE GRAPHIQUEEs/Chouette ( < VehicleJourneyAtStop >) entre 2 POINTs D'ARRÊT SUR PARCOURS ( < StopPoint >) consécutifs dans une COURSE ( < VehicleJourney >)"
+      Test3_Sheet16_Step3_error_a: "a :  entre deux éléments < vehicleJourneyAtStop > successifs, la différence absolue entre la valeur de l'attribut de l'élément < departureTime > du premier point d'arrêt et la valeur de l'attribut de l'élément < arrivalTime > du second point d'arrêt : %{0} est supérieure à une valeur paramétrable %{1} "
+      Test3_Sheet16_Step3_error_b: "b : entre deux éléments < vehicleJourneyAtStop > successifs, la valeur de l'attribut de l'élément < departureTime > du premier point d'arrêt est inférieure à la valeur de l'attribut de l'élément < arrivalTime > du second point d'arrêt ou la valeur de l'attribut de l'élément < arrivalTime > du second point d'arrêt est supérieure à une valeur paramétrable %{0}"
+      Test3_Sheet17: "Fiche n° 3.17 : Modèle de représentation des coordonnées des points d'accès"
+      Test3_Sheet17_Step1: " Les coordonnées géographiques de chaque POINT D'ACCES ( < AccessPoint >) par rapport à un modèle de projection de référence"
+      Test3_Sheet17_Step1_warning: "le point d'accès d'identifiant < %{0} > n'est pas dans le bon système de projection ou ses coordonnées géographiques sont nulles ou il est situé hors d'une zone dont le périmètre ou le contour est à définir"
+      Test3_Sheet18: "Fiche n° 3.18 : Localisation des points d'accès à l'intérieur d'un périmètre défini"
+      Test3_Sheet18_Step1: " Les coordonnées de chaque POINT D'ACCES ( < AccessPoint >) sont inscrites dans une zone déterminée et qu'elles sont dans le bon système de projection"
+      Test3_Sheet18_Step1_warning_a: "a : le point d'accès d'identifiant < %{0} > n'est pas dans le bon système de projection"
+      Test3_Sheet18_Step1_error_b: "b :  le point d'accès d'identifiant < %{0} > a des coordonnées qui sont hors du polygone de la zone couverte"
+      Test3_Sheet19: "Fiche n° 3.19 : Modèle de représentation des coordonnées des équipements"
+      Test3_Sheet19_Step1: " Test des coordonnées géographiques de chaque EQUIPEMENT ( < Facility >) par rapport à un modèle de projection de référence"
+      Test3_Sheet19_Step1_warning: "l'equipement < %{0} > n'est pas dans le bon système de projection ou ses coordonnées géographiques sont nulle ou il est situé hors d'une zone dont le périmètre ou le contour est à définir"
+      Test3_Sheet20: "Fiche n° 3.20 : Localisation des équipements à l'intérieur d'un périmètre défini"
+      Test3_Sheet20_Step1: " Les coordonnées de chaque EQUIPEMENT ( < Facility>) sont inscrites dans une zone déterminée et qu'elles sont dans le bon système de projection"
+      Test3_Sheet20_Step1_warning_a: "a : l'equipement d'identifiant < %{0} > n'est pas dans le bon système de projection "
+      Test3_Sheet20_Step1_error_b: "b :  l'equipement d'identifiant < %{0} > a des coordonnées qui sont hors du polygone de la zone couverte "
+      Test3_Sheet21: "Fiche n° 3.21 : Cohérence entre le temps et la distance pour chaque lien accès-zone d'arrêt"
+      Test3_Sheet21_Step1: " Les vitesses calculées à partir des attributs du LiensAccèsZoneArrêt /NEPTUNE ( < AccessLink >) suivant les paramètres fixés"
+      Test3_Sheet21_Step1_error_a: "a : la vitesse fixée par l'élément < DefaultDuration > n'est pas conforme à la valeur paramétrable Vitesse minimale %{0} et Vitesse maximale %{1} fixée pour le lien d'accès dont l'identifiant est < %{2} >"
+      Test3_Sheet21_Step1_error_b: "b : la vitesse fixée par l'élément < FrequentTravellerDuration > n'est pas conforme à la valeur paramétrable Vitesse minimale %{0} et Vitesse maximale %{1} fixée pour le lien d'accès dont l'identifiant est < %{2} >"
+      Test3_Sheet21_Step1_error_c: "c : la vitesse fixée par l'élément < OccasionalTravellerDuration > n'est pas conforme à la valeur paramétrable %{Vitesse minimale %{0} et Vitesse maximale %{1} fixée pour le lien d'accès dont l'identifiant est < %{2} >"
+      Test3_Sheet21_Step1_error_d: "d : la vitesse fixée par l'élément < MobilityRestrictedTravellerDuration > n'est pas conforme à la valeur paramétrable Vitesse minimale %{0} et Vitesse maximale %{1} fixée pour le lien d'accès dont l'identifiant est < %{2} >"
+    severities:
+      uncheck: Non testé
+      ok: Ok
+      warning: Alerte
+      error: Erreur
+      fatal: Fatal
+  activerecord:
+    models:
+      file_validation: 
+        zero:  Validation Neptune 
+        one:   Validation Neptune 
+        other: Validations Neptune 
+    attributes:
+      file_validation:
+        resources: Fichier à valider
+        status: Status
+        file_name: Jeu de données
+        test3_1_minimal_distance: "Distance minimale (test 3.1)"
+        test3_2_minimal_distance: "Distance minimale (test 3.2)"
+        test3_2_polygon_points: "Polygone (long lat) (test 3.6)"
+        test3_7_minimal_distance: "Distance minimale / maximale (test 3.7)"
+        test3_7_maximal_distance: " / "
+        test3_8a_minimal_speed: "Vitesse minimale / maximale (test 3.8a)"
+        test3_8a_maximal_speed: " / "
+        test3_8b_minimal_speed: "Vitesse minimale / maximale (test 3.8b)"
+        test3_8b_maximal_speed: " / "
+        test3_8c_minimal_speed: "Vitesse minimale / maximale (test 3.8c)"
+        test3_8c_maximal_speed: " / "
+        test3_8d_minimal_speed: "Vitesse minimale / maximale (test 3.8d)"
+        test3_8d_maximal_speed: " / "
+        test3_9_minimal_speed: "Vitesse minimale / maximale (test 3.9)"
+        test3_9_maximal_speed: " / "
+        test3_10_minimal_distance: "Distance minimale (test 3.10)"
+        test3_15_minimal_time: "Temps minimal (test 3.15)"
+        test3_16_1_maximal_time: "Ecart maximal de durée entre deux desserte d'un même tronçon (test 3.16.1)"
+        test3_16_3a_maximal_time: "Temps maximal d'attente à un arrêt (test 3.16.3a)"
+        test3_16_3b_maximal_time: "Heure maximale de départ au premier arrêt après minuit sur une course franchissant minuit (test 3.16.3b)"
+        test3_21a_minimal_speed: "Vitesse minimale / maximale (test 3.21a)"
+        test3_21a_maximal_speed: " / "
+        test3_21b_minimal_speed: "Vitesse minimale / maximale (test 3.21b)"
+        test3_21b_maximal_speed: " / "
+        test3_21c_minimal_speed: "Vitesse minimale / maximale (test 3.21c)"
+        test3_21c_maximal_speed: " / "
+        test3_21d_minimal_speed: "Vitesse minimale / maximale (test 3.21d)"
+        test3_21d_maximal_speed: " / "
+        projection_reference: "Système de projection de référence"
+      file_validation_log_message:
+        created_at: Date
+        position: N.
+        full_message: Message

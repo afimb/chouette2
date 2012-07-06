@@ -3,53 +3,53 @@ layout: default
 title: Calendriers d'application
 ---
 
-h3. D&eacute;finition
+h3. Définition
 
-Un calendrier d'application permet de d&eacute;finir la p&eacute;riode de validit&eacute; des horaires d'une course. 
-Les calendriers d'application sont donc d&eacute;finis ind&eacute;pendamment des lignes, &agrave; l'instar du r&eacute;f&eacute;rentiel des arr&ecirc;ts.
+Un calendrier d'application permet de définir la période de validité des horaires d'une course. 
+Les calendriers d'application sont donc définis indépendamment des lignes, à l'instar du référentiel des arrêts.
 
-La mani&egrave;re de d&eacute;finir un calendrier d'application est restreinte. 
-Les calendriers sont caract&eacute;ris&eacute;s par : 
+La manière de définir un calendrier d'application est restreinte. 
+Les calendriers sont caractérisés par : 
 
-* une liste de quanti&egrave;mes (jours calendaires dans l'ann&eacute;e)
+* une liste de quantièmes (jours calendaires dans l'année)
 * une liste de jours d'application (lundis, mardis, etc.)
-* une liste de p&eacute;riodes
+* une liste de périodes
 
-L'utilisateur doit donc faire attention au nommage de ses diff&eacute;rents calendriers d'application.
+L'utilisateur doit donc faire attention au nommage de ses différents calendriers d'application.
 
-Plusieurs courses peuvent r&eacute;f&eacute;rencer le m&ecirc;me calendrier.
+Plusieurs courses peuvent référencer le même calendrier.
 
-Ainsi, il est possible de construire des calendriers d'application qui sont ensuite r&eacute;f&eacute;renc&eacute;s par des courses de lignes diff&eacute;rentes. 
+Ainsi, il est possible de construire des calendriers d'application qui sont ensuite référencés par des courses de lignes différentes. 
 
 h3. Attributs
 
 - Commentaire := Description du calendrier
-- Version := version du calendrier (diff&eacute;rent de la version de l'objet)
-- Jours d'application := jours de la semaine effectivement applicables dans le cas o&ugrave; des p&eacute;riodes sont d&eacute;finies dans le calendrier
-- P&eacute;riodes d'application := p&eacute;riodes calendaires durant lesquelles le calendrier est applicable
+- Version := version du calendrier (différent de la version de l'objet)
+- Jours d'application := jours de la semaine effectivement applicables dans le cas où des périodes sont définies dans le calendrier
+- Périodes d'application := périodes calendaires durant lesquelles le calendrier est applicable
 - Dates d'application := 
-dates sp&eacute;cifiques pour lesquelles le calendrier est applicable;
-ces dates peuvent &ecirc;tre ajout&eacute;es dans ou en dehors des p&eacute;riodes calendaires.
+dates spécifiques pour lesquelles le calendrier est applicable;
+ces dates peuvent être ajoutées dans ou en dehors des périodes calendaires.
 Un calendrier peut n'avoir que des dates calendaires, auquel cas les jours d'applications n'ont pas de signification
 =:
 
-p(attr_data). Donn&eacute;es de gestion :
+p(attr_data). Données de gestion :
 
 - Identifiant Neptune := 
-cl&eacute; unique p&eacute;renne identifiant le r&eacute;seau pour les &eacute;changes Neptune
-cet identifiant est compos&eacute; de 3 parties : pr&eacute;fixe:type:id_technique
+clé unique pérenne identifiant le réseau pour les échanges Neptune
+cet identifiant est composé de 3 parties : préfixe:type:id_technique
 
-* pr&eacute;fixe : cl&eacute; identifiant un producteur de donn&eacute;es unique
-* type = Timetable : cl&eacute; identifiant le type d'objet (valeur impos&eacute;e)
-* id_technique : valeur identifiant un seul object d'un type donn&eacute; pour un m&ecirc;me producteur
-ce champ obligatoire est automatiquement g&eacute;n&eacute;r&eacute; s'il n'est pas renseign&eacute; 
-il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera compl&eacute;t&eacute;e automatiquement.
+* préfixe : clé identifiant un producteur de données unique
+* type = Timetable : clé identifiant le type d'objet (valeur imposée)
+* id_technique : valeur identifiant un seul object d'un type donné pour un même producteur
+ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
+il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera complétée automatiquement.
 =:
-- Date de cr&eacute;ation := date &agrave; laquelle l'objet a &eacute;t&eacute; cr&eacute;&eacute; ou modifi&eacute; pour la derni&egrave;re fois
-- Version := version de l'objet (auto incr&eacute;ment&eacute; &agrave; chaque modification)
-- Cr&eacute;&eacute; par := compte utilisateur ayant proc&eacute;d&eacute; &agrave; la derni&egrave;re modification
+- Date de création := date à laquelle l'objet a été créé ou modifié pour la dernière fois
+- Version := version de l'objet (auto incrémenté à chaque modification)
+- Créé par := compte utilisateur ayant procédé à la dernière modification
 
-h3. Impl&eacute;mentation
+h3. Implémentation
 
 p. TODO
 

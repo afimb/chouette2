@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120620064014) do
+ActiveRecord::Schema.define(:version => 20120620081755) do
 
   create_table "access_links", :force => true do |t|
     t.integer  "access_point_id",                        :limit => 8
@@ -174,6 +174,27 @@ ActiveRecord::Schema.define(:version => 20120620064014) do
   create_table "facilities_features", :id => false, :force => true do |t|
     t.integer "facility_id", :limit => 8
     t.integer "choice_code"
+  end
+
+  create_table "file_validation_log_messages", :force => true do |t|
+    t.integer  "file_validation_id"
+    t.string   "key"
+    t.string   "arguments",          :limit => 1000
+    t.integer  "position"
+    t.string   "severity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "file_validation_log_messages", ["file_validation_id"], :name => "index_file_validation_log_messages_on_file_validation_id"
+
+  create_table "file_validations", :force => true do |t|
+    t.string   "status"
+    t.string   "options",    :limit => 2000
+    t.string   "file_name"
+    t.string   "file_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "group_of_lines", :force => true do |t|

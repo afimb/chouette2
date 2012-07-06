@@ -4,6 +4,8 @@
     <title>Chouette V2 - <%= title %></title>
     <%= stylesheet_link_tag :application %>      
     <%= javascript_include_tag :application %>
+    <!-- %= javascript_include_tag 'jquery.qtip.min', 'formtastic.qtip2.min' % -->
+    <!-- %= stylesheet_link_tag 'jquery.qtip.min.css' % -->
     <script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script> 
     <%= csrf_meta_tag %>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -21,7 +23,7 @@
         <div class="title"> 
           <% if selected_referential? %>
             <h1><%= @referential.name %></h1>
-          <% elsif help_page? %>
+          <% elsif help_page?  || test_sheet_page? %>
             <h1>Guide d'utilisation</h1>
           <% end %>
         </div>
@@ -31,10 +33,12 @@
       </div>
       <div class="tabs">
         <ul class="main">
-          <% if help_page? %>
-            <li><%= link_to "Aide", help_path, :class => "current" %></li>
+          <% if help_page? || test_sheet_page? %>
+            <li><%= link_to "Aide", help_path, :class =>("current" if help_page?) %></li>
+            <li><%= link_to "Tests de validation", test_sheet_path+"1.1", :class =>("current" if test_sheet_page?) %></li>
           <% elsif ! selected_referential? %>
-            <li><%= tab_link_to Referential, referentials_path, :class => "current" %></li>
+            <li><%= link_to Referential.model_name.human.capitalize.pluralize, referentials_path, :class => ("current" if current_page?(referentials_path) || current_page?(root_url)) %></li>
+            <li><%= tab_link_to FileValidation, file_validations_path %></li>
           <% else %>
             <li><%= link_to t("layouts.tabs.dashboard"), referential_path(@referential), :class => ("current" if current_page?(referential_path(@referential))) %></li>
             <li><%= tab_link_to Chouette::Network, referential_networks_path(@referential) %></li>

@@ -6,6 +6,8 @@
                    :prefix => "q", :field_name => "vehicle_journey_at_stops_departure_time_gt(4i)") %>
    <%= select_minute(@q.send( "vehicle_journey_at_stops_departure_time_gt") ? @q.send( "vehicle_journey_at_stops_departure_time_gt").min : 0, 
                      :prefix => "q", :field_name => "vehicle_journey_at_stops_departure_time_gt(5i)") %>
+   <%= f.hidden_field :journey_pattern_id_eq %>
+   <%= f.hidden_field :time_tables_comment_eq %>
    <%= f.submit t('.time_range_filter') %>
   <% end %>
 

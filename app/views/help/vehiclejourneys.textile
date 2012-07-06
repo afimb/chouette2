@@ -3,35 +3,35 @@ layout: default
 title: Courses
 ---
 
-h3. D&eacute;finition
+h3. Définition
 
-Une course d&eacute;crit le d&eacute;placement d'un v&eacute;hicule de transport public sur une s&eacute;quence d'arr&ecirc;ts de la ligne. La course parcourt les arr&ecirc;ts de la s&eacute;quence d'arr&ecirc;ts dans l'ordre, sans n&eacute;cessairement s'arr&ecirc;ter &agrave; chacun des arr&ecirc;ts. A chaque arr&ecirc;t desservi, la course pr&eacute;cise l'horaire de passage.
-De plus, la course est rattach&eacute;e &agrave; un nombre variable de calendriers d'application.
+Une course décrit le déplacement d'un véhicule de transport public sur une séquence d'arrêts de la ligne. La course parcourt les arrêts de la séquence d'arrêts dans l'ordre, sans nécessairement s'arrêter à chacun des arrêts. A chaque arrêt desservi, la course précise l'horaire de passage.
+De plus, la course est rattachée à un nombre variable de calendriers d'application.
 
 h3. Attributs
 
 - Nom := nom de la course 
 - Nom public := nom public pour les voyageurs
 - Commentaire := zone de texte libre
-- Mode de transport := mode de transport pour la course; par d&eacute;faut, c'est le mode de transport de la ligne qui est appliqu&eacute;
-- Particularit&eacute; := champs libre pouvant pr&eacute;ciser des modes de fonctionnement (TAD par exemple)
+- Mode de transport := mode de transport pour la course; par défaut, c'est le mode de transport de la ligne qui est appliqué
+- Particularité := champs libre pouvant préciser des modes de fonctionnement (TAD par exemple)
 
-p(attr_data). Donn&eacute;es de gestion :
+p(attr_data). Données de gestion :
 
 - Identifiant Neptune := 
-cl&eacute; unique p&eacute;renne identifiant la course pour les &eacute;changes Neptune
-cet identifiant est compos&eacute; de 3 parties : pr&eacute;fixe:type:id_technique
-* pr&eacute;fixe : cl&eacute; identifiant un producteur de donn&eacute;es unique
-* type = VehicleJourney : cl&eacute; identifiant le type d'objet (valeur impos&eacute;e)
-* id_technique : valeur identifiant un seul object d'un type donn&eacute; pour un m&ecirc;me producteur
-ce champ obligatoire est automatiquement g&eacute;n&eacute;r&eacute; s'il n'est pas renseign&eacute; 
-il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera compl&eacute;t&eacute;e automatiquement.
+clé unique pérenne identifiant la course pour les échanges Neptune
+cet identifiant est composé de 3 parties : préfixe:type:id_technique
+* préfixe : clé identifiant un producteur de données unique
+* type = VehicleJourney : clé identifiant le type d'objet (valeur imposée)
+* id_technique : valeur identifiant un seul object d'un type donné pour un même producteur
+ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
+il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera complétée automatiquement.
 =:
-- Date de cr&eacute;ation := date &agrave; laquelle l'objet a &eacute;t&eacute; cr&eacute;&eacute; ou modifi&eacute; pour la derni&egrave;re fois
-- Version := version de l'objet (auto incr&eacute;ment&eacute; &agrave; chaque modification)
-- Cr&eacute;&eacute; par := compte utilisateur ayant proc&eacute;d&eacute; &agrave; la derni&egrave;re modification
+- Date de création := date à laquelle l'objet a été créé ou modifié pour la dernière fois
+- Version := version de l'objet (auto incrémenté à chaque modification)
+- Créé par := compte utilisateur ayant procédé à la dernière modification
 
-h3. Impl&eacute;mentation
+h3. Implémentation
 
 p. TODO
 

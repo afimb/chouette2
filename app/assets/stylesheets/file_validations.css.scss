@@ -1,0 +1,136 @@
+@import "common";
+
+#workspace.file_validations.index
+{
+    .file_validation:after { 
+        @include after_div_for_object;  
+    }
+
+    .file_validations {
+        margin-top: 20px;
+    }
+
+    .file_validations:after {
+        @include content_to_clear;
+    }
+    
+    .file_validation {
+        @include div_for_object;
+
+        /* to create multi-column index */
+        width: 300px;
+        float: left;
+        padding-right: 10px;
+    }
+}
+
+#workspace.file_validations.show {
+    .file_validation_show {
+      width: 95%
+    }
+    .panelDataSection
+    {
+      font-size: 14px;
+      padding: 3px 0px 3px 20px;
+      BACKGROUND-COLOR: #FaFaFa;
+      margin: 10px 0px 0px 0px;
+      BORDER-LEFT: 1px solid #B0BCD6;
+      BORDER-RIGHT: 1px solid #B0BCD6;
+      BORDER-TOP: 1px solid #B0BCD6;
+      FONT-WEIGHT: bold;
+    }
+  .neptune-panel{
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 13px;
+    background-color: #FFFFFF;
+    margin: 0px 0px 2px 0px;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid #B0BCD6;
+    table {
+      border: 0px;
+      td {
+          padding: 20px;
+         }
+      }
+    }
+    .category{
+      font-weight: bold;
+    }
+    
+    
+.ok{
+  background: url(image-path('severity-ok.png')) no-repeat 98% 0%;
+  }
+  
+.uncheck {
+  background: url(image-path('severity-uncheck.png')) no-repeat 98% 0%;
+  }
+  
+.warning{
+  background: url(image-path('severity-warning.png')) no-repeat 98% 0%;
+  }   
+
+.error{
+  background: url(image-path('severity-error.png')) no-repeat 98% 0%;
+  color: red;
+  }
+.fatal{
+  background: url(image-path('severity-fatal.png')) no-repeat 98% 0%;
+  color: red;
+  }
+  
+.step {
+   width: 80%; 
+   padding-left:100px; 
+   margin-top:-15px;
+}  
+.detail {
+  margin: 0 0 0 660px;
+  padding: 5px 0 0 0;
+  }
+.neptune-panel-inSide
+{
+  background-color: #FFFFFF;
+    padding: 5px 5px;
+    margin:0 0 5px 100px;
+    width: 80%;
+    font-size: 12px;
+    border: 1px solid #B0BCD6;
+}
+}
+
+#workspace.file_validations.new {
+    padding: 0;
+    margin-top: -0.3em;
+    margin-bottom: 1em;
+    
+   
+    
+  .inputs ol {
+      margin-top: -0.3em;
+      margin-bottom: 1em;
+      padding: 0;
+      width: 100%;
+    }
+    .inputs ol li { padding : 0.3em 0; }
+
+    .inputs ol li textarea {
+      width: 54%;
+    }
+    .inputs ol li label {
+      width: 40%;
+      margin-top: -0.3em;
+    }
+    
+  .inputs ol li.fl label { width: 40%; margin-top: -0.3em; }
+  .inputs ol li.fl input { width: 21%; padding: 0; }
+  
+  .inputs ol li.fl1 {float: left; width: 70% ;}
+  .inputs ol li.fl1 label {width: 57%; margin-top: -0.3em; }
+  .inputs ol li.fl1 input { width: 30%; }
+  
+  .inputs ol li.fl2 {float: left; width: 25% ;}
+  .inputs ol li.fl2 label {width: 10%; margin-top: -0.3em;}
+  .inputs ol li.fl2 input { width: 85%; }
+
+}

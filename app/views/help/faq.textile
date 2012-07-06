@@ -1,0 +1,6 @@
+---
+layout: default
+title: Foire aux questions
+---
+
+Rédaction ultérieure
