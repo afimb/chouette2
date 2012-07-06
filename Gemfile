@@ -67,7 +67,7 @@ group :test, :development do
   gem "rspec-rails"
   gem "remarkable", "~> 4.0.0.alpha4"           
   gem "remarkable_activerecord", "~> 4.0.0.alpha4" 
-  gem "shoulda", :git => 'git://github.com/thoughtbot/shoulda.git'
+  gem "shoulda-matchers"
 end
 
 group :test do
