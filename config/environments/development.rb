@@ -28,6 +28,10 @@ ChouetteIhm::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = false
 
+  config.active_record.mass_assignment_sanitizer = :strict
+
+  config.active_record.auto_explain_threshold_in_seconds = (RUBY_PLATFORM == "java" ? nil : 0.5)
+
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   config.to_prepare do

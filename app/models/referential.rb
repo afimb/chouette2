@@ -68,7 +68,7 @@ end
 
 Rails.application.config.after_initialize do
   Chouette::ActiveRecord
-  puts "patch Chouette::ActiveRecord (#{__FILE__})"
+
   class Chouette::ActiveRecord
 
     def referential
