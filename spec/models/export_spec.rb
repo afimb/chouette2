@@ -38,7 +38,6 @@ describe Export do
   describe "#options" do
     
     it "should be empty by default" do
-      puts subject.options.class
       subject.options.should be_empty
     end
 

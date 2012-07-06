@@ -73,7 +73,6 @@ describe "Networks" do
       # subject.stub(:stop_areas).and_return(Array.new(2) { Factory(:stop_area) })
       
       # visit referential_networks_path(referential)
-      # puts page.body
       # click_link "#{networks.first.name}"
       # click_link "Modifier ce réseau"
       # fill_in "Nom", :with => "Network 1"
@@ -81,7 +80,6 @@ describe "Networks" do
       # click_button("Modifier Réseau")
       # page.should have_content("Network 1")
       # visit referential_network_path(referential, subject)
-      # puts page.body.inspect
       # click_link "Supprimer ce réseau"
       # page.evaluate_script('window.confirm = function() { return true; }')
       # click_button "Valider"
