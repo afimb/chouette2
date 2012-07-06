@@ -62,10 +62,13 @@
     h3.routes { clear: both; }
 
     .route {
+        @include div_for_object;
+        /* to create multi-column index */
+        width: 350px;
+        height: 65;
+        float: left;
+        padding-right: 10px;
         margin-bottom: 0px;
-        .info {
-            margin-bottom: 30px;
-        }
     }
 
     .summary p label {

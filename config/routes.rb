@@ -37,9 +37,9 @@ ChouetteIhm::Application.routes.draw do
           end
         end
         resources :vehicle_journeys do
-          member do
-            get 'select_journey_pattern'
-          end
+          get 'timeless', :on => :collection
+          get 'select_journey_pattern', :on => :member
+          resources :vehicle_translations
         end
         resources :stop_points do
           collection do

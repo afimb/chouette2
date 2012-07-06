@@ -64,7 +64,7 @@
 
 </div>
 
-<h3 class="route_stop_points"><%= t('.stop_points') %></h3>
+<h3 class="route_stop_points"><%= t('.stop_points') %><a name="stop_points"/></h3>
 <div class="pagination">
   <div class="page_info">
     <%= page_entries_info @stop_points %>
@@ -78,7 +78,7 @@
   <%= will_paginate @stop_points, :container => false %>
 </div>
 
-<h3 class="route_journey_patterns"><%= t('.journey_patterns') %></h3>
+<h3 class="route_journey_patterns"><%= t('.journey_patterns') %><a name="journey_patterns"/></h3>
 <div class="journey_patterns">
   <%= render :partial => "journey_patterns/journey_pattern", :collection => @route.journey_patterns %>
 </div>
@@ -86,15 +86,21 @@
 <% content_for :sidebar do %>
 <ul class="actions">
   <li><%= link_to t('routes.actions.edit'), edit_referential_line_route_path(@referential, @line, @route), :class => "edit" %></li>
-  <li><%= link_to  t('routes.actions.destroy'), referential_line_route_path(@referential, @line, @route), :method => :delete, :confirm =>  t('routes.actions.destroy_confirm'), :class => "remove" %></li>
+  <li><%= link_to t('routes.actions.destroy'), referential_line_route_path(@referential, @line, @route), :method => :delete, :confirm =>  t('routes.actions.destroy_confirm'), :class => "remove" %></li>
   <li>
-    <%= link_to  t('stop_points.actions.sort'), referential_line_route_stop_points_path(@referential, @line, @route), :class => "edit" %>
+    <%= link_to t('stop_points.actions.sort'), [@referential, @line, @route, :stop_points], :class => "edit" %>
   </li>
   <li>
-    <%= link_to  t('journey_patterns.actions.new'), new_referential_line_route_journey_pattern_path(@referential, @line, @route), :class => "add" %>
+    <%= link_to t('journey_patterns.actions.new'), new_referential_line_route_journey_pattern_path(@referential, @line, @route), :class => "add" %>
   </li>
   <li>
-    <%= link_to  t('vehicle_journeys.actions.index'), referential_line_route_vehicle_journeys_path(@referential, @line, @route), :class => "link" %>
+    <%= link_to t('vehicle_journeys.actions.index'), [@referential, @line, @route, :vehicle_journeys], :class => "link" %>
+  </li>
+  <li>
+    <%= link_to t(".journey_patterns"), "#journey_patterns", :class => "select_parent" %>
+  </li>
+  <li>
+    <%= link_to t(".stop_points"), "#stop_points", :class => "select_parent" %>
   </li>
 </ul>
 <% end %>

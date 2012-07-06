@@ -1,0 +1,15 @@
+<%= div_for(vehicle_journey) do %>
+  <%= link_to vehicle_name(vehicle_journey), [@referential, @line, @route, vehicle_journey] %>
+  <div class="info">
+    <% unless vehicle_journey.time_tables.empty? %>
+      <%= vehicle_journey.human_attribute_name('time_tables') %> <%= time_tables_info( vehicle_journey) %> -
+    <% end %>
+    <% if vehicle_journey.journey_pattern %>
+      <%= vehicle_journey.human_attribute_name('journey_pattern') %> <%= link_to journey_name(vehicle_journey.journey_pattern), [@referential, @line, @route, vehicle_journey.journey_pattern] %>
+    <% end %>
+    <div class="actions">  
+      <%= link_to t("actions.edit"), edit_referential_line_route_vehicle_journey_path(@referential, @line, @route, vehicle_journey), :class => "edit" %> |
+      <%= link_to t("actions.destroy"), [@referential, @line, @route, vehicle_journey], :method => :delete, :confirm =>  t('vehicle_journeys.actions.destroy_confirm'), :class => "remove" %>
+    </div>
+  </div>
+<% end %>

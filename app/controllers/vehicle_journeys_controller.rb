@@ -9,6 +9,10 @@ class VehicleJourneysController < ChouetteController
     end
   end
 
+  def timeless
+    @vehicle_journeys = parent.vehicle_journeys.select { |v| v.vehicle_journey_at_stops.empty? }
+  end
+
   def select_journey_pattern
     if params[:journey_pattern_id]
       selected_journey_pattern = Chouette::JourneyPattern.find( params[:journey_pattern_id])

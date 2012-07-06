@@ -28,6 +28,29 @@ $text_color: #222;
     }
 }
 
+#sidebar div#compact_form {
+  form {
+    border-bottom: 1px solid #BBB;
+    fieldset {
+      padding: 0;
+      border: 0;
+      li {
+        padding: 0;
+        label { padding-left: 20px; 
+                width: 70%;}
+        input { width: 20px; }
+      }
+    }
+    fieldset.actions {
+      margin-bottom: 0;
+      padding-left: 20px;
+    }
+    fieldset.inputs {
+      padding-top: 16px;
+    }
+  }
+}
+
 #sidebar ul.selection li {
     a {
         padding-left: 20px;

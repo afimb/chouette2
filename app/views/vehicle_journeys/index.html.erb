@@ -60,7 +60,10 @@
 <% content_for :sidebar do %>
   <ul class="actions">
     <li>
-      <%= link_to  t('vehicle_journeys.actions.new'), new_referential_line_route_vehicle_journey_path(@referential, @line, @route), :class => "add" %>
+      <%= link_to t('vehicle_journeys.actions.new'), new_referential_line_route_vehicle_journey_path(@referential, @line, @route), :class => "add" %>
+    </li>
+    <li>
+      <%= link_to t('.timeless'), timeless_referential_line_route_vehicle_journeys_path(@referential, @line, @route), :class => "link" %>
     </li>
   </ul>
   <h3><%= t(".selection") %></h3>
