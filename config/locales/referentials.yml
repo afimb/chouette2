@@ -24,6 +24,10 @@ en:
         prefix: Neptune Object Id prefix
         projection_type: Optional spatial reference system code (SRID)
         time_zone: time zone
+        validity_period: Validity period
+        no_validity_period: undefined
+        start_validity_period: from
+        end_validity_period: to
         networks: Networks
         lines: Lines
         companies: Companies
@@ -68,6 +72,10 @@ fr:
         prefix: Préfixe des identifiants Neptune
         projection_type: Système de référence spatiale optionnel (SRID)
         time_zone: Fuseau horaire
+        validity_period: Période de validité
+        no_validity_period: non définie
+        start_validity_period: du
+        end_validity_period: au
         networks: Réseaux
         lines: Lignes
         companies: Transporteurs
