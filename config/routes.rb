@@ -87,6 +87,8 @@ ChouetteIhm::Application.routes.draw do
       end        
     end
 
+    resources :clean_ups
+    
   end 
 
   match '/help/(*slug)' => 'help#show'

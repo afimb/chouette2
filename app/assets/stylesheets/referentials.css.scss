@@ -24,9 +24,36 @@
     .count td.value {
       text-align: right;
     }
-    
+        
 }
-
+#sidebar div#clean_up {
+  form {
+    border-bottom: 1px solid #BBB;
+    fieldset {
+      padding: 0;
+      border: 0;
+      li.date {
+        padding: 0;
+        label { padding-left: 10px; 
+                width: 40%;}
+        input { width: 42%; }
+      }
+      li {
+        padding: 0;
+        label { padding-left: 10px; 
+                width: 90%;}
+        input { width: 12%; }
+      }
+    }
+    fieldset.actions {
+      margin-bottom: 0;
+      padding-left: 20px;
+    }
+    fieldset.inputs {
+      padding-top: 16px;
+    }
+  }
+}
 
 ul.logos {
     margin: 30px 30px 0 0;

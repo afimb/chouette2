@@ -6,6 +6,7 @@ en:
       title: Data space
       objects: Data space elements
       count: count
+      clean_up: Clean up
     new:
       title: Create a new data space
       submit: "Create a data space"
@@ -54,6 +55,7 @@ fr:
       title: Espace de données
       objects: Eléments 
       count: Qté
+      clean_up: Purge des données obsolètes
     new:
       title: Créer un nouvel espace de données
       submit: "Créer un espace de données"
