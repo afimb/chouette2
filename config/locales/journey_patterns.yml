@@ -4,6 +4,7 @@ en:
       from_to: "From '%{departure}' to '%{arrival}'"
       stop_count: "%{count}/%{route_count} stops"
       vehicle_journeys_count: "Vehicle journeys: %{count}"
+      vehicle_journey_at_stops: "Vehicle journey at stops"
     actions:
       new: Add a new journey_pattern
       edit: Edit this journey pattern
@@ -43,6 +44,7 @@ fr:
       from_to: "De '%{departure}' à '%{arrival}'"
       stop_count: "%{count}/%{route_count} arrêts"
       vehicle_journeys_count: "Courses: %{count}"
+      vehicle_journey_at_stops: "Horaires des courses"
     actions:
       new: Ajouter une mission
       edit: Modifier cette mission
