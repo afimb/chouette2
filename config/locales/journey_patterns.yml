@@ -19,6 +19,8 @@ en:
       stop_points: "Stop point on journey pattern list" 
     index:
       title: Journey Patterns
+    form:
+      warning: "Be careful, selection is also applied to the %{count} vehicle journeys associated to this journey pattern"
   activerecord:        
     models:        
       journey_pattern: 
@@ -59,6 +61,8 @@ fr:
       stop_points: "Liste des arrêts de la mission" 
     index:
       title: Missions
+    form:
+      warning: "Attention, la sélection s'applique aussi aux %{count} courses de la mission"
   activerecord:        
     models:        
       journey_pattern: 
