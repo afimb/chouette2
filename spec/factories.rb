@@ -33,4 +33,9 @@ FactoryGirl.define do
     f.sequence(:key) { "key_#{n}" }
   end
 
+  factory :vehicle_translation do |f|
+    f.count 1
+    f.duration 1
+  end
+
 end

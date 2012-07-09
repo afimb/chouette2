@@ -1,0 +1,28 @@
+<%= title_tag t('.title', :route => @route.name ) %>
+
+<div class="timeless_vehicle_journey_index">
+  <div class="summary">
+    <p>
+      <label><%= @route.human_attribute_name(:line) %>: </label>
+      <%= link_to line_formatted_name( @line), [@referential, @line] %>
+    </p>
+    <p>
+      <label><%= Chouette::Route.model_name.human %>: </label>
+      <%= link_to @route.name, [@referential, @line, @route] %>
+    </p>
+  </div>
+</div>
+
+<h3><%= t('.vehicles_list') %></h3>
+<div class="timeless_vehicles">
+  <%= render :partial => "timeless_vehicle_journey", :collection => @vehicle_journeys, :as => :vehicle_journey %>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li>
+    <%= link_to t('vehicle_journeys.actions.new'), new_referential_line_route_vehicle_journey_path(@referential, @line, @route), :class => "add" %>
+  </li>
+  <li><%= link_to t('.vehicle_journeys'), [@referential, @line, @route, :vehicle_journeys], :class => "link" %></li>
+</ul>
+<% end %>

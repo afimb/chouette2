@@ -127,5 +127,40 @@
     }
 }        
 
+#workspace.vehicle_journeys.timeless
+{
+    .summary p label {
+        font-weight: bold;
+    }
+    
+    .vehicle_journey:after { 
+        @include after_div_for_object;  
+    }
+
+    .vehicle_journeys {
+        margin-top: 20px;
+    }
+
+    .vehicle_journeys:after {
+        @include content_to_clear;
+    }
+
+    .vehicle_journey {
+        @include div_for_object;
+        /* to create multi-column index */
+        width: 350px;
+        height: 65;
+        float: left;
+        padding-right: 10px;
+
+        span.included_day_type {
+            font-weight: bolder;
+            color: black;
+        }
+        span.excluded_day_type {
+        }
+    }
+}        
+
 
 

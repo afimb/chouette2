@@ -1,0 +1,19 @@
+en:
+  vehicle_translations:
+    success: "%{count} vehicle journeys created by translation"
+    failure: "Fail when creating vehicle journeys by translation"
+  activemodel:        
+    attributes:
+      vehicle_translation:
+        duration: Duration
+        count: Count
+fr:
+  vehicle_translations:
+    success: "%{count} course(s) crée(s) par translation"
+    failure: "Echec de la création de courses par tanslation"
+  activemodel:        
+    attributes:
+      vehicle_translation:
+        duration: "Durée de l'intervalle (en minutes)"
+        count: "Quantité de courses à ajouter"
+

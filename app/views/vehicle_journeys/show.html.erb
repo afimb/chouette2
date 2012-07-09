@@ -76,11 +76,23 @@
 
 <h3><%= t('.time_tables') %></h3>
 <div class="vehicle_journey_time_tables">
-<%= render :partial => "vehicle_journeys/time_table", :collection => @vehicle_journey.time_tables %>
-</div>
-<% content_for :sidebar do %>
-<ul class="actions">
-  <li><%= link_to t('vehicle_journeys.actions.edit'), edit_referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey), :class => "edit" %></li>
-  <li><%= link_to  t('vehicle_journeys.actions.destroy'), referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey), :method => :delete, :confirm =>  t('vehicle_journeys.actions.destroy_confirm'), :class => "remove" %></li>
-</ul>
+  <%= render :partial => "vehicle_journeys/time_table", :collection => @vehicle_journey.time_tables %>
+  </div>
+  <% content_for :sidebar do %>
+  <ul class="actions">
+    <li><%= link_to t('vehicle_journeys.actions.edit'), edit_referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey), :class => "edit" %></li>
+    <li><%= link_to  t('vehicle_journeys.actions.destroy'), referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey), :method => :delete, :confirm =>  t('vehicle_journeys.actions.destroy_confirm'), :class => "remove" %></li>
+  </ul>
+  <h3>Cloner la course</h3>
+  <div id="compact_form" >
+  <%= semantic_form_for [@referential, @line, @route, @vehicle_journey, VehicleTranslation.new] do |form| %>
+  <%= form.inputs do %> 
+    <%= form.input :duration %>
+    <%= form.input :count %>
+    <% end %>
+    <%= form.actions do %>
+      <%= form.action :submit, :as => :button, :label => t('.validation') %>
+    <% end %>
+  <% end %>
+  </div>
 <% end %>

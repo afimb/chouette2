@@ -19,6 +19,10 @@ en:
       departure: Departure
       arrival: Arrival
       time_tables: Associated calendars to vehicle journey
+    timeless:
+      title: Timeless vehicle journeys
+      vehicle_journeys: Vehicle journeys with times at stop
+      vehicles_list: Vehicles list
     show:
       title: Vehicle Journey %{vehicle journey}
       stop_title: Stop
@@ -26,6 +30,7 @@ en:
       arrival: Arrival
       time_tables: Calendars list
       bounding: From %{start} to %{end}
+      validation: Clone
     index:
       title: Vehicle journeys on route %{route}
       vehicle_journeys: "Departure's times"
@@ -45,6 +50,7 @@ en:
         line: Line
         route: Route
         journey_pattern: Journey Pattern
+        time_tables: Calendars
         time_slot: Time Slot
         company: Company
         comment: Comments
@@ -86,6 +92,10 @@ fr:
       departure: Départ
       arrival: Arrivée
       time_tables: Calendriers associés à la course
+    timeless:
+      title: Courses sans horaire
+      vehicle_journeys: Courses ayant des horaires
+      vehicles_list: Liste des courses
     show:
       title: "Course au départ de %{stop} à %{time} sur la séquence %{route}"
       stop_title: Arrêt
@@ -93,8 +103,10 @@ fr:
       arrival: Arrivée
       time_tables: Liste des calendriers
       bounding: De %{start} à %{end}
+      validation: Cloner
     index:
       title: "Courses de la séquence d'arrêts %{route}"
+      timeless: Courses sans horaire
       vehicle_journeys: "Horaires de départ aux arrêts"
       selection: Filtrer sur
       selection_all: Tous
@@ -112,6 +124,7 @@ fr:
         line: Ligne
         route: "Séquence d'arrêt"
         journey_pattern: Mission
+        time_tables: Calendriers
         time_slot: Fréquence
         company: Transporteur
         comment: Commentaires
