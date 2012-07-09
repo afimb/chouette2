@@ -8,6 +8,9 @@
     <%= t('.vehicle_journeys_count', :count => journey_pattern.vehicle_journeys.count) %>
     <div class="actions">  
       <%= link_to t("actions.destroy"), referential_line_route_journey_pattern_path(@referential, @line, @route, journey_pattern), :method => :delete, :confirm =>  t('journey_patterns.actions.destroy_confirm'), :class => "remove" %>
+      <% if journey_pattern.vehicle_journeys.count > 0 %>
+        | <%= link_to t('journey_patterns.journey_pattern.vehicle_journey_at_stops'), referential_line_route_vehicle_journeys_path(@referential, @line, @route, :q => {:journey_pattern_id_eq => journey_pattern.id}), :class => "link" %>
+      <% end %>
     </div>
   </div>
 <% end %>

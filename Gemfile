@@ -68,6 +68,7 @@ group :test, :development do
   gem "remarkable", "~> 4.0.0.alpha4"           
   gem "remarkable_activerecord", "~> 4.0.0.alpha4" 
   gem "shoulda-matchers"
+  gem 'rb-inotify', :platform => :ruby
 end
 
 group :test do

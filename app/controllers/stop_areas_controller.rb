@@ -58,11 +58,6 @@ class StopAreasController < ChouetteController
     edit!
   end
 
-#  def update     
-#    puts :resource
-#    update!
-#  end
-
   protected
   
   alias_method :stop_area, :resource

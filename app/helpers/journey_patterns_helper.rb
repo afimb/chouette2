@@ -8,5 +8,10 @@ module JourneyPatternsHelper
       truncate(journey_pattern.name, :length => 30)
     end
   end
+  def stop_point_ids_label(journey_pattern)
+    return journey_pattern.human_attribute_name(:stop_point_ids) if journey_pattern.vehicle_journeys.empty?
+
+    "#{journey_pattern.human_attribute_name(:stop_point_ids)}. #{t('journey_patterns.form.warning', :count => journey_pattern.vehicle_journeys.count)}"
+  end
 end
 

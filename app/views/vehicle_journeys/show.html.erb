@@ -83,7 +83,7 @@
     <li><%= link_to t('vehicle_journeys.actions.edit'), edit_referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey), :class => "edit" %></li>
     <li><%= link_to  t('vehicle_journeys.actions.destroy'), referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey), :method => :delete, :confirm =>  t('vehicle_journeys.actions.destroy_confirm'), :class => "remove" %></li>
   </ul>
-  <h3>Cloner la course</h3>
+  <h3><%= t('.translation_form') %></h3>
   <div id="compact_form" >
   <%= semantic_form_for [@referential, @line, @route, @vehicle_journey, VehicleTranslation.new] do |form| %>
   <%= form.inputs do %> 

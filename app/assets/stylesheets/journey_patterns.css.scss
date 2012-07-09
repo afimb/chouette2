@@ -23,6 +23,7 @@
         /* to create multi-column index */
         width: 350px;
         padding-right: 10px;
+        height: 60px;
         float: left;
 
         .name {
@@ -38,6 +39,9 @@
     #route_color{ width: 100px;
                  color: white;
                  font-weight: bold;}
+    #journey_pattern_stop_point_ids_input fieldset .choices-group {
+        margin-top: 25px;
+    }
 }
 
 #workspace.journey_patterns.show

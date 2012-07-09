@@ -371,6 +371,7 @@ DEPENDENCIES
   pg (~> 0.11.0)
   rails (= 3.2.6)
   ransack
+  rb-inotify
   remarkable (~> 4.0.0.alpha4)
   remarkable_activerecord (~> 4.0.0.alpha4)
   rspec

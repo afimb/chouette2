@@ -38,7 +38,6 @@ describe Export do
   describe "#options" do
     
     it "should be empty by default" do
-      puts subject.options.class
       subject.options.should be_empty
     end
 
@@ -47,8 +46,7 @@ describe Export do
   describe ".types" do
     
     it "should return available Export implementations" do
-      pending
-      Export.types.should =~ %w{NeptuneExport}
+      Export.types.should =~ %w{NeptuneExport CsvExport GtfsExport}
     end
 
   end

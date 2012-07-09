@@ -4,7 +4,7 @@
     <%= form.input :published_name %>
     <%= form.input :registration_number %>              
     <%= form.input :comment %>              
-    <%= form.input :stop_point_ids, :as => :check_boxes, :collection => @route.stop_points.map { |s| [s.stop_area.name, s.id.to_s]}, :input_html => (@journey_pattern.new_record? ? { :checked => 'checked' }:{}) %>              
+    <%= form.input :stop_point_ids, :label => stop_point_ids_label(@journey_pattern), :as => :check_boxes, :collection => @route.stop_points.map { |s| [s.stop_area.name, s.id.to_s]}, :input_html => (@journey_pattern.new_record? ? { :checked => 'checked' }:{}) %>              
     <%= form.input :objectid, :input_html => { :disabled => !@journey_pattern.new_record? } %>  
   <% end %>
 

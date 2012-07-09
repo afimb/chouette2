@@ -31,6 +31,7 @@ en:
       time_tables: Calendars list
       bounding: From %{start} to %{end}
       validation: Clone
+      translation_form: Vehicle journey translations
     index:
       title: Vehicle journeys on route %{route}
       vehicle_journeys: "Departure's times"
@@ -104,6 +105,7 @@ fr:
       time_tables: Liste des calendriers
       bounding: De %{start} à %{end}
       validation: Cloner
+      translation_form: Cloner la course
     index:
       title: "Courses de la séquence d'arrêts %{route}"
       timeless: Courses sans horaire

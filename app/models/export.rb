@@ -84,14 +84,6 @@ class Export < ActiveRecord::Base
     log_messages.create :key => status
   end
 
-  def self.new(attributes = {}, options = {}, &block)
-    if self == Export
-      Object.const_get(attributes.delete(:type) || "NeptuneExport").new(attributes, options)
-    else
-      super
-    end
-  end
-
   @@references_types = [ Chouette::Line, Chouette::Network, Chouette::Company ]
   cattr_reader :references_types
 
@@ -143,4 +135,22 @@ class Export < ActiveRecord::Base
     read_attribute :reference_ids
   end
 
+  def self.types
+    unless Rails.env.development?
+      subclasses.map(&:to_s)
+    else
+      # FIXME
+      %w{NeptuneExport CsvExport GtfsExport}
+    end
+  end
+
+  def self.new(attributes = {}, options = {}, &block)
+    if self == Export
+      Object.const_get(attributes.delete(:type) || "NeptuneExport").new(attributes, options)
+    else
+      super
+    end
+  end
+
 end
+
