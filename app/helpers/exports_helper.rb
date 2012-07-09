@@ -21,6 +21,10 @@ module ExportsHelper
       "export_reference_#{relation_name}_ids"
     end
 
+    def input_class
+      "export_#{relation_name}_reference_ids"
+    end
+
   end
 
   def export_references_input(form, export, type)
@@ -34,7 +38,7 @@ module ExportsHelper
       @form, @export, @type_helper = form, export, type_helper
     end
 
-    delegate :input_id, :type, :to => :type_helper
+    delegate :input_id, :type, :input_class, :to => :type_helper
 
     def current?
       export.references_type == type
@@ -56,6 +60,7 @@ module ExportsHelper
     def input_html_options
       { 
         :id => input_id, 
+        :class =>  input_class,
         :"data-pre" => ( references_map.to_json if current? ),
         :disabled => (true unless current?)
       }

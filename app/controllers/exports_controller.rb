@@ -5,8 +5,15 @@ class ExportsController < ChouetteController
 
   belongs_to :referential
 
+  def new
+    new! do
+      available_exports
+    end
+  end
+
   def create
     create! do |success, failure|
+      available_exports
       success.html { redirect_to referential_exports_path(@referential) }
     end
   end
@@ -27,6 +34,16 @@ class ExportsController < ChouetteController
   end
 
   protected
+
+  def available_exports
+    @available_exports ||= Export.types.collect do |type|
+      unless @export.type == type
+        @referential.exports.build :type => type
+      else
+        @export
+      end
+    end
+  end
 
   # FIXME why #resource_id is nil ??
   def build_resource

@@ -46,8 +46,7 @@ describe Export do
   describe ".types" do
     
     it "should return available Export implementations" do
-      pending
-      Export.types.should =~ %w{NeptuneExport}
+      Export.types.should =~ %w{NeptuneExport CsvExport GtfsExport}
     end
 
   end

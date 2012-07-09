@@ -1,7 +1,16 @@
 <%= title_tag t(".title") %>
 
-<%= semantic_form_for [@referential, @export], :as => :export, :url => referential_exports_path(@referential) do |form| %>
+<%= form_for([@referential, @export], :as => :export, :url => new_referential_export_path(@referential), :method => :get) do |form| %>
+  <%= form.label :type %>
+  <%= form.collection_select :type, Export.types, :to_s, :to_s %>
+  <%= form.submit "Sélectionner", :id => "export_type_submit" %>
+<% end %>
+
+<% @available_exports.each do |export| %>
+<%= semantic_form_for [@referential, export], :as => :export, :url => referential_exports_path(@referential), :html => { :id => "#{export.type}_new",  :style => ('display: none' unless @export == export)} do |form| %>
   <%= form.inputs do %>
+    <%= form.input :type, :as => :hidden %>
+
     <%= form.input :references_type, :as => :select, :collection => Export.references_types.map { |c| [ c.model_name.human.capitalize.pluralize, c.name ] }, :include_blank => t(".all") %>
 
     <% Export.references_types.each do |type| %>
@@ -13,6 +22,7 @@
      <%= form.action :submit, :as => :button , :label => t( 'formtastic.export' ) %>
      <%= form.action :cancel, :as => :link %>
    <% end %>
+<% end %>
 <% end %>
 
 <%= javascript_include_tag new_referential_export_path(@referential, :format => :js) %>
