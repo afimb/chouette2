@@ -14,16 +14,12 @@ class FileValidation < ActiveRecord::Base
     name = name.to_s
 
     define_method(name) do
-      self.options[name]
+      self.options and self.options[name]
     end
 
     define_method("#{name}=") do |prefix|
-      self.options[name] = prefix
+      (self.options ||= {})[name] = prefix
     end
-  end
-
-  def options
-    read_attribute(:options) || write_attribute(:options, {})
   end
 
   option :test3_1_minimal_distance
@@ -110,37 +106,11 @@ class FileValidation < ActiveRecord::Base
 
   def validation_options
     { :validation_id => self.id ,
-       :file_format => self.file_type ,
-       :test3_1_minimal_distance => self.test3_1_minimal_distance ,
-       :test3_2_minimal_distance => self.test3_2_minimal_distance ,
-       :test3_2_polygon_points => self.test3_2_polygon_points ,
-       :test3_7_minimal_distance => self.test3_7_minimal_distance ,
-       :test3_7_maximal_distance => self.test3_7_maximal_distance ,
-       :test3_8a_minimal_speed => self.test3_8a_minimal_speed ,
-       :test3_8a_maximal_speed => self.test3_8a_maximal_speed ,
-       :test3_8b_minimal_speed => self.test3_8b_minimal_speed ,
-       :test3_8b_maximal_speed => self.test3_8b_maximal_speed ,
-       :test3_8c_minimal_speed => self.test3_8c_minimal_speed ,
-       :test3_8c_maximal_speed => self.test3_8c_maximal_speed ,
-       :test3_8d_minimal_speed => self.test3_8d_minimal_speed ,
-       :test3_8d_maximal_speed => self.test3_8d_maximal_speed ,
-       :test3_9_minimal_speed => self.test3_9_minimal_speed ,
-       :test3_9_maximal_speed => self.test3_9_maximal_speed ,
-       :test3_10_minimal_distance => self.test3_10_minimal_distance ,
-       :test3_15_minimal_time => self.test3_15_minimal_time ,
-       :test3_16_1_maximal_time => self.test3_16_1_maximal_time ,
-       :test3_16_3a_maximal_time => self.test3_16_3a_maximal_time ,
-       :test3_16_3b_maximal_time => self.test3_16_3b_maximal_time ,
-       :test3_21a_minimal_speed => self.test3_21a_minimal_speed ,
-       :test3_21a_maximal_speed => self.test3_21a_maximal_speed ,
-       :test3_21b_minimal_speed => self.test3_21b_minimal_speed ,
-       :test3_21b_maximal_speed => self.test3_21b_maximal_speed ,
-       :test3_21c_minimal_speed => self.test3_21c_minimal_speed ,
-       :test3_21c_maximal_speed => self.test3_21c_maximal_speed ,
-       :test3_21d_minimal_speed => self.test3_21d_minimal_speed ,
-       :test3_21d_maximal_speed => self.test3_21d_maximal_speed ,
-       :projection_reference => self.projection_reference 
-        }
+      :file_format => self.file_type}
+    options.keys.each do |opt|
+      hash.merge! opt.to_sym => self.send(opt.to_sym)
+    end
+    hash
   end
 
   def validate

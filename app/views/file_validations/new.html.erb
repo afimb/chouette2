@@ -1,6 +1,6 @@
 <%= title_tag t(".title") %>
 
-<%= semantic_form_for [@file_validation], :as => :file_validation, :url => file_validations_path() do |form| %>
+<%= semantic_form_for @file_validation do |form| %>
   <%= form.inputs do %>
       <%= form.input :resources, :as => :file %>
       <%= form.input :test3_1_minimal_distance, :as => :number,:input_html => { :value => '10.0' }, :wrapper_html => { :class => 'fl' } %>
