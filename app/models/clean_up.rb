@@ -20,6 +20,34 @@ class CleanUp
     false  
   end 
 
+  def notice
+    notice = Array.new
+    notice << t('clean_ups.success_tm', :count => clean_up.time_table_count.to_s)
+    if (clean_up.vehicle_journey_count > 0) 
+      notice << t('clean_ups.success_vj', :count => clean_up.vehicle_journey_count.to_s)
+    end   
+    if (clean_up.journey_pattern_count > 0) 
+      notice << t('clean_ups.success_jp', :count => clean_up.journey_pattern_count.to_s)
+    end   
+    if (clean_up.route_count > 0) 
+      notice << t('clean_ups.success_r', :count => clean_up.route_count.to_s)
+    end   
+    if (clean_up.line_count > 0) 
+      notice << t('clean_ups.success_l', :count => clean_up.line_count.to_s)
+    end   
+    if (clean_up.company_count > 0) 
+      notice << t('clean_ups.success_c', :count => clean_up.company_count.to_s)
+    end   
+    if (clean_up.network_count > 0) 
+      notice << t('clean_ups.success_n', :count => clean_up.network_count.to_s)
+    end   
+    if (clean_up.stop_count > 0) 
+      notice << t('clean_ups.success_sa', :count => clean_up.stop_count.to_s)
+    end 
+    notice  
+
+  end
+
   def clean
     
     # find and remove time_tables 
