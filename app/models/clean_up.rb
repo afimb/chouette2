@@ -21,30 +21,30 @@ class CleanUp
   end 
 
   def notice
-    notice = Array.new
-    notice << t('clean_ups.success_tm', :count => clean_up.time_table_count.to_s)
-    if (clean_up.vehicle_journey_count > 0) 
-      notice << t('clean_ups.success_vj', :count => clean_up.vehicle_journey_count.to_s)
+    a = Array.new
+    a << I18n.t('clean_ups.success_tm', :count => time_table_count.to_s)
+    if (vehicle_journey_count > 0) 
+      a << I18n.t('clean_ups.success_vj', :count => vehicle_journey_count.to_s)
     end   
-    if (clean_up.journey_pattern_count > 0) 
-      notice << t('clean_ups.success_jp', :count => clean_up.journey_pattern_count.to_s)
+    if (journey_pattern_count > 0) 
+      a << I18n.t('clean_ups.success_jp', :count => journey_pattern_count.to_s)
     end   
-    if (clean_up.route_count > 0) 
-      notice << t('clean_ups.success_r', :count => clean_up.route_count.to_s)
+    if (route_count > 0) 
+      a << I18n.t('clean_ups.success_r', :count => route_count.to_s)
     end   
-    if (clean_up.line_count > 0) 
-      notice << t('clean_ups.success_l', :count => clean_up.line_count.to_s)
+    if (line_count > 0) 
+      a << I18n.t('clean_ups.success_l', :count => line_count.to_s)
     end   
-    if (clean_up.company_count > 0) 
-      notice << t('clean_ups.success_c', :count => clean_up.company_count.to_s)
+    if (company_count > 0) 
+      a << I18n.t('clean_ups.success_c', :count => company_count.to_s)
     end   
-    if (clean_up.network_count > 0) 
-      notice << t('clean_ups.success_n', :count => clean_up.network_count.to_s)
+    if (network_count > 0) 
+      a << I18n.t('clean_ups.success_n', :count => network_count.to_s)
     end   
-    if (clean_up.stop_count > 0) 
-      notice << t('clean_ups.success_sa', :count => clean_up.stop_count.to_s)
+    if (stop_count > 0) 
+      a << I18n.t('clean_ups.success_sa', :count => stop_count.to_s)
     end 
-    notice  
+    a  
 
   end
 
@@ -58,7 +58,7 @@ class CleanUp
     end
     # remove vehiclejourneys without timetables
     self.vehicle_journey_count = 0
-    Chouette::VehicleJourney.find_each do |vj|
+    Chouette::VehicleJourney.find_each(:conditions => "id not in (select distinct vehicle_journey_id from time_tables_vehicle_journeys)") do |vj|
       if vj.time_tables.size == 0
         self.vehicle_journey_count += 1
         vj.destroy
@@ -66,7 +66,7 @@ class CleanUp
     end
     # remove journeypatterns without vehicle journeys
     self.journey_pattern_count = 0
-    Chouette::JourneyPattern.find_each do |jp|
+    Chouette::JourneyPattern.find_each(:conditions => "id not in (select distinct journey_pattern_id from vehicle_journeys)") do |jp|
       if jp.vehicle_journeys.size == 0
         self.journey_pattern_count += 1
         jp.destroy
@@ -74,7 +74,7 @@ class CleanUp
     end
     # remove routes without journeypatterns 
     self.route_count = 0
-    Chouette::Route.find_each do |r|
+    Chouette::Route.find_each(:conditions => "id not in (select distinct route_id from journey_patterns)") do |r|
       if r.journey_patterns.size == 0
         self.route_count += 1
         r.destroy
@@ -83,7 +83,7 @@ class CleanUp
     # if asked remove lines without routes
     self.line_count = 0
     if keep_lines == "0" 
-      Chouette::Line.find_each do |l|
+      Chouette::Line.find_each(:conditions => "id not in (select distinct line_id from routes)") do |l|
         if l.routes.size == 0
           self.line_count += 1
           l.destroy
