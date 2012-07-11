@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class Referential < ActiveRecord::Base
 
   validates_presence_of :name 
@@ -50,6 +51,17 @@ class Referential < ActiveRecord::Base
     raise "Referential not created" if new_record?
     Apartment::Database.switch(slug)
     self
+  end
+
+  def self.available_srids
+    [
+     [ "NTF Lambert Zone 1 (27561)", 27561 ],
+     [ "NTF Lambert Zone 2 (27562)", 27562 ],
+     [ "NTF Lambert Zone 3 (27563)", 27563 ],
+     [ "NTF Lambert Zone 4 (27564)", 27564 ],
+     [ "NTF Lambert 2 étendu (27572)", 27582 ],
+     ["RGF 93 Lambert 93 (2154)",  2154 ]
+    ]
   end
 
   before_create :create_schema
