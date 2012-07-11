@@ -1,4 +1,5 @@
 class Referential < ActiveRecord::Base
+
   validates_presence_of :name 
   validates_presence_of :slug
   validates_presence_of :prefix
@@ -37,6 +38,12 @@ class Referential < ActiveRecord::Base
   
   def connection_links
     Chouette::ConnectionLink.scoped
+  end
+
+  after_initialize :define_default_attributes
+
+  def define_default_attributes
+    self.time_zone ||= Time.zone.name
   end
 
   def switch
