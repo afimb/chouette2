@@ -6,7 +6,7 @@
 	<li>Catégorie <%= j.to_s %>
 	<ul>
 		<% 1.upto(cnt[j]) do |i| %>
-           <li><%= link_to 'Fiche '+j.to_s+'.'+i.to_s , test_sheet_path+j.to_s+"."+i.to_s, :target => "chouette_help" %></li>
+           <li><%= link_to 'Fiche '+j.to_s+'.'+i.to_s , test_sheet_path+j.to_s+"_"+i.to_s, :target => "chouette_help" %></li>
         <% end %>
 	</ul>
 	</li>
