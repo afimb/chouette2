@@ -58,6 +58,12 @@ class StopAreasController < ChouetteController
     edit!
   end
 
+  def default_geometry
+    count = referential.stop_areas.without_geometry.default_geometry!
+    flash[:notice] = I18n.translate("stop_areas.default_geometry_success", :count => count)
+    redirect_to referential_stop_areas_path(@referential)
+  end
+
   protected
   
   alias_method :stop_area, :resource

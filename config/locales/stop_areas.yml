@@ -1,5 +1,6 @@
 en:
   stop_areas:
+    default_geometry_success: "%{count} modified stop areas"
     stop_area:
       no_position: No Position 
       lines: "Lines :"
@@ -12,6 +13,7 @@ en:
       add_children: Manage Children
       add_routing_lines: "Manage constraint's lines"
       add_routing_stops: "Manage constraint's stops"
+      default_geometry: "Compute missing geometries"
     new:
       title: Add a new stop
     edit:
@@ -74,6 +76,7 @@ en:
 
 fr:
   stop_areas:
+    default_geometry_success: "%{count} arrêts modifiés"
     stop_area:
       no_position: Pas de position 
       lines: "Lignes :"
@@ -86,6 +89,7 @@ fr:
       add_children: Gérer les fils
       add_routing_lines: "Gérer les lignes de l'ITL"
       add_routing_stops: "Gérer les arrêts de l'ITL"
+      default_geometry: "Calculer les géométries manquantes"
     new:
       title: Ajouter un arrêt
     edit:
