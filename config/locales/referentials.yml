@@ -45,7 +45,6 @@ en:
       referential:
         slug: only lowercase alphanumerical or underscore characters 
         prefix: only alphanumerical or underscore characters
-        projection_type: "see SRID codes on http://spatialreference.org"
 
 fr:
   referentials:
@@ -94,4 +93,3 @@ fr:
       referential:
         slug: "caractères autorisés : alphanumériques minuscules et 'souligné'"  
         prefix: "caractères autorisés : alphanumériques et 'souligné'"
-        projection_type: "voir http://spatialreference.org pour les codes SRID"

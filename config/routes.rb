@@ -66,6 +66,9 @@ ChouetteIhm::Application.routes.draw do
         get 'add_routing_lines'
         get 'add_routing_stops'
       end
+      collection do 
+        put 'default_geometry'
+      end
     end
 
     resources :connection_links do

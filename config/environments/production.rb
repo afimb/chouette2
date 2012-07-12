@@ -53,7 +53,8 @@ ChouetteIhm::Application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   # Enable threaded mode
-  # config.threadsafe!
+  # NOTICE : With Rails 3.2, Delayed::JRubyWorker blocks the application without threaded mode
+  config.threadsafe!
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
