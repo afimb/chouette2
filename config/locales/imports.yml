@@ -73,6 +73,7 @@ en:
       import:
         resources: File to import
         status: Status
+        objectid_prefix: "Neptune Id prefix"
       import_log_message:
         created_at: Date
         position: N.
@@ -152,6 +153,7 @@ fr:
       import:
         resources: Fichier à importer
         status: Status
+        objectid_prefix: "Préfixe d'identifiants"
       import_log_message:
         created_at: Date
         position: "No"

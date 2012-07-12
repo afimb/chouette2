@@ -1,5 +1,15 @@
 module ExportsHelper
 
+  def fields_for_export_type(form)
+    partial_name = "fields_#{form.object.type.underscore}"
+
+    begin
+      render :partial => partial_name, :locals => { :form => form }
+    rescue ActionView::MissingTemplate
+      ""
+    end
+  end
+
   @@export_references_type = {}
   def export_references_type(type)
     @@export_references_type[type] ||= ReferencesTypeHelper.new(type)

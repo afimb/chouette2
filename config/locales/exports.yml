@@ -42,6 +42,7 @@ en:
         status: Status
         references_type: Associated Data Type
         reference_ids: Associated Data
+        time_zone: Time Zone
       export_log_message:
         created_at: Date
         position: N.
@@ -94,7 +95,11 @@ fr:
         status: Status
         references_type: Type de données incluses
         reference_ids: Données incluses
+        time_zone: Fuseau horaire
       export_log_message:
         created_at: Date
         position: "No"
         full_message: Message
+  formtastic:
+    hints:
+      time_zone: "selon le codage TZ  (http://fr.wikipedia.org/wiki/Tz_database)"

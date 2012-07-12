@@ -8,6 +8,9 @@
 
 <% @available_exports.each do |export| %>
 <%= semantic_form_for [@referential, export], :as => :export, :url => referential_exports_path(@referential), :html => { :id => "#{export.type}_new",  :style => ('display: none' unless @export == export)} do |form| %>
+    <%= form.inputs do %> 
+      <%= fields_for_export_type form %>
+    <% end %>
   <%= form.inputs do %>
     <%= form.input :type, :as => :hidden %>
 

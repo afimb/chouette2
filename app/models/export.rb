@@ -13,13 +13,14 @@ class Export < ActiveRecord::Base
     name = name.to_s
 
     define_method(name) do
-      self.options[name]
+      self.options and self.options[name]
     end
 
     define_method("#{name}=") do |prefix|
-      self.options[name] = prefix
+      (self.options ||= {})[name] = prefix
     end
   end
+
 
   def exporter
     exporter ||= ::Chouette::Exporter.new(referential.slug)

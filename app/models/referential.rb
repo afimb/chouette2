@@ -11,6 +11,14 @@ class Referential < ActiveRecord::Base
   has_many :imports, :dependent => :destroy
   has_many :exports, :dependent => :destroy
 
+  after_initialize :init_time_zone
+  
+  def init_time_zone
+    if time_zone.nil?
+      self.time_zone = "Paris"
+    end
+  end
+
   def human_attribute_name(*args)
     self.class.human_attribute_name(*args)
   end
