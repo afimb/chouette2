@@ -29,7 +29,10 @@
    <% end %>
   </p>
   
-  <table class="count"> 
+  <table width="100%">
+  	<tr>
+  	  <td valign="top" width="50%">	
+  <table class="count" width="75%"> 
   	<thead>
   		<tr>
   		<td  colspan="2"><%= t(".objects") %></td>
@@ -39,54 +42,98 @@
   	<tbody>
   		<tr>
    		<td class="object" colspan="2"><%= Referential.human_attribute_name("networks") %></td>
-  		<td class="value"> <%= @referential.networks.size %></d>		
-  		</tr>
-  		<tr>
-   		<td class="object" colspan="2"><%= Referential.human_attribute_name("lines") %></td>
-  		<td class="value"> <%= @referential.lines.size %></d>		
+  		<td class="value"> <%= @referential.networks.size %></td>		
   		</tr>
   		<tr>
    		<td class="object" colspan="2"><%= Referential.human_attribute_name("companies") %></td>
-  		<td class="value"> <%= @referential.companies.size %></d>		
+  		<td class="value"> <%= @referential.companies.size %></td>		
+  		</tr>
+  		<tr>
+   		<td class="object" colspan="2"><%= Referential.human_attribute_name("lines") %></td>
+  		<td class="value"> <%= @referential.lines.size %></td>		
+  		</tr>
+  		<tr>
+   		<td class="object" colspan="2"><%= Referential.human_attribute_name("vehicle_journeys") %></td>
+  		<td class="value"> <%= @referential.vehicle_journeys.size %></td>		
   		</tr>
   		<tr>
    		<td class="object" colspan="2"><%= Referential.human_attribute_name("time_tables") %></td>
-  		<td class="value"> <%= @referential.time_tables.size %></d>		
+  		<td class="value"> <%= @referential.time_tables.size %></td>		
   		</tr>
   		<tr>
    		<td class="object" colspan="2"><%= Referential.human_attribute_name("connection_links") %></td>
-  		<td class="value"> <%= @referential.connection_links.size %></d>		
+  		<td class="value"> <%= @referential.connection_links.size %></td>		
   		</tr>
   		<tr>
    		<td class="object" colspan="2"><%= Referential.human_attribute_name("stop_areas") %></td>
-  		<td class="value"> <%= @referential.stop_areas.size %></d>		
+  		<td class="value"> <%= @referential.stop_areas.size %></td>		
   		</tr>
   		<tr>
    		<td class="image"><%= image_tag "map/boarding_position.png"%></td>
    		<td class="object"><%= Referential.human_attribute_name("boarding_positions") %></td>
-  		<td class="value"> <%= @referential.stop_areas.where("area_type = ?","BoardingPosition").size %></d>		
+  		<td class="value"> <%= @referential.stop_areas.where("area_type = ?","BoardingPosition").size %></td>		
   		</tr>
   		<tr>
    		<td class="image"><%= image_tag "map/quay.png"%></td>
    		<td class="object"><%= Referential.human_attribute_name("quays") %></td>
-  		<td class="value"> <%= @referential.stop_areas.where("area_type = ?","Quay").size %></d>		
+  		<td class="value"> <%= @referential.stop_areas.where("area_type = ?","Quay").size %></td>		
   		</tr>
   		<tr>
    		<td class="image"><%= image_tag "map/commercial_stop_point.png"%></td>
    		<td class="object"><%= Referential.human_attribute_name("commercial_stops") %></td>
-  		<td class="value"> <%= @referential.stop_areas.where("area_type = ?","CommercialStopPoint").size %></d>		
+  		<td class="value"> <%= @referential.stop_areas.where("area_type = ?","CommercialStopPoint").size %></td>		
   		</tr>
   		<tr>
    		<td class="image"><%= image_tag "map/stop_place.png"%></td>
    		<td class="object"><%= Referential.human_attribute_name("stop_places") %></td>
-  		<td class="value"> <%= @referential.stop_areas.where("area_type = ?","StopPlace").size %></d>		
+  		<td class="value"> <%= @referential.stop_areas.where("area_type = ?","StopPlace").size %></td>		
   		</tr>
   		<tr>
    		<td class="image"><%= image_tag "map/itl.png"%></td>
    		<td class="object"><%= Referential.human_attribute_name("itls") %></td>
-  		<td class="value"> <%= @referential.stop_areas.where("area_type = ?","ITL").size %></d>		
+  		<td class="value"> <%= @referential.stop_areas.where("area_type = ?","ITL").size %></td>		
   		</tr>
   	</tbody>
+  </table>
+  </td>
+  <td valign="top" >
+  <table class="count" width="75%"> 
+  	<thead>
+  		<tr>
+  		<td><%= t('.expired_time_tables') %>: <%= tm_cnt = @referential.time_tables.expired_on(Date.today).size %></td>
+  		</tr>
+  	</thead>
+  	<tbody>
+  		<% if tm_cnt > 0 %>
+	  		<% @referential.time_tables.expired_on(Date.today,5).each do |tm| %>
+	  		<tr><td><%= link_to tm.comment, referential_time_table_path(@referential, tm) %></td></tr>
+	  		<% end %>
+	  		<% if tm_cnt > 5 %>
+	  			<tr><td>...</td></tr>
+            <% end %>
+  		<% end %>
+  	</tbody>
+  	</table>
+  	<p/>
+  <table class="count" width="75%"> 
+  	<thead>
+  		<tr>
+  		<td><%= t('.almost_expired_time_tables', :count => "7") %>: <%= tm_cnt = @referential.time_tables.expired_between(Date.today,Date.today+7).size %></td>
+  		</tr>
+  	</thead>
+  	<tbody>
+  		<% if tm_cnt > 0 %>
+	  		<% @referential.time_tables.expired_between(Date.today,Date.today+7,5).each do |tm| %>
+	  		<tr><td><%= link_to tm.comment, referential_time_table_path(@referential, tm) %></td></tr>
+	  		<% end %>
+	  		<% if tm_cnt > 5 %>
+	  			<tr><td>...</td></tr>
+            <% end %>
+  		<% end %>
+  	</tbody>
+  	</table>
+  </td>
+  </tr>
   </table>
 </div>  
 

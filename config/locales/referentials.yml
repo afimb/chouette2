@@ -7,6 +7,8 @@ en:
       objects: Data space elements
       count: count
       clean_up: Clean up
+      expired_time_tables: Closed timetables
+      almost_expired_time_tables: Timetables closed in %{count} days    
     new:
       title: Create a new data space
       submit: "Create a data space"
@@ -31,6 +33,7 @@ en:
         end_validity_period: to
         networks: Networks
         lines: Lines
+        vehicle_journeys: Vehicle journeys
         companies: Companies
         stop_areas: Stop Areas
         time_tables: Time tables
@@ -55,6 +58,8 @@ fr:
       objects: Eléments 
       count: Qté
       clean_up: Purge des données obsolètes
+      expired_time_tables: Calendriers échus
+      almost_expired_time_tables: Calendriers à échoir dans %{count} jours    
     new:
       title: Créer un nouvel espace de données
       submit: "Créer un espace de données"
@@ -79,6 +84,7 @@ fr:
         end_validity_period: au
         networks: Réseaux
         lines: Lignes
+        vehicle_journeys: Courses
         companies: Transporteurs
         stop_areas: Arrêts
         time_tables: Calendriers

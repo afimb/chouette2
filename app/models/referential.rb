@@ -49,6 +49,10 @@ class Referential < ActiveRecord::Base
     Chouette::ConnectionLink.scoped
   end
 
+  def vehicle_journeys
+    Chouette::VehicleJourney.scoped
+  end
+
   after_initialize :define_default_attributes
 
   def define_default_attributes
