@@ -49,12 +49,12 @@ class Export < ActiveRecord::Base
   end
 
   def export_object_type
-    case references_type
-    when "Chouette::Network"
-      "ptnetwork"
-    else
+#    case references_type
+#    when "Chouette::Network"
+#      "ptnetwork"
+#    else
       references_relation ? references_relation.singularize : "line"
-    end
+#    end
   end
 
   before_validation :define_default_attributes, :on => :create
