@@ -66,7 +66,10 @@ class Referential < ActiveRecord::Base
      [ "NTF Lambert Zone 2 (27562)", 27562 ],
      [ "NTF Lambert Zone 3 (27563)", 27563 ],
      [ "NTF Lambert Zone 4 (27564)", 27564 ],
-     [ "NTF Lambert 2 étendu (27572)", 27582 ],
+     [ "NTF Lambert 1 (27571)", 27571 ],
+     [ "NTF Lambert 2 étendu (27572)", 27572 ],
+     [ "NTF Lambert 3 (27573)", 27573 ],
+     [ "NTF Lambert 4 (27574)", 27574 ],
      [ "RGF 93 Lambert 93 (2154)", 2154 ]
     ]
   end
