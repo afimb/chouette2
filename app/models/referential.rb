@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 class Referential < ActiveRecord::Base
-
   validates_presence_of :name 
   validates_presence_of :slug
   validates_presence_of :prefix
@@ -10,16 +9,12 @@ class Referential < ActiveRecord::Base
   validates_format_of :slug, :with => %r{\A[0-9a-z_]+\Z}
   validates_format_of :prefix, :with => %r{\A[0-9a-zA-Z_]+\Z}
 
+  attr_accessor :resources
+  attr_accessor :upper_corner
+  attr_accessor :lower_corner
+
   has_many :imports, :dependent => :destroy
   has_many :exports, :dependent => :destroy
-
-  after_initialize :init_time_zone
-  
-  def init_time_zone
-    if time_zone.nil?
-      self.time_zone = "Paris"
-    end
-  end
 
   def human_attribute_name(*args)
     self.class.human_attribute_name(*args)
@@ -72,29 +67,51 @@ class Referential < ActiveRecord::Base
      [ "NTF Lambert Zone 3 (27563)", 27563 ],
      [ "NTF Lambert Zone 4 (27564)", 27564 ],
      [ "NTF Lambert 2 étendu (27572)", 27582 ],
-     ["RGF 93 Lambert 93 (2154)",  2154 ]
+     [ "RGF 93 Lambert 93 (2154)", 2154 ]
     ]
   end
 
   before_create :create_schema
-  before_destroy :destroy_schema
-
-  after_create :import_resources
-
-  attr_accessor :resources
-
-  def import_resources
-    imports.create(:resources => resources) if resources
-  end
-
   def create_schema
     Apartment::Database.create slug
   end
 
+  before_destroy :destroy_schema
   def destroy_schema
     Apartment::Database.drop slug
   end
-  
+
+  after_create :import_resources  
+  def import_resources
+    imports.create(:resources => resources) if resources
+  end
+
+  before_save :update_envelope 
+  before_create :update_envelope
+  def update_envelope
+    self.bounds = GeoRuby::SimpleFeatures::Envelope.from_coordinates([ [@lower_corner.x, @lower_corner.y], [ @upper_corner.x, @upper_corner.y ] ]).to_polygon.as_ewkt()
+  end  
+
+  def upper_corner
+    @upper_corner = "#{envelope.upper_corner.x}, #{envelope.upper_corner.y}"
+  end
+
+  def upper_corner=(upper_corner)
+    @upper_corner = GeoRuby::SimpleFeatures::Point.from_coordinates( upper_corner.split(",") )
+  end
+
+  def lower_corner    
+    @lower_corner = "#{envelope.lower_corner.x}, #{envelope.lower_corner.y}"
+  end
+
+  def lower_corner=(lower_corner)
+    @lower_corner = GeoRuby::SimpleFeatures::Point.from_coordinates( lower_corner.split(",") )
+  end
+
+  def envelope
+    GeoRuby::SimpleFeatures::Geometry.from_ewkt(read_attribute(:bounds)).envelope
+  end
+
 end
 
 Rails.application.config.after_initialize do
