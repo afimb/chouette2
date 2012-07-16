@@ -4,10 +4,14 @@ class Referential < ActiveRecord::Base
   validates_presence_of :slug
   validates_presence_of :prefix
   validates_presence_of :time_zone
+  validates_presence_of :upper_corner
+  validates_presence_of :lower_corner
   validates_uniqueness_of :slug
   validates_uniqueness_of :name
   validates_format_of :slug, :with => %r{\A[0-9a-z_]+\Z}
   validates_format_of :prefix, :with => %r{\A[0-9a-zA-Z_]+\Z}
+  validates_format_of :upper_corner, :with => %r{\A[0-9]+\.?[0-9]*\, [0-9]+\.?[0-9]*\Z}
+  validates_format_of :lower_corner, :with => %r{\A[0-9]+\.?[0-9]*\, [0-9]+\.?[0-9]*\Z}
 
   attr_accessor :resources
   attr_accessor :upper_corner
@@ -52,6 +56,7 @@ class Referential < ActiveRecord::Base
 
   def define_default_attributes
     self.time_zone ||= Time.zone.name
+    self.bounds ||= GeoRuby::SimpleFeatures::Envelope.from_coordinates( [ [-5.2, 42.25], [8.23, 51.1] ] ).to_polygon.as_ewkt # bounds for France by default
   end
 
   def switch
@@ -93,10 +98,10 @@ class Referential < ActiveRecord::Base
   before_create :update_envelope
   def update_envelope
     self.bounds = GeoRuby::SimpleFeatures::Envelope.from_coordinates([ [@lower_corner.x, @lower_corner.y], [ @upper_corner.x, @upper_corner.y ] ]).to_polygon.as_ewkt()
-  end  
+  end
 
   def upper_corner
-    @upper_corner = "#{envelope.upper_corner.x}, #{envelope.upper_corner.y}"
+    "#{envelope.upper_corner.x}, #{envelope.upper_corner.y}"
   end
 
   def upper_corner=(upper_corner)
@@ -104,14 +109,14 @@ class Referential < ActiveRecord::Base
   end
 
   def lower_corner    
-    @lower_corner = "#{envelope.lower_corner.x}, #{envelope.lower_corner.y}"
+    "#{envelope.lower_corner.x}, #{envelope.lower_corner.y}"
   end
 
   def lower_corner=(lower_corner)
     @lower_corner = GeoRuby::SimpleFeatures::Point.from_coordinates( lower_corner.split(",") )
   end
 
-  def envelope
+  def envelope    
     GeoRuby::SimpleFeatures::Geometry.from_ewkt(read_attribute(:bounds)).envelope
   end
 
