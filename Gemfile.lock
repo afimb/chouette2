@@ -1,16 +1,4 @@
 GIT
-  remote: git://chouette.dryade.priv/ninoxe
-  revision: 2bbf27be9a282188d31399790d7ba1951cb27a2b
-  specs:
-    ninoxe (0.0.8)
-      GeoRuby
-      activerecord (>= 3.1.3)
-      acts_as_list (= 0.1.6)
-      composite_primary_keys (>= 4.1.2)
-      geokit
-      rails (>= 3.1.3)
-
-GIT
   remote: git://github.com/dnagir/database_cleaner.git
   revision: 0c0aa44f13ae392000a6f506b62d5d1602cb4e53
   branch: postgre_jruby_issue
@@ -60,8 +48,20 @@ GIT
       rgeo (~> 0.3.13)
 
 GIT
-  remote: git://sim.dryade.priv/user_interface
-  revision: 6931e642037ffef9d3818669a5f5167a0298b30b
+  remote: git://github.com/dryade/ninoxe.git
+  revision: 2bbf27be9a282188d31399790d7ba1951cb27a2b
+  specs:
+    ninoxe (0.0.8)
+      GeoRuby
+      activerecord (>= 3.1.3)
+      acts_as_list (= 0.1.6)
+      composite_primary_keys (>= 4.1.2)
+      geokit
+      rails (>= 3.1.3)
+
+GIT
+  remote: git://github.com/dryade/user-interface.git
+  revision: 6e4654e6805091cb8b485e36730176af3dc4e581
   specs:
     user_interface (0.0.1)
       rails (> 3.1.0)
