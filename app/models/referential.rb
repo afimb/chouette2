@@ -10,8 +10,8 @@ class Referential < ActiveRecord::Base
   validates_uniqueness_of :name
   validates_format_of :slug, :with => %r{\A[0-9a-z_]+\Z}
   validates_format_of :prefix, :with => %r{\A[0-9a-zA-Z_]+\Z}
-  validates_format_of :upper_corner, :with => %r{\A[0-9]+\.?[0-9]*\, [0-9]+\.?[0-9]*\Z}
-  validates_format_of :lower_corner, :with => %r{\A[0-9]+\.?[0-9]*\, [0-9]+\.?[0-9]*\Z}
+  validates_format_of :upper_corner, :with => %r{\A-?[0-9]+\.?[0-9]*\,-?[0-9]+\.?[0-9]*\Z}
+  validates_format_of :lower_corner, :with => %r{\A-?[0-9]+\.?[0-9]*\,-?[0-9]+\.?[0-9]*\Z}
 
   attr_accessor :resources
   attr_accessor :upper_corner
@@ -56,7 +56,6 @@ class Referential < ActiveRecord::Base
 
   def define_default_attributes
     self.time_zone ||= Time.zone.name
-    self.bounds ||= GeoRuby::SimpleFeatures::Envelope.from_coordinates( [ [-5.2, 42.25], [8.23, 51.1] ] ).to_polygon.as_ewkt # bounds for France by default
   end
 
   def switch
@@ -94,30 +93,43 @@ class Referential < ActiveRecord::Base
     imports.create(:resources => resources) if resources
   end
 
-  before_save :update_envelope 
-  before_create :update_envelope
-  def update_envelope
-    self.bounds = GeoRuby::SimpleFeatures::Envelope.from_coordinates([ [@lower_corner.x, @lower_corner.y], [ @upper_corner.x, @upper_corner.y ] ]).to_polygon.as_ewkt()
-  end
-
   def upper_corner
-    "#{envelope.upper_corner.x}, #{envelope.upper_corner.y}"
+    envelope.upper_corner
   end
 
   def upper_corner=(upper_corner)
-    @upper_corner = GeoRuby::SimpleFeatures::Point.from_coordinates( upper_corner.split(",") )
+    if String === upper_corner
+      upper_corner = (upper_corner.blank? ? nil : GeoRuby::SimpleFeatures::Point::from_lat_lng(Geokit::LatLng.normalize(upper_corner), 4326))
+    end
+
+    envelope.tap do |envelope|
+      envelope.upper_corner = upper_corner
+      self.bounds = envelope.to_polygon.as_ewkt
+    end
   end
 
   def lower_corner    
-    "#{envelope.lower_corner.x}, #{envelope.lower_corner.y}"
+    envelope.lower_corner
   end
 
   def lower_corner=(lower_corner)
-    @lower_corner = GeoRuby::SimpleFeatures::Point.from_coordinates( lower_corner.split(",") )
+    if String === lower_corner
+      lower_corner = (lower_corner.blank? ? nil : GeoRuby::SimpleFeatures::Point::from_lat_lng(Geokit::LatLng.normalize(lower_corner), 4326))
+    end
+
+    envelope.tap do |envelope|
+      envelope.lower_corner = lower_corner
+      self.bounds = envelope.to_polygon.as_ewkt
+    end
   end
 
-  def envelope    
-    GeoRuby::SimpleFeatures::Geometry.from_ewkt(read_attribute(:bounds)).envelope
+  def default_bounds
+    GeoRuby::SimpleFeatures::Envelope.from_coordinates( [ [-5.2, 42.25], [8.23, 51.1] ] ).to_polygon.as_ewkt
+  end
+
+  def envelope
+    bounds = read_attribute(:bounds)
+    GeoRuby::SimpleFeatures::Geometry.from_ewkt(bounds.present? ? bounds : default_bounds ).envelope
   end
 
 end

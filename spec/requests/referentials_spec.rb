@@ -33,6 +33,8 @@ describe "Referentials" do
       visit new_referential_path
       fill_in "Nom", :with => "Test"
       fill_in "Code", :with => "test"
+      fill_in "Point haut/droite emprise par défaut", :with => "0.0, 0.0"
+      fill_in "Point bas/gauche emprise par défaut", :with => "1.0, 1.0"
       click_button "Créer Espace de données"
 
       Referential.where(:name => "Test").should_not be_nil

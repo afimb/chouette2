@@ -1,6 +1,6 @@
 class StopAreaMap < ApplicationMap
 
-  attr_reader :referential, :stop_area
+  attr_reader :stop_area
 
   attr_accessor :editable
   alias_method :editable?, :editable
@@ -19,15 +19,23 @@ class StopAreaMap < ApplicationMap
 
       page.assign "edit_stop_area_layer", kml_layer(stop_area, { :default => editable? }, :style_map => StyleMap::EditStopAreaStyleMap.new.style_map)
       page << map.add_layer(:edit_stop_area_layer)
-
-     if editable?
-        # TODO virer ce code inline
+      
+      
+      if editable?
+       page.assign "referential_projection", projection_type.present? ? projection("EPSG:" + projection_type) : JsVar.new("undefined")  
+        # TODO virer ce code inline       
         page << <<EOF
         edit_stop_area_layer.events.on({ 
                           'afterfeaturemodified': function(event) { 
                             geometry = event.feature.geometry.clone().transform(new OpenLayers.Projection("EPSG:900913"), new OpenLayers.Projection("EPSG:4326"));
                             $('#stop_area_longitude').val(geometry.x);
                             $('#stop_area_latitude').val(geometry.y);
+
+                            if(referential_projection != undefined)
+                            {
+                              projection_geometry = event.feature.geometry.clone().transform(new OpenLayers.Projection("EPSG:900913"), referential_projection );
+                              $('#stop_area_x').val(projection_geometry.x);
+                              $('#stop_area_y').val(projection_geometry.y);                                                   }
                            }
                         });
 EOF
@@ -37,6 +45,10 @@ EOF
 
       page << map.set_center(center.to_google.to_openlayers, 16, false, true)
     end
+  end
+  
+  def projection_type
+    stop_area.referential.projection_type
   end
 
   def ready?

@@ -1,6 +1,6 @@
 class NetworkMap < ApplicationMap
 
-  attr_reader :referential, :network, :network_style
+  attr_reader :network, :network_style
 
   def initialize(network, network_style = nil)
     @network = network
