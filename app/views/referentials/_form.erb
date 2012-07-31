@@ -11,15 +11,17 @@
     <% end %>
     <%= form.input :prefix %>
     <%= form.input :projection_type, :as => :select, :collection => Referential.available_srids %>
-    <%= form.input :time_zone %>
+    <%= form.input :time_zone %>    
+    <%= form.input :upper_corner %>     
+    <%= form.input :lower_corner %>
 
     <% if @referential.new_record? %>
-    <%= form.input :resources, :as => :file %>
+      <%= form.input :resources, :as => :file %>
     <% end %>
-      <% end %>
+  <% end %>
 
-   <%= form.actions do %>
-     <%= form.action :submit, :as => :button %>
-     <%= form.action :cancel, :as => :link %>
-   <% end %>
+  <%= form.actions do %>
+    <%= form.action :submit, :as => :button %>
+    <%= form.action :cancel, :as => :link %>
+  <% end %>
 <% end %>

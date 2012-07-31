@@ -78,6 +78,8 @@ fr:
         prefix: Préfixe des identifiants Neptune
         projection_type: Système de référence spatiale optionnel (SRID)
         time_zone: Fuseau horaire
+        upper_corner: Point haut/droite emprise par défaut 
+        lower_corner: Point bas/gauche emprise par défaut
         validity_period: Période de validité
         no_validity_period: non définie
         start_validity_period: du

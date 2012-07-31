@@ -9,4 +9,5 @@
 //= require jquery-ui
 //= require modernizr
 //= require cocoon
-//= require_tree .
+//= require_directory ./public
+//= require_directory .
