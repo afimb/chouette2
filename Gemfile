@@ -38,6 +38,7 @@ gem "modernizr-rails", "~> 2.0.6"
 gem "acts_as_tree", :git => "git://github.com/dryade/acts_as_tree.git"
 #gem 'ninoxe', :git => 'git://github.com/dryade/ninoxe.git'
 gem 'ninoxe', :git => 'git://chouette.dryade.priv/ninoxe' #, :path => '~/Projects/Ninoxe'
+#gem 'ninoxe',  :path => '~/workspace/chouette/ninoxe'
 gem 'acts_as_list', '0.1.6'
 
 #gem 'composite_primary_keys', '~> 5.0.8'
