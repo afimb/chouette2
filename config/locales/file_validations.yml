@@ -1,7 +1,7 @@
 en:
   file_validations:
     index:
-      title: Neptune Validations
+      title: Neptune Validation
     edit:
       title: "Edit the Validation"
     show:
@@ -31,9 +31,9 @@ en:
   activerecord:
     models:
       file_validation: 
-        zero:  Neptune Validation
-        one:   Neptune Validation
-        other: Neptune Validations
+        zero: Neptune Validation
+        one: Neptune Validation
+        other: Neptune Validation
     attributes:
       file_validation:
         resources: File to validate
@@ -47,7 +47,7 @@ en:
 fr:
   file_validations:
     index:
-      title: Validations Neptune
+      title: Validation Neptune
     edit:
       title: "Editer la validation"
     show:
@@ -306,7 +306,7 @@ fr:
       file_validation: 
         zero:  Validation Neptune 
         one:   Validation Neptune 
-        other: Validations Neptune 
+        other: Validation Neptune
     attributes:
       file_validation:
         resources: Fichier à valider
