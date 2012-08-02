@@ -72,8 +72,8 @@ describe RoutesController do
       assigns[:map].route.should == route
     end
 
-    it "assigns route.stop_points.paginate(:page => nil, :per_page => 10) as @stop_points" do
-      assigns[:stop_points].should == route.stop_points.paginate(:page => nil, :per_page => 10)
+    it "assigns route.stop_points.paginate(:page => nil) as @stop_points" do
+      assigns[:stop_points].should == route.stop_points.paginate(:page => nil)
     end
 
   end

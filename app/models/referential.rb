@@ -22,11 +22,13 @@ class Referential < ActiveRecord::Base
   has_many :exports, :dependent => :destroy
 
   def slug_excluded_values
-    if slug.start_with? "pg_" 
-      errors.add(:slug,"pg_excluded")
-    end
-    if slug == 'public'
-      errors.add(:slug,"public_excluded")
+    if ! slug.nil?
+      if slug.start_with? "pg_" 
+        errors.add(:slug,"pg_excluded")
+      end
+      if slug == 'public'
+        errors.add(:slug,"public_excluded")
+      end
     end
   end
 
