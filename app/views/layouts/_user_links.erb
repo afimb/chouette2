@@ -12,7 +12,7 @@
   <li class="<%= language_class('fr') %>"><%= link_to_language :fr %></li>
   <li class="<%= language_class('en') %>"><%= link_to_language :en %></li>
   <li>
-  <% if user_signed_in?  %>
+  <% if user_signed_in?  && !help_page? && !test_sheet_page?%>
   <li> | </li> 
   <li>
   <%= link_to help_path , :target => "chouette_help" do %>
