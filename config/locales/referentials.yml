@@ -18,8 +18,17 @@ en:
       destroy: Destroy this data space
       edit: Edit this data space
   activerecord:
+    errors:
+      models:
+        referential:
+          slug:
+            pg_excluded: "code can't begins with pg_"
+            public_excluded: "public is reserved value"
     models:
-      referential: Data space
+      referential: 
+        zero: Data space
+        one: Data space
+        other: Data spaces
     attributes:
       referential:
         name: Name
@@ -27,6 +36,9 @@ en:
         prefix: Neptune Object Id prefix
         projection_type: Optional spatial reference system code (SRID)
         time_zone: time zone
+        upper_corner: "Top,Right corner for default bounding box"
+        lower_corner: "Bottom,Left corner for default bounding box"
+        resources: Neptune Import File
         validity_period: Validity period
         no_validity_period: undefined
         start_validity_period: from
@@ -46,8 +58,10 @@ en:
   formtastic:
     hints:
       referential:
-        slug: only lowercase alphanumerical or underscore characters 
+        slug: "only lowercase alphanumerical or underscore characters, first character must be a letter"
         prefix: only alphanumerical or underscore characters
+        upper_corner: "longitude,latitude in WGS84 referential, dot for decimal separator"
+        lower_corner: "longitude,latitude in WGS84 referential, dot for decimal separator"
 
 fr:
   referentials:
@@ -69,8 +83,17 @@ fr:
       destroy: Supprimer cet espace de données
       edit: Modifier cet espace de données
   activerecord:
+    errors:
+      models:
+        referential:
+          slug:
+            pg_excluded: "code ne peut commencer par pg_"
+            public_excluded: "public est une valeur réservée"
     models:
-      referential: Espace de données
+      referential: 
+        zero: Espace de Données
+        one: Espace de Données
+        other: Espaces de Données
     attributes:
       referential:
         name: Nom
@@ -78,8 +101,9 @@ fr:
         prefix: Préfixe des identifiants Neptune
         projection_type: Système de référence spatiale optionnel (SRID)
         time_zone: Fuseau horaire
-        upper_corner: Point haut/droite emprise par défaut 
-        lower_corner: Point bas/gauche emprise par défaut
+        upper_corner: "Point haut/droite de l'emprise par défaut" 
+        lower_corner: "Point bas/gauche de l'emprise par défaut"
+        resources: Import Neptune
         validity_period: Période de validité
         no_validity_period: non définie
         start_validity_period: du
@@ -99,5 +123,7 @@ fr:
   formtastic:
     hints:
       referential:
-        slug: "caractères autorisés : alphanumériques minuscules et 'souligné'"  
+        slug: "caractères autorisés : alphanumériques minuscules et 'souligné' et doit commencer par une lettre"  
         prefix: "caractères autorisés : alphanumériques et 'souligné'"
+        upper_corner: "longitude,latitude dans le référentiel WGS84, le séparateur de décimales est 'point'"
+        lower_corner: "longitude,latitude dans le référentiel WGS84, le séparateur de décimales est 'point'"
