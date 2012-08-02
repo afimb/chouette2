@@ -18,14 +18,13 @@ h3. Sommaire
 ## "Courses/Horaires":vehiclejourneys
 # "Arrêts":stop_areas
 ## "Correspondances":connection_links
-## Accès
-## Liaisons Arrêt-Accès
 # "Calendriers d'application":timetables
 # Outils
-## Imports
-## Exports
-## Validation
+## "Imports":imports
+## "Exports":exports
+## "Validation":validations
 # Divers
 ## "API Rest":restapis
+## "format d'échange CSV":csv
 ## "FAQ":faq
 
