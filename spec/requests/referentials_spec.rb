@@ -8,7 +8,7 @@ describe "Referentials" do
 
     it "should support no referential" do
       visit referentials_path
-      page.should have_content("Espace de données")
+      page.should have_content("Espace de Données")
     end
 
     context "when several referentials exist" do
@@ -33,9 +33,9 @@ describe "Referentials" do
       visit new_referential_path
       fill_in "Nom", :with => "Test"
       fill_in "Code", :with => "test"
-      fill_in "Point haut/droite emprise par défaut", :with => "0.0, 0.0"
-      fill_in "Point bas/gauche emprise par défaut", :with => "1.0, 1.0"
-      click_button "Créer Espace de données"
+      fill_in "Point haut/droite de l'emprise par défaut", :with => "0.0, 0.0"
+      fill_in "Point bas/gauche de l'emprise par défaut", :with => "1.0, 1.0"
+      click_button "Créer Espace de Données"
 
       Referential.where(:name => "Test").should_not be_nil
       # CREATE SCHEMA

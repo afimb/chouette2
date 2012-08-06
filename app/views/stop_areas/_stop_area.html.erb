@@ -7,7 +7,7 @@
   <%= link_to stop_area.name, [@referential, stop_area] %>
   <div class="info">
     <p>      
-      <% unless stop_area.geometry %>
+      <% unless stop_area.area_type == 'ITL' || stop_area.geometry %>
       <span class="warning"><%= t('.no_position') %></span> -
       <% end %>
     </p>

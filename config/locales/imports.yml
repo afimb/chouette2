@@ -69,6 +69,14 @@ en:
         zero:  import
         one:   import
         other: imports
+      neptune_import:
+        zero:  Neptune import
+        one:   Neptune import
+        other: Neptune imports
+      csv_import:
+        zero:  CSV import
+        one:   CSV import
+        other: CSV imports
     attributes:
       import:
         resources: File to import
@@ -149,6 +157,14 @@ fr:
         zero:  import
         one:   import
         other: imports
+      neptune_import:
+        zero:  import Neptune
+        one:   import Neptune
+        other: imports Neptune
+      csv_import:
+        zero:  import CSV
+        one:   import CSV
+        other: imports CSV
     attributes:
       import:
         resources: Fichier à importer

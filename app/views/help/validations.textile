@@ -1,0 +1,29 @@
+---
+layout: default
+title: Validations
+---
+
+h3. Rôle
+
+p. La validation permet d'effectuer un ensemble de contrôles syntaxiques, sématiques et structurels sur une offre de transport.
+
+- Phase 1: l'offre de transport est importée depuis le format Neptune et subit les contrôles syntaxiques vis-à-vis du format XML et du Schéma spécifique Neptune 
+- Phase 2 : l'offre est analysée dans sa structure et subit des contrôles de complétude et de conexité des données.
+- Phase 3 : l'offre est analysée dans ses fonctionnalités et subit des contrôles de réalisme. 
+
+
+h3. Formats disponibles 
+
+- Neptune := format normalisé des échanges de données de transport en commun pour la France (cf "Normalisation":normalisation)
+
+h3. Consultation des résultats
+
+p. La validation est lancée en différé; son état d'avancement est affiché sous la forme d'une icône donc la couleur dépend de l'état:
+
+- bleu : en cours
+- vert : terminé correctement
+- rouge : terminé en échec (la validation n'a pas pu aboutir)
+
+p. La consultation du résultat de la validation donnera le bilan des contrôles ou les motifs de l'échec.
+
+p. le résultat est conservé tant que la validation n'est pas supprimée.

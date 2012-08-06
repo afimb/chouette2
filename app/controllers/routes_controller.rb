@@ -46,7 +46,7 @@ class RoutesController < ChouetteController
     @routes ||= 
       begin
         routes = @q.result(:distinct => true).order(:name)
-        routes = routes.paginate(:page => params[:page], :per_page => @per_page) if @per_page.present?
+        routes = routes.paginate(:page => params[:page]) if @per_page.present?
         routes
       end
   end

@@ -37,6 +37,14 @@ en:
         zero:  export
         one:   export
         other: exports
+      csv_export: 
+        zero:  CSV Export
+        one:   CSV Export 
+        other: CSV Exports
+      gtfs_export: 
+        zero:  GTFS Export
+        one:   GTFS Export
+        other: GTFS Exports
     attributes:
       export:
         status: Status
@@ -90,6 +98,14 @@ fr:
         zero:  Export Neptune
         one:   Export Neptune
         other: Exports Neptune
+      csv_export: 
+        zero:  Export CSV
+        one:   Export CSV
+        other: Exports CSV
+      gtfs_export: 
+        zero:  Export GTFS
+        one:   Export GTFS
+        other: Exports GTFS
     attributes:
       export:
         status: Status

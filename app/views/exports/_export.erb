@@ -7,7 +7,9 @@
     <%= l export.created_at %>
 
     <div class="actions">  
-      <%= link_to t("exports.actions.download"), referential_export_path(@referential, export, :format => :zip), :class => "download" %>
+      <% if export.status == 'completed' %>
+        <%= link_to t("exports.actions.download"), referential_export_path(@referential, export, :format => :zip), :class => "download" %>
+      <% end %>
       <%= link_to t("actions.destroy"), referential_export_path(@referential, export), :method => :delete, :confirm =>  t('exports.actions.destroy_confirm'), :class => "remove" %>
     </div>
   </div>

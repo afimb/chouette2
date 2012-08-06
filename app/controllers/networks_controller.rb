@@ -15,7 +15,7 @@ class NetworksController < ChouetteController
 
   def collection    
     @q = referential.networks.search(params[:q])
-    @networks ||= @q.result(:distinct => true).order(:name).paginate(:page => params[:page], :per_page => 10)
+    @networks ||= @q.result(:distinct => true).order(:name).paginate(:page => params[:page])
   end
 
   def resource_url(network = nil)

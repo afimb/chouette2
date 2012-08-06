@@ -15,7 +15,7 @@ class CompaniesController < ChouetteController
   protected
   def collection    
     @q = referential.companies.search(params[:q])
-    @companies ||= @q.result(:distinct => true).order(:name).paginate(:page => params[:page], :per_page => 10)
+    @companies ||= @q.result(:distinct => true).order(:name).paginate(:page => params[:page])
   end
 
 

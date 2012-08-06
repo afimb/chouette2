@@ -25,7 +25,7 @@ class ConnectionLinksController < ChouetteController
 
   def collection    
     @q = referential.connection_links.search(params[:q])
-    @connection_links ||= @q.result(:distinct => true).order(:name).paginate(:page => params[:page], :per_page => 10)
+    @connection_links ||= @q.result(:distinct => true).order(:name).paginate(:page => params[:page])
   end
 
   def resource_url(connection_link = nil)

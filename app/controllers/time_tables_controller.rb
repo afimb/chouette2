@@ -26,7 +26,7 @@ class TimeTablesController < ChouetteController
 
   def collection    
     @q = referential.time_tables.search(params[:q])
-    @time_tables ||= @q.result(:distinct => true).order(:comment).paginate(:page => params[:page], :per_page => 10)
+    @time_tables ||= @q.result(:distinct => true).order(:comment).paginate(:page => params[:page])
   end
 
   def resource_url(time_table = nil)

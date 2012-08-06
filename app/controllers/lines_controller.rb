@@ -23,7 +23,7 @@ class LinesController < ChouetteController
 
   def collection
     @q = referential.lines.search(params[:q])
-    @lines ||= @q.result(:distinct => true).order(:number).paginate(:page => params[:page], :per_page => 10).includes([:network, :company])
+    @lines ||= @q.result(:distinct => true).order(:number).paginate(:page => params[:page]).includes([:network, :company])
   end
 
 end

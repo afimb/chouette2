@@ -8,17 +8,29 @@ class Referential < ActiveRecord::Base
   validates_presence_of :lower_corner
   validates_uniqueness_of :slug
   validates_uniqueness_of :name
-  validates_format_of :slug, :with => %r{\A[0-9a-z_]+\Z}
+  validates_format_of :slug, :with => %r{\A[a-z][0-9a-z_]+\Z}
   validates_format_of :prefix, :with => %r{\A[0-9a-zA-Z_]+\Z}
   validates_format_of :upper_corner, :with => %r{\A-?[0-9]+\.?[0-9]*\,-?[0-9]+\.?[0-9]*\Z}
   validates_format_of :lower_corner, :with => %r{\A-?[0-9]+\.?[0-9]*\,-?[0-9]+\.?[0-9]*\Z}
-
+  validate :slug_excluded_values
+  
   attr_accessor :resources
   attr_accessor :upper_corner
   attr_accessor :lower_corner
 
   has_many :imports, :dependent => :destroy
   has_many :exports, :dependent => :destroy
+
+  def slug_excluded_values
+    if ! slug.nil?
+      if slug.start_with? "pg_" 
+        errors.add(:slug,"pg_excluded")
+      end
+      if slug == 'public'
+        errors.add(:slug,"public_excluded")
+      end
+    end
+  end
 
   def human_attribute_name(*args)
     self.class.human_attribute_name(*args)

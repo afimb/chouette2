@@ -34,7 +34,7 @@ class StopAreasController < ChouetteController
     @stops = stop_area.routing_stops
   end
 
-  def index     
+  def index
     request.format.kml? ? @per_page = nil : @per_page = 12
     index!
   end
@@ -77,7 +77,7 @@ class StopAreasController < ChouetteController
     @stop_areas ||= 
       begin
         stop_areas = @q.result(:distinct => true).order(:name)
-        stop_areas = stop_areas.paginate(:page => params[:page], :per_page => @per_page) if @per_page.present?
+        stop_areas = stop_areas.paginate(:page => params[:page]) if @per_page.present?
         stop_areas
       end
   end
