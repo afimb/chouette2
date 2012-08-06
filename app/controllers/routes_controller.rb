@@ -16,7 +16,7 @@ class RoutesController < ChouetteController
 
   def show
     @map = RouteMap.new(route).with_helpers(self)
-    @stop_points = route.stop_points.paginate(:page => params[:page], :per_page => 12)
+    @stop_points = route.stop_points.paginate(:page => params[:page])
     show!
   end
 
