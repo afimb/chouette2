@@ -23,11 +23,8 @@
 </p>
 <% end %>
 
-<div class="pagination">
-  <div class="page_info">
-    <%= page_entries_info @lines %>
-  </div>
-  <%= will_paginate @lines, :container => false %>
+<div class="page_info">
+  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @lines %>
 </div>
 <div class="lines paginated_content">
   <%= render :partial => "line", :collection => @lines %>

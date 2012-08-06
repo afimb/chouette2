@@ -63,7 +63,7 @@
     }
 
     .stop_points {
-        margin-top: 20px;
+        margin-top: 10px;
     }
 
     .stop_points:after {
@@ -79,7 +79,7 @@
     .stop_point {
         @include div_for_object;
         /* to create multi-column index */
-        width: 350px;
+        width: 250px;
         float: left;
         padding-right: 10px;
 
@@ -95,5 +95,35 @@
         }
     }
     
-}        
+}   
+
+#workspace.routes.show
+{
+    .jouerney_pattern:after { 
+        @include after_div_for_object;  
+    }
+
+    .journey_patterns {
+        margin-top: 10px;
+    }
+
+    .journey_patterns:after {
+        @include content_to_clear;
+    }
+    
+    .journey_pattern {
+        @include div_for_object;
+
+        /* to create multi-column index */
+        width: 350px;
+        padding-right: 10px;
+        height: 80px;
+        float: left;
+
+        .name {
+            line-height: 16px;
+        }
+        
+    }
+}     
 

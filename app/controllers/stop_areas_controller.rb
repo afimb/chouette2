@@ -35,7 +35,7 @@ class StopAreasController < ChouetteController
   end
 
   def index     
-    request.format.kml? ? @per_page = nil : @per_page = 10
+    request.format.kml? ? @per_page = nil : @per_page = 12
     index!
   end
 

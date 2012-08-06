@@ -5,7 +5,7 @@ en:
     search: Search
     add: Add new
   or: or
-  cancel: cancel
+  cancel: Cancel
 fr:
   actions:
     edit: Modifier
@@ -13,4 +13,4 @@ fr:
     search: Chercher
     add: Ajouter
   or: ou
-  cancel: annuler
+  cancel: Annuler

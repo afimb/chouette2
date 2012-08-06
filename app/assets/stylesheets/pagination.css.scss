@@ -1,7 +1,27 @@
+.page_info {
+    margin: 30px 0 10px 0;
+    height: 30px;
+    line-height: 30px;
+    color: #777777; 
+    border-bottom: solid 1px #cdc9c0;
+    border-top: solid 1px #cdc9c0;
+    
+    .search{
+        margin: 0 20px 0 10px;
+        color: #61970b;
+        font-weight:bold;
+    }
+    
+    b {
+        padding: 0.1em 0.25em; 
+    }
+}
+
 .pagination {
   background: white;
   cursor: default;
-  margin-top: 20px;
+  margin-top: 10px;
+  padding-left: 70px;
  
   /* self-clearing method: */
   a, span, em {
@@ -25,17 +45,6 @@
   a:hover,  a:focus {
       color: #000033;
       border-color: #000033; }
-  .page_info {
-      background: #61970b;
-      color: white;
-      padding: 0.4em 0.6em;
-      width: 22em;
-      margin-bottom: 0.3em;
-      text-align: center; }
-  .page_info b {
-      color: #000033;
-      background: #86b41d;
-      padding: 0.1em 0.25em; }
 }
 
 .pagination:after {

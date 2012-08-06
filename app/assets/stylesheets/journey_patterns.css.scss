@@ -3,37 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "common";
 
-#workspace.routes.show
-{
-    .jouerney_pattern:after { 
-        @include after_div_for_object;  
-    }
-
-    .journey_patterns {
-        margin-top: 20px;
-    }
-
-    .journey_patterns:after {
-        @include content_to_clear;
-    }
-    
-    .journey_pattern {
-        @include div_for_object;
-
-        /* to create multi-column index */
-        width: 350px;
-        padding-right: 10px;
-        height: 60px;
-        float: left;
-
-        .name {
-            line-height: 16px;
-        //    float: left;
-        }
-        
-    }
-}
-
 #workspace.journey_patterns.edit, #workspace.journey_patterns.new
 {
     #route_color{ width: 100px;

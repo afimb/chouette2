@@ -8,11 +8,8 @@
   <%= link_to t("cancel"), referential_networks_path(@referential) %>
 <% end %>
 
-<div class="pagination">
-  <div class="page_info">
-    <%= page_entries_info @networks %>
-  </div>
-  <%= will_paginate @networks, :container => false %>
+<div class="page_info">
+  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @networks %>
 </div>
 <div class="networks paginated_content">
   <%= render :partial => "network", :collection => @networks %>

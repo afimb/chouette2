@@ -6,8 +6,8 @@
       <%= link_to_if connection_link.departure, connection_link.departure.name, referential_stop_area_path(@referential, connection_link.departure), :title => "#{connection_link.human_attribute_name('departure')} #{connection_link.departure.name}" %>
     <% else %>
       <%= connection_link.human_attribute_name("undefined") %>
-    <% end %>
-    &nbsp;-&nbsp;<%= connection_link.human_attribute_name('arrival') %> 
+    <% end %><br>
+    <%= connection_link.human_attribute_name('arrival') %> 
     <% if connection_link.arrival.present? %> 
       <%= link_to_if( connection_link.arrival, connection_link.arrival.name, referential_stop_area_path(@referential, connection_link.arrival), :title => "#{connection_link.human_attribute_name('arrival')} #{connection_link.arrival.name}" )  %>
     <% else %>

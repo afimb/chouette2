@@ -2,10 +2,9 @@
   <%= link_to journey_name(journey_pattern), [@referential, @line, @route, journey_pattern] %>
   <div class="info">
     <% unless journey_pattern.stop_points.empty? %>
-      <%= t('.from_to', :departure => journey_pattern.stop_points.first.stop_area.name, :arrival => journey_pattern.stop_points.last.stop_area.name) %> -
-    <% end %>
-    <%= t('.stop_count', :count => journey_pattern.stop_points.count, :route_count => @route.stop_points.count) %> -
-    <%= t('.vehicle_journeys_count', :count => journey_pattern.vehicle_journeys.count) %>
+      <%= t('.from_to', :departure => journey_pattern.stop_points.first.stop_area.name, :arrival => journey_pattern.stop_points.last.stop_area.name) %>
+    <% end %><br>
+    <%= t('.stop_count', :count => journey_pattern.stop_points.count, :route_count => @route.stop_points.count) %> | <%= t('.vehicle_journeys_count', :count => journey_pattern.vehicle_journeys.count) %>
     <div class="actions">  
       <%= link_to t("actions.destroy"), referential_line_route_journey_pattern_path(@referential, @line, @route, journey_pattern), :method => :delete, :confirm =>  t('journey_patterns.actions.destroy_confirm'), :class => "remove" %>
       <% if journey_pattern.vehicle_journeys.count > 0 %>
