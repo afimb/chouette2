@@ -6,11 +6,19 @@
   <div class="summary">
     <p>
       <label><%= @line.human_attribute_name(:network) %>: </label>
+  	<% if @line.network.nil? %>
+  	   <%= t('lines.index.unset') %> 
+  	<% else %>
       <%= link_to @line.network.name, [@referential, @line.network] %>
+    <% end %>
     </p>
     <p>
-      <label><%= @line.human_attribute_name("company") %>: </label>
+      <label><%= @line.human_attribute_name(:company) %>: </label>
+  	<% if @line.company.nil? %>
+  	   <%= t('lines.index.unset') %>
+  	<% else %>
       <%= link_to @line.company.name, [@referential, @line.company] %>
+    <% end %>
     </p>
     <p>
       <label><%= @line.human_attribute_name("name") %>: </label>

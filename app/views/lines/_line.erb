@@ -1,5 +1,5 @@
 <%= div_for(line) do %>
-  <%= link_to([@referential, line], :class => "preview", :title => "Ligne #{line.number}") do %>
+  <%= link_to([@referential, line], :class => "preview", :title => "#{Chouette::Line.model_name.human.capitalize} #{line.number}") do %>
     <div class="color">
       <% if line.number and line.number.length <= 3 %>
         <div class="number"><%= line.number %></div>
@@ -8,12 +8,19 @@
   <% end %>
   <div class="name">
   <%= check_box_tag "ids[]", line.id, false, :class => "multiple_selection", :style => "display: none;" %>
-  <%= link_to truncate(line.name, :length => 30), [@referential, line], :title => "Ligne #{line.name}"%>
+  <%= link_to truncate(line.name, :length => 30), [@referential, line], :title => "#{Chouette::Line.model_name.human.capitalize} #{line.name}"%>
   </div>
   <div class="info">
-    <%= line.human_attribute_name('network') %> <%= link_to_if line.network, line.network.name, referential_network_path(@referential, line.network), :title => "#{line.human_attribute_name('network')} #{line.network.name}" %> -
-    <%= line.human_attribute_name('company') %> <%= link_to_if( line.company, line.company.name, referential_company_path(@referential, line.company), :title => "#{line.human_attribute_name('company')} #{line.company.name}" )  %>
-
+  	<% if line.network.nil? %>
+  	   <%= line.human_attribute_name('network') %> <%=  t('lines.index.unset') %> 
+  	<% else %>
+       <%= line.human_attribute_name('network') %> <%= link_to_if line.network, line.network.name, referential_network_path(@referential, line.network), :title => "#{line.human_attribute_name('network')} #{line.network.name}" %> -
+    <% end %>
+  	<% if line.company.nil? %>
+  	   <%= line.human_attribute_name('company') %> <%=  t('lines.index.unset') %> 
+  	<% else %>
+       <%= line.human_attribute_name('company') %> <%= link_to_if( line.company, line.company.name, referential_company_path(@referential, line.company), :title => "#{line.human_attribute_name('company')} #{line.company.name}" )  %>
+    <% end %>
     <div class="actions">  
       <%= link_to t("actions.edit"), edit_referential_line_path(@referential, line), :class => "edit" %> |
       <%= link_to t("actions.destroy"), referential_line_path(@referential, line), :method => :delete, :confirm =>  t('lines.actions.destroy_confirm'), :class => "remove" %>

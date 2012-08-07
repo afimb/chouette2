@@ -25,6 +25,7 @@ en:
       export_selected: Export lines
       select_all: Select all
       deselect_all: Deselect all
+      unset: undefined
   activerecord:        
     models:        
       line: 
@@ -78,6 +79,7 @@ fr:
       export_selected: Exporter les lignes
       select_all: Tout sélectionner
       deselect_all: Tout désélectionner
+      unset: non défini
   activerecord:        
     models:        
       line:
