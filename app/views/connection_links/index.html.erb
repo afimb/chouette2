@@ -27,11 +27,8 @@
 <% end %>
 -->
 
-<div class="pagination">
-  <div class="page_info">
-    <%= page_entries_info @connection_links %>
-  </div>
-  <%= will_paginate @connection_links, :container => false %>
+<div class="page_info">
+  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @connection_links %>
 </div>
 <div class="connection_links paginated_content">
   <%= render :partial => "connection_link", :collection => @connection_links %>

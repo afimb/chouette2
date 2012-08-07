@@ -9,10 +9,6 @@
         @include after_div_for_object;  
     }
 
-    .stop_areas {
-        margin-top: 20px;
-    }
-
     .stop_areas:after {
         @include content_to_clear;
     }
@@ -20,7 +16,7 @@
     .stop_area {
         @include div_for_object;
         /* to create multi-column index */
-        width: 350px;
+        width: 250px;
         float: left;
         padding-right: 10px;
 
@@ -136,6 +132,18 @@
 {
     .token-input-list{
         display: inline-block;
+    }
+}
+
+#sidebar ul.selection li {    
+    a {
+        line-height: 27px;
+        
+        img{
+            height: 25px;
+            width: 25px;
+            vertical-align: middle;
+        }
     }
 }
 

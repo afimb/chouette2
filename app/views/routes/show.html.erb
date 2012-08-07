@@ -64,21 +64,12 @@
 
 </div>
 
-<h3 class="route_stop_points"><%= t('.stop_points') %><a name="stop_points"/></h3>
-<div class="pagination">
-  <div class="page_info">
-    <%= page_entries_info @stop_points %>
-  </div>
-  <%= will_paginate @stop_points, :container => false %>
-</div>
+<h3 class="route_stop_points"><%= t('.stop_points') %></h3>
 <div class="stop_points paginated_content">
   <%= render :partial => "stop_points/stop_point", :collection => @stop_points %>
 </div>
-<div class="pagination">
-  <%= will_paginate @stop_points, :container => false %>
-</div>
 
-<h3 class="route_journey_patterns"><%= t('.journey_patterns') %><a name="journey_patterns"/></h3>
+<h3 class="route_journey_patterns"><%= t('.journey_patterns') %></h3>
 <div class="journey_patterns">
   <%= render :partial => "journey_patterns/journey_pattern", :collection => @route.journey_patterns %>
 </div>

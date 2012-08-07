@@ -13,11 +13,8 @@
   </div>
 </div>
 <h3 class="vehicle_journeys"><%= t('.vehicle_journeys') %></h3>
-<div class="pagination">
-  <div class="page_info">
-    <%= page_entries_info @vehicle_journeys %>
-  </div>
-  <%= will_paginate @vehicle_journeys, :container => false %>
+<div class="page_info">
+  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @vehicle_journeys %>
 </div>
 <div class="vehicle_journeys paginated_content">
   <table>
