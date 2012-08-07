@@ -1,5 +1,6 @@
 <%= semantic_form_for [@referential, @stop_area] do |form| %>
   <%= form.inputs do %> 
+    <%= form.input :id, :as => :hidden %>
     <%= form.input :name %>
     <%= form.input :stop_area_type, :as => :select, :input_html => { :disabled => !@stop_area.new_record? },
       :collection => Chouette::StopArea.stop_area_types, :include_blank => false, :member_label => Proc.new { |stop_area_type| t("area_types.label.#{stop_area_type}") }  %>
