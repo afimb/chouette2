@@ -1,9 +1,9 @@
 en:
   stop_points:
-    reorder_success: "Reordering saved"
+    reorder_success: "Stop list saved"
     reorder_failure: "Fail in reordering"
     actions:
-      sort: Reorder stop on route
+      sort: Manage stops on route
       show: Show
       index: Stops on route list
       new: Add a new stop on route
@@ -30,10 +30,10 @@ en:
 
 fr:
   stop_points:
-    reorder_success: "L'ordre a été mis à jour"
+    reorder_success: "La list des arrêts a été mise à jour"
     reorder_failure: "Echec de la mise à jour"
     actions:
-      sort: Réordonner les arrêts de la séquence
+      sort: Gérer les arrêts de la séquence
       show: Consulter
       index: Liste des arrêts de la séquence
       new: Ajouter un arrêt à la séquence
