@@ -12,6 +12,7 @@ en:
       title: Update connection link %{connection_link}
     show:
       title: Connection link %{connection_link}
+      durations: "Durations :"
     index:
       title: Connection_ links
       name: Name
@@ -42,10 +43,10 @@ en:
         comment: Comment
         link_distance: Distance
         connection_link_type: Type
-        default_duration: Average duration
-        frequent_traveller_duration: Regular passenger duration
-        occasional_traveller_duration: Occasional passenger duration
-        mobilit_yrestricted_traveller_duration: Mobility reduced passenger duration
+        default_duration: Average
+        frequent_traveller_duration: Regular passenger
+        occasional_traveller_duration: Occasional passenger
+        mobilit_yrestricted_traveller_duration: Mobility reduced passenger
         mobility_restricted_suitability: Mobility reduced passenger suitable
         stairs_availability: Escalator
         lift_availability: Lift
@@ -72,6 +73,7 @@ fr:
       title: Modifier la correspondance %{connection_link}
     show:
       title: Correspondance %{connection_link}
+      durations: "Durées :"
     index:
       name: Nom
       title: Correspondances
@@ -102,11 +104,11 @@ fr:
         comment: Commentaire
         link_distance: Distance
         connection_link_type: Type
-        default_duration: Durée moyenne
-        frequent_traveller_duration: Durée pour un habitué
-        occasional_traveller_duration: Durée pour un voyageur occasionnel
-        mobility_restricted_traveller_duration: Durée pour un voyageur à mobilité réduite
-        mobility_restricted_suitability: Accès pour personne à mobilité réduite
+        default_duration: moyenne
+        frequent_traveller_duration: pour un habitué
+        occasional_traveller_duration: pour un voyageur occasionnel
+        mobility_restricted_traveller_duration: pour un voyageur à mobilité réduite
+        mobility_restricted_suitability: Accès pour voyageur à mobilité réduite
         stairs_availability: Escalator
         lift_availability: Ascenseur
         objectid: Identifiant Neptune
