@@ -12,7 +12,7 @@ describe "StopPoints" do
     it "display route's stop points" do
       pending
       visit referential_line_route_path(referential,line,route)
-      click_link "Réordonner les arrêts de la séquence"
+      click_link "Gérer les arrêts de la séquence"
       route.stop_areas.each do |sa|
         page.should have_content(sa.name)
       end
@@ -21,7 +21,7 @@ describe "StopPoints" do
   describe "from route's page, go to new stop point page" do
     it "display route's stop points" do
       visit referential_line_route_path(referential,line,route)
-      click_link "Réordonner les arrêts de la séquence"
+      click_link "Gérer les arrêts de la séquence"
       click_link "Ajouter un arrêt à la séquence"
       page.should have_content( "Sélectionner un arrêt")
     end
