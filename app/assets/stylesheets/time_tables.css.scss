@@ -58,32 +58,7 @@
     }
 }        
 
-#workspace.time_tables.edit
-{
-  .day_type ol {
-      float: left;
-      margin: 0;
-      padding: 0 0 0 0;
-      width: 100%;
-      list_style: none outside none;
-    }
-  .day_type ol li {
-      float: left;
-      margin: 0 O 0 0;
-      width: auto;
-      padding: 0;
-    }
-  .day_type_label {
-      float: left;
-      margin-top: 0;
-      width: 25%;
-    }
-  .day_type ol li label {
-      padding-left: 10%;
-    }
-  
-}
-#workspace.time_tables.new
+#workspace.time_tables.edit,#workspace.time_tables.new,#workspace.time_tables.create,#workspace.time_tables.update
 {
   .day_type ol {
       float: left;
