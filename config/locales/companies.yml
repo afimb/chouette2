@@ -74,7 +74,7 @@ fr:
         operating_department_name: "Nom du département dans la société"
         code: "Code postal"
         phone: "Numéro de téléphone"
-        fax: "Numero de fax"
+        fax: "Numéro de fax"
         email: "Email"
         objectid: "Identifiant Neptune"
         object_version: "Version"
