@@ -24,6 +24,9 @@ en:
           slug:
             pg_excluded: "code can't begins with pg_"
             public_excluded: "public is reserved value"
+          attributes:
+            name:
+              taken: duplicate name
     models:
       referential: 
         zero: Data space
@@ -89,6 +92,9 @@ fr:
           slug:
             pg_excluded: "code ne peut commencer par pg_"
             public_excluded: "public est une valeur réservée"
+          attributes:
+            name:
+              taken: "déjà utilisé pour un autre référentiel"
     models:
       referential: 
         zero: Espace de Données

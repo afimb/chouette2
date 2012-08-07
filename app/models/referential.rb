@@ -147,13 +147,40 @@ class Referential < ActiveRecord::Base
 end
 
 Rails.application.config.after_initialize do
+  
   Chouette::ActiveRecord
 
   class Chouette::ActiveRecord
 
+    # add referential relationship for objectid and localization functions
     def referential
       @referential ||= Referential.where(:slug => Apartment::Database.current_database).first!
     end
 
+  end
+  
+  Chouette::StopArea
+  
+  class Chouette::StopArea
+    # override default_position method to add referential envelope when no stoparea is positioned
+    def default_position 
+      # for first StopArea ... the bounds is nil , set to referential center 
+      Chouette::StopArea.bounds ? Chouette::StopArea.bounds.center : self.referential.envelope.center
+    end
+    
+    # add projection_type set on pre-insert and pre_update action
+    before_validation :set_projections
+    def set_projections
+      if ! self.latitude.nil? && ! self.longitude.nil?
+        Rails.logger.info "update long_lat_type"
+        self.long_lat_type = 'WGS84'
+      end
+      #if ! self.referential.projection_type.nil?
+      #  if ! self.x.nil? && ! self.y.nil?
+      #    Rails.logger.info "update projection_type"
+      #    self.projection_type = referential.projection_type.to_s
+      #  end
+      #end
+    end
   end
 end
