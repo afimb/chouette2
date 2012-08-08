@@ -1,6 +1,6 @@
 GIT
   remote: git://chouette.dryade.priv/ninoxe
-  revision: 42fac2f75fe5486212af7a022554459e4cbad69c
+  revision: 7082aa0db860b048a3e72d2f95cb9bc9042608c1
   specs:
     ninoxe (0.0.8)
       GeoRuby
