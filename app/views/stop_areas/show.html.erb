@@ -39,7 +39,7 @@
     <% if @stop_area.projection_type == nil && @stop_area.long_lat_type == nil %>
 	    <span class='geo_data'><%= t('stop_areas.show.no_geographic_data') %></span>
     <% else %>
-	    <% if @stop_area.projection_type != nil %>
+	    <% if !@stop_area.projection_type.nil? %>
 	    <p>
 	      <span class='geo_data'><%= @stop_area.human_attribute_name("projection_type") %>: </span>
 	      <%= @stop_area.projection_type %>
@@ -53,7 +53,7 @@
 	      <%= @stop_area.y %>
 	    </p>
 	    <% end %>
-	    <% if @stop_area.long_lat_type != nil %>
+	    <% if !@stop_area.long_lat_type.nil? %>
 	    <p>
 	      <span class='geo_data'><%= @stop_area.human_attribute_name("long_lat_type") %>: </span>
 	      <%= @stop_area.long_lat_type %>

@@ -90,6 +90,15 @@ class Referential < ActiveRecord::Base
     ]
   end
 
+  def projection_type_label 
+    self.class.available_srids.each do |a|
+      if a.last.to_s == projection_type
+        return a.first.split('(').first.rstrip
+      end
+    end
+    projection_type || ""
+  end
+
   before_create :create_schema
   def create_schema
     Apartment::Database.create slug
@@ -148,13 +157,17 @@ end
 
 Rails.application.config.after_initialize do
   
-  Chouette::ActiveRecord
+  Chouette::TridentActiveRecord
 
-  class Chouette::ActiveRecord
+  class Chouette::TridentActiveRecord
 
     # add referential relationship for objectid and localization functions
     def referential
       @referential ||= Referential.where(:slug => Apartment::Database.current_database).first!
+    end
+
+    def prefix
+      self.referential.prefix
     end
 
   end
@@ -172,15 +185,21 @@ Rails.application.config.after_initialize do
     before_validation :set_projections
     def set_projections
       if ! self.latitude.nil? && ! self.longitude.nil?
-        Rails.logger.info "update long_lat_type"
         self.long_lat_type = 'WGS84'
+      else
+        self.long_lat_type = nil
       end
-      #if ! self.referential.projection_type.nil?
-      #  if ! self.x.nil? && ! self.y.nil?
-      #    Rails.logger.info "update projection_type"
-      #    self.projection_type = referential.projection_type.to_s
-      #  end
-      #end
+      if ! self.referential.projection_type.nil? && !self.referential.projection_type.empty?
+        if ! self.x.nil?  && ! self.y.nil?
+          self.projection_type = referential.projection_type_label
+        else
+          self.projection_type = nil
+        end
+      else
+          self.projection_type = nil
+          self.x = nil
+          self.y = nil
+      end
     end
   end
 end
