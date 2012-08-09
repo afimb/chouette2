@@ -281,7 +281,6 @@ ActiveRecord::Schema.define(:version => 20120620081755) do
     t.string   "comment"
     t.boolean  "mobility_restricted_suitability"
     t.integer  "int_user_needs"
-    t.integer  "ptnetwork_id",                    :limit => 8
   end
 
   add_index "lines", ["objectid"], :name => "lines_objectid_key", :unique => true
