@@ -7,19 +7,6 @@ $text_color: #222;
 
 @import "user_interface/layout";
 
-#header .infos div.title
-{
-    margin: 20px 0 0 30px;
-
-    h1 {
-        font-family: "Comic Sans", "Comic Sans MS", cursive;    
-        font-size: 32px;      
-        font-weight: bold;
-        padding: 0px;
-    }
-}
-
-
 #sidebar ul {
     padding: 0 8px;
 
