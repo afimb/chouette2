@@ -1,6 +1,6 @@
 GIT
   remote: git://chouette.dryade.priv/ninoxe
-  revision: 7082aa0db860b048a3e72d2f95cb9bc9042608c1
+  revision: bdf6caf69afd4d1f27ab33d4b4d2ce8c67c18463
   specs:
     ninoxe (0.0.8)
       GeoRuby
@@ -61,7 +61,7 @@ GIT
 
 GIT
   remote: git://sim.dryade.priv/user_interface
-  revision: 1afb74d751bbe0cef2736e992788aa7d5237f770
+  revision: 2d551a49dc3942851f5f94f8c0f86d2570f80dd2
   specs:
     user_interface (0.0.1)
       rails (> 3.1.0)
