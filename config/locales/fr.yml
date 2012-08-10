@@ -161,6 +161,10 @@ fr:
         other: "Impossible d'enregistrer ce %{model} : %{count} erreurs"
       body: "Veuillez vérifier les champs suivants : "
 
+  activerecord:
+    errors:
+      messages:
+        taken: "n'est pas disponible"
   activemodel:
     errors:
       messages:

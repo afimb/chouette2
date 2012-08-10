@@ -24,10 +24,10 @@ class Referential < ActiveRecord::Base
   def slug_excluded_values
     if ! slug.nil?
       if slug.start_with? "pg_" 
-        errors.add(:slug,"pg_excluded")
+        errors.add(:slug,I18n.t("referentials.errors.pg_excluded"))
       end
       if slug == 'public'
-        errors.add(:slug,"public_excluded")
+        errors.add(:slug,I18n.t("referentials.errors.public_excluded"))
       end
     end
   end
@@ -166,6 +166,7 @@ Rails.application.config.after_initialize do
       @referential ||= Referential.where(:slug => Apartment::Database.current_database).first!
     end
 
+    # override prefix for good prefix in objectid generation
     def prefix
       self.referential.prefix
     end
