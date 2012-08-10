@@ -6,10 +6,22 @@
     <%= form.input :comment %>  
     <%= form.input :link_distance %> 
     <%= form.inputs :name => t('connection_links.show.durations') do %> 
-      <%= form.input :default_duration, :ignore_date=>false,:include_seconds=>true, :label => @connection_link.human_attribute_name("default_duration")%>
-      <%= form.input :frequent_traveller_duration, :ignore_date=>false,:include_seconds=>true, :label => @connection_link.human_attribute_name("frequent_traveller_duration")%>
-      <%= form.input :occasional_traveller_duration, :ignore_date=>false,:include_seconds=>true, :label => @connection_link.human_attribute_name("occasional_traveller_duration")%>
-      <%= form.input :mobility_restricted_traveller_duration, :ignore_date=>false,:include_seconds=>true, :label => @connection_link.human_attribute_name("mobility_restricted_traveller_duration")%>
+      <%= form.input "default_duration(1i)", :as => :hidden ,:input_html => { :value => "2000" } %>
+      <%= form.input "default_duration(2i)", :as => :hidden ,:input_html => { :value => "1" } %>
+      <%= form.input "default_duration(3i)", :as => :hidden ,:input_html => { :value => "1" } %>
+      <%= form.input :default_duration, :ignore_date=>true,:include_seconds=>true, :label => @connection_link.human_attribute_name("default_duration")%>
+      <%= form.input "frequent_traveller_duration(1i)", :as => :hidden ,:input_html => { :value => "2000" } %>
+      <%= form.input "frequent_traveller_duration(2i)", :as => :hidden ,:input_html => { :value => "1" } %>
+      <%= form.input "frequent_traveller_duration(3i)", :as => :hidden ,:input_html => { :value => "1" } %>
+      <%= form.input :frequent_traveller_duration, :ignore_date=>true,:include_seconds=>true, :label => @connection_link.human_attribute_name("frequent_traveller_duration")%>
+      <%= form.input "occasional_traveller_duration(1i)", :as => :hidden ,:input_html => { :value => "2000" } %>
+      <%= form.input "occasional_traveller_duration(2i)", :as => :hidden ,:input_html => { :value => "1" } %>
+      <%= form.input "occasional_traveller_duration(3i)", :as => :hidden ,:input_html => { :value => "1" } %>
+      <%= form.input :occasional_traveller_duration, :ignore_date=>true,:include_seconds=>true, :label => @connection_link.human_attribute_name("occasional_traveller_duration")%>
+      <%= form.input "mobility_restricted_traveller_duration(1i)", :as => :hidden ,:input_html => { :value => "2000" } %>
+      <%= form.input "mobility_restricted_traveller_duration(2i)", :as => :hidden ,:input_html => { :value => "1" } %>
+      <%= form.input "mobility_restricted_traveller_duration(3i)", :as => :hidden ,:input_html => { :value => "1" } %>
+      <%= form.input :mobility_restricted_traveller_duration, :ignore_date=>true,:include_seconds=>true, :label => @connection_link.human_attribute_name("mobility_restricted_traveller_duration")%>
     <% end %>
     <%= form.input :mobility_restricted_suitability,:as => :boolean %>
     <%= form.input :stairs_availability,:as => :boolean %>
