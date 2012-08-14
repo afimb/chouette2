@@ -52,8 +52,13 @@
     </p>
   </div>
 </div>
-<h3><%= @vehicle_journey.human_attribute_name(:vehicle_journey_at_stop_ids) %></h3>
-<div class="vehicle_journey_at_stops">
+<h3><%= @vehicle_journey.human_attribute_name(:vehicle_journey_at_stop_ids) %>
+<a class="vehicle_journey_at_stops">
+  <span class="switcher">+</span>
+  <span class="switcher" style="display: none;">-</span>
+</a>
+</h3>
+<div class="vehicle_journey_at_stops content" style="display: none;">
   <table border="0" >
   <thead>
     <tr>
@@ -74,8 +79,13 @@
   </table>
 </div>
 
-<h3><%= t('.time_tables') %></h3>
-<div class="vehicle_journey_time_tables">
+<h3><%= t('.time_tables') %>
+<a class="vehicle_journey_time_tables">
+  <span class="switcher">+</span>
+  <span class="switcher" style="display: none;">-</span>
+</a>
+</h3>
+<div class="vehicle_journey_time_tables content" style="display: none;">
   <%= render :partial => "vehicle_journeys/time_table", :collection => @vehicle_journey.time_tables %>
   </div>
   <% content_for :sidebar do %>
