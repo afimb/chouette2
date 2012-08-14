@@ -7,6 +7,7 @@ class ConnectionLinksController < ChouetteController
   end
 
   respond_to :html, :xml, :json
+  respond_to :kml, :only => :show
 
   def show
     @map = ConnectionLinkMap.new(resource).with_helpers(self)

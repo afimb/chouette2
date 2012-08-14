@@ -18,6 +18,7 @@ class ConnectionLinkMap < ApplicationMap
 
       page.assign "stop_areas_layer", kml_layer([connection_link.referential, connection_link, :stop_areas], :styleMap => StyleMap::StopAreasStyleMap.new.style_map) 
       page << map.add_layer(:stop_areas_layer)
+      page << map.add_layer( kml_layer([connection_link.referential, connection_link], :styleMap => StyleMap::ConnectionLinkStyleMap.new.style_map))
       page << map.add_control( hover_control_display_name(:stop_areas_layer) )
       #page << map.add_layer(kml_layer(connection_link, :styleMap => StyleMap::ConnectionLinkStyleMap.new( :style => connection_link_style).style_map))
       #page << map.add_layer(kml_layer(polymorphic_path([referential, connection_link, :stop_areas], :format => :kml), :styleMap => StyleMap::StopAreasStyleMap.new.style_map))
