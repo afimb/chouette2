@@ -21,6 +21,10 @@ p.after_map {
         padding: 0px;
     }
 }
+ul.user li.language.selected
+{
+    border-bottom: 2px solid black;
+}
 
 #sidebar ul {
     padding: 0 8px;
