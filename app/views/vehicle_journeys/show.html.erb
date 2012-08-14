@@ -93,16 +93,19 @@
     <li><%= link_to t('vehicle_journeys.actions.edit'), edit_referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey), :class => "edit" %></li>
     <li><%= link_to  t('vehicle_journeys.actions.destroy'), referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey), :method => :delete, :confirm =>  t('vehicle_journeys.actions.destroy_confirm'), :class => "remove" %></li>
   </ul>
-  <h3><%= t('.translation_form') %></h3>
-  <div id="compact_form" >
-  <%= semantic_form_for [@referential, @line, @route, @vehicle_journey, VehicleTranslation.new] do |form| %>
-  <%= form.inputs do %> 
-    <%= form.input :duration %>
-    <%= form.input :count %>
+  <% unless @vehicle_journey.vehicle_journey_at_stops.empty? ||
+       @vehicle_journey.vehicle_journey_at_stops.any? { |vjas| vjas.departure_time.nil? } %>
+    <h3><%= t('.translation_form') %></h3>
+    <div id="compact_form" >
+    <%= semantic_form_for [@referential, @line, @route, @vehicle_journey, VehicleTranslation.new] do |form| %>
+    <%= form.inputs do %> 
+      <%= form.input :duration %>
+      <%= form.input :count %>
+      <% end %>
+      <%= form.actions do %>
+        <%= form.action :submit, :as => :button, :label => t('.validation') %>
+      <% end %>
     <% end %>
-    <%= form.actions do %>
-      <%= form.action :submit, :as => :button, :label => t('.validation') %>
-    <% end %>
-  <% end %>
   </div>
+  <% end %>
 <% end %>
