@@ -21,14 +21,12 @@
   background: white;
   cursor: default;
   margin-top: 10px;
-  padding-left: 70px;
+  text-align: center;     
  
   /* self-clearing method: */
   a, span, em {
       padding: 0.2em 0.5em;
-      display: block;
-      float: left;
-      margin-right: 1px; }
+      }
   .disabled {
       color: #999999;
       border: 1px solid #dddddd; }
