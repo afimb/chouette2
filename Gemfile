@@ -38,19 +38,20 @@ gem "modernizr-rails", "~> 2.0.6"
 gem "acts_as_tree", :git => "git://github.com/dryade/acts_as_tree.git"
 #gem 'ninoxe', :git => 'git://github.com/dryade/ninoxe.git'
 gem 'ninoxe', :git => 'git://chouette.dryade.priv/ninoxe' #, :path => '~/Projects/Ninoxe'
-#gem 'ninoxe',  :path => '~/workspace/chouette/ninoxe'
 gem 'acts_as_list', '0.1.6'
 
 #gem 'composite_primary_keys', '~> 5.0.8'
 gem 'delayed_job_active_record'
 gem 'apartment',:git => 'git://github.com/dryade/apartment.git'
 
+# some views use coffee script
+gem 'coffee-rails', '~> 3.2.1'
+gem 'coffee-script-source'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'coffee-script-source'
   gem 'uglifier', '>= 1.0.3'
   gem 'therubyrhino', :platform => :jruby
   gem 'therubyracer', :platform => :ruby

@@ -1,6 +1,6 @@
 GIT
   remote: git://chouette.dryade.priv/ninoxe
-  revision: 7082aa0db860b048a3e72d2f95cb9bc9042608c1
+  revision: a11f513671e1d5c31534a0bc989aaad71d3f8cca
   specs:
     ninoxe (0.0.8)
       GeoRuby
@@ -185,11 +185,11 @@ GEM
     jruby-jars (1.6.7.2)
     jruby-openssl (0.7.7)
       bouncy-castle-java (>= 1.5.0146.1)
-    jruby-rack (1.1.6)
-    jruby-rack-worker (0.3-java)
-      jruby-rack (>= 1.0.1)
-    json (1.7.4)
-    json (1.7.4-java)
+    jruby-rack (1.1.7)
+    jruby-rack-worker (0.4-java)
+      jruby-rack (>= 1.1.1)
+    json (1.7.3)
+    json (1.7.3-java)
     json_pure (1.7.3)
     launchy (2.1.0)
       addressable (~> 2.2.6)
@@ -197,7 +197,6 @@ GEM
       addressable (~> 2.2.6)
       ffi (~> 1.0.9)
       spoon (~> 0.0.1)
-    libv8 (3.3.10.4)
     libwebsocket (0.1.4)
       addressable
     listen (0.4.7)
@@ -222,7 +221,6 @@ GEM
     nokogiri (1.5.5)
     nokogiri (1.5.5-java)
     orm_adapter (0.4.0)
-    pg (0.11.0)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
@@ -303,13 +301,10 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.6)
     squeel (1.0.7)
       activerecord (~> 3.0)
       activesupport (~> 3.0)
       polyamorous (~> 0.5.0)
-    therubyracer (0.10.2)
-      libv8 (~> 3.3.10)
     therubyrhino (1.73.4)
     thor (0.15.4)
     tilt (1.3.3)
@@ -333,7 +328,6 @@ GEM
 
 PLATFORMS
   java
-  ruby
 
 DEPENDENCIES
   RedCloth

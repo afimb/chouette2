@@ -1,7 +1,9 @@
 <%= title_tag t('stop_areas.show.title', :stop_area => @stop_area.name ) %>
 
 <div class="stop_area_show">
-  <%= @map.to_html %>
+  <% if @stop_area.projection_type != nil || @stop_area.long_lat_type != nil %>
+    <%= @map.to_html %>
+  <% end %>  
   <div class="summary">
     <p>
       <label><%= @stop_area.human_attribute_name("name") %>: </label>

@@ -10,7 +10,7 @@ class VehicleJourneysController < ChouetteController
   end
 
   def timeless
-    @vehicle_journeys = parent.vehicle_journeys.select { |v| v.vehicle_journey_at_stops.empty? }
+    @vehicle_journeys = parent.vehicle_journeys.timeless
   end
 
   def select_journey_pattern

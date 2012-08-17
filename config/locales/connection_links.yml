@@ -12,7 +12,7 @@ en:
       title: Update connection link %{connection_link}
     show:
       title: Connection link %{connection_link}
-      durations: "Durations :"
+      durations: "Durations (hh mm ss):"
     index:
       title: Connection_ links
       name: Name
@@ -73,7 +73,7 @@ fr:
       title: Modifier la correspondance %{connection_link}
     show:
       title: Correspondance %{connection_link}
-      durations: "Durées :"
+      durations: "Durées  (hh mm ss) :"
     index:
       name: Nom
       title: Correspondances

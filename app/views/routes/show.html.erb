@@ -64,13 +64,24 @@
 
 </div>
 
-<h3 class="route_stop_points"><%= t('.stop_points') %></h3>
-<div class="stop_points paginated_content">
+<p class="after_map" />
+  <h3 class="route_stop_points"><%= t('.stop_points') %> 
+    <a class="stop_points">
+      <span class="switcher">+</span>
+      <span class="switcher" style="display: none;">-</span>
+    </a>
+  </h3>
+<div class="stop_points content" style="display: none;">
   <%= render :partial => "stop_points/stop_point", :collection => @stop_points %>
 </div>
 
-<h3 class="route_journey_patterns"><%= t('.journey_patterns') %></h3>
-<div class="journey_patterns">
+<h3 class="route_journey_patterns"><%= t('.journey_patterns') %> 
+  <a class="journey_patterns">
+    <span class="switcher">+</span>
+    <span class="switcher" style="display: none;">-</span>
+  </a>
+</h3>
+<div class="journey_patterns content" style="display: none;">
   <%= render :partial => "journey_patterns/journey_pattern", :collection => @route.journey_patterns %>
 </div>
 
@@ -86,12 +97,6 @@
   </li>
   <li>
     <%= link_to t('vehicle_journeys.actions.index'), [@referential, @line, @route, :vehicle_journeys], :class => "link" %>
-  </li>
-  <li>
-    <%= link_to t(".journey_patterns"), "#journey_patterns", :class => "select_parent" %>
-  </li>
-  <li>
-    <%= link_to t(".stop_points"), "#stop_points", :class => "select_parent" %>
   </li>
 </ul>
 <% end %>

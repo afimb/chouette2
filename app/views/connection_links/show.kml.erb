@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <% if @connection_link.geometry %>
+    <Placemark id="route_<%= @connection_link.id %>" >
+      <name><%= @connection_link.name %></name>
+      <%= @connection_link.geometry.kml_representation.html_safe %>
+    </Placemark>
+    <Placemark id="<%= @connection_link.departure.id %>" >
+      <departure>true</departure>
+      <%= @connection_link.departure.geometry.kml_representation.html_safe %>
+    </Placemark>
+    <Placemark id="<%= @connection_link.arrival.id %>" >
+      <arrival>true</arrival>
+      <%= @connection_link.arrival.geometry.kml_representation.html_safe %>
+    </Placemark>
+    <% end %>
+  </Document>
+</kml>
+
