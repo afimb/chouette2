@@ -47,14 +47,14 @@ gem 'apartment',:git => 'git://github.com/dryade/apartment.git'
 # some views use coffee script
 gem 'coffee-rails', '~> 3.2.1'
 gem 'coffee-script-source'
+gem 'therubyrhino', :platform => :jruby
+gem 'therubyracer', :platform => :ruby
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'uglifier', '>= 1.0.3'
-  gem 'therubyrhino', :platform => :jruby
-  gem 'therubyracer', :platform => :ruby
 end
 
 group :development do 
