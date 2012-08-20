@@ -16,6 +16,9 @@
 <div class="page_info">
   <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @vehicle_journeys %>
 </div>
+<div class="pagination">
+  <%= will_paginate @vehicle_journeys, :container => false %>
+</div>
 <div class="vehicle_journeys paginated_content">
   <table>
   <thead>
@@ -53,6 +56,9 @@
   <% end %>
   </tbody>
   </table>
+</div>
+<div class="pagination">
+  <%= will_paginate @vehicle_journeys, :container => false %>
 </div>
 <% content_for :sidebar do %>
   <ul class="actions">
