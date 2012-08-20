@@ -14,7 +14,7 @@
    id="svg3632"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="stop_area.svg">
+   sodipodi:docname="stop_area_unselected.svg">
   <defs
      id="defs3634">
     <inkscape:perspective
@@ -33,7 +33,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="22.197802"
-     inkscape:cx="-7.981436"
+     inkscape:cx="-16.788614"
      inkscape:cy="7.9961044"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -52,7 +52,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -62,7 +62,7 @@
      inkscape:groupmode="layer">
     <path
        sodipodi:type="arc"
-       style="fill:none;stroke:#000000;stroke-width:1.9543159;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:#ffffff;stroke:#000000;stroke-width:1.95431590000000011;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1"
        id="path3642"
        sodipodi:cx="9.4153461"
        sodipodi:cy="8.9047031"
