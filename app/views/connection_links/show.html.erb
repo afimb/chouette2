@@ -65,15 +65,15 @@
     </p>
     <p>
       <label><%= @connection_link.human_attribute_name("mobility_restricted_suitability") %>: </label>
-      <%= @connection_link.mobility_restricted_suitability %>
+      <%= t((@connection_link.mobility_restricted_suitability == true).to_s) %>
     </p>
     <p>
       <label><%= @connection_link.human_attribute_name("stairs_availability") %>: </label>
-      <%= @connection_link.stairs_availability %>
+      <%= t((@connection_link.stairs_availability == true).to_s) %>
     </p>
     <p>
       <label><%= @connection_link.human_attribute_name("lift_availability") %>: </label>
-      <%= @connection_link.lift_availability %>
+      <%= t((@connection_link.lift_availability == true).to_s) %>
     </p>
     <p>
       <label><%= @connection_link.human_attribute_name("objectid") %>: </label>
