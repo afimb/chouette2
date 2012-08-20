@@ -3,6 +3,8 @@
 
 en:
   hello: "Hello world"
+  "true": "yes"
+  "false": "no"
   time:
     formats:
       hour: "%H:%M"

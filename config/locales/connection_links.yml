@@ -41,7 +41,7 @@ en:
         undefined: not yet set
         name: Name
         comment: Comment
-        link_distance: Distance
+        link_distance: Distance (m)
         connection_link_type: Type
         default_duration: Average
         frequent_traveller_duration: Regular passenger
@@ -102,7 +102,7 @@ fr:
         undefined: non défini
         name: Nom
         comment: Commentaire
-        link_distance: Distance
+        link_distance: Distance (m)
         connection_link_type: Type
         default_duration: moyenne
         frequent_traveller_duration: pour un habitué
