@@ -5,6 +5,9 @@ class StyleMap::RouteStyleMap < StyleMap::GenericStyleMap
     @style = options[:style].present? ? default_style.merge(options[:style]) : default_style
   end
 
+  def select_style
+    default_style.merge :externalGraphic => "/assets/icons/stop_area_hover.png"
+  end
   def default_style
     {
       :label => "${label}",
@@ -19,7 +22,7 @@ class StyleMap::RouteStyleMap < StyleMap::GenericStyleMap
       :strokeWidth => 3,
       :strokeLineCap => "round",
       :strokeDashstyle => "solid",
-      :externalGraphic => "/assets/map/${positionType}.png",
+      :externalGraphic => "/assets/icons/${positionType}.png",
       :graphicWidth => 12,
       :graphicHeight => 12, 
       :graphicOpacity => 1,	
@@ -32,12 +35,12 @@ class StyleMap::RouteStyleMap < StyleMap::GenericStyleMap
   def context
     context = { 
       :label => :" function(feature) {if(feature.layer.map.getZoom() > 13) { return feature.attributes.name;} else {return '';}} ", 
-      :positionType => :" function(feature) { if (feature.attributes.departure != undefined) { return 'departure'; } else if (feature.attributes.arrival != undefined) { return 'arrival'; } else { return 'interstop'; }} " 
+      :positionType => :" function(feature) { if (feature.attributes.departure != undefined) { return 'stop_area_green'; } else if (feature.attributes.arrival != undefined) { return 'stop_area_red'; } else { return 'stop_area_black'; }} " 
     }
   end
 
   def style_map
-    OpenLayers::StyleMap.new(:default => OpenLayers::Style.new(style, { :context => context}))
+    OpenLayers::StyleMap.new(:default => OpenLayers::Style.new(style, { :context => context}), :select =>  OpenLayers::Style.new(style.merge( select_style), { :context => context}))
   end
 
 end

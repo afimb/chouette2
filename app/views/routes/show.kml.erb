@@ -3,6 +3,7 @@
   <Document>
     <Placemark id="route_<%= @route.id %>" >
       <name><%= @route.name %></name>
+      <inactive>true</inactive>
       <%= @route.geometry.kml_representation.html_safe %>
     </Placemark>
     <% @route.stop_areas.where("latitude is not null and longitude is not null").each_with_index do |stop_area, index| %>

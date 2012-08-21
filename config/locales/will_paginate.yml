@@ -6,6 +6,7 @@ en:
 
     page_entries_info:
       search: Search   
+      list: Paginated list   
       single_page:
         zero:  "No item found"
         one:   "1 %{model} shown"
@@ -26,6 +27,7 @@ fr:
 
     page_entries_info:
       search: Recherche
+      list: Liste paginée
       single_page:
         zero:  "Aucun élément trouvé"
         one:   "1 %{model} affiché(e)"

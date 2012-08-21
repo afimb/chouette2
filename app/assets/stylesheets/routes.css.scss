@@ -57,6 +57,10 @@
     .summary p label {
         font-weight: bold;
     }
+
+    .stop_points_detail div.page_info {
+        margin-top: 0px;
+    }
     
     .stop_point:after { 
         @include after_div_for_object;  

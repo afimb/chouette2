@@ -16,8 +16,15 @@ class RouteMap < ApplicationMap
       page << map.add_layer(google_satellite) 
 
       #page << map.add_layer(kml_layer(line, :styleMap => StyleMap::LineStyleMap.new( :style => line_style).style_map))
-      page << map.add_layer(kml_layer([route.referential, route.line, route], :styleMap => StyleMap::RouteStyleMap.new.style_map))
+      layer = kml_layer([route.referential, route.line, route], :styleMap => StyleMap::RouteStyleMap.new.style_map)
+      page.assign "routeLayer", layer
+      selectFeature = OpenLayers::Control::SelectFeature.new( :routeLayer)
+
+      page << map.add_layer( :routeLayer)
+      page << map.add_control( hover_control_display_name(:routeLayer) )
       page << map.zoom_to_extent(bounds.to_google.to_openlayers) if bounds
+
+      page.assign "selectFeature", selectFeature
     end
   end
 
