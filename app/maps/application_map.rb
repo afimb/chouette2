@@ -86,8 +86,10 @@ class ApplicationMap
                                               :renderIntent => "temporary",
                                               :eventListeners => {
                                                 :featurehighlighted => JsExpr.new("function(e) {
-          feature = e.feature ;
-          popup = new OpenLayers.Popup.AnchoredBubble('chicken', 
+          var feature = e.feature ;
+          if (feature.attributes.inactive != undefined)
+            return;
+          var popup = new OpenLayers.Popup.AnchoredBubble('chicken', 
                                                  new OpenLayers.LonLat(feature.geometry.x, feature.geometry.y),
                                                  null,
                                                  \"<div class='popup_hover'><b>\" + feature.attributes.name +\"</b></div> \", null, false, null);
@@ -98,7 +100,9 @@ class ApplicationMap
           map.addPopup(popup);
         }"),
                                                 :featureunhighlighted => JsExpr.new("function(e) {
-          feature = e.feature;
+          var feature = e.feature;
+          if (feature.attributes.inactive != undefined)
+            return;
           map.removePopup(feature.popup);
           feature.popup.destroy();
           feature.popup = null;  

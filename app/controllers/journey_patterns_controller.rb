@@ -2,7 +2,8 @@ class JourneyPatternsController < ChouetteController
   defaults :resource_class => Chouette::JourneyPattern
 
   respond_to :html
-  respond_to :js, :only => [:new_vehicle_journey]
+  respond_to :js, :only => [:new_vehicle_journey, :show]
+  respond_to :kml, :only => :show
 
   belongs_to :referential do
     belongs_to :line, :parent_class => Chouette::Line do
@@ -11,6 +12,7 @@ class JourneyPatternsController < ChouetteController
   end
 
   alias_method :route, :parent
+  alias_method :journey_pattern, :resource
 
   def index     
     index! do |format|
@@ -23,8 +25,8 @@ class JourneyPatternsController < ChouetteController
   end
 
   def show
-    #@map = RouteMap.new(route).with_helpers(self)
-    @stop_points = resource.stop_points.paginate(:page => params[:page])
+    @map = JourneyPatternMap.new(journey_pattern).with_helpers(self)
+    @stop_points = journey_pattern.stop_points.paginate(:page => params[:page])
     show!
   end
 
@@ -33,4 +35,5 @@ class JourneyPatternsController < ChouetteController
     @vehicle_journey.update_journey_pattern(resource)
     render "vehicle_journeys/select_journey_pattern"
   end
+
 end

@@ -1,4 +1,4 @@
-class StyleMap::RouteStyleMap < StyleMap::GenericStyleMap
+class StyleMap::JourneyPatternStyleMap < StyleMap::GenericStyleMap
   attr_accessor :style
 
   def initialize(options = {})
@@ -35,7 +35,7 @@ class StyleMap::RouteStyleMap < StyleMap::GenericStyleMap
   def context
     context = { 
       :label => :" function(feature) {if(feature.layer.map.getZoom() > 13) { return feature.attributes.name;} else {return '';}} ", 
-      :positionType => :" function(feature) { if (feature.attributes.departure != undefined) { return 'stop_area_green'; } else if (feature.attributes.arrival != undefined) { return 'stop_area_red'; } else { return 'stop_area_black'; }} " 
+      :positionType => :" function(feature) { if (feature.attributes.iconCode != undefined) {return feature.attributes.iconCode;} else { return '';} } " 
     }
   end
 

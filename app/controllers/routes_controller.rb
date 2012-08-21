@@ -3,6 +3,7 @@ class RoutesController < ChouetteController
 
   respond_to :html, :xml, :json
   respond_to :kml, :only => :show
+  respond_to :js, :only => :show
 
   belongs_to :referential do
     belongs_to :line, :parent_class => Chouette::Line, :optional => true, :polymorphic => true
