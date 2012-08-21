@@ -3,18 +3,23 @@
   <Document>
     <Placemark id="route_<%= @journey_pattern.id %>" >
       <name><%= @journey_pattern.name %></name>
-      <%= @journey_pattern.geometry.kml_representation.html_safe %>
+      <inactive>true</inactive>
+      <%= @journey_pattern.route.geometry.kml_representation.html_safe %>
     </Placemark>
-    <% @journey_pattern.stop_areas.where("latitude is not null and longitude is not null").each_with_index do |stop_area, index| %>
-      <Placemark id="<%= stop_area.id %>" >
-        <name><%= "#{stop_area.name} (#{index+1})" %></name>
-        <% if stop_area.id==@journey_pattern.stop_areas.first.id %>
+    <% @journey_pattern.route.stop_points.each_with_index do |stop_point, index| %>
+      <% if stop_point.stop_area.geometry %>
+      <Placemark id="<%= stop_point.stop_area.id %>" >
+        <name><%= "#{stop_point.stop_area.name} (#{index+1})" %></name>
+        <stop><%= @journey_pattern.stop_points.include?( stop_point) ? "true" : "false" %></stop>
+        <% if stop_point.stop_area.id==@route.stop_areas.first.id %>
         <departure>true</departure>
-        <% elsif stop_area.id==@journey_pattern.stop_areas.last.id %>
+        <% elsif stop_point.stop_area.id==@route.stop_areas.last.id %>
         <arrival>true</arrival>
         <% end %>
-        <%= stop_area.geometry.kml_representation.html_safe %>
+        <iconCode><%= icon_code(stop_point, @journey_pattern)%></iconCode>
+        <%= stop_point.stop_area.geometry.kml_representation.html_safe %>
       </Placemark>
+      <% end %>
     <% end %>
   </Document>
 </kml>

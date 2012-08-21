@@ -13,5 +13,19 @@ module JourneyPatternsHelper
 
     "#{journey_pattern.human_attribute_name(:stop_point_ids)}. #{t('journey_patterns.form.warning', :count => journey_pattern.vehicle_journeys.count)}"
   end
+  def icon_code(stop_point, journey)
+    code = "stop_area"
+    if stop_point.stop_area.id == journey.route.stop_areas.first.id
+      code << "_green"
+    elsif stop_point.stop_area.id == journey.route.stop_areas.last.id
+      code << "_red"
+    else
+      code << "_black"
+    end
+    unless journey.stop_points.include?( stop_point)
+      code << "_unselected"
+    end
+    code
+  end
 end
 

@@ -1,0 +1,10 @@
+  <div class="page_info">
+    <span class="search"> <%= t("will_paginate.page_entries_info.list") %></span> <%= page_entries_info @stop_points %>
+  </div>
+  <div class="stop_points paginated_content">
+    <%= render :partial => "stop_points/stop_point", :collection => @stop_points %>
+  </div>
+  <div class="pagination">
+    <%= will_paginate @stop_points, :container => false %>
+  </div>
+

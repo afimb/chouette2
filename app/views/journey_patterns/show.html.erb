@@ -1,6 +1,7 @@
 <%= title_tag t('journey_patterns.show.title', :journey_pattern => journey_name( @journey_pattern), :route => @route.name ) %>
 
-<div class="route_show">
+<div class="journey_pattern_show">
+  <%= @map.to_html %>
 
   <div class="summary">
     <p>
@@ -39,18 +40,10 @@
 
 </div>
 
+<p class="after_map" />
 <h3 class="journey_pattern_stop_points"><%= t('.stop_points') %></h3>
-<div class="pagination">
-  <div class="page_info">
-    <%= page_entries_info @stop_points %>
-  </div>
-  <%= will_paginate @stop_points, :container => false %>
-</div>
-<div class="stop_points paginated_content">
-  <%= render :partial => "stop_points/stop_point", :collection => @stop_points %>
-</div>
-<div class="pagination">
-  <%= will_paginate @stop_points, :container => false %>
+<div class="stop_points_detail" >
+  <%= render :partial => "stop_points_detail" %>
 </div>
 
 <% content_for :sidebar do %>
