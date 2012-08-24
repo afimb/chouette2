@@ -8,7 +8,12 @@ FactoryGirl.define do
     f.time_zone "Europe/Paris"
   end
 
+  factory :organisation do |f|
+    f.sequence(:name) { |n| "Organisation #{n}" }
+  end
+
   factory :user do |f|
+    f.association :organisation
     f.sequence(:email) { |n| "chouette#{n}@dryade.priv" }
     f.password "secret"
     f.password_confirmation "secret"

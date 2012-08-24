@@ -1,0 +1,17 @@
+<%= title_tag @user.email %>
+
+<div class="user">
+<p>
+<label><%= User.human_attribute_name("email") %>: </label>
+<%= @user.email %>
+</p>
+</div>
+
+<% content_for(:sidebar) do %>
+  <ul class="actions">
+    <li><%= link_to t('users.actions.edit'), edit_organisation_user_path( @user), :class => "edit" %></li>
+    <% unless current_user.id==@user.id %>
+    <li><%= link_to t('users.actions.destroy'), organisation_user_path(@user),:method => :delete, :confirm => t('users.actions.destroy_confirm'), :class => "remove" %></li>
+    <% end %>
+  </ul>
+<% end %>

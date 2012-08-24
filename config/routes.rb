@@ -1,6 +1,10 @@
 ChouetteIhm::Application.routes.draw do
   devise_for :users
 
+  resource :organisation do
+    resources :users
+  end
+
   resources :file_validations
 
   resources :referentials do

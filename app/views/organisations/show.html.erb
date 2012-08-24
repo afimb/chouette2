@@ -1,0 +1,16 @@
+<%= title_tag @organisation.name %>
+
+<div class="users">
+  <% @organisation.users.each do |user| %>
+    <%= div_for(user) do %>
+    <li><%= link_to "#{user.email}", organisation_user_path(user) %></li>
+    <% end %>
+  <% end %>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <%= link_to t('users.actions.new'), new_organisation_user_path, :class => "add" %>
+</ul>
+<% end %>
+

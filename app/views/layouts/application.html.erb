@@ -37,6 +37,7 @@
           <% elsif ! selected_referential? %>
             <li><%= link_to Referential.model_name.human(:count=>2), referentials_path, :class => ("current" if current_page?(referentials_path) || current_page?(root_url)) %></li>
             <li><%= tab_link_to FileValidation.model_name.human(:count=>2), file_validations_path %></li>
+            <li class="admin"><%= tab_link_to Organisation.model_name.human, organisation_path %></li>
           <% else %>
             <li><%= link_to t("layouts.tabs.dashboard"), referential_path(@referential), :class => ("current" if current_page?(referential_path(@referential))) %></li>
             <li><%= tab_link_to Chouette::Network, referential_networks_path(@referential) %></li>

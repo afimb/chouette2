@@ -6,4 +6,10 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+
+  belongs_to :organisation
+
+  before_validation(:on => :create) do
+    self.password ||= Devise.friendly_token.first(6)
+  end
 end
