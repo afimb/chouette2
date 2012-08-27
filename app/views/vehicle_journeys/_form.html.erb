@@ -20,6 +20,13 @@
 	            <th class="hour title"><%= t('.departure') %></th>
 	          </tr>
 	        </thead>
+	        <tfoot>
+	          <tr>
+	            <td class="title"> <a class="to_departures"><%= t('.to_departures') %></a></td>
+	            <td class="title" ></td>
+	            <td class="title"><a class="to_arrivals"><%= t('.to_arrivals') %></a></td>
+	          </tr>
+	        </tfoot>
 	        <!--
 	        <= form.semantic_fields_for :vehicle_journey_at_stops do |vjas| >
 	          <= vjas.object.stop_point.stop_area.name >

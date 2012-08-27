@@ -39,8 +39,8 @@
 
         th.title {
             text-align: left;
-        }          
-        
+        }      
+                    
         td{ 
             padding: 5px 7px 5px 7px;
             text-align: center;           
@@ -83,6 +83,19 @@
             tr.odd { }
             tr.even { background-color: #DEFFA8; }
         }
+        tfoot {
+           tr {
+              background-color: #95CB3E;
+           }
+           td {
+              text-align: center;
+             a {
+               
+               color: white;
+             }
+           }
+        }
+
     }
 }
 

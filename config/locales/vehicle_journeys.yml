@@ -18,6 +18,8 @@ en:
       stop_title: Stop
       departure: Departure
       arrival: Arrival
+      to_arrivals: Copy departures to arrivals
+      to_departures: Copy arrivals to departures
       time_tables: Associated calendars to vehicle journey
     timeless:
       title: Timeless vehicle journeys
@@ -92,6 +94,8 @@ fr:
       stop_title: Arrêt
       departure: Départ
       arrival: Arrivée
+      to_arrivals: Copie départs vers arrivées
+      to_departures: Copie arrivées vers départs
       time_tables: Calendriers associés à la course
     timeless:
       title: Courses sans horaire
