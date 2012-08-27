@@ -18,8 +18,8 @@ jQuery ->
       do (row) ->
         arrival = row.children[0]
         departure = row.children[2]
-        departure.children[0].value = arrivals.children[0].value
-        departure.children[1].value = arrivals.children[1].value
+        departure.children[0].value = arrival.children[0].value
+        departure.children[1].value = arrival.children[1].value
 
   $('.vehicle_journeys.edit a.to_departures').click(copy_arrivals_to_departures)
 
