@@ -5,7 +5,7 @@
   <% end %>
    <%= form.actions do %>
      <%= form.action :submit, :as => :button %>
-     <%= form.action :cancel, :as => :link %>
+     <%= form.action :cancel, :as => :link , :url => referential_time_table_path(@referential, @time_table) %>
    <% end %>
 <% end %>
 
