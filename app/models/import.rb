@@ -59,7 +59,9 @@ class Import < ActiveRecord::Base
 
   before_validation :extract_file_type, :on => :create
   def extract_file_type
-    self.file_type = resources.original_filename.rpartition(".").last
+    if ! resources.nil? 
+      self.file_type = resources.original_filename.rpartition(".").last      
+    end
   end
 
   after_create :delayed_import
