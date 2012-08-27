@@ -27,8 +27,10 @@
       <input type="hidden" id="<%= "pos_#{sp.position}" %>" name="stop_point[]" value="<%= sp.id %>" />
     <% end %>
     <%= form.actions do %>
-      <%= form.action :submit, :as => :button, :label => t('.reorder_button')  %>
-      <%= form.action :cancel, :as => :link , :url => referential_line_route_stop_points_path(@referential, @line, @route) %>
+      <% if !@stop_points.empty? %>
+        <%= form.action :submit, :as => :button, :label => t('.reorder_button')  %>
+        <%= form.action :cancel, :as => :link , :url => referential_line_route_stop_points_path(@referential, @line, @route) %>
+      <% end %>
     <% end %>
   <% end %>
 </div>
