@@ -22,9 +22,22 @@ en:
       completed: Completed export
       failed: Failed export
       undefined: %{key} undefined
+      EXPORT_ERROR: "Error durring export"
+      EXCEPTION : "Origin %{0}" 
       NEPTUNE_EXPORT: Neptune Export
       NEPTUNE_EXPORTED_LINE: "Line %{0} (%{1}) exported"
       NEPTUNE_EMPTY_LINE: "Line %{0} (%{1}) without valid vehicle journey : not exported"
+      GTFS_EXPORT: GTFS Export
+      GTFS_OK: Export GTFS terminated
+      GTFS_NO_LINE: No line to export
+      GTFS_MISSING_PARAMETER: "Missing parameter : %{0}"
+      GTFS_UNKNOWN_PARAMETER: "Unknown parameter : %{0}"
+      GTFS_FILE_ACCESS: "Unable to access file %{0}"
+      GTFS_EMPTY_TIMETABLE: "Timetable without date nor period %{0}"
+      GTFS_EMPTY_DATA: "No %{0} data to export"
+      GTFS_INVALID_DATA: "%{0} %{1} : invalid data %{2}=%{3}"
+      GTFS_MISSING_DATA: "%{0} %{1} : missing value for : %{2}"
+      CSV_EXPORT: CSV Export
     severities:
       info: Information
       ok: Ok
@@ -77,11 +90,24 @@ fr:
     messages:
       started: Export démarré
       completed: Export achevé avec succès
-      failed: Export interromptu
+      failed: Export interrompu
       undefined: %{key} non défini
+      EXPORT_ERROR: "Erreur lors de l'export"
+      EXCEPTION : "Cause %{0}" 
       NEPTUNE_EXPORT: Export Neptune
       NEPTUNE_EXPORTED_LINE: "Ligne %{0} (%{1}) exportée"
       NEPTUNE_EMPTY_LINE: "Ligne %{0} (%{1}) sans course valide : non exportée"
+      GTFS_EXPORT: Export GTFS
+      GTFS_OK: Export GTFS terminé
+      GTFS_NO_LINE: Pas de ligne à exporter
+      GTFS_MISSING_PARAMETER: "Paramètre %{0} manquant"
+      GTFS_UNKNOWN_PARAMETER: "Paramètre %{0} inconnu"
+      GTFS_FILE_ACCESS: "Accès au fichier %{0} impossible"
+      GTFS_EMPTY_TIMETABLE: "Calendier sans date ni periode %{0}"
+      GTFS_EMPTY_DATA: "Pas de donné de type %{0} à exporter"
+      GTFS_INVALID_DATA: "%{0} %{1} : attribut %{2}=%{3} invalide"
+      GTFS_MISSING_DATA: "%{0} %{1} : valeur manquante : %{2}"
+      CSV_EXPORT: Export CSV
     severities:
       info: Information
       ok: Ok
