@@ -2,6 +2,10 @@
 
 <div class="user">
 <p>
+<label><%= User.human_attribute_name("name") %>: </label>
+<%= @user.name %>
+</p>
+<p>
 <label><%= User.human_attribute_name("email") %>: </label>
 <%= @user.email %>
 </p>

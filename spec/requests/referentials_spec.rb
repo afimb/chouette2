@@ -12,8 +12,14 @@ describe "Referentials" do
     end
 
     context "when several referentials exist" do
+
+      def retrieve_referential_by_slug( slug)
+        @user.organisation.referentials.find_by_slug(slug) || 
+          create(:referential, :slug => slug, :name => slug, :organisation => @user.organisation)
+      end
                                                 
-      let!(:referentials) {  Array.new(2) { create(:referential) } } 
+      let!(:referentials) { [ retrieve_referential_by_slug("aa"),
+                              retrieve_referential_by_slug("bb")] }  
 
       it "should show n referentials" do
         pending
@@ -44,7 +50,7 @@ describe "Referentials" do
   end
 
   describe "destroy" do
-    let(:referential) {  create(:referential) } 
+    let(:referential) {  create(:referential, :organisation => @user.organisation) } 
 
     it "should remove referential" do
       pending "Unauthorized DELETE (ticket #14)"

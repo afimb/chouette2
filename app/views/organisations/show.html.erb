@@ -2,8 +2,10 @@
 
 <div class="users">
   <% @organisation.users.each do |user| %>
-    <%= div_for(user) do %>
-    <li><%= link_to "#{user.email}", organisation_user_path(user) %></li>
+    <%= div_for user do %>
+      <%= user_gravatar_image_tag user %>
+      <%= link_to user.name, organisation_user_path(user) %>
+      <div class="info"><%= user.email %></div>
     <% end %>
   <% end %>
 </div>

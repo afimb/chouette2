@@ -1,7 +1,7 @@
 module ReferentialHelper
 
   def first_referential
-    Referential.find_by_slug("first")
+    Organisation.find_by_name("first").referentials.find_by_slug("first")
   end
 
   def self.included(base)
@@ -27,7 +27,9 @@ RSpec.configure do |config|
   config.include ReferentialHelper
 
   config.before(:suite) do
-    Referential.find_or_create_by_slug FactoryGirl.attributes_for(:referential, :slug => "first")
+    organisation = Organisation.find_or_create_by_name :name => "first"
+    organisation.referentials.find_by_slug("first" ) ||
+      FactoryGirl(:referential, :slug => "first", :organisation => organisation) 
     # FIXME in Rails 3.2 :
     # Referential.where(:slug => 'first').first_or_create(FactoryGirl.attributes_for(:referential))
   end

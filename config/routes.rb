@@ -1,5 +1,8 @@
 ChouetteIhm::Application.routes.draw do
-  devise_for :users
+  devise_for :users do
+    get "/users/sign_up" => "subscriptions#new"
+    post "/subscription" => "subscriptions#create"
+  end
 
   resource :organisation do
     resources :users
