@@ -1,0 +1,11 @@
+<%= semantic_form_for [:organisation, @user] do |form| %>
+  <%= form.inputs do %> 
+    <%= form.input :name %> 
+    <%= form.input :email %> 
+  <% end %>  
+
+   <%= form.actions do %>
+     <%= form.action :submit, :as => :button %> 
+     <%= form.action :cancel, :as => :link %>
+   <% end %>
+<% end %>

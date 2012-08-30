@@ -34,6 +34,11 @@ ChouetteIhm::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
+  ActionMailer::Base.smtp_settings = {
+    :address        => "mail.dryade.priv",
+    :domain         => "dryade.priv"
+  }
+
   config.to_prepare do
     chouette_command_script = "tmp/chouette-command/chouette"
     if File.exists? chouette_command_script
