@@ -44,7 +44,9 @@
 
 <% content_for :sidebar do %>
 <ul class="actions">
-  <li><%= link_to  t('exports.actions.download'), referential_export_path(@referential, @export, :format => :zip), :class => "download" %></li>
+  <% if @export.status == 'completed' %>
+    <li><%= link_to  t('exports.actions.download'), referential_export_path(@referential, @export, :format => :zip), :class => "download" %></li>
+  <% end %>
   <li><%= link_to  t('exports.actions.destroy'), referential_export_path(@referential, @export), :method => :delete, :confirm =>  t('exports.actions.destroy_confirm'), :class => "remove" %></li>
 </ul>
 <% end %>
