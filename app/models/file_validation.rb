@@ -105,7 +105,7 @@ class FileValidation < ActiveRecord::Base
   end
 
   def validation_options
-    { :validation_id => self.id ,
+    hash = { :validation_id => self.id ,
       :file_format => self.file_type}
     options.keys.each do |opt|
       hash.merge! opt.to_sym => self.send(opt.to_sym)
