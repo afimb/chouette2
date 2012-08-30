@@ -65,21 +65,21 @@
 </div>
 
 <p class="after_map" />
-  <h3 class="route_stop_points"><%= t('.stop_points') %> 
-    <a class="stop_points">
-      <span class="switcher">+</span>
-      <span class="switcher" style="display: none;">-</span>
+  <h3 class="route_stop_points">
+    <a class="stop_points"><%= t('.stop_points') %>
+      <%= image_tag ("icons/plus.png"  , :class => "switcher") %>
+      <%= image_tag ("icons/minus.png"  , :class => "switcher" , :style => "display: none;") %>
     </a>
   </h3>
 <div class="stop_points_detail" style="display: none;">
   <%= render :partial => "stop_points_detail" %>
 </div>
 
-<h3 class="route_journey_patterns"><%= t('.journey_patterns') %> 
-  <a class="journey_patterns">
-    <span class="switcher">+</span>
-    <span class="switcher" style="display: none;">-</span>
-  </a>
+<h3 class="route_journey_patterns">
+	<a class="journey_patterns"><%= t('.journey_patterns') %>
+      <%= image_tag ("icons/plus.png"  , :class => "switcher") %>
+      <%= image_tag ("icons/minus.png"  , :class => "switcher" , :style => "display: none;") %>
+    </a>
 </h3>
 <div class="journey_patterns content" style="display: none;">
   <%= render :partial => "journey_patterns/journey_pattern", :collection => @route.journey_patterns %>

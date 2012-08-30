@@ -52,10 +52,10 @@
     </p>
   </div>
 </div>
-<h3><%= @vehicle_journey.human_attribute_name(:vehicle_journey_at_stop_ids) %>
-<a class="vehicle_journey_at_stops">
-  <span class="switcher">+</span>
-  <span class="switcher" style="display: none;">-</span>
+<h3>
+<a class="vehicle_journey_at_stops"><%= @vehicle_journey.human_attribute_name(:vehicle_journey_at_stop_ids) %>
+      <%= image_tag ("icons/plus.png"  , :class => "switcher") %>
+      <%= image_tag ("icons/minus.png"  , :class => "switcher" , :style => "display: none;") %>
 </a>
 </h3>
 <div class="vehicle_journey_at_stops content" style="display: none;">
@@ -79,10 +79,10 @@
   </table>
 </div>
 
-<h3><%= t('.time_tables') %>
-<a class="vehicle_journey_time_tables">
-  <span class="switcher">+</span>
-  <span class="switcher" style="display: none;">-</span>
+<h3>
+<a class="vehicle_journey_time_tables"><%= t('.time_tables') %>
+      <%= image_tag ("icons/plus.png"  , :class => "switcher") %>
+      <%= image_tag ("icons/minus.png"  , :class => "switcher" , :style => "display: none;") %>
 </a>
 </h3>
 <div class="vehicle_journey_time_tables content" style="display: none;">
