@@ -9,10 +9,10 @@ class CleanUpsController < ChouetteController
       flash[:alert] = clean_up.errors.full_messages.join("<br/>")
     else
       begin
-        clean_up.clean
-        flash[:notice] = clean_up.notice.join("<br/>")
+        result = clean_up.clean
+        flash[:notice] = result.notice.join("<br/>")
       rescue
-        flash[:alert] = t('clean_ups.failure')
+        flash[:alert] = t('clean_ups.failure') + $!
       end
     end
     redirect_to referential_path(@referential)
