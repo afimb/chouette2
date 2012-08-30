@@ -2,6 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.6'
 gem 'devise'
+gem 'devise_invitable'
+#gem 'devise-encryptable'
 
 gem "ffi-proj4", :git => 'git://github.com/dryade/ffi-proj4.git'
 
@@ -34,6 +36,7 @@ gem 'squeel'
 gem 'RedCloth'
 gem 'jquery-rails'
 gem "modernizr-rails", "~> 2.0.6"
+gem 'gravatar_image_tag'
 
 gem "acts_as_tree", :git => "git://github.com/dryade/acts_as_tree.git"
 #gem 'ninoxe', :git => 'git://github.com/dryade/ninoxe.git'

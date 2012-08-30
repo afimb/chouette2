@@ -1,18 +1,12 @@
-class SubscriptionsController < Devise::RegistrationsController
+class SubscriptionsController < InheritedResources::Base
+  skip_filter :authenticate_user!
   
-  def new
-    @subscription = Subscription.new
-  end
   def create
-    @subscription = Subscription.new(params[:subscription])
-
-    if @subscription.save
-      sign_in @subscription.user
-      flash[:notice] = t('subscriptions.success')
-      redirect_to referentials_path
-    else
-      flash[:error] = t('subscriptions.failure')
-      render :action => "new"
+    create! do |success, failure|
+      success.html do
+        sign_in resource.user
+        redirect_to referentials_path
+      end
     end
   end
 

@@ -1,17 +1,9 @@
 class UsersController < InheritedResources::Base
 
   def create
-        Rails.logger.info( "call user_controller.create")
-        Rails.logger.info( "resource=#{build_resource.inspect}")
-        Rails.logger.info( "resourc.valid?e=#{build_resource.valid?}")
-        Rails.logger.info( "resourc.errors=#{build_resource.errors.inspect}")
-    create! do |success, failure|
-      success.html { 
-        Rails.logger.info( "success user_controller")
-        mail = UserMailer.welcome(@user)
-        mail.deliver
-        redirect_to organisation_user_path(@user) }
-    end
+    @user = current_organisation.users.create(params[:user])
+    @user.invite!
+    respond_with @user, :location => organisation_user_path(@user)
   end
 
   def update
