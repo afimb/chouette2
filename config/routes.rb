@@ -1,5 +1,13 @@
 ChouetteIhm::Application.routes.draw do
-  devise_for :users
+  devise_for :users do
+    match "/users/sign_up" => redirect("/subscription/new")
+  end
+
+  resource :subscription
+
+  resource :organisation do
+    resources :users
+  end
 
   resources :file_validations
 
