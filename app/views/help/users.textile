@@ -1,0 +1,19 @@
+---
+layout: default
+title: Utilisateurs et Organisations
+---
+
+h3. Définitions
+
+L'organisation est une entité qui possède un ensemble d'"espaces de données":dataspaces .
+
+un utilisateur est affecté à une organisation
+
+h3. Comportement
+
+Lorsqu'un utilisateur s'enregistre dans l'application, il crée alors une organisation qui lui appartient
+
+Il peut ensuite inviter des personnes à y accéder en créant leur compte dans l'onglet Organisation.
+
+Un utilisateur ne peut pas appartenir à plusieurs organisations.
+
