@@ -4,7 +4,6 @@ development:
   encoding: utf8
   username: chouette
   password: chouette
-  template: template_chouette
 
 test:
   adapter: jdbcpostgresql
@@ -12,7 +11,6 @@ test:
   encoding: utf8
   username: chouette
   password: chouette
-  template: template_chouette
 
 # When war is created by jenkins
 production:
