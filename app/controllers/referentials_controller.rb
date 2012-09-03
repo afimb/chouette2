@@ -6,10 +6,6 @@ class ReferentialsController < InheritedResources::Base
      show!
   end
   
-  def create 
-     create!
-  end
-
   protected
   def resource
     @referential ||= current_organisation.referentials.find_by_id(params[:id])
@@ -19,7 +15,7 @@ class ReferentialsController < InheritedResources::Base
   end
   def create_resource(referential)
     referential.organisation = current_organisation
-    referential
+    super
   end
-  
+    
 end
