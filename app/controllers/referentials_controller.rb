@@ -13,5 +13,10 @@ class ReferentialsController < InheritedResources::Base
   def collection    
     @referentials ||= current_organisation.referentials
   end
+  def create_resource(referential)
+    referential.organisation = current_organisation
+    super
+  end
+  
   
 end
