@@ -1,6 +1,6 @@
 ChouetteIhm::Application.routes.draw do
   devise_for :users do
-    match "/users/sign_up" => redirect("/subscription/new")
+    match "/users/sign_up" => "subscriptions#new"
   end
 
   resource :subscription
