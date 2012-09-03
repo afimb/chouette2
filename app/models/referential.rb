@@ -22,6 +22,7 @@ class Referential < ActiveRecord::Base
   has_many :exports, :dependent => :destroy
   
   belongs_to :organisation
+  validates_presence_of :organisation
 
   def slug_excluded_values
     if ! slug.nil?
