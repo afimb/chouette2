@@ -1,7 +1,33 @@
 // Place all the styles related to the referentials controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "common";
 
+#workspace.referentials.index
+{
+    .referentials:after { 
+        @include after_div_for_object;  
+    }
+
+    .referentials {
+        margin-top: 20px;
+    }
+
+    .referentials:after {
+        @include content_to_clear;
+    }
+    
+    .referential {
+        @include div_for_object;
+
+        /* to create multi-column index */
+        width: 350px;
+        float: left;
+        padding-right: 10px;
+        position: relative;
+
+    }
+}
 #workspace.referentials.show
 {
     .summary p label {

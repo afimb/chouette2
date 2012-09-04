@@ -61,7 +61,7 @@ GIT
 
 GIT
   remote: git://sim.dryade.priv/user_interface
-  revision: b8fbfaa4b0aa3946223d9f9313af21ab2f10f341
+  revision: 55a84bcc7d88c3962cb43eda817bbfa780e4365c
   specs:
     user_interface (0.0.1)
       rails (> 3.1.0)

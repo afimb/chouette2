@@ -1,6 +1,8 @@
 <%= title_tag Referential.model_name.human.pluralize %> 
 
+<div class="referentials">
 <%= render :partial => "referential", :collection => @referentials %>
+</div>
 
 <% content_for :sidebar do %>
 <ul class="actions">
