@@ -65,6 +65,21 @@
 }
 
 #workspace.vehicle_journeys.show, #workspace.vehicle_journeys.edit, #workspace.vehicle_journeys.update, #workspace.vehicle_journeys.create, #workspace.vehicle_journeys.new {
+
+    h3 {
+      .vehicle_journey_at_stops {
+      cursor: pointer;
+      }
+    }
+    
+      .to_departures {
+      cursor: pointer;
+      }
+      
+      .to_arrivals {
+      cursor: pointer;
+      }
+    
     .vehicle_journey_at_stops {
         thead {
             th { text-align: center; }
@@ -117,6 +132,11 @@
         @include content_to_clear;
     }
     
+    h3 {
+      .vehicle_journey_time_tables {
+      cursor: pointer;
+      }
+    }
     .vehicle_journey_time_tables {
         clear: both;
         margin: 0px;

@@ -6,6 +6,9 @@ class FileValidation < ActiveRecord::Base
   attr_accessor :resources,:uncheck_count,:ok_count,:warning_count,:error_count,:fatal_count,:log_message_tree
   attr_accessor :validator
 
+  belongs_to :organisation
+  validates_presence_of :organisation
+
   has_many :log_messages, :class_name => "FileValidationLogMessage", :order => :position, :dependent => :destroy
 
   serialize :options

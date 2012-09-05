@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120830095442) do
+ActiveRecord::Schema.define(:version => 20120905125251) do
 
   create_table "access_links", :force => true do |t|
     t.integer  "access_point_id",                        :limit => 8
@@ -192,11 +192,12 @@ ActiveRecord::Schema.define(:version => 20120830095442) do
 
   create_table "file_validations", :force => true do |t|
     t.string   "status"
-    t.string   "options",    :limit => 2000
+    t.string   "options",         :limit => 2000
     t.string   "file_name"
     t.string   "file_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "organisation_id"
   end
 
   create_table "group_of_lines", :force => true do |t|

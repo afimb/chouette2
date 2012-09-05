@@ -14,4 +14,13 @@ class User < ActiveRecord::Base
   before_validation(:on => :create) do
     self.password ||= Devise.friendly_token.first(6)
   end
+  
+  # remove organisation and referentials if last user of it
+  after_destroy :check_destroy_organisation
+  def check_destroy_organisation
+    if organisation.users.empty? 
+      organisation.destroy
+    end
+  end
+
 end

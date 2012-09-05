@@ -14,7 +14,7 @@ en:
       title: Connection link %{connection_link}
       durations: "Durations (hh mm ss):"
     index:
-      title: Connection_ links
+      title: Connection links
       name: Name
       departure: Start of link
       arrival: End of link
