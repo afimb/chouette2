@@ -65,6 +65,7 @@
 </div>
 
 <p class="after_map" />
+<% if @route.stop_points.size > 0 %>
   <h3 class="route_stop_points">
     <a class="stop_points"><%= t('.stop_points') %>
       <%= image_tag("icons/plus.png"  , :class => "switcher") %>
@@ -74,7 +75,9 @@
 <div class="stop_points_detail" style="display: none;">
   <%= render :partial => "stop_points_detail" %>
 </div>
+<% end %>
 
+<% if @route.stop_points.size >= 2 %>
 <h3 class="route_journey_patterns">
 	<a class="journey_patterns"><%= t('.journey_patterns') %>
       <%= image_tag("icons/plus.png"  , :class => "switcher") %>
@@ -84,6 +87,7 @@
 <div class="journey_patterns content" style="display: none;">
   <%= render :partial => "journey_patterns/journey_pattern", :collection => @route.journey_patterns %>
 </div>
+<% end %>
 
 <% content_for :sidebar do %>
 <ul class="actions">
@@ -92,12 +96,16 @@
   <li>
     <%= link_to t('stop_points.actions.sort'), [@referential, @line, @route, :stop_points], :class => "edit" %>
   </li>
+<% if @route.stop_points.size >= 2 %>
   <li>
     <%= link_to t('journey_patterns.actions.new'), new_referential_line_route_journey_pattern_path(@referential, @line, @route), :class => "add" %>
   </li>
+<% if @route.journey_patterns.size > 0 %>
   <li>
     <%= link_to t('vehicle_journeys.actions.index'), [@referential, @line, @route, :vehicle_journeys], :class => "link" %>
   </li>
+<% end %>
+<% end %>
 </ul>
 <% end %>
 
