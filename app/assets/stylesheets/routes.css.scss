@@ -74,10 +74,15 @@
         @include content_to_clear;
     }
     
+    .route_journey_patterns {
+        cursor: pointer;
+    }
+    
     .route_stop_points {
         clear: both;
         margin: 0px;
         padding: 0px;
+        cursor: pointer;
     }
 
     .stop_point {
