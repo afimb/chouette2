@@ -5,7 +5,7 @@ module UsersHelper
   end
 
   def user_default_avatar
-    "#{root_url}#{image_path('icons/user.png')}"
+    "#{root_url}assets/icons/user.png"
   end
 
 end
