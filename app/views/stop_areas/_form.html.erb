@@ -10,7 +10,7 @@
     <%= form.input :fare_code %>              
     <%= form.input :nearest_topic_name %>              
     <%= form.input :comment %>              
-    <%= form.input :objectid, :input_html => { :disabled => !@stop_area.new_record? } %>  
+    <%= form.input :objectid, :required => !@stop_area.new_record?, :input_html => { :disabled => !@stop_area.new_record? } %>  
     <%= form.inputs :name => t('stop_areas.show.geographic_data') do %> 
       <% if ! @referential.projection_type_label.empty? %>
         <%= form.inputs :name => @referential.projection_type_label do %> 

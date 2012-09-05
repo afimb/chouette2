@@ -27,7 +27,7 @@
     <%= form.input :stairs_availability,:as => :boolean %>
     <%= form.input :lift_availability,:as => :boolean %>
 
-    <%= form.input :objectid, :input_html => { :disabled => !@connection_link.new_record? } %>  
+    <%= form.input :objectid, :required => !@connection_link.new_record?, :input_html => { :disabled => !@connection_link.new_record? } %>  
   <% end %>
 
    <%= form.actions do %>
