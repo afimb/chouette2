@@ -18,9 +18,15 @@ class FileValidationsController < InheritedResources::Base
   end
 
   protected
-
-  def collection
-    @file_validations ||= end_of_association_chain.paginate(:page => params[:page])
+  def resource
+    @file_validation ||= current_organisation.file_validations.find_by_id(params[:id])
   end
-
+  def collection    
+    @file_validations ||= current_organisation.file_validations.paginate(:page => params[:page])
+  end
+  def create_resource(file_validation)
+    file_validation.organisation = current_organisation
+    super
+  end
+  
 end

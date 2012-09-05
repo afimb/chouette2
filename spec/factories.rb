@@ -44,4 +44,15 @@ FactoryGirl.define do
     f.duration 1
   end
 
+  factory :file_validation do |f|
+    f.resources { Rack::Test::UploadedFile.new 'spec/fixtures/neptune.zip', 'application/zip', false }
+    f.association :organisation
+  end
+
+  factory :file_validation_log_message do |f|
+    f.association :file_validation
+    f.sequence(:key) { "key_#{n}" }
+  end
+
+
 end
