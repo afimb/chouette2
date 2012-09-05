@@ -110,6 +110,14 @@ class ApplicationMap
                                               } } )
   end
 
+  def polymorphic_path_patch( source)
+    config = Rails.application.config 
+    return source unless config.respond_to?(:relative_url_root)
+
+    relative_url_root = config.relative_url_root
+    relative_url_root && !source.starts_with?("#{relative_url_root}/") ? "#{relative_url_root}#{source}" : source
+  end
+
   def kml_layer(url_or_object, options_or_url_options = {}, options = nil)   
     unless options
       url_options = {}
@@ -125,9 +133,9 @@ class ApplicationMap
       when String
         url_or_object
       when Array
-        helpers.polymorphic_path(url_or_object, url_options)
+        polymorphic_path_patch( helpers.polymorphic_path(url_or_object, url_options))
       else
-        helpers.polymorphic_path([url_or_object.referential, url_or_object], url_options)
+        polymorphic_path_patch( helpers.polymorphic_path([url_or_object.referential, url_or_object], url_options))
       end
     
     protocol = OpenLayers::Protocol::HTTP.new :url => url, :format => kml
