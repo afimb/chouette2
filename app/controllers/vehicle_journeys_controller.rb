@@ -30,19 +30,6 @@ class VehicleJourneysController < ChouetteController
     update!(:alert => t('activerecord.errors.models.vehicle_journey.invalid_times'))
   end
 
-  def edit
-    vehicle_journey.update_journey_pattern( vehicle_journey.journey_pattern)
-
-    edit!
-  end
-
-  def new
-    @vehicle_journey = Chouette::VehicleJourney.new( :route => @route)
-    @vehicle_journey.update_journey_pattern( parent.journey_patterns.first) if parent.journey_patterns.first
-
-    new!
-  end
-
   protected
   
   alias_method :vehicle_journey, :resource
