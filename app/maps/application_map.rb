@@ -112,8 +112,8 @@ class ApplicationMap
 
   def open_layer_path
     relative_url_root = Rails.application.config.relative_url_root
-    return "openlayers/" unless relative_url_root
-    "#{relative_url_root}/openlayers/"
+    return "/assets/openlayers/" unless relative_url_root
+    "#{relative_url_root}/assets/openlayers/"
   end
 
   def polymorphic_path_patch( source)
