@@ -110,11 +110,14 @@ class ApplicationMap
                                               } } )
   end
 
-  def polymorphic_path_patch( source)
-    config = Rails.application.config 
-    return source unless config.respond_to?(:relative_url_root)
+  def open_layer_path
+    relative_url_root = Rails.application.config.relative_url_root
+    return "openlayers/" unless relative_url_root
+    "#{relative_url_root}/openlayers/"
+  end
 
-    relative_url_root = config.relative_url_root
+  def polymorphic_path_patch( source)
+    relative_url_root = Rails.application.config.relative_url_root
     relative_url_root && !source.starts_with?("#{relative_url_root}/") ? "#{relative_url_root}#{source}" : source
   end
 
