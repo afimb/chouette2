@@ -18,7 +18,7 @@ class StyleMap::ConnectionLinkStyleMap < StyleMap::GenericStyleMap
       :strokeWidth => 3,
       :strokeLineCap => "round",
       :strokeDashstyle => "solid",
-      :externalGraphic => "/assets/map/${positionType}.png",
+      :externalGraphic => self.class.polymorphic_path_patch( "map/${positionType}.png"),
       :graphicWidth => 36,
       :graphicHeight => 36, 
       :graphicOpacity => 1,	
