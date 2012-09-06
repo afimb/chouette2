@@ -10,7 +10,7 @@ class StyleMap::StopAreasStyleMap < StyleMap::GenericStyleMap
     :labelXOffset => 0,
     :labelYOffset => -40,
     :pointRadius => 1, 
-    :externalGraphic => "/assets/map/${areaType}.png",      
+    :externalGraphic => polymorphic_path_patch( "map/${areaType}.png"),      
     :graphicWidth => 25,
     :graphicHeight => 25, 
     :graphicOpacity => 1,    
