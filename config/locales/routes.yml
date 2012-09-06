@@ -19,6 +19,12 @@ en:
       title: Routes
       selection: Selection
       selection_all: All
+    route:
+      no_journey_pattern: No Journey pattern
+      wayback: 
+        positive: forward
+        negative: backward
+
   activerecord:        
     models:        
       route: 
@@ -66,6 +72,11 @@ fr:
       title: "Séquences d'arrêts"
       selection: Sélection
       selection_all: Tous
+    route:
+      no_journey_pattern: Pas de mission
+      wayback: 
+        positive: Aller
+        negative: Retour
   activerecord:        
     models:        
       route: 
@@ -91,5 +102,6 @@ fr:
         object_version: Version
         creation_time: Créé le
         creator_id: Créé par
+        no_journey_pattern: Pas de mission
 
 

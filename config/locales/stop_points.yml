@@ -27,7 +27,7 @@ en:
         other: stop points on route
     attributes:
       stop_point:
-
+        lines: lines
 fr:
   stop_points:
     reorder_success: "La list des arrêts a été mise à jour"
@@ -57,3 +57,4 @@ fr:
         other: "arrêts sur séquence d'arrêts"
     attributes:
       stop_point:
+        lines: lignes

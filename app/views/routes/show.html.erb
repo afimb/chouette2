@@ -65,7 +65,7 @@
 </div>
 
 <p class="after_map" />
-  <h3 class="route_stop_points">
+<h3 class="route_stop_points">
     <a class="stop_points"><%= t('.stop_points') %>
       <%= image_tag("icons/plus.png"  , :class => "switcher") %>
       <%= image_tag("icons/minus.png"  , :class => "switcher" , :style => "display: none;") %>
@@ -85,6 +85,7 @@
   <%= render :partial => "journey_patterns/journey_pattern", :collection => @route.journey_patterns %>
 </div>
 
+
 <% content_for :sidebar do %>
 <ul class="actions">
   <li><%= link_to t('routes.actions.edit'), edit_referential_line_route_path(@referential, @line, @route), :class => "edit" %></li>
@@ -92,12 +93,16 @@
   <li>
     <%= link_to t('stop_points.actions.sort'), [@referential, @line, @route, :stop_points], :class => "edit" %>
   </li>
+<% if @route.stop_points.size >= 2 %>
   <li>
     <%= link_to t('journey_patterns.actions.new'), new_referential_line_route_journey_pattern_path(@referential, @line, @route), :class => "add" %>
   </li>
+<% end %>
+<% if @route.journey_patterns.size > 0 %>
   <li>
     <%= link_to t('vehicle_journeys.actions.index'), [@referential, @line, @route, :vehicle_journeys], :class => "link" %>
   </li>
+<% end %>
 </ul>
 <% end %>
 
