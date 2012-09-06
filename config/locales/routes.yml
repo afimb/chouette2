@@ -24,6 +24,8 @@ en:
       wayback: 
         positive: forward
         negative: backward
+      opposite: Opposite route
+      no_opposite: No opposite route
 
   activerecord:        
     models:        
@@ -77,6 +79,8 @@ fr:
       wayback: 
         positive: Aller
         negative: Retour
+      opposite: Séquence opposée
+      no_opposite: Pas de séquence opposée
   activerecord:        
     models:        
       route: 

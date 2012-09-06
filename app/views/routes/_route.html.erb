@@ -4,13 +4,19 @@
       <%= link_to route.name, referential_line_route_path( @referential, @line, route) %>
     </div> 
   <div class="info">
-    <% if route.number.blank? %>
+    <% if ! route.number.blank? %>
       <%= route.human_attribute_name('number') %> <%= route.number %> -
     <% end %>
-    <% if route.direction.blank? %>
-      <%= route.human_attribute_name('direction') %> <%= route.direction %> - 
+    <% if ! route.direction.blank? %>
+      <%= route.human_attribute_name('direction_code') %> <%= t('directions.label.'+route.direction_code) %> - 
     <% end %>
     <%= route.human_attribute_name('wayback_code') %> <%= (route.wayback=="A") ? t('.wayback.positive') : t('.wayback.negative') %>
+    <br/>
+    <% if route.opposite_route %>
+      <%= t('.opposite') %> <%= link_to route.opposite_route.name, referential_line_route_path( @referential, @line, route.opposite_route) %>
+    <% else %>
+      <%= t('.no_opposite') %>
+    <% end %>
     <% if route.journey_patterns.size > 0 %>
     <div class="actions">  
       <%= link_to t("vehicle_journeys.actions.index"), referential_line_route_vehicle_journeys_path(@referential, @line, route), :class => "link" %>

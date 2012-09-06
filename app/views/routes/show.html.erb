@@ -43,7 +43,7 @@
     <p>
       <label><%= @route.human_attribute_name(:opposite_route) %>: </label>
       <% if @route.opposite_route %>
-        <%= link_to @route.opposite_route.name, [@referential, @line, @route] %>
+        <%= link_to @route.opposite_route.name, [@referential, @line, @route.opposite_route] %>
       <% else %>
         <%= t(".no_opposite_route") %>
       <% end %>
