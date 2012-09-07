@@ -102,4 +102,10 @@ ul.user li.language.selected
     a.calculator_edit {
         background: url(image-path('icons/calculator_edit.png')) no-repeat;
     }
+    a.import {
+        background: url(image-path('icons/import-small.png')) no-repeat;
+    }
+    a.export {
+        background: url(image-path('icons/export-small.png')) no-repeat;
+    }
 }
