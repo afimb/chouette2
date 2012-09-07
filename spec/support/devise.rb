@@ -4,6 +4,7 @@ module DeviseRequestHelper
   def login_user
     organisation = Organisation.find_by_name("first") || create(:organisation, :name => "first")
     @user ||= create(:user, :organisation => organisation) 
+    @user.confirm!
     login_as @user, :scope => :user
     # post_via_redirect user_session_path, 'user[email]' => @user.email, 'user[password]' => @user.password
   end
@@ -34,7 +35,9 @@ module DeviseControllerHelper
     before(:each) do
       @request.env["devise.mapping"] = Devise.mappings[:user]
       organisation = Organisation.find_by_name("first") || create(:organisation, :name => "first")
-      sign_in create(:user, :organisation => organisation)
+      user = create(:user, :organisation => organisation)
+      user.confirm!
+      sign_in user
     end
   end
 end
