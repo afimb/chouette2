@@ -40,6 +40,7 @@ ChouetteIhm::Application.configure do
   }
 
   config.to_prepare do
+    Devise::Mailer.layout "mailer"
     chouette_command_script = "tmp/chouette-command/chouette"
     if File.exists? chouette_command_script
       Chouette::Command.command = "tmp/chouette-command/chouette"
