@@ -1,7 +1,7 @@
 class UsersController < InheritedResources::Base
 
   def create
-    @user = current_organisation.users.create(params[:user])
+    @user = current_organisation.users.build(params[:user])
     @user.invite!
     respond_with @user, :location => organisation_user_path(@user)
   end

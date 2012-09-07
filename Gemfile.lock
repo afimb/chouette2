@@ -61,7 +61,7 @@ GIT
 
 GIT
   remote: git://sim.dryade.priv/user_interface
-  revision: 55a84bcc7d88c3962cb43eda817bbfa780e4365c
+  revision: 0fac5e33ba61eaa691a65d9a5f49f6acd3755927
   specs:
     user_interface (0.0.1)
       rails (> 3.1.0)
@@ -109,7 +109,7 @@ GEM
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-java)
     bouncy-castle-java (1.5.0146.1)
-    builder (3.0.0)
+    builder (3.0.2)
     capistrano (2.13.3)
       highline
       net-scp (>= 1.0.0)

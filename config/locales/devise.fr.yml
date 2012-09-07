@@ -3,3 +3,5 @@ fr:
     mailer:
       invitation_instructions: 
         subject: "Invitation sur l'application Chouette" 
+      confirmation_instructions: 
+        subject: "Confirmation de votre compte d'accès à l'application Chouette" 
