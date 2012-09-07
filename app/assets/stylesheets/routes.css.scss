@@ -75,14 +75,18 @@
     }
     
     .route_journey_patterns {
+      a {
         cursor: pointer;
+      }
     }
     
     .route_stop_points {
         clear: both;
         margin: 0px;
         padding: 0px;
-        cursor: pointer;
+        a {
+          cursor: pointer;
+        }
     }
 
     .stop_point {

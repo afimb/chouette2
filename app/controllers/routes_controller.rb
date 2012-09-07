@@ -33,11 +33,11 @@ class RoutesController < ChouetteController
     end
   end
 
-  def update
-    update! do |success, failure|
-      success.html { redirect_to referential_line_path(@referential,@line) }
-    end
-  end
+#  def update
+#    update! do |success, failure|
+#      success.html { redirect_to referential_line_path(@referential,@line) }
+#    end
+#  end
   protected
 
   alias_method :route, :resource
