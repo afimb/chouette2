@@ -43,7 +43,7 @@
               <li class="admin"><%= tab_link_to Organisation.model_name.human, organisation_path %></li>
             <% end %>
           <% else %>
-            <li><%= link_to t("layouts.tabs.dashboard"), referential_path(@referential), :class => ("current" if current_page?(referential_path(@referential))) %></li>
+            <li><%= link_to t("layouts.tabs.dashboard").capitalize, referential_path(@referential), :class => ("current" if current_page?(referential_path(@referential))) %></li>
             <li><%= tab_link_to Chouette::Network, referential_networks_path(@referential) %></li>
             <li><%= tab_link_to Chouette::Company, referential_companies_path(@referential) %></li>
             <li><%= tab_link_to Chouette::Line, referential_lines_path(@referential) %></li>
