@@ -13,6 +13,9 @@ en:
     show:
       title: Connection link %{connection_link}
       durations: "Durations (hh mm ss):"
+    connection_link:
+      from: From
+      to: to
     index:
       title: Connection links
       name: Name
@@ -73,7 +76,10 @@ fr:
       title: Modifier la correspondance %{connection_link}
     show:
       title: Correspondance %{connection_link}
-      durations: "Durées  (hh mm ss) :"
+      durations: "Durées (hh mm ss) :"
+    connection_link:
+      from: De
+      to: vers
     index:
       name: Nom
       title: Correspondances
