@@ -2,6 +2,17 @@
 
 <div class="time_table_show">
 	
+  <div class="resume">
+    <div class="validity <%= time_table_state_code(@time_table) %>"></div>
+    <label>
+      <% if @time_table.bounding_dates.empty? %>
+        <%= t(".resume_empty") %>
+      <% else %>
+        <%= t(".resume", :start_date => l(@time_table.bounding_dates.min),
+                   :end_date => l(@time_table.bounding_dates.max)) %>
+      <% end %>
+    </label>
+  </div>
   <div class="summary">
     <p>
       <label><%= @time_table.human_attribute_name("comment") %>: </label>
