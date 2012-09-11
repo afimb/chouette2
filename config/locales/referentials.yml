@@ -4,11 +4,15 @@ en:
       title: "Edit the data space"
     show:
       title: Data space
+      clean_up: Clean up
+      validity_out_time_tables: Closed timetables
+      validity_out_soon_time_tables: Timetables closed in %{count} days   
+    counts:    
       objects: Data space elements
       count: count
-      clean_up: Clean up
-      expired_time_tables: Closed timetables
-      almost_expired_time_tables: Timetables closed in %{count} days    
+    validity_out:
+      validity_out_time_tables: Closed timetables
+      validity_out_soon_time_tables: Timetables closed in %{count} days   
     new:
       title: Create a new data space
       submit: "Create a data space"
@@ -66,11 +70,15 @@ fr:
       title: "Modifier l'espace de données"
     show:
       title: Espace de données
+      clean_up: Purge des données obsolètes
+      validity_out_time_tables: Calendriers échus
+      validity_out_soon_time_tables: Calendriers à échoir dans %{count} jours    
+    counts:    
       objects: Eléments 
       count: Qté
-      clean_up: Purge des données obsolètes
-      expired_time_tables: Calendriers échus
-      almost_expired_time_tables: Calendriers à échoir dans %{count} jours    
+    validity_out:
+      validity_out_time_tables: Calendriers échus
+      validity_out_soon_time_tables: Calendriers à échoir dans %{count} jours    
     new:
       title: Créer un nouvel espace de données
       submit: "Créer un espace de données"

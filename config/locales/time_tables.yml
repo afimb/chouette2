@@ -18,6 +18,8 @@ en:
     edit:
       title: Update timetable %{time_table}
     show:
+      resume: "From %{start_date} to %{end_date} (independently of any period day types)"
+      resume_empty: "Empty timetable"
       title: Timetable %{time_table}
       dates: "Application dates"
       periods: "Application periods"
@@ -84,6 +86,8 @@ fr:
     edit:
       title: "Modifier le calendrier %{time_table}"
     show:
+      resume: "Validité comprise du %{start_date} au %{end_date} (sans tenir compte des jours d'application)"
+      resume_empty: "Calendrier vide"
       title: Calendrier %{time_table}
       dates: "Dates d'application"
       periods: "Périodes d'application"

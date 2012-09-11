@@ -14,7 +14,7 @@
   <%= @referential.projection_type %>
   </p>
   <p>
-  <label><%= Referential.human_attribute_name("time_zone") %>: </label>
+  <label><%= Referential.human_attribute_name("time_zone").capitalize %>: </label>
   <%= @referential.time_zone %>
   </p>
   <p>
@@ -100,12 +100,12 @@
   <table class="count" width="75%"> 
   	<thead>
   		<tr>
-  		<td><%= t('.expired_time_tables') %>: <%= tm_cnt = @referential.time_tables.expired_on(Date.today).size %></td>
+  		<td><%= t('.validity_out_time_tables') %>: <%= tm_cnt = @referential.time_tables.validity_out_from_on?(Date.today).size %></td>
   		</tr>
   	</thead>
   	<tbody>
   		<% if tm_cnt > 0 %>
-	  		<% @referential.time_tables.expired_on(Date.today,5).each do |tm| %>
+	  		<% @referential.time_tables.validity_out_from_on?(Date.today,5).each do |tm| %>
 	  		<tr><td><%= link_to tm.comment, referential_time_table_path(@referential, tm) %></td></tr>
 	  		<% end %>
 	  		<% if tm_cnt > 5 %>
@@ -118,12 +118,12 @@
   <table class="count" width="75%"> 
   	<thead>
   		<tr>
-  		<td><%= t('.almost_expired_time_tables', :count => "7") %>: <%= tm_cnt = @referential.time_tables.expired_between(Date.today,Date.today+7).size %></td>
+  		<td><%= t('.validity_out_soon_time_tables', :count => "7") %>: <%= tm_cnt = @referential.time_tables.validity_out_between?(Date.today,Date.today+7).size %></td>
   		</tr>
   	</thead>
   	<tbody>
   		<% if tm_cnt > 0 %>
-	  		<% @referential.time_tables.expired_between(Date.today,Date.today+7,5).each do |tm| %>
+	  		<% @referential.time_tables.validity_out_between?(Date.today,Date.today+7,5).each do |tm| %>
 	  		<tr><td><%= link_to tm.comment, referential_time_table_path(@referential, tm) %></td></tr>
 	  		<% end %>
 	  		<% if tm_cnt > 5 %>

@@ -24,7 +24,32 @@
         width: 350px;
         float: left;
         padding-right: 10px;
+        position: relative;
 
+        .state-code {
+            width: 25px;
+            height: 64px;
+            float: left;
+            margin-right: 10px;
+
+            .validity_out {
+                background-color: #FC4903;
+                width: 25px;
+                height: 25px;
+            }
+
+            .validity_out_soon {
+                background-color: orange;
+                width: 25px;
+                height: 25px;
+            }
+            
+            .validity_regular {
+                background-color: #86B41D;
+                width: 25px;
+                height: 25px;
+            }
+        }
     }
 }
 
@@ -55,6 +80,24 @@
 
     .summary p label {
         font-weight: bold;
+    }
+
+    .resume {
+        .validity {
+            float: left;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        .validity.validity_out {
+            background-color: #FC4903;
+        }
+        .validity.validity_out_soon {
+            background-color: orange;
+        }
+        .validity.validity_regular {
+            background-color: #86B41D;
+        }
     }
 }        
 

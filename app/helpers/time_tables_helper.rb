@@ -1,4 +1,13 @@
 module TimeTablesHelper
+  def time_table_state_code(time_table)
+    if time_table.validity_out_from_on?(Date.today)
+      "validity_out"
+    elsif time_table.validity_out_between?(Date.today,Date.today+7.day)
+      "validity_out_soon"
+    else
+      "validity_regular"
+    end
+  end
   def bounding_info(time_table)
     return t('time_tables.time_table.empty') if time_table.bounding_dates.empty?
     t('time_tables.time_table.bounding', 
