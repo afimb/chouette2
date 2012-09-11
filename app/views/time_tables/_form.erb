@@ -14,7 +14,7 @@
     <%= form.input :sunday, :as => :boolean %> 
   <% end %>
   <%= form.inputs do %> 
-    <%= form.input :objectid, :input_html => { :disabled => !@time_table.new_record? } %>  
+    <%= form.input :objectid, :required => !@time_table.new_record?, :input_html => { :disabled => !@time_table.new_record? } %>  
   <% end %>
   
    <%= form.actions do %>
