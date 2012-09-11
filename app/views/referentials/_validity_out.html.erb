@@ -1,0 +1,35 @@
+  <table class="count" width="75%"> 
+  	<thead>
+  		<tr>
+  		<td><%= t('.validity_out_time_tables') %>: <%= tm_cnt = @referential.time_tables.validity_out_from_on?(Date.today).size %></td>
+  		</tr>
+  	</thead>
+  	<tbody>
+  		<% if tm_cnt > 0 %>
+	  		<% @referential.time_tables.validity_out_from_on?(Date.today,5).each do |tm| %>
+	  		<tr><td><%= link_to tm.comment, referential_time_table_path(@referential, tm) %></td></tr>
+	  		<% end %>
+	  		<% if tm_cnt > 5 %>
+	  			<tr><td>...</td></tr>
+            <% end %>
+  		<% end %>
+  	</tbody>
+  	</table>
+  	<p/>
+  <table class="count" width="75%"> 
+  	<thead>
+  		<tr>
+  		<td><%= t('.validity_out_soon_time_tables', :count => "7") %>: <%= tm_cnt = @referential.time_tables.validity_out_between?(Date.today,Date.today+7).size %></td>
+  		</tr>
+  	</thead>
+  	<tbody>
+  		<% if tm_cnt > 0 %>
+	  		<% @referential.time_tables.validity_out_between?(Date.today,Date.today+7,5).each do |tm| %>
+	  		<tr><td><%= link_to tm.comment, referential_time_table_path(@referential, tm) %></td></tr>
+	  		<% end %>
+	  		<% if tm_cnt > 5 %>
+	  			<tr><td>...</td></tr>
+            <% end %>
+  		<% end %>
+  	</tbody>
+  	</table>

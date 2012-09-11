@@ -109,7 +109,7 @@ GEM
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-java)
     bouncy-castle-java (1.5.0146.1)
-    builder (3.0.2)
+    builder (3.0.3)
     capistrano (2.13.3)
       highline
       net-scp (>= 1.0.0)
@@ -195,7 +195,6 @@ GEM
     jruby-rack (1.1.9)
     jruby-rack-worker (0.4-java)
       jruby-rack (>= 1.1.1)
-    json (1.7.5)
     json (1.7.5-java)
     json_pure (1.7.5)
     launchy (2.1.0)
