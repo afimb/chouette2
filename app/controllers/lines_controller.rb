@@ -3,6 +3,7 @@ class LinesController < ChouetteController
   respond_to :html
   respond_to :xml
   respond_to :json
+  respond_to :kml, :only => :show
 
   belongs_to :referential
 
