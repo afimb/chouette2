@@ -3,6 +3,10 @@ en:
     edit:
       title: "Edit the data space"
     show:
+      lines: lines
+      networks: networks
+      vehicle_journeys: vehicle journeys
+      time_tables: time tables
       title: Data space
       objects: Data space elements
       count: count
@@ -65,6 +69,10 @@ fr:
     edit:
       title: "Modifier l'espace de données"
     show:
+      lines: lignes
+      networks: réseaux
+      vehicle_journeys: courses
+      time_tables: calendriers
       title: Espace de données
       objects: Eléments 
       count: Qté
