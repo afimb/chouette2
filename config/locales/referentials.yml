@@ -9,8 +9,6 @@ en:
       time_tables: time tables
       title: Data space
       clean_up: Clean up
-      validity_out_time_tables: Closed timetables
-      validity_out_soon_time_tables: Timetables closed in %{count} days   
     counts:    
       objects: Data space elements
       count: count
@@ -79,8 +77,6 @@ fr:
       time_tables: calendriers
       title: Espace de données
       clean_up: Purge des données obsolètes
-      validity_out_time_tables: Calendriers échus
-      validity_out_soon_time_tables: Calendriers à échoir dans %{count} jours    
     counts:    
       objects: Eléments 
       count: Qté
