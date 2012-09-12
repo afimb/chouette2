@@ -56,6 +56,7 @@ en:
       CSV_UNUSED_TIMETABLE: Unused timetable %{0} (%{1})
       SAVE: Save 
       SAVE_OK: %{0} saved
+      SAVE_ERROR: "%{0} save failed : %{1}"
     severities:
       info: Information
       uncheck: Unchecked
@@ -144,6 +145,7 @@ fr:
       CSV_UNUSED_TIMETABLE: "Tableau de marche %{0} (%{1}) inutilisé"
       SAVE: Sauvegarde 
       SAVE_OK: %{0} enregistré
+      SAVE_ERROR: "Echec de l'enregistrement de %{0} : %{1}"
     severities:
       info: Information
       uncheck: Non testé
