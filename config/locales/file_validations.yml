@@ -34,6 +34,11 @@ en:
       Test1_Sheet1_Step2_error: "le fichier %{0} ne respecte pas le modèle NEPTUNE"
       Test1_Sheet1_Step2_encoding: "le fichier %{0} ne respecte pas le codage de caractères du modèle NEPTUNE (ISO-8859-1)"
       Test1_Sheet1_Step2_fatal: "Erreur fatale : Aucune entrée valide trouvée dans le fichier"
+      Test1_Sheet2: 'Fiche n° 1.2 : Conformité au schéma XML du profil NEPTUNE'
+      Test1_Sheet2_Step1: Conformité au schéma XML du profil NEPTUNE
+      Test1_Sheet2_Step1_error: "le fichier %{0} ne respecte pas le modèle NEPTUNE"
+      Test1_Sheet2_Step1_encoding: "le fichier %{0} ne respecte pas le codage de caractères du modèle NEPTUNE (ISO-8859-1)"
+      Test1_Sheet2_Step1_fatal: "Erreur fatale : Aucune entrée valide trouvée dans le fichier"
       TWO: "Catégorie 2 : Complétude, cohérence et intégrité des données"
       Test2_Sheet1: "Fiche n° 2.1 : Cohérence entre le réseau et ses composants"
       Test2_Sheet1_fatal: "La ligne %{0} n'a pas de réseau"
@@ -308,6 +313,11 @@ fr:
       Test1_Sheet1_Step2_error: "le fichier %{0} ne respecte pas le modèle NEPTUNE"
       Test1_Sheet1_Step2_encoding: "le fichier %{0} ne respecte pas le codage de caractères du modèle NEPTUNE (ISO-8859-1)"
       Test1_Sheet1_Step2_fatal: "Erreur fatale : Aucune entrée valide trouvée dans le fichier"
+      Test1_Sheet2: 'Fiche n° 1.2 : Conformité au schéma XML du profil NEPTUNE'
+      Test1_Sheet2_Step1: Conformité au schéma XML du profil NEPTUNE
+      Test1_Sheet2_Step1_error: "le fichier %{0} ne respecte pas le modèle NEPTUNE"
+      Test1_Sheet2_Step1_encoding: "le fichier %{0} ne respecte pas le codage de caractères du modèle NEPTUNE (ISO-8859-1)"
+      Test1_Sheet2_Step1_fatal: "Erreur fatale : Aucune entrée valide trouvée dans le fichier"
       TWO: "Catégorie 2 : Complétude, cohérence et intégrité des données"
       Test2_Sheet1: "Fiche n° 2.1 : Cohérence entre le réseau et ses composants"
       Test2_Sheet1_fatal: "La ligne %{0} n'a pas de réseau"

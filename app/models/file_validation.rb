@@ -74,9 +74,11 @@ class FileValidation < ActiveRecord::Base
 
   after_validation :extract_file_type, :on => :create
   def extract_file_type
-    if !resources.original_filename.nil?
-      self.file_type = resources.original_filename.rpartition(".").last
-      self.file_name = resources.original_filename
+    if ! resources.nil? 
+      if !resources.original_filename.nil?
+        self.file_type = resources.original_filename.rpartition(".").last
+        self.file_name = resources.original_filename
+      end
     end
   end
 
