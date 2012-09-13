@@ -27,9 +27,10 @@ en:
       NEPTUNE_TooMuchDetails: ( %{0} erreurs / warnings supplémentaires )
       NEPTUNE_Test1_Sheet1_Step0_fatal: "Erreur fatale : Impossible d'ouvrir le fichier %{0}"
       NEPTUNE_Test1_Sheet1_Step0_error: "Impossible d'importer cette entrée %{0} du zip"
-      NEPTUNE_Test1_Sheet1_Step0_warning: "Cette entrée %{0} du zip n'est pas un fichier xml et a été ignoré"
+      NEPTUNE_Test1_Sheet1_Step0_warning: "Cette entrée %{0} du zip n'est pas un fichier xml et a été ignorée"
       NEPTUNE_Test1_Sheet1_Step1_error: "le fichier %{0} n'est pas correctement formé selon les recommandations du W3C"
-      NEPTUNE_Test1_Sheet1_Step2_error: "le fichier %{0} ne respecte pas le modèle CHOUETTE"
+      NEPTUNE_Test1_Sheet1_Step2_error: "le fichier %{0} ne respecte pas le modèle NEPTUNE"
+      NEPTUNE_Test1_Sheet1_Step2_encoding: "le fichier %{0} ne respecte pas le codage de caractères du modèle NEPTUNE (ISO-8859-1)"
       NEPTUNE_Test1_Sheet1_Step2_fatal: "Erreur fatale \: Aucune entrée valide trouvée dans le fichier"
       CSV_IMPORT: Import CVS file
       CSV_OK_LINE: line %{0} imported
@@ -118,7 +119,8 @@ fr:
       NEPTUNE_Test1_Sheet1_Step0_error: "Impossible d'importer cette entrée %{0} du zip"
       NEPTUNE_Test1_Sheet1_Step0_warning: "Cette entrée %{0} du zip n'est pas un fichier xml et a été ignoré"
       NEPTUNE_Test1_Sheet1_Step1_error: "le fichier %{0} n'est pas correctement formé selon les recommandations du W3C"
-      NEPTUNE_Test1_Sheet1_Step2_error: "le fichier %{0} ne respecte pas le modèle CHOUETTE"
+      NEPTUNE_Test1_Sheet1_Step2_error: "le fichier %{0} ne respecte pas le modèle NEPTUNE"
+      NEPTUNE_Test1_Sheet1_Step2_encoding: "le fichier %{0} ne respecte pas le codage de caractères du modèle NEPTUNE (ISO-8859-1)"
       NEPTUNE_Test1_Sheet1_Step2_fatal: "Erreur fatale : Aucune entrée valide trouvée dans le fichier"
       CSV_IMPORT: Import de fichier au format CSV
       CSV_OK_LINE: Ligne %{0} importée
