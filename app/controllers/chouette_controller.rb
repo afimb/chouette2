@@ -1,4 +1,6 @@
 class ChouetteController < InheritedResources::Base
+
+  include ApplicationHelper
   
   before_filter :switch_referential
 

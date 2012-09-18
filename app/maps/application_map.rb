@@ -6,7 +6,7 @@ class ApplicationMap
   attr_accessor :helpers
 
   def helpers
-    @helper ||= Helpers.new
+    @helpers ||= Helpers.new
   end
 
   # For example, in a controller :
@@ -116,11 +116,6 @@ class ApplicationMap
     "#{relative_url_root}/assets/openlayers/"
   end
 
-  def polymorphic_path_patch( source)
-    relative_url_root = Rails.application.config.relative_url_root
-    relative_url_root && !source.starts_with?("#{relative_url_root}/") ? "#{relative_url_root}#{source}" : source
-  end
-
   def kml_layer(url_or_object, options_or_url_options = {}, options = nil)   
     unless options
       url_options = {}
@@ -136,9 +131,9 @@ class ApplicationMap
       when String
         url_or_object
       when Array
-        polymorphic_path_patch( helpers.polymorphic_path(url_or_object, url_options))
+        helpers.polymorphic_path_patch( helpers.polymorphic_path(url_or_object, url_options))
       else
-        polymorphic_path_patch( helpers.polymorphic_path([url_or_object.referential, url_or_object], url_options))
+        helpers.polymorphic_path_patch( helpers.polymorphic_path([url_or_object.referential, url_or_object], url_options))
       end
     
     protocol = OpenLayers::Protocol::HTTP.new :url => url, :format => kml

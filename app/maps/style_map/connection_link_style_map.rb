@@ -1,7 +1,8 @@
 class StyleMap::ConnectionLinkStyleMap < StyleMap::GenericStyleMap
   attr_accessor :style
 
-  def initialize(options = {})
+  def initialize(helpers,options = {})
+    @helpers= helpers
     @style = options[:style].present? ? default_style.merge(options[:style]) : default_style
   end
 
@@ -18,7 +19,7 @@ class StyleMap::ConnectionLinkStyleMap < StyleMap::GenericStyleMap
       :strokeWidth => 3,
       :strokeLineCap => "round",
       :strokeDashstyle => "solid",
-      :externalGraphic => self.class.polymorphic_path_patch( "map/${positionType}.png"),
+      :externalGraphic => @helpers.assets_path_patch( "map/${positionType}.png"),
       :graphicWidth => 36,
       :graphicHeight => 36, 
       :graphicOpacity => 1,	

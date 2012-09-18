@@ -15,7 +15,7 @@ class NetworkMap < ApplicationMap
       page << map.add_layer(google_hybrid) 
       page << map.add_layer(google_satellite)
       
-      page.assign "stop_areas_layer", kml_layer([network.referential, network], :styleMap => StyleMap::StopAreasStyleMap.new.style_map)
+      page.assign "stop_areas_layer", kml_layer([network.referential, network], :styleMap => StyleMap::StopAreasStyleMap.new(helpers).style_map)
 
       page << map.add_layer(:stop_areas_layer)
       page << map.add_control( hover_control_display_name(:stop_areas_layer) )
