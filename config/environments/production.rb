@@ -65,6 +65,8 @@ ChouetteIhm::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'chouette.dryade.net/chouette2' }
 
+  ActionMailer::Base.delivery_method = :sendmail
+  
   config.to_prepare do
     Devise::Mailer.layout "mailer"
     Chouette::Command.command = "/usr/local/opt/chouette-command/chouette-gui-2.0.0.2/chouette"
