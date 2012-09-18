@@ -7,25 +7,16 @@ class RouteMap < ApplicationMap
     @style = style
   end
 
-  def map
-    @map ||= MapLayers::Map.new(id, :projection => projection("EPSG:900913"), :controls => controls) do |map, page|
-      page << map.add_layer(MapLayers::OSM_MAPNIK)
-      page << map.add_layer(google_physical) 
-      page << map.add_layer(google_streets) 
-      page << map.add_layer(google_hybrid) 
-      page << map.add_layer(google_satellite) 
+  def customize_map(map, page)
+    layer = kml_layer([route.referential, route.line, route], :styleMap => StyleMap::RouteStyleMap.new.style_map)
+    page.assign "routeLayer", layer
+    selectFeature = OpenLayers::Control::SelectFeature.new( :routeLayer)
 
-      #page << map.add_layer(kml_layer(line, :styleMap => StyleMap::LineStyleMap.new( :style => line_style).style_map))
-      layer = kml_layer([route.referential, route.line, route], :styleMap => StyleMap::RouteStyleMap.new.style_map)
-      page.assign "routeLayer", layer
-      selectFeature = OpenLayers::Control::SelectFeature.new( :routeLayer)
+    page << map.add_layer( :routeLayer)
+    page << map.add_control( hover_control_display_name(:routeLayer) )
 
-      page << map.add_layer( :routeLayer)
-      page << map.add_control( hover_control_display_name(:routeLayer) )
-      page << map.zoom_to_extent(bounds.to_google.to_openlayers) if bounds
-
-      page.assign "selectFeature", selectFeature
-    end
+    page.assign "selectFeature", selectFeature
+    page << map.zoom_to_extent(bounds.to_google.to_openlayers) if bounds
   end
 
   def ready?

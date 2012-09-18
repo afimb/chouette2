@@ -12,6 +12,7 @@ class StopAreaMap < ApplicationMap
   def map
     @map ||= MapLayers::Map.new(id, :projection => projection("EPSG:900913"), :controls => controls) do |map, page|
       page << map.add_layer(MapLayers::OSM_MAPNIK)
+      page << map.add_layer(geoportail_wmts)
       page << map.add_layer(google_physical) 
       page << map.add_layer(google_streets) 
       page << map.add_layer(google_hybrid) 

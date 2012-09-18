@@ -4,6 +4,7 @@ class ApplicationMap
   include MapLayers::ViewHelpers
 
   attr_accessor :helpers
+  cattr_accessor :ign_api_key
 
   def helpers
     @helper ||= Helpers.new
@@ -40,7 +41,16 @@ class ApplicationMap
   end
 
   def map
-    @map ||= MapLayers::Map.new(id, :projection => projection("EPSG:900913"), :controls => controls)
+    @map ||= MapLayers::Map.new(id, :projection => projection("EPSG:900913"), :controls => controls) do |map, page|
+      page << map.add_layer(MapLayers::OSM_MAPNIK)
+      page << map.add_layer(geoportail_wmts)
+      page << map.add_layer(google_physical) 
+      page << map.add_layer(google_streets) 
+      page << map.add_layer(google_hybrid) 
+      page << map.add_layer(google_satellite) 
+
+      customize_map(map,page) if respond_to?( :customize_map)
+    end
   end
 
   def name
@@ -56,6 +66,16 @@ class ApplicationMap
 
   def kml
     OpenLayers::Format::KML.new :extractStyles => true, :extractAttributes => true, :maxDepth => 2
+  end
+
+  def geoportail_wmts
+      OpenLayers::Layer::WMTS.new :name => I18n.t("maps.ign_map"),
+        :url => "http://gpp3-wxs.ign.fr/#{self.class.ign_api_key}/wmts",
+        :layer => "GEOGRAPHICALGRIDSYSTEMS.MAPS",
+        :matrixSet => "PM",
+        :style => "normal",
+        :numZoomLevels => 19,
+	:attribution => 'Map base: &copy;IGN <a href="http://www.geoportail.fr/" target="_blank"><img src="http://api.ign.fr/geoportail/api/js/2.0.0beta/theme/geoportal/img/logo_gp.gif"></a> <a href="http://www.geoportail.gouv.fr/depot/api/cgu/licAPI_CGUF.pdf" alt="TOS" title="TOS" target="_blank">Terms of Service</a>'
   end
 
   def strategy_fixed
