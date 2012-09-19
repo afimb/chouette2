@@ -1,37 +1,36 @@
 class StyleMap::EditStopAreaStyleMap < StyleMap::GenericStyleMap
-  attr_accessor :default_style, :select_style, :context
+  attr_accessor :style
   
-  @@default_style_class = {
-    #:label => "${label}",
-    :fontColor => "black",
-    :fontSize => "11px",
-    :fontWeight => "bold",
-    :labelAlign => "ct",
-    :labelXOffset => 0,
-    :labelYOffset => -15,
-    :pointRadius => 4,
-    :fillColor => "white",
-    :fillOpacity => 1,
-    :strokeColor => "black",
-    :strokeOpacity => 1,
-    :strokeWidth => 2
-  }
+  def default_style
+    { :fontColor => "black",
+      :fontSize => "11px",
+      :fontWeight => "bold",
+      :labelAlign => "ct",
+      :labelXOffset => 0,
+      :labelYOffset => -15,
+      :pointRadius => 4,
+      :fillColor => "white",
+      :fillOpacity => 1,
+      :strokeColor => "black",
+      :strokeOpacity => 1,
+      :strokeWidth => 2 } 
+  end
 
-  @@select_style_class = {
-    :fontColor => "black", 
-    :fontSize => "11px",
-    :fontWeight => "bold",
-    :pointRadius => 4,
-    :fillColor => "#86b41d",
-    :fillOpacity => 1,
-    :strokeColor => "black",
-    :strokeOpacity => 1,
-    :strokeWidth => 2
-  }
+  def select_style
+   { :fontColor => "black", 
+     :fontSize => "11px",
+     :fontWeight => "bold",
+     :pointRadius => 4,
+     :fillColor => "#86b41d",
+     :fillOpacity => 1,
+     :strokeColor => "black",
+     :strokeOpacity => 1,
+     :strokeWidth => 2 }
+  end
 
-  def initialize(options = {})
-    @default_style = options[:default_style].present? ? options[:default_style].merge(@@default_style_class) : @@default_style_class
-    @select_style = options[:select_style].present? ? options[:select_style].merge(@@select_style_class) : @@select_style_class
+  def initialize(helpers, options = {})
+    @helpers= helpers
+    @style = options[:style].present? ? default_style.merge(options[:style]) : default_style
   end
 
   def context
@@ -41,10 +40,7 @@ class StyleMap::EditStopAreaStyleMap < StyleMap::GenericStyleMap
   end
 
   def style_map
-    OpenLayers::StyleMap.new(
-                             :default => OpenLayers::Style.new(default_style,  { :context => context}),
-                             :select => OpenLayers::Style.new(select_style)
-                             )
+    OpenLayers::StyleMap.new(:default => OpenLayers::Style.new(style, { :context => context}), :select =>  OpenLayers::Style.new(style.merge( select_style), { :context => context}))
   end
 
 end

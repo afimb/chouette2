@@ -1,25 +1,27 @@
 class StyleMap::StopAreasStyleMap < StyleMap::GenericStyleMap
-  attr_accessor :default_style, :context
+  attr_accessor :style, :context
   
-  @@default_style_class = {
-    :label => "${label}",
-    :fontColor => "black",
-    :fontSize => "11px",
-    :fontWeight => "bold",
-    :labelAlign => "ct",
-    :labelXOffset => 0,
-    :labelYOffset => -40,
-    :pointRadius => 1, 
-    :externalGraphic => polymorphic_path_patch( "map/${areaType}.png"),      
-    :graphicWidth => 25,
-    :graphicHeight => 25, 
-    :graphicOpacity => 1,    
-    :graphicXOffset => -12.5,
-    :graphicYOffset => -12.5
-  }
+  def default_style
+    raise "Helpers nil" if @helpers.nil?
+    {:label => "${label}",
+     :fontColor => "black",
+     :fontSize => "11px",
+     :fontWeight => "bold",
+     :labelAlign => "ct",
+     :labelXOffset => 0,
+     :labelYOffset => -40,
+     :pointRadius => 1, 
+     :externalGraphic => @helpers.assets_path_patch( "map/${areaType}.png"),      
+     :graphicWidth => 25,
+     :graphicHeight => 25, 
+     :graphicOpacity => 1,    
+     :graphicXOffset => -12.5,
+     :graphicYOffset => -12.5 }
+  end
 
-  def initialize(options = {})
-    @default_style = options[:default_style].present? ? options[:default_style].merge(@@default_style_class) : @@default_style_class
+  def initialize(helpers,options = {})
+    @helpers= helpers
+    @style = options[:style].present? ? default_style.merge(options[:style]) : default_style
   end
 
   
@@ -31,7 +33,7 @@ class StyleMap::StopAreasStyleMap < StyleMap::GenericStyleMap
   end
 
   def style_map
-    OpenLayers::StyleMap.new(:default => OpenLayers::Style.new(default_style, { :context => context})                             )
+    OpenLayers::StyleMap.new(:default => OpenLayers::Style.new(style, { :context => context})                             )
   end
 
 end

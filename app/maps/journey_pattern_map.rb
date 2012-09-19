@@ -8,7 +8,7 @@ class JourneyPatternMap < ApplicationMap
   end
 
   def customize_map(map, page)
-    layer = kml_layer([journey_pattern.referential, journey_pattern.route.line, journey_pattern.route, journey_pattern], :styleMap => StyleMap::JourneyPatternStyleMap.new.style_map)
+    layer = kml_layer([journey_pattern.referential, journey_pattern.route.line, journey_pattern.route, journey_pattern], :styleMap => StyleMap::JourneyPatternStyleMap.new(helpers).style_map)
     page.assign "journeyPatternLayer", layer
 
     selectFeature = OpenLayers::Control::SelectFeature.new( :journeyPatternLayer)
