@@ -110,12 +110,6 @@ class ApplicationMap
                                               } } )
   end
 
-  def open_layer_path
-    relative_url_root = Rails.application.config.relative_url_root
-    return "/assets/openlayers/" unless relative_url_root
-    "#{relative_url_root}/assets/openlayers/"
-  end
-
   def kml_layer(url_or_object, options_or_url_options = {}, options = nil)   
     unless options
       url_options = {}
