@@ -1,12 +1,13 @@
 class StyleMap::JourneyPatternStyleMap < StyleMap::GenericStyleMap
   attr_accessor :style
 
-  def initialize(options = {})
+  def initialize(helpers, options = {})
+    @helpers= helpers
     @style = options[:style].present? ? default_style.merge(options[:style]) : default_style
   end
 
   def select_style
-    default_style.merge :externalGraphic => self.class.polymorphic_path_patch( "icons/stop_area_hover.png")
+    default_style.merge :externalGraphic => @helpers.assets_path_patch( "icons/stop_area_hover.png")
   end
   def default_style
     {
@@ -22,7 +23,7 @@ class StyleMap::JourneyPatternStyleMap < StyleMap::GenericStyleMap
       :strokeWidth => 3,
       :strokeLineCap => "round",
       :strokeDashstyle => "solid",
-      :externalGraphic => self.class.polymorphic_path_patch( "icons/${positionType}.png"),
+      :externalGraphic => @helpers.assets_path_patch( "icons/${positionType}.png"),
       :graphicWidth => 12,
       :graphicHeight => 12, 
       :graphicOpacity => 1,	

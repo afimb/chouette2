@@ -16,7 +16,7 @@ class JourneyPatternMap < ApplicationMap
       page << map.add_layer(google_satellite) 
 
       #page << map.add_layer(kml_layer(line, :styleMap => StyleMap::LineStyleMap.new( :style => line_style).style_map))
-      layer = kml_layer([journey_pattern.referential, journey_pattern.route.line, journey_pattern.route, journey_pattern], :styleMap => StyleMap::JourneyPatternStyleMap.new.style_map)
+      layer = kml_layer([journey_pattern.referential, journey_pattern.route.line, journey_pattern.route, journey_pattern], :styleMap => StyleMap::JourneyPatternStyleMap.new(helpers).style_map)
       page.assign "journeyPatternLayer", layer
 
       selectFeature = OpenLayers::Control::SelectFeature.new( :journeyPatternLayer)

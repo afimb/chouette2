@@ -17,7 +17,7 @@ class StopAreaMap < ApplicationMap
       page << map.add_layer(google_hybrid) 
       page << map.add_layer(google_satellite) 
 
-      page.assign "edit_stop_area_layer", kml_layer(stop_area, { :default => editable? }, :style_map => StyleMap::EditStopAreaStyleMap.new.style_map)
+      page.assign "edit_stop_area_layer", kml_layer(stop_area, { :default => editable? }, :style_map => StyleMap::EditStopAreaStyleMap.new(helpers).style_map)
       page << map.add_layer(:edit_stop_area_layer)
       
       

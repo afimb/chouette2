@@ -16,7 +16,7 @@ class RouteMap < ApplicationMap
       page << map.add_layer(google_satellite) 
 
       #page << map.add_layer(kml_layer(line, :styleMap => StyleMap::LineStyleMap.new( :style => line_style).style_map))
-      layer = kml_layer([route.referential, route.line, route], :styleMap => StyleMap::RouteStyleMap.new.style_map)
+      layer = kml_layer([route.referential, route.line, route], :styleMap => StyleMap::RouteStyleMap.new(helpers).style_map)
       page.assign "routeLayer", layer
       selectFeature = OpenLayers::Control::SelectFeature.new( :routeLayer)
 

@@ -1,7 +1,8 @@
 class StyleMap::LineStyleMap < StyleMap::GenericStyleMap
   attr_accessor :style, :line_priority, :line_color
 
-  def initialize(options = {})
+  def initialize(helpers,options = {})
+    @helpers= helpers
     @line_color = options[:line_color]
     @style = options[:style].present? ? default_style.merge(options[:style]) : default_style
   end
