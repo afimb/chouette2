@@ -2,6 +2,7 @@ en:
   file_validations:
     index:
       title: Neptune Validation
+      warning: ""
     edit:
       title: "Edit the Validation"
     show:
@@ -259,6 +260,7 @@ fr:
   file_validations:
     index:
       title: Validation Neptune
+      warning: ""
     edit:
       title: "Editer la validation"
     show:
