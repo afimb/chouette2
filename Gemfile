@@ -24,8 +24,8 @@ end
 gem "map_layers", "~> 0.0.4"
 gem "georuby-ext", :git => 'git://github.com/dryade/georuby-ext.git'
 
-#gem 'user_interface', :git => 'git://github.com/dryade/user-interface.git'
-gem 'user_interface', :git => 'git://sim.dryade.priv/user_interface' #, :path => '~/Projects/UserInterfaceDryade'
+gem 'user_interface', :git => 'git://github.com/dryade/user-interface.git'
+#gem 'user_interface', :git => 'git://sim.dryade.priv/user_interface' #, :path => '~/Projects/UserInterfaceDryade'
 gem 'json'
 gem 'cocoon'
 gem 'formtastic'
@@ -39,9 +39,9 @@ gem "modernizr-rails", "~> 2.0.6"
 gem 'gravatar_image_tag'
 
 gem "acts_as_tree", :git => "git://github.com/dryade/acts_as_tree.git"
-#gem 'ninoxe', :git => 'git://github.com/dryade/ninoxe.git'
+gem 'ninoxe', :git => 'git://github.com/dryade/ninoxe.git'
 #gem 'ninoxe', :git => 'git://github.com/dryade/ninoxe.git', :branch => 'V2_0_0'
-gem 'ninoxe', :git => 'git://chouette.dryade.priv/ninoxe' #, :path => '~/Projects/Ninoxe'
+#gem 'ninoxe', :git => 'git://chouette.dryade.priv/ninoxe' #, :path => '~/Projects/Ninoxe'
 gem 'acts_as_list', '0.1.6'
 
 #gem 'composite_primary_keys', '~> 5.0.8'
