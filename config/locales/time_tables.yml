@@ -56,7 +56,7 @@ en:
         creation_time: Created on
         creator_id: Created by 
         dates: Application dates
-        date: Le
+        date: On
         periods: Application periods
         period_start: From
         period_end: to
@@ -81,6 +81,8 @@ fr:
       destroy_confirm: Etes vous sûr de détruire ce calendrier ?
       destroy_date_confirm: Etes vous sûr de détruire cette date ?
       destroy_period_confirm: Etes vous sûr de détruire cette période ?
+      add_period: Ajouter une période
+      add_date: Ajouter une date
     new:
       title: Ajouter un calendrier
     edit:

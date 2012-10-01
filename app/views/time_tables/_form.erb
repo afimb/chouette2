@@ -17,6 +17,43 @@
     <%= form.input :objectid, :required => !@time_table.new_record?, :input_html => { :disabled => !@time_table.new_record? } %>  
   <% end %>
   
+  <h3 class="time_table_dates">
+	<a class="dates"><%= @time_table.human_attribute_name("dates") %>
+      <%= image_tag("icons/plus.png"  , :class => "switcher", :style => "display: none;") %>
+      <%= image_tag("icons/minus.png"  , :class => "switcher" ) %>
+    </a>
+  </h3>
+
+  <div class="dates content"  id="dates_content">
+	  <div id="dates">
+		  <%= form.semantic_fields_for :dates do |p| %>
+		     <%= render "date_fields",  :f => p %> 
+		  <% end %>
+	  </div>
+	  <%= link_to_add_association t("time_tables.actions.add_date"), form, :dates ,
+	  :"data-association-insertion-method" => "append",
+	  :"data-association-insertion-node" => "div#dates" %>
+  </div>
+  
+  
+  <h3 class="time_table_periods">
+	<a class="periods"><%= @time_table.human_attribute_name("periods") %>
+      <%= image_tag("icons/plus.png"  , :class => "switcher", :style => "display: none;") %>
+      <%= image_tag("icons/minus.png"  , :class => "switcher" ) %>
+    </a>
+  	
+  </h3>
+  <div class="periods content"  id="periods_content">
+	  <div id="periods">
+		  <%= form.semantic_fields_for :periods do |p| %>
+		     <%= render "period_fields",  :f => p %> 
+		  <% end %>
+	  </div>
+	  <%= link_to_add_association t("time_tables.actions.add_period"), form, :periods ,
+	  :"data-association-insertion-method" => "append",
+	  :"data-association-insertion-node" => "div#periods"%>
+  </div>
+  <p/>
    <%= form.actions do %>
      <%= form.action :submit, :as => :button %>
      <%= form.action :cancel, :as => :link %>

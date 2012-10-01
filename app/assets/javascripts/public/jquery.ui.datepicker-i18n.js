@@ -53,7 +53,14 @@ jQuery(function($){
                                                   monthNamesShort: $.datepicker.regional[ $('html').attr('lang') ].monthNamesShort, 
                                                   monthNames: $.datepicker.regional[ $('html').attr('lang') ].monthNames
                                               } );
-                                          $(element).datepicker("setDate", $.datepicker.parseDate('yy-mm-dd', $(element).val() ) );
+                                          if ($(element).val().indexOf('/') >= 0) 
+                                          {
+                                          	$(element).datepicker("setDate", $.datepicker.parseDate('dd/mm/y', $(element).val() ) );
+                                          }
+                                          else 
+                                          {
+                                            $(element).datepicker("setDate", $.datepicker.parseDate('yy-mm-dd', $(element).val() ) );
+                                          }   
                                       });
 
         $("form").submit(function(event) {

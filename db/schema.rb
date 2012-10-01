@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120905125251) do
+ActiveRecord::Schema.define(:version => 20120926144619) do
 
   create_table "access_links", :force => true do |t|
     t.integer  "access_point_id",                        :limit => 8
@@ -176,8 +176,6 @@ ActiveRecord::Schema.define(:version => 20120905125251) do
     t.integer "choice_code"
   end
 
-  add_index "facilities_features", ["facility_id"], :name => "idx_facility_id"
-
   create_table "file_validation_log_messages", :force => true do |t|
     t.integer  "file_validation_id"
     t.string   "key"
@@ -192,7 +190,7 @@ ActiveRecord::Schema.define(:version => 20120905125251) do
 
   create_table "file_validations", :force => true do |t|
     t.string   "status"
-    t.string   "options",         :limit => 2000
+    t.string   "options"
     t.string   "file_name"
     t.string   "file_type"
     t.datetime "created_at"
@@ -212,12 +210,9 @@ ActiveRecord::Schema.define(:version => 20120905125251) do
   add_index "group_of_lines", ["objectid"], :name => "group_of_lines_objectid_key", :unique => true
 
   create_table "group_of_lines_lines", :id => false, :force => true do |t|
-    t.integer "group_of_line_id", :limit => 8, :null => false
-    t.integer "line_id",          :limit => 8, :null => false
+    t.integer "group_of_line_id", :limit => 8
+    t.integer "line_id",          :limit => 8
   end
-
-  add_index "group_of_lines_lines", ["group_of_line_id"], :name => "idx_grli_gr"
-  add_index "group_of_lines_lines", ["line_id"], :name => "idx_grli_li"
 
   create_table "import_log_messages", :force => true do |t|
     t.integer  "import_id"
@@ -260,11 +255,10 @@ ActiveRecord::Schema.define(:version => 20120905125251) do
   add_index "journey_patterns", ["objectid"], :name => "journey_patterns_objectid_key", :unique => true
 
   create_table "journey_patterns_stop_points", :id => false, :force => true do |t|
-    t.integer "journey_pattern_id", :limit => 8, :null => false
-    t.integer "stop_point_id",      :limit => 8, :null => false
+    t.integer "journey_pattern_id", :limit => 8
+    t.integer "stop_point_id",      :limit => 8
   end
 
-  add_index "journey_patterns_stop_points", ["journey_pattern_id"], :name => "idx_jpsp_jpid"
   add_index "journey_patterns_stop_points", ["journey_pattern_id"], :name => "index_journey_pattern_id_on_journey_patterns_stop_points"
 
   create_table "lines", :force => true do |t|
@@ -361,9 +355,6 @@ ActiveRecord::Schema.define(:version => 20120905125251) do
     t.integer "line_id",      :limit => 8
   end
 
-  add_index "routing_constraints_lines", ["line_id"], :name => "idx_rcli_li"
-  add_index "routing_constraints_lines", ["stop_area_id"], :name => "idx_rcli_st"
-
   create_table "stop_areas", :force => true do |t|
     t.integer  "parent_id",           :limit => 8
     t.string   "objectid",                                                         :null => false
@@ -420,7 +411,7 @@ ActiveRecord::Schema.define(:version => 20120905125251) do
 
   add_index "time_slots", ["objectid"], :name => "time_slots_objectid_key", :unique => true
 
-  create_table "time_table_dates", :id => false, :force => true do |t|
+  create_table "time_table_dates", :force => true do |t|
     t.integer "time_table_id", :limit => 8, :null => false
     t.date    "date"
     t.integer "position",                   :null => false
@@ -428,7 +419,7 @@ ActiveRecord::Schema.define(:version => 20120905125251) do
 
   add_index "time_table_dates", ["time_table_id"], :name => "index_time_table_dates_on_time_table_id"
 
-  create_table "time_table_periods", :id => false, :force => true do |t|
+  create_table "time_table_periods", :force => true do |t|
     t.integer "time_table_id", :limit => 8, :null => false
     t.date    "period_start"
     t.date    "period_end"
@@ -450,8 +441,8 @@ ActiveRecord::Schema.define(:version => 20120905125251) do
   add_index "time_tables", ["objectid"], :name => "time_tables_objectid_key", :unique => true
 
   create_table "time_tables_vehicle_journeys", :id => false, :force => true do |t|
-    t.integer "time_table_id",      :limit => 8, :null => false
-    t.integer "vehicle_journey_id", :limit => 8, :null => false
+    t.integer "time_table_id",      :limit => 8
+    t.integer "vehicle_journey_id", :limit => 8
   end
 
   add_index "time_tables_vehicle_journeys", ["time_table_id"], :name => "index_time_tables_vehicle_journeys_on_time_table_id"
@@ -501,12 +492,8 @@ ActiveRecord::Schema.define(:version => 20120905125251) do
     t.time    "waiting_time"
     t.time    "elapse_duration"
     t.time    "headway_frequency"
-    t.integer "position",                       :limit => 8
-    t.boolean "is_departure",                                :default => false
-    t.boolean "is_arrival",                                  :default => false
   end
 
-  add_index "vehicle_journey_at_stops", ["stop_point_id"], :name => "index_vehicle_journey_at_stops_on_stop_point_id"
   add_index "vehicle_journey_at_stops", ["stop_point_id"], :name => "index_vehicle_journey_at_stops_on_stop_pointid"
   add_index "vehicle_journey_at_stops", ["vehicle_journey_id"], :name => "index_vehicle_journey_at_stops_on_vehicle_journey_id"
 
