@@ -40,6 +40,7 @@ gem 'gravatar_image_tag'
 
 gem "acts_as_tree", :git => "git://github.com/dryade/acts_as_tree.git"
 #gem 'ninoxe', :git => 'git://github.com/dryade/ninoxe.git'
+#gem 'ninoxe', :git => 'git://github.com/dryade/ninoxe.git', :branch => 'V2_0_0'
 gem 'ninoxe', :git => 'git://chouette.dryade.priv/ninoxe' #, :path => '~/Projects/Ninoxe'
 gem 'acts_as_list', '0.1.6'
 

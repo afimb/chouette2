@@ -1,6 +1,6 @@
 GIT
   remote: git://chouette.dryade.priv/ninoxe
-  revision: 848e356ff197dc5dcd143057e770373646b4c62c
+  revision: f6d327cfa9380bca083eacd5b6c060117a74f31b
   specs:
     ninoxe (0.0.8)
       GeoRuby
@@ -61,7 +61,7 @@ GIT
 
 GIT
   remote: git://sim.dryade.priv/user_interface
-  revision: 0fac5e33ba61eaa691a65d9a5f49f6acd3755927
+  revision: d828d7107f2b4025853cbfa7cc0e76cceca27da6
   specs:
     user_interface (0.0.1)
       rails (> 3.1.0)
@@ -235,7 +235,7 @@ GEM
       rack (>= 0.4)
     rack-ssl (1.3.2)
       rack
-    rack-test (0.6.1)
+    rack-test (0.6.2)
       rack (>= 1.0)
     rails (3.2.6)
       actionmailer (= 3.2.6)

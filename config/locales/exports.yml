@@ -10,6 +10,7 @@ en:
       all: All
     index:
       title: Exports
+      warning: ""
     show:
       report: Report
     statuses:
@@ -82,6 +83,7 @@ fr:
       all: Toutes
     index:
       title: Exports
+      warning: ""
     show:
       report: Rapport
     statuses:
