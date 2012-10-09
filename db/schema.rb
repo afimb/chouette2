@@ -182,20 +182,30 @@ ActiveRecord::Schema.define(:version => 20120926144619) do
     t.string   "arguments",          :limit => 1000
     t.integer  "position"
     t.string   "severity"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   add_index "file_validation_log_messages", ["file_validation_id"], :name => "index_file_validation_log_messages_on_file_validation_id"
 
   create_table "file_validations", :force => true do |t|
     t.string   "status"
-    t.string   "options"
+    t.string   "options",         :limit => 2000
     t.string   "file_name"
     t.string   "file_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.integer  "organisation_id"
+  end
+
+  create_table "geometry_columns", :id => false, :force => true do |t|
+    t.string  "f_table_catalog",   :limit => 256, :null => false
+    t.string  "f_table_schema",    :limit => 256, :null => false
+    t.string  "f_table_name",      :limit => 256, :null => false
+    t.string  "f_geometry_column", :limit => 256, :null => false
+    t.integer "coord_dimension",                  :null => false
+    t.integer "srid",                             :null => false
+    t.string  "type",              :limit => 30,  :null => false
   end
 
   create_table "group_of_lines", :force => true do |t|
@@ -327,8 +337,8 @@ ActiveRecord::Schema.define(:version => 20120926144619) do
     t.datetime "updated_at"
     t.string   "prefix"
     t.string   "projection_type"
-    t.string   "bounding_box",    :limit => nil
     t.string   "time_zone"
+    t.string   "the_geom"
     t.string   "bounds"
     t.integer  "organisation_id"
   end
@@ -353,6 +363,14 @@ ActiveRecord::Schema.define(:version => 20120926144619) do
   create_table "routing_constraints_lines", :id => false, :force => true do |t|
     t.integer "stop_area_id", :limit => 8
     t.integer "line_id",      :limit => 8
+  end
+
+  create_table "spatial_ref_sys", :id => false, :force => true do |t|
+    t.integer "srid",                      :null => false
+    t.string  "auth_name", :limit => 256
+    t.integer "auth_srid"
+    t.string  "srtext",    :limit => 2048
+    t.string  "proj4text", :limit => 2048
   end
 
   create_table "stop_areas", :force => true do |t|
