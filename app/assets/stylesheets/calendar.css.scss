@@ -28,8 +28,6 @@
 .calendar_helper{ 
     
     padding: auto; 
-
-    .test { margin: auto;}
 }
 
 .calendar {
@@ -84,7 +82,6 @@ thead tr {
 .specialDay a, .specialDay a:visited, .specialDay a:hover {
   color: white;
   text-decoration: none;
-  padding:  0.7em;
 }
 .specialDay a:hover {
   color: black;

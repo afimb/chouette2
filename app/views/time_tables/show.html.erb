@@ -69,7 +69,6 @@
       <span class="next"> <%= link_to(">", :year => (@year + 1) ) %> </span>
     </div>
     <div class="calendar_helper">
-      <div class="test">
     <%= cal = ""
       (1..12).each do |month|
         cal << calendar(:year => @year, :month => month, :first_day_of_week => 1) do |d|
@@ -80,7 +79,6 @@
       end
       cal.html_safe
     %>
-      </div> 
     </div> 
 
 
