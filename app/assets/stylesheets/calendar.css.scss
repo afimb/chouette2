@@ -76,16 +76,13 @@ thead tr {
   border-bottom: 1px solid #111111;
 }
 
-.specialDay {
-  background-color: #a8a8a8;
-  color: black;
-}
+.specialDay { background-color: #a8a8a8 !important; }
 
-.selected_period  { background-color: #ffbd2b; }
+.selected_period  { background-color: #ffbd2b !important; }
 
-.selected_date  { background-color: #8fc861; }
+.selected_date  { background-color: #8fc861 !important; }
 
-.overlap_date { background-color: #ffbd2b; }
+.overlap_date { background-color: #ffbd2b !important; }
 
 .specialDay, .selected_period, .selected_date, .overlap_date {
     a, a:visited, a:hover {
