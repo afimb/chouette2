@@ -1,0 +1,26 @@
+<%= title_tag t('group_of_lines.index.title') %> 
+
+<%= search_form_for @q, :url => referential_group_of_lines_path(@referential), :html => {:method => :get} do |f| %>
+  <%= f.label :name_cont, "#{t('.name')} :" %>
+  <%= f.text_field :name_cont %>
+
+  <%= f.submit t('actions.search') %> <%= t("or") %>
+  <%= link_to t("cancel"), referential_group_of_lines_path(@referential) %>
+<% end %>
+
+<div class="page_info">
+  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @group_of_lines %>
+</div>
+<div class="group_of_lines paginated_content">
+  <%= render :partial => "group_of_line", :collection => @group_of_lines %>
+</div>
+<div class="pagination">
+  <%= will_paginate @group_of_lines, :container => false %>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('group_of_lines.actions.new'), new_referential_group_of_line_path(@referential), :class => "add" %></li>
+  <br>
+</ul>
+<% end %>
