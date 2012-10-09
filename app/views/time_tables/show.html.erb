@@ -72,8 +72,12 @@
     <%= cal = ""
       (1..12).each do |month|
         cal << calendar(:year => @year, :month => month, :first_day_of_week => 1) do |d|
-                 if @time_table.include_day?(d)         
-                   [link_to(d.mday, edit_referential_time_table_path(@referential, @time_table) ), {:class => "specialDay"}]      
+                 if @time_table.include_in_dates?(d)         
+                   [link_to(d.mday, edit_referential_time_table_path(@referential, @time_table) ), {:class => "selected_date"}] 
+                 elsif @time_table.include_in_periods?(d)
+                   [link_to(d.mday, edit_referential_time_table_path(@referential, @time_table) ), {:class => "selected_period"}]  
+                 elsif @time_table.include_in_overlap_dates?(d)
+                   [link_to(d.mday, edit_referential_time_table_path(@referential, @time_table) ), {:class => "overlap_date"}]   
                  end
                end
       end
