@@ -13,7 +13,6 @@ platforms :jruby do
   gem 'jruby-openssl'
   gem "jruby-rack-worker"
   gem 'warbler'   
-  gem "jruby-rack-worker"
 end
 
 platforms :ruby do    
@@ -37,6 +36,7 @@ gem 'RedCloth'
 gem 'jquery-rails'
 gem "modernizr-rails", "~> 2.0.6"
 gem 'gravatar_image_tag'
+gem 'calendar_helper', :git => "git://github.com/topfunky/calendar_helper.git"
 
 gem "acts_as_tree", :git => "git://github.com/dryade/acts_as_tree.git"
 #gem 'ninoxe', :git => 'git://github.com/dryade/ninoxe.git'
