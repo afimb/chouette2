@@ -59,33 +59,42 @@ thead tr {
   border-bottom: 1px solid white;
 }
 
-.otherMonth, .day, .specialDay {
+.otherMonth {
+  color: #999999;
+  background-color: #4f4f5b;
   padding: 0.7em;
   border-right: 1px solid #111111;
   border-bottom: 1px solid #111111;
 }
 
-.otherMonth {
-  color: #999999;
-  background-color: #4f4f5b;
-}
+.day { background-color: #333333; }
 
-.day, .specialDay {
+.day, .specialDay, .selected_period, .selected_date, .overlap_date {
   border-bottom: 1px solid #111111;
-  background-color: #333333;
+  padding: 0.7em;
+  border-right: 1px solid #111111;
+  border-bottom: 1px solid #111111;
 }
-.specialDay {
-  background-color: #a8a8a8 !important;
+
+.specialDay { background-color: #a8a8a8 !important; }
+
+.selected_period  { background-color: #ffbd2b !important; }
+
+.selected_date  { background-color: #8fc861 !important; }
+
+.overlap_date { background-color: #ffbd2b !important; }
+
+.specialDay, .selected_period, .selected_date, .overlap_date {
+    a, a:visited, a:hover {
+        color: white;
+        text-decoration: none;
+    }
+}
+
+.specialDay a:hover, selected_period a:hover, selected_date a:hover, overlap_date a:hover {
   color: black;
 }
 
-.specialDay a, .specialDay a:visited, .specialDay a:hover {
-  color: white;
-  text-decoration: none;
-}
-.specialDay a:hover {
-  color: black;
-}
 .weekendDay {
   background-color: #787888;
 }
