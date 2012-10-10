@@ -10,6 +10,7 @@ class LinesController < ChouetteController
   def show
     @map = LineMap.new(resource).with_helpers(self)
     @routes = @line.routes
+    @group_of_lines = @line.group_of_lines
     show!
   end
 

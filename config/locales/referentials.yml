@@ -47,6 +47,7 @@ en:
         start_validity_period: from
         end_validity_period: to
         networks: Networks
+        group_of_lines: Group of lines
         lines: Lines
         vehicle_journeys: Vehicle journeys
         companies: Companies
@@ -105,7 +106,7 @@ fr:
         name: Nom
         slug: Code
         prefix: Préfixe des identifiants Neptune
-        projection_type: Système de référence spatiale optionnel (SRID)
+        projection_type: Système de référence spatiale (SRID) optionnel 
         time_zone: Fuseau horaire
         upper_corner: "Point haut/droite de l'emprise par défaut" 
         lower_corner: "Point bas/gauche de l'emprise par défaut"
@@ -115,6 +116,7 @@ fr:
         start_validity_period: du
         end_validity_period: au
         networks: Réseaux
+        group_of_lines: Groupes de lignes
         lines: Lignes
         vehicle_journeys: Courses
         companies: Transporteurs

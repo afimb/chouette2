@@ -13,6 +13,7 @@ en:
     show:
       title: Line %{line}
       itineraries: "Line's route list"
+      group_of_lines: Groups of lines
     index:
       title: Lines
       name_or_number: Name or number
@@ -26,6 +27,8 @@ en:
       select_all: Select all
       deselect_all: Deselect all
       unset: undefined
+    form:
+      group_of_lines: Associated groups of lines 
   activerecord:        
     models:        
       line: 
@@ -67,6 +70,7 @@ fr:
     show:
       title: Ligne %{line}
       itineraries: "Liste des séquences d'arrêts de la ligne"
+      group_of_lines: Groupes de lignes
     index:
       name_or_number: Nom ou indice
       title: Lignes
@@ -80,6 +84,8 @@ fr:
       select_all: Tout sélectionner
       deselect_all: Tout désélectionner
       unset: non défini
+    form:
+      group_of_lines: Groupes de lignes associés  
   activerecord:        
     models:        
       line:

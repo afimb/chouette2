@@ -21,9 +21,11 @@
   	<% else %>
        <%= line.human_attribute_name('company') %> <%= link_to_if( line.company, line.company.name, referential_company_path(@referential, line.company), :title => "#{line.human_attribute_name('company')} #{line.company.name}" )  %>
     <% end %>
+    <% if @group_of_line.nil? %>
     <div class="actions">  
       <%= link_to t("actions.edit"), edit_referential_line_path(@referential, line), :class => "edit" %> |
       <%= link_to t("actions.destroy"), referential_line_path(@referential, line), :method => :delete, :confirm =>  t('lines.actions.destroy_confirm'), :class => "remove" %>
     </div>
+    <% end %>
   </div>
 <% end %>

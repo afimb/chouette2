@@ -27,6 +27,7 @@ en:
       group_of_line:
         name: "Name"
         comment: "Comments"
+        line_count: Number of lines
         objectid: Neptune identifier
         object_version: Version
         creation_time: Created on
@@ -65,6 +66,7 @@ fr:
       group_of_line:
         name: "Nom"
         comment: "Commentaire"
+        line_count: Nombre de lignes
         objectid: "Identifiant Neptune"
         object_version: "Version"
         creation_time: "Créé le"
