@@ -42,7 +42,7 @@
 <% content_for :sidebar do %>
 <ul class="actions">
   <li><%= link_to t('group_of_lines.actions.edit'), edit_referential_group_of_line_path(@referential, @group_of_line), :class => "edit" %></li>
-  <li><%= link_to  t('group_of_lines.actions.destroy'), referential_group_of_line_path(@referential, @group_of_line), :method => :delete, :confirm =>  t('group_of_lines.actions.destroy_confirm'), :class => "remove" %></li>
+  <li><%= link_to  t('group_of_lines.actions.destroy'), referential_group_of_line_path(@referential, @group_of_line), :method => :delete, :data => {:confirm =>  t('group_of_lines.actions.destroy_confirm')} , :class => "remove" %></li>
   <br>
 </ul>
 <% end %>
