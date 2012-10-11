@@ -1,0 +1,78 @@
+en:
+  group_of_lines:
+    actions:
+      new: Add a new group of lines
+      edit: Edit this group of lines
+      destroy: Remove this group of lines
+      destroy_confirm: "Are you sure you want destroy this group of lines?"
+    new:
+      title: "Add a new group of lines"
+    edit:
+      title: "Update group of lines %{group_of_line}"
+    show:
+      title: "Group of lines %{group_of_line}"
+      lines: Lines list
+    index:
+      title: "Group of Lines"
+      name: Name
+    form:
+      lines: Associated lines 
+  activerecord:
+    models:
+      group_of_line: 
+        zero:  group of line
+        one:   group of line
+        other: groups of lines
+    attributes:
+      group_of_line:
+        name: "Name"
+        comment: "Comments"
+        line_count: Number of lines
+        objectid: Neptune identifier
+        object_version: Version
+        creation_time: Created on
+        creator_id: Created by 
+  formtastic:
+    hints:
+      group_of_line:
+        objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+
+fr:
+  group_of_lines:
+    actions:
+      new: Ajouter un groupe de lignes
+      edit: Modifier ce groupe de lignes
+      destroy: Supprimer ce groupe de lignes
+      destroy_confirm: "Etes vous sûr de détruire ce groupe de lignes ?"
+    new:
+      title: "Ajouter un groupe de lignes"
+    edit:
+      title: Modifier le groupe de lignes %{group_of_line}
+    show:
+      title: Groupe de lignes %{group_of_line}
+      lines: Liste des lignes
+    index:
+      title: "Groupes de lignes"
+      name: Nom
+    form:
+      lines: Lignes associées  
+  activerecord:
+    models:
+      group_of_line: 
+        zero:  groupe de lignes
+        one:   groupe de lignes
+        other: groupes de lignes
+    attributes:
+      group_of_line:
+        name: "Nom"
+        comment: "Commentaire"
+        line_count: Nombre de lignes
+        objectid: "Identifiant Neptune"
+        object_version: "Version"
+        creation_time: "Créé le"
+        creator_id: "Créé par"
+  formtastic:
+    hints:
+      group_of_line:
+        objectid: "[prefixe]:GroupOfLine:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+

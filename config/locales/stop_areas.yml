@@ -101,7 +101,7 @@ fr:
       genealogical: Lien entre arrêts 
       genealogical_routing: "Liens de l'ITL"
     index:
-      name_or_country_code: Nom ou Code Postal
+      name_or_country_code: Nom ou Code INSEE
       title: Arrêts
       selection: Filtrer sur
       selection_all: Tous

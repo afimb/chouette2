@@ -10,6 +10,7 @@ class LinesController < ChouetteController
   def show
     @map = LineMap.new(resource).with_helpers(self)
     @routes = @line.routes
+    @group_of_lines = @line.group_of_lines
     show!
   end
 
@@ -20,7 +21,24 @@ class LinesController < ChouetteController
     respond_with(objects, :location => smart_collection_url)
   end
 
+  def name_filter
+    respond_to do |format|  
+      format.json { render :json => filtered_lines_maps}  
+    end  
+    
+  end
+
   protected
+
+  def filtered_lines_maps
+    filtered_lines.collect do |line|
+      { :id => line.id, :name => line.published_name }
+    end
+  end
+  
+  def filtered_lines
+    referential.lines.select{ |t| t.published_name =~ /#{params[:q]}/i  }
+  end
 
   def collection
     @q = referential.lines.search(params[:q])

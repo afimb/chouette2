@@ -12,6 +12,7 @@ h3. Sommaire
 # "Utilisateurs et Organisations":users
 # "Espaces de données":dataspaces
 # "Réseaux":networks
+# "Groupes de lignes":group_of_lines
 # "Transporteurs":companies
 # "Lignes":lines
 ## "Séquences d'arrêts":routes

@@ -1,0 +1,12 @@
+<%= div_for(group_of_line) do %>
+  <%= link_to group_of_line.name, [@referential, group_of_line] %>
+  <div class="info">
+  	<%= group_of_line.human_attribute_name('line_count') %>:<%=  group_of_line.lines.count %> 
+    <% if @line.nil? %>
+    <div class="actions">  
+      <%= link_to t("actions.edit"), edit_referential_group_of_line_path(@referential, group_of_line), :class => "edit" %> |
+      <%= link_to t("actions.destroy"), referential_group_of_line_path(@referential, group_of_line), :method => :delete, :data => {:confirm =>  t('group_of_lines.actions.destroy_confirm')}, :class => "remove" %>
+    </div>
+    <% end %>
+  </div>
+<% end %>

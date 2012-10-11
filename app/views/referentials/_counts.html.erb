@@ -15,6 +15,10 @@
   		<td class="value"> <%= @referential.companies.size %></td>		
   		</tr>
   		<tr>
+   		<td class="object" colspan="2"><%= Referential.human_attribute_name("group_of_lines") %></td>
+  		<td class="value"> <%= @referential.group_of_lines.size %></td>		
+  		</tr>
+  		<tr>
    		<td class="object" colspan="2"><%= Referential.human_attribute_name("lines") %></td>
   		<td class="value"> <%= @referential.lines.size %></td>		
   		</tr>

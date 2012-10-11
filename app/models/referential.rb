@@ -47,6 +47,10 @@ class Referential < ActiveRecord::Base
     Chouette::Network.scoped
   end
 
+  def group_of_lines
+    Chouette::GroupOfLine.scoped
+  end
+
   def companies
     Chouette::Company.scoped
   end
