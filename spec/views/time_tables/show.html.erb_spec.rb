@@ -6,7 +6,7 @@ describe "/time_tables/show" do
   let!(:time_table) { assign(:time_table, create(:time_table)) }
   let!(:year) { assign(:year, Date.today.cwyear) }
 
-  it "should render h2 with the time_table comment" do
+  it "should render h2 with the time_table comment" do    
     render
     rendered.should have_selector("h2", :text => Regexp.new(time_table.comment))
   end

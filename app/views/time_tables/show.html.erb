@@ -64,9 +64,9 @@
     </p>
 
     <div class="year_choice">
-      <span class="previous"> <%= link_to("<", :year => (@year - 1) ) %> </span> 
+      <span class="previous"> <%= link_to("<", referential_time_table_path(@referential, @time_table, :year => (@year - 1)) ) %> </span> 
       <span class="year"> <%= "#{@year}" %> </span> 
-      <span class="next"> <%= link_to(">", :year => (@year + 1) ) %> </span>
+      <span class="next"> <%= link_to(">", referential_time_table_path(@referential, @time_table, :year => (@year + 1)) ) %> </span>
     </div>
     <div class="calendar_helper">
     <%= cal = ""
