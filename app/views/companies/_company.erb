@@ -4,7 +4,7 @@
   	<%= company.human_attribute_name('code') %> <%= company.code %>
     <div class="actions">  
       <%= link_to t("actions.edit"), edit_referential_company_path(@referential, company), :class => "edit" %> |
-      <%= link_to t("actions.destroy"), referential_company_path(@referential, company), :method => :delete, :confirm =>  t('companies.actions.destroy_confirm'), :class => "remove" %>
+      <%= link_to t("actions.destroy"), referential_company_path(@referential, company), :method => :delete, :data => {:confirm =>  t('companies.actions.destroy_confirm')}, :class => "remove" %>
     </div>
 
   </div>
