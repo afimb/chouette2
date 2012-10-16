@@ -4,7 +4,8 @@ class CleanUp
   extend ActiveModel::Naming
   
     
-  attr_accessor :expected_date, :keep_lines, :keep_stops , :keep_companies, :keep_networks
+  attr_accessor :expected_date, :keep_lines, :keep_stops , :keep_companies
+  attr_accessor :keep_networks, :keep_group_of_lines
   
   validates_presence_of :expected_date
 
@@ -21,7 +22,7 @@ class CleanUp
   def clean
     result = CleanUpResult.new
     # find and remove time_tables 
-    tms = Chouette::TimeTable.expired_on(Date.parse(expected_date))
+    tms = Chouette::TimeTable.validity_out_from_on?(Date.parse(expected_date))
     result.time_table_count = tms.size
     tms.each do |tm|
       tm.destroy
@@ -104,6 +105,16 @@ class CleanUp
       Chouette::Network.find_each do |n|
         if n.lines.size == 0
           result.network_count += 1
+          n.destroy
+        end
+      end
+    end
+    
+    # if asked remove group_of_lines without lines
+    if keep_group_of_lines == "0" 
+      Chouette::GroupOfLine.find_each do |n|
+        if n.lines.size == 0
+          result.group_of_line_count += 1
           n.destroy
         end
       end

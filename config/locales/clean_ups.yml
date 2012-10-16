@@ -8,6 +8,7 @@ en:
     success_sa: "%{count} stop areas deleted"
     success_c: "%{count} companies deleted"
     success_n: "%{count} networks deleted"
+    success_g: "%{count} groups of lines deleted"
     failure: "Fail when clean_up"
     actions:
       clean_up: "clean up"
@@ -20,6 +21,7 @@ en:
         keep_stops: keep stop areas
         keep_companies: keep companies
         keep_networks: keep networks
+        keep_group_of_lines: keep groups of lines
   formtastic:
     hints:
       clean_up:
@@ -34,6 +36,7 @@ fr:
     success_sa: "%{count} arrêt(s) supprimé(s)"
     success_c: "%{count} transporteur(s) supprimé(s)"
     success_n: "%{count} réseau(x) supprimé(s)"
+    success_g: "%{count} groupe(s) de lignes supprimé(s)"
     failure: "Echec de la purge "
     actions:
       clean_up: "Purger"
@@ -46,6 +49,7 @@ fr:
         keep_stops: conserver les arrêts
         keep_companies: conserver les transporteurs 
         keep_networks: conserver les réseaux
+        keep_group_of_lines: conserver les groupes de lignes
   formtastic:
     hints:
       clean_up:
