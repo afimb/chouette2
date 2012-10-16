@@ -89,7 +89,7 @@
 <% content_for :sidebar do %>
 <ul class="actions">
   <li><%= link_to t('routes.actions.edit'), edit_referential_line_route_path(@referential, @line, @route), :class => "edit" %></li>
-  <li><%= link_to t('routes.actions.destroy'), referential_line_route_path(@referential, @line, @route), :method => :delete, :confirm =>  t('routes.actions.destroy_confirm'), :class => "remove" %></li>
+  <li><%= link_to t('routes.actions.destroy'), referential_line_route_path(@referential, @line, @route), :method => :delete, :data => {:confirm =>  t('routes.actions.destroy_confirm')}, :class => "remove" %></li>
   <li>
     <%= link_to t('stop_points.actions.sort'), [@referential, @line, @route, :stop_points], :class => "edit" %>
   </li>

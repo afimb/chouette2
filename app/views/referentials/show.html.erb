@@ -44,7 +44,7 @@
 <% content_for :sidebar do %>
   <ul class="actions">
     <li><%= link_to t('referentials.actions.edit'), edit_referential_path(@referential), :class => "edit" %></li>
-    <li><%= link_to t('referentials.actions.destroy'), referential_path(@referential), :method => :delete, :confirm =>  t('referentials.actions.destroy_confirm'), :class => "remove" %></li>
+    <li><%= link_to t('referentials.actions.destroy'), referential_path(@referential), :method => :delete, :data => {:confirm =>  t('referentials.actions.destroy_confirm')}, :class => "remove" %></li>
     <br>
   </ul>
 

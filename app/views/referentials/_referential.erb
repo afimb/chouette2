@@ -7,7 +7,7 @@
     <%= referential.human_attribute_name('time_tables') %>: <span class="time_tables_count"></span>
     <div class="actions">  
       <%= link_to t("actions.edit"), edit_referential_path(referential), :class => "edit" %> |
-      <%= link_to t("actions.destroy"), referential_path(referential), :method => :delete, :confirm =>  t('referentials.actions.destroy_confirm'), :class => "remove" %>
+      <%= link_to t("actions.destroy"), referential_path(referential), :method => :delete, :data => {:confirm =>  t('referentials.actions.destroy_confirm')}, :class => "remove" %>
     </div>
   </div>
 <% end %>

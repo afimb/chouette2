@@ -91,7 +91,7 @@
   <% content_for :sidebar do %>
   <ul class="actions">
     <li><%= link_to t('vehicle_journeys.actions.edit'), edit_referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey), :class => "edit" %></li>
-    <li><%= link_to  t('vehicle_journeys.actions.destroy'), referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey), :method => :delete, :confirm =>  t('vehicle_journeys.actions.destroy_confirm'), :class => "remove" %></li>
+    <li><%= link_to  t('vehicle_journeys.actions.destroy'), referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey), :method => :delete, :data => {:confirm =>  t('vehicle_journeys.actions.destroy_confirm')}, :class => "remove" %></li>
   </ul>
   <% unless @vehicle_journey.vehicle_journey_at_stops.empty? ||
        @vehicle_journey.vehicle_journey_at_stops.any? { |vjas| vjas.departure_time.nil? } %>
