@@ -1,0 +1,15 @@
+---
+layout: default
+title: Tutoriel / Démonstrateur / Jeux de données
+---
+
+Afin que l'utilisateur puisse se familiariser rapidement avec l'environnement de l'outil CHOUETTE, un réseau de transport « fictif » , « Tatrobus », a été créé. 
+Ce réseau est composé d'un réseau principal, « LE GRAND RESEAU », et d'un réseau secondaire « LE PETIT METRO » opérés par un transporteur « TATROBUS ». 
+Les deux réseaux comprennent plusieurs lignes, qui s'organisent autour d'un référentiel d'arrêts prédéfini qui inclut de nombreux pôles d'échanges. 
+Des courses, horaires, missions, Interdictions de Trafic Local et calendriers d'application s'attachant à ces lignes ont également été renseignés. 
+
+L'utilisateur a alors la possibilité de découvrir et de modifier à souhait ces éléments afin d'expérimenter les différentes fonctions et possibilités de l'outil CHOUETTE.
+
+La démonstration est disponible en ligne sur "www.chouette.mobi":www.chouette.mobi
+Les données 'Tatrobus' sont disponibles ["ici":http://www.chouette.mobi/spip.php?rubrique46]
+A noter également que des données Neptune sont disponibles au format Neptune sous licence open data, cf. par exemple ["ici":http://www.chouette.mobi/spip.php?rubrique84]

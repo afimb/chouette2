@@ -44,8 +44,12 @@ class HelpPage
     self.content = self.content.gsub('ç','&ccedil;')
     self.content = self.content.gsub('oe','&oelig;')
     self.content = self.content.gsub('<<','&laquo;')
+    self.content = self.content.gsub('«','&laquo;')
     self.content = self.content.gsub('>>','&raquo;')
+    self.content = self.content.gsub('»','&raquo;')
     self.content = self.content.gsub('°','&ordm;')
+	self.content = self.content.gsub('’',"'")
+    self.content = self.content.gsub(' '," ")
   end
 
   def method_missing(method, *arguments)

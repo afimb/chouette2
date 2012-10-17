@@ -5,8 +5,8 @@ title: Courses
 
 h3. Définition
 
-Une course décrit le déplacement d'un véhicule de transport public sur une séquence d'arrêts de la ligne. La course parcourt les arrêts de la séquence d'arrêts dans l'ordre, sans nécessairement s'arrêter à chacun des arrêts. A chaque arrêt desservi, la course précise l'horaire de passage.
-De plus, la course est rattachée à un nombre variable de calendriers d'application.
+Une *course* décrit le déplacement d'un véhicule de transport public sur une "séquence d'arrêts":routes de la "ligne":lines. La course parcourt les arrêts de la séquence d'arrêts dans l'ordre, sans nécessairement s'arrêter à chacun des arrêts. A chaque arrêt desservi, la course précise l'horaire de passage.
+De plus, la course est rattachée à un nombre variable de "calendriers d'application":time_tables.
 
 h3. Attributs
 
@@ -23,9 +23,9 @@ clé unique pérenne identifiant la course pour les échanges Neptune
 cet identifiant est composé de 3 parties : préfixe:type:id_technique
 * préfixe : clé identifiant un producteur de données unique
 * type = VehicleJourney : clé identifiant le type d'objet (valeur imposée)
-* id_technique : valeur identifiant un seul object d'un type donné pour un même producteur
+* id_technique : valeur identifiant un seul objet d'un type donné pour un même producteur
 ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
-il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera complétée automatiquement.
+il est possible aussi de ne renseigner que l'identifiant technique, auquel cas la valeur sera complétée automatiquement.
 =:
 - Date de création := date à laquelle l'objet a été créé ou modifié pour la dernière fois
 - Version := version de l'objet (auto incrémenté à chaque modification)

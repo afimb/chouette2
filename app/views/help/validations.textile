@@ -7,10 +7,11 @@ h3. Rôle
 
 p. La validation permet d'effectuer un ensemble de contrôles syntaxiques, sématiques et structurels sur une offre de transport.
 
-- Phase 1: l'offre de transport est importée depuis le format Neptune et subit les contrôles syntaxiques vis-à-vis du format XML et du Schéma spécifique Neptune 
-- Phase 2 : l'offre est analysée dans sa structure et subit des contrôles de complétude et de conexité des données.
+- Phase 1 : les données d'offre de transport sont importées depuis le format Neptune et subit les contrôles syntaxiques vis-à-vis du format XML et du Schéma spécifique Neptune 
+- Phase 2 : les données d'offre sont analysées (structure, contrôles de complétude et de connexité des données).
 - Phase 3 : l'offre est analysée dans ses fonctionnalités et subit des contrôles de réalisme. 
 
+Les tests de validation sont décrits dans l'aide en ligne de l'application, onglet 'Validation'. Ils sont également disponibles sur le site "chouette.mobi":http://www.chouette.mobi/spip.php?rubrique24
 
 h3. Formats disponibles 
 
@@ -26,4 +27,4 @@ p. La validation est lancée en différé; son état d'avancement est affiché s
 
 p. La consultation du résultat de la validation donnera le bilan des contrôles ou les motifs de l'échec.
 
-p. le résultat est conservé tant que la validation n'est pas supprimée.
+p. Le résultat est conservé tant que la validation n'est pas supprimée.
