@@ -5,9 +5,9 @@ title: Réseaux
 
 h3. Définition
 
-Un réseau est constitué par les "lignes":lines, les "séquences d'arrêts":routes, les "Interdictions de Trafic Local":stop_areas (ITL), les "horaires":vehiclejourneys, et les "courses":vehiclejourneys qui le définissent.
+Un *réseau* est constitué par les "lignes":lines, les "séquences d'arrêts":routes, les "Interdictions de Trafic Local":stop_areas (ITL), les "horaires":vehiclejourneys, et les "courses":vehiclejourneys qui le définissent.
 
-Chaque réseau dispose d'un identifiant fonctionnel (<< numéro d'enregistrement >>) qui est utilisé dans les échanges XML pour identifier le réseau et le mettre à jour. Il est donc important que le gestionnaire le renseigne d'une manière bien définie et pérenne.
+Chaque réseau dispose d'un identifiant fonctionnel (<< numéro d'enregistrement >>) qui est utilisé dans les échanges XML pour identifier le réseau et le mettre à jour. Il est très important que le gestionnaire le renseigne d'une manière bien définie et pérenne.
 
 
 h3. Attributs
@@ -27,9 +27,9 @@ clé unique pérenne identifiant le réseau pour les échanges Neptune
 cet identifiant est composé de 3 parties : préfixe:type:id_technique
 * préfixe : clé identifiant un producteur de données unique
 * type = GroupOfLine : clé identifiant le type d'objet (valeur imposée)
-* id_technique : valeur identifiant un seul object d'un type donné pour un même producteur
+* id_technique : valeur identifiant un seul objet d'un type donné pour un même producteur
 ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
-il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera complétée automatiquement.
+il est possible aussi de ne renseigner que l'identifiant technique, auquel cas la valeur sera complétée automatiquement.
 =:
 - Date de création := date à laquelle l'objet a été créé ou modifié pour la dernière fois
 - Version := version de l'objet (auto incrémenté à chaque modification)

@@ -9,6 +9,7 @@ h3. Sommaire
 ## "Normalisation":normalisation
 ## "Documentation":documentation
 ## "Vue d'ensemble":schema
+## "Pré-requis":prerequisite
 # "Utilisateurs et Organisations":users
 # "Espaces de données":dataspaces
 # "Réseaux":networks
@@ -25,6 +26,7 @@ h3. Sommaire
 ## "Exports":exports
 ## "Validation":validations
 # Divers
+## "Tutoriel/Démonstrateur":tutorial
 ## "API Rest":restapis
 ## "format d'échange CSV":csv
 ## "FAQ":faq

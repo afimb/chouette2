@@ -11,11 +11,11 @@ h3. Formats disponibles
 
 - Neptune := format normalisé des échanges de données de transport en commun pour la France (cf "Normalisation":normalisation)
 - CSV := format tabulaire spécifique à Chouette (cf "CSV":csv)
-- GTFS := format destiné à Google Transit (cf "GTFS":https://developers.google.com/transit/gtfs/)
+- GTFS := format destiné à ["Google Transit":https://developers.google.com/transit/gtfs/?hl=fr]
 
 h3. Consultation des résultats
 
-p. L'iexport est lancé en différé; son état d'avancement est affiché sous la forme d'une icône donc la couleur dépend de l'état:
+p. L'export est lancé en différé; son état d'avancement est affiché sous la forme d'une icône donc la couleur dépend de l'état:
 
 - bleu : en cours
 - vert : terminé correctement; un lien de téléchargement est alors disponible
@@ -23,5 +23,5 @@ p. L'iexport est lancé en différé; son état d'avancement est affiché sous l
 
 p. La consultation du résultat de l'export donnera la liste des éléments exportés ou les motifs de l'échec.
 
-p. le résultat est conservé ainsi que le fichier produit tant que l'export n'est pas supprimé.
+p. Le résultat est conservé ainsi que le fichier produit tant que l'export n'est pas supprimé.
 

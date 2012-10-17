@@ -3,13 +3,7 @@ layout: default
 title: Introduction
 ---
 
-CHOUETTE est un logiciel libre développé à l'initiative du ministère français chargé des transports (et du développement durable), 
-dans le but de faciliter l'échange de données d'offre (théorique) de transport collectif (TC), 
-en s'appuyant pour cela sur la norme NFP 99506, dite Neptune, qui spécifie un profil d'échange XML.
+CHOUETTE est un logiciel libre développé à l'initiative du ministère français chargé des transports (et du développement durable), dans le but de faciliter l'échange de données d'offre (théorique) de transport collectif (TC), en s'appuyant pour cela sur la norme NFP 99506, dite Neptune, qui spécifie un profil d'échange XML.
 
-Les utilisateurs visés sont les collectivités locales Autorités Organisatrices de Transport (AOT), 
-les exploitants des réseaux TC ,et leurs prestataires (bureaux d'étude ou société de services). 
-D'autres utilisateurs potentiels sont néanmoins identifiés : services de l'état, éditeurs de logiciels, 
-opérateurs de services d'information, chercheurs...
-
-
+Les utilisateurs visés sont les collectivités locales Autorités Organisatrices de Transport (AOT), les exploitants des réseaux TC ,et leurs prestataires (bureaux d'étude ou société de services). 
+D'autres utilisateurs potentiels sont néanmoins identifiés : services de l'état, éditeurs de logiciels, opérateurs de services d'information, chercheurs...

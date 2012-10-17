@@ -7,22 +7,22 @@ title: Arrêts
 * "Attributs":#attr
 * "Mode opératoire":#ope
 
-h3(#def). Définition
+h3(#def). Définitions
 
 Le référentiel des arrêts constitue un maillon essentiel du réseau, et se compose de plusieurs éléments de niveaux différents. 
 
 On recense tout d'abord les arrêts physiques, qualifiés de *point d'embarquement* ou de *quai*.  
 
-Du fait de l'existence de deux concepts dans TRIDENT, cet arrêt physique sera considéré par l'application comme une *zone d'arrêt de premier niveau*. Cette notion est nécessaire pour gérer les *points d'arrêts sur itinéraire* utilisés par certains réseaux. 
+Du fait de l'existence de deux concepts dans le schéma TRIDENT, cet arrêt physique sera considéré par l'application comme une *zone d'arrêt de premier niveau*. Cette notion est nécessaire pour gérer les *points d'arrêts sur itinéraire* utilisés par certains réseaux. 
 
 L'application gère ensuite les points d'arrêts sur itinéraire à partir de ces arrêts physiques, en assurant le regroupement des points d'arrêt sur itinéraire dans un arrêt physique (cas de plusieurs lignes passant par le même arrêt physique).
 
-Par la suite, vous pourrez regrouper deux (ou plus) arrêts physiques au sein d'un *arrêt commercial* (par exemple pour regrouper les points d'arrêt physiques correspondant à deux poteaux d'arrêt de la même ligne situés de part et d'autre d'une chaussée mais aussi pour regrouper l'ensemble des points d'arrêt physiques d'un quai de gare routière pour lesquels vous considérez que le temps de correspondance est nul). Vous aurez ainsi constitué une zone d'arrêt, avec qualification arrêt commercial, de deuxième niveau.
+Par la suite, on peut regrouper deux (ou plus) arrêts physiques au sein d'un *arrêt commercial* (par exemple pour regrouper les points d'arrêt physiques correspondant à deux poteaux d'arrêt de la même ligne situés de part et d'autre d'une chaussée mais aussi pour regrouper l'ensemble des points d'arrêt physiques d'un quai de gare routière pour lesquels on considère que le temps de correspondance est nul). Vous aurez ainsi constitué une *zone d'arrêt*, avec qualification *arrêt commercial*, de deuxième niveau.
 
-Enfin, CHOUETTE vous offre la possibilité de regrouper les lieux d'arrêt agglomérés ainsi créés au sein d'une *zone d'arrêt de troisième niveau* pour constituer des *pôles d'échange*.
+Enfin, CHOUETTE offre la possibilité de regrouper les lieux d'arrêt agglomérés ainsi créés au sein d'une *zone d'arrêt de troisième niveau* pour constituer des *pôles d'échange*.
 
 Ainsi on obtient les possibilités de regroupements suivants:
-* un arrêt physique regroupe plusieurs arrêts itinéraire.
+* un arrêt physique regroupe plusieurs arrêts sur itinéraire (ou séquence d'arrêts).
 * un arrêt commercial regroupe plusieurs arrêts physiques (quai, embarquement).
 * un pôle d'échange regroupe plusieurs arrêts commerciaux. 
 
@@ -30,7 +30,7 @@ Pour ne pas aboutir à un système trop complexe, les règles suivantes sont pos
 * un pôle d'échange peut contenir des arrêts commerciaux et/ou des pôles d'échanges (qui ne peuvent pas en contenir d'autres).
 * un arrêt commercial ne peut contenir que des arrêts physiques.
 
-Un dernier regourpement est *l'ITL* : 
+Un dernier regroupement est *l'ITL* : 
 
 *L'interdiction de trafic local* est l'interdiction faite à un service routier de prendre et de laisser un même voyageur à l'intérieur du périmètre des transports urbains _(cf. Décret n°49-1473 du 14 novembre 1949)_ .
 Ainsi dans CHOUETTE:
@@ -70,9 +70,9 @@ clé unique pérenne identifiant la ligne pour les échanges Neptune
 cet identifiant est composé de 3 parties : préfixe:type:id_technique
 * préfixe : clé identifiant un producteur de données unique
 * type = Line : clé identifiant le type d'objet (valeur imposée)
-* id_technique : valeur identifiant un seul object d'un type donné pour un même producteur
+* id_technique : valeur identifiant un seul objet d'un type donné pour un même producteur
 ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
-il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera complétée automatiquement.
+il est possible aussi de ne renseigner que l'identifiant technique, auquel cas la valeur sera complétée automatiquement.
 =:
 - Date de création := date à laquelle l'objet a été créé ou modifié pour la dernière fois
 - Version := version de l'objet (auto incrémenté à chaque modification)
@@ -82,8 +82,8 @@ h3(#ope). Mode opératoire
 
 h4. Déplacement sur la carte
 
-* activer le déplacement en cliquant sur l'arrêt -> le curseur prend la forme d'une quadruple flêche
+* activer le déplacement en cliquant sur l'arrêt -> le curseur prend la forme d'une quadruple flèche
 * appuyer sur le bouton gauche de la souris et maintenir appuyer lors du déplacement -> l'arrêt suit la souris
-* relacher le bouton -> l'arrêt a une nouvelle position fixe
+* relâcher le bouton -> l'arrêt a une nouvelle position fixe
 * cliquer sur la carte -> sortie du mode déplacement; les coordonnées sont actualisées dans le formulaire
 

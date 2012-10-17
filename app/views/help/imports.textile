@@ -5,12 +5,13 @@ title: Imports
 
 h3. Rôle
 
-p. L'import permet d'enregistrer dans la base un ensemble de données selon un format 
+p. L'import permet d'enregistrer dans la base un ensemble de données selon un format au choix 
 
 h3. Formats disponibles
 
 - Neptune := format normalisé des échanges de données de transport en commun pour la France (cf "Normalisation":normalisation)
 - CSV := format tabulaire spécifique à Chouette  (cf "CSV":csv)
+- GTFS := format originaire de ["Google Transit":https://developers.google.com/transit/gtfs/?hl=fr]
 
 h3. Consultation des résultats
 
@@ -22,6 +23,6 @@ p. L'import est lancé en différé; son état d'avancement est affiché sous la
 
 p. La consultation du résultat de l'import donnera les éléments importés ou les motifs de l'échec.
 
-p. le résultat est conservé tant que l'import n'est pas supprimé.
+p. Le résultat est conservé tant que l'import n'est pas supprimé.
 
-p. Note : la suppression d'un import ne fait que supprimer le rapport; les données sonot conservées
+p. Note : la suppression d'un import ne fait que supprimer le rapport; les données sont conservées

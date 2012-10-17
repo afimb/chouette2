@@ -3,4 +3,6 @@ layout: default
 title: Foire aux questions
 ---
 
-Rédaction ultérieure
+N'hésitez pas à nous solliciter pour toute question, nous compléterons la FAQ progressivement !
+
+"FAQ de chouette.mobi":http://www.chouette.mobi/spip.php?rubrique38
