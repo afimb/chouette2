@@ -1,5 +1,5 @@
 namespace :ci do
-  task :db_config
+  task :db_config do
     cp "config/database.yml.ccontrol", "config/database.yml"
   end
   task :prepare => ["ci:db_config", "db:migrate"]
