@@ -1,6 +1,6 @@
 GIT
   remote: git://chouette.dryade.priv/ninoxe
-  revision: b272a1637aab7e8692a57ec7a87147c406814903
+  revision: f6eceeafbdf02f5898256c467e86c60a045737ba
   specs:
     ninoxe (0.0.8)
       GeoRuby
@@ -116,7 +116,7 @@ GEM
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-java)
     bouncy-castle-java (1.5.0146.1)
-    builder (3.0.3)
+    builder (3.0.4)
     capistrano (2.13.3)
       highline
       net-scp (>= 1.0.0)

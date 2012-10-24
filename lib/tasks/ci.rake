@@ -1,10 +1,11 @@
 namespace :ci do
-  task :prepare do
+  task :db_config do
     cp "config/database.yml.ccontrol", "config/database.yml"
   end
+  task :prepare => ["ci:db_config", "db:migrate"]
   task :deploy do
     cp "chouette2.war", "/var/lib/tomcat6/webapps/"
   end
-  task :build => ["db:migrate", "spec", "war", "ci:deploy"]
+  task :build => ["spec", "war", "ci:deploy"]
 end
 
