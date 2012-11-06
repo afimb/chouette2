@@ -1,0 +1,20 @@
+<%= div_for(access_point) do %>
+  <%= link_to([@referential, @stop_area, access_point], :class => "preview") do %>
+    <div class="access_point_type">
+      <%= image_tag "map/access_" + access_point.access_point_type + ".png"   %>
+    </div>
+  <% end %>
+  <%= link_to access_point.name, [@referential, @stop_area, access_point] %>
+  <div class="info">
+    <p>      
+      <% unless access_point.geometry %>
+      <span class="warning"><%= t('.no_position') %></span> -
+      <% end %>
+    </p>
+    <p><%= t("access_types.label.#{access_point.access_point_type}") %></p>
+    <div class="actions">  
+      <%= link_to t("actions.edit"), edit_referential_stop_area_access_point_path(@referential, @stop_area, access_point), :class => "edit" %> |
+      <%= link_to t("actions.destroy"), referential_stop_area_access_point_path(@referential, @stop_area, access_point), :method => :delete, :data => {:confirm =>  t('access_points.actions.destroy_confirm')}, :class => "remove" %>
+    </div>
+  </div>
+<% end %>

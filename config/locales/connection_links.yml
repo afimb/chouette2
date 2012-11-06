@@ -49,7 +49,7 @@ en:
         default_duration: Average
         frequent_traveller_duration: Regular passenger
         occasional_traveller_duration: Occasional passenger
-        mobilit_yrestricted_traveller_duration: Mobility reduced passenger
+        mobility_restricted_traveller_duration: Mobility reduced passenger
         mobility_restricted_suitability: Mobility reduced passenger suitable
         stairs_availability: Escalator
         lift_availability: Lift

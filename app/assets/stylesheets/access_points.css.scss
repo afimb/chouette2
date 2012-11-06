@@ -1,0 +1,104 @@
+// Place all the styles related to the lines controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "common";
+
+#workspace.access_points.index
+{
+    .access_point:after { 
+        @include after_div_for_object;  
+    }
+
+    .access_points:after {
+        @include content_to_clear;
+    }
+    
+    .access_point {
+        @include div_for_object;
+        /* to create multi-column index */
+        width: 250px;
+        float: left;
+        padding-right: 10px;
+
+        .access_type {
+            width: 25px;
+            height: 64px;
+            float: left;
+            margin-right: 10px;
+            
+
+            a {
+                text-decoration: none;                   
+            }
+        }
+
+    }
+}
+
+#workspace.access_points.edit {
+  legend { padding-bottom: 20px; }
+}
+
+#workspace.access_points.show
+{
+    .geo_data {
+       padding-left:15px;
+    }
+
+    .summary{
+        height: 400px;
+        
+        p label {
+            font-weight: bold;
+        }
+    }
+    
+    .access_link_pairs {
+        
+        .link {
+          border: 2px solid black;
+        }
+        .access_point{
+            float: left;
+            padding: 3px 15px 0px 3px;
+            height: 25px;        
+            * { vertical-align:middle; }
+            span { margin-left: 7px; }
+            img { margin: 0px 5px 0px 5px;}
+        }
+        .stop_area{
+            float: left;
+            padding: 3px 15px 0px 3px;
+            height: 25px;        
+            * { vertical-align:middle; }
+            span { margin-left: 7px; }
+            img { margin: 0px 5px 0px 5px;}
+        }
+      
+      .info {
+          font-size: 10px;
+          color: #777;
+          font-weight: normal;
+          padding-top: 0px;
+          padding-left: 45px;
+          padding-right: 3px;
+          padding-bottom: 3px;
+        }
+    }
+
+}
+
+
+#sidebar ul.selection li {    
+    a {
+        line-height: 27px;
+        
+        img{
+            height: 25px;
+            width: 25px;
+            vertical-align: middle;
+        }
+    }
+}
+
+

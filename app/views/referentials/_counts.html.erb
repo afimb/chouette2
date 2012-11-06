@@ -63,5 +63,10 @@
    		<td class="object"><%= Referential.human_attribute_name("itls") %></td>
   		<td class="value"> <%= @referential.stop_areas.where("area_type = ?","ITL").size %></td>		
   		</tr>
+  		<tr>
+   		<td class="image"><%= image_tag "map/access_in_out.png"%></td>
+   		<td class="object"><%= Referential.human_attribute_name("access_points") %></td>
+  		<td class="value"> <%= @referential.access_points.size %></td>		
+  		</tr>
   	</tbody>
   </table>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <% @access_points.where("latitude is not null and longitude is not null").each do |access_point| %>
+      <Placemark id="<%= access_point.id %>" >
+        <name><%= access_point.name %></name>
+        <access_point_type><%= access_pointaccess_point_type %></access_point_type>
+        <%= access_point.geometry.kml_representation.html_safe %>
+      </Placemark>
+    <% end %>
+  </Document>
+</kml>

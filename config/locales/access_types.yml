@@ -1,0 +1,13 @@
+en:
+  access_types:
+    label:
+      in: Entrance
+      out: Exit
+      in_out: Both ways
+      
+fr:
+  access_types:
+    label:
+      in: Entrée
+      out: Sortie
+      in_out: "Entrée/Sortie"

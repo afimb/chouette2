@@ -1,0 +1,26 @@
+<%= title_tag t('access_points.index.title', :stop_area => @stop_area.name) %> 
+
+<%= search_form_for @q, :url => referential_stop_area_access_points_path(@referential,@stop_area), :html => {:method => :get} do |f| %>
+  <%= f.label :name_or_country_code_cont, "#{t('.name_or_country_code')} :" %>
+  <%= f.text_field :name_or_country_code_cont %>
+
+  <%= f.submit t('actions.search') %> <%= t("or") %>
+  <%= link_to t("cancel"), referential_stop_area_access_points_path(@referential,@stop_area) %>
+<% end %>
+
+<div class="page_info">
+  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @access_points %>
+</div>
+<div class="access_points paginated_content">
+  <%= render :partial => "access_point", :collection => @access_points %>
+</div>
+<div class="pagination">
+  <%= will_paginate @access_points, :container => false %>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('access_points.actions.new'), new_referential_stop_area_access_point_path(@referential,@stop_area), :class => "add" %></li>
+</ul>
+
+<% end %>
