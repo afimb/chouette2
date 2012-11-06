@@ -4,6 +4,13 @@ ChouetteIhm::Application.routes.draw do
     match "/users/sign_up" => "subscriptions#new"
   end
 
+  namespace :api do
+    namespace :v1 do
+      resources :networks
+    end
+  end
+  
+
   resource :subscription
 
   resource :organisation do
