@@ -6,6 +6,6 @@ namespace :ci do
   task :deploy do
     cp "chouette2.war", "/var/lib/tomcat6/webapps/"
   end
-  task :build => ["spec", "war", "ci:deploy"]
+  task :build => [ "war", "ci:deploy"]
 end
 
