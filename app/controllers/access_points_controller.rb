@@ -15,7 +15,8 @@ class AccessPointsController < ChouetteController
 
   def show
     map.editable = false
-    @access_links = @access_point.access_link_matrix
+    @generic_access_links = @access_point.generic_access_link_matrix
+    @detail_access_links = @access_point.detail_access_link_matrix
     show! do |format|
       unless access_point.position or params[:default]
         format.kml {

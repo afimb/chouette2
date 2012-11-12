@@ -55,6 +55,7 @@ en:
         object_version: Version
         creation_time: Created on
         creator_id: Created by 
+        calendars: "Calendar view"
         dates: Application dates
         date: On
         periods: Application periods
@@ -125,6 +126,7 @@ fr:
         object_version: Version
         creation_time: Créé le
         creator_id: Créé par
+        calendars: "Présentation calendaire"
         dates: "Dates d'application"
         date: Date
         periods: "Périodes d'application"

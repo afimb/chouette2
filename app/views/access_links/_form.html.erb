@@ -5,6 +5,8 @@
     <%= form.input :link_orientation_type , :as => :hidden%>
     <%= form.input :name %>
     <%= form.input :access_link_type, :as => :select, :collection => Chouette::AccessLink.access_link_types, :include_blank => false, :member_label => Proc.new { |type| t("connection_link_types.label.#{type}") }  %>
+    <%= form.input :comment %>
+    <%= form.input :link_distance %> 
     <%= form.inputs :name => t('access_links.show.durations') do %> 
       <%= form.input "default_duration(1i)", :as => :hidden ,:input_html => { :value => "2000" } %>
       <%= form.input "default_duration(2i)", :as => :hidden ,:input_html => { :value => "1" } %>

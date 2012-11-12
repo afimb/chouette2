@@ -36,7 +36,8 @@ class StopAreasController < ChouetteController
 
   def access_links
     @stop_area = stop_area
-    @access_links = stop_area.access_link_matrix
+    @generic_access_links = stop_area.generic_access_link_matrix
+    @detail_access_links = stop_area.detail_access_link_matrix
   end
 
   def index

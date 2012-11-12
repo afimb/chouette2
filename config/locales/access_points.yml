@@ -15,9 +15,10 @@ en:
       title: Access point %{access_point}
       geographic_data: Geographic data 
       no_geographic_data: None
-      access_links: Access links
-      access_link_legend_1 : "grays arrows for undefined links, green for defined ones"
-      access_link_legend_2 : "clic on arrows to create/edit a link"
+      generic_access_links: Glogal access links
+      detail_access_links: Specific access links
+      access_link_legend_1: "grays arrows for undefined links, green for defined ones"
+      access_link_legend_2: "clic on arrows to create/edit a link"
     index:
       title: Access points
       name_or_country_code: Name
@@ -72,9 +73,10 @@ fr:
       title: Accès %{access_point}
       geographic_data: Données géographiques 
       no_geographic_data: Aucune
-      access_links: "Liens Arrêts - Accès"
-      access_link_legend_1 : "Les flêches grises représentent des liens non définis"
-      access_link_legend_2 : "cliquer sur les flêches pour créer/éditer un lien"
+      generic_access_links: "Liens Arrêts - Accès globaux"
+      detail_access_links: "Liens Arrêts - Accès détaillés"
+      access_link_legend_1: "Les flêches grises représentent des liens non définis"
+      access_link_legend_2: "cliquer sur les flêches pour créer/éditer un lien"
     index:
       name_or_country_code: Nom
       title: Accès de %{stop_area}
