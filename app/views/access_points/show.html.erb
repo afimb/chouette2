@@ -89,14 +89,6 @@
       <label><%= @access_point.human_attribute_name("objectid") %>: </label>
       <%= @access_point.objectid %>
     </p>
-    <p>
-      <label><%= @access_point.human_attribute_name("creation_time") %>: </label>
-      <%= l(@access_point.creation_time) %>
-    </p>
-    <p>
-      <label><%= @access_point.human_attribute_name("creator_id") %>: </label>
-      <%= @access_point.creator_id %>
-    </p>    
   </div>
                            
 </div>
@@ -149,4 +141,5 @@
   <li><%= link_to  t('access_points.actions.destroy'), referential_stop_area_access_point_path(@referential, @stop_area, @access_point), :method => :delete, :data => {:confirm =>  t('access_points.actions.destroy_confirm')}, :class => "remove" %></li>
 </ul>
   <br>
+  <%= creation_tag(@access_point) %>
 <% end %>

@@ -74,85 +74,12 @@
       <label><%= @stop_area.human_attribute_name("objectid") %>: </label>
       <%= @stop_area.objectid %>
     </p>
-    <p>
-      <label><%= @stop_area.human_attribute_name("creation_time") %>: </label>
-      <%= l(@stop_area.creation_time) %>
-    </p>
-    <p>
-      <label><%= @stop_area.human_attribute_name("creator_id") %>: </label>
-      <%= @stop_area.creator_id %>
-    </p>    
   </div>
   
   <p class="after_map" />
 
   <div class="genealogical">
-    <h3><%= genealogical_title %></h3>
-
-    <% if @stop_area.parent.present? %> 
-    <div class="parent">
-      <%= link_to([@referential, @stop_area.parent]) do %> 
-        <%= image_tag "map/" + @stop_area.parent.stop_area_type + ".png"   %><span><%= @stop_area.parent.name %></span>        
-      <% end %>
-    </div> 
-    <div class="link"><%= image_tag "icons/link.png"%></div>
-    <% elsif @stop_area.routing_lines.present? %> 
-    <div class="lines">
-      <% @stop_area.routing_lines.each do |line| %>
-      <div class="line">
-        <%= link_to([@referential, line]) do %> 
-          <span><%= line.name %></span>         
-        <% end %>  
-      </div>
-      <% end %>
-    </div> 
-    <div class="link"><%= image_tag "icons/link.png"%></div>
-    <% else %>
-    <div class="no_parent">&nbsp;</div>
-    <% end %>
-
-    <div class="target">
-      <%= image_tag "map/" + @stop_area.stop_area_type + ".png"%><span><%= @stop_area.name %></span>
-    </div> 
-    
-    <% if @stop_area.children.present? %>
-    <div class="link"><%= image_tag "icons/link.png"%></div>
-    <div class="children">
-      <% @stop_area.children.each do |child| %>
-      <div class="child">
-        <%= link_to([@referential, child]) do %> 
-          <%= image_tag "map/" + child.stop_area_type + ".png"   %><span><%= child.name %></span>         
-        <% end %>  
-      </div>
-      <% end %>
-    </div> 
-    <% elsif @stop_area.routing_stops.present? %>
-    <div class="link"><%= image_tag "icons/link.png"%></div>
-    <div class="children">
-      <% @stop_area.routing_stops.each do |stop| %>
-      <div class="child">
-        <%= link_to([@referential, stop]) do %> 
-          <%= image_tag "map/" + stop.stop_area_type + ".png"   %><span><%= stop.name %></span>         
-        <% end %>  
-      </div>
-      <% end %>
-    </div> 
-    <% elsif @stop_area.routes.present? %>
-    <div class="link"><%= image_tag "icons/link.png"%></div>
-    <div class="children">
-      <% @stop_area.routes.each do |route| %>
-      <div class="child">
-        <%= link_to([@referential, route.line ]) do %> 
-          <span><%= route.line.number %></span>     
-        <% end %>  
-        &nbsp;
-        <%= link_to([@referential, route.line , route]) do %> 
-          <span><%= route.name %></span>     
-        <% end %>      
-      </div>
-      <% end %>
-    </div> 
-    <% end %>
+  	<%= render "stop_areas/genealogical" %>
   </div>
                          
 </div>
@@ -208,4 +135,5 @@
   <% end %>
     </table>
   <br>
+  <%= creation_tag(@stop_area) %>
 <% end %>

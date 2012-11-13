@@ -70,14 +70,6 @@
       <label><%= @access_link.human_attribute_name("objectid") %>: </label>
       <%= @access_link.objectid %>
     </p>
-    <p>
-      <label><%= @access_link.human_attribute_name("creation_time") %>: </label>
-      <%= l(@access_link.creation_time) %>
-    </p>
-    <p>
-      <label><%= @access_link.human_attribute_name("creator_id") %>: </label>
-      <%= @access_link.creator_id %>
-    </p>
   </div>
 </div>
 
@@ -87,4 +79,5 @@
   <li><%= link_to t('access_links.actions.destroy'), referential_access_point_access_link_path(@referential, @access_link.access_point, @access_link), :method => :delete,  :data => {:confirm =>  t('access_links.actions.destroy_confirm')}, :class => "remove" %></li>
   <br>
 </ul>
+  <%= creation_tag(@access_link) %>
 <% end %>

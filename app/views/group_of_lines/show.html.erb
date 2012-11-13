@@ -15,14 +15,6 @@
       <label><%= @group_of_line.human_attribute_name("objectid") %>: </label>
       <%= @group_of_line.objectid %>
     </p>
-    <p>
-      <label><%= @group_of_line.human_attribute_name("creation_time") %>: </label>
-      <%= l @group_of_line.creation_time %>
-    </p>
-    <p>
-      <label><%= @group_of_line.human_attribute_name("creator_id") %>: </label>
-      <%= @group_of_line.creator_id %>
-    </p>
   </div>
   
   <p class="after_map" />
@@ -35,8 +27,6 @@
   <div class="lines_detail" style="display: none;">
      <%= render :partial => "lines_detail" %>
   </div>
-
-
 </div>
 
 <% content_for :sidebar do %>
@@ -45,4 +35,5 @@
   <li><%= link_to  t('group_of_lines.actions.destroy'), referential_group_of_line_path(@referential, @group_of_line), :method => :delete, :data => {:confirm =>  t('group_of_lines.actions.destroy_confirm')} , :class => "remove" %></li>
   <br>
 </ul>
+  <%= creation_tag(@group_of_line) %>
 <% end %>

@@ -42,14 +42,6 @@
       <label><%= @vehicle_journey.human_attribute_name("objectid") %>: </label>
       <%= @vehicle_journey.objectid %>
     </p>
-    <p>
-      <label><%= @vehicle_journey.human_attribute_name("creation_time") %>: </label>
-      <%= l @vehicle_journey.creation_time %>
-    </p>
-    <p>
-      <label><%= @vehicle_journey.human_attribute_name("creator_id") %>: </label>
-      <%= @vehicle_journey.creator_id %>
-    </p>
   </div>
 </div>
 <h3>
@@ -107,5 +99,6 @@
       <% end %>
     <% end %>
   </div>
+  <%= creation_tag(@vehicle_journey) %>
   <% end %>
 <% end %>
