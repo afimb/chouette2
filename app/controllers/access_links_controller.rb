@@ -6,7 +6,8 @@ class AccessLinksController < ChouetteController
     belongs_to :stop_area, :parent_class => Chouette::StopArea, :optional => true, :polymorphic => true
   end
 
-  respond_to :html, :kml, :xml, :json
+  respond_to :html, :xml, :json
+  respond_to :kml, :only => :show
 
 
   def index
@@ -15,7 +16,7 @@ class AccessLinksController < ChouetteController
   end
 
   def show
-    #@map = AccessLinkMap.new(resource).with_helpers(self)
+    @map = AccessLinkMap.new(resource).with_helpers(self)
     show!
   end
   

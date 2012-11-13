@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <% if @access_link.geometry %>
+    <Placemark id="route_<%= @access_link.id %>" >
+      <name><%= @access_link.name %></name>
+      <%= @access_link.geometry.kml_representation.html_safe %>
+    </Placemark>
+    <Placemark id="<%= @access_link.access_point.id %>" >
+      <departure><%= @access_link.link_orientation_type ==  "access_point_to_stop_area" %></departure>
+      <%= @access_link.access_point.geometry.kml_representation.html_safe %>
+    </Placemark>
+    <Placemark id="<%= @access_link.stop_area.id %>" >
+      <arrival><%= @access_link.link_orientation_type ==  "access_point_to_stop_area" %></arrival>
+      <%= @access_link.stop_area.geometry.kml_representation.html_safe %>
+    </Placemark>
+    <% end %>
+  </Document>
+</kml>
+

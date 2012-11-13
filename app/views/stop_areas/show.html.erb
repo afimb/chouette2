@@ -1,7 +1,7 @@
 <%= title_tag t('stop_areas.show.title', :stop_area => @stop_area.name ) %>
 
 <div class="stop_area_show">
-  <% if @stop_area.projection_type != nil || @stop_area.long_lat_type != nil %>
+  <% if show_map? %>
     <%= @map.to_html %>
   <% end %>  
   <div class="summary">
@@ -37,37 +37,39 @@
       <label><%= @stop_area.human_attribute_name("stop_area_type") %>: </label>
       <%= t("area_types.label.#{@stop_area.stop_area_type}") %>
     </p>
-    <p> <label><%= t('stop_areas.show.geographic_data') %> </label></p>
-    <% if @stop_area.projection_type == nil && @stop_area.long_lat_type == nil %>
-	    <span class='geo_data'><%= t('stop_areas.show.no_geographic_data') %></span>
-    <% else %>
-	    <% if !@stop_area.projection_type.nil? %>
-	    <p>
-	      <span class='geo_data'><%= @stop_area.human_attribute_name("projection_type") %>: </span>
-	      <%= @stop_area.projection_type %>
-	    </p>
-	    <p>
-	      <span class='geo_data'><%= @stop_area.human_attribute_name("x") %>: </span>
-	      <%= @stop_area.x %>
-	    </p>
-	    <p>
-	      <span class='geo_data'><%= @stop_area.human_attribute_name("y") %>: </span>
-	      <%= @stop_area.y %>
-	    </p>
-	    <% end %>
-	    <% if !@stop_area.long_lat_type.nil? %>
-	    <p>
-	      <span class='geo_data'><%= @stop_area.human_attribute_name("long_lat_type") %>: </span>
-	      <%= @stop_area.long_lat_type %>
-	    </p>
-	    <p>
-	      <span class='geo_data'><%= @stop_area.human_attribute_name("longitude") %>: </span>
-	      <%= @stop_area.longitude %>
-	    </p>
-	    <p>
-	      <span class='geo_data'><%= @stop_area.human_attribute_name("latitude") %>: </span>
-	      <%= @stop_area.latitude %>
-	    </p>
+    <% if !manage_itl %>
+	    <p> <label><%= t('stop_areas.show.geographic_data') %> </label></p>
+	    <% if @stop_area.projection_type == nil && @stop_area.long_lat_type == nil %>
+		    <span class='geo_data'><%= t('stop_areas.show.no_geographic_data') %></span>
+	    <% else %>
+		    <% if !@stop_area.projection_type.nil? %>
+		    <p>
+		      <span class='geo_data'><%= @stop_area.human_attribute_name("projection_type") %>: </span>
+		      <%= @stop_area.projection_type %>
+		    </p>
+		    <p>
+		      <span class='geo_data'><%= @stop_area.human_attribute_name("x") %>: </span>
+		      <%= @stop_area.x %>
+		    </p>
+		    <p>
+		      <span class='geo_data'><%= @stop_area.human_attribute_name("y") %>: </span>
+		      <%= @stop_area.y %>
+		    </p>
+		    <% end %>
+		    <% if !@stop_area.long_lat_type.nil? %>
+		    <p>
+		      <span class='geo_data'><%= @stop_area.human_attribute_name("long_lat_type") %>: </span>
+		      <%= @stop_area.long_lat_type %>
+		    </p>
+		    <p>
+		      <span class='geo_data'><%= @stop_area.human_attribute_name("longitude") %>: </span>
+		      <%= @stop_area.longitude %>
+		    </p>
+		    <p>
+		      <span class='geo_data'><%= @stop_area.human_attribute_name("latitude") %>: </span>
+		      <%= @stop_area.latitude %>
+		    </p>
+		    <% end %>
 	    <% end %>
     <% end %>
     <p>

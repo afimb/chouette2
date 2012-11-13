@@ -49,7 +49,7 @@ class StopAreasController < ChouetteController
     map.editable = false
     @access_points = @stop_area.access_points
     show! do |format|
-      unless stop_area.position or params[:default]
+      unless stop_area.position or params[:default] or params[:routing] 
         format.kml {
           render :nothing => true, :status => :not_found 
         }

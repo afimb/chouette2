@@ -1,6 +1,6 @@
 GIT
   remote: git://chouette.dryade.priv/ninoxe
-  revision: 7b462c077e40a907ff351a859531fbb6fb97a491
+  revision: d400baaba492a698b95bee1228466191564c41dc
   specs:
     ninoxe (0.0.8)
       GeoRuby
@@ -263,7 +263,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
-    rake (0.9.2.2)
+    rake (0.9.3)
     ransack (0.7.0)
       actionpack (~> 3.0)
       activerecord (~> 3.0)

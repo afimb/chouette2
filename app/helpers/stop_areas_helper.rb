@@ -3,7 +3,11 @@ module StopAreasHelper
     return t(".genealogical_routing") if @stop_area.stop_area_type == 'itl'    
     t(".genealogical")
   end
-  
+ 
+  def show_map?
+    manage_itl || @stop_area.projection_type != nil || @stop_area.long_lat_type != nil
+  end  
+
   def manage_access_points
     @stop_area.stop_area_type == 'stop_place' || @stop_area.stop_area_type == 'commercial_stop_point'
   end

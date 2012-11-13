@@ -17,6 +17,8 @@ class AccessPointMap < ApplicationMap
       page << map.add_layer(google_hybrid) 
       page << map.add_layer(google_satellite) 
 
+      page.assign "parent_layer", kml_layer(access_point.stop_area,  :style_map => StyleMap::StopAreasStyleMap.new(helpers).style_map)
+      page << map.add_layer(:parent_layer)
       page.assign "edit_access_point_layer", kml_layer(access_point, { :default => editable? }, :style_map => StyleMap::EditAccessPointStyleMap.new(helpers).style_map)
       page << map.add_layer(:edit_access_point_layer)
       
@@ -41,6 +43,8 @@ class AccessPointMap < ApplicationMap
 EOF
         page << map.add_control(OpenLayers::Control::ModifyFeature.new(:edit_access_point_layer, :mode => 8, :autoActivate => true))
 
+      else
+        page << map.add_control( hover_control_display_name(:parent_layer) )
       end
 
       page << map.set_center(center.to_google.to_openlayers, 16, false, true)

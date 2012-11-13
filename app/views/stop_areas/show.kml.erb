@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
+  	<% if !params["children"].nil? %>
+  	   <% @stop_area.children.each do |child| %>
+	    <Placemark id="<%= child.id %>" >
+	      <name><%= child.name %></name>
+	      <stop_area_type><%= child.stop_area_type %></stop_area_type>
+	      <%= (child.position or child.default_position).kml_representation.html_safe %>
+	    </Placemark>
+  	   <% end %>
+  	<% elsif !params["routing"].nil? %>
+  	   <% @stop_area.routing_stops.each do |child| %>
+	    <Placemark id="<%= child.id %>" >
+	      <name><%= child.name %></name>
+	      <stop_area_type><%= child.stop_area_type %></stop_area_type>
+	      <%= (child.position or child.default_position).kml_representation.html_safe %>
+	    </Placemark>
+  	   <% end %>
+  	<% else %>
     <Placemark id="<%= @stop_area.id %>" >
       <name><%= @stop_area.name %></name>
-      <stop_area_type><%= @stop_area.type %></stop_area_type>
+      <stop_area_type><%= @stop_area.stop_area_type %></stop_area_type>
       <%= (@stop_area.position or @stop_area.default_position).kml_representation.html_safe %>
     </Placemark>
+    <% end %>
   </Document>
 </kml>

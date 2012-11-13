@@ -17,9 +17,9 @@ en:
   activerecord:        
     models:        
       access_link: 
-        zero:  access point
-        one:   access point
-        other: access points
+        zero:  access link
+        one:   access link
+        other: access links
     attributes:
       access_link:
         access_point: Access Point
@@ -47,10 +47,10 @@ en:
 fr:
   access_links:
     actions:
-      new: Ajouter un accès
-      edit: Modifier cet accès
-      destroy: Supprimer cet accès
-      destroy_confirm: Etes vous sûr de détruire cet accès ?
+      new: Ajouter un lien
+      edit: Modifier ce lien
+      destroy: Supprimer ce lien
+      destroy_confirm: Etes vous sûr de détruire ce lien ?
     new:
       title_access_point_to_stop_area: "Créer un lien depuis l'accès %{access_point} vers l'arrêt %{stop_area}"
       title_stop_area_to_access_point: "Créer un lien depuis l'arrêt %{stop_area} vers l'accès %{access_point}"
@@ -62,10 +62,10 @@ fr:
       durations: "Durées (hh mm ss) :"
   activerecord:        
     models:        
-      access_link: 
-        zero:  accès
-        one:   accès
-        other: accès
+      access_link:
+        zero:  lien
+        one:   lien
+        other: liens
     attributes:
       access_link:
         access_point: Accès
