@@ -24,7 +24,7 @@ mode de transport principal de la ligne
 d'autres modes de transports particuliers peuvent être indiqués au niveau de chaque course 
 =:
 - Commentaire := zone de texte libre sur la ligne
-- Groupes de lignes := "groupes de lignes":group_of_lines auxquels appartiet la ligne
+- Groupes de lignes := "groupes de lignes":group_of_lines auxquels appartient la ligne
 
 p(attr_data). Données de gestion : 
 

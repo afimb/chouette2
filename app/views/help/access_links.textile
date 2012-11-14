@@ -9,7 +9,7 @@ title: Liens entre arrêts et accès
 
 h3(#def). Définition
 
-Un *lien arrêt-accès* est, dans un voyage en transports en commun, le cheminement piéton permettant dans une infrastucture lourde de passer de la voirie à l'arrêt physique (point d'embarquement ou quai) et vice versa.
+Un *lien arrêt-accès* est, dans un voyage en transports en commun, le cheminement piéton permettant dans une infrastructure lourde de passer de la voirie à l'arrêt physique (point d'embarquement ou quai) et vice versa.
 
 Le lien permet de définir les caractéristiques du parcours entre un arrêt physique et un accès
 Cette liaison n'existe qu'au sein d'une zone d'arrêts (arrêt commercial ou pôle d'échange)
@@ -20,7 +20,7 @@ La liaison est orientée, il est donc nécessaire dans le cas où l'accès est b
 h3(#attr). Attributs
 
 - Accès := nom de l'accès 
-- Arrêt := nom de arrêt 
+- Arrêt := nom de l'arrêt 
 - Nom := nom du lien ( par défaut, chouette propose de le nommer _nom de la source -> nom de la cible_)
 - Type := liste de choix parmi << Aérien >>, << Souterrain>> ou mixte << Aérien et souterrain >>
 - Commentaire := zone de texte libre

@@ -9,7 +9,7 @@ title: Accès
 
 h3(#def). Définition
 
-Un *accès* est un élément d'infrastucture donnant sur la voirie et permettant d'accéder à un ou plusieurs arrêts physiques (point d'embarquement ou quai) non accessibles directement. 
+Un *accès* est un élément d'infrastructure donnant sur la voirie et permettant d'accéder à un ou plusieurs arrêts physiques (point d'embarquement ou quai) non accessibles directement. 
 
 Dans Chouette, les accès sont rattachés à une zone d'arrêt (arrêt commercial ou pôle d'échange) et peuvent être reliés par des liens arrêt-accès : 
 
