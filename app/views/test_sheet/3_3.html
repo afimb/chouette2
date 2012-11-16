@@ -1,246 +1,57 @@
-<div class=WordSection1>
-</span></b>
+<h1 class="western" style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm 0.12cm; margin-top: 0.21cm;" align="center">
+<font face="Arial, sans-serif"><font style="font-size: 20pt;" size="5"><i>
+ contrôle N° 3.3<br>
+Unicité des noms de  points d’arrêt <br>
+</i></font></font></h1>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><u><b>Objectif: </b></u>
+Vérifier que chaque POINT D’ARRÊT SUR PARCOURS
+(«&nbsp;StopPoint&nbsp;») possède des propriétés uniques au sein d’un
+même jeu de données<br>
+</font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><u><b>Priorité: </b></u> Obligatoire</font></p><font face="Arial, sans-serif">
+</font><p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><u><b>Explications:</b></u> 
+</font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Dans un même jeu de données et à fortiori sur un même LIGNE/Chouette
+(«&nbsp;Line&nbsp;»), deux ou plusieurs POINTs D’ARRÊT SUR PARCOURS
+(«&nbsp;StopPoint&nbsp;») peuvent avoir la même dénomination. Si un
+simple nom ne suffit pas (mairie, église â€¦) à les départager, alors
+il faut ajouter à ce nom une adresse et éventuellement le nom de la
+commune.</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Ce point de contrôle consiste donc à  recenser les POINTs D’ARRÊT SUR PARCOURS qui possèdent les mêmes  caractéristiques.</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>Exemple: </u></b></font></font></font></p>
 
-<p class=MsoTitle><span style='font-size:14.0pt;font-family:"Tahoma","sans-serif"'>Fiche
-de contr&ocirc;le N&deg; 3.3</span></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+&nbsp;<img src="image017.jpg" height="624" width="450"></font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>N° test:</u></b> 
+Test  3.3.1</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Libellé:</u> 
+Différentiation  de nom pour les POINTs D’ARRÊT SUR PARCOURS («&nbsp;StopPoint&nbsp;»)</font></font></font></p>
 
-<p class=MsoNormal>&nbsp;</p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2"><span style="text-decoration: underline;">
+Champ d’application:&nbsp;</span>&lt;StopPoint&gt;</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Vérification:</u> </font></font></font></p>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=647
- style='width:485.45pt;border-collapse:collapse;border:none'>
- <tr style='page-break-inside:avoid'>
-  <td width=647 colspan=2 valign=top style='width:485.45pt;border:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center'><i><span style='color:navy'>Description</span></i></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border:solid windowtext 1.0pt;border-top:
-  none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>Intitul&eacute;</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt'><span style='font-size:11.0pt;
-  line-height:200%;font-family:"Tahoma","sans-serif"'>Unicit&eacute; des noms de
-  points d&rsquo;arr&ecirc;t </span></p>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border:solid windowtext 1.0pt;border-top:
-  none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>Objectif</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif";font-weight:normal'>V&eacute;rifier que chaque POINT D&rsquo;ARR&Ecirc;T
-  SUR PARCOURS (&laquo;&nbsp;StopPoint&nbsp;&raquo;) poss&egrave;de des propri&eacute;t&eacute;s uniques au sein
-  d&rsquo;un m&ecirc;me jeu de donn&eacute;es</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border:solid windowtext 1.0pt;border-top:
-  none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>R&eacute;f&eacute;rences</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif";font-weight:normal'>TRIDENT/profil CHOUETTE/Transmodel
-  V4 et V5.1</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border:solid windowtext 1.0pt;border-top:
-  none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>N&deg; de fiche(s) connexe(s)</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='text-align:left'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  <h1 align=left style='text-align:left'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border:solid windowtext 1.0pt;border-top:
-  none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt'><b><span style='font-family:
-  "Tahoma","sans-serif"'>Priorit&eacute;<span style='color:red'> </span></span></b></p>
-  </td>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif";font-weight:normal'>Obligatoire</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border:solid windowtext 1.0pt;border-top:
-  none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt'><b><span style='font-family:
-  "Tahoma","sans-serif"'>R&eacute;sultat</span></b></p>
-  </td>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif";font-weight:normal'>D&eacute;livrance d&rsquo;un avertissement de
-  mise en garde sur des cons&eacute;quences &eacute;ventuelles de dysfonctionnement</span></h1>
-  </td>
- </tr>
- <tr style='page-break-inside:avoid'>
-  <td width=647 colspan=2 valign=top style='width:485.45pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center'><i><span style='color:navy'>Mise en &oelig;uvre</span></i></h1>
-  </td>
- </tr>
- <tr>
-  <td width=100 valign=top style='width:74.85pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm'><span style='font-size:11.0pt'>Explication</span></h1>
-  </td>
-  <td width=547 valign=top style='width:410.6pt;border-top:none;border-left:
-  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <p class=MsoBodyText3 align=left style='margin-top:6.0pt;margin-right:0cm;
-  margin-bottom:6.0pt;margin-left:0cm;text-align:left'><span style='font-family:
-  "Tahoma","sans-serif"'>Dans un m&ecirc;me jeu de donn&eacute;es et &agrave; fortiori sur un m&ecirc;me
-  LIGNE/Chouette (&laquo;&nbsp;Line&nbsp;&raquo;), deux ou plusieurs POINTs D&rsquo;ARR&Ecirc;T SUR
-  PARCOURS (&laquo;&nbsp;StopPoint&nbsp;&raquo;) peuvent avoir la m&ecirc;me d&eacute;nomination. Si un
-  simple nom ne suffit pas (mairie, &eacute;glise …) &agrave; les d&eacute;partager, alors il faut
-  ajouter &agrave; ce nom une adresse et &eacute;ventuellement le nom de la commune. </span></p>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm;text-align:justify'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif"'>Ce point de contr&ocirc;le consiste donc &agrave;
-  recenser les POINTs D&rsquo;ARR&Ecirc;T SUR PARCOURS qui poss&egrave;dent les m&ecirc;mes
-  caract&eacute;ristiques. </span></p>
-  </td>
- </tr>
-</table>
 
-<p class=MsoNormal>&nbsp;</p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- Si l’élément «&nbsp;StopPoint&nbsp;» mentionné dans les champs
+d’application est présent une ou plusieurs fois, poursuivre le test,
+sinon le test est abandonné.&nbsp;</font></font></font></p>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=638
- style='width:478.4pt;border-collapse:collapse;border:none'>
- <tr>
-  <td width=108 valign=top style='width:81.35pt;border:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm'><b><span lang=EN-US style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif"'>Exemple</span></b></p>
-  </td>
-  <td width=538 valign=top style='width:403.55pt;border:solid windowtext 1.0pt;
-  border-left:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <p class=MsoNormal align=center style='text-align:center'><b><span
-  lang=EN-US style='font-size:11.0pt'>&nbsp;</span></b></p>
-  <p class=MsoNormal align=center style='text-align:center'><b><span
-  lang=EN-US style='font-size:11.0pt'><img width=450 height=624
-  src="image017.jpg"></span></b></p>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>&nbsp;</span></p>
-  </td>
- </tr>
- <tr style='page-break-inside:avoid'>
-  <td width=638 colspan=2 valign=top style='width:478.4pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h2 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center'><i><span lang=EN-US style='font-size:14.0pt;
-  color:navy'>Evaluation</span></i></h2>
-  </td>
- </tr>
- <tr>
-  <td width=100 valign=top style='width:74.85pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm'><span lang=EN-US style='font-size:11.0pt'>N&deg; test</span></h1>
-  </td>
-  <td width=538 style='width:403.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>Test
-  3.3.1</span></p>
-  </td>
- </tr>
- <tr>
-  <td width=100 valign=top style='width:74.85pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm'><span style='font-size:11.0pt'>Libell&eacute;</span></h1>
-  </td>
-  <td width=538 valign=top style='width:403.55pt;border-top:none;border-left:
-  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm'><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Diff&eacute;rentiation
-  de nom pour les POINTs D&rsquo;ARR&Ecirc;T SUR PARCOURS (&laquo;&nbsp;StopPoint&nbsp;&raquo;)</span></p>
-  </td>
- </tr>
- <tr>
-  <td width=100 valign=top style='width:74.85pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm'><span style='font-size:11.0pt'>Champ d&rsquo;application</span></h1>
-  </td>
-  <td width=538 valign=top style='width:403.55pt;border-top:none;border-left:
-  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <p class=MsoHeader style='margin-top:6.0pt'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif"'>&lt;StopPoint&gt;</span></p>
-  </td>
- </tr>
- <tr>
-  <td width=100 valign=top style='width:74.85pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm'><span style='font-size:11.0pt'>V&eacute;rification</span></h1>
-  </td>
-  <td width=538 valign=top style='width:403.55pt;border-top:none;border-left:
-  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>-
-  Si l&rsquo;&eacute;l&eacute;ment &laquo;&nbsp;StopPoint&nbsp;&raquo; mentionn&eacute; dans les champs d&rsquo;application
-  est pr&eacute;sent une ou plusieurs fois, poursuivre le test, sinon le test est
-  abandonn&eacute;.</span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>-
-  S&rsquo;il existe deux points d&rsquo;arr&ecirc;t &laquo;&nbsp;StopPoint&nbsp;&raquo; dont la valeur de
-  l&rsquo;attribut de l&rsquo;&eacute;l&eacute;ment &laquo;&nbsp;names&nbsp;&raquo; est identique et que les valeurs
-  de l&rsquo;attribut de l&rsquo;&eacute;l&eacute;ment &lt;containedIn&gt; sont diff&eacute;rentes ou vides,
-  alors la valeur de l&rsquo;&eacute;l&eacute;ment &laquo;&nbsp;adresse&nbsp;&raquo; doit &ecirc;tre diff&eacute;renci&eacute;e
-  pour les deux objets &laquo;&nbsp;StopPoint&nbsp;&raquo;. Si c&rsquo;est le cas, le test est
-  valid&eacute; sinon le test fournit </span><span style='font-size:11.0pt;font-family:
-  "Arial","sans-serif"'>message d'avertissement</span><span style='font-size:
-  11.0pt;font-family:"Arial","sans-serif"'>&nbsp;: &laquo;&nbsp;test 3.3.1&nbsp;: 
-  deux points d&rsquo;arr&ecirc;t &laquo;&nbsp;StopPoint&nbsp;&raquo; de m&ecirc;me nom ne sont pas
-  suffisamment renseign&eacute;s pour avoir des propri&eacute;t&eacute;s uniques&nbsp;&raquo;.</span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>&nbsp;</span></p>
-  </td>
- </tr>
-</table>
 
-<p class=MsoNormal>&nbsp;</p>
-
-</div>
-
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- S’il existe deux points d’arrêt «&nbsp;StopPoint&nbsp;» dont la
+valeur de l’attribut de l’élément «&nbsp;names&nbsp;» est identique et
+que les valeurs de l’attribut de l’élément &lt;containedIn&gt; sont
+différentes ou vides, alors la valeur de l’élément
+«&nbsp;adresse&nbsp;» doit être différenciée pour les deux objets
+«&nbsp;StopPoint&nbsp;». Si c’est le cas, le test est validé sinon le
+test fournit &nbsp;lemessage d'avertissement (WARNING)&nbsp;
+&nbsp;: «&nbsp;test 3.3.1&nbsp;: deux points d’arrêt
+«&nbsp;StopPoint&nbsp;» de même nom ne sont pas suffisamment renseignés
+pour avoir des propriétés uniques&nbsp;».</font></font></font></p>

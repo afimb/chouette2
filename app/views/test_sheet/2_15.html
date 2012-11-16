@@ -1,463 +1,181 @@
-<div class=WordSection1>
-</span>
+<h1 class="western" style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm 0.12cm; margin-top: 0.21cm;" align="center">
+<font face="Arial, sans-serif"><font style="font-size: 20pt;" size="5"><i>
+ point de contrôle N° 2.15<br>
+Cohérence  entre points d'arrêt et missions commerciales<br>
+</i></font></font></h1>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><u><b>Objectif: </b></u>
+Vérification de l’existence de définition des POINTs D’ARRÊT SUR
+PARCOURS (« StopPoint ») d’une mission commerciale
+(«&nbsp;JourneyPattern&nbsp;»). <br>
+Vérification que tout POINT D’ARRÊT SUR PARCOURS (« StopPoint »)
+appartient à une mission&nbsp; commerciale
+(«&nbsp;JourneyPattern&nbsp;»).<br>
+</font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><u><b>Priorité: </b></u> Obligatoire  (si l’objet «&nbsp;JourneyPattern&nbsp;» existe)</font></p><font face="Arial, sans-serif">
+</font><p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><u><b>Explications:</b></u> 
+</font></font></p>
 
-<p class=MsoTitle><span style='font-size:14.0pt;font-family:"Tahoma","sans-serif"'>Fiche
-du point de contr&ocirc;le N&deg; 2.15</span></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+L’objet de MISSION COMMERCIALE (« JourneyPattern ») , a un caractère
+optionnel. Quand elle existe, chaque MISSION COMMERCIALE&nbsp;(«
+JourneyPattern ») référence de manière obligatoire une liste
+«&nbsp;stopPointList&nbsp;» qui contient au moins deux identifiants de
+POINT D’ARRÊT SUR PARCOURS (« StopPoint »). Pour chaque identifiant de
+cette liste, il convient de vérifier qu'il correspond à l'identifiant
+«&nbsp;objectId&nbsp;» d'un POINT D’ARRÊT SUR PARCOURS (« StopPoint »)
+du réseau.</font></font></font></p>
 
-<p class=MsoNormal>&nbsp;</p>
 
-<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=639
- style='width:478.9pt;margin-left:-.5pt;border-collapse:collapse'>
- <tr style='page-break-inside:avoid'>
-  <td width=639 colspan=2 valign=top style='width:478.9pt;border:solid black 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;text-indent:0cm;layout-grid-mode:char'><i><span
-  style='font-family:"Tahoma","sans-serif";color:navy'>Description</span></i></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Intitul&eacute;</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><span
-  style='font-size:11.0pt;line-height:200%;font-family:"Tahoma","sans-serif"'>Coh&eacute;rence
-  entre points d'arr&ecirc;t et missions commerciales.</span></p>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Objectif</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>V&eacute;rification
-  de l&rsquo;existence de d&eacute;finition des POINTs D&rsquo;ARR&Ecirc;T SUR PARCOURS  (&laquo; StopPoint
-  &raquo;)  d&rsquo;une </span><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif";
-  text-transform:uppercase;font-weight:normal'>mission commerciale</span><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'> 
-  (&laquo;&nbsp;JourneyPattern&nbsp;&raquo;).</span></h1>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>V&eacute;rification
-  que tout POINT D&rsquo;ARR&Ecirc;T SUR PARCOURS  (&laquo; StopPoint &raquo;)  appartient &agrave; une </span><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";text-transform:
-  uppercase;font-weight:normal'>mission commerciale</span><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'> 
-  (&laquo;&nbsp;JourneyPattern&nbsp;&raquo;).</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>R&eacute;f&eacute;rences</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>TRIDENT/profil
-  CHOUETTE/Transmodel V4 et V5.1</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>N&deg; de fiche(s)
-  connexe(s)</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:0cm;
-  margin-left:0cm;margin-bottom:.0001pt;text-align:left;text-indent:0cm;
-  layout-grid-mode:char'><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif";
-  font-weight:normal'>&nbsp;</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><b><span
-  style='font-family:"Tahoma","sans-serif"'>Priorit&eacute;<span style='color:red'> </span></span></b></p>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Obligatoire
-  (si l&rsquo;objet &laquo;&nbsp;JourneyPattern&nbsp;&raquo; existe)</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><b><span
-  style='font-family:"Tahoma","sans-serif"'>R&eacute;sultat</span></b></p>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Conforme
-  ou non conforme</span></h1>
-  </td>
- </tr>
- <tr style='page-break-inside:avoid'>
-  <td width=639 colspan=2 valign=top style='width:478.9pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;text-indent:0cm;layout-grid-mode:char'><i><span
-  style='font-family:"Tahoma","sans-serif";color:navy'>Mise en &oelig;uvre</span></i></h1>
-  </td>
- </tr>
- <tr>
-  <td width=100 style='width:74.85pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Explication</span></h1>
-  </td>
-  <td width=539 style='width:404.05pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 11.35pt 5.65pt 3.5pt'>
-  <h1 align=left style='margin-top:0cm;margin-right:11.35pt;margin-bottom:0cm;
-  margin-left:0cm;margin-bottom:.0001pt;text-align:left;text-indent:0cm;
-  layout-grid-mode:char'><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif";
-  font-weight:normal'>L&rsquo;objet de MISSION COMMERCIALE (&laquo; JourneyPattern &raquo;) , a
-  un caract&egrave;re optionnel. Quand elle existe, chaque MISSION COMMERCIALE</span></h1>
-  <h1 align=left style='margin-top:0cm;margin-right:11.35pt;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>(&laquo;
-  JourneyPattern &raquo;) r&eacute;f&eacute;rence de mani&egrave;re obligatoire une liste
-  &laquo;&nbsp;stopPointList&nbsp;&raquo; qui contient au moins deux identifiants de POINT
-  D&rsquo;ARR&Ecirc;T SUR PARCOURS  (&laquo; StopPoint &raquo;). Pour chaque identifiant de cette
-  liste, il convient de v&eacute;rifier qu'il correspond &agrave; l'identifiant
-  &laquo;&nbsp;objectId&nbsp;&raquo; d'un POINT D&rsquo;ARR&Ecirc;T SUR PARCOURS  (&laquo; StopPoint &raquo;) du
-  r&eacute;seau. </span></h1>
-  <p class=MsoNormal style='margin-right:11.35pt'><span style='font-size:11.0pt;
-  font-family:"Arial","sans-serif"'>Chaque identifiant de POINT D&rsquo;ARR&Ecirc;T SUR
-  PARCOURS  (&laquo; StopPoint &raquo;) doit appartenir &agrave; la liste des POINTs D&rsquo;ARR&Ecirc;T SUR
-  PARCOURS d&rsquo;une MISSION COMMERCIALE (&laquo;&nbsp;StopPointList&nbsp;&raquo; de la </span><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";text-transform:
-  uppercase'>mission commerciale</span><span style='font-size:11.0pt;
-  font-family:"Arial","sans-serif"'> &laquo;&nbsp;JourneyPattern&nbsp;&raquo;).</span></p>
-  <p class=MsoNormal style='margin-right:11.35pt'><span style='font-family:
-  "Tahoma","sans-serif"'>&nbsp;</span></p>
-  </td>
- </tr>
-</table>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Chaque identifiant de POINT D’ARRÊT SUR PARCOURS (« StopPoint ») doit
+appartenir à la liste des POINTs D’ARRÊT SUR PARCOURS d’une MISSION
+COMMERCIALE («&nbsp;StopPointList&nbsp;» de la&nbsp;mission commerciale&nbsp;«&nbsp;JourneyPattern&nbsp;»).</font></font></font></p>
 
-<p class=MsoNormal>&nbsp;</p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>Exemple: </u></b></font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Représentation  schématique de l’objet «&nbsp;JourneyPattern&nbsp;»</font></font></font></p>
+<p><font face="Arial, sans-serif"><img src="image008.jpg" height="483" width="487"></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Exemple  d'un parcours qui référence sept points d'arrêt</font></font></font></p>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;StopPoint&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:StopPoint:489111A0A237832&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectVersion&gt;1&lt;/objectVersion&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;StopPoint&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:StopPoint:489111A1A237807&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectVersion&gt;1&lt;/objectVersion&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;StopPoint&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:StopPoint:489111A2A237806&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectVersion&gt;1&lt;/objectVersion&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;StopPoint&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:StopPoint:489111A3A237805&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectVersion&gt;1&lt;/objectVersion&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;StopPoint&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:StopPoint:489111A4A237804&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectVersion&gt;1&lt;/objectVersion&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;StopPoint&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:StopPoint:489111A5A237803&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectVersion&gt;1&lt;/objectVersion&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;StopPoint&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:StopPoint:489111A6A237832&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectVersion&gt;1&lt;/objectVersion&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;JourneyPattern&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:JourneyPattern:489111M74&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;routeId&gt;AMIV:Route:489111&lt;/routeId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;stopPointList&gt;AMIV:StopPoint:489111A0A237832&lt;/stopPointList&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;stopPointList&gt;AMIV:StopPoint:489111A1A237807&lt;/stopPointList&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;stopPointList&gt;AMIV:StopPoint:489111A2A237806&lt;/stopPointList&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;stopPointList&gt;AMIV:StopPoint:489111A3A237805&lt;/stopPointList&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;stopPointList&gt;AMIV:StopPoint:489111A4A237804&lt;/stopPointList&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;stopPointList&gt;AMIV:StopPoint:489111A5A237803&lt;/stopPointList&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;stopPointList&gt;AMIV:StopPoint:489111A6A237832&lt;/stopPointList&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;lineIdShortcut&gt;AMIV:Line:014014012&lt;/lineIdShortcut&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;/JourneyPattern&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>N° test:</u></b> 
+2.15.1</font></font></font></p>
 
-<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=648
- style='width:485.95pt;margin-left:-.5pt;border-collapse:collapse'>
- <tr>
-  <td width=108 colspan=2 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  border-right:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm;layout-grid-mode:char'><b><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif"'>Exemple</span></b></p>
-  </td>
-  <td width=548 colspan=2 valign=top style='width:411.1pt;border:solid black 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-left:18.0pt;text-align:left;text-indent:0cm;
-  layout-grid-mode:char'><span style='font-size:11.0pt;font-weight:normal'>&nbsp;</span></h1>
-  <h1 align=left style='margin-left:18.0pt;text-align:left;text-indent:0cm'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Repr&eacute;sentation
-  sch&eacute;matique de l&rsquo;objet &laquo;&nbsp;JourneyPattern&nbsp;&raquo;</span></h1>
-  <p class=MsoNormal>&nbsp;</p>
-  <p class=MsoNormal align=center style='text-align:center'><img width=487
-  height=483 src="image008.jpg"></p>
-  <p class=MsoNormal>                                         </p>
-  <p class=MsoNormal>&nbsp;</p>
-  <h3 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Exemple
-  d'un parcours qui r&eacute;f&eacute;rence sept points d'arr&ecirc;t</span></h3>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>...</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;StopPoint&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;objectId&gt;AMIV:StopPoint:489111A0A237832&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;objectVersion&gt;1&lt;/objectVersion&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>...</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;StopPoint&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;objectId&gt;AMIV:StopPoint:489111A1A237807&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;objectVersion&gt;1&lt;/objectVersion&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>...</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;StopPoint&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;objectId&gt;AMIV:StopPoint:489111A2A237806&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;objectVersion&gt;1&lt;/objectVersion&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>...</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;StopPoint&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;objectId&gt;AMIV:StopPoint:489111A3A237805&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;objectVersion&gt;1&lt;/objectVersion&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>...</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;StopPoint&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;objectId&gt;AMIV:StopPoint:489111A4A237804&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;objectVersion&gt;1&lt;/objectVersion&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>...</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;StopPoint&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;objectId&gt;AMIV:StopPoint:489111A5A237803&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;objectVersion&gt;1&lt;/objectVersion&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>...</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;StopPoint&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;objectId&gt;AMIV:StopPoint:489111A6A237832&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;objectVersion&gt;1&lt;/objectVersion&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>...</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;JourneyPattern&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;objectId&gt;AMIV:JourneyPattern:489111M74&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;routeId&gt;AMIV:Route:489111&lt;/routeId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;stopPointList&gt;AMIV:StopPoint:489111A0A237832&lt;/stopPointList&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;stopPointList&gt;AMIV:StopPoint:489111A1A237807&lt;/stopPointList&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;stopPointList&gt;AMIV:StopPoint:489111A2A237806&lt;/stopPointList&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;stopPointList&gt;AMIV:StopPoint:489111A3A237805&lt;/stopPointList&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;stopPointList&gt;AMIV:StopPoint:489111A4A237804&lt;/stopPointList&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;stopPointList&gt;AMIV:StopPoint:489111A5A237803&lt;/stopPointList&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;stopPointList&gt;AMIV:StopPoint:489111A6A237832&lt;/stopPointList&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;lineIdShortcut&gt;AMIV:Line:014014012&lt;/lineIdShortcut&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;/JourneyPattern&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>...</span></p>
-  <p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
-  <p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 colspan=4 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h2 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;text-indent:0cm;layout-grid-mode:char'><i><span
-  lang=EN-US style='font-size:14.0pt;color:navy'>Evaluation</span></i></h2>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 colspan=2 valign=top style='width:81.35pt;border-top:none;
-  border-left:solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:
-  none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span lang=EN-US style='font-size:
-  11.0pt'>N&deg; test</span></h1>
-  </td>
-  <td width=548 colspan=2 valign=top style='width:411.1pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:
-  0cm;margin-bottom:.0001pt;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>2.15.1</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 colspan=2 valign=top style='width:81.35pt;border-top:none;
-  border-left:solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:
-  none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span style='font-size:11.0pt'>Libell&eacute;</span></h1>
-  </td>
-  <td width=548 colspan=2 valign=top style='width:411.1pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:
-  0cm;margin-bottom:.0001pt;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>V&eacute;rification
-  de l&rsquo;existence de d&eacute;finition des POINTs D&rsquo;ARR&Ecirc;T SUR PARCOURS  (&laquo; StopPoint
-  &raquo;)  d&rsquo;une </span><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif";
-  text-transform:uppercase;font-weight:normal'>mission commerciale</span><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'> 
-  (&laquo;&nbsp;JourneyPattern&nbsp;&raquo;).</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 colspan=2 valign=top style='width:81.35pt;border-top:none;
-  border-left:solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:
-  none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:-6.95pt;margin-bottom:6.0pt;
-  margin-left:0cm;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Champ
-  d&rsquo;application</span></h1>
-  </td>
-  <td width=548 colspan=2 valign=top style='width:411.1pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif";font-weight:normal'>&lt;JourneyPattern&gt;</span></h1>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm;text-align:justify;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>&lt;StopPoint&gt;</span></p>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 colspan=2 valign=top style='width:81.35pt;border-top:none;
-  border-left:solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:
-  none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span style='font-size:11.0pt'>V&eacute;rification</span></h1>
-  </td>
-  <td width=548 colspan=2 valign=top style='width:411.1pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-left:0cm;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  <h1 style='margin-left:0cm;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>-
-  Si l&rsquo;objet de mission commerciale existe, poursuivre le test, sinon
-  abandonner le test</span></h1>
-  <h1 style='layout-grid-mode:char'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  <p class=MsoBodyText3 align=left style='text-align:left'><span
-  style='font-family:"Tahoma","sans-serif"'>- Si la liste des points d&rsquo;arr&ecirc;t
-  &laquo;&nbsp;stopPointList&nbsp;&raquo;, r&eacute;f&eacute;renc&eacute;s dans un objet de mission commerciale
-  &laquo;&nbsp;JourneyPattern&nbsp;&raquo;, poss&egrave;de des identifiants &laquo;&nbsp;objectId&nbsp;&raquo;
-  dans les objets de  points d&rsquo;arr&ecirc;t &laquo;&nbsp;StopPoint&nbsp;&raquo;, alors le test est
-  valid&eacute;, sinon le test est invalid&eacute; et produit le message &laquo;&nbsp;test
-  2.15.1&nbsp;: La liste de l&rsquo;objet &laquo;&nbsp;JourneyPattern&nbsp;&raquo; fait r&eacute;f&eacute;rence
-  &agrave; des points d&rsquo;arr&ecirc;t  inexistants&nbsp;&raquo;</span></p>
-  <h1 style='margin-left:0cm;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td style='border:none;padding:0cm 0cm 0cm 0cm' width=1><p class='MsoNormal'>&nbsp;</td>
-  <td width=108 colspan=2 valign=top style='width:81.35pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'><span lang=EN-US style='font-size:11.0pt'>N&deg; test</span></h1>
-  </td>
-  <td width=547 style='width:410.6pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-left:0cm;text-align:left;text-indent:0cm'><span
-  lang=EN-US style='font-size:11.0pt;font-family:"Tahoma","sans-serif";
-  font-weight:normal'>2.15.2</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td style='border:none;padding:0cm 0cm 0cm 0cm' width=1><p class='MsoNormal'>&nbsp;</td>
-  <td width=108 colspan=2 valign=top style='width:81.35pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'><span lang=EN-US style='font-size:11.0pt'>Libell&eacute;</span></h1>
-  </td>
-  <td width=547 style='width:410.6pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-left:0cm;text-align:left;text-indent:0cm'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>V&eacute;rification
-  que tout POINT D&rsquo;ARR&Ecirc;T SUR PARCOURS  (&laquo; StopPoint &raquo;)  appartient &agrave; une </span><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";text-transform:
-  uppercase;font-weight:normal'>mission commerciale</span><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'> 
-  (&laquo;&nbsp;JourneyPattern&nbsp;&raquo;).</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td style='border:none;padding:0cm 0cm 0cm 0cm' width=1><p class='MsoNormal'>&nbsp;</td>
-  <td width=108 colspan=2 valign=top style='width:81.35pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:-15.45pt;margin-bottom:6.0pt;
-  margin-left:0cm;text-indent:0cm'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>Champ d&rsquo;application</span></h1>
-  </td>
-  <td width=547 valign=top style='width:410.6pt;border-top:none;border-left:
-  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-left:0cm;text-indent:0cm'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>&lt;StopPoint&gt;</span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>&lt;JourneyPattern&gt;</span></p>
-  <p class=MsoNormal><span style='font-family:"Tahoma","sans-serif"'>&nbsp;</span></p>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td style='border:none;padding:0cm 0cm 0cm 0cm' width=1><p class='MsoNormal'>&nbsp;</td>
-  <td width=108 colspan=2 valign=top style='width:81.35pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'><span style='font-size:11.0pt'>V&eacute;rification</span></h1>
-  </td>
-  <td width=547 valign=top style='width:410.6pt;border-top:none;border-left:
-  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-left:0cm;text-indent:0cm'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  <p class=MsoBodyText>- Si l&rsquo;objet &laquo;&nbsp;StopPoint&nbsp;&raquo;, mentionn&eacute; dans les
-  champs d&rsquo;application, est pr&eacute;sent une ou plusieurs fois, poursuivre le test,
-  sinon le test est abandonn&eacute;.</p>
-  <p class=MsoNormal style='text-align:justify'><span style='font-size:11.0pt;
-  font-family:"Arial","sans-serif"'>&nbsp;</span></p>
-  <p class=MsoNormal style='text-align:justify'><span style='font-size:11.0pt;
-  font-family:"Arial","sans-serif"'>- Si l&rsquo;identifiant de l&rsquo;&eacute;l&eacute;ment &laquo;&nbsp;StopPoint&nbsp;&raquo;
-  identifi&eacute; est contenu dans la liste des points d&rsquo;arr&ecirc;t (StopPointList) de
-  l&rsquo;objet &laquo;&nbsp;JourneyPattern&nbsp;&raquo;, le test est valid&eacute;, sinon le test est
-  invalid&eacute; et fournit le message&nbsp;: &laquo;&nbsp;test 2.15.2&nbsp;: un point
-  d&rsquo;arr&ecirc;t  (&laquo; StopPoint &raquo;)  n&rsquo;est pas rattach&eacute; &agrave; une mission
-  commerciale&nbsp;&raquo;.</span></p>
-  <p class=MsoNormal><b><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>&nbsp;</span></b></p>
-  </td>
- </tr>
- <tr height=0>
-  <td width=1 style='border:none'></td>
-  <td width=108 style='border:none'></td>
-  <td width=1 style='border:none'></td>
-  <td width=539 style='border:none'></td>
- </tr>
-</table>
 
-<p class=MsoNormal>&nbsp;</p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Libellé:</u> 
+Vérification  de l’existence de définition des POINTs D’ARRÊT SUR PARCOURS  (« StopPoint  »)  d’une&nbsp;<br>mission commerciale&nbsp;(«&nbsp;JourneyPattern&nbsp;»).</font></font></font></p>
 
-</div>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Champ d’application:</u> 
+&lt;JourneyPattern&gt;&nbsp;&lt;StopPoint&gt;</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Vérification:</u> </font></font></font></p>
+
+
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+-  Si l’objet de mission commerciale existe, poursuivre le test, sinon  abandonner le test</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- Si la liste des points d’arrêt «&nbsp;stopPointList&nbsp;»,
+référencés dans un objet de mission commerciale
+«&nbsp;JourneyPattern&nbsp;», possède des identifiants
+«&nbsp;objectId&nbsp;» dans les objets de points d’arrêt
+«&nbsp;StopPoint&nbsp;», alors le test est validé, sinon le test est
+invalidé et produit le message «&nbsp;test 2.15.1&nbsp;: La liste de
+l’objet «&nbsp;JourneyPattern&nbsp;» fait référence à des points
+d’arrêt inexistants&nbsp;»</font></font></font></p>
+
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>N° test:</u></b> 
+2.15.2</font></font></font></p>
+
+
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Libellé:</u> Vérification que tout POINT D’ARRÊT SUR PARCOURS («
+StopPoint ») appartient à une&nbsp;mission
+commerciale&nbsp;(«&nbsp;JourneyPattern&nbsp;»).</font></font></font></p>
+
+
+
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2"><span style="text-decoration: underline;">
+Champ d’application:</span>&nbsp;&lt;StopPoint&gt; &lt;JourneyPattern&gt;</font></font></font></p>
+
+
+
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Vérification:</u>&nbsp;</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">-
+Si l’objet « StopPoint », mentionné dans les champs d’application, est
+présent une ou plusieurs fois, poursuivre le test, sinon le test est
+abandonné.</font></font></font></p><p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">- Si l’identifiant de l’élément «&nbsp;StopPoint&nbsp;» identifié est
+contenu dans la liste des points d’arrêt (StopPointList) de l’objet
+«&nbsp;JourneyPattern&nbsp;», le test est validé, sinon le test est
+invalidé et fournit le message&nbsp;: «&nbsp;test 2.15.2&nbsp;: un
+point d’arrêt (« StopPoint ») n’est pas rattaché à une mission
+commerciale&nbsp;».</font></font></font></p>
 
