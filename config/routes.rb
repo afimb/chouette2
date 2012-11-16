@@ -1,6 +1,5 @@
 ChouetteIhm::Application.routes.draw do
-  devise_for :users 
-  devise_scope :users do
+  devise_for :users do
     match "/users/sign_up" => "subscriptions#new"
   end
 

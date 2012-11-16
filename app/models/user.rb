@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name
 
   belongs_to :organisation
+  
+  validates_presence_of :email
+  validates_presence_of :password
 
   before_validation(:on => :create) do
     self.password ||= Devise.friendly_token.first(6)
