@@ -1,4 +1,16 @@
 GIT
+  remote: git://chouette.dryade.priv/ninoxe
+  revision: 3cdd4be0710cd295c62c3c8050c849cce355682d
+  specs:
+    ninoxe (0.0.8)
+      GeoRuby
+      activerecord (>= 3.1.3)
+      acts_as_list (>= 0.1.6)
+      composite_primary_keys (>= 4.1.2)
+      geokit
+      rails (>= 3.1.3)
+
+GIT
   remote: git://github.com/dnagir/database_cleaner.git
   revision: 0c0aa44f13ae392000a6f506b62d5d1602cb4e53
   branch: postgre_jruby_issue
@@ -48,30 +60,18 @@ GIT
       rgeo (~> 0.3.8)
 
 GIT
-  remote: git://github.com/dryade/ninoxe.git
-  revision: d400baaba492a698b95bee1228466191564c41dc
-  specs:
-    ninoxe (0.0.8)
-      GeoRuby
-      activerecord (>= 3.1.3)
-      acts_as_list (= 0.1.6)
-      composite_primary_keys (>= 4.1.2)
-      geokit
-      rails (>= 3.1.3)
-
-GIT
-  remote: git://github.com/dryade/user-interface.git
-  revision: 2a30a4eb3ff446f9d2b2de12ecacb5f923e5623c
-  specs:
-    user_interface (0.0.1)
-      rails (> 3.1.0)
-
-GIT
   remote: git://github.com/topfunky/calendar_helper.git
   revision: 763a497dbd8833b98d92815667b367ade938c00c
   specs:
     calendar_helper (0.2.5)
       open4
+
+GIT
+  remote: git://sim.dryade.priv/user_interface
+  revision: d828d7107f2b4025853cbfa7cc0e76cceca27da6
+  specs:
+    user_interface (0.0.1)
+      rails (> 3.1.0)
 
 GEM
   remote: http://rubygems.org/
@@ -142,8 +142,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.3.3)
-    composite_primary_keys (5.0.8)
-      activerecord (~> 3.2.0)
+    composite_primary_keys (5.0.10)
     delayed_job (3.0.3)
       activesupport (~> 3.0)
     delayed_job_active_record (0.3.2)
@@ -263,7 +262,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
-    rake (0.9.4)
+    rake (0.9.5)
     ransack (0.7.0)
       actionpack (~> 3.0)
       activerecord (~> 3.0)
