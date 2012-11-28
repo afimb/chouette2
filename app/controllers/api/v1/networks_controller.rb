@@ -3,13 +3,13 @@ module Api
     class NetworksController < ActionController::Base
       respond_to :json, :xml
       layout false
-      before_filter :restrict_access
+      before_filter :restrict_access_and_switch
 
       def referential
-        @referential ||= organisation.referentials.find @referential_id
+        @referential ||= organisation.referentials.find_by_id @referential_id
       end 
       def organisation
-        @organisation ||= Organisation.find @organisation_id
+        @organisation ||= Organisation.find_by_id @organisation_id
       end 
       def networks
         @networks ||= referential.networks
@@ -17,6 +17,7 @@ module Api
       def network
         @network ||= networks.where( :objectid => params[:id])
       end
+      
 
       def index
         respond_to do |format|
@@ -32,13 +33,14 @@ module Api
       end
       
 private
-      def restrict_access
-        parse_key
-        head :unauthorized unless organisation && referential
+      def restrict_access_and_switch
+        authenticate_or_request_with_http_token do |token, options|
+          switch_referential if key_exists?( token)
+        end
       end
-      def parse_key
-        @organisation_id, @referential_id = params[:access_token].split('-')
-        switch_referential
+      def key_exists?( token)
+        @organisation_id, @referential_id = token.split('-')
+        organisation && referential
       end
       def switch_referential
         Apartment::Database.switch(referential.slug)
