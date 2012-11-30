@@ -1,5 +1,12 @@
 jQuery ->
 # add trigger to hide/show application dates and periods
+  switch_calendars = (event) -> 
+    event.preventDefault()
+    $('.time_tables .calendars.content').toggle('slow')
+    $('a.calendars .switcher').toggle()
+
+  $('.time_tables a.calendars').click(switch_calendars)
+
   switch_dates = (event) -> 
     event.preventDefault()
     $('.time_tables .dates.content').toggle('slow')

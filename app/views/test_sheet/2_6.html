@@ -1,355 +1,94 @@
+<h1 class="western" style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm 0.12cm; margin-top: 0.21cm;" align="center">
+<font face="Arial, sans-serif"><font style="font-size: 20pt;" size="5"><i>
+ point de contrôle N° 2.6<br>
+Définition  des terminus<br>
+</i></font></font></h1>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><u><b>Objectif: </b></u>
+Vérification   de la correcte définition du terminus de LIGNE/Chouette (« Line »).<br>
+</font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><u><b>Priorité: </b></u> Obligatoire  (si «&nbsp;LineEnd&nbsp;» existe)</font></p><font face="Arial, sans-serif">
+</font><p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><u><b>Explications:</b></u> 
+</font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+L’ensemble des éléments de fin des LIGNEs/Chouette (« Line »)
+(«&nbsp;LineEnd&nbsp;») a un caractère optionnel. Si ces éléments
+existent, il convient de vérifier que chacun d’entre eux possède une
+valeur d’attribut qui identifie un POINT D’ARRÊT SUR PARCOURS («
+StopPoint »)</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>Exemple: </u></b></font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Représentation  schématique de l’Objet «&nbsp;Line&nbsp;»</font></font></font></p>
+<p><font face="Arial, sans-serif"><img src="image002.jpg" height="498" width="478"></font></p>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;Line&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:Line:014014012&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectVersion&gt;1&lt;/objectVersion&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;creationTime&gt;2007-03-21T16:05:54.000+01:00&lt;/creationTime&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;name&gt;LIGNE  012&lt;/name&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;publishedName&gt;Les  Courriers de l'Ile de France&lt;/publishedName&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;transportModeName&gt;Bus&lt;/transportModeName&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;lineEnd&gt;AMIV:StopPoint:488957A0A237830&lt;/lineEnd&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;StopPoint&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:StopPoint:488957A0A237830&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif"><br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectVersion&gt;1&lt;/objectVersion&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>N° test:</u></b> 
+2.6.1</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Libellé:</u> 
+Vérification  de la correcte définition du terminus de LIGNE/Chouette (« Line »).</font></font></font></p>
 
-<div class=WordSection1>
-</span>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Champ d’application:</u> 
+&lt;Line&gt;&nbsp;&lt;StopPoint&gt;</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Vérification:</u> </font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+-  Si l’élément «LineEnd» existe alors poursuivre le test, sinon le test est  abandonné,</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- Si chaque identifiant de fin de trajet dans l’élément
+«&nbsp;LineEnd&nbsp;» de l’objet «&nbsp;Line&nbsp;», est repéré dans un
+objet «&nbsp;StopPoint&nbsp;» alors le test est validé, sinon le test
+est invalidé et produit le message «&nbsp;test 2.6.1&nbsp;: un
+identifiant de point d’arrêt de fin de trajet n’est pas repéré dans un
+objet «&nbsp;StopPoint&nbsp;»».</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>N° test:</u></b> 
+2.6.2</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Libellé:</u> 
+Vérification  du caractère terminus des points de fin de trajet des LIGNEs/Chouette (« Line  »).</font></font></font></p>
 
-<p class=MsoTitle><span style='font-size:14.0pt;font-family:"Tahoma","sans-serif"'>Fiche
-du point de contr&ocirc;le N&deg; 2.6</span></p>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=657
- style='width:492.8pt;margin-left:-.25pt;border-collapse:collapse'>
- <tr style='height:37.4pt'>
-  <td width=657 colspan=2 valign=top style='width:492.8pt;border:solid black 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;layout-grid-mode:char'><i><span
-  style='font-family:"Tahoma","sans-serif";color:navy'>Description</span></i></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Intitul&eacute;</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><span
-  style='font-size:11.0pt;line-height:200%;font-family:"Tahoma","sans-serif"'>D&eacute;finition
-  des terminus</span></p>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Objectif</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>V&eacute;rification
-  de la correcte d&eacute;finition du terminus de LIGNE/Chouette (&laquo; Line &raquo;).</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>R&eacute;f&eacute;rences</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>TRIDENT/profil
-  CHOUETTE/Transmodel V4 et V5.1</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>N&deg;de fiche(s)
-  connexe(s)</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><b><span
-  style='font-size:11.0pt;line-height:200%;font-family:"Tahoma","sans-serif"'>Priorit&eacute;<span
-  style='color:red'> </span></span></b></p>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Obligatoire
-  (si &laquo;&nbsp;LineEnd&nbsp;&raquo; existe)</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><b><span
-  style='font-size:11.0pt;line-height:200%;font-family:"Tahoma","sans-serif"'>R&eacute;sultat</span></b></p>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Conforme
-  ou non conforme</span></h1>
-  </td>
- </tr>
- <tr>
-  <td width=108 colspan=2 style='width:81.35pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;layout-grid-mode:char'><i><span
-  style='font-family:"Tahoma","sans-serif";color:navy'>Mise en &oelig;uvre</span></i></h1>
-  </td>
- </tr>
- <tr>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Explication</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:11.35pt;margin-bottom:
-  6.0pt;margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>L&rsquo;ensemble
-  des &eacute;l&eacute;ments de fin  des LIGNEs/Chouette (&laquo; Line &raquo;) (&laquo;&nbsp;LineEnd&nbsp;&raquo;) a
-  un caract&egrave;re optionnel. Si ces &eacute;l&eacute;ments existent, il convient de v&eacute;rifier que
-  chacun d&rsquo;entre eux poss&egrave;de une valeur d&rsquo;attribut qui identifie  un  POINT
-  D&rsquo;ARR&Ecirc;T SUR PARCOURS  (&laquo; StopPoint &raquo;)</span></h1>
-  </td>
- </tr>
-</table>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=648
- style='width:485.7pt;margin-left:-.25pt;border-collapse:collapse'>
- <tr>
-  <td width=90 valign=top style='width:67.45pt;border:solid black 1.0pt;
-  border-right:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm;layout-grid-mode:char'><b><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif"'>Exemple</span></b></p>
-  </td>
-  <td width=558 valign=top style='width:418.25pt;border:solid black 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-left:18.0pt;text-align:left;layout-grid-mode:
-  char'><span style='font-size:11.0pt;font-weight:normal'>&nbsp;</span></h1>
-  <h1 align=left style='margin-left:18.0pt;text-align:left'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Repr&eacute;sentation
-  sch&eacute;matique de l&rsquo;Objet &laquo;&nbsp;Line&nbsp;&raquo;</span></h1>
-  <p class=MsoNormal>&nbsp;</p>
-  <p class=MsoNormal align=center style='text-align:center'><img width=478
-  height=498 src="image002.jpg"></p>
-  <p class=MsoNormal>                                         </p>
-  <h3 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm'>Exemple de &nbsp;&laquo;&nbsp;Line&nbsp;&raquo; avec un arr&ecirc;t de fin de trajet
-  d&eacute;fini plus loin :</h3>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;Line&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;objectId&gt;AMIV:Line:014014012&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;objectVersion&gt;1&lt;/objectVersion&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;creationTime&gt;2007-03-21T16:05:54.000+01:00&lt;/creationTime&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;name&gt;LIGNE
-  012&lt;/name&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;publishedName&gt;Les
-  Courriers de l'Ile de France&lt;/publishedName&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;transportModeName&gt;Bus&lt;/transportModeName&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;lineEnd&gt;AMIV:StopPoint:488957A0A237830&lt;/lineEnd&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>...</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;StopPoint&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;objectId&gt;AMIV:StopPoint:488957A0A237830&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      </span><span
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;objectVersion&gt;1&lt;/objectVersion&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span
-  style='font-size:10.0pt;font-family:"Courier New"'>...</span></p>
-  <p class=MsoNormal>&nbsp;</p>
-  </td>
- </tr>
- <tr style='page-break-inside:avoid'>
-  <td width=648 colspan=2 valign=top style='width:485.7pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h2 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;layout-grid-mode:char'><i><span
-  style='font-size:14.0pt;color:navy'>Evaluation</span></i></h2>
-  </td>
- </tr>
- <tr>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>N&deg; test</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>2.6.1</span></h1>
-  </td>
- </tr>
- <tr>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Libell&eacute;</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>V&eacute;rification
-  de la correcte d&eacute;finition du terminus de LIGNE/Chouette (&laquo; Line &raquo;).</span></h1>
-  </td>
- </tr>
- <tr>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span lang=EN-US
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Champ
-  d&rsquo;application</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span lang=EN-US
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>&lt;Line&gt;</span></h1>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm;layout-grid-mode:char'><span lang=EN-US
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>&lt;StopPoint&gt;</span></p>
-  </td>
- </tr>
- <tr>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>V&eacute;rification</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>-
-  Si l&rsquo;&eacute;l&eacute;ment &laquo;LineEnd&raquo; existe alors poursuivre le test, sinon le test est
-  abandonn&eacute;,</span></h1>
-  <h1 align=left style='margin-bottom:6.0pt;text-align:left;layout-grid-mode:
-  char'><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif";
-  font-weight:normal'>- Si chaque identifiant de fin de trajet dans l&rsquo;&eacute;l&eacute;ment
-  &laquo;&nbsp;LineEnd&nbsp;&raquo; de l&rsquo;objet &laquo;&nbsp;Line&nbsp;&raquo;, est rep&eacute;r&eacute; dans un objet
-  &laquo;&nbsp;StopPoint&nbsp;&raquo; alors le test est valid&eacute;, sinon le test est invalid&eacute;
-  et produit le message &laquo;&nbsp;test 2.6.1&nbsp;: un identifiant de point
-  d&rsquo;arr&ecirc;t de fin de trajet n&rsquo;est pas rep&eacute;r&eacute; dans un objet
-  &laquo;&nbsp;StopPoint&nbsp;&raquo;&raquo;.</span></h1>
-  </td>
- </tr>
- <tr>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span lang=EN-US
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>N&deg; test</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;text-align:left;layout-grid-mode:char'><span
-  lang=EN-US style='font-size:11.0pt;font-family:"Tahoma","sans-serif";
-  font-weight:normal'>2.6.2</span></h1>
-  </td>
- </tr>
- <tr>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span lang=EN-US
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Libell&eacute;</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>V&eacute;rification
-  du caract&egrave;re terminus des points de fin de trajet des LIGNEs/Chouette (&laquo; Line
-  &raquo;).</span></h1>
-  </td>
- </tr>
- <tr>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span lang=EN-US
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Champ
-  d&rsquo;application</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span lang=EN-US
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>&lt;Line&gt;</span></h1>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm;layout-grid-mode:char'><span lang=EN-US
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>&lt;StopPoint&gt;</span></p>
-  </td>
- </tr>
- <tr>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>V&eacute;rification</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:11.35pt;margin-bottom:
-  6.0pt;margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>-
-  Si l&rsquo;&eacute;l&eacute;ment &laquo;LineEnd&raquo; existe alors poursuivre le test, sinon le test est
-  abandonn&eacute;,</span></h1>
-  <h1 align=left style='margin-top:0cm;margin-right:11.35pt;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>-
-  Si chaque identifiant de fin de trajet dans l&rsquo;&eacute;l&eacute;ment &laquo;&nbsp;LineEnd&nbsp;&raquo;
-  de l&rsquo;objet &laquo;&nbsp;Line&nbsp;&raquo;, est rep&eacute;r&eacute; une et une seule fois dans un objet
-  &laquo;&nbsp;startOfLink&nbsp;&raquo; ou bien dans un objet &laquo;&nbsp;endOfLink&nbsp;&raquo; d&rsquo;un
-  tron&ccedil;on &laquo;&nbsp;PTLink&nbsp;&raquo; alors le test est valid&eacute;, sinon le test est
-  invalid&eacute; et produit le message &laquo;&nbsp;test 2.6.2&nbsp;: un identifiant de
-  point d&rsquo;arr&ecirc;t de fin de trajet n&rsquo;est pas rep&eacute;r&eacute; comme d&eacute;but ou comme fin d&rsquo;un
-  trajet&raquo;.</span></h1>
-  <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>&nbsp;</span></p>
-  </td>
- </tr>
-</table>
-
-
-</div>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Champ d’application:</u> 
+&lt;Line&gt;&nbsp;&lt;StopPoint&gt;</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Vérification:</u> </font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+-  Si l’élément «LineEnd» existe alors poursuivre le test, sinon le test est  abandonné,</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- Si chaque identifiant de fin de trajet dans l’élément
+«&nbsp;LineEnd&nbsp;» de l’objet «&nbsp;Line&nbsp;», est repéré une et
+une seule fois dans un objet «&nbsp;startOfLink&nbsp;» ou bien dans un
+objet «&nbsp;endOfLink&nbsp;» d’un tronçon «&nbsp;PTLink&nbsp;» alors
+le test est validé, sinon le test est invalidé et produit le message
+«&nbsp;test 2.6.2&nbsp;: un identifiant de point d’arrêt de fin de
+trajet n’est pas repéré comme début ou comme fin d’un trajet».</font></font></font></p>
 

@@ -63,6 +63,14 @@
       <%= @time_table.objectid %>
     </p>
 
+  <h3 class="time_table_calendars">
+	<a class="calendars"><%= @time_table.human_attribute_name("calendars") %>
+      <%= image_tag("icons/plus.png"  , :class => "switcher", :style => "display: none;") %>
+      <%= image_tag("icons/minus.png"  , :class => "switcher" ) %>
+    </a>
+  	
+  </h3>
+  <div class="calendars content">
     <div class="year_choice">
       <span class="previous"> <%= link_to("<", referential_time_table_path(@referential, @time_table, :year => (@year - 1)) ) %> </span> 
       <span class="year"> <%= "#{@year}" %> </span> 
@@ -84,9 +92,21 @@
       cal.html_safe
     %>
     </div> 
+  </div> 
 
 
   </div>
+  <h3 class="time_table_periods">
+	<a class="periods"><%= @time_table.human_attribute_name("periods") %>
+      <%= image_tag("icons/plus.png"  , :class => "switcher", :style => "display: none;") %>
+      <%= image_tag("icons/minus.png"  , :class => "switcher" ) %>
+    </a>
+  	
+  </h3>
+  <div class="periods content">
+  	<%= render "periods" %>
+  </div>
+
   <h3 class="time_table_dates">
 	<a class="dates"><%= @time_table.human_attribute_name("dates") %>
       <%= image_tag("icons/plus.png"  , :class => "switcher", :style => "display: none;") %>
@@ -98,16 +118,6 @@
   	<%= render "dates" %>
   </div>
   
-  <h3 class="time_table_periods">
-	<a class="periods"><%= @time_table.human_attribute_name("periods") %>
-      <%= image_tag("icons/plus.png"  , :class => "switcher", :style => "display: none;") %>
-      <%= image_tag("icons/minus.png"  , :class => "switcher" ) %>
-    </a>
-  	
-  </h3>
-  <div class="periods content">
-  	<%= render "periods" %>
-  </div>
 </div>
 
 <% content_for :sidebar do %>

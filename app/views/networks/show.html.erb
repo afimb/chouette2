@@ -37,14 +37,6 @@
       <label><%= Chouette::Network.human_attribute_name("objectid") %>: </label>
       <%= @network.objectid %>
     </p>
-    <p>
-      <label><%= @network.human_attribute_name("creation_time") %>: </label>
-      <%= l @network.creation_time %>
-    </p>
-    <p>
-      <label><%= @network.human_attribute_name("creator_id") %>: </label>
-      <%= @network.creator_id %>
-    </p>
   </div>
 </div>
 
@@ -54,4 +46,5 @@
   <li><%= link_to  t('networks.actions.destroy'), referential_network_path(@referential, @network), :method => :delete, :data => {:confirm =>  t('networks.actions.destroy_confirm')}, :class => "remove" %></li>
   <br>
 </ul>
+  <%= creation_tag(@network) %>
 <% end %>

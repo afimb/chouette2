@@ -79,14 +79,6 @@
       <label><%= @connection_link.human_attribute_name("objectid") %>: </label>
       <%= @connection_link.objectid %>
     </p>
-    <p>
-      <label><%= @connection_link.human_attribute_name("creation_time") %>: </label>
-      <%= l(@connection_link.creation_time) %>
-    </p>
-    <p>
-      <label><%= @connection_link.human_attribute_name("creator_id") %>: </label>
-      <%= @connection_link.creator_id %>
-    </p>
   </div>
 </div>
 
@@ -97,4 +89,5 @@
   <li><%= link_to t('connection_links.actions.select_areas'), select_areas_referential_connection_link_path(@referential, @connection_link), :class => "select_areas" %></li>
   <br>
 </ul>
+  <%= creation_tag(@connection_link) %>
 <% end %>

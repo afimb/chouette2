@@ -48,14 +48,6 @@
       <label><%= @line.human_attribute_name("objectid") %>: </label>
       <%= @line.objectid %>
     </p>
-    <p>
-      <label><%= @line.human_attribute_name("creation_time") %>: </label>
-      <%= l(@line.creation_time) %>
-    </p>
-    <p>
-      <label><%= @line.human_attribute_name("creator_id") %>: </label>
-      <%= @line.creator_id %>
-    </p>
   </div>
 </div>
 
@@ -81,4 +73,5 @@
   <li><%= link_to t('routes.actions.new'), new_referential_line_route_path(@referential, @line), :class => "add" %></li> 
   <br>
 </ul>
+  <%= creation_tag(@line) %>
 <% end %>

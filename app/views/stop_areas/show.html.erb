@@ -1,7 +1,7 @@
 <%= title_tag t('stop_areas.show.title', :stop_area => @stop_area.name ) %>
 
 <div class="stop_area_show">
-  <% if @stop_area.projection_type != nil || @stop_area.long_lat_type != nil %>
+  <% if show_map? %>
     <%= @map.to_html %>
   <% end %>  
   <div class="summary">
@@ -37,148 +37,105 @@
       <label><%= @stop_area.human_attribute_name("stop_area_type") %>: </label>
       <%= t("area_types.label.#{@stop_area.stop_area_type}") %>
     </p>
-    <p> <label><%= t('stop_areas.show.geographic_data') %> </label></p>
-    <% if @stop_area.projection_type == nil && @stop_area.long_lat_type == nil %>
-	    <span class='geo_data'><%= t('stop_areas.show.no_geographic_data') %></span>
-    <% else %>
-	    <% if !@stop_area.projection_type.nil? %>
-	    <p>
-	      <span class='geo_data'><%= @stop_area.human_attribute_name("projection_type") %>: </span>
-	      <%= @stop_area.projection_type %>
-	    </p>
-	    <p>
-	      <span class='geo_data'><%= @stop_area.human_attribute_name("x") %>: </span>
-	      <%= @stop_area.x %>
-	    </p>
-	    <p>
-	      <span class='geo_data'><%= @stop_area.human_attribute_name("y") %>: </span>
-	      <%= @stop_area.y %>
-	    </p>
-	    <% end %>
-	    <% if !@stop_area.long_lat_type.nil? %>
-	    <p>
-	      <span class='geo_data'><%= @stop_area.human_attribute_name("long_lat_type") %>: </span>
-	      <%= @stop_area.long_lat_type %>
-	    </p>
-	    <p>
-	      <span class='geo_data'><%= @stop_area.human_attribute_name("longitude") %>: </span>
-	      <%= @stop_area.longitude %>
-	    </p>
-	    <p>
-	      <span class='geo_data'><%= @stop_area.human_attribute_name("latitude") %>: </span>
-	      <%= @stop_area.latitude %>
-	    </p>
+    <% if !manage_itl %>
+	    <p> <label><%= t('stop_areas.show.geographic_data') %> </label></p>
+	    <% if @stop_area.projection_type == nil && @stop_area.long_lat_type == nil %>
+		    <span class='geo_data'><%= t('stop_areas.show.no_geographic_data') %></span>
+	    <% else %>
+		    <% if !@stop_area.projection_type.nil? %>
+		    <p>
+		      <span class='geo_data'><%= @stop_area.human_attribute_name("projection_type") %>: </span>
+		      <%= @stop_area.projection_type %>
+		    </p>
+		    <p>
+		      <span class='geo_data'><%= @stop_area.human_attribute_name("x") %>: </span>
+		      <%= @stop_area.x %>
+		    </p>
+		    <p>
+		      <span class='geo_data'><%= @stop_area.human_attribute_name("y") %>: </span>
+		      <%= @stop_area.y %>
+		    </p>
+		    <% end %>
+		    <% if !@stop_area.long_lat_type.nil? %>
+		    <p>
+		      <span class='geo_data'><%= @stop_area.human_attribute_name("long_lat_type") %>: </span>
+		      <%= @stop_area.long_lat_type %>
+		    </p>
+		    <p>
+		      <span class='geo_data'><%= @stop_area.human_attribute_name("longitude") %>: </span>
+		      <%= @stop_area.longitude %>
+		    </p>
+		    <p>
+		      <span class='geo_data'><%= @stop_area.human_attribute_name("latitude") %>: </span>
+		      <%= @stop_area.latitude %>
+		    </p>
+		    <% end %>
 	    <% end %>
     <% end %>
     <p>
       <label><%= @stop_area.human_attribute_name("objectid") %>: </label>
       <%= @stop_area.objectid %>
     </p>
-    <p>
-      <label><%= @stop_area.human_attribute_name("creation_time") %>: </label>
-      <%= l(@stop_area.creation_time) %>
-    </p>
-    <p>
-      <label><%= @stop_area.human_attribute_name("creator_id") %>: </label>
-      <%= @stop_area.creator_id %>
-    </p>    
   </div>
   
+  <p class="after_map" />
 
   <div class="genealogical">
-  	<% if @stop_area.stop_area_type == 'itl' %>
-      <h3><%= t(".genealogical_routing") %></h3>
-    <% else %>
-      <h3><%= t(".genealogical") %></h3>
-    <% end %>
-
-    <% if @stop_area.parent.present? %> 
-    <div class="parent">
-      <%= link_to([@referential, @stop_area.parent]) do %> 
-        <%= image_tag "map/" + @stop_area.parent.stop_area_type + ".png"   %><span><%= @stop_area.parent.name %></span>        
-      <% end %>
-    </div> 
-    <div class="link"><%= image_tag "icons/link.png"%></div>
-    <% elsif @stop_area.routing_lines.present? %> 
-    <div class="lines">
-      <% @stop_area.routing_lines.each do |line| %>
-      <div class="line">
-        <%= link_to([@referential, line]) do %> 
-          <span><%= line.name %></span>         
-        <% end %>  
-      </div>
-      <% end %>
-    </div> 
-    <div class="link"><%= image_tag "icons/link.png"%></div>
-    <% else %>
-    <div class="no_parent">&nbsp;</div>
-    <% end %>
-
-    <div class="target">
-      <%= image_tag "map/" + @stop_area.stop_area_type + ".png"%><span><%= @stop_area.name %></span>
-    </div> 
-    
-    <% if @stop_area.children.present? %>
-    <div class="link"><%= image_tag "icons/link.png"%></div>
-    <div class="children">
-      <% @stop_area.children.each do |child| %>
-      <div class="child">
-        <%= link_to([@referential, child]) do %> 
-          <%= image_tag "map/" + child.stop_area_type + ".png"   %><span><%= child.name %></span>         
-        <% end %>  
-      </div>
-      <% end %>
-    </div> 
-    <% elsif @stop_area.routing_stops.present? %>
-    <div class="link"><%= image_tag "icons/link.png"%></div>
-    <div class="children">
-      <% @stop_area.routing_stops.each do |stop| %>
-      <div class="child">
-        <%= link_to([@referential, stop]) do %> 
-          <%= image_tag "map/" + stop.stop_area_type + ".png"   %><span><%= stop.name %></span>         
-        <% end %>  
-      </div>
-      <% end %>
-    </div> 
-    <% elsif @stop_area.routes.present? %>
-    <div class="link"><%= image_tag "icons/link.png"%></div>
-    <div class="children">
-      <% @stop_area.routes.each do |route| %>
-      <div class="child">
-        <%= link_to([@referential, route.line ]) do %> 
-          <span><%= route.line.number %></span>     
-        <% end %>  
-        &nbsp;
-        <%= link_to([@referential, route.line , route]) do %> 
-          <span><%= route.name %></span>     
-        <% end %>      
-      </div>
-      <% end %>
-    </div> 
-    <% end %>
+  	<%= render "stop_areas/genealogical" %>
   </div>
                          
 </div>
+
+<% if manage_access_points %>
+  <p class="after_map" />
+<div>
+	<h3><%= t('.access_points') %></h3>
+	
+	<div class="access_points paginated_content">
+	  <%= render :partial => "access_points/access_point", :collection => @access_points %>
+	</div>
+</div>
+<% end %>
                          
 <% content_for :sidebar do %>
-<ul class="actions">
-  <li><%= link_to t('stop_areas.actions.edit'), edit_referential_stop_area_path(@referential, @stop_area), :class => "edit" %></li>
-  <li><%= link_to  t('stop_areas.actions.destroy'), referential_stop_area_path(@referential, @stop_area), :method => :delete, :data => {:confirm =>  t('stop_areas.actions.destroy_confirm')}, :class => "remove" %></li>
-</ul>
-  <% if @stop_area.stop_area_type == 'itl' %>
+    <table>
+    <tr><td>	
+	<ul class="actions">
+	  <li><%= link_to t('stop_areas.actions.edit'), edit_referential_stop_area_path(@referential, @stop_area), :class => "edit" %></li>
+	  <li><%= link_to  t('stop_areas.actions.destroy'), referential_stop_area_path(@referential, @stop_area), :method => :delete, :data => {:confirm =>  t('stop_areas.actions.destroy_confirm')}, :class => "remove" %></li>
+	</ul>
+    </td></tr>
+  <% if manage_itl %>
+    <tr><td>	
 	<h3><%= t(".itl_managment") %></h3>
 	<ul class="actions">
 	    <li><%= link_to  t('stop_areas.actions.add_routing_lines'), add_routing_lines_referential_stop_area_path(@referential, @stop_area), :class => "add_routing_lines" %></li>
 	    <li><%= link_to  t('stop_areas.actions.add_routing_stops'), add_routing_stops_referential_stop_area_path(@referential, @stop_area), :class => "add_routing_stops" %></li>
 	</ul>
+    </td></tr>
   <% else %>
+    <tr><td>	
 	<h3><%= t(".stop_managment") %></h3>
 	<ul class="actions">
 	    <li><%= link_to  t('stop_areas.actions.select_parent'), select_parent_referential_stop_area_path(@referential, @stop_area), :class => "select_parent" %></li>
-		  <% if @stop_area.stop_area_type != 'boarding_position' && @stop_area.stop_area_type != 'quay' %>
+		  <% if manage_children %>
 		    <li><%= link_to  t('stop_areas.actions.add_children'), add_children_referential_stop_area_path(@referential, @stop_area), :class => "add_children" %></li>
 		  <% end %>
 	</ul>
+    </td></tr>
+	
+	<% if manage_access_points %>
+    <tr><td>	
+	<h3><%= t(".access_managment") %></h3>
+	<ul class="actions">
+        <li><%= link_to t('access_points.actions.new'), new_referential_stop_area_access_point_path(@referential,@stop_area), :class => "add" %></li>
+        <li><%= link_to t('stop_areas.actions.manage_access_links'), access_links_referential_stop_area_path(@referential,@stop_area), :class => "select_parent" %></li>
+    </ul>
+    </td></tr>
+	<% end %>
+	
   <% end %>
+    </table>
   <br>
+  <%= creation_tag(@stop_area) %>
 <% end %>

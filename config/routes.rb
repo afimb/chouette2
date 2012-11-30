@@ -1,8 +1,9 @@
 ChouetteIhm::Application.routes.draw do
-  devise_for :users 
+
   devise_scope :users do
     match "/users/sign_up" => "subscriptions#new"
   end
+  devise_for :users
 
   namespace :api do
     namespace :v1 do
@@ -27,6 +28,7 @@ ChouetteIhm::Application.routes.draw do
     match 'lines' => 'lines#destroy_all', :via => :delete
     resources :group_of_lines do
       resources :stop_areas do
+        resources :access_points
         resources :stop_area_parents
         resources :stop_area_children
         resources :stop_area_routing_lines
@@ -52,6 +54,7 @@ ChouetteIhm::Application.routes.draw do
 
     resources :lines, :networks, :group_of_lines do
       resources :stop_areas do
+        resources :access_points
         resources :stop_area_parents
         resources :stop_area_children
         resources :stop_area_routing_lines
@@ -99,7 +102,12 @@ ChouetteIhm::Application.routes.draw do
       resources :time_table_periods
     end
 
+    resources :access_points do
+       resources :access_links
+    end
+
     resources :stop_areas do
+      resources :access_points 
       resources :stop_area_parents
       resources :stop_area_children
       resources :stop_area_routing_lines
@@ -109,6 +117,7 @@ ChouetteIhm::Application.routes.draw do
         get 'select_parent'
         get 'add_routing_lines'
         get 'add_routing_stops'
+        get 'access_links'
       end
       collection do 
         put 'default_geometry'
@@ -121,6 +130,7 @@ ChouetteIhm::Application.routes.draw do
         get 'select_areas'
       end
       resources :stop_areas do
+        resources :access_points
         resources :stop_area_parents
         resources :stop_area_children
         resources :stop_area_routing_lines

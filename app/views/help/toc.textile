@@ -21,6 +21,8 @@ h3. Sommaire
 ## "Courses/Horaires":vehiclejourneys
 # "Arrêts":stop_areas
 ## "Correspondances":connection_links
+## "Accès":access_points
+## "Liens Arrêts-Accès":access_links
 # "Calendriers d'application":timetables
 # Outils
 ## "Imports":imports

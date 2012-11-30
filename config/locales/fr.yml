@@ -15,7 +15,7 @@ fr:
   time:
     formats:
       default: "%d %B %Y %H:%M:%S"
-      short: "%d %b %H:%M"
+      short: "%d %b %y %H:%M"
       long: "%A %d %B %Y à %Hh%M"
       hour: "%Hh%M"
       minute: "%M min"

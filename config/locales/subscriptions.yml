@@ -5,8 +5,12 @@ en:
   activemodel:
     attributes:
       subscription:
-        organisation_name: Organisation 
+        organisation_name: "Organisation"
         user_name: User full name
+        email: "Email address"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        current_password: "Actual password"
   subscriptions:
     new:
       title: Create your account

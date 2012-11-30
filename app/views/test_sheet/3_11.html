@@ -1,257 +1,61 @@
-<div class=WordSection1>
-</span></b>
+<h1 class="western" style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm 0.12cm; margin-top: 0.21cm;" align="center">
+<font face="Arial, sans-serif"><font style="font-size: 20pt;" size="5"><i>
+ point de contrôle N° 3.11<br>
+Détection des retours en  arrière  <br>
+</i></font></font></h1>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><u><b>Objectif: </b></u>
+Signaler que sur un Itinéraire/Chouette («&nbsp;ChouetteRoute&nbsp;»)
+le ou les MISSIONs COMMERCIALEs («&nbsp;JourneyPattern&nbsp;»)
+comportent des retours en arrière<br>
+</font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><u><b>Priorité: </b></u> Obligatoire</font></p><font face="Arial, sans-serif">
+</font><p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><u><b>Explications:</b></u> 
+</font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">Une
+MISSION COMMERCIALE (« JourneyPattern ») comporte une liste de POINTs
+D’ARRÊT SUR PARCOURS (« StopPoint ») ordonnés, décrivant le plan de
+déplacement pour les véhicules de transport public. Une MISSION
+COMMERCIALE (« JourneyPattern ») peut passer par un POINT D’ARRÊT SUR
+PARCOURS (« StopPoint ») plus d’une fois. Un retour en arrière consiste
+donc à repasser sur des POINTs D’ARRÊT SUR PARCOURS (« StopPoint »)
+déjà utilisés.&nbsp;</font></font></font></p><p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">On peut donc signaler les MISSIONs COMMERCIALEs qui comportent des
+POINTs D’ARRÊT SUR PARCOURS utilisés au moins deux fois (POINTs D’ARRÊT
+SUR PARCOURS dont les identifiants sont identiques).</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>Exemple: </u></b></font></font></font></p>
+<p><font face="Arial, sans-serif"><img src="image022.jpg" height="306" width="302"></font></p>
+<p><font face="Arial, sans-serif"><img src="image023.jpg" height="502" width="402"></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>N° test:</u></b> 
+Test 3.11.1</font></font></font></p>
 
-<p class=MsoTitle><span style='font-size:14.0pt;font-family:"Tahoma","sans-serif"'>Fiche
-du point de contr&ocirc;le N&deg; 3.11</span></p>
 
-<p class=MsoNormal>&nbsp;</p>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=647
- style='width:485.45pt;border-collapse:collapse;border:none'>
- <tr style='page-break-inside:avoid'>
-  <td width=647 colspan=2 valign=top style='width:485.45pt;border:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center'><i><span style='color:navy'>Description</span></i></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border:solid windowtext 1.0pt;border-top:
-  none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>Intitul&eacute;</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt'><span style='font-size:11.0pt;
-  line-height:200%;font-family:"Tahoma","sans-serif"'>D&eacute;tection des retours en
-  arri&egrave;re  </span></p>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border:solid windowtext 1.0pt;border-top:
-  none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>Objectif</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif";font-weight:normal'>Signaler que sur un
-  Itin&eacute;raire/Chouette (&laquo;&nbsp;ChouetteRoute&nbsp;&raquo;) le ou les MISSIONs 
-  COMMERCIALEs (&laquo;&nbsp;JourneyPattern&nbsp;&raquo;) comportent des retours en arri&egrave;re</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border:solid windowtext 1.0pt;border-top:
-  none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>R&eacute;f&eacute;rences</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif";font-weight:normal'>TRIDENT/profil CHOUETTE/Transmodel
-  V4 et V5.1</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border:solid windowtext 1.0pt;border-top:
-  none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>N&deg; de fiche(s) connexe(s)</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='text-align:left'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  <h1 align=left style='text-align:left'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border:solid windowtext 1.0pt;border-top:
-  none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt'><b><span style='font-family:
-  "Tahoma","sans-serif"'>Priorit&eacute;<span style='color:red'> </span></span></b></p>
-  </td>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif";font-weight:normal'>Obligatoire</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border:solid windowtext 1.0pt;border-top:
-  none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt'><b><span style='font-family:
-  "Tahoma","sans-serif"'>R&eacute;sultat</span></b></p>
-  </td>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif";font-weight:normal'>D&eacute;livrance d&rsquo;un avertissement de
-  mise en garde sur des cons&eacute;quences &eacute;ventuelles de dysfonctionnement</span></h1>
-  </td>
- </tr>
- <tr style='page-break-inside:avoid'>
-  <td width=647 colspan=2 valign=top style='width:485.45pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center'><i><span style='color:navy'>Mise en &oelig;uvre</span></i></h1>
-  </td>
- </tr>
- <tr>
-  <td width=100 style='width:74.85pt;border:solid windowtext 1.0pt;border-top:
-  none;padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>Explication</span></h1>
-  </td>
-  <td width=547 style='width:410.6pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <p class=MsoBodyText>Une MISSION COMMERCIALE (&laquo;&nbsp;JourneyPattern&nbsp;&raquo;)
-  comporte une liste de POINTs D&rsquo;ARR&Ecirc;T SUR PARCOURS (&laquo;&nbsp;StopPoint&nbsp;&raquo;)
-  ordonn&eacute;s, d&eacute;crivant le plan de d&eacute;placement pour les v&eacute;hicules de transport
-  public. Une MISSION COMMERCIALE (&laquo;&nbsp;JourneyPattern&nbsp;&raquo;) peut passer
-  par un POINT D&rsquo;ARR&Ecirc;T SUR PARCOURS (&laquo;&nbsp;StopPoint&nbsp;&raquo;) plus d&rsquo;une fois.
-  Un retour en arri&egrave;re consiste donc &agrave; repasser sur des POINTs D&rsquo;ARR&Ecirc;T SUR
-  PARCOURS (&laquo;&nbsp;StopPoint&nbsp;&raquo;) d&eacute;j&agrave; utilis&eacute;s. </p>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm'><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>On
-  peut donc signaler les MISSIONs COMMERCIALEs qui comportent des POINTs
-  D&rsquo;ARR&Ecirc;T SUR PARCOURS utilis&eacute;s au moins deux fois (POINTs D&rsquo;ARR&Ecirc;T SUR PARCOURS
-  dont les identifiants sont identiques).</span></p>
-  </td>
- </tr>
-</table>
 
-<p class=MsoNormal>&nbsp;</p>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=638
- style='width:478.4pt;border-collapse:collapse;border:none'>
- <tr>
-  <td width=108 valign=top style='width:81.35pt;border:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm'><b><span lang=EN-US style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif"'>Exemple</span></b></p>
-  </td>
-  <td width=538 valign=top style='width:403.55pt;border:solid windowtext 1.0pt;
-  border-left:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 style='margin-left:18.0pt;text-indent:-18.0pt'><span lang=EN-US
-  style='font-size:11.0pt;font-weight:normal'><img width=302 height=306
-  src="image022.jpg"></span></h1>
-  <p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
-  <h1><span lang=EN-US><img width=402 height=502
-  src="image023.jpg"></span></h1>
-  </td>
- </tr>
- <tr style='page-break-inside:avoid'>
-  <td width=638 colspan=2 valign=top style='width:478.4pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h2 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center'><i><span lang=EN-US style='font-size:14.0pt;
-  color:navy'>Evaluation</span></i></h2>
-  </td>
- </tr>
- <tr>
-  <td width=108 valign=top style='width:81.35pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm'><span lang=EN-US style='font-size:11.0pt'>N&deg; test</span></h1>
-  </td>
-  <td width=538 style='width:403.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <p class=MsoNormal style='text-align:justify'><span style='font-size:11.0pt;
-  font-family:"Arial","sans-serif"'>Test 3.11.1</span></p>
-  </td>
- </tr>
- <tr>
-  <td width=100 valign=top style='width:74.85pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm'><span style='font-size:11.0pt'>Libell&eacute;</span></h1>
-  </td>
-  <td width=538 style='width:403.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <p class=MsoNormal style='text-align:justify'><span style='font-size:11.0pt;
-  font-family:"Arial","sans-serif"'>V&eacute;rification de l&rsquo;utilisation r&eacute;p&eacute;titive de</span><span
-  style='font-size:11.0pt;font-family:"Arial","sans-serif"'> POINTs D&rsquo;ARR&Ecirc;T SUR
-  PARCOURS</span><span style='font-family:"Tahoma","sans-serif"'> </span><span
-  style='font-size:11.0pt;font-family:"Arial","sans-serif"'> d&rsquo;un Itin&eacute;raire</span><span
-  style='font-size:11.0pt;font-family:"Arial","sans-serif"'>/Chouette</span><span
-  style='font-size:11.0pt;font-family:"Arial","sans-serif"'>
-  (&laquo;&nbsp;ChouetteRoute&nbsp;&raquo;)</span></p>
-  </td>
- </tr>
- <tr>
-  <td width=100 valign=top style='width:74.85pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm'><span style='font-size:11.0pt'>Champ d&rsquo;application</span></h1>
-  </td>
-  <td width=538 valign=top style='width:403.55pt;border-top:none;border-left:
-  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm;text-align:justify'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif"'>&lt;PtLink&gt;</span></p>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm;text-align:justify'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif"'>&lt;ChouetteRoute&gt;</span></p>
-  </td>
- </tr>
- <tr>
-  <td width=100 valign=top style='width:74.85pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm'><span style='font-size:11.0pt'>V&eacute;rification</span></h1>
-  </td>
-  <td width=538 valign=top style='width:403.55pt;border-top:none;border-left:
-  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <p class=MsoNormal style='text-align:justify'><span style='font-size:11.0pt;
-  font-family:"Arial","sans-serif"'>&nbsp;</span></p>
-  <p class=MsoNormal style='text-align:justify'><span style='font-size:11.0pt;
-  font-family:"Arial","sans-serif"'>- Si l&rsquo;&eacute;l&eacute;ment &laquo;&nbsp;ChouetteRoute&nbsp;&raquo;
-  mentionn&eacute; dans les champs d&rsquo;application est pr&eacute;sent une ou plusieurs fois,
-  poursuivre le test, sinon le test est abandonn&eacute;.</span></p>
-  <p class=MsoNormal style='text-align:justify'><span style='font-size:11.0pt;
-  font-family:"Arial","sans-serif"'>&nbsp;</span></p>
-  <p class=MsoNormal style='text-align:justify'><span style='font-size:11.0pt;
-  font-family:"Arial","sans-serif"'>- Si pour l&rsquo;objet
-  &laquo;&nbsp;ChouetteRoute&nbsp;&raquo;, la liste des tron&ccedil;ons &laquo;&nbsp;PtLink&nbsp;&raquo;
-  utilise des points d&rsquo;arr&ecirc;t &laquo;&nbsp;StopPoint&nbsp;&raquo; identiques plus de deux
-  fois alors le test fournit le message d&rsquo;avertissement &laquo;&nbsp;test
-  3.11.1&nbsp;: les tron&ccedil;ons &laquo;&nbsp;PtLink&nbsp;&raquo; d&rsquo;un itin&eacute;raire utilisent des
-  points d&rsquo;arr&ecirc;t &laquo;&nbsp;StopPoint&nbsp;&raquo; identiques plus de deux fois&nbsp;&raquo;.</span></p>
-  <p class=MsoNormal style='text-align:justify'><span style='font-size:11.0pt;
-  font-family:"Arial","sans-serif"'>&nbsp;</span></p>
-  <p class=MsoNormal style='text-align:justify'><span style='font-size:11.0pt;
-  font-family:"Arial","sans-serif"'>- Sinon le test est valid&eacute;</span></p>
-  </td>
- </tr>
-</table>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Libellé:</u> Vérification de l’utilisation répétitive de&nbsp;POINTs
+D’ARRÊT SUR PARCOURS&nbsp;d’un
+Itinéraire&nbsp;/Chouette&nbsp;(«&nbsp;ChouetteRoute&nbsp;»)&nbsp;</font></font></font></p>
 
-<p class=MsoNormal>&nbsp;</p>
 
-</div>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2"><span style="text-decoration: underline;">
+Champ d’application:</span>&nbsp;&lt;PtLink&gt;&nbsp;&lt;ChouetteRoute&gt;</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Vérification:</u> </font></font></font></p>
 
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- Si l’élément «&nbsp;ChouetteRoute&nbsp;» mentionné dans les champs
+d’application est présent une ou plusieurs fois, poursuivre le test,
+sinon le test est abandonné.</font></font></font></p>
+
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- Si pour l’objet «&nbsp;ChouetteRoute&nbsp;», la liste des tronçons
+«&nbsp;PtLink&nbsp;» utilise des points d’arrêt «&nbsp;StopPoint&nbsp;»
+identiques plus de deux fois alors le test fournit le message
+d’avertissement «&nbsp;test 3.11.1&nbsp;: les tronçons
+«&nbsp;PtLink&nbsp;» d’un itinéraire utilisent des points d’arrêt
+«&nbsp;StopPoint&nbsp;» identiques plus de deux fois&nbsp;».</font></font></font></p>
+
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- Sinon le test est validé</font></font></font></p>

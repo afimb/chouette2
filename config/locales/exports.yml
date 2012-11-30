@@ -22,9 +22,9 @@ en:
       started: Started export
       completed: Completed export
       failed: Failed export
-      undefined: %{key} undefined
+      undefined: "%{key} undefined"
       EXPORT_ERROR: "Error durring export"
-      EXCEPTION : "Origin %{0}" 
+      EXCEPTION: "Origin %{0}" 
       NEPTUNE_EXPORT: Neptune Export
       NEPTUNE_EXPORTED_LINE: "Line %{0} (%{1}) exported"
       NEPTUNE_EMPTY_LINE: "Line %{0} (%{1}) without valid vehicle journey : not exported"
@@ -39,7 +39,7 @@ en:
       GTFS_INVALID_DATA: "%{0} %{1} : invalid data %{2}=%{3}"
       GTFS_MISSING_DATA: "%{0} %{1} : missing value for : %{2}"
       CSV_EXPORT: CSV Export
-      CSV_OK_LINE: Line %{0} exported
+      CSV_OK_LINE: "Line %{0} exported"
       CSV_TOO_MUCH_ROUTES: "Line %{0} rejected : more than 2 routes"
     severities:
       info: Information
@@ -95,9 +95,9 @@ fr:
       started: Export démarré
       completed: Export achevé avec succès
       failed: Export interrompu
-      undefined: %{key} non défini
+      undefined: "%{key} non défini"
       EXPORT_ERROR: "Erreur lors de l'export"
-      EXCEPTION : "Cause %{0}" 
+      EXCEPTION: "Cause %{0}" 
       NEPTUNE_EXPORT: Export Neptune
       NEPTUNE_EXPORTED_LINE: "Ligne %{0} (%{1}) exportée"
       NEPTUNE_EMPTY_LINE: "Ligne %{0} (%{1}) sans course valide : non exportée"
@@ -112,7 +112,7 @@ fr:
       GTFS_INVALID_DATA: "%{0} %{1} : attribut %{2}=%{3} invalide"
       GTFS_MISSING_DATA: "%{0} %{1} : valeur manquante : %{2}"
       CSV_EXPORT: Export CSV
-      CSV_OK_LINE: Ligne %{0} exportée
+      CSV_OK_LINE: "Ligne %{0} exportée"
       CSV_TOO_MUCH_ROUTES: "Ligne %{0} non exportable : plus de 2 séquences d'arrêt"
     severities:
       info: Information

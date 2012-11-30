@@ -1,354 +1,99 @@
-<div class=WordSection1>
-</span></b>
+<h1 class="western" style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm 0.12cm; margin-top: 0.21cm;" align="center">
+<font face="Arial, sans-serif"><font style="font-size: 20pt;" size="5"><i>
+ point de contrôle N° 2.23<br>
+Cohérence  entre les courses et  des heures de passage<br>
+</i></font></font></h1>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><u><b>Objectif: </b></u>
+Vérification de la correcte référence à une COURSE COMMERCIALE («
+VehicleJourney ») dans HEURE DE PASSAGE GRAPHIQUEE/Chouette
+(«&nbsp;VehicleJourneyAtStop&nbsp;»).<br>
+</font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><u><b>Priorité: </b></u>
+Obligatoire (si l’objet «&nbsp;VehicleJourney&nbsp;» existe et si ses
+«&nbsp;VehicleJourneyAtStop&nbsp;» référencent l'identifiant
+«&nbsp;vehicleJourneyId&nbsp;»)</font></p><font face="Arial, sans-serif">
+</font><p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><u><b>Explications:</b></u> 
+</font></font></p>
 
-<p class=MsoTitle><span style='font-size:14.0pt;font-family:"Tahoma","sans-serif"'>Fiche
-du point de contr&ocirc;le N&deg; 2.23</span></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Pour chaque HEURE DE PASSAGE GRAPHIQUEE/Chouette
+(«&nbsp;VehicleJourneyAtStop&nbsp;») la référence à la COURSE
+COMMERCIALE&nbsp;(«
+VehicleJourney » ) à travers «&nbsp;vehicleJourneyId&nbsp;», est
+optionnelle. Si elle est utilisée, vérifier qu’elle correspond à un
+identifiant de COURSE COMMERCIALE (« VehicleJourney » ) définie.</font></font></font></p>
 
-<p class=MsoNormal>&nbsp;</p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>Exemple: </u></b></font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Représentation  schématique de l’objet «&nbsp;VehicleJourneyAtStop&nbsp;»</font></font></font></p>
+<p><font face="Arial, sans-serif"><img src="image012.jpg" height="338" width="433"></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Exemple  d'un temps d'attente qui référence la course qui le contient</font></font></font></p>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;VehicleJourney&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:VehicleJourney:8970758&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;routeId&gt;AMIV:Route:488970&lt;/routeId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;journeyPatternId&gt;AMIV:JourneyPattern:488970M1&lt;/journeyPatternId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;lineIdShortcut&gt;AMIV:Line:014014012&lt;/lineIdShortcut&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;operatorId&gt;AMIV:Company:2422&lt;/operatorId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;timeSlotId&gt;AMIV:TimeSlot:0&lt;/timeSlotId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&nbsp;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;vehicleJourneyAtStop&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;stopPointId&gt;AMIV:StopPoint:488970A0A237816&lt;/stopPointId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;vehicleJourneyId&gt;AMIV:VehicleJourney:8970758&lt;/vehicleJourneyId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;arrivalTime&gt;05:45:00&lt;/arrivalTime&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;departureTime&gt;05:45:00&lt;/departureTime&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;order&gt;1&lt;/order&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;/vehicleJourneyAtStop&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&nbsp;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;vehicleJourneyAtStop&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;stopPointId&gt;AMIV:StopPoint:488970A1A237817&lt;/stopPointId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;vehicleJourneyId&gt;AMIV:VehicleJourney:8970758&lt;/vehicleJourneyId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>N° test:</u></b> 
+2.23.1</font></font></font></p>
 
-<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=657
- style='width:492.8pt;margin-left:-.25pt;border-collapse:collapse'>
- <tr style='page-break-inside:avoid'>
-  <td width=657 colspan=2 valign=top style='width:492.8pt;border:solid black 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;text-indent:0cm;layout-grid-mode:char'><i><span
-  style='font-family:"Tahoma","sans-serif";color:navy'>Description</span></i></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 11.35pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Intitul&eacute;</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><span
-  style='font-size:11.0pt;line-height:200%;font-family:"Tahoma","sans-serif"'>Coh&eacute;rence
-  entre les courses et  des heures de passage.</span></p>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 11.35pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Objectif</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>V&eacute;rification
-  de la correcte r&eacute;f&eacute;rence &agrave; une COURSE COMMERCIALE (&laquo; VehicleJourney &raquo;) dans
-  HEURE DE PASSAGE GRAPHIQUEE/Chouette (&laquo;&nbsp;VehicleJourneyAtStop&nbsp;&raquo;).</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 11.35pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>R&eacute;f&eacute;rences</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>TRIDENT/profil
-  CHOUETTE/Transmodel V4 et V5.1</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 11.35pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:-6.65pt;margin-bottom:
-  6.0pt;margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>N&deg; de fiche(s)
-  connexe(s)</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-left:0cm;text-align:left;text-indent:0cm;
-  layout-grid-mode:char'><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif";
-  font-weight:normal'>&nbsp;</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 11.35pt 0cm 3.5pt;
-  height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><b><span
-  style='font-family:"Tahoma","sans-serif"'>Priorit&eacute;<span style='color:red'> </span></span></b></p>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Obligatoire
-  (si l&rsquo;objet &laquo;&nbsp;VehicleJourney&nbsp;&raquo; existe et si ses
-  &laquo;&nbsp;VehicleJourneyAtStop&nbsp;&raquo; r&eacute;f&eacute;rencent l'identifiant
-  &laquo;&nbsp;vehicleJourneyId&nbsp;&raquo;)</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 11.35pt 0cm 3.5pt;
-  height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><b><span
-  style='font-family:"Tahoma","sans-serif"'>R&eacute;sultat</span></b></p>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Conforme
-  ou non conforme</span></h1>
-  </td>
- </tr>
- <tr style='page-break-inside:avoid'>
-  <td width=657 colspan=2 valign=top style='width:492.8pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;text-indent:0cm;layout-grid-mode:char'><i><span
-  style='font-family:"Tahoma","sans-serif";color:navy'>Mise en &oelig;uvre</span></i></h1>
-  </td>
- </tr>
- <tr>
-  <td width=100 valign=top style='width:74.85pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span style='font-size:11.0pt'>Explication</span></h1>
-  </td>
-  <td width=557 valign=top style='width:417.95pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:11.35pt;margin-bottom:6.0pt;
-  margin-left:0cm;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Pour
-  chaque HEURE DE PASSAGE GRAPHIQUEE/Chouette
-  (&laquo;&nbsp;VehicleJourneyAtStop&nbsp;&raquo;) la r&eacute;f&eacute;rence &agrave; la COURSE COMMERCIALE</span></h1>
-  <h1 style='margin-top:6.0pt;margin-right:11.35pt;margin-bottom:6.0pt;
-  margin-left:0cm;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>(&laquo;
-  VehicleJourney &raquo; )  &agrave; travers &laquo;&nbsp;vehicleJourneyId&nbsp;&raquo;, est
-  optionnelle. Si elle est utilis&eacute;e, v&eacute;rifier qu&rsquo;elle correspond &agrave; un
-  identifiant de COURSE COMMERCIALE  (&laquo; VehicleJourney &raquo; ) d&eacute;finie.  </span></h1>
-  <h1 style='margin-top:6.0pt;margin-right:11.35pt;margin-bottom:6.0pt;
-  margin-left:0cm;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  </td>
- </tr>
-</table>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Libellé:</u> 
+Vérification de la  correcte référence à une COURSE COMMERCIALE&nbsp;(« VehicleJourney »)  dans HEURE DE PASSAGE GRAPHIQUEE/Chouette  («&nbsp;VehicleJourneyAtStop&nbsp;»).</font></font></font></p>
 
-<p class=MsoNormal>&nbsp;</p>
-
-<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=648
- style='width:485.7pt;margin-left:-.25pt;border-collapse:collapse'>
- <tr>
-  <td width=108 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  border-right:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm;layout-grid-mode:char'><b><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif"'>Exemple</span></b></p>
-  </td>
-  <td width=548 valign=top style='width:410.85pt;border:solid black 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-left:18.0pt;text-align:left;text-indent:0cm;
-  layout-grid-mode:char'><span style='font-size:11.0pt;font-weight:normal'>&nbsp;</span></h1>
-  <h1 align=left style='margin-left:18.0pt;text-align:left;text-indent:0cm'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Repr&eacute;sentation
-  sch&eacute;matique de l&rsquo;objet &laquo;&nbsp;VehicleJourneyAtStop&nbsp;&raquo;</span></h1>
-  <p class=MsoNormal>&nbsp;</p>
-  <p class=MsoNormal align=center style='text-align:center'>&nbsp;</p>
-  <p class=MsoNormal align=center style='text-align:center'><img width=433
-  height=338 src="image012.jpg"></p>
-  <p class=MsoNormal>                                         </p>
-  <h1 align=left style='margin-left:18.0pt;text-align:left;text-indent:0cm'><span
-  style='font-size:11.0pt;font-weight:normal'>&nbsp;</span></h1>
-  <h3 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'>&nbsp;</h3>
-  <h3 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'>&nbsp;</h3>
-  <h3 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'>&nbsp;</h3>
-  <h3 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'>&nbsp;</h3>
-  <h3 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'>&nbsp;</h3>
-  <h3 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'>&nbsp;</h3>
-  <h3 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'>&nbsp;</h3>
-  <h3 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'>&nbsp;</h3>
-  <p class=MsoNormal>&nbsp;</p>
-  <p class=MsoNormal>&nbsp;</p>
-  <p class=MsoNormal>&nbsp;</p>
-  <h3 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'>&nbsp;</h3>
-  <h3 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'>&nbsp;</h3>
-  <h3 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'>&nbsp;</h3>
-  <h3 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'>&nbsp;</h3>
-  <h3 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'>&nbsp;</h3>
-  <h3 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'>&nbsp;</h3>
-  <h3 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'>&nbsp;</h3>
-  <h3 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'>&nbsp;</h3>
-  <h3 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'>&nbsp;</h3>
-  <h3 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Exemple
-  d'un temps d'attente qui r&eacute;f&eacute;rence la course qui le contient</span></h3>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>...</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;VehicleJourney&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;objectId&gt;AMIV:VehicleJourney:8970758&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;routeId&gt;AMIV:Route:488970&lt;/routeId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;journeyPatternId&gt;AMIV:JourneyPattern:488970M1&lt;/journeyPatternId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;lineIdShortcut&gt;AMIV:Line:014014012&lt;/lineIdShortcut&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;operatorId&gt;AMIV:Company:2422&lt;/operatorId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;timeSlotId&gt;AMIV:TimeSlot:0&lt;/timeSlotId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;vehicleJourneyAtStop&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;stopPointId&gt;AMIV:StopPoint:488970A0A237816&lt;/stopPointId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;vehicleJourneyId&gt;AMIV:VehicleJourney:8970758&lt;/vehicleJourneyId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;arrivalTime&gt;05:45:00&lt;/arrivalTime&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;departureTime&gt;05:45:00&lt;/departureTime&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;order&gt;1&lt;/order&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;/vehicleJourneyAtStop&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;vehicleJourneyAtStop&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;stopPointId&gt;AMIV:StopPoint:488970A1A237817&lt;/stopPointId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;vehicleJourneyId&gt;AMIV:VehicleJourney:8970758&lt;/vehicleJourneyId&gt;</span></p>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm'><span lang=EN-US style='font-size:10.0pt;font-family:
-  "Courier New"'>...</span><span lang=EN-US> </span></p>
-  </td>
- </tr>
- <tr style='page-break-inside:avoid'>
-  <td width=100 colspan=2 valign=top style='width:74.85pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h2 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;text-indent:0cm;layout-grid-mode:char'><i><span
-  lang=EN-US style='font-size:14.0pt;color:navy'>Evaluation</span></i></h2>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 valign=top style='width:81.35pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span lang=EN-US style='font-size:
-  11.0pt'>N&deg; test</span></h1>
-  </td>
-  <td width=108 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  border-top:none;padding:5.65pt 11.35pt 5.65pt 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif";font-weight:normal'>2.23.1</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 valign=top style='width:81.35pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span style='font-size:11.0pt'>Libell&eacute;</span></h1>
-  </td>
-  <td width=108 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  border-top:none;padding:5.65pt 11.35pt 5.65pt 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif";font-weight:normal'>V&eacute;rification de la
-  correcte r&eacute;f&eacute;rence &agrave; une COURSE COMMERCIALE </span></h1>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif";font-weight:normal'>(&laquo; VehicleJourney &raquo;)
-  dans HEURE DE PASSAGE GRAPHIQUEE/Chouette
-  (&laquo;&nbsp;VehicleJourneyAtStop&nbsp;&raquo;).</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 valign=top style='width:81.35pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span style='font-size:11.0pt'>Champ
-  d&rsquo;application</span></h1>
-  </td>
-  <td width=108 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  border-top:none;padding:5.65pt 11.35pt 5.65pt 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif";font-weight:normal'>&lt;VehicleJourneyAtStop&gt;</span></h1>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif";font-weight:normal'>&lt;VehicleJourney&gt;</span></h1>
-  <h1 style='margin-left:0cm;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 valign=top style='width:81.35pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span style='font-size:11.0pt'>V&eacute;rification</span></h1>
-  </td>
-  <td width=108 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  border-top:none;padding:5.65pt 11.35pt 5.65pt 3.5pt;height:37.4pt'>
-  <h1 style='margin-left:0cm;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  <h1 style='margin-left:0cm;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>-
-  Si l&rsquo;objet de course &laquo;&nbsp;VehicleJourney&nbsp;&raquo; existe, poursuivre le test,
-  sinon abandonner le test</span></h1>
-  <p class=MsoBodyText3 align=left style='text-align:left'><span
-  style='font-family:"Tahoma","sans-serif"'>- Si un &eacute;l&eacute;ment
-  &laquo;&nbsp;VehicleJourneyId&nbsp;&raquo;, r&eacute;f&eacute;renc&eacute; dans un objet
-  &laquo;&nbsp;VehicleJourneyAtStop&nbsp;&raquo;, correspond &agrave; un identifiant
-  &laquo;&nbsp;objectId&nbsp;&raquo; dans l&rsquo;objet de course &laquo;&nbsp;VehicleJourney&nbsp;&raquo;
-  qui contient l&rsquo;objet de heure de passage au point d&rsquo;arr&ecirc;t, alors le test est
-  valid&eacute;, sinon le test est invalid&eacute; et produit le message &laquo;&nbsp;test
-  2.23.1&nbsp;:&nbsp;un heure de passage XX fait r&eacute;f&eacute;rence &agrave; une course
-  inexistante&nbsp;&raquo; </span></p>
-  <h1 style='margin-left:0cm;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  </td>
- </tr>
-</table>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Champ d’application:</u> 
+&lt;VehicleJourneyAtStop&gt;&nbsp;&lt;VehicleJourney&gt;</font></font></font></p>
 
 
-</div>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Vérification:</u>&nbsp;</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+-  Si l’objet de course «&nbsp;VehicleJourney&nbsp;» existe, poursuivre le test,  sinon abandonner le test</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- Si un élément «&nbsp;VehicleJourneyId&nbsp;», référencé dans un objet
+«&nbsp;VehicleJourneyAtStop&nbsp;», correspond à un identifiant
+«&nbsp;objectId&nbsp;» dans l’objet de course
+«&nbsp;VehicleJourney&nbsp;» qui contient l’objet de heure de passage
+au point d’arrêt, alors le test est validé, sinon le test est invalidé
+et produit le message «&nbsp;test 2.23.1&nbsp;:&nbsp;un heure de
+passage XX fait référence à une course inexistante&nbsp;»</font></font></font></p>

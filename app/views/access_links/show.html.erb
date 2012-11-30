@@ -1,0 +1,84 @@
+<%= title_tag t('access_links.show.title', :access_link => @access_link.name ) %>
+
+<div class="access_link_show">
+  <%= @map.to_html %>
+  
+  <div class="summary">
+    <p>
+      <label><%= @access_link.human_attribute_name(:access_point) %>: </label>
+        <%= link_to @access_link.access_point.name, [@referential, @access_link.access_point.stop_area, @access_link.access_point] %>
+    </p>
+    <p>
+      <label><%= @access_link.human_attribute_name(:stop_area) %>: </label>
+        <%= link_to @access_link.stop_area.name, [@referential, @access_link.stop_area] %>
+    </p>
+    <p>
+      <label><%= @access_link.human_attribute_name("name") %>: </label>
+      <%= @access_link.name %>
+    </p>
+    <p>
+      <label><%= @access_link.human_attribute_name("access_link_type") %>: </label>
+      <%= t("connection_link_types.label.#{@access_link.access_link_type}") %>
+    </p>
+    <p>
+      <label><%= @access_link.human_attribute_name("comment") %>: </label>
+      <%= @access_link.comment %>
+    </p>
+    <p>
+      <label><%= @access_link.human_attribute_name("link_distance") %>: </label>
+      <%= @access_link.link_distance %> 
+    </p>
+    <p>
+      <label><%= t('access_links.show.durations') %> </label>
+    </p>
+    <p>
+      <label class='duration'><%= @access_link.human_attribute_name("default_duration") %>: </label>
+      <% if (@access_link.default_duration.present?) %>
+         <%= @access_link.default_duration.strftime('%Hh %Mm %Ss') %>
+      <% end %>
+    </p>
+    <p>
+      <label class='duration'><%= @access_link.human_attribute_name("frequent_traveller_duration") %>: </label>
+      <% if (@access_link.frequent_traveller_duration.present?) %>
+         <%= @access_link.frequent_traveller_duration.strftime('%Hh %Mm %Ss') %>
+      <% end %>
+    </p>
+    <p>
+      <label class='duration'><%= @access_link.human_attribute_name("occasional_traveller_duration") %>: </label>
+      <% if (@access_link.occasional_traveller_duration.present?) %>
+         <%= @access_link.occasional_traveller_duration.strftime('%Hh %Mm %Ss') %>
+      <% end %>
+    </p>
+    <p>
+      <label class='duration'><%= @access_link.human_attribute_name("mobility_restricted_traveller_duration") %>: </label>
+      <% if (@access_link.mobility_restricted_traveller_duration.present?) %>
+         <%= @access_link.mobility_restricted_traveller_duration.strftime('%Hh %Mm %Ss') %>
+      <% end %>
+    </p>
+    <p>
+      <label><%= @access_link.human_attribute_name("mobility_restricted_suitability") %>: </label>
+      <%= t((@access_link.mobility_restricted_suitability == true).to_s) %>
+    </p>
+    <p>
+      <label><%= @access_link.human_attribute_name("stairs_availability") %>: </label>
+      <%= t((@access_link.stairs_availability == true).to_s) %>
+    </p>
+    <p>
+      <label><%= @access_link.human_attribute_name("lift_availability") %>: </label>
+      <%= t((@access_link.lift_availability == true).to_s) %>
+    </p>
+    <p>
+      <label><%= @access_link.human_attribute_name("objectid") %>: </label>
+      <%= @access_link.objectid %>
+    </p>
+  </div>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('access_links.actions.edit'), edit_referential_access_point_access_link_path(@referential, @access_link.access_point, @access_link), :class => "edit" %></li>
+  <li><%= link_to t('access_links.actions.destroy'), referential_access_point_access_link_path(@referential, @access_link.access_point, @access_link), :method => :delete,  :data => {:confirm =>  t('access_links.actions.destroy_confirm')}, :class => "remove" %></li>
+  <br>
+</ul>
+  <%= creation_tag(@access_link) %>
+<% end %>

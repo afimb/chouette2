@@ -52,6 +52,7 @@ en:
         vehicle_journeys: Vehicle journeys
         companies: Companies
         stop_areas: Stop Areas
+        access_points: Access Points
         time_tables: Time tables
         connection_links: Connection links
         quays: quays
@@ -121,6 +122,7 @@ fr:
         vehicle_journeys: Courses
         companies: Transporteurs
         stop_areas: Arrêts
+        access_points: "points d'accès"
         time_tables: Calendriers
         connection_links: Correspondances
         quays: quais
