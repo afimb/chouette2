@@ -7,6 +7,9 @@ ChouetteIhm::Application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :networks
+      resources :lines do
+        resources :routes
+      end
     end
   end
   
