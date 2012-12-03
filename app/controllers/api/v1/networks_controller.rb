@@ -1,6 +1,6 @@
 module Api
   module V1
-    class NetworksController < ActionController::Base
+    class NetworksController <  ChouetteController
       def networks
         @networks ||= referential.networks
       end 

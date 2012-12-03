@@ -7,10 +7,17 @@ ChouetteIhm::Application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :networks
-      resources :lines do
-        resources :routes
+      resources :networks, :only => [:index, :show]
+      resources :lines, :only => [:index, :show] do
+        resources :journey_patterns, :only => [:index, :show]
+        resources :routes, :only => [:index, :show] do
+          resources :journey_patterns, :only => [:index, :show]
+          resources :stop_areas, :only => [:index, :show]
+        end
       end
+      resources :routes, :only => :show
+      resources :journey_patterns, :only => :show
+      resources :stop_areas, :only => :show
     end
   end
   

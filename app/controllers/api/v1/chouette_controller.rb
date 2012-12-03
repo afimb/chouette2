@@ -3,27 +3,20 @@ module Api
     class ChouetteController < ActionController::Base
       respond_to :json, :xml
       layout false
-      before_filter :restrict_access_and_switch
+      before_filter :authenticate
 
       def referential
-        @referential ||= organisation.referentials.find_by_id @referential_id
-      end 
-      def organisation
-        @organisation ||= Organisation.find_by_id @organisation_id
-      end 
-
+        @referential ||= @api_key.referential
+      end
 private
-      def restrict_access_and_switch
+      def authenticate
         authenticate_or_request_with_http_token do |token, options|
-          switch_referential if key_exists?( token)
+          @api_key = ApiKey.new(token)
+          switch_referential if @api_key.exists?
         end
       end
-      def key_exists?( token)
-        @organisation_id, @referential_id = token.split('-')
-        organisation && referential
-      end
       def switch_referential
-        Apartment::Database.switch(referential.slug)
+        Apartment::Database.switch(@api_key.referential_slug)
       end 
 
     end
