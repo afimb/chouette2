@@ -1,12 +1,11 @@
 GIT
   remote: git://chouette.dryade.priv/ninoxe
-  revision: 3cdd4be0710cd295c62c3c8050c849cce355682d
+  revision: 3a1b90a5954bdf262d257e7e9ba1d13d27a1a95e
   specs:
     ninoxe (0.0.8)
       GeoRuby
       activerecord (>= 3.1.3)
       acts_as_list (>= 0.1.6)
-      composite_primary_keys (>= 4.1.2)
       geokit
       rails (>= 3.1.3)
 
@@ -142,7 +141,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.3.3)
-    composite_primary_keys (5.0.10)
     delayed_job (3.0.3)
       activesupport (~> 3.0)
     delayed_job_active_record (0.3.2)
@@ -224,7 +222,7 @@ GEM
     map_layers (0.0.5)
     mime-types (1.19)
     modernizr-rails (2.0.6)
-    multi_json (1.3.7)
+    multi_json (1.4.0)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
