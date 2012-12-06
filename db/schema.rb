@@ -115,8 +115,8 @@ ActiveRecord::Schema.define(:version => 20121025112852) do
     t.datetime "failed_at"
     t.string   "locked_by"
     t.string   "queue"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
@@ -127,8 +127,8 @@ ActiveRecord::Schema.define(:version => 20121025112852) do
     t.string   "arguments",  :limit => 1000
     t.integer  "position"
     t.string   "severity"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   add_index "export_log_messages", ["export_id"], :name => "index_export_log_messages_on_export_id"
@@ -138,8 +138,8 @@ ActiveRecord::Schema.define(:version => 20121025112852) do
     t.string   "status"
     t.string   "type"
     t.string   "options"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.string   "references_type"
     t.string   "reference_ids"
   end
@@ -177,16 +177,14 @@ ActiveRecord::Schema.define(:version => 20121025112852) do
     t.integer "choice_code"
   end
 
-  add_index "facilities_features", ["facility_id"], :name => "idx_facility_id"
-
   create_table "file_validation_log_messages", :force => true do |t|
     t.integer  "file_validation_id"
     t.string   "key"
     t.string   "arguments",          :limit => 1000
     t.integer  "position"
     t.string   "severity"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   add_index "file_validation_log_messages", ["file_validation_id"], :name => "index_file_validation_log_messages_on_file_validation_id"
@@ -196,8 +194,8 @@ ActiveRecord::Schema.define(:version => 20121025112852) do
     t.string   "options",         :limit => 2000
     t.string   "file_name"
     t.string   "file_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.integer  "organisation_id"
   end
 
@@ -213,12 +211,9 @@ ActiveRecord::Schema.define(:version => 20121025112852) do
   add_index "group_of_lines", ["objectid"], :name => "group_of_lines_objectid_key", :unique => true
 
   create_table "group_of_lines_lines", :id => false, :force => true do |t|
-    t.integer "group_of_line_id", :limit => 8, :null => false
-    t.integer "line_id",          :limit => 8, :null => false
+    t.integer "group_of_line_id", :limit => 8
+    t.integer "line_id",          :limit => 8
   end
-
-  add_index "group_of_lines_lines", ["group_of_line_id"], :name => "idx_grli_gr"
-  add_index "group_of_lines_lines", ["line_id"], :name => "idx_grli_li"
 
   create_table "import_log_messages", :force => true do |t|
     t.integer  "import_id"
@@ -226,8 +221,8 @@ ActiveRecord::Schema.define(:version => 20121025112852) do
     t.string   "arguments",  :limit => 1000
     t.integer  "position"
     t.string   "severity"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   add_index "import_log_messages", ["import_id"], :name => "index_import_log_messages_on_import_id"
@@ -235,8 +230,8 @@ ActiveRecord::Schema.define(:version => 20121025112852) do
   create_table "imports", :force => true do |t|
     t.integer  "referential_id"
     t.string   "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "type"
     t.string   "options"
     t.string   "file_type"
@@ -261,11 +256,10 @@ ActiveRecord::Schema.define(:version => 20121025112852) do
   add_index "journey_patterns", ["objectid"], :name => "journey_patterns_objectid_key", :unique => true
 
   create_table "journey_patterns_stop_points", :id => false, :force => true do |t|
-    t.integer "journey_pattern_id", :limit => 8, :null => false
-    t.integer "stop_point_id",      :limit => 8, :null => false
+    t.integer "journey_pattern_id", :limit => 8
+    t.integer "stop_point_id",      :limit => 8
   end
 
-  add_index "journey_patterns_stop_points", ["journey_pattern_id"], :name => "idx_jpsp_jpid"
   add_index "journey_patterns_stop_points", ["journey_pattern_id"], :name => "index_journey_pattern_id_on_journey_patterns_stop_points"
 
   create_table "lines", :force => true do |t|
@@ -330,11 +324,10 @@ ActiveRecord::Schema.define(:version => 20121025112852) do
   create_table "referentials", :force => true do |t|
     t.string   "name"
     t.string   "slug"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.string   "prefix"
     t.string   "projection_type"
-    t.string   "bounding_box",    :limit => nil
     t.string   "time_zone"
     t.string   "bounds"
     t.integer  "organisation_id"
@@ -361,9 +354,6 @@ ActiveRecord::Schema.define(:version => 20121025112852) do
     t.integer "stop_area_id", :limit => 8
     t.integer "line_id",      :limit => 8
   end
-
-  add_index "routing_constraints_lines", ["line_id"], :name => "idx_rcli_li"
-  add_index "routing_constraints_lines", ["stop_area_id"], :name => "idx_rcli_st"
 
   create_table "stop_areas", :force => true do |t|
     t.integer  "parent_id",           :limit => 8
@@ -451,8 +441,8 @@ ActiveRecord::Schema.define(:version => 20121025112852) do
   add_index "time_tables", ["objectid"], :name => "time_tables_objectid_key", :unique => true
 
   create_table "time_tables_vehicle_journeys", :id => false, :force => true do |t|
-    t.integer "time_table_id",      :limit => 8, :null => false
-    t.integer "vehicle_journey_id", :limit => 8, :null => false
+    t.integer "time_table_id",      :limit => 8
+    t.integer "vehicle_journey_id", :limit => 8
   end
 
   add_index "time_tables_vehicle_journeys", ["time_table_id"], :name => "index_time_tables_vehicle_journeys_on_time_table_id"
@@ -469,8 +459,8 @@ ActiveRecord::Schema.define(:version => 20121025112852) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                           :null => false
+    t.datetime "updated_at",                                           :null => false
     t.integer  "organisation_id"
     t.string   "name"
     t.string   "confirmation_token"
@@ -502,12 +492,8 @@ ActiveRecord::Schema.define(:version => 20121025112852) do
     t.time    "waiting_time"
     t.time    "elapse_duration"
     t.time    "headway_frequency"
-    t.integer "position",                       :limit => 8
-    t.boolean "is_departure",                                :default => false
-    t.boolean "is_arrival",                                  :default => false
   end
 
-  add_index "vehicle_journey_at_stops", ["stop_point_id"], :name => "index_vehicle_journey_at_stops_on_stop_point_id"
   add_index "vehicle_journey_at_stops", ["stop_point_id"], :name => "index_vehicle_journey_at_stops_on_stop_pointid"
   add_index "vehicle_journey_at_stops", ["vehicle_journey_id"], :name => "index_vehicle_journey_at_stops_on_vehicle_journey_id"
 
