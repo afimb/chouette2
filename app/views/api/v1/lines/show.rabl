@@ -1,5 +1,5 @@
 object @line
-attributes :objectid, :object_version, :creation_time, :creator_id
+extends "api/v1/trident_objects/show"
 attributes :name, :number, :published_name, :transport_mode_name
 attributes :registration_number, :comment, :mobility_restricted_suitability, :int_user_needs
 

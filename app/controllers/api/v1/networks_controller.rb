@@ -1,25 +1,15 @@
 module Api
   module V1
-    class NetworksController <  ChouetteController
-      def networks
+    class NetworksController < ChouetteController
+      inherit_resources
+
+      defaults :resource_class => Chouette::Network, :finder => :find_by_objectid!
+      
+  protected
+
+      def collection
         @networks ||= referential.networks
       end 
-      def network
-        @network ||= networks.where( :objectid => params[:id])
-      end
-
-      def index
-        respond_to do |format|
-          format.json { render :json => networks }
-          format.xml { render :xml => networks }
-        end
-      end
-      def show
-        respond_to do |format|
-          format.json { render :json => network }
-          format.xml { render :xml => network }
-        end
-      end
     end
   end
 end
