@@ -6,7 +6,7 @@ class Api::V1::ConnectionLinksController < Api::V1::ChouetteController
 protected
 
   def collection
-    @connection_links ||= referential.connection_links
+    @connection_links ||= referential.connection_links.search(params[:q]).result(:distinct => true)
   end 
 
 end

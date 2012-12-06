@@ -11,6 +11,7 @@ ChouetteIhm::Application.routes.draw do
       resources :connection_links, :only => [:index, :show]
       resources :companies, :only => [:index, :show]
       resources :networks, :only => [:index, :show]
+      resources :stop_areas, :only => [:index, :show]
       resources :lines, :only => [:index, :show] do
         resources :journey_patterns, :only => [:index, :show]
         resources :routes, :only => [:index, :show] do
@@ -21,7 +22,6 @@ ChouetteIhm::Application.routes.draw do
       end
       resources :routes, :only => :show
       resources :journey_patterns, :only => :show
-      resources :stop_areas, :only => :show
       resources :vehicle_journeys, :only => :show
     end
   end

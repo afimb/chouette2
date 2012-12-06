@@ -8,7 +8,7 @@ module Api
   protected
 
       def collection
-        @networks ||= referential.networks
+        @networks ||= referential.networks.search(params[:q]).result(:distinct => true)
       end 
     end
   end

@@ -10,7 +10,11 @@ class Api::V1::StopAreasController < Api::V1::ChouetteController
 protected
 
   def collection
-    @stop_areas ||= parent.stop_areas
+    if parent
+      @stop_areas ||= parent.stop_areas.search(params[:q]).result(:distinct => true)
+    else
+      @stop_areas ||= referential.stop_areas.search(params[:q]).result(:distinct => true)
+    end
   end 
 
 end

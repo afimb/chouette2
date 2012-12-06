@@ -6,7 +6,7 @@ class Api::V1::TimeTablesController < Api::V1::ChouetteController
 protected
 
   def collection
-    @time_tables ||= referential.time_tables
+    @time_tables ||= referential.time_tables.search(params[:q]).result(:distinct => true)
   end 
 
 end

@@ -6,7 +6,7 @@ class Api::V1::CompaniesController < Api::V1::ChouetteController
 protected
 
   def collection
-    @companies ||= referential.companies
+    @companies ||= referential.companies.search(params[:q]).result(:distinct => true)
   end 
 
 end
