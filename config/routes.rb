@@ -4,7 +4,29 @@ ChouetteIhm::Application.routes.draw do
     match "/users/sign_up" => "subscriptions#new"
   end
   devise_for :users
+
+  namespace :api do
+    namespace :v1 do
+      resources :time_tables, :only => [:index, :show]
+      resources :connection_links, :only => [:index, :show]
+      resources :companies, :only => [:index, :show]
+      resources :networks, :only => [:index, :show]
+      resources :stop_areas, :only => [:index, :show]
+      resources :lines, :only => [:index, :show] do
+        resources :journey_patterns, :only => [:index, :show]
+        resources :routes, :only => [:index, :show] do
+          resources :vehicle_journeys, :only => [:index, :show]
+          resources :journey_patterns, :only => [:index, :show]
+          resources :stop_areas, :only => [:index, :show]
+        end
+      end
+      resources :routes, :only => :show
+      resources :journey_patterns, :only => :show
+      resources :vehicle_journeys, :only => :show
+    end
+  end
   
+
   resource :subscription
 
   resource :organisation do
