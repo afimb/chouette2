@@ -1,15 +1,4 @@
 GIT
-  remote: git://chouette.dryade.priv/ninoxe
-  revision: 3a1b90a5954bdf262d257e7e9ba1d13d27a1a95e
-  specs:
-    ninoxe (0.0.8)
-      GeoRuby
-      activerecord (>= 3.1.3)
-      acts_as_list (>= 0.1.6)
-      geokit
-      rails (>= 3.1.3)
-
-GIT
   remote: git://github.com/dnagir/database_cleaner.git
   revision: 0c0aa44f13ae392000a6f506b62d5d1602cb4e53
   branch: postgre_jruby_issue
@@ -57,6 +46,17 @@ GIT
       georuby
       json_pure
       rgeo (~> 0.3.8)
+
+GIT
+  remote: git://github.com/dryade/ninoxe.git
+  revision: 02bb6ced9fd216384b8389f3d24660484741158e
+  specs:
+    ninoxe (0.0.8)
+      GeoRuby
+      activerecord (>= 3.1.3)
+      acts_as_list (>= 0.1.6)
+      geokit
+      rails (>= 3.1.3)
 
 GIT
   remote: git://github.com/topfunky/calendar_helper.git
