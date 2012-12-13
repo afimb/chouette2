@@ -6,19 +6,20 @@ module Api
       layout false
       before_filter :authenticate
 
-      belongs_to :referential
-
 private
-      alias_method :referential, :parent
 
       def authenticate
         authenticate_or_request_with_http_token do |token, options|
-          @api_key = referential.api_keys.find_by_token(token)
+          puts "token=#{token}"
+          puts "Api::V1::ApiKey.all.map(&:token)=#{Api::V1::ApiKey.all.map(&:token).join(',')}"
+          @referential = Api::V1::ApiKey.referential_from_token(token)
+
+          @api_key = @referential.api_keys.find_by_token(token) if @referential
           switch_referential if @api_key
         end
       end
       def switch_referential
-        Apartment::Database.switch(referential.slug)
+        Apartment::Database.switch(@api_key.referential.slug)
       end 
 
     end

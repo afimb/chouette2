@@ -1,5 +1,4 @@
 class Api::V1::StopAreasController < Api::V1::ChouetteController
-  inherit_resources
 
   defaults :resource_class => Chouette::StopArea, :finder => :find_by_objectid!
 
@@ -11,9 +10,9 @@ protected
 
   def collection
     if parent
-      @stop_areas ||= parent.stop_areas.search(params[:q]).result(:distinct => true)
+      @stop_areas ||= parent.stop_areas.search(params[:q]).result
     else
-      @stop_areas ||= referential.stop_areas.search(params[:q]).result(:distinct => true)
+      @stop_areas ||= @referential.stop_areas.search(params[:q]).result(:distinct => true)
     end
   end 
 

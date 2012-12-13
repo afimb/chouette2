@@ -7,7 +7,7 @@ module Api
   protected
 
       def collection
-        @lines ||= referential.lines.search(params[:q]).result(:distinct => true)
+        @lines ||= ( @referential ? @referential.lines.search(params[:q]).result(:distinct => true) : [])
       end 
     end
   end

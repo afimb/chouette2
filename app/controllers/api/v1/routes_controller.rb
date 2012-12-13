@@ -1,5 +1,4 @@
 class Api::V1::RoutesController < Api::V1::ChouetteController
-  inherit_resources
 
   defaults :resource_class => Chouette::Route, :finder => :find_by_objectid!
 

@@ -1,14 +1,13 @@
 shared_examples "api key protected controller" do
 
-    let(:h) { { :index => (Proc.new { get :index, :referential_id => provided_referential.id }),
-                :show => (Proc.new { get :show, :referential_id => provided_referential.id, :id => data.objectid })}}
+    let(:h) { { :index => (Proc.new { get :index }),
+                :show => (Proc.new { get :show, :id => data.objectid })}}
     [:index, :show].each do |http_verb|
 
       describe "GET ##{http_verb}" do
         ["application/json","application/xml","application/html"].each do |format|
           context "when an invalid authorization is provided" do
             before :each do
-              puts "when an invalid authorization is provided"
               config_formatted_request_with_dummy_authorization( format)
               h[http_verb].call
             end
@@ -18,7 +17,6 @@ shared_examples "api key protected controller" do
           end
           context "when no authorization is provided" do
             before :each do
-              puts "when no authorization is provided"
               config_formatted_request_without_authorization( format)
               h[http_verb].call
             end
@@ -28,7 +26,6 @@ shared_examples "api key protected controller" do
           end
           context "when authorization provided and request.accept is #{format}," do
             before :each do
-              puts "when authorization provided and request.accept is #{format},"
               config_formatted_request_with_authorization( format)
               h[http_verb].call
             end

@@ -1,5 +1,4 @@
 class Api::V1::VehicleJourneysController < Api::V1::ChouetteController
-  inherit_resources
 
   defaults :resource_class => Chouette::VehicleJourney, :finder => :find_by_objectid!
 

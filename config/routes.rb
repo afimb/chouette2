@@ -7,24 +7,22 @@ ChouetteIhm::Application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :referentials do
-        resources :time_tables, :only => [:index, :show]
-        resources :connection_links, :only => [:index, :show]
-        resources :companies, :only => [:index, :show]
-        resources :networks, :only => [:index, :show]
-        resources :stop_areas, :only => [:index, :show]
-        resources :lines, :only => [:index, :show] do
+      resources :time_tables, :only => [:index, :show]
+      resources :connection_links, :only => [:index, :show]
+      resources :companies, :only => [:index, :show]
+      resources :networks, :only => [:index, :show]
+      resources :stop_areas, :only => [:index, :show]
+      resources :lines, :only => [:index, :show] do
+        resources :journey_patterns, :only => [:index, :show]
+        resources :routes, :only => [:index, :show] do
+          resources :vehicle_journeys, :only => [:index, :show]
           resources :journey_patterns, :only => [:index, :show]
-          resources :routes, :only => [:index, :show] do
-            resources :vehicle_journeys, :only => [:index, :show]
-            resources :journey_patterns, :only => [:index, :show]
-            resources :stop_areas, :only => [:index, :show]
-          end
+          resources :stop_areas, :only => [:index, :show]
         end
-        resources :routes, :only => :show
-        resources :journey_patterns, :only => :show
-        resources :vehicle_journeys, :only => :show
       end
+      resources :routes, :only => :show
+      resources :journey_patterns, :only => :show
+      resources :vehicle_journeys, :only => :show
     end
   end
   
@@ -38,6 +36,8 @@ ChouetteIhm::Application.routes.draw do
   resources :file_validations
 
   resources :referentials do
+    resources :keys
+    resources :api_keys
     resources :stop_point_areas
     match 'lines' => 'lines#destroy_all', :via => :delete
     resources :group_of_lines do

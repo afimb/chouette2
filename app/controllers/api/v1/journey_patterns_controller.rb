@@ -1,5 +1,4 @@
 class Api::V1::JourneyPatternsController < Api::V1::ChouetteController
-  inherit_resources
 
   defaults :resource_class => Chouette::JourneyPattern, :finder => :find_by_objectid!
 

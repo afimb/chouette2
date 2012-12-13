@@ -5,19 +5,21 @@ module Api
       belongs_to :referential, :class_name => '::Referential'
 
       def eql?(other)
-        other.token == self.token && other.referential_id == self.referential_id
+        other.token == self.token
+      end
+
+      def self.referential_from_token(token)
+        array = token.split('-')
+        return nil unless array.size==2
+        ::Referential.find( array.first)
       end
 
     private
       def generate_access_token
         begin
-          self.token = SecureRandom.hex
-          puts "self.token=#{self.token}"
+          self.token = "#{referential.id}-#{SecureRandom.hex}" 
         end while self.class.exists?(:token => self.token)
       end
-      def organisation
-        @organisation ||= Organisation.find_by_id @organisation_id
-      end 
     end
   end
 end
