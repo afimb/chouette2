@@ -1,7 +1,7 @@
 module ApiKeyHelper
 
   def get_api_key
-    Api::V1::ApiKey.create( referential.organisation, referential)
+    Api::V1::ApiKey.find_or_create_by_referential_id_and_name( referential.id,  "test")
   end
   def config_formatted_request_with_authorization( format)
     request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Token.encode_credentials( get_api_key.token)

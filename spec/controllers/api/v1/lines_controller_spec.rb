@@ -5,6 +5,7 @@ describe Api::V1::LinesController do
 
     it_behaves_like "api key protected controller" do
       let(:data){line}
+      let(:provided_referential){referential}
     end
   describe "GET #index" do
     it "test" do

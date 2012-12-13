@@ -1,28 +1,20 @@
 module Api
   module V1
-    class ApiKey
-      def initialize(token)
-        @organisation_id, @referential_id = token.split('-')
-      end
-      def self.create( organisation, referential)
-        ApiKey.new( "#{organisation.id}-#{referential.id}")
-      end
-      def token
-        "#{@organisation_id}-#{@referential_id}"
-      end
-      def exists?
-        organisation && referential
-      end
-      def referential_slug
-        referential.slug
-      end
-      def referential
-        @referential ||= organisation.referentials.find_by_id @referential_id
-      end 
+    class ApiKey < ::ActiveRecord::Base
+      before_create :generate_access_token
+      belongs_to :referential, :class_name => '::Referential'
+
       def eql?(other)
-        other.token == self.token
+        other.token == self.token && other.referential_id == self.referential_id
       end
+
     private
+      def generate_access_token
+        begin
+          self.token = SecureRandom.hex
+          puts "self.token=#{self.token}"
+        end while self.class.exists?(:token => self.token)
+      end
       def organisation
         @organisation ||= Organisation.find_by_id @organisation_id
       end 

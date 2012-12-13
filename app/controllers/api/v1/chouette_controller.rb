@@ -1,18 +1,20 @@
 module Api
   module V1
     class ChouetteController < ActionController::Base
+      inherit_resources
       respond_to :json, :xml
       layout false
       before_filter :authenticate
 
-      def referential
-        @referential ||= @api_key.referential
-      end
+      belongs_to :referential
+
 private
+      alias_method :referential, :parent
+
       def authenticate
         authenticate_or_request_with_http_token do |token, options|
-          @api_key = ApiKey.new(token)
-          switch_referential if @api_key.exists?
+          @api_key = referential.api_keys.find_by_token(token)
+          switch_referential if @api_key
         end
       end
       def switch_referential

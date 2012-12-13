@@ -20,6 +20,7 @@ class Referential < ActiveRecord::Base
 
   has_many :imports, :dependent => :destroy
   has_many :exports, :dependent => :destroy
+  has_many :api_keys, :class_name => 'Api::V1::ApiKey', :dependent => :destroy
   
   belongs_to :organisation
   validates_presence_of :organisation

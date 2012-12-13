@@ -5,6 +5,7 @@ describe Api::V1::NetworksController do
 
   it_behaves_like "api key protected controller" do
     let(:data){network}
+    let(:referential){referential}
   end
 
   describe "GET #show" do
