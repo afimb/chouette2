@@ -59,18 +59,18 @@ GIT
       rails (>= 3.1.3)
 
 GIT
+  remote: git://github.com/dryade/user-interface.git
+  revision: 2a30a4eb3ff446f9d2b2de12ecacb5f923e5623c
+  specs:
+    user_interface (0.0.1)
+      rails (> 3.1.0)
+
+GIT
   remote: git://github.com/topfunky/calendar_helper.git
   revision: 763a497dbd8833b98d92815667b367ade938c00c
   specs:
     calendar_helper (0.2.5)
       open4
-
-GIT
-  remote: git://sim.dryade.priv/user_interface
-  revision: d828d7107f2b4025853cbfa7cc0e76cceca27da6
-  specs:
-    user_interface (0.0.1)
-      rails (> 3.1.0)
 
 GEM
   remote: http://rubygems.org/
