@@ -13,8 +13,8 @@ describe Api::V1::StopAreasController do
       config_formatted_request_with_authorization( "application/json")
       get :index, :route_id => route.objectid, :line_id => route.line.objectid
     end
-    it "test" do
-      assigns[:stop_areas].should == route.stop_areas
+    it "should assign expected stop_areas" do
+      assigns[:stop_areas].map(&:id).sort.should == route.stop_areas.map(&:id).sort
     end
   end
 end
