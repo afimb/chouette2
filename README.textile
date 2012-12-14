@@ -1,5 +1,6 @@
 h1. Chouette2 !https://travis-ci.org/dryade/chouette2.png?branch=master!:https://travis-ci.org/dryade/chouette2 !https://codeclimate.com/badge.png!:https://codeclimate.com/github/dryade/ninoxe
-h2. License
+
+h2. Licence
 
 Copyright "AFIMB":http://www.developpement-durable.gouv.fr/Presentation-de-l-AFIMB.html
 

@@ -1,5 +1,5 @@
 test:
-  adapter: jdbcpostgresql
+  adapter: <%= RUBY_PLATFORM == "java" ? "jdbcpostgresql" : "postgresql" %>
   database: <%= (ENV["GIT_BRANCH"].nil? || ENV["GIT_BRANCH"] == "master") ? "chouette_test" : "chouette_" + ENV["GIT_BRANCH"] + "_test" %>
   encoding: utf8
   username: postgres
