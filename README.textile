@@ -1,4 +1,6 @@
-h1. License
+h1 Chouette2 !https://travis-ci.org/dryade/chouette2.png?branch=master!:https://travis-ci.org/dryade/chouette2
+!https://codeclimate.com/badge.png!:https://codeclimate.com/github/dryade/ninoxe
+h2. License
 
 Copyright "AFIMB":http://www.developpement-durable.gouv.fr/Presentation-de-l-AFIMB.html
 
@@ -30,9 +32,9 @@ In this respect, the user's attention is drawn to the risks associated with load
 
 The fact that you are presently reading this means that you have had knowledge of the CeCILL-B license and that you accept its terms.
 
-h1. Notes de version
+h2. Notes de version
 
-h2. V2.0.1 
+h3. V2.0.1 
 
 * Ajout de la gestion des groupes de lignes
 * Ajout de la gestion des accès et des relations arrêts-accès
@@ -40,7 +42,7 @@ h2. V2.0.1
 * Améliorations ergonomiques et cartographiques
 * L'import Neptune accepte les principaux formats d'encodage : ISO-8859-1, UTF-8, ...
 
-h2. V2.0.0 
+h3. V2.0.0 
 
 * refonte de l'interface graphique
 * ajout d'une gestion simplifiée d'utilisateurs :
