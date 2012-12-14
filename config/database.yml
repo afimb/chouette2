@@ -8,8 +8,8 @@ development:
   adapter: <%= RUBY_PLATFORM == "java" ? "jdbcpostgresql" : "postgresql" %>
   database: chouette_dev
   encoding: utf8
-  username: luc
-  password: monalisa
+  username: chouette
+  password: chouette
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
