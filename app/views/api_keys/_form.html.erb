@@ -1,0 +1,14 @@
+<%= semantic_form_for [@referential, @api_key] do |form| %>
+  <%= form.inputs do %> 
+    <%= form.input :name %>
+    <% unless @api_key.new_record? %>
+      <%= form.input :token, :input_html => { :disabled => true } %>  
+    <% end %>
+  <% end %>
+
+   <%= form.actions do %>
+     <%= form.action :submit, :as => :button %> 
+     <%= form.action :cancel, :as => :link %>
+   <% end %>
+<% end %>
+

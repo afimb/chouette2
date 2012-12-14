@@ -1,0 +1,12 @@
+<%= div_for(api_key) do %>
+    <%= api_key.token %>
+  <div class="info">
+    <%= api_key.class.human_attribute_name('name') %> <%= api_key.name %> -
+    <%= api_key.class.human_attribute_name('updated_at') %> <%= l(api_key.updated_at) %>
+    <div class="actions">  
+      <%= link_to t("actions.edit"), edit_referential_api_key_path(@referential, api_key), :class => "edit" %> |
+      <%= link_to t("actions.destroy"), referential_api_key_path(@referential, api_key), :method => :delete, :data => {:confirm =>  t('api_keys.actions.destroy_confirm')}, :class => "remove" %>
+    </div>
+  </div>
+<% end %>
+

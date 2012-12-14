@@ -4,6 +4,10 @@ module Api
       before_create :generate_access_token
       belongs_to :referential, :class_name => '::Referential'
 
+      def self.model_name
+        ActiveModel::Name.new self, Api::V1, self.name.demodulize
+      end
+
       def eql?(other)
         other.token == self.token
       end

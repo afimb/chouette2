@@ -36,7 +36,6 @@ ChouetteIhm::Application.routes.draw do
   resources :file_validations
 
   resources :referentials do
-    resources :keys
     resources :api_keys
     resources :stop_point_areas
     match 'lines' => 'lines#destroy_all', :via => :delete

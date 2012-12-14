@@ -39,12 +39,19 @@
   </td>
   </tr>
   </table>
+
+<h3 class="api_keys"><%= t('.api_keys') %></h3>
+
+<div class="api_keys">
+  <%= render :partial => "api_keys/api_key", :collection => @referential.api_keys %>
+</div>
 </div>  
 
 <% content_for :sidebar do %>
   <ul class="actions">
     <li><%= link_to t('referentials.actions.edit'), edit_referential_path(@referential), :class => "edit" %></li>
     <li><%= link_to t('referentials.actions.destroy'), referential_path(@referential), :method => :delete, :data => {:confirm =>  t('referentials.actions.destroy_confirm')}, :class => "remove" %></li>
+    <li><%= link_to t('api_keys.actions.new'), new_referential_api_key_path(@referential), :class => "add" %></li>
     <br>
   </ul>
 
