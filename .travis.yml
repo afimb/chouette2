@@ -6,9 +6,8 @@ rvm:
 before_script: 
   - "sudo apt-get install build-essential ruby-dev libproj-dev libgeos-dev libffi-dev libsparsehash-dev zlib1g-dev libxslt1-dev libxml2-dev libbz2-dev"
   - "psql -c 'create database chouette_test;' -U postgres"
-  - "rake ci:prepare_travis"
+  - "rake ci:db_travis_config"
 script: "rake spec"
 notifications:
   recipients:
     - luc.donnet@dryade.net
-    - michel.etienne@dryade.net
