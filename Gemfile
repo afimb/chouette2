@@ -23,8 +23,8 @@ end
 gem "map_layers", "~> 0.0.4"
 gem "georuby-ext", :git => 'git://github.com/dryade/georuby-ext.git'
 
-#gem 'user_interface', :git => 'git://github.com/dryade/user-interface.git'
-gem 'user_interface', :git => 'git://sim.dryade.priv/user_interface' #, :path => '~/Projects/UserInterfaceDryade'
+gem 'user_interface', :git => 'git://github.com/dryade/user-interface.git'
+
 gem 'json'
 gem 'cocoon'
 gem 'formtastic'
