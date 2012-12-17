@@ -8,6 +8,9 @@ before_script:
   - "psql -c 'create database chouette_test;' -U postgres"
   - "rake ci:prepare_travis"
 script: "rake spec"
+env:
+  - JRUBY_OPTS="--1.8 --server -Xcext.enabled=false -Xcompile.invokedynamic=false"
+  - JRUBY_OPTS="--1.9 --server -Xcext.enabled=false -Xcompile.invokedynamic=false"
 notifications:
   recipients:
     - luc.donnet@dryade.net
