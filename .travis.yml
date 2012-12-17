@@ -5,10 +5,9 @@ rvm:
 before_install:
   - sudo apt-get install build-essential ruby-dev libproj-dev libgeos-dev libffi-dev libsparsehash-dev zlib1g-dev libxslt1-dev libxml2-dev libbz2-dev
 before_script: 
-  - "psql -c 'create database chouette_test;' -U postgres"
-  - "psql -c 'create database chouette_production_test;' -U postgres"
-  - "RAILS_ENV=test rake ci:prepare_travis"
-script: "RAILS_ENV=test rake spec"
+  - "rake db:create"
+  - "rake ci:prepare_travis"
+script: "rake spec"
 branches:
   only:
     - master
