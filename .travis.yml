@@ -2,6 +2,10 @@ language: ruby
 rvm:
   - 1.8.7
   - jruby-18mode
+jdk:
+  - oraclejdk7
+  - openjdk7
+  - openjdk6
 before_install:
   - sudo apt-get install build-essential ruby-dev libproj-dev libgeos-dev libffi-dev libsparsehash-dev zlib1g-dev libxslt1-dev libxml2-dev libbz2-dev
 before_script: 
