@@ -5,8 +5,9 @@ rvm:
 before_install:
   - sudo apt-get install build-essential ruby-dev libproj-dev libgeos-dev libffi-dev libsparsehash-dev zlib1g-dev libxslt1-dev libxml2-dev libbz2-dev
 before_script: 
+  - "rake ci:db_travis_config"
   - "rake db:create"
-  - "rake ci:prepare_travis"
+  - "rake apartment:migrate"
 script: "rake spec"
 branches:
   only:
