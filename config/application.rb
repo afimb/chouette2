@@ -11,7 +11,7 @@ end
 
 module ChouetteIhm
   class Application < Rails::Application
-    puts "#{RUBY_PLATFORM}"
+
     config.generators do |g|
       g.test_framework :rspec        
     end
