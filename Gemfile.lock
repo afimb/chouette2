@@ -391,6 +391,7 @@ DEPENDENCIES
   rabl
   rails (= 3.2.6)
   ransack
+  rb-fsevent
   rb-inotify
   remarkable (~> 4.0.0.alpha4)
   remarkable_activerecord (~> 4.0.0.alpha4)
@@ -400,7 +401,7 @@ DEPENDENCIES
   shoulda-matchers
   sqlite3
   squeel
-  therubyracer
+  therubyracer (~> 0.10.2)
   therubyrhino
   uglifier (>= 1.0.3)
   user_interface!

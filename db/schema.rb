@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121025112852) do
+ActiveRecord::Schema.define(:version => 20121211085620) do
 
   create_table "access_links", :force => true do |t|
     t.integer  "access_point_id",                        :limit => 8
@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(:version => 20121025112852) do
   end
 
   add_index "access_points", ["objectid"], :name => "access_points_objectid_key", :unique => true
+
+  create_table "api_keys", :id => false, :force => true do |t|
+    t.integer  "id",             :limit => 8
+    t.integer  "referential_id"
+    t.string   "token"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "companies", :force => true do |t|
     t.string   "objectid",                  :null => false
@@ -199,16 +208,6 @@ ActiveRecord::Schema.define(:version => 20121025112852) do
     t.integer  "organisation_id"
   end
 
-  create_table "geometry_columns", :id => false, :force => true do |t|
-    t.string  "f_table_catalog",   :limit => 256, :null => false
-    t.string  "f_table_schema",    :limit => 256, :null => false
-    t.string  "f_table_name",      :limit => 256, :null => false
-    t.string  "f_geometry_column", :limit => 256, :null => false
-    t.integer "coord_dimension",                  :null => false
-    t.integer "srid",                             :null => false
-    t.string  "type",              :limit => 30,  :null => false
-  end
-
   create_table "group_of_lines", :force => true do |t|
     t.string   "objectid",       :null => false
     t.integer  "object_version"
@@ -339,7 +338,6 @@ ActiveRecord::Schema.define(:version => 20121025112852) do
     t.string   "prefix"
     t.string   "projection_type"
     t.string   "time_zone"
-    t.string   "the_geom"
     t.string   "bounds"
     t.integer  "organisation_id"
   end
@@ -364,14 +362,6 @@ ActiveRecord::Schema.define(:version => 20121025112852) do
   create_table "routing_constraints_lines", :id => false, :force => true do |t|
     t.integer "stop_area_id", :limit => 8
     t.integer "line_id",      :limit => 8
-  end
-
-  create_table "spatial_ref_sys", :id => false, :force => true do |t|
-    t.integer "srid",                      :null => false
-    t.string  "auth_name", :limit => 256
-    t.integer "auth_srid"
-    t.string  "srtext",    :limit => 2048
-    t.string  "proj4text", :limit => 2048
   end
 
   create_table "stop_areas", :force => true do |t|

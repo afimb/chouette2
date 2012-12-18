@@ -19,7 +19,3 @@ before_script:
   - "rake db:create"
   - "rake apartment:migrate"
 script: "rake spec"
-branches:
-  only:
-    - master
-    - production

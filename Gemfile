@@ -53,7 +53,7 @@ gem 'apartment',:git => 'git://github.com/dryade/apartment.git'
 gem 'coffee-rails', '~> 3.2.1'
 gem 'coffee-script-source'
 gem 'therubyrhino', :platform => :jruby
-gem 'therubyracer', :platform => :ruby
+gem 'therubyracer', '~> 0.10.2', :platform => :ruby
 
 gem 'rabl'
 
@@ -77,7 +77,8 @@ group :test, :development do
   gem "remarkable", "~> 4.0.0.alpha4"           
   gem "remarkable_activerecord", "~> 4.0.0.alpha4" 
   gem "shoulda-matchers"
-  gem 'rb-inotify', :platform => :ruby
+  gem 'rb-inotify', :require => RUBY_PLATFORM.include?('linux') && 'rb-inotify'
+  gem 'rb-fsevent', :require => RUBY_PLATFORM.include?('darwin') && 'rb-fsevent'
 end
 
 group :test do
