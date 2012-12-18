@@ -22,7 +22,7 @@ en:
       failed: Failed
   file_validation_log_messages:
     messages:
-      undefined: %{key} undefined
+      undefined: "%{key} undefined"
       TooMuchDetails: ( %{0} erreurs / warnings supplémentaires )
       ONE: "Catégorie 1 : Syntaxe"
       Test1_Sheet1: 'Fiche n° 1.1 : Conformité à la syntaxe XML suivant les recommandations du W3C'
@@ -287,22 +287,22 @@ fr:
     ok_count: 
       zero: aucun test réussi
       one: un test réussi
-      other: %{count} tests réussis
+      other: "%{count} tests réussis"
     warning_count: 
       zero: aucun warning
       one: un warning
-      other: %{count} warnings
+      other: "%{count} warnings"
     error_count: 
       zero: aucune erreur
       one: une erreur
-      other: %{count} erreurs
+      other: "%{count} erreurs"
     fatal_count: 
       zero: aucune erreur fatale
       one: une erreur fatale
-      other: %{count} erreurs fatales
+      other: "%{count} erreurs fatales"
   file_validation_log_messages:
     messages:
-      undefined: %{key} non défini
+      undefined: "%{key} non défini"
       TooMuchDetails: ( %{0} erreurs / warnings supplémentaires )
       ONE: "Catégorie 1 : Syntaxe"
       Test1_Sheet1: 'Fiche n° 1.1 : Conformité à la syntaxe XML suivant les recommandations du W3C'

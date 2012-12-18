@@ -20,7 +20,7 @@ fr:
   subscriptions:
     success: "Inscription enregistrée"
     failure: "Inscription invalide"
-  activemodel:  	
+  activemodel:
     models:        
       subscription: compte
     attributes:
