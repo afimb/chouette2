@@ -1,3 +1,4 @@
+#encoding: utf-8
 class HelpPage
 
   attr_accessor :slug, :content, :data
