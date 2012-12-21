@@ -17,5 +17,17 @@ describe Api::V1::StopAreasController do
       assigns[:stop_areas].map(&:id).sort.should == route.stop_areas.map(&:id).sort
     end
   end
+  describe "GET #index, :q => { :name_cont => 'aa'}" do
+    let!(:sa1) { create(:stop_area, :name => "aaa") }
+    let!(:sa2) { create(:stop_area, :name => "aab") }
+    let!(:sa3) { create(:stop_area, :name => "abb") }
+    before :each do
+      config_formatted_request_with_authorization( "application/json")
+      get :index, :q => { :name_cont => "aa"} 
+    end
+    it "should assign expected stop_areas" do
+      assigns[:stop_areas].map(&:name).sort.should == [ sa1.name, sa2.name]
+    end
+  end
 end
 
