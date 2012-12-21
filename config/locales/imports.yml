@@ -64,6 +64,8 @@ en:
       SAVE: Save 
       SAVE_OK: "%{0} saved"
       SAVE_ERROR: "%{0} save failed : %{1}"
+      IMPORT_ERROR: "Import Error"
+      EXCEPTION: "Problem : %{0}"
     severities:
       info: Information
       uncheck: Unchecked
@@ -85,15 +87,30 @@ en:
         zero:  CSV import
         one:   CSV import
         other: CSV imports
+      gtfs_import:
+        zero:  GTFS import
+        one:   GTFS import
+        other: GTFS imports
     attributes:
       import:
         resources: File to import
         status: Status
         objectid_prefix: "Neptune Id prefix"
+        max_distance_for_commercial: "Max distance for commercial stop"
+        max_distance_for_connection_link: "Max distance for connection link"
+        ignore_last_word: "ignore last word"
+        ignore_end_chars: "ignore last chars"
       import_log_message:
         created_at: Date
         position: N.
         full_message: Message
+  formtastic:
+    hints:
+      import:
+        max_distance_for_commercial: "Maximal distance to merge homonymous stops in commercial stop in meter"
+        max_distance_for_connection_link: "Maximal distance to link stops by connection link stop in meter"
+        ignore_last_word: "ignore last word on stop name in homonymous detection (inappliable when just one word occurs)"
+        ignore_end_chars: "ignore some chars at the end of stop names in homonymous detection"
 fr:
   imports:
     actions:
@@ -160,6 +177,8 @@ fr:
       SAVE: Sauvegarde 
       SAVE_OK: "%{0} enregistré"
       SAVE_ERROR: "Echec de l'enregistrement de %{0} : %{1}"
+      IMPORT_ERROR: "Erreur d'import"
+      EXCEPTION: "Problème : %{0}"
     severities:
       info: Information
       uncheck: Non testé
@@ -181,12 +200,27 @@ fr:
         zero:  import CSV
         one:   import CSV
         other: imports CSV
+      gtfs_import:
+        zero:  import GTFS
+        one:   import GTFS
+        other: imports GTFS
     attributes:
       import:
         resources: Fichier à importer
         status: Status
         objectid_prefix: "Préfixe d'identifiants"
+        max_distance_for_commercial: "Distance max pour créer les zones"
+        max_distance_for_connection_link: "Distance max pour créer les correspondances"
+        ignore_last_word: "ignorer le dernier mot"
+        ignore_end_chars: "ignorer les n derniers caractères"
       import_log_message:
         created_at: Date
         position: "No"
         full_message: Message
+  formtastic:
+    hints:
+      import:
+        max_distance_for_commercial: "Distance maximale entre deux arrêts homonymes pour créer les zones d'arrêt (en mètre)"
+        max_distance_for_connection_link: "Distance maximale entre deux arrêts pour créer les correspondances (en mètre)"
+        ignore_last_word: "ignorer le dernier mot pour détecter l'homonymie des noms d'arrêt (inappliable quand le nom ne comporte qu'un mot)"
+        ignore_end_chars: "ignorer les n derniers caractères du nom de l'arrêt pour détecter l'homonymie"

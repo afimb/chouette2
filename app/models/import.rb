@@ -36,7 +36,7 @@ class Import < ActiveRecord::Base
       subclasses.map(&:to_s)
     else
       # FIXME
-      %w{NeptuneImport CsvImport}
+      %w{NeptuneImport CsvImport GtfsImport}
     end
   end
 
