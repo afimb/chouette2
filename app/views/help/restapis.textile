@@ -3,7 +3,17 @@ layout: default
 title: API Rest
 ---
 
-h3. Syntaxe
+h3. Présentation
+
+Rails offre une interface Rest native permettant d'accéder aux objets du modèle selon des règles simples
+
+Celles-ci sont disponibles mais se limitent aux règles de navigation de l'IHM de Chouette
+
+Une API dédiée à des accès automatisés est ajoutée afin de permettre des développement externes exploitant les données de Chouette sans s'inclure dans l'application ni devoir disposer d'un accès direct à la base.
+
+h3. API native
+
+h4. Syntaxe
 
 Les différents objets Neptune sont accessibles dans Chouette par l'URL Rest:
 ??[URL_server]/[referential_id]/[Objects]/[id].[format]??
@@ -22,9 +32,54 @@ où :
 ** json
 ** xml
 
-h3. Exemples
+h4. Exemples 
 
-??http://chouette.dryade.net/chouette2/referentials/4/lines/674.json??
-??http://chouette.dryade.net/chouette2/referentials/4/lines/674.xml??
+??http://chouette.mobi/chouette2/referentials/4/lines/674.json??
+??http://chouette.mobi/chouette2/referentials/4/lines/674.xml??
+
+h3. API dédiée 
+
+h4. Principe
+
+Ces interfaces externes REST (notées API) sont des Web Service (noté WS) qui donnent un accès en consultation à la topologie d’un référentiel.
+
+Les WS proposent 2 sortes de requêtes REST
+* la requête « index » qui liste des éléments de topologie avec éventuellement un paramètre de filtre
+* la requête « show » qui donne le détail d’un élément de topologie
+
+Pour garantir la sécurité, ces API nécessitent une clé d'authentification créée à partir du tableau de bord du référentiel.
+La clé doit être positionnée dans la propriété HTTP_AUTHORIZATION de l'entête de la requête.
+* Token token = [clé]
+Cette clé permet de garantir la sécurité et de diriger l'API rest sur le bon référentiel.
+
+Ces API sont plus amplement décrites dans le document SFT-Chouette Définition des API REST V1 disponible sur "chouette.mobi":http://chouette.mobi
+
+h4. Syntaxe
+
+Les différents objets Neptune sont accessibles dans Chouette par l'URL Rest:
+??[URL_server]/api/v1/[Objects]/[objectId].[format]??
+la liste des objets d'un même type peut être obtenue par l'URL REST : 
+??[URL_server]/api/v1/[Objects].[format][?q filtre]??
+où :
+* URL_server : l'adresse web d'installation du serveur Chouette
+* Objects: le type d'objet demandé (au pluriel) 
+** networks
+** lines
+** companies
+** ...
+* objectId : l'identifiant Neptune de l'objet désiré
+* format : le format de sortie :
+** json
+** xml
+* filtre : filtre de sélection "ransack":https://github.com/ernie/ransack/wiki/Basic-Searching
+
+h4. exemples
+
+* http://chouette.mobi/chouette2/api/v1/lines.xml?q%5Bname_or_number_cont%5D=34
+Dans cet exemple le critère porte sur les champs « name » et « number » dont l'un des 2 doit contenir la chaine « 34 ».
+(note: 5B et 5D sont les codes ascii des crochets ouvrants [ et fermants ] )
+
+* http://localhost:3000/api/v1/lines/Tatrobus:Line:3.json
+Cet exemple retourne les attributs de la ligne 3 du réseau Tatrobus au format json
 
 

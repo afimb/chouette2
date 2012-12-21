@@ -3,7 +3,7 @@ layout: default
 title: Chouette v2 
 ---
 
-Version 2.0.1
+Version 2.0.2
 
 h3. Logiciel libre propriété de :
 
