@@ -1,4 +1,7 @@
 object @network
 extends "api/v1/trident_objects/show"
-attributes :version_date, :description, :name, :registration_number, :source_name 
-attributes :source_type, :source_identifier, :comment
+
+[ :version_date, :description, :name, :registration_number, :source_name,
+  :source_type, :source_identifier, :comment].each do |attr|
+  attributes attr, :unless => lambda { |m| m.send( attr).nil?}
+end

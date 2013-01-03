@@ -1,11 +1,21 @@
 object @stop_area
 extends "api/v1/trident_objects/show"
 
-attributes :routing_stop_ids, :routing_line_ids
-attributes :name, :comment, :area_type, :registration_number
-attributes :nearest_topic_name, :fare_code, :longitude, :latitude, :long_lat_type, :x, :y, :projection_type
-attributes :country_code, :street_name
-
-child :parent => :parent do
-  attributes :objectid, :name, :area_type, :longitude, :latitude, :long_lat_type
+[ :name, :area_type,:nearest_topic_name, :fare_code, :registration_number, 
+  :longitude, :latitude, :long_lat_type,
+  :country_code, :street_name, :x, :y, :projection_type, :comment
+].each do |attr|
+  attributes attr, :unless => lambda { |m| m.send( attr).nil?}
 end
+
+node(:routing_stop_area_object_ids) do |stop_area|
+  stop_area.routing_stops.map(&:objectid)
+end unless root_object.routing_stops.empty? 
+
+node(:routing_line_object_ids) do |stop_area|
+  stop_area.routing_lines.map(&:objectid)
+end unless root_object.routing_lines.empty?
+
+node :parent do |stop_area|
+  partial("api/v1/stop_areas/short_description", :object => stop_area.parent)
+end unless root_object.parent.nil?

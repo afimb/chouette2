@@ -1,24 +1,29 @@
 object @route
 extends "api/v1/trident_objects/show"
 
-attributes :direction_code, :wayback_code, :name
-attributes :comment, :opposite_route_id, :published_name, :number, :direction, :wayback
+[:name, :published_name, :number, :direction].each do |attr|
+  attributes attr, :unless => lambda { |m| m.send( attr).nil?}
+end
+attributes :opposite_route_id => :way_back_route_id, :unless => lambda { |m| m.opposite_route_id.nil?}
+attributes :comment, :unless => lambda { |m| m.comment.nil?}
+attributes :wayback => :way_back, :unless => lambda { |m| m.wayback.nil?}
 
-child :line do
-  attributes :objectid, :name, :published_name, :number, :registration_number
+node :line_short_description do |route|
+  partial("api/v1/lines/short_description", :object => route.line)
 end
 
-child :journey_patterns do |journey_pattern|
-  attributes :objectid, :name, :published_name, :registration_number
-end
+child :journey_patterns => :journey_pattern_short_descriptions do |journey_patterns|
+  node do |journey|
+    partial("api/v1/journey_patterns/short_description", :object => journey) 
+  end 
+end unless root_object.journey_patterns.empty?
 
-child :vehicle_journeys do |vj|
- attributes :objectid
-end
+node(:vehicle_journey_object_ids) do |route|
+  route.vehicle_journeys.map(&:objectid)
+end unless root_object.vehicle_journeys.empty?
 
-child :stop_areas do |stop_area|
-  attributes :objectid, :name, :area_type, :longitude, :latitude, :long_lat_type
-  glue stop_area.parent do
-    attributes :objectid => :parent
-  end
-end
+child :stop_areas => :stop_area_short_descriptions do |stop_areas|
+  node do |stop_area|
+    partial("api/v1/stop_areas/short_description", :object => stop_area)
+  end 
+end unless root_object.stop_areas.empty?
