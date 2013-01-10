@@ -7,37 +7,11 @@ h3. Présentation
 
 Rails offre une interface Rest native permettant d'accéder aux objets du modèle selon des règles simples
 
-Celles-ci sont disponibles mais se limitent aux règles de navigation de l'IHM de Chouette
+Celles-ci sont disponibles mais se limitent aux règles de navigation de l'IHM de Chouette, elle est donc déconseillée.
 
-Une API dédiée à des accès automatisés est ajoutée afin de permettre des développement externes exploitant les données de Chouette sans s'inclure dans l'application ni devoir disposer d'un accès direct à la base.
+Une API dédiée à des accès automatisés est donc ajoutée afin de permettre des développement externes exploitant les données de Chouette sans s'inclure dans l'application ni devoir disposer d'un accès direct à la base.
 
-h3. API native
-
-h4. Syntaxe
-
-Les différents objets Neptune sont accessibles dans Chouette par l'URL Rest:
-??[URL_server]/[referential_id]/[Objects]/[id].[format]??
-la liste des objets d'un même type peut être obtenue par l'URL REST : 
-??[URL_server]/[referential_id]/[Objects].[format]??
-où :
-* URL_server : l'adresse web d'installation du serveur Chouette
-* referential_id: l'identifiant de l'espace de données
-* Objects: le type d'objet demandé (au pluriel) 
-** networks
-** lines
-** companies
-** ...
-* id : l'identifiant de l'objet désiré
-* format : le format de sortie :
-** json
-** xml
-
-h4. Exemples 
-
-??http://chouette.mobi/chouette2/referentials/4/lines/674.json??
-??http://chouette.mobi/chouette2/referentials/4/lines/674.xml??
-
-h3. API dédiée 
+h3. API REST Chouette 
 
 h4. Principe
 
