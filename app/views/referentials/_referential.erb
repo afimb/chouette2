@@ -10,5 +10,5 @@
       <%= link_to t("actions.destroy"), referential_path(referential), :method => :delete, :data => {:confirm =>  t('referentials.actions.destroy_confirm')}, :class => "remove" %>
     </div>
   </div>
-  <%= javascript_include_tag referential_path(referential, :format => :js) %>
+<%= javascript_include_tag referential_path(referential,:format => :js) %>
 <% end %>

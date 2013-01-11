@@ -12,17 +12,12 @@ return $(info.find('.' + key)[0]).text(value);
 };
 return $.each(json, update_info);
 };
-update_referential_details = function(ref) {
-var ref_id;
-ref_id = $(ref).attr("id").match(/(\d+)$/)[0];
-return $.getJSON(<%= referential_path(@referential, :type => :json) %>, update_infos);
+update_referential_details = function() {
+return $.getJSON(<%= referential_path(@referential, :format => :json) %>, update_infos);
 };
-_ref = $('.referentials.index .referential');
 _results = [];
-for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-ref = _ref[_i];
-_results.push(update_referential_details(ref));
-}
+_results.push(update_referential_details());
+
 return _results; 
 });
 
