@@ -13,11 +13,13 @@ return $(info.find('.' + key)[0]).text(value);
 return $.each(json, update_info);
 };
 update_referential_details = function() {
-return $.getJSON(<%= referential_path(@referential, :format => :json) %>, update_infos);
+return $.getJSON("<%= referential_path(@referential, :format => :json) %>", update_infos);
 };
+
 _results = [];
 _results.push(update_referential_details());
 
 return _results; 
+});
 });
 
