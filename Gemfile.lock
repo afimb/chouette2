@@ -49,7 +49,7 @@ GIT
 
 GIT
   remote: git://github.com/dryade/ninoxe.git
-  revision: b5ad1e2ec58aaeef28664448f77aacfcf6aa170e
+  revision: 0f669a3b43179085fe3400792ae0faf00c884c93
   branch: V2_0_2
   specs:
     ninoxe (0.0.8)
