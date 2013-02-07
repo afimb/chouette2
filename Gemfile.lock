@@ -49,13 +49,14 @@ GIT
 
 GIT
   remote: git://github.com/dryade/ninoxe.git
-  revision: 0f669a3b43179085fe3400792ae0faf00c884c93
-  branch: V2_0_2
+  revision: fbc7d492337b48b4199ba7a6bc1db06579f356f1
+  branch: master
   specs:
     ninoxe (0.0.8)
       GeoRuby
       activerecord (>= 3.1.3)
       acts_as_list (>= 0.1.6)
+      foreigner (>= 1.3.0)
       geokit
       rails (>= 3.1.3)
 
@@ -150,7 +151,7 @@ GEM
     devise (2.1.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
-      railties (~> 3.1)
+      railties (~> 3.1)fbc7d492337b48b4199ba7a6bc1db06579f356f1
       warden (~> 1.2.1)
     devise_invitable (1.1.0)
       actionmailer (~> 3.0)
@@ -171,6 +172,8 @@ GEM
       ffi (>= 1.0.0)
       rake (~> 0.9)
       rdoc
+    foreigner (1.3.0)
+      activerecord (>= 3.0.0)
     formtastic (2.2.1)
       actionpack (>= 3.0)
     geokit (1.6.5)
@@ -200,8 +203,8 @@ GEM
     jruby-rack (1.1.9)
     jruby-rack-worker (0.4-java)
       jruby-rack (>= 1.1.1)
-    json (1.7.5)
-    json (1.7.5-java)
+    json (1.7.6)
+    json (1.7.6-java)
     json_pure (1.7.5)
     launchy (2.1.0)
       addressable (~> 2.2.6)
@@ -374,6 +377,7 @@ DEPENDENCIES
   devise_invitable
   factory_girl_rails (= 1.7)
   ffi-proj4!
+  foreigner (>= 1.3.0)
   formtastic
   georuby-ext!
   gravatar_image_tag

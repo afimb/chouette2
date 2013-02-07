@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121211085620) do
+ActiveRecord::Schema.define(:version => 20130207123618) do
 
   create_table "access_links", :force => true do |t|
     t.integer  "access_point_id",                        :limit => 8
@@ -526,5 +526,53 @@ ActiveRecord::Schema.define(:version => 20121211085620) do
 
   add_index "vehicle_journeys", ["objectid"], :name => "vehicle_journeys_objectid_key", :unique => true
   add_index "vehicle_journeys", ["route_id"], :name => "index_vehicle_journeys_on_route_id"
+
+  add_foreign_key "access_links", "access_points", :name => "aclk_acpt_fkey", :dependent => :delete
+  add_foreign_key "access_links", "stop_areas", :name => "aclk_area_fkey", :dependent => :delete
+
+  add_foreign_key "access_points", "stop_areas", :name => "access_area_fkey", :dependent => :delete
+
+  add_foreign_key "connection_links", "stop_areas", :name => "colk_endarea_fkey", :column => "arrival_id", :dependent => :delete
+  add_foreign_key "connection_links", "stop_areas", :name => "colk_startarea_fkey", :column => "departure_id", :dependent => :delete
+
+  add_foreign_key "group_of_lines_lines", "group_of_lines", :name => "groupofline_group_fkey", :dependent => :delete
+  add_foreign_key "group_of_lines_lines", "lines", :name => "groupofline_line_fkey", :dependent => :delete
+
+  add_foreign_key "journey_patterns", "routes", :name => "jp_route_fkey", :dependent => :delete
+  add_foreign_key "journey_patterns", "stop_points", :name => "arrival_point_fkey", :column => "arrival_stop_point_id", :dependent => :nullify
+  add_foreign_key "journey_patterns", "stop_points", :name => "departure_point_fkey", :column => "departure_stop_point_id", :dependent => :nullify
+
+  add_foreign_key "journey_patterns_stop_points", "journey_patterns", :name => "jpsp_jp_fkey", :dependent => :delete
+  add_foreign_key "journey_patterns_stop_points", "stop_points", :name => "jpsp_stoppoint_fkey", :dependent => :delete
+
+  add_foreign_key "lines", "companies", :name => "line_company_fkey", :dependent => :nullify
+  add_foreign_key "lines", "networks", :name => "line_ptnetwork_fkey", :dependent => :nullify
+
+  add_foreign_key "routes", "lines", :name => "route_line_fkey", :dependent => :delete
+
+  add_foreign_key "routing_constraints_lines", "lines", :name => "routingconstraint_line_fkey", :dependent => :delete
+  add_foreign_key "routing_constraints_lines", "stop_areas", :name => "routingconstraint_stoparea_fkey", :dependent => :delete
+
+  add_foreign_key "stop_areas", "stop_areas", :name => "area_parent_fkey", :column => "parent_id", :dependent => :nullify
+
+  add_foreign_key "stop_areas_stop_areas", "stop_areas", :name => "stoparea_child_fkey", :column => "child_id", :dependent => :delete
+  add_foreign_key "stop_areas_stop_areas", "stop_areas", :name => "stoparea_parent_fkey", :column => "parent_id", :dependent => :delete
+
+  add_foreign_key "stop_points", "routes", :name => "stoppoint_route_fkey", :dependent => :delete
+  add_foreign_key "stop_points", "stop_areas", :name => "stoppoint_area_fkey"
+
+  add_foreign_key "time_table_dates", "time_tables", :name => "tm_date_fkey", :dependent => :delete
+
+  add_foreign_key "time_table_periods", "time_tables", :name => "tm_period_fkey", :dependent => :delete
+
+  add_foreign_key "time_tables_vehicle_journeys", "time_tables", :name => "vjtm_tm_fkey", :dependent => :delete
+  add_foreign_key "time_tables_vehicle_journeys", "vehicle_journeys", :name => "vjtm_vj_fkey", :dependent => :delete
+
+  add_foreign_key "vehicle_journey_at_stops", "stop_points", :name => "vjas_sp_fkey", :dependent => :delete
+  add_foreign_key "vehicle_journey_at_stops", "vehicle_journeys", :name => "vjas_vj_fkey", :dependent => :delete
+
+  add_foreign_key "vehicle_journeys", "companies", :name => "vj_company_fkey", :dependent => :nullify
+  add_foreign_key "vehicle_journeys", "journey_patterns", :name => "vj_jp_fkey", :dependent => :delete
+  add_foreign_key "vehicle_journeys", "routes", :name => "vj_route_fkey", :dependent => :delete
 
 end

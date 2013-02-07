@@ -40,11 +40,11 @@ gem 'calendar_helper', :git => "git://github.com/topfunky/calendar_helper.git"
 
 gem "acts_as_tree", :git => "git://github.com/dryade/acts_as_tree.git"
 #gem 'ninoxe', :git => 'git://github.com/dryade/ninoxe.git'
-gem 'ninoxe', :git => 'git://github.com/dryade/ninoxe.git', :branch => 'V2_0_2'
+gem 'ninoxe', :git => 'git://github.com/dryade/ninoxe.git', :branch => 'master'
 #gem 'ninoxe', :git => 'git://chouette.dryade.priv/ninoxe' #, :path => '~/Projects/Ninoxe'
 #gem 'ninoxe', :path => '~/workspace/chouette/ninoxe'
 gem 'acts_as_list', '0.1.6'
-
+gem 'foreigner', '>=1.3.0'
 #gem 'composite_primary_keys', '~> 5.0.8'
 gem 'delayed_job_active_record'
 gem 'apartment',:git => 'git://github.com/dryade/apartment.git'
