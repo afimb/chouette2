@@ -12,6 +12,9 @@ ChouetteIhm::Application.routes.draw do
       resources :companies, :only => [:index, :show]
       resources :networks, :only => [:index, :show]
       resources :stop_areas, :only => [:index, :show]
+      resources :group_of_lines, :only => [:index, :show]
+      resources :access_points, :only => [:index, :show]
+      resources :access_links, :only => [:index, :show]
       resources :lines, :only => [:index, :show] do
         resources :journey_patterns, :only => [:index, :show]
         resources :routes, :only => [:index, :show] do
