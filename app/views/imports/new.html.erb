@@ -3,7 +3,6 @@
 <%= form_for([@referential, @import], :as => :import, :url => new_referential_import_path(@referential), :method => :get) do |form| %>
   <%= form.label :type %>
   <%= form.collection_select :type, Import.types, :to_s, :to_s %>
-  <%= form.submit "Sélectionner", :id => "import_type_submit" %>
 <% end %>
 
 <% @available_imports.each do |import| %>
