@@ -41,6 +41,9 @@ en:
       CSV_EXPORT: CSV Export
       CSV_OK_LINE: "Line %{0} exported"
       CSV_TOO_MUCH_ROUTES: "Line %{0} rejected : more than 2 routes"
+      NETEX_EXPORT: NeTEx Export
+      NETEX_EXPORTED_LINE: "Line %{0} (%{1}) exported"
+      NETEX_EMPTY_LINE: "Line %{0} (%{1}) without valid vehicle journey : not exported"
     severities:
       info: Information
       ok: Ok
@@ -53,6 +56,10 @@ en:
         zero:  export
         one:   export
         other: exports
+      neptune_export: 
+        zero:  Neptune Export 
+        one:   Neptune Export 
+        other: Neptune Exports 
       csv_export: 
         zero:  CSV Export
         one:   CSV Export 
@@ -61,6 +68,10 @@ en:
         zero:  GTFS Export
         one:   GTFS Export
         other: GTFS Exports
+      netex_export: 
+        zero:  NeTEx Export
+        one:   NeTEx Export
+        other: NeTEx Exports
     attributes:
       export:
         status: Status
@@ -114,6 +125,9 @@ fr:
       CSV_EXPORT: Export CSV
       CSV_OK_LINE: "Ligne %{0} exportée"
       CSV_TOO_MUCH_ROUTES: "Ligne %{0} non exportable : plus de 2 séquences d'arrêt"
+      NETEX_EXPORT: Export NeTEx
+      NETEX_EXPORTED_LINE: "Ligne %{0} (%{1}) exportée"
+      NETEX_EMPTY_LINE: "Ligne %{0} (%{1}) sans course valide : non exportée"
     severities:
       info: Information
       ok: Ok
@@ -138,6 +152,10 @@ fr:
         zero:  Export GTFS
         one:   Export GTFS
         other: Exports GTFS
+      netex_export: 
+        zero:  Export NeTEx
+        one:   Export NeTEx
+        other: Exports NeTEx
     attributes:
       export:
         status: Status

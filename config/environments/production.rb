@@ -69,7 +69,7 @@ ChouetteIhm::Application.configure do
   
   config.to_prepare do
     Devise::Mailer.layout "mailer"
-    Chouette::Command.command = "/usr/local/opt/chouette-command/chouette-gui-2.0.2/chouette"
+    Chouette::Command.command = "/usr/local/opt/chouette-command/chouette-gui-2.0.3/chouette"
     Import.root = "/var/lib/chouette/imports"
     Export.root = "/var/lib/chouette/exports"
     FileValidation.root = "/var/lib/chouette/validations"
