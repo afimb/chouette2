@@ -37,6 +37,7 @@ h2. Notes de version
 h3. V2.0.3 
 
 * Ajout des imports/export NeTex 
+* Fonctionnement sous windows
 
 h3. V2.0.2 
 
