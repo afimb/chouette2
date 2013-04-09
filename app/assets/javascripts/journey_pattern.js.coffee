@@ -9,11 +9,11 @@ jQuery ->
     else
       selectFeature.unselectAll()
 
-  $('.journey_patterns.show div.stop_points .stop_point').live("hover", select_stop_on_map)
+  $(document).on("hover", '.journey_patterns.show div.stop_points .stop_point', select_stop_on_map)
 
   make_ajax_pagination = () ->
     $.get(this.href, null, null, 'script')
     false
 
-  $('.stop_points_detail .pagination a').live("click", make_ajax_pagination)
+  $(document).on("click", '.stop_points_detail .pagination a', make_ajax_pagination)
 

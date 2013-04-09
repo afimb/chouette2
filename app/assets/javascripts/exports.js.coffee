@@ -18,6 +18,6 @@ jQuery ->
 
   export_type_change = (event) -> 
     export_type = $("select option:selected").attr("value")
-    $(form).toggle($(form).is("#" + export_type + "_new")) for form in $('form.export')
+    $(form).toggle($(form).is("#" + export_type + "_new")) for form in $('form.export[method = "post"]')
 
   $('#export_type').change(export_type_change)
