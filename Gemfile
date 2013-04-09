@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.2.6'    
 
 platforms :jruby do
-  gem 'activerecord-jdbcpostgresql-adapter'
+  gem 'activerecord-jdbcpostgresql-adapter', '1.2.9'
   gem 'activerecord-jdbcsqlite3-adapter'
   gem 'jruby-openssl'
   gem "jruby-rack-worker"
@@ -29,10 +29,10 @@ gem "georuby-ext", "0.0.2"
 gem 'user_interface', "0.0.2"
 gem 'gravatar_image_tag'
 gem 'calendar_helper', "0.2.5"
-gem 'cocoon'
+gem 'cocoon', "1.1.2"
 gem 'formtastic'
 gem 'RedCloth'
-gem 'jquery-rails'
+gem 'jquery-rails', '2.2.1'
 gem "modernizr-rails", "~> 2.0.6"
 
 # Format Output
