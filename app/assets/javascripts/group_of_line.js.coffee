@@ -12,4 +12,4 @@ jQuery ->
     $.get(this.href, null, null, 'script')
     false
 
-  $('.group_of_lines.show .lines_detail .pagination a').live("click", make_ajax_pagination)
+  $(document).on("click", '.group_of_lines.show .lines_detail .pagination a', make_ajax_pagination)
