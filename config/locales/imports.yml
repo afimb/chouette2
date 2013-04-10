@@ -21,6 +21,38 @@ en:
       completed: Completed import
       failed: Failed import
       undefined: "%{key} undefined"
+      IMPORT: Import on %{0} format
+      ZIP_FILE: ZIP File %{0}
+      ZIP_ERROR: Error %{0}
+      FILE: File %{0}
+      FILE_ERROR: Error %{0}
+      FILE_IGNORED: "Unknown file format ; ignored"
+      VALIDATION_ERROR: "Le fichier ne respecte pas la grammaire : %{0}"
+      VALIDATION_CAUSE: %{0}
+      IMPORTED_LINE: Ligne importée %{0}
+      LINE_COUNT: "Nombre de lignes extraites : %{0}"
+      TIME_TABLE_COUNT: "Nombre de calendriers extraits : %{0}"
+      ROUTE_COUNT: "Nombre de séquences d'arrêts extraites : %{0}"
+      JOURNEY_PATTERN_COUNT: "Nombre de missions extraites : %{0}"
+      VEHICLE_JOURNEY_COUNT: "Nombre de courses extraites : %{0}"
+      STOP_AREA_COUNT: "Nombre d'arrêts extraits : %{0}"
+      CONNECTION_LINK_COUNT: "Nombre de correspondances extraites : %{0}"
+      ACCES_POINT_COUNT: "Nombre de points d'accès extraits : %{0}"
+      MANDATORY_TAG: "Valeur obligatoire absente ou vide : %{0} "
+      UNKNOWN_ENUM: "Valeur de l'enum %{0} inconnue : %{1} "
+      EMPTY_TAG: "Valeur vide : %{0}"
+      BAD_REFERENCE: "Référence %{0} manquante pour %{1}"
+      EMPTY_LINE: "Empty Line %{0} "
+      EMPTY_ROUTE: "Empty Route {0} "
+      EMPTY_JOURNEY_PATTERN: "Empty Journey pattern %{0}"
+      EMPTY_VEHICLE_JOURNEY: "Empty Vehicle journey %{0} "
+      EMPTY_TIMETABLE: "Empty Timetable %{0} "
+      SAVE_OK: "%{0} saved"
+      SAVE_ERROR: "%{0} save failed : %{1}"
+      IMPORT_ERROR: "Import Error"
+      EXCEPTION: "Problem : %{0}"
+      # old Import reports (before 2.0.3)
+      SAVE: Save 
       NEPTUNE_ONE: Conformité du fichier
       NEPTUNE_TooMuchDetails: ( %{0} erreurs / warnings supplémentaires )
       NEPTUNE_Test1_Sheet1: 'Fiche n° 1.1 : Conformité à la syntaxe XML suivant les recommandations du W3C'
@@ -61,11 +93,6 @@ en:
       CSV_FILE_FORMAT: Invalid or deprecated CSV format
       CSV_BAD_ID: "Invalid built Neptune Object ID : %{1} for %{0} "
       CSV_UNUSED_TIMETABLE: Unused timetable %{0} (%{1})
-      SAVE: Save 
-      SAVE_OK: "%{0} saved"
-      SAVE_ERROR: "%{0} save failed : %{1}"
-      IMPORT_ERROR: "Import Error"
-      EXCEPTION: "Problem : %{0}"
     severities:
       info: Information
       uncheck: Unchecked
@@ -134,6 +161,38 @@ fr:
       completed: Import achevé avec succès
       failed: Import interrompu
       undefined: "%{key} non défini"
+      IMPORT: Import au format %{0}
+      ZIP_FILE: Fichier ZIP %{0}
+      ZIP_ERROR: Erreur %{0}
+      FILE: Fichier %{0}
+      FILE_ERROR: Erreur %{0}
+      FILE_IGNORED: "Format non traité; ignoré"
+      VALIDATION_ERROR: "Le fichier ne respecte pas la grammaire : %{0}"
+      VALIDATION_CAUSE: %{0}
+      IMPORTED_LINE: Ligne importée %{0}
+      LINE_COUNT: "Nombre de lignes extraites : %{0}"
+      TIME_TABLE_COUNT: "Nombre de calendriers extraits : %{0}"
+      ROUTE_COUNT: "Nombre de séquences d'arrêts extraites : %{0}"
+      JOURNEY_PATTERN_COUNT: "Nombre de missions extraites : %{0}"
+      VEHICLE_JOURNEY_COUNT: "Nombre de courses extraites : %{0}"
+      STOP_AREA_COUNT: "Nombre d'arrêts extraits : %{0}"
+      CONNECTION_LINK_COUNT: "Nombre de correspondances extraites : %{0}"
+      ACCES_POINT_COUNT: "Nombre de points d'accès extraits : %{0}"
+      MANDATORY_TAG: "Valeur obligatoire absente ou vide : %{0} "
+      UNKNOWN_ENUM: "Valeur de l'enum %{0} inconnue : %{1} "
+      EMPTY_TAG: "Valeur vide : %{0}"
+      BAD_REFERENCE: "Référence %{0} manquante pour %{1}"
+      EMPTY_LINE: "Ligne %{0} sans séquence d'arrêt"
+      EMPTY_ROUTE: "Séquence d'arrêts %{0} sans mission ou arrêt"
+      EMPTY_JOURNEY_PATTERN: "Mission %{0} sans arrêt ou course"
+      EMPTY_VEHICLE_JOURNEY: "Course %{0} sans horaire"
+      EMPTY_TIMETABLE: "Calendrier %{0} sans jours ni période"
+      SAVE_OK: "%{0} enregistré"
+      SAVE_ERROR: "Echec de l'enregistrement de %{0} : %{1}"
+      IMPORT_ERROR: "Erreur d'import"
+      EXCEPTION: "Problème : %{0}"
+      # old Import reports (before 2.0.3)
+      SAVE: Sauvegarde 
       NEPTUNE_ONE: Conformité du fichier
       NEPTUNE_TooMuchDetails: ( %{0} erreurs / warnings supplémentaires )
       NEPTUNE_Test1_Sheet1: 'Fiche n° 1.1 : Conformité à la syntaxe XML suivant les recommandations du W3C'
@@ -174,11 +233,6 @@ fr:
       CSV_FILE_FORMAT: Format CSV invalide ou obsolète
       CSV_BAD_ID: "Identifiant Neptune produit invalide : %{1} pour %{0} "
       CSV_UNUSED_TIMETABLE: "Tableau de marche %{0} (%{1}) inutilisé"
-      SAVE: Sauvegarde 
-      SAVE_OK: "%{0} enregistré"
-      SAVE_ERROR: "Echec de l'enregistrement de %{0} : %{1}"
-      IMPORT_ERROR: "Erreur d'import"
-      EXCEPTION: "Problème : %{0}"
     severities:
       info: Information
       uncheck: Non testé
