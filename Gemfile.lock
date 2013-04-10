@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/dryade/ninoxe.git
+  revision: 7d9a16621e075a684886f7ab5723e0b2e25ba45c
+  specs:
+    ninoxe (0.1.1)
+      activerecord (>= 3.1.3)
+      acts_as_list (= 0.1.6)
+      foreigner (= 1.4.0)
+      georuby-ext (= 0.0.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -180,11 +190,6 @@ GEM
     net-ssh (2.6.2)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
-    ninoxe (0.1.1)
-      activerecord (>= 3.1.3)
-      acts_as_list (= 0.1.6)
-      foreigner (= 1.4.0)
-      georuby-ext (= 0.0.2)
     nokogiri (1.5.9)
     nokogiri (1.5.9-java)
     open4 (1.3.0)
@@ -343,7 +348,7 @@ DEPENDENCIES
   launchy
   map_layers (= 0.0.4)
   modernizr-rails (~> 2.0.6)
-  ninoxe (= 0.1.1)
+  ninoxe!
   pg (~> 0.11.0)
   rabl
   rails (= 3.2.6)
