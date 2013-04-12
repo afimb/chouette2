@@ -123,20 +123,20 @@ ActiveRecord::Schema.define(:version => 20130207123618) do
     t.datetime "failed_at"
     t.string   "locked_by"
     t.string   "queue"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "export_log_messages", :force => true do |t|
-    t.integer  "export_id"
+    t.integer  "export_id",  :limit => 8
     t.string   "key"
     t.string   "arguments",  :limit => 1000
     t.integer  "position"
     t.string   "severity"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   add_index "export_log_messages", ["export_id"], :name => "index_export_log_messages_on_export_id"
@@ -146,8 +146,8 @@ ActiveRecord::Schema.define(:version => 20130207123618) do
     t.string   "status"
     t.string   "type"
     t.string   "options"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.string   "references_type"
     t.string   "reference_ids"
   end
@@ -186,7 +186,7 @@ ActiveRecord::Schema.define(:version => 20130207123618) do
   end
 
   create_table "file_validation_log_messages", :force => true do |t|
-    t.integer  "file_validation_id"
+    t.integer  "file_validation_id", :limit => 8
     t.string   "key"
     t.string   "arguments",          :limit => 1000
     t.integer  "position"
@@ -207,16 +207,6 @@ ActiveRecord::Schema.define(:version => 20130207123618) do
     t.integer  "organisation_id"
   end
 
-  create_table "geometry_columns", :id => false, :force => true do |t|
-    t.string  "f_table_catalog",   :limit => 256, :null => false
-    t.string  "f_table_schema",    :limit => 256, :null => false
-    t.string  "f_table_name",      :limit => 256, :null => false
-    t.string  "f_geometry_column", :limit => 256, :null => false
-    t.integer "coord_dimension",                  :null => false
-    t.integer "srid",                             :null => false
-    t.string  "type",              :limit => 30,  :null => false
-  end
-
   create_table "group_of_lines", :force => true do |t|
     t.string   "objectid",       :null => false
     t.integer  "object_version"
@@ -234,13 +224,13 @@ ActiveRecord::Schema.define(:version => 20130207123618) do
   end
 
   create_table "import_log_messages", :force => true do |t|
-    t.integer  "import_id"
+    t.integer  "import_id",  :limit => 8
     t.string   "key"
     t.string   "arguments",  :limit => 1000
     t.integer  "position"
     t.string   "severity"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   add_index "import_log_messages", ["import_id"], :name => "index_import_log_messages_on_import_id"
@@ -248,8 +238,8 @@ ActiveRecord::Schema.define(:version => 20130207123618) do
   create_table "imports", :force => true do |t|
     t.integer  "referential_id"
     t.string   "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "type"
     t.string   "options"
     t.string   "file_type"
@@ -342,12 +332,11 @@ ActiveRecord::Schema.define(:version => 20130207123618) do
   create_table "referentials", :force => true do |t|
     t.string   "name"
     t.string   "slug"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.string   "prefix"
     t.string   "projection_type"
     t.string   "time_zone"
-    t.string   "the_geom"
     t.string   "bounds"
     t.integer  "organisation_id"
   end
@@ -372,14 +361,6 @@ ActiveRecord::Schema.define(:version => 20130207123618) do
   create_table "routing_constraints_lines", :id => false, :force => true do |t|
     t.integer "stop_area_id", :limit => 8
     t.integer "line_id",      :limit => 8
-  end
-
-  create_table "spatial_ref_sys", :id => false, :force => true do |t|
-    t.integer "srid",                      :null => false
-    t.string  "auth_name", :limit => 256
-    t.integer "auth_srid"
-    t.string  "srtext",    :limit => 2048
-    t.string  "proj4text", :limit => 2048
   end
 
   create_table "stop_areas", :force => true do |t|
@@ -486,8 +467,8 @@ ActiveRecord::Schema.define(:version => 20130207123618) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                           :null => false
+    t.datetime "updated_at",                                           :null => false
     t.integer  "organisation_id"
     t.string   "name"
     t.string   "confirmation_token"

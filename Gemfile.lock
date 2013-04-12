@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/dryade/ninoxe.git
-  revision: 7d9a16621e075a684886f7ab5723e0b2e25ba45c
+  revision: fbbc73d923d398a4b349839d2e45e443a2acb5b8
   specs:
-    ninoxe (0.1.1)
+    ninoxe (0.1.2)
       activerecord (>= 3.1.3)
       acts_as_list (= 0.1.6)
       foreigner (= 1.4.0)
