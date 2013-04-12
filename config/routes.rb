@@ -164,5 +164,9 @@ ChouetteIhm::Application.routes.draw do
   match '/help/(*slug)' => 'help#show'
   match '/test_sheet/(*slug)' => 'test_sheet#show'
 
+  match '/404', :to => 'errors#not_found'
+  match '/422', :to => 'errors#server_error'
+  match '/500', :to => 'errors#server_error'
+
   root :to => 'referentials#index'
 end

@@ -1,0 +1,15 @@
+#workspace.errors {
+
+   body {text-align: center;  }
+    div.error {
+      width: 45em;
+      padding:1em;
+      margin: 2em auto 0 auto;
+      border: 1px solid #ccc;
+      border-right-color: #999;
+      border-bottom-color: #999;
+    }
+      h2 { font-size: 100%; color: #f00; line-height: 1.5em; font-weight: bold}
+      a,a:visited { text-decoration: underline; color: blue}
+
+}

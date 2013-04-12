@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/dryade/ninoxe.git
+  revision: fbbc73d923d398a4b349839d2e45e443a2acb5b8
+  specs:
+    ninoxe (0.1.2)
+      activerecord (>= 3.1.3)
+      acts_as_list (= 0.1.6)
+      foreigner (= 1.4.0)
+      georuby-ext (= 0.0.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -107,8 +117,6 @@ GEM
     ffi (1.0.11-java)
     ffi-geos (0.1.1)
       ffi (>= 1.0.0)
-      rake (~> 0.9)
-      rdoc
     foreigner (1.4.0)
       activerecord (>= 3.0.0)
     formtastic (2.2.1)
@@ -153,7 +161,7 @@ GEM
       jruby-rack (>= 1.1.1)
     json (1.7.7)
     json (1.7.7-java)
-    json_pure (1.7.5)
+    json_pure (1.7.7)
     launchy (2.1.0)
       addressable (~> 2.2.6)
     launchy (2.1.0-java)
@@ -182,13 +190,8 @@ GEM
     net-ssh (2.6.2)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
-    ninoxe (0.1.0)
-      activerecord (>= 3.1.3)
-      acts_as_list (= 0.1.6)
-      foreigner (= 1.4.0)
-      georuby-ext (= 0.0.2)
-    nokogiri (1.5.5)
-    nokogiri (1.5.5-java)
+    nokogiri (1.5.9)
+    nokogiri (1.5.9-java)
     open4 (1.3.0)
     orm_adapter (0.4.0)
     pg (0.11.0)
@@ -220,7 +223,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
-    rake (0.9.6)
+    rake (10.0.4)
     ransack (0.7.0)
       actionpack (~> 3.0)
       activerecord (~> 3.0)
@@ -292,7 +295,7 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.35)
+    tzinfo (0.3.37)
     uglifier (1.2.7)
       execjs (>= 0.3.0)
       multi_json (~> 1.3)
@@ -345,7 +348,7 @@ DEPENDENCIES
   launchy
   map_layers (= 0.0.4)
   modernizr-rails (~> 2.0.6)
-  ninoxe (= 0.1.0)
+  ninoxe!
   pg (~> 0.11.0)
   rabl
   rails (= 3.2.6)
