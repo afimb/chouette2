@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130207123618) do
+ActiveRecord::Schema.define(:version => 20130412083423) do
 
   create_table "access_links", :force => true do |t|
     t.integer  "access_point_id",                        :limit => 8
@@ -130,7 +130,7 @@ ActiveRecord::Schema.define(:version => 20130207123618) do
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "export_log_messages", :force => true do |t|
-    t.integer  "export_id",  :limit => 8
+    t.integer  "export_id"
     t.string   "key"
     t.string   "arguments",  :limit => 1000
     t.integer  "position"
@@ -186,7 +186,7 @@ ActiveRecord::Schema.define(:version => 20130207123618) do
   end
 
   create_table "file_validation_log_messages", :force => true do |t|
-    t.integer  "file_validation_id", :limit => 8
+    t.integer  "file_validation_id"
     t.string   "key"
     t.string   "arguments",          :limit => 1000
     t.integer  "position"
@@ -207,6 +207,16 @@ ActiveRecord::Schema.define(:version => 20130207123618) do
     t.integer  "organisation_id"
   end
 
+  create_table "geometry_columns", :id => false, :force => true do |t|
+    t.string  "f_table_catalog",   :limit => 256, :null => false
+    t.string  "f_table_schema",    :limit => 256, :null => false
+    t.string  "f_table_name",      :limit => 256, :null => false
+    t.string  "f_geometry_column", :limit => 256, :null => false
+    t.integer "coord_dimension",                  :null => false
+    t.integer "srid",                             :null => false
+    t.string  "type",              :limit => 30,  :null => false
+  end
+
   create_table "group_of_lines", :force => true do |t|
     t.string   "objectid",       :null => false
     t.integer  "object_version"
@@ -224,7 +234,7 @@ ActiveRecord::Schema.define(:version => 20130207123618) do
   end
 
   create_table "import_log_messages", :force => true do |t|
-    t.integer  "import_id",  :limit => 8
+    t.integer  "import_id"
     t.string   "key"
     t.string   "arguments",  :limit => 1000
     t.integer  "position"
@@ -363,6 +373,14 @@ ActiveRecord::Schema.define(:version => 20130207123618) do
     t.integer "line_id",      :limit => 8
   end
 
+  create_table "spatial_ref_sys", :id => false, :force => true do |t|
+    t.integer "srid",                      :null => false
+    t.string  "auth_name", :limit => 256
+    t.integer "auth_srid"
+    t.string  "srtext",    :limit => 2048
+    t.string  "proj4text", :limit => 2048
+  end
+
   create_table "stop_areas", :force => true do |t|
     t.integer  "parent_id",           :limit => 8
     t.string   "objectid",                                                         :null => false
@@ -444,6 +462,8 @@ ActiveRecord::Schema.define(:version => 20130207123618) do
     t.string   "version"
     t.string   "comment"
     t.integer  "int_day_types",  :default => 0
+    t.date     "start_date"
+    t.date     "end_date"
   end
 
   add_index "time_tables", ["objectid"], :name => "time_tables_objectid_key", :unique => true
@@ -521,7 +541,7 @@ ActiveRecord::Schema.define(:version => 20130207123618) do
     t.string   "published_journey_identifier"
     t.string   "facility"
     t.string   "vehicle_type_identifier"
-    t.integer  "number"
+    t.integer  "number",                       :limit => 8
   end
 
   add_index "vehicle_journeys", ["objectid"], :name => "vehicle_journeys_objectid_key", :unique => true
