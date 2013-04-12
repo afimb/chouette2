@@ -38,6 +38,8 @@ h3. V2.0.3
 
 * Ajout des imports/export NeTex 
 * Fonctionnement sous windows
+* Prise en compte de grandes quantités de calendriers.
+* Reprise des logs d'import Neptune
 
 h3. V2.0.2 
 
