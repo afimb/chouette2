@@ -35,5 +35,10 @@ class JourneyPatternsController < ChouetteController
     @vehicle_journey.update_journey_pattern(resource)
     render "vehicle_journeys/select_journey_pattern"
   end
+  # overwrite inherited resources to use delete instead of destroy 
+  # foreign keys will propagate deletion)
+  def destroy_resource(object)
+        object.delete
+  end
 
 end

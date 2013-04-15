@@ -14,6 +14,10 @@ class LinesController < ChouetteController
     show!
   end
 
+  def destroy_resource(object)
+        object.delete
+  end
+      
   def destroy_all
     objects =
       get_collection_ivar || set_collection_ivar(end_of_association_chain.where(:id => params[:ids]))
