@@ -167,7 +167,7 @@ fr:
         objectid: "Identifiant Neptune"
         object_version: "Version"
         creation_time: "Créé le"
-        creator_id: "Créé pa"r
+        creator_id: "Créé par"
         children_ids: "Fils" 
         routing_stop_ids: "Arrêts concernés par l'ITL"
         routing_line_ids: "Lignes affectées par l'ITL"
