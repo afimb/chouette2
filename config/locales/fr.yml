@@ -227,8 +227,8 @@ fr:
 # FIN: https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/fr.yml
   "true": "oui"
   "false": "non"
-  or: ou
-  back: Revenir
+  or: "ou"
+  back: "Revenir"
   today: "Aujourd'hui"
   yesterday: "Hier"
   edit_periods: "Editer Périodes"   

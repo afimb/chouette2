@@ -1,17 +1,17 @@
 en:
   api_keys:
     actions:
-      new: Add a new api key
-      edit: Edit this api key
-      destroy: Remove this api key
-      destroy_confirm: Are you sure you want destroy this api key?
+      new: "Add a new api key"
+      edit: "Edit this api key"
+      destroy: "Remove this api key"
+      destroy_confirm: "Are you sure you want destroy this api key?"
     new:
-      title: Add a new api key
+      title: "Add a new api key"
     edit:
-      title: Update api key
+      title: "Update api key"
   activerecord:        
     models:        
-      api_key: Api Key
+      api_key: "Api Key"
 fr:
   api_keys:
     actions:
@@ -28,5 +28,5 @@ fr:
       api_key: "Clé d'accès API"
     attributes:
       api_key:
-        name: Nom
+        name: "Nom"
 

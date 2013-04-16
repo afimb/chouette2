@@ -13,14 +13,14 @@ en:
       title: "Company  %{company}"
     index:
       title: "Companies"
-      name: Name
+      name: "Name"
 
   activerecord:
     models:
       company:
-        zero:  company
-        one:   company
-        other: companies
+        zero:  "company"
+        one:   "company"
+        other: "companies"
     attributes:
       company:
         registration_number: "Registration number"
@@ -32,14 +32,14 @@ en:
         phone: "Phone number"
         fax: "Fax number"
         email: "Email"
-        objectid: Neptune identifier
-        object_version: Version
-        creation_time: Created on
-        creator_id: Created by 
+        objectid: "Neptune identifier"
+        object_version: "Version"
+        creation_time: "Created on"
+        creator_id: "Created by "
   formtastic:
     hints:
       company:
-        registration_number: only alphanumerical or underscore characters 
+        registration_number: "only alphanumerical or underscore characters "
         objectid: "[prefix]:Company:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
 
 fr:
@@ -57,14 +57,14 @@ fr:
       title: "Transporteur %{company}"
     index:
       title: "Transporteurs"
-      name: Nom
+      name: "Nom"
 
   activerecord:
     models:
       company: 
-        zero:  transporteur
-        one:   transporteur
-        other: transporteurs
+        zero:  "transporteur"
+        one:   "transporteur"
+        other: "transporteurs"
     attributes:
       company:
         registration_number: "Numéro d'enregistrement"

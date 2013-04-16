@@ -6,23 +6,23 @@ en:
     attributes:
       subscription:
         organisation_name: "Organisation"
-        user_name: User full name
+        user_name: "User full name"
         email: "Email address"
         password: "Password"
         password_confirmation: "Password confirmation"
         current_password: "Actual password"
   subscriptions:
     new:
-      title: Create your account
+      title: "Create your account"
     actions:
-      new: Create an account
+      new: "Create an account"
 fr:
   subscriptions:
     success: "Inscription enregistrée"
     failure: "Inscription invalide"
   activemodel:
     models:        
-      subscription: compte
+      subscription: "compte"
     attributes:
       subscription:
         organisation_name: "Organisation"
@@ -33,6 +33,6 @@ fr:
         current_password: "Mot de passe actuel"
   subscriptions:
     new:
-      title: Créer votre compte
+      title: "Créer votre compte"
     actions:
-      new: Créer un compte
+      new: "Créer un compte"
