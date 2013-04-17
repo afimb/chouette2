@@ -61,21 +61,21 @@ en:
         one:   "export"
         other: "exports"
       neptune_export: 
-        zero:  "Neptune Export"
+        zero:  "Export"
         one:   "Neptune Export" 
-        other: "Neptune Exports"
+        other: "Exports"
       csv_export: 
-        zero:  "CSV Export"
+        zero:  "Export"
         one:   "CSV Export" 
-        other: "CSV Exports"
+        other: "Exports"
       gtfs_export: 
-        zero:  "GTFS Export"
+        zero:  "Export"
         one:   "GTFS Export"
-        other: "GTFS Exports"
+        other: "Exports"
       netex_export: 
-        zero:  "NeTEx Export"
+        zero:  "Export"
         one:   "NeTEx Export"
-        other: "NeTEx Exports"
+        other: "Exports"
     attributes:
       export:
         status: "Status"
@@ -149,21 +149,21 @@ fr:
         one:   "export"
         other: "exports"
       neptune_export: 
-        zero:  "Export Neptune"
+        zero:  "Export"
         one:   "Export Neptune"
-        other: "Exports Neptune"
+        other: "Exports"
       csv_export: 
-        zero:  "Export CSV"
+        zero:  "Export"
         one:   "Export CSV"
-        other: "Exports CSV"
+        other: "Exports"
       gtfs_export: 
-        zero:  "Export GTFS"
+        zero:  "Export"
         one:   "Export GTFS"
-        other: "Exports GTFS"
+        other: "Exports"
       netex_export: 
-        zero:  "Export NeTEx"
+        zero:  "Export"
         one:   "Export NeTEx"
-        other: "Exports NeTEx"
+        other: "Exports"
     attributes:
       export:
         status: "Status"

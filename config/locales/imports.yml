@@ -107,17 +107,21 @@ en:
         one:   "import"
         other: "imports"
       neptune_import:
-        zero:  "Neptune import"
+        zero:  "import"
         one:   "Neptune import"
-        other: "Neptune imports"
+        other: "imports"
       csv_import:
-        zero:  "CSV import"
+        zero:  "import"
         one:   "CSV import"
-        other: "CSV imports"
+        other: "imports"
       gtfs_import:
-        zero:  "GTFS import"
+        zero:  "import"
         one:   "GTFS import"
-        other: "GTFS imports"
+        other: "imports"
+      netex_import:
+        zero:  "import"
+        one:   "NeTEx import"
+        other: "imports"
     attributes:
       import:
         resources: "File to import"
@@ -247,17 +251,21 @@ fr:
         one:   "import"
         other: "imports"
       neptune_import:
-        zero:  "import Neptune"
+        zero:  "import"
         one:   "import Neptune"
-        other: "imports Neptune"
+        other: "imports"
       csv_import:
-        zero:  "import CSV"
+        zero:  "import"
         one:   "import CSV"
-        other: "imports CSV"
+        other: "imports"
       gtfs_import:
-        zero:  "import GTFS"
+        zero:  "import"
         one:   "import GTFS"
-        other: "imports GTFS"
+        other: "imports"
+      netex_import:
+        zero:  "import"
+        one:   "import NeTEx"
+        other: "imports"
     attributes:
       import:
         resources: "Fichier à importer"
