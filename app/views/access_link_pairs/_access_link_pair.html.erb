@@ -14,7 +14,7 @@
     <td>
     	<% if access_link_pair.out_valid? %>
     	   <% if access_link_pair.out_exists? %>
-    	      <%= link_to(referential_access_point_access_link_path(@referential, access_link_pair.access_point,access_link_pair.stop_area,access_link_pair.to_access_point)) do %>
+    	      <%= link_to(referential_access_point_access_link_path(@referential, access_link_pair.access_point,access_link_pair.to_access_point)) do %>
     	         <%= image_tag "icons/green_left_arrow.png"   %>
     	      <% end %>
     	   <% else %>
