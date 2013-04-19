@@ -1,17 +1,17 @@
 en:
   area_types:
     label:
-      boarding_position: Boarding Position
-      quay: Quay
-      commercial_stop_point: Commercial Stop Point
-      stop_place: Stop Place
-      itl: Restriction Constraint
+      boarding_position: "Boarding Position"
+      quay: "Quay"
+      commercial_stop_point: "Commercial Stop Point"
+      stop_place: "Stop Place"
+      itl: "Restriction Constraint"
       
 fr:
   area_types:
     label:
       boarding_position: "Point d'embarquement"
-      quay: Quai
-      commercial_stop_point: Arrêt commercial
+      quay: "Quai"
+      commercial_stop_point: "Arrêt commercial"
       stop_place: "Pôle d'échange"
-      itl: ITL
+      itl: "ITL"

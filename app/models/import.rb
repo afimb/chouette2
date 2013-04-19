@@ -36,7 +36,7 @@ class Import < ActiveRecord::Base
       subclasses.map(&:to_s)
     else
       # FIXME
-      %w{NeptuneImport CsvImport GtfsImport}
+      %w{NeptuneImport CsvImport GtfsImport NetexImport}
     end
   end
 
@@ -88,7 +88,7 @@ class Import < ActiveRecord::Base
   end
 
   def name
-    "#{Import.model_name.humanize} #{id}"
+    "#{self.class.model_name.human} #{id}"
   end
 
   def import_options

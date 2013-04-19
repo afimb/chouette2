@@ -1,36 +1,40 @@
 en:
   exports:
     actions:
-      new: New export
-      destroy: Destroy
-      destroy_confirm: Are you sure you want destroy this export?
-      download: Download
+      new: "New export"
+      destroy: "Destroy"
+      destroy_confirm: "Are you sure you want destroy this export?"
+      download: "Download"
     new:
-      title: New export
-      all: All
+      title: "New export"
+      all: "All"
     index:
-      title: Exports
+      title: "Exports"
       warning: ""
     show:
-      report: Report
+      report: "Report"
     statuses:
-      pending: Pending
-      completed: Completed
-      failed: Failed
+      pending: "Pending"
+      completed: "Completed"
+      failed: "Failed"
   export_log_messages:
     messages:
-      started: Started export
-      completed: Completed export
-      failed: Failed export
+      started: "Started export"
+      completed: "Completed export"
+      failed: "Failed export"
       undefined: "%{key} undefined"
+      EXPORT: %{0} Export
+      EXPORTED_LINE: "Line %{0} (%{1}) exported"
+      EMPTY_LINE: "Line without valid vehicle journey : not exported"
       EXPORT_ERROR: "Error durring export"
       EXCEPTION: "Origin %{0}" 
-      NEPTUNE_EXPORT: Neptune Export
+      # old report for backward compatibility
+      NEPTUNE_EXPORT: "Neptune Export"
       NEPTUNE_EXPORTED_LINE: "Line %{0} (%{1}) exported"
       NEPTUNE_EMPTY_LINE: "Line %{0} (%{1}) without valid vehicle journey : not exported"
-      GTFS_EXPORT: GTFS Export
-      GTFS_OK: Export GTFS terminated
-      GTFS_NO_LINE: No line to export
+      GTFS_EXPORT: "GTFS Export"
+      GTFS_OK: "Export GTFS terminated"
+      GTFS_NO_LINE: "No line to export"
       GTFS_MISSING_PARAMETER: "Missing parameter : %{0}"
       GTFS_UNKNOWN_PARAMETER: "Unknown parameter : %{0}"
       GTFS_FILE_ACCESS: "Unable to access file %{0}"
@@ -38,72 +42,87 @@ en:
       GTFS_EMPTY_DATA: "No %{0} data to export"
       GTFS_INVALID_DATA: "%{0} %{1} : invalid data %{2}=%{3}"
       GTFS_MISSING_DATA: "%{0} %{1} : missing value for : %{2}"
-      CSV_EXPORT: CSV Export
+      CSV_EXPORT: "CSV Export"
       CSV_OK_LINE: "Line %{0} exported"
       CSV_TOO_MUCH_ROUTES: "Line %{0} rejected : more than 2 routes"
+      NETEX_EXPORT: "NeTEx Export"
+      NETEX_EXPORTED_LINE: "Line %{0} (%{1}) exported"
+      NETEX_EMPTY_LINE: "Line %{0} (%{1}) without valid vehicle journey : not exported"
     severities:
-      info: Information
-      ok: Ok
-      warning: Warning
-      error: Error
-      fatal: Fatal
+      info: "Information"
+      ok: "Ok"
+      warning: "Warning"
+      error: "Error"
+      fatal: "Fatal"
   activerecord:        
     models:        
       export:
-        zero:  export
-        one:   export
-        other: exports
+        zero:  "export"
+        one:   "export"
+        other: "exports"
+      neptune_export: 
+        zero:  "Export"
+        one:   "Neptune Export" 
+        other: "Exports"
       csv_export: 
-        zero:  CSV Export
-        one:   CSV Export 
-        other: CSV Exports
+        zero:  "Export"
+        one:   "CSV Export" 
+        other: "Exports"
       gtfs_export: 
-        zero:  GTFS Export
-        one:   GTFS Export
-        other: GTFS Exports
+        zero:  "Export"
+        one:   "GTFS Export"
+        other: "Exports"
+      netex_export: 
+        zero:  "Export"
+        one:   "NeTEx Export"
+        other: "Exports"
     attributes:
       export:
-        status: Status
-        references_type: Associated Data Type
-        reference_ids: Associated Data
-        time_zone: Time Zone
+        status: "Status"
+        references_type: "Associated Data Type"
+        reference_ids: "Associated Data"
+        time_zone: "Time Zone"
       export_log_message:
-        created_at: Date
-        position: N.
-        full_message: Message
+        created_at: "Date"
+        position: "N."
+        full_message: "Message"
 fr:
   exports:
     actions:
-      new: Nouvel export
-      destroy: Supprimer cet export
-      destroy_confirm: Etes vous sûr de détruire cet export ?
-      download: Télécharger
+      new: "Nouvel export"
+      destroy: "Supprimer cet export"
+      destroy_confirm: "Etes vous sûr de détruire cet export ?"
+      download: "Télécharger"
     new:
-      title: Nouvel export
-      all: Toutes
+      title: "Nouvel export"
+      all: "Toutes"
     index:
-      title: Exports
+      title: "Exports"
       warning: ""
     show:
-      report: Rapport
+      report: "Rapport"
     statuses:
-      pending: En cours
-      completed: Achevé
-      failed: Echoué
+      pending: "En cours"
+      completed: "Achevé"
+      failed: "Echoué"
   export_log_messages:
     messages:
-      started: Export démarré
-      completed: Export achevé avec succès
-      failed: Export interrompu
+      started: "Export démarré"
+      completed: "Export achevé avec succès"
+      failed: "Export interrompu"
       undefined: "%{key} non défini"
+      EXPORT: "Export %{0}"
+      EXPORTED_LINE: "Ligne %{0} (%{1}) exportée"
+      EMPTY_LINE: "Ligne sans course valide : non exportée"
       EXPORT_ERROR: "Erreur lors de l'export"
       EXCEPTION: "Cause %{0}" 
-      NEPTUNE_EXPORT: Export Neptune
+      # old report for backward compatibility
+      NEPTUNE_EXPORT: "Export Neptune"
       NEPTUNE_EXPORTED_LINE: "Ligne %{0} (%{1}) exportée"
       NEPTUNE_EMPTY_LINE: "Ligne %{0} (%{1}) sans course valide : non exportée"
-      GTFS_EXPORT: Export GTFS
-      GTFS_OK: Export GTFS terminé
-      GTFS_NO_LINE: Pas de ligne à exporter
+      GTFS_EXPORT: "Export GTFS"
+      GTFS_OK: "Export GTFS terminé"
+      GTFS_NO_LINE: "Pas de ligne à exporter"
       GTFS_MISSING_PARAMETER: "Paramètre %{0} manquant"
       GTFS_UNKNOWN_PARAMETER: "Paramètre %{0} inconnu"
       GTFS_FILE_ACCESS: "Accès au fichier %{0} impossible"
@@ -111,43 +130,50 @@ fr:
       GTFS_EMPTY_DATA: "Pas de donné de type %{0} à exporter"
       GTFS_INVALID_DATA: "%{0} %{1} : attribut %{2}=%{3} invalide"
       GTFS_MISSING_DATA: "%{0} %{1} : valeur manquante : %{2}"
-      CSV_EXPORT: Export CSV
+      CSV_EXPORT: "Export CSV"
       CSV_OK_LINE: "Ligne %{0} exportée"
       CSV_TOO_MUCH_ROUTES: "Ligne %{0} non exportable : plus de 2 séquences d'arrêt"
+      NETEX_EXPORT: "Export NeTEx"
+      NETEX_EXPORTED_LINE: "Ligne %{0} (%{1}) exportée"
+      NETEX_EMPTY_LINE: "Ligne %{0} (%{1}) sans course valide : non exportée"
     severities:
-      info: Information
-      ok: Ok
-      warning: Alerte
-      error: Erreur
-      fatal: Fatal
+      info: "Information"
+      ok: "Ok"
+      warning: "Alerte"
+      error: "Erreur"
+      fatal: "Fatal"
   activerecord:        
     models:
       export:
-        zero:  export
-        one:   export
-        other: exports
+        zero:  "export"
+        one:   "export"
+        other: "exports"
       neptune_export: 
-        zero:  Export Neptune
-        one:   Export Neptune
-        other: Exports Neptune
+        zero:  "Export"
+        one:   "Export Neptune"
+        other: "Exports"
       csv_export: 
-        zero:  Export CSV
-        one:   Export CSV
-        other: Exports CSV
+        zero:  "Export"
+        one:   "Export CSV"
+        other: "Exports"
       gtfs_export: 
-        zero:  Export GTFS
-        one:   Export GTFS
-        other: Exports GTFS
+        zero:  "Export"
+        one:   "Export GTFS"
+        other: "Exports"
+      netex_export: 
+        zero:  "Export"
+        one:   "Export NeTEx"
+        other: "Exports"
     attributes:
       export:
-        status: Status
-        references_type: Type de données incluses
-        reference_ids: Données incluses
-        time_zone: Fuseau horaire
+        status: "Status"
+        references_type: "Type de données incluses"
+        reference_ids: "Données incluses"
+        time_zone: "Fuseau horaire"
       export_log_message:
-        created_at: Date
+        created_at: "Date"
         position: "No"
-        full_message: Message
+        full_message: "Message"
   formtastic:
     hints:
       time_zone: "selon le codage TZ  (http://fr.wikipedia.org/wiki/Tz_database)"

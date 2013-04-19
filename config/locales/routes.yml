@@ -1,57 +1,57 @@
 en:
   routes:
     actions:
-      new: Add a new route
-      edit: Edit this route
-      destroy: Remove this route
-      destroy_confirm: Are you sure you want destroy this route?
+      new: "Add a new route"
+      edit: "Edit this route"
+      destroy: "Remove this route"
+      destroy_confirm: "Are you sure you want destroy this route?"
     new:
-      title: Add a new route
+      title: "Add a new route"
     edit:
-      title: Update route %{route}
+      title: "Update route %{route}"
     show:
-      title: Route %{route}
+      title: "Route %{route}"
       stop_points: "Stop point on route list" 
       journey_patterns: "Route journey patterns list" 
-      no_opposite_route: No reversed route associated
-      undefined: Undefined
+      no_opposite_route: "No reversed route associated"
+      undefined: "Undefined"
     index:
-      title: Routes
-      selection: Selection
-      selection_all: All
+      title: "Routes"
+      selection: "Selection"
+      selection_all: "All"
     route:
-      no_journey_pattern: No Journey pattern
+      no_journey_pattern: "No Journey pattern"
       wayback: 
-        positive: forward
-        negative: backward
-      opposite: Opposite route
-      no_opposite: No opposite route
+        positive: "forward"
+        negative: "backward"
+      opposite: "Opposite route"
+      no_opposite: "No opposite route"
 
   activerecord:        
     models:        
       route: 
-        zero:  route
-        one:   route
-        other: routes
+        zero:  "route"
+        one:   "route"
+        other: "routes"
     attributes:
       route:
         wayback: 
-          positive: forward
-          negative: backward
-        line: Line
-        vehicle_journeys: Vehicle journeys
-        journey_patterns: Journey patterns
-        name: Name
-        published_name: Published name        
-        comment: Comments
-        number: Number
-        direction_code: Direction
-        wayback_code: Wayback
-        opposite_route: Reversed route
-        objectid: Neptune identifier
-        object_version: Version
-        creation_time: Created on
-        creator_id: Created by 
+          positive: "forward"
+          negative: "backward"
+        line: "Line"
+        vehicle_journeys: "Vehicle journeys"
+        journey_patterns: "Journey patterns"
+        name: "Name"
+        published_name: "Published name"        
+        comment: "Comments"
+        number: "Number"
+        direction_code: "Direction"
+        wayback_code: "Wayback"
+        opposite_route: "Reversed route"
+        objectid: "Neptune identifier"
+        object_version: "Version"
+        creation_time: "Created on"
+        creator_id: "Created by"
 
 fr:
   routes:
@@ -69,18 +69,18 @@ fr:
       stop_points: "Liste des arrêts de la séquence d'arrêts" 
       journey_patterns: "Liste des missions" 
       no_opposite_route: "Aucune séquence d'arrêts associée en sens opposé"
-      undefined: Non défini
+      undefined: "Non défini"
     index:
       title: "Séquences d'arrêts"
-      selection: Sélection
-      selection_all: Tous
+      selection: "Sélection"
+      selection_all: "Tous"
     route:
-      no_journey_pattern: Pas de mission
+      no_journey_pattern: "Pas de mission"
       wayback: 
-        positive: Aller
-        negative: Retour
-      opposite: Séquence opposée
-      no_opposite: Pas de séquence opposée
+        positive: "Aller"
+        negative: "Retour"
+      opposite: "Séquence opposée"
+      no_opposite: "Pas de séquence opposée"
   activerecord:        
     models:        
       route: 
@@ -90,22 +90,22 @@ fr:
     attributes:
       route:
         wayback: 
-          positive: Aller
-          negative: Retour
-        line: Ligne
-        vehicle_journeys: Courses
-        journey_patterns: Missions
-        name: Nom
-        published_name: Nom public        
-        number: Indice
-        comment: Commentaire
-        direction_code: Direction
-        wayback_code: Sens
+          positive: "Aller"
+          negative: "Retour"
+        line: "Ligne"
+        vehicle_journeys: "Courses"
+        journey_patterns: "Missions"
+        name: "Nom"
+        published_name: "Nom public"        
+        number: "Indice"
+        comment: "Commentaire"
+        direction_code: "Direction"
+        wayback_code: "Sens"
         opposite_route: "Séquence d'arrêts associée en sens opposé"
-        objectid: Identifiant Neptune
-        object_version: Version
-        creation_time: Créé le
-        creator_id: Créé par
-        no_journey_pattern: Pas de mission
+        objectid: "Identifiant Neptune"
+        object_version: "Version"
+        creation_time: "Créé le"
+        creator_id: "Créé par"
+        no_journey_pattern: "Pas de mission"
 
 

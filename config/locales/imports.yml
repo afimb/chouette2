@@ -1,28 +1,60 @@
 en:
   imports:
     actions:
-      new: New import
-      destroy: Destroy
-      destroy_confirm: Are you sure you want destroy this import?
+      new: "New import"
+      destroy: "Destroy"
+      destroy_confirm: "Are you sure you want destroy this import?"
     new:
-      title: New import
+      title: "New import"
     index:
-      title: Imports
+      title: "Imports"
       warning: ""
     show:
-      report: Report
+      report: "Report"
     statuses:
-      pending: Pending
-      completed: Completed
-      failed: Failed
+      pending: "Pending"
+      completed: "Completed"
+      failed: "Failed"
   import_log_messages:
     messages:
-      started: Started import
-      completed: Completed import
-      failed: Failed import
+      started: "Started import"
+      completed: "Completed import"
+      failed: "Failed import"
       undefined: "%{key} undefined"
-      NEPTUNE_ONE: Conformité du fichier
-      NEPTUNE_TooMuchDetails: ( %{0} erreurs / warnings supplémentaires )
+      IMPORT: "Import on %{0} format"
+      ZIP_FILE: "ZIP File %{0}"
+      ZIP_ERROR: "Error %{0}"
+      FILE: "File %{0}"
+      FILE_ERROR: "Error %{0}"
+      FILE_IGNORED: "Unknown file format ; ignored"
+      VALIDATION_ERROR: "Wrong grammar : %{0}"
+      VALIDATION_CAUSE: "%{0}"
+      IMPORTED_LINE: "Imported Line : %{0}"
+      LINE_COUNT: "Line count : %{0}"
+      TIME_TABLE_COUNT: "Tiemtable count : %{0}"
+      ROUTE_COUNT: "Route count : %{0}"
+      JOURNEY_PATTERN_COUNT: "Journey pattern count : %{0}"
+      VEHICLE_JOURNEY_COUNT: "Vehicle journey count : %{0}"
+      STOP_AREA_COUNT: "Stop area count : %{0}"
+      CONNECTION_LINK_COUNT: "Connection link count : %{0}"
+      ACCES_POINT_COUNT: "Access Point count : %{0}"
+      MANDATORY_TAG: "Mandatory tag : %{0} "
+      UNKNOWN_ENUM: "Unknown enum vaule for %{0} : %{1} "
+      EMPTY_TAG: "Empty value : %{0}"
+      BAD_REFERENCE: "Missing reference %{0} for %{1}"
+      EMPTY_LINE: "Empty Line %{0} "
+      EMPTY_ROUTE: "Empty Route {0} "
+      EMPTY_JOURNEY_PATTERN: "Empty Journey pattern %{0}"
+      EMPTY_VEHICLE_JOURNEY: "Empty Vehicle journey %{0} "
+      EMPTY_TIMETABLE: "Empty Timetable %{0} "
+      SAVE_OK: "%{0} saved"
+      SAVE_ERROR: "%{0} save failed : %{1}"
+      IMPORT_ERROR: "Import Error"
+      EXCEPTION: "Problem : %{0}"
+      # old Import reports (before 2.0.3)
+      SAVE: "Save" 
+      NEPTUNE_ONE: "Conformité du fichier"
+      NEPTUNE_TooMuchDetails: "( %{0} erreurs / warnings supplémentaires )"
       NEPTUNE_Test1_Sheet1: 'Fiche n° 1.1 : Conformité à la syntaxe XML suivant les recommandations du W3C'
       NEPTUNE_Test1_Sheet1_Step1: Conformité à la syntaxe XML
       NEPTUNE_Test1_Sheet1_Step2: Conformité au schéma XML du profil NEPTUNE
@@ -38,72 +70,71 @@ en:
       NEPTUNE_Test1_Sheet2_Step1_error: "le fichier %{0} ne respecte pas le modèle NEPTUNE"
       NEPTUNE_Test1_Sheet2_Step1_encoding: "le fichier %{0} ne respecte pas le codage de caractères du modèle NEPTUNE (ISO-8859-1)"
       NEPTUNE_Test1_Sheet2_Step1_fatal: "Erreur fatale : Aucune entrée valide trouvée dans le fichier"
-      CSV_IMPORT: Import CVS file
-      CSV_OK_LINE: line %{0} imported
-      CSV_OK_TIMETABLE: timetables %{0} (%{1}) imported
+      CSV_IMPORT: "Import CVS file"
+      CSV_OK_LINE: "line %{0} imported"
+      CSV_OK_TIMETABLE: "timetables %{0} (%{1}) imported"
       CSV_OK_PTNETWORK: "network %{0} : %{1} imported"
-      CSV_OK_COMPANY: company %{0} imported
+      CSV_OK_COMPANY: "company %{0} imported"
       CSV_FILE_NOT_FOUND: "file %{0} : error %{1}"
-      CSV_FILE_IGNORED: file %{0} ignored (not XML) 
+      CSV_FILE_IGNORED: "file %{0} ignored (not XML) "
       CSV_VALIDATION_ERROR: "XML file don't agree with Neptune XSD : %{0}"
       CSV_VALIDATION_CAUSE: "%{0}"
-      CSV_PARSE_OBJECT: Analyse %{0}
+      CSV_PARSE_OBJECT: "Analyse %{0}"
       CSV_MANDATORY_TAG: "missing or empty mandatory tag : %{0}"
       CSV_UNKNOWN_ENUM: "Unknown %{0} enumaration value : %{1}"
       CSV_EMPTY_TAG: "empty tag : %{0}"
       CSV_TIMETABLE_COUNT: "timetable count : %{0}"
       CSV_LINE_COUNT: "line count : %{0}"
-      CSV_END_OF_FILE: Unexpected end of file
-      CSV_BAD_TIMETABLE_PERIODS: Bad timetable periods
+      CSV_END_OF_FILE: "Unexpected end of file"
+      CSV_BAD_TIMETABLE_PERIODS: "Bad timetable periods"
       CSV_INVALID_LINE: "invalid line : %{0}"
       CSV_STOP_WITHOUT_COORDS: "Stop without coords : %{0}"
       CSV_VJ_MISSING_TIMETABLE: "Unable to find timetable of vehicle journey : %{0}"
-      CSV_FILE_FORMAT: Invalid or deprecated CSV format
+      CSV_FILE_FORMAT: "Invalid or deprecated CSV format"
       CSV_BAD_ID: "Invalid built Neptune Object ID : %{1} for %{0} "
-      CSV_UNUSED_TIMETABLE: Unused timetable %{0} (%{1})
-      SAVE: Save 
-      SAVE_OK: "%{0} saved"
-      SAVE_ERROR: "%{0} save failed : %{1}"
-      IMPORT_ERROR: "Import Error"
-      EXCEPTION: "Problem : %{0}"
+      CSV_UNUSED_TIMETABLE: "Unused timetable %{0} (%{1})"
     severities:
-      info: Information
-      uncheck: Unchecked
-      ok: Ok
-      warning: Warning
-      error: Error
-      fatal: Fatal
+      info: "Information"
+      uncheck: "Unchecked"
+      ok: "Ok"
+      warning: "Warning"
+      error: "Error"
+      fatal: "Fatal"
   activerecord:        
     models:        
       import:
-        zero:  import
-        one:   import
-        other: imports
+        zero:  "import"
+        one:   "import"
+        other: "imports"
       neptune_import:
-        zero:  Neptune import
-        one:   Neptune import
-        other: Neptune imports
+        zero:  "import"
+        one:   "Neptune import"
+        other: "imports"
       csv_import:
-        zero:  CSV import
-        one:   CSV import
-        other: CSV imports
+        zero:  "import"
+        one:   "CSV import"
+        other: "imports"
       gtfs_import:
-        zero:  GTFS import
-        one:   GTFS import
-        other: GTFS imports
+        zero:  "import"
+        one:   "GTFS import"
+        other: "imports"
+      netex_import:
+        zero:  "import"
+        one:   "NeTEx import"
+        other: "imports"
     attributes:
       import:
-        resources: File to import
-        status: Status
+        resources: "File to import"
+        status: "Status"
         objectid_prefix: "Neptune Id prefix"
         max_distance_for_commercial: "Max distance for commercial stop"
         max_distance_for_connection_link: "Max distance for connection link"
         ignore_last_word: "ignore last word"
         ignore_end_chars: "ignore last chars"
       import_log_message:
-        created_at: Date
-        position: N.
-        full_message: Message
+        created_at: "Date"
+        position: "N."
+        full_message: "Message"
   formtastic:
     hints:
       import:
@@ -114,31 +145,63 @@ en:
 fr:
   imports:
     actions:
-      new: Nouvel import
-      destroy: Supprimer cet import
-      destroy_confirm: Etes vous sûr de détruire cet import ?
+      new: "Nouvel import"
+      destroy: "Supprimer cet import"
+      destroy_confirm: "Etes vous sûr de détruire cet import ?"
     new:
-      title: Nouvel import
+      title: "Nouvel import"
     index:
-      title: Imports
+      title: "Imports"
       warning: ""
     show:
-      report: Rapport
+      report: "Rapport"
     statuses:
-      pending: En cours
-      completed: Achevé
-      failed: Echoué
+      pending: "En cours"
+      completed: "Achevé"
+      failed: "Echoué"
   import_log_messages:
     messages:
-      started: Import démarré
-      completed: Import achevé avec succès
-      failed: Import interrompu
+      started: "Import démarré"
+      completed: "Import achevé avec succès"
+      failed: "Import interrompu"
       undefined: "%{key} non défini"
-      NEPTUNE_ONE: Conformité du fichier
-      NEPTUNE_TooMuchDetails: ( %{0} erreurs / warnings supplémentaires )
+      IMPORT: "Import au format %{0}"
+      ZIP_FILE: "Fichier ZIP %{0}"
+      ZIP_ERROR: "Erreur %{0}"
+      FILE: "Fichier %{0}"
+      FILE_ERROR: "Erreur %{0}"
+      FILE_IGNORED: "Format non traité; ignoré"
+      VALIDATION_ERROR: "Le fichier ne respecte pas la grammaire : %{0}"
+      VALIDATION_CAUSE: "%{0}"
+      IMPORTED_LINE: "Ligne importée %{0}"
+      LINE_COUNT: "Nombre de lignes extraites : %{0}"
+      TIME_TABLE_COUNT: "Nombre de calendriers extraits : %{0}"
+      ROUTE_COUNT: "Nombre de séquences d'arrêts extraites : %{0}"
+      JOURNEY_PATTERN_COUNT: "Nombre de missions extraites : %{0}"
+      VEHICLE_JOURNEY_COUNT: "Nombre de courses extraites : %{0}"
+      STOP_AREA_COUNT: "Nombre d'arrêts extraits : %{0}"
+      CONNECTION_LINK_COUNT: "Nombre de correspondances extraites : %{0}"
+      ACCES_POINT_COUNT: "Nombre de points d'accès extraits : %{0}"
+      MANDATORY_TAG: "Valeur obligatoire absente ou vide : %{0} "
+      UNKNOWN_ENUM: "Valeur de l'enum %{0} inconnue : %{1} "
+      EMPTY_TAG: "Valeur vide : %{0}"
+      BAD_REFERENCE: "Référence %{0} manquante pour %{1}"
+      EMPTY_LINE: "Ligne %{0} sans séquence d'arrêt"
+      EMPTY_ROUTE: "Séquence d'arrêts %{0} sans mission ou arrêt"
+      EMPTY_JOURNEY_PATTERN: "Mission %{0} sans arrêt ou course"
+      EMPTY_VEHICLE_JOURNEY: "Course %{0} sans horaire"
+      EMPTY_TIMETABLE: "Calendrier %{0} sans jours ni période"
+      SAVE_OK: "%{0} enregistré"
+      SAVE_ERROR: "Echec de l'enregistrement de %{0} : %{1}"
+      IMPORT_ERROR: "Erreur d'import"
+      EXCEPTION: "Problème : %{0}"
+      # old Import reports (before 2.0.3)
+      SAVE: "Sauvegarde" 
+      NEPTUNE_ONE: "Conformité du fichier"
+      NEPTUNE_TooMuchDetails: "( %{0} erreurs / warnings supplémentaires )"
       NEPTUNE_Test1_Sheet1: 'Fiche n° 1.1 : Conformité à la syntaxe XML suivant les recommandations du W3C'
-      NEPTUNE_Test1_Sheet1_Step1: Conformité à la syntaxe XML
-      NEPTUNE_Test1_Sheet1_Step2: Conformité au schéma XML du profil NEPTUNE
+      NEPTUNE_Test1_Sheet1_Step1: "Conformité à la syntaxe XML"
+      NEPTUNE_Test1_Sheet1_Step2: "Conformité au schéma XML du profil NEPTUNE"
       NEPTUNE_Test1_Sheet1_Step0_fatal: "Erreur fatale : Impossible d'ouvrir le fichier %{0}"
       NEPTUNE_Test1_Sheet1_Step0_error: "Impossible d'importer cette entrée %{0} du zip"
       NEPTUNE_Test1_Sheet1_Step0_warning: "Cette entrée %{0} du zip n'est pas un fichier xml et a été ignoré"
@@ -151,76 +214,75 @@ fr:
       NEPTUNE_Test1_Sheet2_Step1_error: "le fichier %{0} ne respecte pas le modèle NEPTUNE"
       NEPTUNE_Test1_Sheet2_Step1_encoding: "le fichier %{0} ne respecte pas le codage de caractères du modèle NEPTUNE (ISO-8859-1)"
       NEPTUNE_Test1_Sheet2_Step1_fatal: "Erreur fatale : Aucune entrée valide trouvée dans le fichier"
-      CSV_IMPORT: Import de fichier au format CSV
-      CSV_OK_LINE: Ligne %{0} importée
-      CSV_OK_TIMETABLE: Tableau de marche %{0} (%{1}) importé
+      CSV_IMPORT: "Import de fichier au format CSV"
+      CSV_OK_LINE: "Ligne %{0} importée"
+      CSV_OK_TIMETABLE: "Tableau de marche %{0} (%{1}) importé"
       CSV_OK_PTNETWORK: "Réseau %{0} : %{1} importé"
       CSV_OK_COMPANY: "Transporteur %{0} importé"
       CSV_FILE_ERROR: "Fichier %{0} : erreur %{1}"
       CSV_FILE_IGNORED: "Fichier %{0} ignoré (non CSV) "
       CSV_VALIDATION_ERROR: "Fichier CSV ne respecte pas le format Chouette : %{0}"
       CSV_VALIDATION_CAUSE: "%{0}"
-      CSV_PARSE_OBJECT: Analyse %{0}
+      CSV_PARSE_OBJECT: "Analyse %{0}"
       CSV_MANDATORY_TAG: "Tag obligatoire absent ou vide : %{0}"
       CSV_UNKNOWN_ENUM: "Valeur de l'enum %{0} inconnue : %{1}"
       CSV_EMPTY_TAG: "Tag vide : %{0}"
       CSV_TIMETABLE_COUNT: "Nombre de tableaux de marche : %{0}"
       CSV_LINE_COUNT: "Nombre de lignes : %{0}"
-      CSV_END_OF_FILE: Fichier tronqué
-      CSV_BAD_TIMETABLE_PERIODS: Mauvaises périodes dans le tableau de marche
+      CSV_END_OF_FILE: "Fichier tronqué"
+      CSV_BAD_TIMETABLE_PERIODS: "Mauvaises périodes dans le tableau de marche"
       CSV_INVALID_LINE: "ligne invalide : %{0}"
       CSV_STOP_WITHOUT_COORDS: "Arret sans coordonnées : %{0}"
       CSV_VJ_MISSING_TIMETABLE: "Impossible de trouver le tableau de marche de la course : %{0}"
-      CSV_FILE_FORMAT: Format CSV invalide ou obsolète
+      CSV_FILE_FORMAT: "Format CSV invalide ou obsolète"
       CSV_BAD_ID: "Identifiant Neptune produit invalide : %{1} pour %{0} "
       CSV_UNUSED_TIMETABLE: "Tableau de marche %{0} (%{1}) inutilisé"
-      SAVE: Sauvegarde 
-      SAVE_OK: "%{0} enregistré"
-      SAVE_ERROR: "Echec de l'enregistrement de %{0} : %{1}"
-      IMPORT_ERROR: "Erreur d'import"
-      EXCEPTION: "Problème : %{0}"
     severities:
-      info: Information
-      uncheck: Non testé
-      ok: Ok
-      warning: Alerte
-      error: Erreur
-      fatal: Fatal
+      info: "Information"
+      uncheck: "Non testé"
+      ok: "Ok"
+      warning: "Alerte"
+      error: "Erreur"
+      fatal: "Fatal"
   activerecord:        
     models:        
       import:
-        zero:  import
-        one:   import
-        other: imports
+        zero:  "import"
+        one:   "import"
+        other: "imports"
       neptune_import:
-        zero:  import Neptune
-        one:   import Neptune
-        other: imports Neptune
+        zero:  "import"
+        one:   "import Neptune"
+        other: "imports"
       csv_import:
-        zero:  import CSV
-        one:   import CSV
-        other: imports CSV
+        zero:  "import"
+        one:   "import CSV"
+        other: "imports"
       gtfs_import:
-        zero:  import GTFS
-        one:   import GTFS
-        other: imports GTFS
+        zero:  "import"
+        one:   "import GTFS"
+        other: "imports"
+      netex_import:
+        zero:  "import"
+        one:   "import NeTEx"
+        other: "imports"
     attributes:
       import:
-        resources: Fichier à importer
-        status: Status
+        resources: "Fichier à importer"
+        status: "Status"
         objectid_prefix: "Préfixe d'identifiants"
         max_distance_for_commercial: "Distance max pour créer les zones"
         max_distance_for_connection_link: "Distance max pour créer les correspondances"
         ignore_last_word: "ignorer le dernier mot"
         ignore_end_chars: "ignorer les n derniers caractères"
       import_log_message:
-        created_at: Date
+        created_at: "Date"
         position: "No"
-        full_message: Message
+        full_message: "Message"
   formtastic:
     hints:
       import:
         max_distance_for_commercial: "Distance maximale entre deux arrêts homonymes pour créer les zones d'arrêt (en mètre)"
         max_distance_for_connection_link: "Distance maximale entre deux arrêts pour créer les correspondances (en mètre)"
-        ignore_last_word: "ignorer le dernier mot pour détecter l'homonymie des noms d'arrêt (inappliable quand le nom ne comporte qu'un mot)"
+        ignore_last_word: "ignorer le dernier mot pour détecter l'homonymie des noms d'arrêt (inapplicable quand le nom ne comporte qu'un mot)"
         ignore_end_chars: "ignorer les n derniers caractères du nom de l'arrêt pour détecter l'homonymie"

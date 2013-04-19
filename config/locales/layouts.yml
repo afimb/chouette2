@@ -1,7 +1,7 @@
 en:
   layouts:
     back_to_dashboard: "Back to Dashboard"
-    help: Help
+    help: "Help"
     home: "Home"          
     user:
       profile: "My Profile"
@@ -9,11 +9,11 @@ en:
     tabs:
       dashboard: "dashboard"
     creation_tag:
-      title: Create
+      title: "Create"
 fr:
   layouts:
     back_to_dashboard: "Retour au Tableau de Bord"
-    help: Besoin d'aide?
+    help: "Besoin d'aide?"
     home: "Accueil"
     user:
       profile: "Mon Profil"      
@@ -21,4 +21,4 @@ fr:
     tabs:
       dashboard: "Tableau de bord"
     creation_tag:
-      title: Création
+      title: "Création"

@@ -1,9 +1,9 @@
 <%= title_tag t(".title") %>
 
-<%= form_for([@referential, @export], :as => :export, :url => new_referential_export_path(@referential), :method => :get) do |form| %>
-  <%= form.label :type %>
-  <%= form.collection_select :type, Export.types, :to_s, :to_s %>
-  <%= form.submit "Sélectionner", :id => "export_type_submit" %>
+<%= semantic_form_for([@referential, @export], :as => :export, :url => new_referential_export_path(@referential), :method => :get) do |form| %>
+  <%= form.inputs do %>
+     <%= form.input :type, :as => :select, :collection => Export.types, :required => true, :include_blank => false %>
+  <% end %>
 <% end %>
 
 <% @available_exports.each do |export| %>

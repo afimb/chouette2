@@ -14,6 +14,12 @@ class LinesController < ChouetteController
     show!
   end
 
+  # overwrite inherited resources to use delete instead of destroy 
+  # foreign keys will propagate deletion)
+  def destroy_resource(object)
+        object.delete
+  end
+      
   def destroy_all
     objects =
       get_collection_ivar || set_collection_ivar(end_of_association_chain.where(:id => params[:ids]))

@@ -141,7 +141,7 @@ class Export < ActiveRecord::Base
       subclasses.map(&:to_s)
     else
       # FIXME
-      %w{NeptuneExport CsvExport GtfsExport}
+      %w{NeptuneExport CsvExport GtfsExport NetexExport}
     end
   end
 

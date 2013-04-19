@@ -1,43 +1,43 @@
 en:
   users:
     actions:
-      new: Add a new user
-      edit: Edit this user
-      destroy: Remove this user
-      destroy_confirm: Are you sure you want destroy this user?
+      new: "Add a new user"
+      edit: "Edit this user"
+      destroy: "Remove this user"
+      destroy_confirm: "Are you sure you want destroy this user?"
     new:
-      title: Add a new user
+      title: "Add a new user"
     edit:
-      title: Update user %{user}
+      title: "Update user %{user}"
     show:
-      title: User %{user}
+      title: "User %{user}"
     index:
-      title: Users
+      title: "Users"
   activerecord:        
     models:        
-      user: user
+      user: "user"
     attributes:
       user:
-        name: Full name 
+        name: "Full name" 
 fr:
   users:
     actions:
-      new: Ajouter un utilisateur
-      edit: Modifier cet utilisateur
-      destroy: Supprimer cet utilisateur
-      destroy_confirm: Etes vous sûr de détruire cet utilisateur ?
+      new: "Ajouter un utilisateur"
+      edit: "Modifier cet utilisateur"
+      destroy: "Supprimer cet utilisateur"
+      destroy_confirm: "Etes vous sûr de détruire cet utilisateur ?"
     new:
-      title: Ajouter un utilisateur
+      title: "Ajouter un utilisateur"
     edit:
       title: "Modifier l'utilisateur %{user}"
     show:
-      title: Utilisateur %{user}
+      title: "Utilisateur %{user}"
     index:
-      title: Utilisateurs
+      title: "Utilisateurs"
   activerecord:        
     models:        
-      user: utilisateur
+      user: "utilisateur"
     attributes:
       user:
-        name: Nom complet
+        name: "Nom complet"
 

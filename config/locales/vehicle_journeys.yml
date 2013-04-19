@@ -1,74 +1,74 @@
 en:
   vehicle_journeys:
     vehicle_journey:
-      title_stopless: Vehicle journey %{name}
-      title: Vehicle journey %{name} leaving from %{stop} at %{time}
+      title_stopless: "Vehicle journey %{name}"
+      title: "Vehicle journey %{name} leaving from %{stop} at %{time}"
     actions:
       index: "Vehicle time's board"
-      new: Add a new vehicle journey
-      edit: Edit this vehicle journey
-      destroy: Remove this vehicle journey
-      destroy_confirm: Are you sure you want destroy this vehicle journey?
+      new: "Add a new vehicle journey"
+      edit: "Edit this vehicle journey"
+      destroy: "Remove this vehicle journey"
+      destroy_confirm: "Are you sure you want destroy this vehicle journey?"
     new:
-      title: Add a new vehicle journey
+      title: "Add a new vehicle journey"
     edit:
-      title_stopless: Update vehicle journey %{name}
-      title: Update vehicle journey %{name} leaving from %{stop} at %{time}
+      title_stopless: "Update vehicle journey %{name}"
+      title: "Update vehicle journey %{name} leaving from %{stop} at %{time}"
     form:
-      stop_title: Stop
-      departure: Departure
-      arrival: Arrival
-      to_arrivals: Copy departures to arrivals
-      to_departures: Copy arrivals to departures
-      time_tables: Associated calendars to vehicle journey
+      stop_title: "Stop"
+      departure: "Departure"
+      arrival: "Arrival"
+      to_arrivals: "Copy departures to arrivals"
+      to_departures: "Copy arrivals to departures"
+      time_tables: "Associated calendars to vehicle journey"
     timeless:
-      title: Timeless vehicle journeys
-      vehicle_journeys: Vehicle journeys with times at stop
-      vehicles_list: Vehicles list
+      title: "Timeless vehicle journeys"
+      vehicle_journeys: "Vehicle journeys with times at stop"
+      vehicles_list: "Vehicle journeys list"
     show:
-      title: Vehicle Journey %{vehicle journey}
-      stop_title: Stop
-      departure: Departure
-      arrival: Arrival
-      time_tables: Calendars list
-      bounding: From %{start} to %{end}
-      validation: Clone
-      translation_form: Vehicle journey translations
+      title: "Vehicle Journey %{vehicle journey}"
+      stop_title: "Stop"
+      departure: "Departure"
+      arrival: "Arrival"
+      time_tables: "Calendars list"
+      bounding: "From %{start} to %{end}"
+      validation: "Clone"
+      translation_form: "Vehicle journey translations"
     index:
-      title: Vehicle journeys on route %{route}
+      title: "Vehicle journeys on route %{route}"
       vehicle_journeys: "Departure's times"
-      selection: Filter on
-      selection_all: All
-      time_range: Departure time threshold
+      selection: "Filter on"
+      selection_all: "All"
+      time_range: "Departure time threshold"
     time_filter:
-      time_range_filter: Filter 
+      time_range_filter: "Filter" 
   activerecord:        
     models:        
       vehicle_journey: 
-        zero:  vehicle journey
-        one:   vehicle journey
-        other: vehicle journeys
+        zero:  "vehicle journey"
+        one:   "vehicle journey"
+        other: "vehicle journeys"
     attributes:
       vehicle_journey:
-        line: Line
-        route: Route
-        journey_pattern: Journey Pattern
-        time_tables: Calendars
-        time_slot: Time Slot
-        company: Company
-        comment: Comments
-        status_value: Status Value
-        transport_mode: Transport Mode
-        published_journey_name: Published Name
-        published_journey_identifier: Published Identifier
-        facility: Facility
-        vehicletypeidentifier: Vehicle Type Identifier
-        time_table_ids: Calendar list
-        vehicle_journey_at_stop_ids: Time list
-        objectid: Neptune identifier
-        object_version: Version
-        creation_time: Created on
-        creator_id: Created by 
+        line: "Line"
+        route: "Route"
+        journey_pattern: "Journey Pattern"
+        time_tables: "Calendars"
+        time_slot: "Time Slot"
+        company: "Company"
+        comment: "Comments"
+        status_value: "Status Value"
+        transport_mode: "Transport Mode"
+        published_journey_name: "Published Name"
+        published_journey_identifier: "Published Identifier"
+        facility: "Facility"
+        vehicletypeidentifier: "Vehicle Type Identifier"
+        time_table_ids: "Calendar list"
+        vehicle_journey_at_stop_ids: "Time list"
+        objectid: "Neptune identifier"
+        object_version: "Version"
+        creation_time: "Created on"
+        creator_id: "Created by"
     errors:
       models:
         vehicle_journey:
@@ -77,8 +77,8 @@ en:
 fr:
   vehicle_journeys:
     vehicle_journey:
-      title_stopless: Course %{name}
-      title: Course %{name} partant de %{stop} à %{time}
+      title_stopless: "Course %{name}"
+      title: "Course %{name} partant de %{stop} à %{time}"
     actions:
       index: "Horaires des courses"
       new: "Ajouter une course"
@@ -91,34 +91,34 @@ fr:
       title_stopless: "Modifier la course %{name}"
       title: "Modifier la course partant de %{stop} à %{time}"
     form:
-      stop_title: Arrêt
-      departure: Départ
-      arrival: Arrivée
-      to_arrivals: Copie départs vers arrivées
-      to_departures: Copie arrivées vers départs
-      time_tables: Calendriers associés à la course
+      stop_title: "Arrêt"
+      departure: "Départ"
+      arrival: "Arrivée"
+      to_arrivals: "Copie départs vers arrivées"
+      to_departures: "Copie arrivées vers départs"
+      time_tables: "Calendriers associés à la course"
     timeless:
-      title: Courses sans horaire
-      vehicle_journeys: Courses ayant des horaires
-      vehicles_list: Liste des courses
+      title: "Courses sans horaire"
+      vehicle_journeys: "Courses ayant des horaires"
+      vehicles_list: "Liste des courses"
     show:
       title: "Course au départ de %{stop} à %{time} sur la séquence %{route}"
-      stop_title: Arrêt
-      departure: Départ
-      arrival: Arrivée
-      time_tables: Liste des calendriers
-      bounding: De %{start} à %{end}
-      validation: Cloner
-      translation_form: Cloner la course
+      stop_title: "Arrêt"
+      departure: "Départ"
+      arrival: "Arrivée"
+      time_tables: "Liste des calendriers"
+      bounding: "De %{start} à %{end}"
+      validation: "Cloner"
+      translation_form: "Cloner la course"
     index:
       title: "Courses de la séquence d'arrêts %{route}"
-      timeless: Courses sans horaire
+      timeless: "Courses sans horaire"
       vehicle_journeys: "Horaires de départ aux arrêts"
-      selection: Filtrer sur
-      selection_all: Tous
-      time_range: Seuil horaire au départ
+      selection: "Filtrer sur"
+      selection_all: "Tous"
+      time_range: "Seuil horaire au départ"
     time_filter:
-      time_range_filter: Filtrer 
+      time_range_filter: "Filtrer" 
   activerecord:        
     models:        
       vehicle_journey: 
@@ -127,25 +127,25 @@ fr:
         other: "Courses"
     attributes:
       vehicle_journey:
-        line: Ligne
+        line: "Ligne"
         route: "Séquence d'arrêt"
-        journey_pattern: Mission
-        time_tables: Calendriers
-        time_slot: Fréquence
-        company: Transporteur
-        comment: Commentaires
-        status_value: Etat de trafic
-        transport_mode: Mode de transport
-        published_journey_name: Nom public
-        published_journey_identifier: Identifiant public
-        facility: Equipement
+        journey_pattern: "Mission"
+        time_tables: "Calendriers"
+        time_slot: "Fréquence"
+        company: "Transporteur"
+        comment: "Commentaires"
+        status_value: "Etat de trafic"
+        transport_mode: "Mode de transport"
+        published_journey_name: "Nom public"
+        published_journey_identifier: "Identifiant public"
+        facility: "Equipement"
         vehicle_type_identifier: "Type d'identifiant du véhicule"
         time_table_ids: "Liste des calendriers"
-        vehicle_journey_at_stop_ids: Liste des horaires
-        objectid: Identifiant Neptune
-        object_version: Version
-        creation_time: Créé le
-        creator_id: Créé par
+        vehicle_journey_at_stop_ids: "Liste des horaires"
+        objectid: "Identifiant Neptune"
+        object_version: "Version"
+        creation_time: "Créé le"
+        creator_id: "Créé par"
     errors:
       models:
         vehicle_journey:

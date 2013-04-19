@@ -1,62 +1,62 @@
 en:
   connection_links:
     actions:
-      new: Add a new connection link
-      edit: Edit this connection link
-      destroy: Remove this connection link
-      destroy_confirm: Are you sure you want destroy this connection link?
+      new: "Add a new connection link"
+      edit: "Edit this connection link"
+      destroy: "Remove this connection link"
+      destroy_confirm: "Are you sure you want destroy this connection link?"
       select_areas: "Update start/end of link"
     new:
-      title: Add a new connection link
+      title: "Add a new connection link"
     edit:
-      title: Update connection link %{connection_link}
+      title: "Update connection link %{connection_link}"
     show:
-      title: Connection link %{connection_link}
+      title: "Connection link %{connection_link}"
       durations: "Durations (hh mm ss):"
     connection_link:
-      from: From
-      to: to
+      from: "From"
+      to: "to"
     index:
-      title: Connection links
-      name: Name
-      departure: Start of link
-      arrival: End of link
-      selection: Selection
-      selection_all: All
+      title: "Connection links"
+      name: "Name"
+      departure: "Start of link"
+      arrival: "End of link"
+      selection: "Selection"
+      selection_all: "All"
     select_departure:
-      title: Select start stop area for %{connection_link} 
+      title: "Select start stop area for %{connection_link}"
     select_arrival:
-      title: Select end stop area for %{connection_link} 
+      title: "Select end stop area for %{connection_link}" 
     select_areas:
       title: "Select start and end stops for %{connection_link}"
   activerecord:        
     models:        
       connection_link: 
-        zero:  connection link
-        one:   connection link
-        other: connection links
+        zero:  "connection link"
+        one:   "connection link"
+        other: "connection links"
     attributes:
       connection_link:
-        departure: Start of link
-        arrival: End of link
-        departure_id: Start of link
-        arrival_id: End of link
-        undefined: not yet set
-        name: Name
-        comment: Comment
-        link_distance: Distance (m)
-        connection_link_type: Type
-        default_duration: Average
-        frequent_traveller_duration: Regular passenger
-        occasional_traveller_duration: Occasional passenger
-        mobility_restricted_traveller_duration: Mobility reduced passenger
-        mobility_restricted_suitability: Mobility reduced passenger suitable
-        stairs_availability: Escalator
-        lift_availability: Lift
-        objectid: Neptune identifier
-        object_version: Version
-        creation_time: Created on
-        creator_id: Created by 
+        departure: "Start of link"
+        arrival: "End of link"
+        departure_id: "Start of link"
+        arrival_id: "End of link"
+        undefined: "not yet set"
+        name: "Name"
+        comment: "Comment"
+        link_distance: "Distance (m)"
+        connection_link_type: "Type"
+        default_duration: "Average"
+        frequent_traveller_duration: "Regular passenger"
+        occasional_traveller_duration: "Occasional passenger"
+        mobility_restricted_traveller_duration: "Mobility reduced passenger"
+        mobility_restricted_suitability: "Mobility reduced passenger suitable"
+        stairs_availability: "Escalator"
+        lift_availability: "Lift"
+        objectid: "Neptune identifier"
+        object_version: "Version"
+        creation_time: "Created on"
+        creator_id: "Created by" 
   formtastic:
     hints:
       connection_link:
@@ -65,28 +65,28 @@ en:
 fr:
   connection_links:
     actions:
-      new: Ajouter une correspondance
-      edit: Modifier cette correspondance
-      destroy: Supprimer cette correspondance
-      destroy_confirm: Etes vous sûr de détruire cette correspondance ?
+      new: "Ajouter une correspondance"
+      edit: "Modifier cette correspondance"
+      destroy: "Supprimer cette correspondance"
+      destroy_confirm: "Etes vous sûr de détruire cette correspondance ?"
       select_areas: "Modifier les départs/arrivées"
     new:
-      title: Ajouter une correspondance
+      title: "Ajouter une correspondance"
     edit:
-      title: Modifier la correspondance %{connection_link}
+      title: "Modifier la correspondance %{connection_link}"
     show:
-      title: Correspondance %{connection_link}
+      title: "Correspondance %{connection_link}"
       durations: "Durées (hh mm ss) :"
     connection_link:
-      from: De
-      to: vers
+      from: "De"
+      to: "vers"
     index:
-      name: Nom
-      title: Correspondances
-      departure: Arrêt de départ
+      name: "Nom"
+      title: "Correspondances"
+      departure: "Arrêt de départ"
       arrival: "Arrêt d'arrivée"
-      selection: Sélection
-      selection_all: Tous
+      selection: "Sélection"
+      selection_all: "Tous"
     select_departure:
       title: "Sélection de l'arrêt de départ de %{connection_link}"
     select_arrival:
@@ -96,31 +96,31 @@ fr:
   activerecord:        
     models:        
       connection_link: 
-        zero:  correspondance
-        one:   correspondance
-        other: correspondances
+        zero:  "correspondance"
+        one:   "correspondance"
+        other: "correspondances"
     attributes:
       connection_link:
-        departure: Arrêt de départ
+        departure: "Arrêt de départ"
         arrival: "Arrêt d'arrivée"
-        departure_id: Arrêt de départ
+        departure_id: "Arrêt de départ"
         arrival_id: "Arrêt d'arrivée"
-        undefined: non défini
-        name: Nom
-        comment: Commentaire
-        link_distance: Distance (m)
-        connection_link_type: Type
-        default_duration: moyenne
-        frequent_traveller_duration: pour un habitué
-        occasional_traveller_duration: pour un voyageur occasionnel
-        mobility_restricted_traveller_duration: pour un voyageur à mobilité réduite
-        mobility_restricted_suitability: Accès pour voyageur à mobilité réduite
-        stairs_availability: Escalator
-        lift_availability: Ascenseur
-        objectid: Identifiant Neptune
-        object_version: Version
-        creation_time: Créé le
-        creator_id: Créé par
+        undefined: "non défini"
+        name: "Nom"
+        comment: "Commentaire"
+        link_distance: "Distance (m)"
+        connection_link_type: "Type"
+        default_duration: "moyenne"
+        frequent_traveller_duration: "pour un habitué"
+        occasional_traveller_duration: "pour un voyageur occasionnel"
+        mobility_restricted_traveller_duration: "pour un voyageur à mobilité réduite"
+        mobility_restricted_suitability: "Accès pour voyageur à mobilité réduite"
+        stairs_availability: "Escalator"
+        lift_availability: "Ascenseur"
+        objectid: "Identifiant Neptune"
+        object_version: "Version"
+        creation_time: "Créé le"
+        creator_id: "Créé par"
   formtastic:
     hints:
       connection_link:

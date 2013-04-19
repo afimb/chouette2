@@ -1,33 +1,33 @@
 en:
   file_validations:
     index:
-      title: Neptune Validation
+      title: "Neptune Validation"
       warning: ""
     edit:
       title: "Edit the Validation"
     show:
-      title: Neptune Validation
-      summary: Rapport de conformité à la norme NEPTUNE
+      title: "Neptune Validation"
+      summary: "Rapport de conformité à la norme NEPTUNE"
     new:
-      title: Create a new validation
+      title: "Create a new validation"
       submit: "Create a validation"
     actions:
-      new: Add a validation
+      new: "Add a validation"
       destroy_confirm: "Do you confirm to destroy this validation ?"
-      destroy: Destroy this validation
-      edit: Edit this validation
+      destroy: "Destroy this validation"
+      edit: "Edit this validation"
     statuses:
-      pending: Pending
-      completed: Completed
-      failed: Failed
+      pending: "Pending"
+      completed: "Completed"
+      failed: "Failed"
   file_validation_log_messages:
     messages:
       undefined: "%{key} undefined"
       TooMuchDetails: ( %{0} erreurs / warnings supplémentaires )
       ONE: "Catégorie 1 : Syntaxe"
       Test1_Sheet1: 'Fiche n° 1.1 : Conformité à la syntaxe XML suivant les recommandations du W3C'
-      Test1_Sheet1_Step1: Conformité à la syntaxe XML
-      Test1_Sheet1_Step2: Conformité au schéma XML du profil NEPTUNE
+      Test1_Sheet1_Step1: "Conformité à la syntaxe XML"
+      Test1_Sheet1_Step2: "Conformité au schéma XML du profil NEPTUNE"
       Test1_Sheet1_Step0_fatal: "Erreur fatale : Impossible d'ouvrir le fichier %{0}"
       Test1_Sheet1_Step0_error: "Impossible d'importer cette entrée %{0} du zip"
       Test1_Sheet1_Step0_warning: "Cette entrée %{0} du zip n'est pas un fichier xml et a été ignoré"
@@ -235,79 +235,79 @@ en:
       Test3_Sheet21_Step1_error_c: "c : la vitesse fixée par l'élément < OccasionalTravellerDuration > n'est pas conforme à la valeur paramétrable %{Vitesse minimale %{0} et Vitesse maximale %{1} fixée pour le lien d'accès dont l'identifiant est < %{2} >"
       Test3_Sheet21_Step1_error_d: "d : la vitesse fixée par l'élément < MobilityRestrictedTravellerDuration > n'est pas conforme à la valeur paramétrable Vitesse minimale %{0} et Vitesse maximale %{1} fixée pour le lien d'accès dont l'identifiant est < %{2} >"
     severities:
-      uncheck: Unchecked
-      ok: Ok
-      warning: Warning
-      error: Error
-      fatal: Fatal
+      uncheck: "Unchecked"
+      ok: "Ok"
+      warning: "Warning"
+      error: "Error"
+      fatal: "Fatal"
   activerecord:
     models:
       file_validation: 
-        zero: Neptune Validation
-        one: Neptune Validation
-        other: Neptune Validation
+        zero: "Neptune Validation"
+        one: "Neptune Validation"
+        other: "Neptune Validation"
     attributes:
       file_validation:
-        resources: File to validate
-        status: Status
-        file_name: Tested data
+        resources: "File to validate"
+        status: "Status"
+        file_name: "Tested data"
       file_validation_log_message:
-        created_at: Date
-        position: N.
-        full_message: Message
+        created_at: "Date"
+        position: "N."
+        full_message: "Message"
 
 fr:
   file_validations:
     index:
-      title: Validation Neptune
+      title: "Validation Neptune"
       warning: ""
     edit:
       title: "Editer la validation"
     show:
-      title: Validation Neptune
-      summary: Rapport de conformité à la norme NEPTUNE
-      details: Détails
-      parameters: Paramètres des tests 
+      title: "Validation Neptune"
+      summary: "Rapport de conformité à la norme NEPTUNE"
+      details: "Détails"
+      parameters: "Paramètres des tests"
     new:
-      title: Démarrer une nouvelle validation
+      title: "Démarrer une nouvelle validation"
       submit: "Lancer la validation"
     actions:
-      new: Ajouter une validation
+      new: "Ajouter une validation"
       destroy_confirm: "Voulez-vous supprimer ce résultat de validation ?"
-      destroy: Supprimer cette validation
-      edit: Editer cette validation
+      destroy: "Supprimer cette validation"
+      edit: "Editer cette validation"
     statuses:
-      pending: En cours
-      completed: Achevé
-      failed: Echoué
+      pending: "En cours"
+      completed: "Achevé"
+      failed: "Echoué"
     uncheck_count: 
-      zero: aucun inapplicable
-      one: un inapplicable
+      zero: "aucun inapplicable"
+      one: "un inapplicable"
       other: "%{count} inapplicables"
     ok_count: 
-      zero: aucun test réussi
-      one: un test réussi
+      zero: "aucun test réussi"
+      one: "un test réussi"
       other: "%{count} tests réussis"
     warning_count: 
-      zero: aucun warning
-      one: un warning
+      zero: "aucun warning"
+      one: "un warning"
       other: "%{count} warnings"
     error_count: 
-      zero: aucune erreur
-      one: une erreur
+      zero: "aucune erreur"
+      one: "une erreur"
       other: "%{count} erreurs"
     fatal_count: 
-      zero: aucune erreur fatale
-      one: une erreur fatale
+      zero: "aucune erreur fatale"
+      one: "une erreur fatale"
       other: "%{count} erreurs fatales"
   file_validation_log_messages:
     messages:
       undefined: "%{key} non défini"
-      TooMuchDetails: ( %{0} erreurs / warnings supplémentaires )
+      TooMuchDetails: "( %{0} erreurs / warnings supplémentaires )"
       ONE: "Catégorie 1 : Syntaxe"
       Test1_Sheet1: 'Fiche n° 1.1 : Conformité à la syntaxe XML suivant les recommandations du W3C'
-      Test1_Sheet1_Step1: Conformité à la syntaxe XML
-      Test1_Sheet1_Step2: Conformité au schéma XML du profil NEPTUNE
+      Test1_Sheet1_Step1: "Conformité à la syntaxe XML"
+      Test1_Sheet1_Step2: "Conformité au schéma XML du profil NEPTUNE"
       Test1_Sheet1_Step0_fatal: "Erreur fatale : Impossible d'ouvrir le fichier %{0}"
       Test1_Sheet1_Step0_error: "Impossible d'importer cette entrée %{0} du zip"
       Test1_Sheet1_Step0_warning: "Cette entrée %{0} du zip n'est pas un fichier xml et a été ignoré"
@@ -332,7 +332,7 @@ fr:
       Test2_Sheet2_Step1: "Correcte référence  à des LIGNEs/Chouette ( < Line >) dans GROUPE DE LIGNES ( < GroupOfLine >)"
       Test2_Sheet2_Step1_error: "la valeur de l'élément < lineId > : %{0} de la classe d'objets < GroupOfLine > n'a pas été repérée dans l'élément < objectId > de la classe d'objets < Line >"
       Test2_Sheet3: "Fiche n° 2.3 : Cohérence entre les arrêts et leurs composants"
-      Test2_Sheet3_Step1: "Correcte référence  à  des ARRÊTs/Chouette ( < StopArea >)  et/ou à des POINTs D''ARRÊT SUR PARCOURS ( < StopPoint >) dans les ARRÊTs/Chouette ( < StopArea >)  "
+      Test2_Sheet3_Step1: Conformité au schéma XML du profil NEPTUNE"Correcte référence  à  des ARRÊTs/Chouette ( < StopArea >)  et/ou à des POINTs D''ARRÊT SUR PARCOURS ( < StopPoint >) dans les ARRÊTs/Chouette ( < StopArea >)  "
       Test2_Sheet3_Step1_unchecked: "non implémenté"
       Test2_Sheet3_Step1_error: "une ou plusieurs valeurs de l'élément < contains > de l'objet < StopArea > %{0} n'est pas repérée dans la classe d'objets correspondant < StopPoint > ou < StopArea >. >"
       Test2_Sheet4: "Fiche n° 2.4 : Définition des correspondances"
@@ -515,22 +515,22 @@ fr:
       Test3_Sheet21_Step1_error_c: "c : la vitesse fixée par l'élément < OccasionalTravellerDuration > n'est pas conforme à la valeur paramétrable %{Vitesse minimale %{0} et Vitesse maximale %{1} fixée pour le lien d'accès dont l'identifiant est < %{2} >"
       Test3_Sheet21_Step1_error_d: "d : la vitesse fixée par l'élément < MobilityRestrictedTravellerDuration > n'est pas conforme à la valeur paramétrable Vitesse minimale %{0} et Vitesse maximale %{1} fixée pour le lien d'accès dont l'identifiant est < %{2} >"
     severities:
-      uncheck: Non testé
-      ok: Ok
-      warning: Alerte
-      error: Erreur
-      fatal: Fatal
+      uncheck: "Non testé"
+      ok: "Ok"
+      warning: "Alerte"
+      error: "Erreur"
+      fatal: "Fatal"
   activerecord:
     models:
       file_validation: 
-        zero:  Validation Neptune 
-        one:   Validation Neptune 
-        other: Validation Neptune
+        zero:  "Validation Neptune"
+        one:   "Validation Neptune" 
+        other: "Validations Neptune"
     attributes:
       file_validation:
-        resources: Fichier à valider
-        status: Status
-        file_name: Jeu de données
+        resources: "Fichier à valider"
+        status: "Status"
+        file_name: "Jeu de données"
         test3_1_minimal_distance: "Distance minimale (test 3.1)"
         test3_2_minimal_distance: "Distance minimale (test 3.2)"
         test3_2_polygon_points: "Polygone (long lat) (test 3.6)"
@@ -561,6 +561,6 @@ fr:
         test3_21d_maximal_speed: " / "
         projection_reference: "Système de projection de référence"
       file_validation_log_message:
-        created_at: Date
-        position: N.
-        full_message: Message
+        created_at: "Date"
+        position: "N."
+        full_message: "Message"
