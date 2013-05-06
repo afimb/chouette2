@@ -136,6 +136,14 @@ class Export < ActiveRecord::Base
     read_attribute :reference_ids
   end
 
+  def self.format_name(format)
+    name_by_format = { "NeptuneExport" => "Neptune",
+                       "CsvExport" => "CSV",
+                       "GtfsExport" => "GTFS",
+                       "NetexExport" => "NeTEx"}
+    name_by_format[format]
+  end
+
   def self.types
     unless Rails.env.development?
       subclasses.map(&:to_s)

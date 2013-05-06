@@ -25,6 +25,14 @@ class Import < ActiveRecord::Base
     end
   end
 
+  def self.format_name(format)
+    name_by_format = { "NeptuneImport" => "Neptune",
+                       "CsvImport" => "CSV",
+                       "GtfsImport" => "GTFS",
+                       "NetexImport" => "NeTEx"}
+    name_by_format[format]
+  end
+
   def self.types
     # if Rails.env.development? and subclasses.blank?
     #   Dir[File.expand_path("../*_import.rb", __FILE__)].each do |f| 

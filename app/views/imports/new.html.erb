@@ -2,7 +2,7 @@
 
 <%= semantic_form_for([@referential, @import], :as => :import, :url => new_referential_import_path(@referential), :method => :get) do |form| %>  
   <%= form.inputs do %>
-    <%= form.input :type, :as => :select, :collection => Import.types, :required => true, :include_blank => false %>
+    <%= form.input :type, :as => :select, :collection => Import.types.map { |format| [ Import.format_name(format), format]}, :required => true, :include_blank => false %>
   <% end %>
 <% end %>
 
