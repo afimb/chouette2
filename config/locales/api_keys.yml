@@ -12,6 +12,10 @@ en:
   activerecord:        
     models:        
       api_key: "Api Key"
+    attributes:
+      api_key:
+        name: "Name"
+        token: "Token"
 fr:
   api_keys:
     actions:
@@ -29,4 +33,5 @@ fr:
     attributes:
       api_key:
         name: "Nom"
+        token: "Token"
 

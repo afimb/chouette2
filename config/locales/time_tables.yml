@@ -13,6 +13,8 @@ en:
       destroy_confirm: "Are you sure you want destroy this timetable ?"
       destroy_date_confirm: "Are you sure you want destroy this date ?"
       destroy_period_confirm: "Are you sure you want destroy this period ?"
+      add_period: "Add a period"
+      add_date: "Add a date"
     new:
       title: "Add a new timetable"
     edit:

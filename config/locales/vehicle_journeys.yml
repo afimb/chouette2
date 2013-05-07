@@ -37,6 +37,7 @@ en:
     index:
       title: "Vehicle journeys on route %{route}"
       vehicle_journeys: "Departure's times"
+      title: "Timeless vehicle journeys"
       selection: "Filter on"
       selection_all: "All"
       time_range: "Departure time threshold"
