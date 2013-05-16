@@ -1,0 +1,141 @@
+<%= title_tag t('access_points.show.title', :access_point => @access_point.name) %>
+<div class="access_point_show">
+  <% if @access_point.projection_type != nil || @access_point.long_lat_type != nil %>
+    <%= @map.to_html %>
+  <% end %>  
+  <div class="summary">
+    <p>
+      <label><%= @access_point.human_attribute_name(:stop_area) %>: </label>
+       <%= link_to @stop_area.name, [@referential, @stop_area] %>
+    </p>
+    <p>
+      <label><%= @access_point.human_attribute_name("name") %>: </label>
+      <%= @access_point.name %>
+    </p>
+    <p>
+      <label><%= @access_point.human_attribute_name("comment") %>: </label>
+      <%= @access_point.comment %>
+    </p>
+    <p>
+      <label><%= @access_point.human_attribute_name("street_name") %>: </label>
+      <%= @access_point.street_name %>
+    </p>
+    <p>
+      <label><%= @access_point.human_attribute_name("country_code") %>: </label>
+      <%= @access_point.country_code %>
+    </p>
+    <p>
+      <label><%= @access_point.human_attribute_name("access_point_type") %>: </label>
+      <%= t("access_types.label.#{@access_point.access_point_type}") %>
+    </p>
+    <p>
+      <label><%= @access_point.human_attribute_name("openning_time") %>: </label>
+      <% if (@access_point.openning_time.present?) %>
+         <%= @access_point.openning_time.strftime('%Hh %Mm') %>
+      <% end %>
+    </p>
+    <p>
+      <label><%= @access_point.human_attribute_name("closing_time") %>: </label>
+      <% if (@access_point.closing_time.present?) %>
+         <%= @access_point.closing_time.strftime('%Hh %Mm') %>
+      <% end %>
+    </p>
+    <p>
+      <label><%= @access_point.human_attribute_name("mobility_restricted_suitability") %>: </label>
+      <%= t((@access_point.mobility_restricted_suitability == true).to_s) %>
+    </p>
+    <p>
+      <label><%= @access_point.human_attribute_name("stairs_availability") %>: </label>
+      <%= t((@access_point.stairs_availability == true).to_s) %>
+    </p>
+    <p>
+      <label><%= @access_point.human_attribute_name("lift_availability") %>: </label>
+      <%= t((@access_point.lift_availability == true).to_s) %>
+    </p>
+    <p> <label><%= t('access_points.show.geographic_data') %> </label></p>
+    <% if @access_point.projection_type == nil && @access_point.long_lat_type == nil %>
+	    <span class='geo_data'><%= t('access_points.show.no_geographic_data') %></span>
+    <% else %>
+	    <% if !@access_point.projection_type.nil? %>
+	    <p>
+	      <span class='geo_data'><%= @access_point.human_attribute_name("projection_type") %>: </span>
+	      <%= @access_point.projection_type %>
+	    </p>
+	    <p>
+	      <span class='geo_data'><%= @access_point.human_attribute_name("x") %>: </span>
+	      <%= @access_point.x %>
+	    </p>
+	    <p>
+	      <span class='geo_data'><%= @access_point.human_attribute_name("y") %>: </span>
+	      <%= @access_point.y %>
+	    </p>
+	    <% end %>
+	    <% if !@access_point.long_lat_type.nil? %>
+	    <p>
+	      <span class='geo_data'><%= @access_point.human_attribute_name("long_lat_type") %>: </span>
+	      <%= @access_point.long_lat_type %>
+	    </p>
+	    <p>
+	      <span class='geo_data'><%= @access_point.human_attribute_name("longitude") %>: </span>
+	      <%= @access_point.longitude %>
+	    </p>
+	    <p>
+	      <span class='geo_data'><%= @access_point.human_attribute_name("latitude") %>: </span>
+	      <%= @access_point.latitude %>
+	    </p>
+	    <% end %>
+    <% end %>
+    <p>
+      <label><%= @access_point.human_attribute_name("objectid") %>: </label>
+      <%= @access_point.objectid %>
+    </p>
+  </div>
+                           
+</div>
+                
+<p class="after_map" />
+<div>
+  <h3 class="access_point_generics">
+	<a class="generics"><%= t('.generic_access_links') %>
+      <%= image_tag("icons/plus.png"  , :class => "switcher", :style => "display: none;") %>
+      <%= image_tag("icons/minus.png"  , :class => "switcher" ) %>
+    </a>
+  	
+  </h3>
+  <div class="generics content">
+
+	<div class="access_link_pairs">
+      <table>
+	  <%= render :partial => "access_link_pairs/access_link_pair", :collection => access_links_pairs(@generic_access_links) %>
+      </table>
+	</div>
+  	
+  </div>
+
+  <h3 class="access_point_details">
+	<a class="details"><%= t('.detail_access_links') %>
+      <%= image_tag("icons/plus.png"  , :class => "switcher") %>
+      <%= image_tag("icons/minus.png"  , :class => "switcher", :style => "display: none;" ) %>
+    </a>
+  	
+  </h3>
+  <div class="details content" style="display: none;">
+
+	<div class="access_link_pairs">
+      <table>
+	  <%= render :partial => "access_link_pairs/access_link_pair", :collection => access_links_pairs(@detail_access_links) %>
+      </table>
+	</div>
+  	
+  </div>
+</div>
+
+                         
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('access_points.actions.edit'), edit_referential_stop_area_access_point_path(@referential, @stop_area, @access_point), :class => "edit" %></li>
+  <li><%= link_to  t('access_points.actions.destroy'), referential_stop_area_access_point_path(@referential, @stop_area, @access_point), :method => :delete, :data => {:confirm =>  t('access_points.actions.destroy_confirm')}, :class => "remove" %></li>
+</ul>
+  <br>
+  <%= creation_tag(@access_point) %>
+<% end %>

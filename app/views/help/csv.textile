@@ -3,4 +3,97 @@ layout: default
 title: Format d'échange CSV
 ---
 
-Rédaction ultérieure
+Le format CSV utilise un caractère comme séparateur de champs, c'est le caractère « ; » qui est utilisé par défaut.
+Ce séparateur est configurable sur l'application WEB. Il est donc possible de le changer et le nouveau séparateur est pris en compte après redémarrage.
+Le format CSV est décrit par l'exemple ci-dessous (attention, le format est 'strict' ! et l'encodage attendu est en UTF-8)
+
+<notextile>
+<pre width="100%">
+
+;;;;;;;"Nom du réseau";"RER";;;;; 
+;;;;;;;"Code Réseau";500;;;;; 
+;;;;;;;"Description du réseau";"Réseau Express Régional ,exploités par la RATP et la SNCF";;;;; 
+;;;;;;;;;;;;; 
+;;;;;;;"Nom de l'entreprise de transport";"Régie Autonome des Transports Parisiens";;;;; 
+;;;;;;;"Code Transporteur";100;;;;; 
+;;;;;;;"Nom court";"RATP";;;;; 
+;;;;;;;"Description du transporteur";"X";;;;; 
+;;;;;;;"Code postal";75599;;;;; 
+;;;;;;;"Téléphone";"01.01.01.01.01";;;;; 
+;;;;;;;"Fax";"01.01.01.01.01";;;;; 
+;;;;;;;"Email";"service@ratp.fr";;;;; 
+;;;;;;;;;;;;; 
+;;;;;;;"Nom de la ligne";"RER A";;;;; 
+;;;;;;;"Nom public";"RER A";;;;; 
+;;;;;;;"Numero de la ligne";"A";;;;; 
+;;;;;;;"Commentaire de la ligne";"Ligne RER A";;;;; 
+;;;;;;;"Mode de Transport (BUS,METRO,RER,TRAIN ou TRAMWAY)";"RER";;;;; 
+;;;;;;;;;;;;; 
+;;;;;;;"Horaires des courses";"Horaires";"Horaires";"Horaires";"Horaires";"Horaires";"Horaires" 
+;;;;;;;"Nom de l'itinéraire";"X";;"X";"X";"X";"X" 
+;;;;;;;"Nom public de l'itinéraire";"Marne-la-Valée-Chessy  Cergy";;"Marne-la-Valée-Chessy  Poissy";"X";"Poissy  Marne-la-Valée-Chessy ";"X" 
+;;;;;;;"Commentaire de l'itinéraire";"X";;"X";"X";"X";"X" 
+;;;;;;;"Direction (ALLER/RETOUR)";"ALLER";"ALLER";"ALLER";"ALLER";"RETOUR";"RETOUR" 
+;;;;;;;"Nom de la mission";"X";"X";"X";"X";"X";"X" 
+;;;;;;;"Nom public de la mission";"UBUS";"X";"TROC";"X";"QENO";"X" 
+;;;;;;;"Date de début d'application";26/07/04;;26/07/04;;30/08/04; 
+;;;;;;;"Date de fin d'application";20/08/04;;20/08/04;;04/07/05; 
+;;;;;;;"Commentaire sur la course";"X";"X";"X";"X";"X";"X" 
+;;;;;;;"Lundi (O/N)";"O";;"O";;"N"; 
+;;;;;;;"Mardi (O/N)";"O";;"O";;"N"; 
+;;;;;;;"Mercredi (O/N)";"O";;"O";;"N"; 
+;;;;;;;"Jeudi (O/N)";"O";;"O";;"N"; 
+;;;;;;;"Vendredi (O/N)";"O";;"O";;"N"; 
+;;;;;;;"Samedi (O/N)";"N";;"O";;"O"; 
+;;;;;;;"Dimanche (O/N)";"N";;"O";;"O"; 
+;;;;;;;"Jour férié (O/N)";"N";;"O";;"O"; 
+;;;;;;;"Libellé du tableau de marche";"Vacances scolaires ";;"Vacances scolaires ";;"Les jours fériés et le weekend"; 
+"Code Postal";"Commentaire";"X";"Y";"latitude";"longitude";"Distance";"Liste des arrêts";"heure d'arrivée";"heure de départ";"heure d'arrivée";"heure de départ";"heure d'arrivée";"heure de départ" 
+;;;;;;;"Marne-la-Valée-Chessy";;;;;; 
+;;;;;;;"Val d'Europe";;;;;; 
+;;;;;;;"Bussy-Saint-Georges";;;;;; 
+;;"524286.00";"1840940.00";;;;"Torcy";09:30:00;09:30:00;10:20:00;10:20:00;07:12:00;07:12:00 
+;;;;;;;"Lognes";09:31:00;09:31:00;10:21:00;10:21:00;07:11:00;07:11:00 
+;;;;;;;"Noisiel";09:32:00;09:32:00;10:22:00;10:22:00;07:10:00;07:10:00 
+;;;;;;;"Noisy-Champs";09:33:00;09:33:00;10:23:00;10:23:00;07:09:00;07:09:00 
+;;;;;;;"Noisy-le-Grand--Mont d'Est";09:34:00;09:34:00;10:24:00;10:24:00;07:08:00;07:08:00 
+;;;;;;;"Bry-sur-Marne ";09:35:00;09:35:00;10:25:00;10:25:00;07:07:00;07:07:00 
+;;;;;;;"Neuilly-Plaisance";09:36:00;09:36:00;10:26:00;10:26:00;07:06:00;07:06:00 
+;;;;;;;"Val de Fontenay";09:37:00;09:37:00;10:27:00;10:27:00;07`:05:00;07:05:00 
+;;;;;;;"Boissy-Saint-Léger";;;;;; 
+;;;;;;;"Sucy-Bonneuil";;;;;; 
+;;;;;;;"La Varenne-Chennevières";;;;;; 
+;;;;;;;"Champigny";;;;;; 
+;;;;;;;"La Parc de Saint-maur";;;;;; 
+;;;;;;;"Saint-Maur-Créteil";;;;;; 
+;;;;;;;"Joinville-le-Pont";;;;;; 
+;;;;;;;"Nogent-sur-Marne";;;;;; 
+;;;;;;;"Fontenay-Sous-Bois";;;;;; 
+;;;;;;;"Vincennes";09:38:00;09:38:00;10:27:30;10:27:30;06:55:00;06:55:00 
+;;;;;;;"Nation";09:39:00;09:39:00;10:28:00;10:28:00;06:54:00;06:54:00 
+;;;;;;;"Gare de Lyon";09:40:00;09:40:00;10:28:30;10:28:30;06:53:00;06:53:00 
+;;;;;;;"Châtelet-Les-Halles";09:41:00;09:41:00;10:29:00;10:29:00;06:52:00;06:52:00 
+;;;;;;;"Auber";09:42:00;09:42:00;10:29:30;10:29:30;06:51:00;06:51:00 
+;;;;;;;"Charles de Gaulle-Etoile";09:43:00;09:43:00;10:30:00;10:30:00;06:50:00;06:50:00 
+;;;;;;;"La Défense";09:44:00;09:44:00;10:30:30;10:30:30;06:49:00;06:49:00 
+;;;;;;;"Nanterre-Préfecture";09:45:00;09:45:00;10:31:00;10:31:00;06:48:00;06:48:00 
+;;;;;;;"Nanterre-Université";;;;;; 
+;;;;;;;"Nanterre-Ville";;;;;; 
+;;;;;;;"Rueil-Malmaison";;;;;; 
+;;;;;;;"Chatou-Croissy";;;;;; 
+;;;;;;;"Le vésinet-Centre";;;;;; 
+;;;;;;;"Le vésinet-Le Pecq";;;;;; 
+;;;;;;;"Saint-Germain-en-Laye";;;;;; 
+;;;;;;;"Houilles-Carrières/Sine";09:46:00;09:46:00;10:32:00;10:32:00;06:40:00;06:40:00 
+;;;;;;;"Sartrouville";09:47:00;09:47:00;10:33:00;10:33:00;06:39:00;06:39:00 
+;;;;;;;"Maisons-Laffitte";09:48:00;09:48:00;10:34:00;10:34:00;06:38:00;06:38:00 
+;;;;;;;"Achères-Ville";09:49:00;09:49:00;;;; 
+;;;;;;;"Conflans-Fin d'Oise";09:50:00;09:50:00;;;; 
+;;;;;;;"Neuville-Université";09:51:00;09:51:00;;;; 
+;;;;;;;"Cergy-Préfecture";09:52:00;09:52:00;;;; 
+;;;;;;;"Cergy-Saint-Christophe";09:53:00;09:53:00;;;; 
+;;;;;;;"Cergy-le Haut";09:54:00;09:54:00;;;; 
+;;;;;;;"Achères-Grand Cormier";;;10:35:00;10:35:00;06:31:00;06:31:00 
+;;;;;;;"Poissy";;;10:36:00;10:36:00;06:30:00;06:30:00 
+</pre>
+ </notextile>

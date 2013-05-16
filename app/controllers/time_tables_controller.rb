@@ -6,6 +6,11 @@ class TimeTablesController < ChouetteController
 
   belongs_to :referential
 
+  def show
+    @year = params[:year] ? params[:year].to_i : Date.today.cwyear
+    show!
+  end
+
   def comment_filter
     respond_to do |format|  
       format.json { render :json => filtered_time_tables_maps}  

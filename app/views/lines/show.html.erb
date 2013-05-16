@@ -48,14 +48,6 @@
       <label><%= @line.human_attribute_name("objectid") %>: </label>
       <%= @line.objectid %>
     </p>
-    <p>
-      <label><%= @line.human_attribute_name("creation_time") %>: </label>
-      <%= l(@line.creation_time) %>
-    </p>
-    <p>
-      <label><%= @line.human_attribute_name("creator_id") %>: </label>
-      <%= @line.creator_id %>
-    </p>
   </div>
 </div>
 
@@ -66,11 +58,20 @@
   <%= render :partial => "routes/route", :collection => @routes %>
 </div>
 
+<% if @line.group_of_lines.any? %>
+  <h3 class="line_group_of_lines"><%= t('.group_of_lines') %>
+  </h3>
+  <div class="group_of_lines_detail">
+     <%= render :partial => "group_of_lines/group_of_line", :collection => @group_of_lines %>
+  </div>
+<% end %>
+
 <% content_for :sidebar do %>
 <ul class="actions">
   <li><%= link_to t('lines.actions.edit'), edit_referential_line_path(@referential, @line), :class => "edit" %></li>
-  <li><%= link_to  t('lines.actions.destroy'), referential_line_path(@referential, @line), :method => :delete, :confirm =>  t('lines.actions.destroy_confirm'), :class => "remove" %></li>
+  <li><%= link_to  t('lines.actions.destroy'), referential_line_path(@referential, @line), :method => :delete, :data => {:confirm =>  t('lines.actions.destroy_confirm')}, :class => "remove" %></li>
   <li><%= link_to t('routes.actions.new'), new_referential_line_route_path(@referential, @line), :class => "add" %></li> 
   <br>
 </ul>
+  <%= creation_tag(@line) %>
 <% end %>

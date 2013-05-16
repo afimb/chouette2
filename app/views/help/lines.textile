@@ -5,7 +5,7 @@ title: Lignes
 
 h3. Définition
 
-Une ligne référence un réseau et un transporteur; par ailleurs la ligne se compose d'un ou plusieurs itinéraires. 
+Une *ligne* référence un réseau et un transporteur; par ailleurs la ligne se compose d'un ou plusieurs itinéraires. 
 La ligne dispose aussi d'un identifiant fonctionnel (<< numéro d'enregistrement >>) qui est utilisé dans les échanges XML pour identifier la ligne et la mettre à jour; il est donc important que le gestionnaire de la base CHOUETTE le renseigne d'une manière bien définie et pérenne.
 
 h3. Attributs
@@ -13,7 +13,7 @@ h3. Attributs
 - Réseau := réseau d'appartenance de la ligne
 - Transporteur := 
 transporteur principal exploitant la ligne
-les autres transporteurs de la lignes sont référencés au niveau de chaque course
+les autres transporteurs de la lignes peuvent être référencés au niveau de chaque course
 =:
 - Nom := nom de la ligne 
 - Nom public := nom de la ligne connu des usagers
@@ -21,9 +21,10 @@ les autres transporteurs de la lignes sont référencés au niveau de chaque cou
 - Indice := indice de la ligne
 - Mode de transport := 
 mode de transport principal de la ligne
-les modes de transports particuliers sont indiqués au niveau de chaque course 
+d'autres modes de transports particuliers peuvent être indiqués au niveau de chaque course 
 =:
 - Commentaire := zone de texte libre sur la ligne
+- Groupes de lignes := "groupes de lignes":group_of_lines auxquels appartient la ligne
 
 p(attr_data). Données de gestion : 
 
@@ -32,9 +33,9 @@ clé unique pérenne identifiant la ligne pour les échanges Neptune
 cet identifiant est composé de 3 parties : préfixe:type:id_technique
 * préfixe : clé identifiant un producteur de données unique
 * type = Line : clé identifiant le type d'objet (valeur imposée)
-* id_technique : valeur identifiant un seul object d'un type donné pour un même producteur
+* id_technique : valeur identifiant un seul objet d'un type donné pour un même producteur
 ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
-il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera complétée automatiquement.
+il est possible aussi de ne renseigner que l'identifiant technique, auquel cas la valeur sera complétée automatiquement.
 =:
 - Date de création := date à laquelle l'objet a été créé ou modifié pour la dernière fois
 - Version := version de l'objet (auto incrémenté à chaque modification)

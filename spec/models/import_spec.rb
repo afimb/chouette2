@@ -45,7 +45,7 @@ describe Import do
   describe ".types" do
     
     it "should return available Import implementations" do
-      Import.types.should =~ %w{NeptuneImport CsvImport}
+      Import.types.should =~ %w{NeptuneImport CsvImport GtfsImport NetexImport}
     end
 
   end

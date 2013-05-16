@@ -1,0 +1,37 @@
+---
+layout: default
+title: Groupes de lignes
+---
+
+h3. Définition
+
+Un groupe de lignes regroupe un ensemble de lignes assurant un type de service commun ; ces lignes ne sont pas forcément du même réseau.
+Note 1: dans NeTex, le réseau est un groupe de ligne parmi les autres.
+
+Note 2: dans Neptune, une ligne ne peut appartenir qu'à un seul groupe de ligne; donc dans l'export Neptune, un seul groupe sera exporté.
+
+
+h3. Attributs
+
+- Nom := nom du groupe de lignes 
+- Lignes := liste des "lignes":lines affectées au groupe
+
+p(attr_data). Données de gestion :
+
+- Identifiant Neptune := 
+clé unique pérenne identifiant le groupe de lignes pour les échanges Neptune
+cet identifiant est composé de 3 parties : préfixe:type:id_technique
+* préfixe : clé identifiant un producteur de données unique
+* type = GroupOfLine : clé identifiant le type d'objet (valeur imposée)
+* id_technique : valeur identifiant un seul objet d'un type donné pour un même producteur
+ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
+il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera complétée automatiquement.
+=:
+- Date de création := date à laquelle l'objet a été créé ou modifié pour la dernière fois
+- Version := version de l'objet (auto incrémenté à chaque modification)
+- Créé par := compte utilisateur ayant procédé à la dernière modification
+
+h3. Implémentation
+
+p. TODO
+

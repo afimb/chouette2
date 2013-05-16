@@ -1,278 +1,67 @@
-<div class=WordSection1>
-</span></b>
+<h1 class="western" style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm 0.12cm; margin-top: 0.21cm;" align="center">
+<font face="Arial, sans-serif"><font style="font-size: 20pt;" size="5"><i>
+ point de contrôle N° 3.13<br>
+Connexité du graphe des  lignes et des points d’arrêt avec intégration des horaires<br>
+</i></font></font></h1>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><u><b>Objectif: </b></u>
+Vérifier que les POINTs   D’ARRÊT SUR PARCOURS<span style="color: black;">
+(«&nbsp;StopPoint&nbsp;») du réseau sont accessibles par les voyageurs
+quel que soit leur point de départ. Cette connexité est établie en
+tenant compte des HEUREs DE PASSAGE GRAPHIQUEEs/Chouette
+(«&nbsp;VehicleJourneyAtStop&nbsp;»)<br>
+</span></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><u><b>Priorité: </b></u> Obligatoire</font></p><font face="Arial, sans-serif">
+</font><p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><u><b>Explications:</b></u> 
+</font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">Le
+réseau est décrit dans le fichier XML par des POINTs D’ARRÊT SUR
+PARCOURS (« StopPoint »), des TRONCONS COMMERCIAUX/Chouette (« PtLink
+»), et TronçonsDeCorrespondance/Chouette (« ConnectionLink ») mais
+aussi des COURSES (« VehicleJourney ») et des HEUREs DE PASSAGE
+GRAPHIQUEEs/Chouette (« VehicleJourneyAtStop »)<b> </b></font></font></font></p>
 
-<p class=MsoTitle><span style='font-size:14.0pt;font-family:"Tahoma","sans-serif"'>Fiche
-du point de contr&ocirc;le N&deg; 3.13</span></p>
 
-<p class=MsoNormal>&nbsp;</p>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=638
- style='width:478.4pt;border-collapse:collapse;border:none'>
- <tr style='page-break-inside:avoid'>
-  <td width=638 colspan=2 valign=top style='width:478.4pt;border:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center'><i><span style='color:navy'>Description</span></i></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border:solid windowtext 1.0pt;border-top:
-  none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>Intitul&eacute;</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt'><span style='font-size:11.0pt;
-  line-height:200%;font-family:"Tahoma","sans-serif"'>Connexit&eacute; du graphe des
-  lignes et des points d&rsquo;arr&ecirc;t avec int&eacute;gration des horaires</span></p>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border:solid windowtext 1.0pt;border-top:
-  none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>Objectif</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif";color:black;font-weight:normal'>V&eacute;rifier que les </span><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>POINTs
-  D&rsquo;ARR&Ecirc;T SUR PARCOURS<span style='color:black'> (&laquo;&nbsp;StopPoint&nbsp;&raquo;) du
-  r&eacute;seau sont accessibles par les voyageurs quel que soit leur point de d&eacute;part.
-  Cette connexit&eacute; est &eacute;tablie en tenant compte des HEUREs DE PASSAGE
-  GRAPHIQUEEs/Chouette (&laquo;&nbsp;VehicleJourneyAtStop&nbsp;&raquo;)</span></span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border:solid windowtext 1.0pt;border-top:
-  none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>R&eacute;f&eacute;rences</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif";font-weight:normal'>TRIDENT/profil CHOUETTE/Transmodel
-  V4 et V5.1</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border:solid windowtext 1.0pt;border-top:
-  none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>N&deg; de fiche(s) connexe(s)</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='text-align:left'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  <h1 align=left style='text-align:left'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border:solid windowtext 1.0pt;border-top:
-  none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt'><b><span style='font-family:
-  "Tahoma","sans-serif"'>Priorit&eacute;<span style='color:red'> </span></span></b></p>
-  </td>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif";font-weight:normal'>Obligatoire</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border:solid windowtext 1.0pt;border-top:
-  none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt'><b><span style='font-family:
-  "Tahoma","sans-serif"'>R&eacute;sultat</span></b></p>
-  </td>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif";font-weight:normal'>D&eacute;livrance d&rsquo;un avertissement de
-  mise en garde sur des cons&eacute;quences &eacute;ventuelles de dysfonctionnement</span></h1>
-  </td>
- </tr>
- <tr style='page-break-inside:avoid'>
-  <td width=638 colspan=2 valign=top style='width:478.4pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center'><i><span style='color:navy'>Mise en &oelig;uvre</span></i></h1>
-  </td>
- </tr>
- <tr>
-  <td width=100 style='width:74.85pt;border:solid windowtext 1.0pt;border-top:
-  none;padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>Explication</span></h1>
-  </td>
-  <td width=538 style='width:403.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <p class=MsoBodyText>Le r&eacute;seau est d&eacute;crit dans le fichier XML par des POINTs
-  D&rsquo;ARR&Ecirc;T SUR PARCOURS (&laquo;&nbsp;StopPoint&nbsp;&raquo;), des TRONCONS
-  COMMERCIAUX/Chouette (&laquo;&nbsp;PtLink&nbsp;&raquo;), et
-  Tron&ccedil;onsDeCorrespondance/Chouette (&laquo;&nbsp;ConnectionLink&nbsp;&raquo;) mais aussi
-  des COURSES (&laquo;&nbsp;VehicleJourney&nbsp;&raquo;) et des <span style='font-family:
-  "Tahoma","sans-serif";color:black'>HEUREs DE PASSAGE GRAPHIQUEEs/Chouette
-  (&laquo;&nbsp;VehicleJourneyAtStop&nbsp;&raquo;)<b> </b></span></p>
-  <p class=MsoNormal style='margin-top:6.0pt;text-align:justify;text-autospace:
-  none'><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif";
-  color:black'>Le principe est le m&ecirc;me que pour la fiche 3.11 mais avec une
-  dimension temporelle en plus. Il faut v&eacute;rifier la connexit&eacute; de ces
-  &eacute;l&eacute;ments&nbsp;en prenant chacun des </span><span style='font-size:11.0pt;
-  font-family:"Arial","sans-serif"'>POINTs D&rsquo;ARR&Ecirc;T SUR PARCOURS
-  (&laquo;&nbsp;StopPoint&nbsp;&raquo;)</span><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif";color:black'> et en cr&eacute;ant un cheminement vers les
-  autres </span><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>POINTs
-  D&rsquo;ARR&Ecirc;T SUR PARCOURS (&laquo;&nbsp;StopPoint&nbsp;&raquo;)</span><span style='font-size:
-  11.0pt;font-family:"Tahoma","sans-serif";color:black'>.</span></p>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm'><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>&nbsp;</span></p>
-  </td>
- </tr>
-</table>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Le principe est le même que pour la fiche 3.11 mais avec une dimension
+temporelle en plus. Il faut vérifier la connexité de ces
+éléments&nbsp;en prenant chacun des&nbsp;POINTs D’ARRÊT SUR PARCOURS  («&nbsp;StopPoint&nbsp;»)&nbsp;et en créant un cheminement vers les  autres&nbsp;POINTs  D’ARRÊT SUR PARCOURS («&nbsp;StopPoint&nbsp;»)</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>Exemple: </u></b></font></font></font></p>
+<p><font face="Arial, sans-serif"><img src="image017.jpg" height="624" width="450"></font></p>
+<p><font face="Arial, sans-serif"><img src="image019.jpg" height="618" width="372"></font></p>
+<p><font face="Arial, sans-serif"><img src="image020.jpg" height="338" width="433"></font></p>
+<p><font face="Arial, sans-serif"><img src="image024.jpg" height="547" width="372"></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>N° test:</u></b> 
+Test  3.13.1</font></font></font></p>
 
-<p class=MsoNormal>&nbsp;</p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Libellé:</u> 
+Construction  d’un graphe à partir de chaque POINTs D’ARRÊT SUR PARCOURS  («&nbsp;StopPoint&nbsp;»)  en tenant compte des&nbsp;HEUREs  DE PASSAGE GRAPHIQUEEs/Chouette («&nbsp;VehicleJourneyAtStop&nbsp;»)&nbsp;</font></font></font></p>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=638
- style='width:478.4pt;border-collapse:collapse;border:none'>
- <tr>
-  <td width=108 valign=top style='width:81.35pt;border:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm'><b><span lang=EN-US style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif"'>Exemple</span></b></p>
-  </td>
-  <td width=538 valign=top style='width:403.55pt;border:solid windowtext 1.0pt;
-  border-left:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 style='margin-left:18.0pt;text-indent:-18.0pt'><span lang=EN-US
-  style='font-size:11.0pt;font-weight:normal'>&nbsp;</span></h1>
-  <h1 style='margin-left:18.0pt;text-indent:-18.0pt'><span lang=EN-US
-  style='font-size:11.0pt;font-weight:normal'><img width=450 height=624
-  src="BATERI_Neptune_FINAL-V2_0a_fichiers/image017.jpg"></span></h1>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>&nbsp;</span></p>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
-  width=372 height=618 src="BATERI_Neptune_FINAL-V2_0a_fichiers/image019.jpg"></span></p>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>&nbsp;</span></p>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
-  width=433 height=338 src="BATERI_Neptune_FINAL-V2_0a_fichiers/image020.jpg"></span></p>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>&nbsp;</span></p>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
-  width=372 height=547 src="BATERI_Neptune_FINAL-V2_0a_fichiers/image024.jpg"></span></p>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>&nbsp;</span></p>
-  </td>
- </tr>
- <tr style='page-break-inside:avoid'>
-  <td width=638 colspan=2 valign=top style='width:478.4pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h2 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center'><i><span lang=EN-US style='font-size:14.0pt;
-  color:navy'>Evaluation</span></i></h2>
-  </td>
- </tr>
- <tr>
-  <td width=100 valign=top style='width:74.85pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm'><span lang=EN-US style='font-size:11.0pt'>N&deg; test</span></h1>
-  </td>
-  <td width=538 style='width:403.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>Test
-  3.13.1</span></p>
-  </td>
- </tr>
- <tr>
-  <td width=100 valign=top style='width:74.85pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm'><span style='font-size:11.0pt'>Libell&eacute;</span></h1>
-  </td>
-  <td width=538 valign=top style='width:403.55pt;border-top:none;border-left:
-  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm'><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>Construction
-  d&rsquo;un graphe &agrave; partir de chaque POINTs D&rsquo;ARR&Ecirc;T SUR PARCOURS
-  (&laquo;&nbsp;StopPoint&nbsp;&raquo;)  en tenant compte des </span><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";color:black'>HEUREs
-  DE PASSAGE GRAPHIQUEEs/Chouette (&laquo;&nbsp;VehicleJourneyAtStop&nbsp;&raquo;)</span></p>
-  </td>
- </tr>
- <tr>
-  <td width=100 valign=top style='width:74.85pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm'><span lang=EN-US style='font-size:11.0pt'>Champ d&rsquo;application</span></h1>
-  </td>
-  <td width=538 valign=top style='width:403.55pt;border-top:none;border-left:
-  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm'><span lang=EN-US style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>&lt;StopPoint&gt;</span></p>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm'><span lang=EN-US style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>&lt;VehicleJourney&gt;</span></p>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm'><span lang=EN-US style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>&lt;VehicleJourneyAtStop&gt;</span></p>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm'><span lang=EN-US style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>&lt;ConnectionLink&gt;</span></p>
-  </td>
- </tr>
- <tr>
-  <td width=100 valign=top style='width:74.85pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm'><span style='font-size:11.0pt'>V&eacute;rification</span></h1>
-  </td>
-  <td width=538 valign=top style='width:403.55pt;border-top:none;border-left:
-  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>-
-  Si l&rsquo;&eacute;l&eacute;ment &laquo;&nbsp;StopPoint&nbsp;&raquo; mentionn&eacute; dans les champs d&rsquo;application
-  est pr&eacute;sent une ou plusieurs fois, poursuivre le test, sinon le test est
-  abandonn&eacute;.</span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>-
-  Construire le graph entre chaque point d&rsquo;arr&ecirc;t &laquo;&nbsp;StopPoint&nbsp;&raquo; &agrave;
-  partir des objets &laquo;&nbsp;VehicleJourney&nbsp;&raquo;,
-  &laquo;&nbsp;VehicleJourneyAtStop&nbsp;&raquo; et des correspondances
-  &laquo;&nbsp;ConnectionLink&nbsp;&raquo;.</span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>-
-  Si le graph ainsi constitu&eacute; est connexe, alors le test est valid&eacute;, sinon le
-  test est invalid&eacute; et fournit le message&nbsp;; &laquo;&nbsp;test 3.13.1&nbsp;: le
-  graphe constitu&eacute; entre chaque point d&rsquo;arr&ecirc;t n&rsquo;est pas satisfaisant&nbsp;&raquo;.</span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>&nbsp;</span></p>
-  </td>
- </tr>
-</table>
 
-<p class=MsoNormal>&nbsp;</p>
 
-</div>
+
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2"><span style="text-decoration: underline;">
+Champ d’application:</span>&nbsp;&lt;StopPoint&gt;&nbsp;&lt;VehicleJourney&gt;&nbsp;&lt;VehicleJourneyAtStop&gt;&nbsp;&lt;ConnectionLink&gt;</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Vérification:</u> </font></font></font></p>
+
+
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- Si l’élément «&nbsp;StopPoint&nbsp;» mentionné dans les champs
+d’application est présent une ou plusieurs fois, poursuivre le test,
+sinon le test est abandonné</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- Construire le graphe entre chaque point d’arrêt
+«&nbsp;StopPoint&nbsp;» à partir des objets
+«&nbsp;VehicleJourney&nbsp;», «&nbsp;VehicleJourneyAtStop&nbsp;» et des
+correspondances «&nbsp;ConnectionLink&nbsp;».</font></font></font></p>
+
+
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- Si le graphe ainsi constitué est connexe, alors le test est validé,
+sinon le test est invalidé et fournit le message&nbsp;; «&nbsp;test
+3.13.1&nbsp;: le graphe constitué entre chaque point d’arrêt n’est pas
+satisfaisant&nbsp;»<br>&nbsp;</font></font></font></p>

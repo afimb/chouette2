@@ -11,17 +11,19 @@
     <%= form.input :nearest_topic_name %>              
     <%= form.input :comment %>              
     <%= form.input :objectid, :required => !@stop_area.new_record?, :input_html => { :disabled => !@stop_area.new_record? } %>  
-    <%= form.inputs :name => t('stop_areas.show.geographic_data') do %> 
-      <% if ! @referential.projection_type_label.empty? %>
-        <%= form.inputs :name => @referential.projection_type_label do %> 
-          <%= form.input :x %>
-          <%= form.input :y %>
-        <% end %>
-      <% end %>
-      <%= form.inputs :name => "WGS84" do %> 
-        <%= form.input :longitude %>
-        <%= form.input :latitude %>
-      <% end %>  
+    <% if !manage_itl %>
+	    <%= form.inputs :name => t('stop_areas.show.geographic_data') do %> 
+	      <% if ! @referential.projection_type_label.empty? %>
+	        <%= form.inputs :name => @referential.projection_type_label do %> 
+	          <%= form.input :x %>
+	          <%= form.input :y %>
+	        <% end %>
+	      <% end %>
+	      <%= form.inputs :name => "WGS84" do %> 
+	        <%= form.input :longitude %>
+	        <%= form.input :latitude %>
+	      <% end %>  
+	    <% end %>
     <% end %>
   <% end %>
 

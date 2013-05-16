@@ -34,6 +34,12 @@ class StopAreasController < ChouetteController
     @stops = stop_area.routing_stops
   end
 
+  def access_links
+    @stop_area = stop_area
+    @generic_access_links = stop_area.generic_access_link_matrix
+    @detail_access_links = stop_area.detail_access_link_matrix
+  end
+
   def index
     request.format.kml? ? @per_page = nil : @per_page = 12
     index!
@@ -41,8 +47,9 @@ class StopAreasController < ChouetteController
 
   def show
     map.editable = false
+    @access_points = @stop_area.access_points
     show! do |format|
-      unless stop_area.position or params[:default]
+      unless stop_area.position or params[:default] or params[:routing] 
         format.kml {
           render :nothing => true, :status => :not_found 
         }

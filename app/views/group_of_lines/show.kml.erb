@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+  <% @group_of_line.commercial_stop_areas.each do |stop_area| %>
+    <Placemark id="<%= stop_area.id %>" >
+      <name><%= stop_area.name %></name>
+      <stop_area_type><%= stop_area.area_type.underscore %></stop_area_type>
+      <%= (stop_area.position or stop_area.default_position).kml_representation.html_safe %>
+    </Placemark>
+  <% end %>
+  </Document>
+</kml>
+

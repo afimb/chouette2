@@ -28,3 +28,18 @@ jQuery ->
 
   $('input#stop_area_x').change(lon_lat_change)
   $('input#stop_area_y').change(lon_lat_change)
+
+  # switch visibility of access_links
+  switch_generics = (event) -> 
+    event.preventDefault()
+    $('.stop_areas .generics.content').toggle('slow')
+    $('a.generics .switcher').toggle()
+
+  $('.stop_areas a.generics').click(switch_generics)
+
+  switch_details = (event) -> 
+    event.preventDefault()
+    $('.stop_areas .details.content').toggle('slow')
+    $('a.details .switcher').toggle()
+
+  $('.stop_areas a.details').click(switch_details)

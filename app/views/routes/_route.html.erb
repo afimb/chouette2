@@ -1,5 +1,7 @@
 <%= div_for(route) do %>
-    <%= link_to image_tag("icons/#{route.wayback}.png"), referential_line_route_path( @referential, @line, route) %>
+    <% if ( route.wayback_code ) %>
+      <%= link_to image_tag("icons/#{route.wayback}.png"), referential_line_route_path( @referential, @line, route) %>
+    <% end %>
     <div>
       <%= link_to route.name, referential_line_route_path( @referential, @line, route) %>
     </div> 
@@ -10,8 +12,12 @@
     <% if ! route.direction.blank? %>
       <%= route.human_attribute_name('direction_code') %> <%= t('directions.label.'+route.direction_code) %> - 
     <% end %>
-    <%= route.human_attribute_name('wayback_code') %> <%= (route.wayback=="A") ? t('.wayback.positive') : t('.wayback.negative') %>
-    <br/>
+    <% if route.wayback_code %>
+      <%= route.human_attribute_name('wayback_code') %> <%= (route.wayback=="A") ? t('.wayback.positive') : t('.wayback.negative') %>
+    <% end %>
+    <% if route.wayback_code || (not route.direction.blank?) || ( not route.number.blank?) %>
+      <br/>
+    <% end %>
     <% if route.opposite_route %>
       <%= t('.opposite') %> <%= link_to route.opposite_route.name, referential_line_route_path( @referential, @line, route.opposite_route) %>
     <% else %>

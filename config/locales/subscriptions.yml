@@ -2,23 +2,30 @@ en:
   subscriptions:
     success: "Subscription saved"
     failure: "Invalide subscription"
+    new:
+      title: "Create your account"
+    actions:
+      new: "Create an account"
   activemodel:
     attributes:
       subscription:
-        organisation_name: Organisation 
-        user_name: User full name
-  subscriptions:
-    new:
-      title: Create your account
-    actions:
-      new: Create an account
+        organisation_name: "Organisation"
+        user_name: "User full name"
+        email: "Email address"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        current_password: "Actual password"
 fr:
   subscriptions:
     success: "Inscription enregistrée"
     failure: "Inscription invalide"
-  activemodel:  	
+    new:
+      title: "Créer votre compte"
+    actions:
+      new: "Créer un compte"
+  activemodel:
     models:        
-      subscription: compte
+      subscription: "compte"
     attributes:
       subscription:
         organisation_name: "Organisation"
@@ -27,8 +34,3 @@ fr:
         password: "Mot de passe"
         password_confirmation: "Confirmation du mot de passe"
         current_password: "Mot de passe actuel"
-  subscriptions:
-    new:
-      title: Créer votre compte
-    actions:
-      new: Créer un compte

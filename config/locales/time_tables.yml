@@ -1,65 +1,68 @@
 en:
   time_tables:
     time_table:
-      empty: empty
-      bounding: from %{start} to %{end}
+      empty: "empty"
+      bounding: "from %{start} to %{end}"
       periods_count: "periods: %{count}"
       dates_count: "dates: %{count}"
       periods_dates_count: "dates: %{dates_count}, periods: %{periods_count}"
     actions:
-      new: Add a new timetable
-      edit: Edit this timetable
-      destroy: Remove this timetable
-      destroy_confirm: Are you sure you want destroy this timetable?
-      destroy_date_confirm: Are you sure you want destroy this date ?
-      destroy_period_confirm: Are you sure you want destroy this period ?
+      new: "Add a new timetable"
+      edit: "Edit this timetable"
+      destroy: "Remove this timetable"
+      destroy_confirm: "Are you sure you want destroy this timetable ?"
+      destroy_date_confirm: "Are you sure you want destroy this date ?"
+      destroy_period_confirm: "Are you sure you want destroy this period ?"
+      add_period: "Add a period"
+      add_date: "Add a date"
     new:
-      title: Add a new timetable
+      title: "Add a new timetable"
     edit:
-      title: Update timetable %{time_table}
+      title: "Update timetable %{time_table}"
     show:
       resume: "From %{start_date} to %{end_date} (independently of any period day types)"
       resume_empty: "Empty timetable"
-      title: Timetable %{time_table}
+      title: "Timetable %{time_table}"
       dates: "Application dates"
       periods: "Application periods"
-      from: from
-      to: to
-      add_period: Add a period
-      add_date: Add a date
+      from: "from"
+      to: "to"
+      add_period: "Add a period"
+      add_date: "Add a date"
     index:
-      title: Timetables
-      comment: Comment
-      selection: Selection
-      selection_all: All
+      title: "Timetables"
+      comment: "Comment"
+      selection: "Selection"
+      selection_all: "All"
   activerecord:        
     models:        
       time_table: 
-        zero:  timetable
-        one:   timetable
-        other: timetables
+        zero:  "timetable"
+        one:   "timetable"
+        other: "timetables"
     attributes:
       time_table:
-        comment: Comment
-        version: Version
-        day_types: Day types
-        none: none
-        monday: Monday
-        tuesday: Tuesday
-        wednesday: Wednesday
-        thursday: Thursday
-        friday: Friday
-        saturday: Saturday
-        sunday: Sunday
-        objectid: Neptune identifier
-        object_version: Version
-        creation_time: Created on
-        creator_id: Created by 
-        dates: Application dates
-        date: Le
-        periods: Application periods
-        period_start: From
-        period_end: to
+        comment: "Comment"
+        version: "Version"
+        day_types: "Day types"
+        none: "none"
+        monday: "Monday"
+        tuesday: "Tuesday"
+        wednesday: "Wednesday"
+        thursday: "Thursday"
+        friday: "Friday"
+        saturday: "Saturday"
+        sunday: "Sunday"
+        objectid: "Neptune identifier"
+        object_version: "Version"
+        creation_time: "Created on"
+        creator_id: "Created by "
+        calendars: "Calendar view"
+        dates: "Application dates"
+        date: "On"
+        periods: "Application periods"
+        period_start: "From"
+        period_end: "to"
         
   formtastic:
     hints:
@@ -69,20 +72,22 @@ en:
 fr:
   time_tables:
     time_table:
-      empty: vide
-      bounding: du %{start} au %{end}
+      empty: "vide"
+      bounding: "du %{start} au %{end}"
       periods_count: "périodes: %{count}"
       dates_count: "dates: %{count}"
       periods_dates_count: "dates: %{dates_count}, périodes: %{periods_count}"
     actions:
-      new: Ajouter un calendrier
-      edit: Modifier ce calendrier
-      destroy: Supprimer ce calendrier
-      destroy_confirm: Etes vous sûr de détruire ce calendrier ?
-      destroy_date_confirm: Etes vous sûr de détruire cette date ?
-      destroy_period_confirm: Etes vous sûr de détruire cette période ?
+      new: "Ajouter un calendrier"
+      edit: "Modifier ce calendrier"
+      destroy: "Supprimer ce calendrier"
+      destroy_confirm: "Etes vous sûr de détruire ce calendrier ?"
+      destroy_date_confirm: "Etes vous sûr de détruire cette date ?"
+      destroy_period_confirm: "Etes vous sûr de détruire cette période ?"
+      add_period: "Ajouter une période"
+      add_date: "Ajouter une date"
     new:
-      title: Ajouter un calendrier
+      title: "Ajouter un calendrier"
     edit:
       title: "Modifier le calendrier %{time_table}"
     show:
@@ -91,43 +96,44 @@ fr:
       title: Calendrier %{time_table}
       dates: "Dates d'application"
       periods: "Périodes d'application"
-      from: du
-      to: au
-      add_period: Ajouter une période
-      add_date: Ajouter une date
+      from: "du"
+      to: "au"
+      add_period: "Ajouter une période"
+      add_date: "Ajouter une date"
     index:
-      comment: Description
-      title: calendriers
-      selection: Sélection
-      selection_all: Tous
+      comment: "Description"
+      title: "calendriers"
+      selection: "Sélection"
+      selection_all: "Tous"
   activerecord:        
     models:        
       time_table: 
-        zero:  calendrier
-        one:   calendrier
-        other: calendriers
+        zero:  "calendrier"
+        one:   "calendrier"
+        other: "calendriers"
     attributes:
       time_table:
-        comment: Description
-        version: Version
+        comment: "Description"
+        version: "Version"
         day_types: "Jours d'application"
-        none: aucun
-        monday: Lundi
-        tuesday: Mardi
-        wednesday: Mercredi
-        thursday: Jeudi
-        friday: Vendredi
-        saturday: Samedi
-        sunday: Dimanche
-        objectid: Identifiant Neptune
-        object_version: Version
-        creation_time: Créé le
-        creator_id: Créé par
+        none: "aucun"
+        monday: "Lundi"
+        tuesday: "Mardi"
+        wednesday: "Mercredi"
+        thursday: "Jeudi"
+        friday: "Vendredi"
+        saturday: "Samedi"
+        sunday: "Dimanche"
+        objectid: "Identifiant Neptune"
+        object_version: "Version"
+        creation_time: "Créé le"
+        creator_id: "Créé par"
+        calendars: "Présentation calendaire"
         dates: "Dates d'application"
-        date: Date
+        date: "Date"
         periods: "Périodes d'application"
-        period_start: Du 
-        period_end: au
+        period_start: "Du" 
+        period_end: "au"
 
   formtastic:
     hints:

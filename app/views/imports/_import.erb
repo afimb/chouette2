@@ -7,7 +7,7 @@
     <%= l import.created_at %>
 
     <div class="actions">  
-      <%= link_to t("actions.destroy"), referential_import_path(@referential, import), :method => :delete, :confirm =>  t('imports.actions.destroy_confirm'), :class => "remove" %>
+      <%= link_to t("actions.destroy"), referential_import_path(@referential, import), :method => :delete,  :data => {:confirm =>  t('imports.actions.destroy_confirm')}, :class => "remove" %>
     </div>
   </div>
 <% end %>

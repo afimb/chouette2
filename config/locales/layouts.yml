@@ -1,20 +1,24 @@
 en:
   layouts:
     back_to_dashboard: "Back to Dashboard"
-    help: Help
+    help: "Help"
     home: "Home"          
     user:
       profile: "My Profile"
       sign_out: "Sign out"
     tabs:
       dashboard: "dashboard"
+    creation_tag:
+      title: "Create"
 fr:
   layouts:
     back_to_dashboard: "Retour au Tableau de Bord"
-    help: Besoin d'aide?
+    help: "Besoin d'aide?"
     home: "Accueil"
     user:
       profile: "Mon Profil"      
       sign_out: "Déconnexion"
     tabs:
       dashboard: "Tableau de bord"
+    creation_tag:
+      title: "Création"

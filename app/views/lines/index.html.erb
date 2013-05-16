@@ -6,6 +6,7 @@
 
   <%= f.hidden_field :company_id_eq %>
   <%= f.hidden_field :network_id_eq %>
+  <%= f.hidden_field :group_of_lines_id_eq %>
 
   <%= f.submit t('actions.search') %> <%= t("or") %>
   <%= link_to t("cancel"), referential_lines_path(@referential) %>
@@ -20,6 +21,12 @@
 <% if @q.company_id_eq.present? %>
 <p>
   <%= Chouette::Line.human_attribute_name('company') %> : <%= @referential.companies.find(@q.company_id_eq).name %>
+</p>
+<% end %>
+
+<% if @q.group_of_lines_id_eq.present? %>
+<p>
+  <%= Chouette::Line.human_attribute_name('group_of_line') %> : <%= @referential.group_of_lines.find(@q.group_of_lines_id_eq).name %>
 </p>
 <% end %>
 
@@ -61,6 +68,17 @@
 <% end %>
 <li><%= link_with_search t(".selection_all"), {"network_id_eq" => nil}, :class => "all" %></li>
 </ul>
+
+<% if  @referential.group_of_lines.count > 0 %>
+	<h4><%= Chouette::GroupOfLine.model_name.human.pluralize %></h4>
+	
+	<ul class="selection">
+	<% @referential.group_of_lines.each do |group_of_line| %>
+	<li><%= link_with_search group_of_line.name, "group_of_lines_id_eq" => group_of_line.id %></li>
+	<% end %>
+	<li><%= link_with_search t(".selection_all"), {"group_of_lines_id_eq" => nil}, :class => "all" %></li>
+	</ul>
+<% end %>
 
 <div id="multiple_selection_menu">
   <h3><%= t(".multi_selection") %> </h3>

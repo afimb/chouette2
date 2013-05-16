@@ -1,3 +1,4 @@
+#encoding: utf-8
 class TestSheetPage
 
   attr_accessor :slug, :content, :data

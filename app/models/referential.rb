@@ -20,6 +20,7 @@ class Referential < ActiveRecord::Base
 
   has_many :imports, :dependent => :destroy
   has_many :exports, :dependent => :destroy
+  has_many :api_keys, :class_name => 'Api::V1::ApiKey', :dependent => :destroy
   
   belongs_to :organisation
   validates_presence_of :organisation
@@ -47,12 +48,24 @@ class Referential < ActiveRecord::Base
     Chouette::Network.scoped
   end
 
+  def group_of_lines
+    Chouette::GroupOfLine.scoped
+  end
+
   def companies
     Chouette::Company.scoped
   end
 
   def stop_areas
     Chouette::StopArea.scoped
+  end
+
+  def access_points
+    Chouette::AccessPoint.scoped
+  end
+
+  def access_links
+    Chouette::AccessLink.scoped
   end
 
   def time_tables
@@ -206,4 +219,31 @@ Rails.application.config.after_initialize do
       end
     end
   end
+
+  Chouette::AccessPoint
+  
+  class Chouette::AccessPoint
+     
+    # add projection_type set on pre-insert and pre_update action
+    before_validation :set_projections
+    def set_projections
+      if ! self.latitude.nil? && ! self.longitude.nil?
+        self.long_lat_type = 'WGS84'
+      else
+        self.long_lat_type = nil
+      end
+      if ! self.referential.projection_type.nil? && !self.referential.projection_type.empty?
+        if ! self.x.nil?  && ! self.y.nil?
+          self.projection_type = referential.projection_type_label
+        else
+          self.projection_type = nil
+        end
+      else
+          self.projection_type = nil
+          self.x = nil
+          self.y = nil
+      end
+    end
+  end
+
 end

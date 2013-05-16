@@ -1,465 +1,204 @@
+<h1 class="western" style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm 0.12cm; margin-top: 0.21cm;" align="center">
+<font face="Arial, sans-serif"><font style="font-size: 20pt;" size="5"><i>
+ point de contrôle N° 2.5<br>
+Cohérence  entre les courses et les horaires<br>
+</i></font></font></h1>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><u><b>Objectif: </b></u>
+Vérification de la correcte référence aux COURSES COMMERCIALES
+(«&nbsp;VehicleJourney&nbsp;») dans les VERSIONs DES HORAIRES/Chouette
+(« Timetable »).<br>
+Vérifier que chaque COURSE COMMERCIALE («&nbsp;VehicleJourney&nbsp;»)
+est référencée dans une VERSION DES HORAIRES/Chouette («
+Timetable&nbsp;»).<br>
+</font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><u><b>Priorité: </b></u>
+Obligatoire (si «&nbsp;Timetable&nbsp;» existe et si l’identifiant de
+course «&nbsp;VehicleJourneyId&nbsp;» existe dans
+«&nbsp;Timetable&nbsp;»)</font></p><font face="Arial, sans-serif">
+</font><p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><u><b>Explications:</b></u> 
+</font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+La liste des données horaires VERSION DES HORAIRES/Chouette («
+Timetable ») est optionnelle. Lorsque cette liste est non vide, chaque
+valeur d’attribut doit alors être référencée dans un objet COURSE
+COMMERCIALE («VehicleJourney ») du réseau.</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Chaque COURSE COMMERCIALE identifiée doit  être référencée dans une VERSION DES HORAIRES/Chouette.</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>Exemple: </u></b></font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Représentation  schématique de l’Objet «&nbsp;Timetable&nbsp;»</font></font></font></p>
+<p><font face="Arial, sans-serif"><img src="image006.jpg" height="454" width="432"></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Exemple  de VERSION DES HORAIRES/Chouette avec une liste d'identifiants de COURSEs  COMMERCIALEs:</font></font></font></p>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;Timetable&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:Timetable:146357&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;period&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;startOfPeriod&gt;2006-09-18&lt;/startOfPeriod&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;endOfPeriod&gt;2007-12-21&lt;/endOfPeriod&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif"><br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;/period&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;calendarDay&gt;2006-09-18&lt;/calendarDay&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;calendarDay&gt;2006-09-19&lt;/calendarDay&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;vehicleJourneyId&gt;AMIV:VehicleJourney:8970777&lt;/vehicleJourneyId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;vehicleJourneyId&gt;AMIV:VehicleJourney:8970778&lt;/vehicleJourneyId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;vehicleJourneyId&gt;AMIV:VehicleJourney:8970779&lt;/vehicleJourneyId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;/Timetable&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;Timetable&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:Timetable:146358&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;/Timetable&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;VehicleJourney&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:VehicleJourney:8970777&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;routeId&gt;AMIV:Route:488970&lt;/routeId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;VehicleJourney&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:VehicleJourney:8970778&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;VehicleJourney&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:VehicleJourney:8970779&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif"><br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Exemple  de COURSE COMMERCIALE référencée dans une VERSION DES HORAIRES/Chouette</font></font></font></p>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&nbsp;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;VehicleJourney&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;NINOXE:VehicleJourney:521875&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectVersion&gt;0&lt;/objectVersion&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;creationTime&gt;2007-06-28T17:18:56.000+02:00&lt;/creationTime&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;routeId&gt;NINOXE:Route:521753&lt;/routeId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;number&gt;0&lt;/number&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;vehicleJourneyAtStop&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;stopPointId&gt;NINOXE:StopPoint:521802&lt;/stopPointId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;vehicleJourneyId&gt;NINOXE:VehicleJourney:521875&lt;/vehicleJourneyId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&nbsp;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;/vehicleJourneyAtStop&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&nbsp;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;VehicleJourney&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&nbsp;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;Timetable&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;NINOXE:Timetable:521973&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectVersion&gt;0&lt;/objectVersion&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;creationTime&gt;2007-06-28T17:18:56.000+02:00&lt;/creationTime&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;vehicleJourneyId&gt;<b>NINOXE:VehicleJourney:521875</b>&lt;/vehicleJourneyId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;vehicleJourneyId&gt;NINOXE:VehicleJourney:521876&lt;/vehicleJourneyId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;vehicleJourneyId&gt;NINOXE:VehicleJourney:521877&lt;/vehicleJourneyId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;vehicleJourneyId&gt;NINOXE:VehicleJourney:521878&lt;/vehicleJourneyId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;comment&gt;Vacances  scolaires &lt;/comment&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;/Timetable&gt;<br></font></span>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>N° test:</u></b> 
+2.5.1</font></font></font></p>
 
-<div class=WordSection1>
-</span>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Libellé:</u> Vérification de la correcte référence aux COURSES
+COMMERCIALES («&nbsp;VehicleJourney&nbsp;» ) dans les VERSIONs DES
+HORAIRES/Chouette&nbsp;(«  Timetable »).</font></font></font></p>
 
-<p class=MsoTitle><span style='font-size:14.0pt;font-family:"Tahoma","sans-serif"'>Fiche
-du point de contr&ocirc;le N&deg; 2.5</span></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Champ d’application:</u> 
+&lt;Timetable&gt;&nbsp;&lt;VehicleJourney&gt;</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Vérification:</u> </font></font></font></p>
 
-<p class=MsoNormal>&nbsp;</p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+&nbsp;-  Si l’objet «&nbsp;Timetable » existe alors poursuivre le test, sinon le test  est abandonné,</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+-  Si l’élément «VehicleJourneyId&nbsp;&nbsp;» existe alors poursuivre le test,  sinon le test est abandonné,</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- Si chaque identifiant de course, dans l’objet
+«&nbsp;Timetable&nbsp;», est référencé dans un objet
+«&nbsp;VehicleJourney&nbsp;» alors le test est validé, sinon le test
+est invalidé et produit le message «&nbsp;test 2.5.1&nbsp;: un
+identifiant de course, situé dans l’objet «&nbsp;Timetable&nbsp;»,
+n’est pas référencé dans un objet «&nbsp;VehicleJourney&nbsp;»».</font></font></font></p>
 
-<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=648
- style='width:485.95pt;margin-left:-.5pt;border-collapse:collapse'>
- <tr style='page-break-inside:avoid'>
-  <td width=648 colspan=2 valign=top style='width:485.95pt;border:solid black 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;layout-grid-mode:char'><i><span
-  style='font-family:"Tahoma","sans-serif";color:navy'>Description</span></i></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Intitul&eacute;</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><span
-  style='font-size:11.0pt;line-height:200%;font-family:"Tahoma","sans-serif"'>Coh&eacute;rence
-  entre les courses et les horaires.</span></p>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Objectif</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>V&eacute;rification
-  de la correcte r&eacute;f&eacute;rence aux COURSES COMMERCIALES
-  (&laquo;&nbsp;VehicleJourney&nbsp;&raquo;) dans les VERSIONs DES HORAIRES/Chouette  </span></h1>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>(&laquo;
-  Timetable &raquo;).</span></h1>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>V&eacute;rifier
-  que chaque COURSE COMMERCIALE (&laquo;&nbsp;VehicleJourney&nbsp;&raquo;) est r&eacute;f&eacute;renc&eacute;e
-  dans une VERSION DES HORAIRES/Chouette  (&laquo; Timetable&nbsp;&raquo;).</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>R&eacute;f&eacute;rences</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>TRIDENT/profil
-  CHOUETTE/Transmodel V4 et V5.1</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>N&deg; de fiche(s)
-  connexe(s)</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><b><span
-  style='font-size:11.0pt;line-height:200%;font-family:"Tahoma","sans-serif"'>Priorit&eacute;<span
-  style='color:red'> </span></span></b></p>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Obligatoire
-  (si &laquo;&nbsp;Timetable&nbsp;&raquo; existe et si l&rsquo;identifiant de course
-  &laquo;&nbsp;VehicleJourneyId&nbsp;&raquo; existe dans &laquo;&nbsp;Timetable&nbsp;&raquo;)</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><b><span
-  style='font-size:11.0pt;line-height:200%;font-family:"Tahoma","sans-serif"'>R&eacute;sultat</span></b></p>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Conforme
-  ou non conforme ou message d&rsquo;avertissement si une course est absente d&rsquo;une
-  VERSION DES HORAIRES/Chouette</span></h1>
-  </td>
- </tr>
- <tr>
-  <td width=108 colspan=2 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;layout-grid-mode:char'><i><span
-  style='font-family:"Tahoma","sans-serif";color:navy'>Mise en &oelig;uvre</span></i></h1>
-  </td>
- </tr>
- <tr>
-  <td width=108 valign=top style='width:81.35pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;layout-grid-mode:char'><span style='font-size:11.0pt'>Explication</span></h1>
-  </td>
-  <td width=108 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  border-top:none;padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:11.35pt;margin-bottom:6.0pt;
-  margin-left:0cm;layout-grid-mode:char'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif";font-weight:normal'>La liste des donn&eacute;es
-  horaires VERSION DES HORAIRES/Chouette                                             (&laquo;
-  Timetable &raquo;)  est optionnelle. Lorsque cette liste est non vide, chaque
-  valeur d&rsquo;attribut doit alors &ecirc;tre r&eacute;f&eacute;renc&eacute;e dans un objet COURSE
-  COMMERCIALE  (&laquo; VehicleJourney &raquo;) du r&eacute;seau.</span></h1>
-  <p class=MsoNormal style='margin-right:11.35pt'><span style='font-size:11.0pt;
-  font-family:"Arial","sans-serif"'>Chaque COURSE COMMERCIALE identifi&eacute;e doit
-  &ecirc;tre r&eacute;f&eacute;renc&eacute;e dans une VERSION DES HORAIRES/Chouette.</span></p>
-  </td>
- </tr>
-</table>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=657
- style='width:493.05pt;margin-left:-.5pt;border-collapse:collapse'>
- <tr>
-  <td width=108 colspan=2 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  border-right:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm;layout-grid-mode:char'><b><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif"'>Exemple</span></b></p>
-  </td>
-  <td width=108 colspan=2 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-left:18.0pt;text-align:left;layout-grid-mode:
-  char'><span style='font-size:11.0pt;font-weight:normal'>&nbsp;</span></h1>
-  <h1 align=left style='margin-left:18.0pt;text-align:left'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Repr&eacute;sentation
-  sch&eacute;matique de l&rsquo;Objet &laquo;&nbsp;Timetable&nbsp;&raquo;</span></h1>
-  <h1 align=left style='margin-left:18.0pt;text-align:left'><span
-  style='font-size:11.0pt;font-weight:normal'>&nbsp;</span></h1>
-  <p class=MsoNormal align=center style='text-align:center'><img width=432
-  height=454 src="BATERI_Neptune_FINAL-V2_0a_fichiers/image006.jpg"></p>
-  <p class=MsoNormal>&nbsp;</p>
-  <p class=MsoNormal>&nbsp;</p>
-  <h1 align=left style='margin-left:18.0pt;text-align:left'><span
-  style='font-size:11.0pt;font-weight:normal'>&nbsp;</span></h1>
-  <p class=MsoNormal>&nbsp;</p>
-  <p class=MsoNormal><u><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Exemple
-  de VERSION DES HORAIRES/Chouette avec une liste d'identifiants de COURSEs
-  COMMERCIALEs:</span></u></p>
-  <p class=MsoNormal>&nbsp;</p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;Timetable&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;objectId&gt;AMIV:Timetable:146357&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=SV
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;period&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=SV
-  style='font-size:10.0pt;font-family:"Courier New"'>    &lt;startOfPeriod&gt;2006-09-18&lt;/startOfPeriod&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=SV
-  style='font-size:10.0pt;font-family:"Courier New"'>    &lt;endOfPeriod&gt;2007-12-21&lt;/endOfPeriod&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=SV
-  style='font-size:10.0pt;font-family:"Courier New"'>  </span><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;/period&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;calendarDay&gt;2006-09-18&lt;/calendarDay&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;calendarDay&gt;2006-09-19&lt;/calendarDay&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  ...</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;vehicleJourneyId&gt;AMIV:VehicleJourney:8970777&lt;/vehicleJourneyId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;vehicleJourneyId&gt;AMIV:VehicleJourney:8970778&lt;/vehicleJourneyId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;vehicleJourneyId&gt;AMIV:VehicleJourney:8970779&lt;/vehicleJourneyId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  ...</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;/Timetable&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>...</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;Timetable&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;objectId&gt;AMIV:Timetable:146358&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  ...</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;/Timetable&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>...</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;VehicleJourney&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;objectId&gt;AMIV:VehicleJourney:8970777&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;routeId&gt;AMIV:Route:488970&lt;/routeId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  ...</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;VehicleJourney&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>    &lt;objectId&gt;AMIV:VehicleJourney:8970778&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>    ...</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>  &lt;VehicleJourney&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>    &lt;objectId&gt;AMIV:VehicleJourney:8970779&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>    </span><span
-  style='font-size:10.0pt;font-family:"Courier New"'>...</span></p>
-  <p class=MsoNormal>&nbsp;</p>
-  <h3 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm'><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Exemple
-  de COURSE COMMERCIALE r&eacute;f&eacute;renc&eacute;e dans une VERSION DES HORAIRES/Chouette</span></h3>
-  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:10.0pt;font-family:"Courier New"'>&lt;VehicleJourney&gt;</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&lt;objectId&gt;NINOXE:VehicleJourney:521875&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&lt;objectVersion&gt;0&lt;/objectVersion&gt;</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&lt;creationTime&gt;2007-06-28T17:18:56.000+02:00&lt;/creationTime&gt;</span></p>
-  <p class=MsoHeader><span lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&lt;routeId&gt;NINOXE:Route:521753&lt;/routeId&gt;</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&lt;number&gt;0&lt;/number&gt;</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&lt;vehicleJourneyAtStop&gt;</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&lt;stopPointId&gt;NINOXE:StopPoint:521802&lt;/stopPointId&gt;</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&lt;vehicleJourneyId&gt;NINOXE:VehicleJourney:521875&lt;/vehicleJourneyId&gt;</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&lt;/vehicleJourneyAtStop&gt;</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:10.0pt;font-family:"Courier New"'>&lt;VehicleJourney&gt;</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&lt;Timetable&gt;</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&lt;objectId&gt;NINOXE:Timetable:521973&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&lt;objectVersion&gt;0&lt;/objectVersion&gt;</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&lt;creationTime&gt;2007-06-28T17:18:56.000+02:00&lt;/creationTime&gt;</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&lt;vehicleJourneyId&gt;<b>NINOXE:VehicleJourney:521875</b>&lt;/vehicleJourneyId&gt;</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&lt;vehicleJourneyId&gt;NINOXE:VehicleJourney:521876&lt;/vehicleJourneyId&gt;</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&lt;vehicleJourneyId&gt;NINOXE:VehicleJourney:521877&lt;/vehicleJourneyId&gt;</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&lt;vehicleJourneyId&gt;NINOXE:VehicleJourney:521878&lt;/vehicleJourneyId&gt;</span></p>
-  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&lt;comment&gt;Vacances
-  scolaires &lt;/comment&gt;</span></p>
-  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&lt;/Timetable&gt;</span></p>
-  <p class=MsoNormal>&nbsp;</p>
-  </td>
- </tr>
- <tr style='page-break-inside:avoid'>
-  <td width=657 colspan=4 valign=top style='width:493.05pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h2 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;layout-grid-mode:char'><i><span lang=EN-US
-  style='font-size:14.0pt;color:navy'>Evaluation</span></i></h2>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 colspan=2 style='width:81.35pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span lang=EN-US
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>N&deg; test</span></h1>
-  </td>
-  <td width=108 colspan=2 style='width:81.35pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>2.5.1</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 colspan=2 style='width:81.35pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Libell&eacute;</span></h1>
-  </td>
-  <td width=108 colspan=2 style='width:81.35pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>V&eacute;rification
-  de la correcte r&eacute;f&eacute;rence aux COURSES COMMERCIALES
-  (&laquo;&nbsp;VehicleJourney&nbsp;&raquo; ) dans les VERSIONs DES HORAIRES/Chouette  </span></h1>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>(&laquo;
-  Timetable &raquo;).</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 colspan=2 style='width:81.35pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Champ
-  d&rsquo;application</span></h1>
-  </td>
-  <td width=108 colspan=2 style='width:81.35pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>&lt;Timetable&gt;</span></h1>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm;layout-grid-mode:char'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif"'>&lt;VehicleJourney&gt;</span></p>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 colspan=2 style='width:81.35pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>V&eacute;rification</span></h1>
-  </td>
-  <td width=108 colspan=2 style='width:81.35pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>-
-  Si l&rsquo;objet &laquo;&nbsp;Timetable &raquo; existe alors poursuivre le test, sinon le test
-  est abandonn&eacute;,</span></h1>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>-
-  Si l&rsquo;&eacute;l&eacute;ment &laquo;VehicleJourneyId&nbsp;&nbsp;&raquo; existe alors poursuivre le test,
-  sinon le test est abandonn&eacute;,</span></h1>
-  <h1 align=left style='text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>-
-  Si chaque identifiant de course, dans l&rsquo;objet &laquo;&nbsp;Timetable&nbsp;&raquo;, est
-  r&eacute;f&eacute;renc&eacute; dans un objet &laquo;&nbsp;VehicleJourney&nbsp;&raquo; alors le test est
-  valid&eacute;, sinon le test est invalid&eacute; et produit le message &laquo;&nbsp;test
-  2.5.1&nbsp;: un identifiant de course, situ&eacute; dans l&rsquo;objet
-  &laquo;&nbsp;Timetable&nbsp;&raquo;, n&rsquo;est pas r&eacute;f&eacute;renc&eacute; dans un objet
-  &laquo;&nbsp;VehicleJourney&nbsp;&raquo;&raquo;.</span></h1>
-  <p class=MsoNormal style='layout-grid-mode:char'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif"'>&nbsp;</span></p>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td style='border:none;padding:0cm 0cm 0cm 0cm' width=1><p class='MsoNormal'>&nbsp;</td>
-  <td width=108 colspan=2 style='width:81.35pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span lang=EN-US style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif"'>N&deg; test</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <p class=MsoNormal><span lang=EN-US style='font-size:11.0pt;font-family:"Arial","sans-serif"'>Test
-  2.5.2</span></p>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td style='border:none;padding:0cm 0cm 0cm 0cm' width=1><p class='MsoNormal'>&nbsp;</td>
-  <td width=108 colspan=2 style='width:81.35pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>Libell&eacute;</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <p class=MsoHeader style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm'><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>V&eacute;rifier
-  que chaque COURSE COMMERCIALE (&laquo;&nbsp;VehicleJourney&nbsp;&raquo; ) est r&eacute;f&eacute;renc&eacute;e
-  dans une VERSION DES HORAIRES/Chouette  (&laquo; Timetable&nbsp;&raquo;).</span></p>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td style='border:none;padding:0cm 0cm 0cm 0cm' width=1><p class='MsoNormal'>&nbsp;</td>
-  <td width=108 colspan=2 style='width:81.35pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>Champ d&rsquo;application</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm'><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>&lt;VehicleJourney&gt;</span></p>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm'><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>&lt;Timetable&gt;</span></p>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td style='border:none;padding:0cm 0cm 0cm 0cm' width=1><p class='MsoNormal'>&nbsp;</td>
-  <td width=108 colspan=2 style='width:81.35pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>V&eacute;rification</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>-
-  Si l&rsquo;objet de course  &laquo;&nbsp;VehicleJourney&nbsp;&raquo; mentionn&eacute; dans les champs
-  d&rsquo;application est pr&eacute;sent une ou plusieurs fois, poursuivre le test, sinon le
-  test est  abandonn&eacute;.</span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>-
-  Si l&rsquo;identifiant &laquo;&nbsp;objectId&nbsp;&raquo; de l&rsquo;objet
-  &laquo;&nbsp;VehicleJourney&nbsp;&raquo; pr&eacute;c&eacute;dent est d&eacute;tect&eacute; dans l&rsquo;&eacute;l&eacute;ment
-  &laquo;&nbsp;vehicleJourneyId&nbsp;&raquo; d&rsquo;un objet &laquo;&nbsp;Timetable&nbsp;&raquo; alors le
-  test est valid&eacute;, sinon le test est invalid&eacute; et fournit le message
-  d&rsquo;avertissement&nbsp;: &laquo;&nbsp;test 3.12.1&nbsp;: une course n&rsquo;est pas
-  r&eacute;f&eacute;renc&eacute;e dans aucun &laquo;&nbsp;TimeTable&nbsp;&raquo;&raquo;.</span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>&nbsp;</span></p>
-  </td>
- </tr>
- <tr height=0>
-  <td width=1 style='border:none'></td>
-  <td width=108 style='border:none'></td>
-  <td width=1 style='border:none'></td>
-  <td width=548 style='border:none'></td>
- </tr>
-</table>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+&nbsp;<br><b><u>N° test:</u></b> 
+Test  2.5.2</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Libellé:</u> Vérifier que chaque COURSE COMMERCIALE
+(«&nbsp;VehicleJourney&nbsp;» ) est référencée dans une VERSION DES
+HORAIRES/Chouette (« Timetable&nbsp;»).</font></font></font></p>
 
 
-</div>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2"><span style="text-decoration: underline;">
+Champ d’application</span>: &lt;VehicleJourney&gt;&nbsp;&lt;Timetable&gt;</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Vérification:</u> </font></font></font></p>
 
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- Si l’objet de course «&nbsp;VehicleJourney&nbsp;» mentionné dans les
+champs d’application est présent une ou plusieurs fois, poursuivre le
+test, sinon le test est abandonné.</font></font></font></p>
+
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- Si l’identifiant «&nbsp;objectId&nbsp;» de l’objet
+«&nbsp;VehicleJourney&nbsp;» précédent est détecté dans l’élément
+«&nbsp;vehicleJourneyId&nbsp;» d’un objet «&nbsp;Timetable&nbsp;» alors
+le test est validé, sinon le test est invalidé et fournit le message
+d’avertissement&nbsp;: «&nbsp;test 3.12.1&nbsp;: une course n’est pas
+référencée dans aucun «&nbsp;TimeTable&nbsp;»».</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+&nbsp;</font></font></font></p>

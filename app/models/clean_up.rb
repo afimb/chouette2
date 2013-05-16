@@ -4,7 +4,8 @@ class CleanUp
   extend ActiveModel::Naming
   
     
-  attr_accessor :expected_date, :keep_lines, :keep_stops , :keep_companies, :keep_networks
+  attr_accessor :expected_date, :keep_lines, :keep_stops , :keep_companies
+  attr_accessor :keep_networks, :keep_group_of_lines
   
   validates_presence_of :expected_date
 
@@ -19,32 +20,33 @@ class CleanUp
   end 
 
   def clean
+    # as foreign keys are presents , delete method can be used for faster performance
     result = CleanUpResult.new
     # find and remove time_tables 
-    tms = Chouette::TimeTable.expired_on(Date.parse(expected_date))
+    tms = Chouette::TimeTable.validity_out_from_on?(Date.parse(expected_date))
     result.time_table_count = tms.size
     tms.each do |tm|
-      tm.destroy
+      tm.delete
     end
     # remove vehiclejourneys without timetables
     Chouette::VehicleJourney.find_each(:conditions => "id not in (select distinct vehicle_journey_id from time_tables_vehicle_journeys)") do |vj|
       if vj.time_tables.size == 0
         result.vehicle_journey_count += 1
-        vj.destroy
+        vj.delete
       end
     end
     # remove journeypatterns without vehicle journeys
     Chouette::JourneyPattern.find_each(:conditions => "id not in (select distinct journey_pattern_id from vehicle_journeys)") do |jp|
       if jp.vehicle_journeys.size == 0
         result.journey_pattern_count += 1
-        jp.destroy
+        jp.delete
       end
     end
     # remove routes without journeypatterns 
     Chouette::Route.find_each(:conditions => "id not in (select distinct route_id from journey_patterns)") do |r|
       if r.journey_patterns.size == 0
         result.route_count += 1
-        r.destroy
+        r.delete
       end
     end
     # if asked remove lines without routes
@@ -52,7 +54,7 @@ class CleanUp
       Chouette::Line.find_each(:conditions => "id not in (select distinct line_id from routes)") do |l|
         if l.routes.size == 0
           result.line_count += 1
-          l.destroy
+          l.delete
         end
       end
     end
@@ -61,31 +63,31 @@ class CleanUp
       Chouette::StopArea.find_each(:conditions => { :area_type => "BoardingPosition" }) do |bp|
         if bp.stop_points.size == 0
           result.stop_count += 1
-          bp.destroy
+          bp.delete
         end
       end
       Chouette::StopArea.find_each(:conditions => { :area_type => "Quay" }) do |q|
         if q.stop_points.size == 0
           result.stop_count += 1
-          q.destroy
+          q.delete
         end
       end
       Chouette::StopArea.find_each(:conditions => { :area_type => "CommercialStopPoint" }) do |csp|
         if csp.children.size == 0
           result.stop_count += 1
-          csp.destroy
+          csp.delete
         end
       end
       Chouette::StopArea.find_each(:conditions => { :area_type => "StopPlace" }) do |sp|
         if sp.children.size == 0
           result.stop_count += 1
-          sp.destroy
+          sp.delete
         end
       end
       Chouette::StopArea.find_each(:conditions => { :area_type => "ITL" }) do |itl|
         if itl.routing_stops.size == 0
           result.stop_count += 1
-          itl.destroy
+          itl.delete
         end
       end
     end
@@ -94,7 +96,7 @@ class CleanUp
       Chouette::Company.find_each do |c|
         if c.lines.size == 0
           result.company_count += 1
-          c.destroy
+          c.delete
         end
       end
     end
@@ -104,7 +106,17 @@ class CleanUp
       Chouette::Network.find_each do |n|
         if n.lines.size == 0
           result.network_count += 1
-          n.destroy
+          n.delete
+        end
+      end
+    end
+    
+    # if asked remove group_of_lines without lines
+    if keep_group_of_lines == "0" 
+      Chouette::GroupOfLine.find_each do |n|
+        if n.lines.size == 0
+          result.group_of_line_count += 1
+          n.delete
         end
       end
     end

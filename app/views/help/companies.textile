@@ -5,8 +5,8 @@ title: Transporteurs
 
 h3. Définition
 
-Dans la réalité, le transporteur est l'entité en charge de l'exploitation d'une ou plusieurs lignes de transport. 
-Ce principe se retrouve dans ce logiciel. 
+Dans la réalité, le *transporteur* est l'entité en charge de l'exploitation d'une ou plusieurs lignes de transport. 
+Ce principe se retrouve dans le logiciel CHOUETTE. 
 
 * Il s'agit de l'exploitant de la ligne; chaque ligne est rattachée à un seul transporteur, un transporteur pouvant évidemment gérer plusieurs lignes. 
 * Chaque transporteur dispose d'un identifiant fonctionnel (<< numéro d'enregistrement >>) qui est utilisé dans les échanges XML pour identifier le transporteur et le mettre à jour. Cet identifiant est unique pour toute la base CHOUETTE, quel que soit le réseau ; il est donc important que le gestionnaire de la base CHOUETTE le renseigne d'une manière bien définie et pérenne.
@@ -18,7 +18,7 @@ h3. Attributs
 - Nom d'unité := nom de l'unité de gestion dans la société de transport
 - Nom du département := nom du département dans la société de transport
 - Code postal := code postal de l'adresse de la société de transport
-- Numéro de téléphone := Numréro de téléphone de l'unité de gestion
+- Numéro de téléphone := Numéro de téléphone de l'unité de gestion
 - Numéro de fax := Numéro de fax de l'unité de gestion
 - Email := adresse électronique de l'unité de gestion de l'unité de gestion
 - Numéro d'enregistrement := code référençant un transporteur au sein d'une autorité supérieure
@@ -30,9 +30,9 @@ clé unique pérenne identifiant le transporteur pour les échanges Neptune
 cet identifiant est composé de 3 parties : préfixe:type:id_technique
 * préfixe : clé identifiant un producteur de données unique
 * type = Company : clé identifiant le type d'objet (valeur imposée)
-* id_technique : valeur identifiant un seul object d'un type donné pour un même producteur
+* id_technique : valeur identifiant un seul objet d'un type donné pour un même producteur
 ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
-il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera complétée automatiquement.
+il est possible aussi de ne renseigner que l'identifiant technique, auquel cas la valeur sera complétée automatiquement.
 =:
 - Date de création := date à laquelle l'objet a été créé ou modifié pour la dernière fois
 - Version := version de l'objet (auto incrémenté à chaque modification)

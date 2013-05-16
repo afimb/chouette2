@@ -11,7 +11,7 @@
     <%= stop_point.stop_area.human_attribute_name('country_code') %> <%= stop_point.stop_area.country_code %>
     <div class="actions">  
       <%= link_to t("stop_points.actions.show"), referential_stop_area_path(@referential, stop_point.stop_area), :class => "link" %> |
-      <%= link_to t("actions.destroy"), referential_line_route_stop_point_path(@referential, @line, @route, stop_point), :method => :delete, :confirm =>  t('stop_points.actions.destroy_confirm'), :class => "remove" %>
+      <%= link_to t("actions.destroy"), referential_line_route_stop_point_path(@referential, @line, @route, stop_point), :method => :delete, :data => {:confirm =>  t('stop_points.actions.destroy_confirm')}, :class => "remove" %>
     </div>
   </div>
 <% end %>

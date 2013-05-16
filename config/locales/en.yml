@@ -7,4 +7,5 @@ en:
   "false": "no"
   time:
     formats:
+      short: "%d %b %y %H:%M"
       hour: "%H:%M"

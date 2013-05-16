@@ -30,6 +30,12 @@ class VehicleJourneysController < ChouetteController
     update!(:alert => t('activerecord.errors.models.vehicle_journey.invalid_times'))
   end
 
+  # overwrite inherited resources to use delete instead of destroy 
+  # foreign keys will propagate deletion)
+  def destroy_resource(object)
+        object.delete
+  end
+
   protected
   
   alias_method :vehicle_journey, :resource

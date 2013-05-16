@@ -1,0 +1,34 @@
+// Place all the styles related to the routes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "common";
+
+#workspace.referentials.show
+{
+    .api_key:after { 
+        @include after_div_for_object;  
+    }
+
+    .api_keys {
+        margin-top: 20px;
+    }
+
+    .api_keys:after {
+        @include content_to_clear;
+    }
+    
+    .api_key {
+        @include div_for_object;
+
+        /* to create multi-column index */
+        width: 350px;
+        padding-right: 10px;
+        
+        .name {
+            line-height: 16px;
+            float: left;
+        }
+        
+    }
+}
+

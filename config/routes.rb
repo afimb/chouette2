@@ -1,7 +1,34 @@
 ChouetteIhm::Application.routes.draw do
-  devise_for :users do
+
+  devise_scope :users do
     match "/users/sign_up" => "subscriptions#new"
   end
+  devise_for :users
+
+  namespace :api do
+    namespace :v1 do
+      resources :time_tables, :only => [:index, :show]
+      resources :connection_links, :only => [:index, :show]
+      resources :companies, :only => [:index, :show]
+      resources :networks, :only => [:index, :show]
+      resources :stop_areas, :only => [:index, :show]
+      resources :group_of_lines, :only => [:index, :show]
+      resources :access_points, :only => [:index, :show]
+      resources :access_links, :only => [:index, :show]
+      resources :lines, :only => [:index, :show] do
+        resources :journey_patterns, :only => [:index, :show]
+        resources :routes, :only => [:index, :show] do
+          resources :vehicle_journeys, :only => [:index, :show]
+          resources :journey_patterns, :only => [:index, :show]
+          resources :stop_areas, :only => [:index, :show]
+        end
+      end
+      resources :routes, :only => :show
+      resources :journey_patterns, :only => :show
+      resources :vehicle_journeys, :only => :show
+    end
+  end
+  
 
   resource :subscription
 
@@ -12,10 +39,38 @@ ChouetteIhm::Application.routes.draw do
   resources :file_validations
 
   resources :referentials do
+    resources :api_keys
     resources :stop_point_areas
     match 'lines' => 'lines#destroy_all', :via => :delete
-    resources :lines, :networks do
+    resources :group_of_lines do
       resources :stop_areas do
+        resources :access_points
+        resources :stop_area_parents
+        resources :stop_area_children
+        resources :stop_area_routing_lines
+        resources :stop_area_routing_stops
+        member do
+          get 'add_children'
+          get 'select_parent'
+          get 'add_routing_lines'
+          get 'add_routing_stops'
+        end
+      end       
+      resources :lines
+      collection do
+        get :name_filter
+      end
+    end
+
+    resources :lines do
+      collection do
+        get :name_filter
+      end
+    end
+
+    resources :lines, :networks, :group_of_lines do
+      resources :stop_areas do
+        resources :access_points
         resources :stop_area_parents
         resources :stop_area_children
         resources :stop_area_routing_lines
@@ -63,7 +118,12 @@ ChouetteIhm::Application.routes.draw do
       resources :time_table_periods
     end
 
+    resources :access_points do
+       resources :access_links
+    end
+
     resources :stop_areas do
+      resources :access_points 
       resources :stop_area_parents
       resources :stop_area_children
       resources :stop_area_routing_lines
@@ -73,6 +133,7 @@ ChouetteIhm::Application.routes.draw do
         get 'select_parent'
         get 'add_routing_lines'
         get 'add_routing_stops'
+        get 'access_links'
       end
       collection do 
         put 'default_geometry'
@@ -85,6 +146,7 @@ ChouetteIhm::Application.routes.draw do
         get 'select_areas'
       end
       resources :stop_areas do
+        resources :access_points
         resources :stop_area_parents
         resources :stop_area_children
         resources :stop_area_routing_lines
@@ -104,6 +166,10 @@ ChouetteIhm::Application.routes.draw do
 
   match '/help/(*slug)' => 'help#show'
   match '/test_sheet/(*slug)' => 'test_sheet#show'
+
+  match '/404', :to => 'errors#not_found'
+  match '/422', :to => 'errors#server_error'
+  match '/500', :to => 'errors#server_error'
 
   root :to => 'referentials#index'
 end

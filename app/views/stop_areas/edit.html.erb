@@ -1,5 +1,6 @@
 <%= title_tag t('stop_areas.edit.title', :stop_area => @stop_area.name ) %>
 
-<%= @map.to_html %>
-
+<% if !manage_itl %>
+	<%= @map.to_html %>
+<% end %>
 <%= render "form" %>

@@ -21,9 +21,20 @@
   	<% else %>
        <%= line.human_attribute_name('company') %> <%= link_to_if( line.company, line.company.name, referential_company_path(@referential, line.company), :title => "#{line.human_attribute_name('company')} #{line.company.name}" )  %>
     <% end %>
+    <br/>
+    <% if line.group_of_lines.count == 0 %> 
+        <%= t('lines.form.no_group_of_line') %>
+    <% elsif line.group_of_lines.count == 1 %>
+        <%= line.human_attribute_name('group_of_line') %>  
+        <%= link_to_if( line.group_of_lines.first, line.group_of_lines.first.name, referential_group_of_line_path(@referential, line.group_of_lines.first), :title => "#{line.human_attribute_name('group_of_line')} #{line.group_of_lines.first.name}") %> 
+    <% else %>
+       <%= t('lines.form.several_group_of_lines', :count => line.group_of_lines.count) %>
+    <% end %>
+    <% if @group_of_line.nil? %>
     <div class="actions">  
       <%= link_to t("actions.edit"), edit_referential_line_path(@referential, line), :class => "edit" %> |
-      <%= link_to t("actions.destroy"), referential_line_path(@referential, line), :method => :delete, :confirm =>  t('lines.actions.destroy_confirm'), :class => "remove" %>
+      <%= link_to t("actions.destroy"), referential_line_path(@referential, line), :method => :delete, :data => {:confirm =>  t('lines.actions.destroy_confirm')}, :class => "remove" %>
     </div>
+    <% end %>
   </div>
 <% end %>

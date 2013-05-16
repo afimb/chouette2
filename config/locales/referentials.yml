@@ -3,66 +3,69 @@ en:
     edit:
       title: "Edit the data space"
     show:
-      lines: lines
-      networks: networks
-      vehicle_journeys: vehicle journeys
-      time_tables: time tables
-      title: Data space
-      clean_up: Clean up
+      lines: "lines"
+      networks: "networks"
+      vehicle_journeys: "vehicle journeys"
+      time_tables: "time tables"
+      title: "Data space"
+      clean_up: "Clean up"
+      api_keys: "Authentification keys for an API REST access"
     counts:    
-      objects: Data space elements
-      count: count
+      objects: "Data space elements"
+      count: "count"
     validity_out:
-      validity_out_time_tables: Closed timetables
-      validity_out_soon_time_tables: Timetables closed in %{count} days   
+      validity_out_time_tables: "Closed timetables"
+      validity_out_soon_time_tables: "Timetables closed in %{count} days"
     new:
-      title: Create a new data space
+      title: "Create a new data space"
       submit: "Create a data space"
     actions:
-      new: Add a data space
+      new: "Add a data space"
       destroy_confirm: "Do you confirm to destroy this data space ?"
-      destroy: Destroy this data space
-      edit: Edit this data space
+      destroy: "Destroy this data space"
+      edit: "Edit this data space"
     errors:
       pg_excluded: "can't begins with pg_"
       public_excluded: "public is reserved value"
   activerecord:
     models:
       referential: 
-        zero: Data space
-        one: Data space
-        other: Data spaces
+        zero: "Data space"
+        one: "Data space"
+        other: "Data spaces"
     attributes:
       referential:
-        name: Name
-        slug: Code
-        prefix: Neptune Object Id prefix
-        projection_type: Optional spatial reference system code (SRID)
-        time_zone: time zone
+        name: "Name"
+        slug: "Code"
+        prefix: "Neptune Object Id prefix"
+        projection_type: "Optional spatial reference system code (SRID)"
+        time_zone: "time zone"
         upper_corner: "Top,Right corner for default bounding box"
         lower_corner: "Bottom,Left corner for default bounding box"
-        resources: Neptune Import File
-        validity_period: Validity period
-        no_validity_period: undefined
-        start_validity_period: from
-        end_validity_period: to
-        networks: Networks
-        lines: Lines
-        vehicle_journeys: Vehicle journeys
-        companies: Companies
-        stop_areas: Stop Areas
-        time_tables: Time tables
-        connection_links: Connection links
-        quays: quays
-        boarding_positions: boarding positions
-        commercial_stops: commercial stops
-        stop_places: stop places
-        itls: routing contraints
+        resources: "Neptune Import File"
+        validity_period: "Validity period"
+        no_validity_period: "undefined"
+        start_validity_period: "from"
+        end_validity_period: "to"
+        networks: "Networks"
+        group_of_lines: "Group of lines"
+        lines: "Lines"
+        vehicle_journeys: "Vehicle journeys"
+        companies: "Companies"
+        stop_areas: "Stop Areas"
+        access_points: "Access Points"
+        time_tables: "Time tables"
+        connection_links: "Connection links"
+        quays: "quays"
+        boarding_positions: "boarding positions"
+        commercial_stops: "commercial stops"
+        stop_places: "stop places"
+        itls: "routing contraints"
   formtastic:
     hints:
       referential:
         slug: "only lowercase alphanumerical or underscore characters, first character must be a letter"
-        prefix: only alphanumerical or underscore characters
+        prefix: "only alphanumerical or underscore characters"
         upper_corner: "longitude,latitude in WGS84 referential, dot for decimal separator"
         lower_corner: "longitude,latitude in WGS84 referential, dot for decimal separator"
 
@@ -71,61 +74,64 @@ fr:
     edit:
       title: "Modifier l'espace de données"
     show:
-      lines: lignes
-      networks: réseaux
-      vehicle_journeys: courses
-      time_tables: calendriers
-      title: Espace de données
-      clean_up: Purge des données obsolètes
+      lines: "lignes"
+      networks: "réseaux"
+      vehicle_journeys: "courses"
+      time_tables: "calendriers"
+      title: "Espace de données"
+      clean_up: "Purge des données obsolètes"
+      api_keys: "Clés d'authentification pour un accès à l'API REST"
     counts:    
-      objects: Eléments 
-      count: Qté
+      objects: "Eléments" 
+      count: "Qté"
     validity_out:
-      validity_out_time_tables: Calendriers échus
-      validity_out_soon_time_tables: Calendriers à échoir dans %{count} jours    
+      validity_out_time_tables: "Calendriers échus"
+      validity_out_soon_time_tables: "Calendriers à échoir dans %{count} jours"
     new:
-      title: Créer un nouvel espace de données
+      title: "Créer un nouvel espace de données"
       submit: "Créer un espace de données"
     actions:
-      new: Ajouter un espace de données
+      new: "Ajouter un espace de données"
       destroy_confirm: "Etes vous sûr de vouloir supprimer cet espace de données ?"
-      destroy: Supprimer cet espace de données
-      edit: Modifier cet espace de données
+      destroy: "Supprimer cet espace de données"
+      edit: "Modifier cet espace de données"
     errors:
       pg_excluded: "ne peut pas commencer par pg_ (valeurs réservées)"
       public_excluded: "public est une valeur réservée"
   activerecord:
     models:
       referential: 
-        zero: Espace de Données
-        one: Espace de Données
-        other: Espaces de Données
+        zero: "Espace de Données"
+        one: "Espace de Données"
+        other: "Espaces de Données"
     attributes:
       referential:
-        name: Nom
-        slug: Code
-        prefix: Préfixe des identifiants Neptune
-        projection_type: Système de référence spatiale optionnel (SRID)
-        time_zone: Fuseau horaire
+        name: "Nom"
+        slug: "Code"
+        prefix: "Préfixe des identifiants Neptune"
+        projection_type: "Système de référence spatiale (SRID) optionnel"
+        time_zone: "Fuseau horaire"
         upper_corner: "Point haut/droite de l'emprise par défaut" 
         lower_corner: "Point bas/gauche de l'emprise par défaut"
-        resources: Import Neptune
-        validity_period: Période de validité
-        no_validity_period: non définie
-        start_validity_period: du
-        end_validity_period: au
-        networks: Réseaux
-        lines: Lignes
-        vehicle_journeys: Courses
-        companies: Transporteurs
-        stop_areas: Arrêts
-        time_tables: Calendriers
-        connection_links: Correspondances
-        quays: quais
+        resources: "Import Neptune"
+        validity_period: "Période de validité"
+        no_validity_period: "non définie"
+        start_validity_period: "du"
+        end_validity_period: "au"
+        networks: "Réseaux"
+        group_of_lines: "Groupes de lignes"
+        lines: "Lignes"
+        vehicle_journeys: "Courses"
+        companies: "Transporteurs"
+        stop_areas: "Arrêts"
+        access_points: "points d'accès"
+        time_tables: "Calendriers"
+        connection_links: "Correspondances"
+        quays: "quais"
         boarding_positions: "points d'embarquement"
-        commercial_stops: arrêts commerciaux
+        commercial_stops: "arrêts commerciaux"
         stop_places: "pôles d'échange"
-        itls: ITL
+        itls: "ITL"
   formtastic:
     hints:
       referential:

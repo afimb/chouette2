@@ -1,305 +1,94 @@
+<h1 class="western" style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm 0.12cm; margin-top: 0.21cm;" align="center">
+<font face="Arial, sans-serif"><font style="font-size: 20pt;" size="5"><i>
+ point de contrôle N° 2.16<br>
+Référence  à une ligne des  missions commerciales<br>
+</i></font></font></h1>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><u><b>Objectif: </b></u>
+Vérification de la correcte référence à une LIGNE/Chouette
+(«&nbsp;Ligne&nbsp;») pour une MISSION COMMERCIALE
+(«&nbsp;JourneyPattern&nbsp;»).<br>
+</font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><u><b>Priorité: </b></u> Obligatoire  (si l’objet «&nbsp;JourneyPattern&nbsp;» existe et s’il contient l’objet  «&nbsp;lineIdShortCut&nbsp;»)</font></p><font face="Arial, sans-serif">
+</font><p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><u><b>Explications:</b></u> 
+</font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Lorsque l’objet MISSION COMMERCIALE («&nbsp;JourneyPattern&nbsp;») fait
+référence à une LIGNE/Chouette («&nbsp;Ligne&nbsp;») à travers
+«&nbsp;lineIdShortCut&nbsp;», qui est à caractère optionnel, il
+convient de vérifier que cette référence correspond à l'identifiant
+«&nbsp;objectId&nbsp;» d’une LIGNE /Chouette («&nbsp;Ligne&nbsp;»)
+définie.</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>Exemple: </u></b></font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Représentation  schématique de l’objet JourneyPattern</font></font></font></p>
+<p><font face="Arial, sans-serif"><img src="image008.jpg" height="483" width="487"></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>Exemple: </u></b></font></font></font></p>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;Line&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:Line:014014012&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectVersion&gt;1&lt;/objectVersion&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;JourneyPattern&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:JourneyPattern:489111M74&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;routeId&gt;AMIV:Route:489111&lt;/routeId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;stopPointList&gt;AMIV:StopPoint:489111A0A237832&lt;/stopPointList&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;stopPointList&gt;AMIV:StopPoint:489111A1A237807&lt;/stopPointList&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;stopPointList&gt;AMIV:StopPoint:489111A2A237806&lt;/stopPointList&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;stopPointList&gt;AMIV:StopPoint:489111A3A237805&lt;/stopPointList&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;stopPointList&gt;AMIV:StopPoint:489111A4A237804&lt;/stopPointList&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;stopPointList&gt;AMIV:StopPoint:489111A5A237803&lt;/stopPointList&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;stopPointList&gt;AMIV:StopPoint:489111A6A237832&lt;/stopPointList&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;lineIdShortcut&gt;AMIV:Line:014014012&lt;/lineIdShortcut&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;/JourneyPattern&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>N° test:</u></b> 
+2.16.1</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Libellé:</u> Vérification de la correcte référence à une une
+LIGNE/Chouette («&nbsp;Ligne&nbsp;») pour une MISSION COMMERCIALE
+(«&nbsp;JourneyPattern&nbsp;»).</font></font></font></p>
 
-<div class=WordSection1>
-</span></b>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Champ d’application:</u> 
+&lt;JourneyPattern&gt;&nbsp;&lt;Line&gt;</font></font></font></p>
 
-<p class=MsoTitle><span style='font-size:14.0pt;font-family:"Tahoma","sans-serif"'>Fiche
-du point de contr&ocirc;le N&deg; 2.16</span></p>
 
-<p class=MsoNormal>&nbsp;</p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Vérification:</u>&nbsp;</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+-  Si l’objet de mission commerciale existe, poursuivre le test, sinon  abandonner le test</font></font></font></p>
 
-<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=648
- style='width:485.95pt;margin-left:-.5pt;border-collapse:collapse'>
- <tr style='height:37.4pt'>
-  <td width=108 colspan=2 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;text-indent:0cm;layout-grid-mode:char'><i><span
-  style='font-family:"Tahoma","sans-serif";color:navy'>Description</span></i></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 11.35pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Intitul&eacute;</span></h1>
-  </td>
-  <td width=548 style='width:411.1pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><span
-  style='font-size:11.0pt;line-height:200%;font-family:"Tahoma","sans-serif"'>R&eacute;f&eacute;rence
-  &agrave; une ligne des  missions commerciales.</span></p>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 11.35pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Objectif</span></h1>
-  </td>
-  <td width=548 style='width:411.1pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>V&eacute;rification
-  de la correcte r&eacute;f&eacute;rence &agrave; une LIGNE/Chouette (&laquo;&nbsp;Ligne&nbsp;&raquo;)  pour une
-  MISSION COMMERCIALE  (&laquo;&nbsp;JourneyPattern&nbsp;&raquo;).</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 11.35pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>R&eacute;f&eacute;rences</span></h1>
-  </td>
-  <td width=548 style='width:411.1pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>TRIDENT/profil
-  CHOUETTE/Transmodel V4 et V5.1</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 11.35pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:-6.9pt;margin-bottom:
-  6.0pt;margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>N&deg; de fiche(s)
-  connexe(s)</span></h1>
-  </td>
-  <td width=548 style='width:411.1pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-left:0cm;text-align:left;text-indent:0cm;
-  layout-grid-mode:char'><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif";
-  font-weight:normal'>&nbsp;</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 11.35pt 0cm 3.5pt;
-  height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><b><span
-  style='font-family:"Tahoma","sans-serif"'>Priorit&eacute;<span style='color:red'> </span></span></b></p>
-  </td>
-  <td width=548 style='width:411.1pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Obligatoire
-  (si l&rsquo;objet &laquo;&nbsp;JourneyPattern&nbsp;&raquo; existe et s&rsquo;il contient l&rsquo;objet
-  &laquo;&nbsp;lineIdShortCut&nbsp;&raquo;)</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 11.35pt 0cm 3.5pt;
-  height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><b><span
-  style='font-family:"Tahoma","sans-serif"'>R&eacute;sultat</span></b></p>
-  </td>
-  <td width=548 style='width:411.1pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Conforme
-  ou non conforme</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 colspan=2 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;text-indent:0cm;layout-grid-mode:char'><i><span
-  style='font-family:"Tahoma","sans-serif";color:navy'>Mise en &oelig;uvre</span></i></h1>
-  </td>
- </tr>
- <tr>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 11.35pt 0cm 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Explication</span></h1>
-  </td>
-  <td width=548 style='width:411.1pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 11.35pt 0cm 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:11.35pt;margin-bottom:
-  6.0pt;margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Lorsque
-  l&rsquo;objet MISSION COMMERCIALE  (&laquo;&nbsp;JourneyPattern&nbsp;&raquo;) fait r&eacute;f&eacute;rence &agrave;
-  une LIGNE/Chouette (&laquo;&nbsp;Ligne&nbsp;&raquo;) &agrave; travers 
-  &laquo;&nbsp;lineIdShortCut&nbsp;&raquo;, qui est &agrave; caract&egrave;re optionnel, il convient de
-  v&eacute;rifier que cette r&eacute;f&eacute;rence  correspond &agrave; l'identifiant
-  &laquo;&nbsp;objectId&nbsp;&raquo; d&rsquo;une LIGNE /Chouette (&laquo;&nbsp;Ligne&nbsp;&raquo;) d&eacute;finie.</span></h1>
-  </td>
- </tr>
-</table>
 
-<p class=MsoNormal>&nbsp;</p>
-
-<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=648
- style='width:485.95pt;margin-left:-.5pt;border-collapse:collapse'>
- <tr>
-  <td width=108 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  border-right:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm;layout-grid-mode:char'><b><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif"'>Exemple</span></b></p>
-  </td>
-  <td width=548 valign=top style='width:411.1pt;border:solid black 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-left:18.0pt;text-align:left;text-indent:0cm;
-  layout-grid-mode:char'><span style='font-size:11.0pt;font-weight:normal'>&nbsp;</span></h1>
-  <h1 align=left style='margin-left:18.0pt;text-align:left;text-indent:0cm'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Repr&eacute;sentation
-  sch&eacute;matique de l&rsquo;objet JourneyPattern</span></h1>
-  <p class=MsoNormal>&nbsp;</p>
-  <p class=MsoNormal align=center style='text-align:center'><img width=487
-  height=483 src="BATERI_Neptune_FINAL-V2_0a_fichiers/image008.jpg"></p>
-  <p class=MsoNormal><span lang=EN-US>                                      </span></p>
-  <h3 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm'><span lang=EN-US style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif"'>Exemple </span></h3>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>...</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;Line&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;objectId&gt;AMIV:Line:014014012&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;objectVersion&gt;1&lt;/objectVersion&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>...</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;JourneyPattern&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;objectId&gt;AMIV:JourneyPattern:489111M74&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;routeId&gt;AMIV:Route:489111&lt;/routeId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;stopPointList&gt;AMIV:StopPoint:489111A0A237832&lt;/stopPointList&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;stopPointList&gt;AMIV:StopPoint:489111A1A237807&lt;/stopPointList&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;stopPointList&gt;AMIV:StopPoint:489111A2A237806&lt;/stopPointList&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;stopPointList&gt;AMIV:StopPoint:489111A3A237805&lt;/stopPointList&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;stopPointList&gt;AMIV:StopPoint:489111A4A237804&lt;/stopPointList&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;stopPointList&gt;AMIV:StopPoint:489111A5A237803&lt;/stopPointList&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;stopPointList&gt;AMIV:StopPoint:489111A6A237832&lt;/stopPointList&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;lineIdShortcut&gt;AMIV:Line:014014012&lt;/lineIdShortcut&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;/JourneyPattern&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>...</span></p>
-  </td>
- </tr>
- <tr style='page-break-inside:avoid'>
-  <td width=108 colspan=2 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h2 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;text-indent:0cm;layout-grid-mode:char'><i><span
-  lang=EN-US style='font-size:14.0pt;color:navy'>Evaluation</span></i></h2>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 valign=top style='width:81.35pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span lang=EN-US style='font-size:
-  11.0pt'>N&deg; test</span></h1>
-  </td>
-  <td width=548 valign=top style='width:411.1pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif";font-weight:normal'>2.16.1</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 valign=top style='width:81.35pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span style='font-size:11.0pt'>Libell&eacute;</span></h1>
-  </td>
-  <td width=548 valign=top style='width:411.1pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif";font-weight:normal'>V&eacute;rification de la
-  correcte r&eacute;f&eacute;rence &agrave; une une LIGNE/Chouette (&laquo;&nbsp;Ligne&nbsp;&raquo;)  pour une
-  MISSION COMMERCIALE  (&laquo;&nbsp;JourneyPattern&nbsp;&raquo;).</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 valign=top style='width:81.35pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:-6.9pt;margin-bottom:6.0pt;
-  margin-left:0cm;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Champ
-  d&rsquo;application</span></h1>
-  </td>
-  <td width=548 valign=top style='width:411.1pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif";font-weight:normal'>&lt;JourneyPattern&gt;</span></h1>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm;text-align:justify;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>&lt;Line&gt;</span></p>
-  <p class=MsoNormal style='text-align:justify;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>&nbsp;</span></p>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 valign=top style='width:81.35pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span style='font-size:11.0pt'>V&eacute;rification</span></h1>
-  </td>
-  <td width=548 valign=top style='width:411.1pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-left:0cm;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  <h1 style='margin-left:0cm;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>-
-  Si l&rsquo;objet de mission commerciale existe, poursuivre le test, sinon
-  abandonner le test</span></h1>
-  <h1 style='layout-grid-mode:char'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  <h1 style='margin-left:0cm;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>-
-  Si le raccourci de ligne &laquo;&nbsp;lineIdShortCut&nbsp;&raquo;, dans l&rsquo;objet
-  &laquo;&nbsp;JourneyPattern&nbsp;&raquo;, poursuivre le test, sinon abandonner le test</span></h1>
-  <p class=MsoFooter><span style='font-family:"Tahoma","sans-serif"'>&nbsp;</span></p>
-  <p class=MsoBodyText3 align=left style='text-align:left'><span
-  style='font-family:"Tahoma","sans-serif"'>- Si l&rsquo;&eacute;l&eacute;ment de raccourci de
-  ligne &laquo;&nbsp;lineIdShortCut&nbsp;&raquo;<b> </b>, r&eacute;f&eacute;renc&eacute; dans un objet
-  &laquo;&nbsp;JourneyPattern&nbsp;&raquo;, poss&egrave;de un identifiant &laquo;&nbsp;objectId&nbsp;&raquo;
-  dans un objet de ligne &laquo;&nbsp;Line&nbsp;&raquo;, alors le test est valid&eacute;, sinon le
-  test est invalid&eacute; et produit le message &laquo;&nbsp;test 2.16.1&nbsp;: Un objet
-  &laquo;&nbsp;JourneyPattern&nbsp;&raquo; fait r&eacute;f&eacute;rence &agrave; une ligne inexistante.&raquo;</span></p>
-  <h1 style='margin-left:0cm;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  </td>
- </tr>
-</table>
-
-<p class=MsoNormal>&nbsp;</p>
-
-</div>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- Si le raccourci de ligne «&nbsp;lineIdShortCut&nbsp;», dans l’objet
+«&nbsp;JourneyPattern&nbsp;», poursuivre le test, sinon abandonner le
+test</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- Si l’élément de raccourci de  ligne «&nbsp;lineIdShortCut&nbsp;»<b> </b>,
+référencé dans un objet «&nbsp;JourneyPattern&nbsp;», possède un
+identifiant «&nbsp;objectId&nbsp;» dans un objet de ligne
+«&nbsp;Line&nbsp;», alors le test est validé, sinon le test est
+invalidé et produit le message «&nbsp;test 2.16.1&nbsp;: Un objet
+«&nbsp;JourneyPattern&nbsp;» fait référence à une ligne inexistante.»</font></font></font></p>
 

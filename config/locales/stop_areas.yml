@@ -2,109 +2,136 @@ en:
   stop_areas:
     default_geometry_success: "%{count} modified stop areas"
     stop_area:
-      no_position: No Position 
+      no_position: "No Position" 
       lines: "Lines :"
     actions:
-      new: Add a new stop
-      edit: Edit this stop
-      destroy: Remove this stop
-      destroy_confirm: Are you sure you want destroy this stop?
-      select_parent: Manage Parent
-      add_children: Manage Children
+      new: "Add a new stop"
+      edit: "Edit this stop"
+      destroy: "Remove this stop"
+      destroy_confirm: "Are you sure you want destroy this stop?"
+      select_parent: "Manage Parent"
+      add_children: "Manage Children"
+      manage_access_points: "Manage Access Points"
+      manage_access_links: "Manage Access Links"
       add_routing_lines: "Manage constraint's lines"
       add_routing_stops: "Manage constraint's stops"
       default_geometry: "Compute missing geometries"
     new:
-      title: Add a new stop
+      title: "Add a new stop"
     edit:
-      title: Update stop %{stop_area}
+      title: "Update stop %{stop_area}"
     show:
-      title: Stop %{stop_area}
-      geographic_data: Geographic data 
-      no_geographic_data: None
-      genealogical: Links between stop area
+      title: "Stop %{stop_area}"
+      geographic_data: "Geographic data"
+      no_geographic_data: "None"
+      itl_managment: "Routing constraint's links managment"
+      stop_managment: "Parent-Child links managment"
+      access_managment: "Access Points and Links managment"
+      access_points: "Access Points"
+    genealogical:
+      genealogical: "Links between stop area"
       genealogical_routing: "Routing constraint's links"
     index:
-      title: Stop areas
-      name_or_country_code: Name or Country code
-      selection: Filter on
-      selection_all: All
-      area_type: Area Type
+      title: "Stop areas"
+      name_or_country_code: "Name or Country code"
+      selection: "Filter on"
+      selection_all: "All"
+      area_type: "Area Type"
+    access_links: 
+      title: "Access links for %{stop_area}'s access"
+      generic_access_links: "Glogal links"
+      detail_access_links: "Specific links"
+      access_link_legend_1: "grays arrows for undefined links, green for defined ones"
+      access_link_legend_2: "clic on arrows to create/edit a link"
     select_parent:
-      title: Manage parent of stop area %{stop_area} 
+      title: "Manage parent of stop area %{stop_area}"
     add_children:
-      title: Manage children of stop area %{stop_area} 
+      title: "Manage children of stop area %{stop_area}" 
     add_lines:
-      title: Manage lines of routing constraint %{stop_area} 
+      title: "Manage lines of routing constraint %{stop_area}" 
     add_stops:
-      title: Manage stop areas of routing constraint %{stop_area} 
+      title: "Manage stop areas of routing constraint %{stop_area}" 
   activerecord:        
     models:        
       stop_area: 
-        zero:  stop area
-        one:   stop area
-        other: stop areas
+        zero:  "stop area"
+        one:   "stop area"
+        other: "stop areas"
     attributes:
       stop_area:
-        name: Name
-        registration_number: Registration number
-        comment: Comments
-        stop_area_type: Area type
-        nearest_topic_name: Nearest point of interest
-        street_name: Street name
-        country_code: INSEE code
-        fare_code: Fare code
-        projection_type: Projection type
-        x: x-position
-        y: y-position
-        long_lat_type: Projection type
-        longitude: Longitude
-        latitude: Latitude
-        objectid: Neptune identifier
-        object_version: Version
-        creation_time: Created on
+        name: "Name"
+        registration_number: "Registration number"
+        comment: "Comments"
+        stop_area_type: "Area type"
+        nearest_topic_name: "Nearest point of interest"
+        street_name: "Street name"
+        country_code: "INSEE code"
+        fare_code: "Fare code"
+        projection_type: "Projection type"
+        x: "x-position"
+        y: "y-position"
+        long_lat_type: "Projection type"
+        longitude: "Longitude"
+        latitude: "Latitude"
+        objectid: "Neptune identifier"
+        object_version: "Version"
+        creation_time: "Created on"
         creatorid: Created by 
-        children_ids: Children 
-        routing_stop_ids: Attached stops
-        routing_line_ids: Attached lines
-        parent: Parent
+        children_ids: "Children" 
+        routing_stop_ids: "Attached stops"
+        routing_line_ids: "Attached lines"
+        parent: "Parent"
   formtastic:
     hints:
       stop_area:
-        registration_number: only alphanumerical or underscore characters 
+        registration_number: "only alphanumerical or underscore characters" 
         objectid: "[prefix]:StopArea:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
 
 fr:
   stop_areas:
     default_geometry_success: "%{count} arrêts modifiés"
     stop_area:
-      no_position: Pas de position 
+      no_position: "Pas de position" 
       lines: "Lignes :"
     actions:
-      new: Ajouter un arrêt
-      edit: Modifier cet arrêt
-      destroy: Supprimer cet arrêt
-      destroy_confirm: Etes vous sûr de détruire cet arrêt ?
-      select_parent: Gérer le parent
-      add_children: Gérer les fils
+      new: "Ajouter un arrêt"
+      edit: "Modifier cet arrêt"
+      destroy: "Supprimer cet arrêt"
+      destroy_confirm: "Etes vous sûr de détruire cet arrêt ?"
+      select_parent: "Gérer le parent"
+      add_children: "Gérer les fils"
       add_routing_lines: "Gérer les lignes de l'ITL"
       add_routing_stops: "Gérer les arrêts de l'ITL"
+      manage_access_points: "Gérer les accès"
+      manage_access_links: "Gérer les liens arrêt-accès"
+      add_children: "Gérer les fils"
       default_geometry: "Calculer les géométries manquantes"
     new:
-      title: Ajouter un arrêt
+      title: "Ajouter un arrêt"
     edit:
       title: "Modifier l'arrêt %{stop_area}"
     show:
-      title: Arrêt %{stop_area}
-      geographic_data: Données géographiques 
-      no_geographic_data: Aucune
-      genealogical: Lien entre arrêts 
+      title: "Arrêt %{stop_area}"
+      geographic_data: "Données géographiques"
+      no_geographic_data: "Aucune"
+      itl_managment: "Gestion des liens de l'ITL"
+      stop_managment: "Gestion des relations père-fils"
+      access_managment: "Gestion des accès et liens associés"
+      access_points: "Points d'accès"
+    genealogical:
+      genealogical: "Lien entre arrêts" 
       genealogical_routing: "Liens de l'ITL"
+    access_links: 
+      title: "Liens Accès-Arrêts des accès de %{stop_area}"
+      generic_access_links: "Liens globaux"
+      detail_access_links: "Liens détaillés"
+      access_link_legend_1: "Les flêches grises représentent des liens non définis"
+      access_link_legend_2: "cliquer sur les flêches pour créer/éditer un lien"
     index:
-      name_or_country_code: Nom ou Code Postal
-      title: Arrêts
-      selection: Filtrer sur
-      selection_all: Tous
+      name_or_country_code: "Nom ou Code INSEE"
+      title: "Arrêts"
+      selection: "Filtrer sur"
+      selection_all: "Tous"
       area_type: "Type d'arrêt"
     select_parent:
       title: "Gérer le parent de l'arrêt %{stop_area}"
@@ -117,34 +144,34 @@ fr:
   activerecord:        
     models:        
       stop_area: 
-        zero:  arrêt
-        one:   arrêt
-        other: arrêts
+        zero:  "arrêt"
+        one:   "arrêt"
+        other: "arrêts"
     attributes:
       stop_area:
-        name: Nom
+        name: "Nom"
         registration_number: "Numéro d'enregistrement"
-        published_name: Nom public        
-        comment: Commentaire
+        published_name: "Nom public"        
+        comment: "Commentaire"
         stop_area_type: "Type d'arrêt"
         nearest_topic_name: "Point d'intérêt le plus proche"
-        street_name: Nom de la rue
-        country_code: Code INSEE
-        fare_code: Zone tarifaire
-        projection_type: Projection
-        x: Position X
-        y: Position Y
-        long_lat_type: Projection
-        longitude: Longitude
-        latitude: Latitude
-        objectid: Identifiant Neptune
-        object_version: Version
-        creation_time: Créé le
-        creator_id: Créé par
-        children_ids: Fils 
+        street_name: "Nom de la rue"
+        country_code: "Code INSEE"
+        fare_code: "Zone tarifaire"
+        projection_type: "Projection"
+        x: "Position X"
+        y: "Position Y"
+        long_lat_type: "Projection"
+        longitude: "Longitude"
+        latitude: "Latitude"
+        objectid: "Identifiant Neptune"
+        object_version: "Version"
+        creation_time: "Créé le"
+        creator_id: "Créé par"
+        children_ids: "Fils" 
         routing_stop_ids: "Arrêts concernés par l'ITL"
         routing_line_ids: "Lignes affectées par l'ITL"
-        parent: Parent
+        parent: "Parent"
   formtastic:
     hints:
       stop_area:

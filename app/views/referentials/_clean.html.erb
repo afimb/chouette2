@@ -6,9 +6,10 @@
     <%= form.input :keep_stops, :as => :boolean %>
     <%= form.input :keep_companies, :as => :boolean %>
     <%= form.input :keep_networks, :as => :boolean %>
+    <%= form.input :keep_group_of_lines, :as => :boolean %>
     <% end %>
     <%= form.actions do %>
-      <%= form.action :submit, :as => :button, :label => t('clean_ups.actions.clean_up') , :button_html => {:confirm => t('clean_ups.actions.confirm') }%>
+      <%= form.action :submit, :as => :button, :label => t('clean_ups.actions.clean_up') , :button_html => {:data => {:confirm => t('clean_ups.actions.confirm') }}%>
     <% end %>
   <% end %>
   </div>

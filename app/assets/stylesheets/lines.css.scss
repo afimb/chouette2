@@ -77,6 +77,40 @@
     .summary p label {
         font-weight: bold;
     }
+    .group_of_line {
+        @include div_for_object;
+        /* to create multi-column index */
+        width: 250px;
+        float: left;
+        padding-right: 10px;
+
+        .position {
+            width: 25px;
+            height: 20px;
+            float: left;
+            background-color: #61970B;
+            font-weight: bold;
+            color: white;
+            margin-right: 10px;
+            padding-left: 4px;
+        }
+        .color {
+            background-color: white;
+            width: 64px;
+            height: 64px;
+            float: left;
+            margin-right: 10px;
+            border: 1px solid #999;
+
+            a {
+                text-decoration: none;                   
+            }
+        }
+
+        .name a {
+            display: inline;
+        }
+    }
 }        
 
 

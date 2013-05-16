@@ -1,13 +1,14 @@
 <%= div_for(referential) do %>
   <%= link_to referential.name, referential %>
   <div class="info">
-    <%= t('.lines') %>: <span class="lines_count"></span> -
-    <%= t('.networks') %>: <span class="networks_count"></span> -
-    <%= t('.vehicle_journeys') %>: <span class="vehicle_journeys_count"></span> -
-    <%= t('.time_tables') %>: <span class="time_tables_count"></span>
+    <%= referential.human_attribute_name('lines') %>: <span class="lines_count"></span> -
+    <%= referential.human_attribute_name('networks') %>: <span class="networks_count"></span> -
+    <%= referential.human_attribute_name('vehicle_journeys') %>: <span class="vehicle_journeys_count"></span> -
+    <%= referential.human_attribute_name('time_tables') %>: <span class="time_tables_count"></span>
     <div class="actions">  
       <%= link_to t("actions.edit"), edit_referential_path(referential), :class => "edit" %> |
-      <%= link_to t("actions.destroy"), referential_path(referential), :method => :delete, :confirm =>  t('referentials.actions.destroy_confirm'), :class => "remove" %>
+      <%= link_to t("actions.destroy"), referential_path(referential), :method => :delete, :data => {:confirm =>  t('referentials.actions.destroy_confirm')}, :class => "remove" %>
     </div>
   </div>
+<%= javascript_include_tag referential_path(referential,:format => :js) %>
 <% end %>

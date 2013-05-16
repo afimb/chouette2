@@ -5,7 +5,7 @@ title: Calendriers d'application
 
 h3. Définition
 
-Un calendrier d'application permet de définir la période de validité des horaires d'une course. 
+Un *calendrier* d'application permet de définir la période de validité des horaires d'une "course":vehicle_journeys. 
 Les calendriers d'application sont donc définis indépendamment des lignes, à l'instar du référentiel des arrêts.
 
 La manière de définir un calendrier d'application est restreinte. 
@@ -13,7 +13,7 @@ Les calendriers sont caractérisés par :
 
 * une liste de quantièmes (jours calendaires dans l'année)
 * une liste de jours d'application (lundis, mardis, etc.)
-* une liste de périodes
+* une liste de périodes sur lesquelles s'appliquent les jours d'application
 
 L'utilisateur doit donc faire attention au nommage de ses différents calendriers d'application.
 
@@ -41,9 +41,9 @@ cet identifiant est composé de 3 parties : préfixe:type:id_technique
 
 * préfixe : clé identifiant un producteur de données unique
 * type = Timetable : clé identifiant le type d'objet (valeur imposée)
-* id_technique : valeur identifiant un seul object d'un type donné pour un même producteur
+* id_technique : valeur identifiant un seul objet d'un type donné pour un même producteur
 ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
-il est possible aussi de ne renseigner que l'identifiant technique auquel cas la valeur sera complétée automatiquement.
+il est possible aussi de ne renseigner que l'identifiant technique, auquel cas la valeur sera complétée automatiquement.
 =:
 - Date de création := date à laquelle l'objet a été créé ou modifié pour la dernière fois
 - Version := version de l'objet (auto incrémenté à chaque modification)

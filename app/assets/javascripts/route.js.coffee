@@ -23,10 +23,10 @@ jQuery ->
     else
       selectFeature.unselectAll()
 
-  $('.routes.show div.stop_points .stop_point').live("hover", select_stop_on_map)
+  $(document).on("hover", '.routes.show div.stop_points .stop_point', select_stop_on_map)
 
   make_ajax_pagination = () ->
     $.get(this.href, null, null, 'script')
     false
 
-  $('.routes.show .stop_points_detail .pagination a').live("click", make_ajax_pagination)
+  $(document).on("click", '.routes.show .stop_points_detail .pagination a', make_ajax_pagination)

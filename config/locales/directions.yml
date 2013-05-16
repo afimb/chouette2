@@ -1,31 +1,31 @@
 en:
   directions:
     label:
-      straight_forward: straight forward
-      backward: backward
-      clock_wise: clockwise
-      counter_clock_wise: counterclockwise
-      north: north
-      north_west: north west
-      west: west
-      south_west: south west
-      south: south
-      south_east: south east
-      east: east
-      north_east: north east
+      straight_forward: "straight forward"
+      backward: "backward"
+      clock_wise: "clockwise"
+      counter_clock_wise: "counterclockwise"
+      north: "north"
+      north_west: "north west"
+      west: "west"
+      south_west: "south west"
+      south: "south"
+      south_east: "south east"
+      east: "east"
+      north_east: "north east"
 fr:
   directions:
     label:
-      straight_forward: aller
-      backward: retour
-      clock_wise: sens horaire
-      counter_clock_wise: sens anti horaire
-      north: nord
-      north_west: nord ouest
-      west: ouest
-      south_west: sud ouest
-      south: sud
-      south_east: sud est
-      east: est
-      north_east: nord est
+      straight_forward: "aller"
+      backward: "retour"
+      clock_wise: "sens horaire"
+      counter_clock_wise: "sens anti horaire"
+      north: "nord"
+      north_west: "nord ouest"
+      west: "ouest"
+      south_west: "sud ouest"
+      south: "sud"
+      south_east: "sud est"
+      east: "est"
+      north_east: "nord est"
 

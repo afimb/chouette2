@@ -1,7 +1,8 @@
 class ReferentialsController < InheritedResources::Base
   respond_to :html
   respond_to :json, :only => :show
-
+  respond_to :js, :only => :show
+  
   def show 
      resource.switch
      show! do |format|

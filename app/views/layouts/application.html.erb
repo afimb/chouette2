@@ -47,6 +47,7 @@
             <li><%= link_to t("layouts.tabs.dashboard").capitalize, referential_path(@referential), :class => ("current" if current_page?(referential_path(@referential))) %></li>
             <li><%= tab_link_to Chouette::Network, referential_networks_path(@referential) %></li>
             <li><%= tab_link_to Chouette::Company, referential_companies_path(@referential) %></li>
+            <li><%= tab_link_to Chouette::GroupOfLine, referential_group_of_lines_path(@referential) %></li>
             <li><%= tab_link_to Chouette::Line, referential_lines_path(@referential) %></li>
             <li><%= tab_link_to Chouette::StopArea, referential_stop_areas_path(@referential) %></li>
             <li><%= tab_link_to Chouette::ConnectionLink, referential_connection_links_path(@referential) %></li>

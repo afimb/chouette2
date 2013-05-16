@@ -1,16 +1,16 @@
 en:
   actions:
-    edit: Edit
-    destroy: Destroy
-    search: Search
-    add: Add new
-  or: or
-  cancel: Cancel
+    edit: "Edit"
+    destroy: "Destroy"
+    search: "Search"
+    add: "Add new"
+  or: "or"
+  cancel: "Cancel"
 fr:
   actions:
-    edit: Modifier
-    destroy: Supprimer
-    search: Chercher
-    add: Ajouter
-  or: ou
-  cancel: Annuler
+    edit: "Modifier"
+    destroy: "Supprimer"
+    search: "Chercher"
+    add: "Ajouter"
+  or: "ou"
+  cancel: "Annuler"

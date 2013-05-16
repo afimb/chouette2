@@ -15,6 +15,10 @@
   		<td class="value"> <%= @referential.companies.size %></td>		
   		</tr>
   		<tr>
+   		<td class="object" colspan="2"><%= Referential.human_attribute_name("group_of_lines") %></td>
+  		<td class="value"> <%= @referential.group_of_lines.size %></td>		
+  		</tr>
+  		<tr>
    		<td class="object" colspan="2"><%= Referential.human_attribute_name("lines") %></td>
   		<td class="value"> <%= @referential.lines.size %></td>		
   		</tr>
@@ -58,6 +62,11 @@
    		<td class="image"><%= image_tag "map/itl.png"%></td>
    		<td class="object"><%= Referential.human_attribute_name("itls") %></td>
   		<td class="value"> <%= @referential.stop_areas.where("area_type = ?","ITL").size %></td>		
+  		</tr>
+  		<tr>
+   		<td class="image"><%= image_tag "map/access_in_out.png"%></td>
+   		<td class="object"><%= Referential.human_attribute_name("access_points") %></td>
+  		<td class="value"> <%= @referential.access_points.size %></td>		
   		</tr>
   	</tbody>
   </table>

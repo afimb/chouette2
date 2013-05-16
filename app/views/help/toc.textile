@@ -9,9 +9,11 @@ h3. Sommaire
 ## "Normalisation":normalisation
 ## "Documentation":documentation
 ## "Vue d'ensemble":schema
+## "Pré-requis":prerequisite
 # "Utilisateurs et Organisations":users
 # "Espaces de données":dataspaces
 # "Réseaux":networks
+# "Groupes de lignes":group_of_lines
 # "Transporteurs":companies
 # "Lignes":lines
 ## "Séquences d'arrêts":routes
@@ -19,12 +21,15 @@ h3. Sommaire
 ## "Courses/Horaires":vehiclejourneys
 # "Arrêts":stop_areas
 ## "Correspondances":connection_links
+## "Accès":access_points
+## "Liens Arrêts-Accès":access_links
 # "Calendriers d'application":timetables
 # Outils
 ## "Imports":imports
 ## "Exports":exports
 ## "Validation":validations
 # Divers
+## "Tutoriel/Démonstrateur":tutorial
 ## "API Rest":restapis
 ## "format d'échange CSV":csv
 ## "FAQ":faq

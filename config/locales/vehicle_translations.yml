@@ -5,8 +5,8 @@ en:
   activemodel:        
     attributes:
       vehicle_translation:
-        duration: Duration
-        count: Count
+        duration: "Duration"
+        count: "Count"
 fr:
   vehicle_translations:
     success: "%{count} course(s) crée(s) par translation"

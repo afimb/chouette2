@@ -1,105 +1,117 @@
 en:
   lines:
     actions:
-      new: Add a new line
-      edit: Edit this line
-      destroy: Remove this line
-      destroy_confirm: Are you sure you want destroy this line?
-      import: Import lines
+      new: "Add a new line"
+      edit: "Edit this line"
+      destroy: "Remove this line"
+      destroy_confirm: "Are you sure you want destroy this line?"
+      import: "Import lines"
     new:
-      title: Add a new line
+      title: "Add a new line"
     edit:
-      title: Update line %{line}
+      title: "Update line %{line}"
     show:
-      title: Line %{line}
+      title: "Line %{line}"
       itineraries: "Line's route list"
+      group_of_lines: "Groups of lines"
     index:
-      title: Lines
-      name_or_number: Name or number
-      selection: Filter on
-      selection_all: All
-      multi_selection: Multiple selection
-      multi_selection_enable: Enable multiple selection
-      multi_selection_disable: Disable multiple selection
-      delete_selected: Delete lines
-      export_selected: Export lines
-      select_all: Select all
-      deselect_all: Deselect all
-      unset: undefined
+      title: "Lines"
+      name_or_number: "Name or number"
+      selection: "Filter on"
+      selection_all: "All"
+      multi_selection: "Multiple selection"
+      multi_selection_enable: "Enable multiple selection"
+      multi_selection_disable: "Disable multiple selection"
+      delete_selected: "Delete lines"
+      export_selected: "Export lines"
+      select_all: "Select all"
+      deselect_all: "Deselect all"
+      unset: "undefined"
+    form:
+      group_of_lines: "Associated groups of lines"
+      no_group_of_line: "No group of line"
+      several_group_of_lines: "%{count} groups of lines"
   activerecord:        
     models:        
       line: 
-        zero:  line
-        one:   line
-        other: lines
+        zero:  "line"
+        one:   "line"
+        other: "lines"
     attributes:
       line:
-        network: Network
-        company: Company
-        registration_number: Registration number
-        name: Name
-        published_name: Published name        
-        number: Number
-        transport_mode: Transport mode
-        comment: Comments
-        objectid: Neptune identifier
-        object_version: Version
-        creation_time: Created on
-        creator_id: Created by 
+        network: "Network"
+        company: "Company"
+        registration_number: "Registration number"
+        name: "Name"
+        published_name: "Published name"
+        number: "Number"
+        transport_mode: "Transport mode"
+        group_of_line: "Group of lines"
+        comment: "Comments"
+        objectid: "Neptune identifier"
+        object_version: "Version"
+        creation_time: "Created on"
+        creator_id: "Created by" 
   formtastic:
     hints:
       line:
-        registration_number: only alphanumerical or underscore characters 
+        registration_number: "only alphanumerical or underscore characters" 
         objectid: "[prefix]:Line:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
 
 fr:
   lines:
     actions:
-      new: Ajouter une ligne
-      edit: Modifier cette ligne
-      destroy: Supprimer cette ligne
-      destroy_confirm: Etes vous sûr de détruire cette ligne ?
-      import: Importer des lignes
+      new: "Ajouter une ligne"
+      edit: "Modifier cette ligne"
+      destroy: "Supprimer cette ligne"
+      destroy_confirm: "Etes vous sûr de détruire cette ligne ?"
+      import: "Importer des lignes"
     new:
-      title: Ajouter une ligne
+      title: "Ajouter une ligne"
     edit:
-      title: Modifier la ligne %{line}
+      title: "Modifier la ligne %{line}"
     show:
-      title: Ligne %{line}
+      title: "Ligne %{line}"
       itineraries: "Liste des séquences d'arrêts de la ligne"
+      group_of_lines: "Groupes de lignes"
     index:
-      name_or_number: Nom ou indice
-      title: Lignes
-      selection: Filtrer sur
-      selection_all: Tous
-      multi_selection: Sélection multiple
-      multi_selection_enable: Activer la sélection multiple
-      multi_selection_disable: Désactiver la sélection multiple
-      delete_selected: Supprimer les lignes
-      export_selected: Exporter les lignes
-      select_all: Tout sélectionner
-      deselect_all: Tout désélectionner
-      unset: non défini
+      name_or_number: "Nom ou indice"
+      title: "Lignes"
+      selection: "Filtrer sur"
+      selection_all: "Tous"
+      multi_selection: "Sélection multiple"
+      multi_selection_enable: "Activer la sélection multiple"
+      multi_selection_disable: "Désactiver la sélection multiple"
+      delete_selected: "Supprimer les lignes"
+      export_selected: "Exporter les lignes"
+      select_all: "Tout sélectionner"
+      deselect_all: "Tout désélectionner"
+      unset: "non défini"
+    form:
+      group_of_lines: "Groupes de lignes associés"
+      no_group_of_line: "Aucun groupe de lignes"
+      several_group_of_lines: "%{count} groupes of lignes"
   activerecord:        
     models:        
       line:
-        zero:  ligne
-        one:   ligne
-        other: lignes
+        zero:  "ligne"
+        one:   "ligne"
+        other: "lignes"
     attributes:
       line:
-        network: Réseau
-        company: Transporteur
+        network: "Réseau"
+        company: "Transporteur"
         registration_number: "Numéro d'enregistrement"
-        name: Nom
-        published_name: Nom public        
-        number: Indice
-        transport_mode: Mode de transport
-        comment: Commentaire
-        objectid: Identifiant Neptune
-        object_version: Version
-        creation_time: Créé le
-        creator_id: Créé par
+        name: "Nom"
+        published_name: "Nom public"        
+        number: "Indice"
+        transport_mode: "Mode de transport"
+        group_of_line: "Groupe de lignes"
+        comment: "Commentaire"
+        objectid: "Identifiant Neptune"
+        object_version: "Version"
+        creation_time: "Créé le"
+        creator_id: "Créé par"
   formtastic:
     hints:
       line:

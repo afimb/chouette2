@@ -1,298 +1,98 @@
+<h1 class="western" style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm 0.12cm; margin-top: 0.21cm;" align="center">
+<font face="Arial, sans-serif"><font style="font-size: 20pt;" size="5"><i>
+ point de contrôle N° 2.9<br>
+Définition  de l’itinéraire retour<br>
+</i></font></font></h1>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><u><b>Objectif: </b></u>
+Vérifier la correcte référence à un Itinéraire/Chouette
+(«&nbsp;ChouetteRoute&nbsp;») dans le cas d’un itinéraire de retour.<br>
+</font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><u><b>Priorité: </b></u> Obligatoire  (si l’identifiant «&nbsp;wayBackRouteId&nbsp;» existe)</font></p><font face="Arial, sans-serif">
+</font><p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><u><b>Explications:</b></u> 
+</font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+L’élément d’Itinéraire de retour «&nbsp;wayBackRouteId&nbsp;» au sein
+de l’objet Itinéraire/Chouette («&nbsp;ChouetteRoute&nbsp;») a un
+caractère optionnel. Si une valeur d’attribut est définie, il convient
+de s'assurer qu’elle correspond à un Itinéraire/Chouette
+(«&nbsp;ChouetteRoute&nbsp;») dans le même réseau.</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>Exemple: </u></b></font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Représentation  schématique de l’Objet «&nbsp;ChouetteRoute&nbsp;»</font></font></font></p>
+<p><font face="Arial, sans-serif"><img src="image007.jpg" height="502" width="402"></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Exemple  d'itinéraire de retour</font></font></font></p>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;ChouetteRoute&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif"><br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:Route:488957&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;name&gt;0140140120535&lt;/name&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;publishedName&gt;GOUSSAINVILLE  RER - CHAUMONTEL&lt;/publishedName&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;ptLinkId&gt;AMIV:PTLink:488957A0A02378300237816&lt;/ptLinkId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;ptLinkId&gt;AMIV:PTLink:488957A1A02378160237817&lt;/ptLinkId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;journeyPatternId&gt;AMIV:JourneyPattern:488957M10200&lt;/journeyPatternId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;comment&gt;12  Lycée Gérard de Nerval – Cyprien Réthoré&lt;/comment&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif"><br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;wayBackRouteId&gt;AMIV:Route:488959&lt;/wayBackRouteId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;RouteExtension&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;wayBack&gt;R&lt;/wayBack&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;/RouteExtension&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;/ChouetteRoute&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;ChouetteRoute&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif"><br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:Route:488959&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;name&gt;0140140120536&lt;/name&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>N° test:</u></b> 
+2.9.1</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Libellé:</u> 
+Vérifier la  correcte référence  à un Itinéraire/Chouette («&nbsp;ChouetteRoute&nbsp;»)  dans le cas d’un Itinéraire de retour.</font></font></font></p>
 
-<div class=WordSection1>
-</span></b>
-
-<p class=MsoTitle><span style='font-size:14.0pt;font-family:"Tahoma","sans-serif"'>Fiche
-du point de contr&ocirc;le N&deg; 2.9</span></p>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=648
- style='width:485.7pt;margin-left:-.25pt;border-collapse:collapse'>
- <tr style='page-break-inside:avoid'>
-  <td width=648 colspan=2 valign=top style='width:485.7pt;border:solid black 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;layout-grid-mode:char'><i><span
-  style='color:navy'>Description</span></i></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Intitul&eacute;</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><span
-  style='font-size:11.0pt;line-height:200%;font-family:"Tahoma","sans-serif"'>D&eacute;finition
-  de l&rsquo;itin&eacute;raire retour.</span></p>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Objectif</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>V&eacute;rifier
-  la correcte r&eacute;f&eacute;rence  &agrave; un Itin&eacute;raire/Chouette (&laquo;&nbsp;ChouetteRoute&nbsp;&raquo;)
-  dans le cas d&rsquo;un itin&eacute;raire de retour.</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>R&eacute;f&eacute;rences</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>TRIDENT/profil
-  CHOUETTE/Transmodel V4 et V5.1</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span lang=NL
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>N&deg;de fiche(s)</span></h1>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>connexe(s)</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><b><span
-  style='font-size:11.0pt;line-height:200%;font-family:"Tahoma","sans-serif"'>Priorit&eacute;<span
-  style='color:red'> </span></span></b></p>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Obligatoire
-  (si l&rsquo;identifiant &laquo;&nbsp;wayBackRouteId&nbsp;&raquo; existe)</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><b><span
-  style='font-size:11.0pt;line-height:200%;font-family:"Tahoma","sans-serif"'>R&eacute;sultat</span></b></p>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Conforme
-  ou non conforme</span></h1>
-  </td>
- </tr>
- <tr style='page-break-inside:avoid'>
-  <td width=648 colspan=2 valign=top style='width:485.7pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;layout-grid-mode:char'><i><span
-  style='font-family:"Tahoma","sans-serif";color:navy'>Mise en &oelig;uvre</span></i></h1>
-  </td>
- </tr>
- <tr>
-  <td width=100 style='width:74.85pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Explication</span></h1>
-  </td>
-  <td width=548 style='width:410.85pt;border:solid black 1.0pt;border-top:none;
-  padding:5.65pt 11.35pt 5.65pt 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:11.35pt;margin-bottom:
-  6.0pt;margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>L&rsquo;&eacute;l&eacute;ment
-  d&rsquo;Itin&eacute;raire de retour  &laquo;&nbsp;wayBackRouteId&nbsp;&raquo; au sein de l&rsquo;objet
-  Itin&eacute;raire/Chouette (&laquo;&nbsp;ChouetteRoute&nbsp;&raquo;) a  un caract&egrave;re optionnel.
-  Si une valeur d&rsquo;attribut est d&eacute;finie, il convient de s'assurer qu&rsquo;elle
-  correspond &agrave; un Itin&eacute;raire/Chouette (&laquo;&nbsp;ChouetteRoute&nbsp;&raquo;)  dans le
-  m&ecirc;me r&eacute;seau.</span></h1>
-  </td>
- </tr>
-</table>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=657
- style='width:492.8pt;margin-left:-.25pt;border-collapse:collapse'>
- <tr>
-  <td width=108 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  border-right:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm;layout-grid-mode:char'><b><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif"'>Exemple</span></b></p>
-  </td>
-  <td width=557 valign=top style='width:417.95pt;border:solid black 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-left:18.0pt;text-align:left;layout-grid-mode:
-  char'><span style='font-size:11.0pt;font-weight:normal'>&nbsp;</span></h1>
-  <h1 align=left style='margin-left:18.0pt;text-align:left'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Repr&eacute;sentation
-  sch&eacute;matique de l&rsquo;Objet &laquo;&nbsp;ChouetteRoute&nbsp;&raquo;</span></h1>
-  <p class=MsoNormal>&nbsp;</p>
-  <p class=MsoNormal align=center style='text-align:center'><img width=402
-  height=502 src="BATERI_Neptune_FINAL-V2_0a_fichiers/image007.jpg"></p>
-  <p class=MsoNormal>&nbsp;</p>
-  <p class=MsoNormal><u><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Exemple
-  d'itin&eacute;raire de retour</span></u></p>
-  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>...</span></p>
-  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&lt;ChouetteRoute&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span
-  style='font-size:10.0pt;font-family:"Courier New"'>      </span><span
-  lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&lt;objectId&gt;AMIV:Route:488957&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;name&gt;0140140120535&lt;/name&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;publishedName&gt;GOUSSAINVILLE
-  RER - CHAUMONTEL&lt;/publishedName&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;ptLinkId&gt;AMIV:PTLink:488957A0A02378300237816&lt;/ptLinkId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;ptLinkId&gt;AMIV:PTLink:488957A1A02378160237817&lt;/ptLinkId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;journeyPatternId&gt;AMIV:JourneyPattern:488957M10200&lt;/journeyPatternId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;comment&gt;12
-  Lyc&eacute;e G&eacute;rard de Nerval &ndash; Cyprien R&eacute;thor&eacute;&lt;/comment&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span
-  style='font-size:10.0pt;font-family:"Courier New"'>      </span><span
-  lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&lt;wayBackRouteId&gt;AMIV:Route:488959&lt;/wayBackRouteId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;RouteExtension&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>            &lt;wayBack&gt;R&lt;/wayBack&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;/RouteExtension&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;/ChouetteRoute&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;ChouetteRoute&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      </span><span
-  lang=EN-GB style='font-size:10.0pt;font-family:"Courier New"'>&lt;objectId&gt;AMIV:Route:488959&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-GB
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;name&gt;0140140120536&lt;/name&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-GB
-  style='font-size:10.0pt;font-family:"Courier New"'>...</span></p>
-  </td>
- </tr>
- <tr style='page-break-inside:avoid'>
-  <td width=108 colspan=2 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h2 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;layout-grid-mode:char'><i><span lang=EN-GB
-  style='font-size:14.0pt;color:navy'>Evaluation</span></i></h2>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 valign=top style='width:81.35pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;layout-grid-mode:char'><span lang=EN-GB style='font-size:11.0pt'>N&deg; test</span></h1>
-  </td>
-  <td width=557 valign=top style='width:417.95pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;layout-grid-mode:char'><span style='font-size:
-  11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>2.9.1</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 valign=top style='width:81.35pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;layout-grid-mode:char'><span style='font-size:11.0pt'>Libell&eacute;</span></h1>
-  </td>
-  <td width=557 valign=top style='width:417.95pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;layout-grid-mode:char'><span style='font-size:
-  11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>V&eacute;rifier la
-  correcte r&eacute;f&eacute;rence  &agrave; un Itin&eacute;raire/Chouette (&laquo;&nbsp;ChouetteRoute&nbsp;&raquo;)
-  dans le cas d&rsquo;un Itin&eacute;raire de retour.</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 valign=top style='width:81.35pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:-6.65pt;margin-bottom:6.0pt;
-  margin-left:0cm;layout-grid-mode:char'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif"'>Champ d&rsquo;application</span></h1>
-  </td>
-  <td width=557 valign=top style='width:417.95pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;layout-grid-mode:char'><span style='font-size:
-  11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>&lt;ChouetteRoute&gt;</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 valign=top style='width:81.35pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;layout-grid-mode:char'><span style='font-size:11.0pt'>V&eacute;rification</span></h1>
-  </td>
-  <td width=557 valign=top style='width:417.95pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 style='layout-grid-mode:char'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  <h1 style='layout-grid-mode:char'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif";font-weight:normal'>- Si l&rsquo;&eacute;l&eacute;ment d&rsquo;Itin&eacute;raire de
-  retour &laquo;</span><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif";
-  font-weight:normal'>wayBackRouteId&nbsp;&raquo;</span><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;est pr&eacute;sent dans
-  l&rsquo;objet &laquo;&nbsp;ChouetteRoute&nbsp;&raquo; alors poursuivre le test, sinon le test
-  est abandonn&eacute;</span></h1>
-  <h1 style='layout-grid-mode:char'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  <h1 style='layout-grid-mode:char'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif";font-weight:normal'>- Si l&nbsp;&eacute;l&eacute;ment d&rsquo;Itin&eacute;raire de
-  retour &laquo;&nbsp;wayBackRouteId&nbsp;&raquo;, r&eacute;f&eacute;renc&eacute; dans un objet d&rsquo;Itin&eacute;raire
-  &laquo;&nbsp;ChouetteRoute&nbsp;&raquo; poss&egrave;de un identifiant &laquo;&nbsp;ObjectId&nbsp;&raquo;
-  dans un autre objet d&rsquo;Itin&eacute;raire &laquo;&nbsp;ChouetteRoute&nbsp;&raquo;, le test est
-  valid&eacute;, sinon le test est invalid&eacute; et produit le message &laquo;&nbsp;test
-  2.9.1&nbsp;: un &eacute;l&eacute;ment d&rsquo;Itin&eacute;raire de retour &laquo;&nbsp;wayBackRouteId&nbsp;&raquo;
-  dans un objet d&rsquo;Itin&eacute;raire &laquo;&nbsp;ChouetteRoute&nbsp;&raquo; n&rsquo;a pas d&rsquo;identifiant
-  &laquo;&nbsp;ObjectId&nbsp;&raquo; dans un autre objet d&rsquo;Itin&eacute;raire
-  &laquo;&nbsp;&nbsp;ChouetteRoute &raquo;.</span></h1>
-  <h1 style='layout-grid-mode:char'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  </td>
- </tr>
-</table>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2"><span style="text-decoration: underline;">
+Champ d’application:</span>&nbsp;&lt;ChouetteRoute&gt;</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Vérification:</u> </font></font></font></p>
 
 
-</div>
+
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- Si l’élément d’Itinéraire de retour «wayBackRouteId&nbsp;»&nbsp;est
+présent dans l’objet «&nbsp;ChouetteRoute&nbsp;» alors poursuivre le
+test, sinon le test est abandonné</font></font></font></p>
+
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- Si l&nbsp;élément d’Itinéraire de retour
+«&nbsp;wayBackRouteId&nbsp;», référencé dans un objet d’Itinéraire
+«&nbsp;ChouetteRoute&nbsp;» possède un identifiant
+«&nbsp;ObjectId&nbsp;» dans un autre objet d’Itinéraire
+«&nbsp;ChouetteRoute&nbsp;», le test est validé, sinon le test est
+invalidé et produit le message «&nbsp;test 2.9.1&nbsp;: un élément
+d’Itinéraire de retour «&nbsp;wayBackRouteId&nbsp;» dans un objet
+d’Itinéraire «&nbsp;ChouetteRoute&nbsp;» n’a pas d’identifiant
+«&nbsp;ObjectId&nbsp;» dans un autre objet d’Itinéraire
+«&nbsp;&nbsp;ChouetteRoute ».</font></font></font></p>
 

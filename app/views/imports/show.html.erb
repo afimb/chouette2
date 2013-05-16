@@ -33,6 +33,6 @@
 
 <% content_for :sidebar do %>
 <ul class="actions">
-  <li><%= link_to  t('imports.actions.destroy'), referential_import_path(@referential, @import), :method => :delete, :confirm =>  t('imports.actions.destroy_confirm'), :class => "remove" %></li>
+  <li><%= link_to  t('imports.actions.destroy'), referential_import_path(@referential, @import), :method => :delete,  :data => {:confirm =>  t('imports.actions.destroy_confirm')}, :class => "remove" %></li>
 </ul>
 <% end %>

@@ -1,338 +1,108 @@
+<h1 class="western" style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm 0.12cm; margin-top: 0.21cm;" align="center">
+<font face="Arial, sans-serif"><font style="font-size: 20pt;" size="5"><i>
+ point de contrôle N° 1.2<br>
+conformité au schéma XML du profil CHOUETTE<br>
+</i></font></font></h1>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><u><b>Objectif: </b></u>
+Vérifier le fichier d’export XML par rapport à un fichier de référence
+XSD (XML Schema Definition) dans lequel est défini un jeu de règles et
+contraintes.<br>
+</font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><u><b>Priorité: </b></u> Obligatoire</font></p><font face="Arial, sans-serif">
+</font><p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><u><b>Explications:</b></u> 
+</font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Il faut vérifier que le document d’export XML respecte les règles
+décrites dans le document XSD CHOUETTE. Pour cela, il faut mettre en
+place les traitements permettant de vérifier la présence de tous les
+objets et attributs obligatoires des concepts et des attributs
+optionnels visibles d’une part dans le modèle de données, d’autre part
+dans le profil d’échange, si utilisés.</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+La vérification de la conformité XSD  permet de valider, entre autre :</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">- que  les balises utilisées sont bien connues (définies dans l'XSD)</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">- la  présence des balises obligatoires</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- l’arborescence  des balises</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- l’ordre  des balises</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- la  cardinalité des balises</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- le  contenu de balise (vérification de type quand il est connu&nbsp;: date,  durée, entier, flottant, booléen, pattern, etc.)</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>Exemple: </u></b></font></font></font></p>
 
-<div class=WordSection1>
-</span>
-
-<p class=MsoTitle><span style='font-size:14.0pt;font-family:"Tahoma","sans-serif"'>Fiche
-du point de contr&ocirc;le N&deg; 1.2</span></p>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=615
- style='width:461.6pt;margin-left:-.5pt;border-collapse:collapse'>
- <tr style='page-break-inside:avoid'>
-  <td width=615 colspan=2 valign=top style='width:461.6pt;border:solid black 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;layout-grid-mode:char'><i><span
-  style='font-family:"Tahoma","sans-serif";color:navy'>Description</span></i></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=109 style='width:81.5pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Intitul&eacute;</span></h1>
-  </td>
-  <td width=507 style='width:380.1pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>V&eacute;rification
-  de la conformit&eacute; au sch&eacute;ma XML du profil CHOUETTE</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=109 style='width:81.5pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Objectif</span></h1>
-  </td>
-  <td width=507 style='width:380.1pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>V&eacute;rifier
-  le fichier d&rsquo;export XML par rapport &agrave; un fichier de r&eacute;f&eacute;rence XSD (XML Schema
-  Definition) dans lequel est d&eacute;fini un jeu de r&egrave;gles et contraintes.</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=109 style='width:81.5pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>R&eacute;f&eacute;rences</span></h1>
-  </td>
-  <td width=507 style='width:380.1pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Sch&eacute;ma
-  XML CHOUETTE</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=109 style='width:81.5pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>N&deg; de fiche(s)
-  connexe(s)</span></h1>
-  </td>
-  <td width=507 style='width:380.1pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=109 style='width:81.5pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><b><span
-  style='font-family:"Tahoma","sans-serif"'>Priorit&eacute;<span style='color:red'> </span></span></b></p>
-  </td>
-  <td width=507 style='width:380.1pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Obligatoire</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=109 style='width:81.5pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><b><span
-  style='font-family:"Tahoma","sans-serif"'>R&eacute;sultat</span></b></p>
-  </td>
-  <td width=507 style='width:380.1pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 11.35pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Conforme
-  ou non conforme</span></h1>
-  </td>
- </tr>
- <tr style='page-break-inside:avoid'>
-  <td width=615 colspan=2 valign=top style='width:461.6pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;layout-grid-mode:char'><i><span
-  style='font-family:"Tahoma","sans-serif";color:navy'>Mise en &oelig;uvre</span></i></h1>
-  </td>
- </tr>
- <tr>
-  <td width=109 valign=top style='width:81.5pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;layout-grid-mode:char'><span style='font-size:11.0pt'>Explication</span></h1>
-  </td>
-  <td width=507 valign=top style='width:380.1pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt'>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm;text-align:justify;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Il faut v&eacute;rifier
-  que le document d&rsquo;export XML respecte les r&egrave;gles d&eacute;crites dans le document
-  XSD CHOUETTE. Pour cela, il faut mettre en place les traitements permettant
-  de v&eacute;rifier la pr&eacute;sence de tous les objets et attributs obligatoires des
-  concepts et des attributs optionnels visibles d&rsquo;une part dans le mod&egrave;le de
-  donn&eacute;es, d&rsquo;autre part dans le profil d&rsquo;&eacute;change, si utilis&eacute;s. </span></p>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm;text-align:justify'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif"'>La v&eacute;rification de la conformit&eacute; XSD
-  permet de valider, entre autre :</span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>que
-  l'encodage est bien ISO-8859-1</span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>que
-  les balises utilis&eacute;es sont bien connues (d&eacute;finies dans l'XSD)</span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>la
-  pr&eacute;sence des balises obligatoires </span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>l&rsquo;arborescence
-  des balises </span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>l&rsquo;ordre
-  des balises </span></p>
-  <p class=MsoNormal style='margin-left:35.7pt;text-indent:-17.85pt'><span
-  style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>la
-  cardinalit&eacute; des balises</span></p>
-  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:35.7pt;text-indent:-17.85pt'><span style='font-size:10.0pt;
-  font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>le
-  contenu de balise (v&eacute;rification de type quand il est connu&nbsp;: date,
-  dur&eacute;e, entier, flottant, bool&eacute;en, pattern, etc.) </span></p>
-  </td>
- </tr>
-</table>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=615
- style='width:461.6pt;margin-left:-.5pt;border-collapse:collapse'>
- <tr>
-  <td width=109 valign=top style='width:81.5pt;border:solid black 1.0pt;
-  border-right:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm;layout-grid-mode:char'><b><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif"'>Exemple</span></b></p>
-  </td>
-  <td width=507 valign=top style='width:380.1pt;border:solid black 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <p style='text-align:justify;layout-grid-mode:char'><u><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Un exemple de
-  fichier XSD&nbsp;(reseau.xsd)</span></u><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif"'> :</span></p>
-  <p class=MsoNormal style='text-align:justify'><span lang=DE style='font-size:
-  10.0pt;font-family:"Courier New"'>&lt;?xml version=&quot;1.0&quot;
-  encoding=&quot;ISO-8859-1&quot;?&gt;</span></p>
-  <p class=MsoNormal style='text-align:justify'><span lang=DE style='font-size:
-  10.0pt;font-family:"Courier New"'>&lt;xsd:schema
-  xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;
-  xmlns=&quot;http://www.trident.org/schema/trident&quot;
-  xmlns:trd=&quot;http://www.trident.org/schema/trident&quot;
-  targetNamespace=&quot;http://www.trident.org/schema/trident&quot;
-  elementFormDefault=&quot;qualified&quot; version=&quot;1.00&quot;&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=DE
-  style='font-size:10.0pt;font-family:"Courier New"'>      </span><span
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;xsd:annotation&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span
-  style='font-size:10.0pt;font-family:"Courier New"'>            &lt;xsd:documentation
-  xml:lang=&quot;en&quot;&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>TRIDENT exchange schema.</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>Request / Answer schema</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>Copyright (c) 2001 TRIDENT
-  consortium, All Rights Reserved.</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>            &lt;/xsd:documentation&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;/xsd:annotation&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;xsd:include
-  schemaLocation=&quot;./trident/trident_Global_schema.xsd&quot;/&gt;</span></p>
-  <pre style='text-align:justify'>...</pre>
-  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
-  font-family:"Courier New"'>&lt;/xsd:schema&gt;</span></p>
-  <p style='text-align:justify'><u><span style='font-size:11.0pt;font-family:
-  "Arial","sans-serif"'>Suivi d'un fichier xml valide&nbsp;:</span></u></p>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left'><span class=tag><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New";font-weight:normal'>&lt;?xml
-  version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;</span></span></h1>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;ChouettePTNetwork
-  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>   
-  xmlns=&quot;http://www.trident.org/schema/trident&quot;
-  xsi:schemaLocation=&quot;http://www.trident.org/schema/trident
-  /home/marc/workspace/chouette-ninoxe/src/main/castor/Chouette.xsd&quot;&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>    &lt;PTNetwork&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>        &lt;objectId&gt;AMIV:PTNetwork:95&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>        </span><span
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;versionDate&gt;2007-03-21&lt;/versionDate&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span class=tag><span
-  style='font-size:10.0pt;font-family:"Courier New"'>...</span></span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span class=tag><span
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;/ChouettePTNetwork&gt;</span></span></p>
-  </td>
- </tr>
- <tr style='page-break-inside:avoid'>
-  <td width=615 colspan=2 valign=top style='width:461.6pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h2 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;layout-grid-mode:char'><i><span lang=EN-US
-  style='font-size:14.0pt;color:navy'>Evaluation</span></i></h2>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=109 style='width:81.5pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span lang=EN-US
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>N&deg; test</span></h1>
-  </td>
-  <td width=507 style='width:380.1pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>1.2.1</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=109 style='width:81.5pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Libell&eacute;</span></h1>
-  </td>
-  <td width=507 style='width:380.1pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Conformit&eacute;
-  au sch&eacute;ma XML du profil CHOUETTE</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=109 style='width:81.5pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Champ
-  d&rsquo;application</span></h1>
-  </td>
-  <td width=507 style='width:380.1pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Sch&eacute;ma
-  XML du profil CHOUETTE</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=109 style='width:81.5pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:5.65pt 11.35pt 5.65pt 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>V&eacute;rification</span></h1>
-  </td>
-  <td width=507 style='width:380.1pt;border:solid black 1.0pt;border-top:none;
-  padding:5.65pt 11.35pt 5.65pt 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:11.35pt;margin-bottom:
-  6.0pt;margin-left:0cm;text-align:left;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>-
-  V&eacute;rifier qu'il est possible d'ouvrir le fichier contenant le mod&egrave;le CHOUETTE
-  &agrave; analyser avec un &eacute;diteur XML en respectant le sch&eacute;ma CHOUETTE ou
-  directement &agrave; l'aide d'un Framework de v&eacute;rification de la syntaxe XML par
-  rapport au sch&eacute;ma CHOUETTE (castor, xerces, etc...). </span></h1>
-  <p class=MsoNormal style='margin-right:11.35pt'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif"'>- Si le fichier respecte le mod&egrave;le
-  CHOUETTE alors le test est valid&eacute;, sinon le test est invalid&eacute; et produit le
-  message &laquo;&nbsp;test 1.2.1&nbsp;: le fichier ne respecte pas le mod&egrave;le
-  CHOUETTE&raquo;.</span></p>
-  </td>
- </tr>
-</table>
-
-
-</div>
-
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Un exemple de  fichier XSD&nbsp;(reseau.xsd):</font></font></font></p>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;?xml version="1.0"  encoding="ISO-8859-1"?&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;xsd:schema
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns="http://www.trident.org/schema/trident"
+xmlns:trd="http://www.trident.org/schema/trident"
+targetNamespace="http://www.trident.org/schema/trident"
+elementFormDefault="qualified" version="1.00"&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif"><br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;xsd:annotation&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;xsd:documentation  xml:lang="en"&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">TRIDENT exchange schema.<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">Request / Answer schema<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">Copyright (c) 2001 TRIDENT  consortium, All Rights Reserved.<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;/xsd:documentation&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;/xsd:annotation&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;xsd:include  schemaLocation="./trident/trident_Global_schema.xsd"/&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;/xsd:schema&gt;<br></font></span>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Suivi d'un fichier xml valide&nbsp;:</font></font></font></p>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;?xml  version="1.0" encoding="ISO-8859-1"?&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;ChouettePTNetwork  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">xmlns="http://www.trident.org/schema/trident"
+xsi:schemaLocation="http://www.trident.org/schema/trident
+/home/marc/workspace/chouette-ninoxe/src/main/castor/Chouette.xsd"&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;PTNetwork&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:PTNetwork:95&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif"><br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;versionDate&gt;2007-03-21&lt;/versionDate&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;/ChouettePTNetwork&gt;<br></font></span>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>N° test:</u></b> 
+1.2.1</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Libellé:</u> 
+Conformité  au schéma XML du profil CHOUETTE</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Champ d’application:</u> 
+Schéma  XML du profil CHOUETTE</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Vérification:</u> </font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- Vérifier qu'il est possible d'ouvrir le fichier contenant le modèle
+CHOUETTE à analyser avec un éditeur XML en respectant le schéma
+CHOUETTE ou directement à l'aide d'un Framework de vérification de la
+syntaxe XML par rapport au schéma CHOUETTE (castor, xerces, etc...).</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- Si le fichier respecte le modèle CHOUETTE alors le test est validé,
+sinon le test est invalidé et produit le message «&nbsp;test
+1.2.1&nbsp;: le fichier ne respecte pas le modèle CHOUETTE».</font></font></font></p>

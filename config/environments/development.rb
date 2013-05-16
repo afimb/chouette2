@@ -1,3 +1,4 @@
+# ENV["CHOUETTE_RUN_MIGRATIONS"] = "true"
 ChouetteIhm::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -29,6 +30,9 @@ ChouetteIhm::Application.configure do
   config.assets.debug = true
 
   config.active_record.mass_assignment_sanitizer = :strict
+  
+  # uncomment to show chouette error view in development 
+  #config.consider_all_requests_local = false
 
   config.active_record.auto_explain_threshold_in_seconds = (RUBY_PLATFORM == "java" ? nil : 0.5)
 

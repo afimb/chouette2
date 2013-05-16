@@ -1,304 +1,84 @@
-<div class=WordSection1>
-</span>
+<h1 class="western" style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm 0.12cm; margin-top: 0.21cm;" align="center">
+<font face="Arial, sans-serif"><font style="font-size: 20pt;" size="5"><i>
+ point de contrôle N° 2.11<br>
+Référence à un réseau au point  d’arrêt<br>
+</i></font></font></h1>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><u><b>Objectif: </b></u>
+Vérification de la correcte référence à la VERSION DU RÉSEAU
+(«&nbsp;PTNetwork&nbsp;») pour chaque POINT D’ARRÊT SUR PARCOURS(«   StopPoint »). <br>
+</font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><u><b>Priorité: </b></u> Obligatoire  (si l’élément «&nbsp;PTNetworkIdShortCut&nbsp;»  est existant</font></p><font face="Arial, sans-serif">
+</font><p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><u><b>Explications:</b></u> 
+</font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+La référence au réseau «&nbsp;pTNetworkIdShortCut&nbsp;» au sein d'un
+POINT D’ARRÊT SUR PARCOURS («&nbsp;StopPoint&nbsp;») a un caractère
+optionnel. Si elle est définie, il convient de vérifier qu'elle
+correspond à l'identifiant «&nbsp;objectId&nbsp;» de la VERSION DU
+RÉSEAU («&nbsp;PTNetwork&nbsp;»).</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>Exemple: </u></b></font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Représentation  schématique de l’Objet&nbsp;«&nbsp;StopPoint&nbsp;»</font></font></font></p>
+<p><font face="Arial, sans-serif"><img src="image009.jpg" height="624" width="450"></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+Exemple  d'arrêt référençant le réseau</font></font></font></p>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;?xml  version="1.0" encoding="ISO-8859-1"?&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;ChouettePTNetwork
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.trident.org/schema/trident"
+xsi:schemaLocation="http://www.trident.org/schema/trident
+/home/marc/workspace/chouette-ninoxe/src/main/castor/Chouette.xsd"&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;PTNetwork&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:PTNetwork:95&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;StopPoint&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectId&gt;AMIV:StopPoint:488957A0A237830&lt;/objectId&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;objectVersion&gt;1&lt;/objectVersion&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;lineIdShortcut&gt;AMIV:Line:014014012&lt;/lineIdShortcut&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;ptNetworkIdShortcut&gt;AMIV:PTNetwork:95&lt;/ptNetworkIdShortcut&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;containedIn&gt;AMIV:StopPoint:237830&lt;/containedIn&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif"><br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;name&gt;Gérard  de Nerval&lt;/name&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">&lt;/StopPoint&gt;<br></font></span>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">
+<font face="Arial, sans-serif">...<br></font></span>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<b><u>N° test:</u></b> 
+2.11.1</font></font></font></p>
 
-<p class=MsoTitle><span style='font-size:14.0pt;font-family:"Tahoma","sans-serif"'>Fiche
-du point de contr&ocirc;le N&deg; 2.11</span></p>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=638
- style='width:478.65pt;margin-left:-.25pt;border-collapse:collapse'>
- <tr style='page-break-inside:avoid'>
-  <td width=638 colspan=2 valign=top style='width:478.65pt;border:solid black 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;text-indent:0cm;layout-grid-mode:char'><i><span
-  style='font-family:"Tahoma","sans-serif";color:navy'>Description</span></i></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Intitul&eacute;</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><span
-  style='font-family:"Tahoma","sans-serif"'>R&eacute;f&eacute;rence &agrave; un r&eacute;seau au point
-  d&rsquo;arr&ecirc;t.</span></p>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Objectif</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>V&eacute;rification
-  de la correcte r&eacute;f&eacute;rence &agrave; la VERSION DU R&Eacute;SEAU   (&laquo;&nbsp;PTNetwork&nbsp;&raquo;)
-  pour  chaque POINT D&rsquo;ARR&Ecirc;T SUR PARCOURS  </span></h1>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>(&laquo;
-  StopPoint &raquo;).</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>R&eacute;f&eacute;rences</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>TRIDENT/profil
-  CHOUETTE/Transmodel V4 et V5.1</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:-7.9pt;margin-bottom:
-  6.0pt;margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  lang=NL style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>N&deg; de
-  fiche(s)</span></h1>
-  <h1 align=left style='margin-top:6.0pt;margin-right:-7.9pt;margin-bottom:
-  6.0pt;margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>connexe(s)</span></h1>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-left:0cm;text-align:left;text-indent:0cm;
-  layout-grid-mode:char'><span style='font-size:11.0pt;font-family:"Tahoma","sans-serif";
-  font-weight:normal'>&nbsp;</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><b><span
-  style='font-family:"Tahoma","sans-serif"'>Priorit&eacute;<span style='color:red'> </span></span></b></p>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Obligatoire
-  (si l&rsquo;&eacute;l&eacute;ment &laquo;&nbsp;PTNetworkIdShortCut&nbsp;&raquo;  est existant)</span></h1>
-  </td>
- </tr>
- <tr style='height:37.4pt'>
-  <td width=108 style='width:81.35pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt;
-  height:37.4pt'>
-  <p class=MsoBodyText2 style='margin-top:6.0pt;layout-grid-mode:char'><b><span
-  style='font-family:"Tahoma","sans-serif"'>R&eacute;sultat</span></b></p>
-  </td>
-  <td width=108 style='width:81.35pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt;height:37.4pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Conforme
-  ou non conforme</span></h1>
-  </td>
- </tr>
- <tr style='page-break-inside:avoid'>
-  <td width=638 colspan=2 valign=top style='width:478.65pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;text-indent:0cm;layout-grid-mode:char'><i><span
-  style='font-family:"Tahoma","sans-serif";color:navy'>Mise en &oelig;uvre</span></i></h1>
-  </td>
- </tr>
- <tr>
-  <td width=100 style='width:74.85pt;border-top:none;border-left:solid black 1.0pt;
-  border-bottom:solid black 1.0pt;border-right:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif"'>Explication</span></h1>
-  </td>
-  <td width=538 style='width:403.8pt;border:solid black 1.0pt;border-top:none;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-top:6.0pt;margin-right:11.35pt;margin-bottom:
-  6.0pt;margin-left:0cm;text-align:left;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>La
-  r&eacute;f&eacute;rence au r&eacute;seau &laquo;&nbsp;pTNetworkIdShortCut&nbsp;&raquo; au sein d'un POINT
-  D&rsquo;ARR&Ecirc;T SUR PARCOURS (&laquo;&nbsp;StopPoint&nbsp;&raquo;) a un caract&egrave;re optionnel. Si
-  elle est d&eacute;finie, il convient de v&eacute;rifier qu'elle correspond &agrave; l'identifiant
-  &laquo;&nbsp;objectId&nbsp;&raquo; de la VERSION DU R&Eacute;SEAU   (&laquo;&nbsp;PTNetwork&nbsp;&raquo;).</span></h1>
-  </td>
- </tr>
-</table>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=648
- style='width:485.7pt;margin-left:-.25pt;border-collapse:collapse'>
- <tr>
-  <td width=108 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  border-right:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
-  6.0pt;margin-left:0cm;layout-grid-mode:char'><b><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif"'>Exemple</span></b></p>
-  </td>
-  <td width=108 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 align=left style='margin-left:18.0pt;text-align:left;text-indent:0cm;
-  layout-grid-mode:char'><span style='font-size:11.0pt;font-weight:normal'>&nbsp;</span></h1>
-  <h1 align=left style='margin-left:18.0pt;text-align:left;text-indent:0cm'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>Repr&eacute;sentation
-  sch&eacute;matique de l&rsquo;Objet&nbsp;&laquo;&nbsp;StopPoint&nbsp;&raquo;</span></h1>
-  <p class=MsoNormal>&nbsp;</p>
-  <p class=MsoNormal align=center style='text-align:center'><img width=450
-  height=624 src="BATERI_Neptune_FINAL-V2_0a_fichiers/image009.jpg"></p>
-  <p class=MsoNormal>&nbsp;</p>
-  <p class=MsoNormal>&nbsp;</p>
-  <p class=MsoNormal><u><span style='font-size:11.0pt;font-family:"Arial","sans-serif"'>Exemple
-  d'arr&ecirc;t r&eacute;f&eacute;ren&ccedil;ant le r&eacute;seau  </span></u></p>
-  <p class=MsoNormal><u><span style='text-decoration:none'>&nbsp;</span></u></p>
-  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&lt;?xml
-  version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;ChouettePTNetwork
-  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-  xmlns=&quot;http://www.trident.org/schema/trident&quot;
-  xsi:schemaLocation=&quot;http://www.trident.org/schema/trident
-  /home/marc/workspace/chouette-ninoxe/src/main/castor/Chouette.xsd&quot;&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;PTNetwork&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;objectId&gt;AMIV:PTNetwork:95&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>...</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&lt;StopPoint&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:Monospace;color:black'>       </span><span
-  lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&lt;objectId&gt;AMIV:StopPoint:488957A0A237830&lt;/objectId&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;objectVersion&gt;1&lt;/objectVersion&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      ...</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;lineIdShortcut&gt;AMIV:Line:014014012&lt;/lineIdShortcut&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;ptNetworkIdShortcut&gt;AMIV:PTNetwork:95&lt;/ptNetworkIdShortcut&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      &lt;containedIn&gt;AMIV:StopPoint:237830&lt;/containedIn&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>      </span><span
-  lang=NL style='font-size:10.0pt;font-family:"Courier New"'>&lt;name&gt;G&eacute;rard
-  de Nerval&lt;/name&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>&lt;/StopPoint&gt;</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:"Courier New"'>...</span></p>
-  <p class=MsoNormal style='text-autospace:ideograph-numeric'><span lang=EN-US
-  style='font-size:10.0pt;font-family:Monospace;color:teal'>&nbsp;</span></p>
-  </td>
- </tr>
- <tr style='page-break-inside:avoid'>
-  <td width=648 colspan=2 valign=top style='width:485.7pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h2 align=center style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
-  margin-left:0cm;text-align:center;text-indent:0cm;layout-grid-mode:char'><i><span
-  lang=EN-US style='font-size:14.0pt;color:navy'>Evaluation</span></i></h2>
-  </td>
- </tr>
- <tr>
-  <td width=108 valign=top style='width:81.35pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span lang=EN-US style='font-size:
-  11.0pt'>N&deg; test</span></h1>
-  </td>
-  <td width=108 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:
-  0cm;margin-bottom:.0001pt;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>2.11.1</span></h1>
-  </td>
- </tr>
- <tr>
-  <td width=108 valign=top style='width:81.35pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span style='font-size:11.0pt'>Libell&eacute;</span></h1>
-  </td>
-  <td width=108 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:
-  0cm;margin-bottom:.0001pt;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>V&eacute;rification
-  de la correcte r&eacute;f&eacute;rence &agrave; la VERSION DU R&Eacute;SEAU   (&laquo;&nbsp;PTNetwork&nbsp;&raquo;)
-  pour  chaque POINT D&rsquo;ARR&Ecirc;T SUR PARCOURS  </span></h1>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:
-  0cm;margin-bottom:.0001pt;text-indent:0cm;layout-grid-mode:char'><span
-  lang=EN-US style='font-size:11.0pt;font-family:"Tahoma","sans-serif";
-  font-weight:normal'>(&laquo; StopPoint &raquo;).</span></h1>
-  </td>
- </tr>
- <tr>
-  <td width=108 valign=top style='width:81.35pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span lang=EN-US style='font-size:
-  11.0pt'>Champ d&rsquo;application</span></h1>
-  </td>
-  <td width=108 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span lang=EN-US style='font-size:
-  11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>&lt;StopPoint&gt;</span></h1>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span style='font-size:11.0pt;
-  font-family:"Tahoma","sans-serif";font-weight:normal'>&lt;PTNetwork&gt;</span></h1>
-  </td>
- </tr>
- <tr>
-  <td width=108 valign=top style='width:81.35pt;border-top:none;border-left:
-  solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:none;
-  padding:0cm 3.5pt 0cm 3.5pt'>
-  <h1 style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
-  0cm;text-indent:0cm;layout-grid-mode:char'><span style='font-size:11.0pt'>V&eacute;rification</span></h1>
-  </td>
-  <td width=108 valign=top style='width:81.35pt;border:solid black 1.0pt;
-  border-top:none;padding:0cm 11.35pt 0cm 3.5pt'>
-  <h1 style='margin-left:0cm;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  <h1 style='margin-left:0cm;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>-
-  Si l&rsquo;&eacute;l&eacute;ment &laquo; ptNetworkIdShortcut &raquo; existe alors poursuivre le test, sinon le
-  test est abandonn&eacute;</span></h1>
-  <p class=MsoNormal><span style='font-family:"Tahoma","sans-serif"'>&nbsp;</span></p>
-  <h1 style='margin-left:0cm;text-indent:0cm;layout-grid-mode:char'><span
-  style='font-size:11.0pt;font-family:"Tahoma","sans-serif";font-weight:normal'>-
-  Si l&rsquo;&eacute;l&eacute;ment &laquo;&nbsp;ptNetworkIdShortcut&nbsp;&raquo;, r&eacute;f&eacute;renc&eacute; dans un objet
-  &laquo;&nbsp;StopPoint&nbsp;&raquo; est identifi&eacute; au r&eacute;seau &laquo;&nbsp;PtNetwork&nbsp;&raquo;, le
-  test est valid&eacute;, sinon le test est invalid&eacute; et produit le message &laquo;&nbsp;test
-  2.11.1&nbsp;: Le point d&rsquo;arr&ecirc;t  (&laquo; StopPoint &raquo;)  fait r&eacute;f&eacute;rence &agrave; un r&eacute;seau
-  inexistant&raquo;.</span></h1>
-  <h1 style='layout-grid-mode:char'><span style='font-size:11.0pt;font-family:
-  "Tahoma","sans-serif";font-weight:normal'>&nbsp;</span></h1>
-  </td>
- </tr>
-</table>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Libellé:</u> Vérification de la correcte référence à la VERSION DU
+RÉSEAU («&nbsp;PTNetwork&nbsp;») pour chaque POINT D’ARRÊT SUR PARCOURS
+(« StopPoint »).</font></font></font></p>
 
 
-</div>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2"><span style="text-decoration: underline;">
+Champ d’application:</span>&nbsp;&lt;StopPoint&gt;&nbsp;&lt;PTNetwork&gt;</font></font></font></p>
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+<u>Vérification:</u></font></font></font></p><p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+-  Si l’élément « ptNetworkIdShortcut » existe alors poursuivre le test, sinon le  test est abandonné</font></font></font></p>
+
+
+<p style="margin-bottom: 0cm;"><font face="Arial, sans-serif"><font face="Arial, sans-serif"><font style="font-size: 11pt;" size="2">
+- Si l’élément «&nbsp;ptNetworkIdShortcut&nbsp;», référencé dans un
+objet «&nbsp;StopPoint&nbsp;» est identifié au réseau
+«&nbsp;PtNetwork&nbsp;», le test est validé, sinon le test est invalidé
+et produit le message «&nbsp;test 2.11.1&nbsp;: Le point d’arrêt («
+StopPoint ») fait référence à un réseau inexistant»<br>&nbsp;</font></font></font></p>

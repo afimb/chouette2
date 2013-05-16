@@ -1,0 +1,5 @@
+<%= f.inputs :class => 'periods nested-fields' do %> 
+  <%= f.input :period_start, :as => :date_picker, :label => @time_table.human_attribute_name("period_start"), :wrapper_html => { :class => 'fl1' }%>
+  <%= f.input :period_end, :as => :date_picker, :label => @time_table.human_attribute_name("period_end"), :wrapper_html => { :class => 'fl2' }%>
+  <%= link_to_remove_association t('actions.destroy'), f %>
+<% end %>

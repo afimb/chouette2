@@ -43,21 +43,14 @@
       <label><%= Chouette::Company.human_attribute_name("objectid") %>: </label>
       <%= @company.objectid %>
     </p>
-    <p>
-      <label><%= @company.human_attribute_name("creation_time") %>: </label>
-      <%= l(@company.creation_time) %>
-    </p>
-    <p>
-      <label><%= @company.human_attribute_name("creator_id") %>: </label>
-      <%= @company.creator_id %>
-    </p>
   </div>
 </div>
 
 <% content_for :sidebar do %>
 <ul class="actions">
   <li><%= link_to t('companies.actions.edit'), edit_referential_company_path(@referential, @company), :class => "edit" %></li>
-  <li><%= link_to  t('companies.actions.destroy'), referential_company_path(@referential, @company), :method => :delete, :confirm =>  t('companies.actions.destroy_confirm'), :class => "remove" %></li>
+  <li><%= link_to  t('companies.actions.destroy'), referential_company_path(@referential, @company), :method => :delete,  :data => {:confirm =>  t('companies.actions.destroy_confirm')}, :class => "remove" %></li>
   <br>
 </ul>
+  <%= creation_tag(@company) %>
 <% end %>

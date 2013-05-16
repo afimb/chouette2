@@ -1,0 +1,57 @@
+<%= div_for(access_link_pair) do %>
+  <tr>
+  	<td class="link">
+    <div class="access_point">
+      <%= link_to([@referential, @stop_area, access_link_pair.access_point]) do %> 
+        <%= image_tag "map/access_" + access_link_pair.access_point.access_point_type + ".png" %><span><%= access_link_pair.access_point.name %></span>        
+      <% end %>
+    </div>
+    <br/><br/>
+    <div class="info">
+	    <%= t("access_types.label.#{access_link_pair.access_point.access_point_type}") %>
+	</div>
+    </td>
+    <td>
+    	<% if access_link_pair.out_valid? %>
+    	   <% if access_link_pair.out_exists? %>
+    	      <%= link_to(referential_access_point_access_link_path(@referential, access_link_pair.access_point,:access_link => {:stop_area_id => access_link_pair.stop_area.id, :link_orientation_type => 'stop_area_to_access_point'})) do %>
+    	         <%= image_tag "icons/green_left_arrow.png"   %>
+    	      <% end %>
+    	   <% else %>
+    	      <%= link_to(new_referential_access_point_access_link_path(@referential, access_link_pair.access_point, :access_link => {:stop_area_id => access_link_pair.stop_area.id, :link_orientation_type => 'stop_area_to_access_point'})) do %>
+    	         <%= image_tag "icons/gray_left_arrow.png"   %>
+    	      <% end %>
+    	   <% end %>
+    	<% else %>
+    	   <%= image_tag "icons/disabled_left_arrow.png"   %>
+    	<% end %>
+    </td>
+    <td>
+    	<% if access_link_pair.in_valid? %>
+    	   <% if access_link_pair.in_exists? %>
+    	      <%= link_to(referential_access_point_access_link_path(@referential, access_link_pair.access_point, access_link_pair.from_access_point)) do %>
+    	         <%= image_tag "icons/green_right_arrow.png"   %>
+    	      <% end %>
+    	   <% else %>
+    	      <%= link_to(new_referential_access_point_access_link_path(@referential, access_link_pair.access_point, :access_link => {:stop_area_id => access_link_pair.stop_area.id, :link_orientation_type => 'access_point_to_stop_area'})) do %>
+    	         <%= image_tag "icons/gray_right_arrow.png"   %>
+    	      <% end %>
+    	   <% end %>
+    	<% else %>
+    	   <%= image_tag "icons/disabled_right_arrow.png"   %>
+    	<% end %>
+    </td>
+  	<td class="link">
+    <div class="stop_area">
+      <%= link_to([@referential, access_link_pair.stop_area]) do %> 
+        <%= image_tag "map/" + access_link_pair.stop_area.stop_area_type + ".png" %><span><%= access_link_pair.stop_area.name %></span>        
+      <% end %>
+    </div>
+    <br/><br/>
+    <div class="info">
+	    <%= t("area_types.label.#{access_link_pair.stop_area.stop_area_type}") %>
+	</div>
+    </td>
+  </tr>
+  <tr><td colspan=4>&nbsp;</td></tr>
+<% end %>

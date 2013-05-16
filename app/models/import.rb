@@ -25,6 +25,14 @@ class Import < ActiveRecord::Base
     end
   end
 
+  def self.format_name(format)
+    name_by_format = { "NeptuneImport" => "Neptune",
+                       "CsvImport" => "CSV",
+                       "GtfsImport" => "GTFS",
+                       "NetexImport" => "NeTEx"}
+    name_by_format[format]
+  end
+
   def self.types
     # if Rails.env.development? and subclasses.blank?
     #   Dir[File.expand_path("../*_import.rb", __FILE__)].each do |f| 
@@ -36,7 +44,7 @@ class Import < ActiveRecord::Base
       subclasses.map(&:to_s)
     else
       # FIXME
-      %w{NeptuneImport CsvImport}
+      %w{NeptuneImport CsvImport GtfsImport NetexImport}
     end
   end
 
@@ -88,7 +96,7 @@ class Import < ActiveRecord::Base
   end
 
   def name
-    "#{Import.model_name.humanize} #{id}"
+    "#{self.class.model_name.human} #{id}"
   end
 
   def import_options

@@ -15,6 +15,7 @@ FactoryGirl.define do
 
   factory :user do |f|
     f.association :organisation
+    f.sequence(:name) { |n| "chouette#{n}" }
     f.sequence(:email) { |n| "chouette#{n}@dryade.priv" }
     f.password "secret"
     f.password_confirmation "secret"
