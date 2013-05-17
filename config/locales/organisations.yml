@@ -1,0 +1,27 @@
+en:
+  organisations:
+    actions:
+      edit: "Edit your organisation"
+    edit:
+      title: "Update your organisation"
+      key_registered: "Key registered"
+      key_not_registered: "No key registered"
+  activerecord:        
+    attributes:
+      organisation:
+        name: "Name"
+        geoportail_key: "IGN Geoportail Key" 
+
+fr:
+  organisations:
+    actions:
+      edit: "Mofifier votre organisation"
+    edit:
+      title: "Modifier votre organisation"
+      key_registered: "Clé enregistrée"
+      key_not_registered: "Pas de clé"
+  activerecord:        
+    attributes:
+      organisation:
+        name: "Nom"
+        geoportail_key: "Clé de l'API du Geoportail IGN" 

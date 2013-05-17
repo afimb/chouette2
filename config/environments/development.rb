@@ -45,6 +45,7 @@ ChouetteIhm::Application.configure do
 
   config.to_prepare do
     Devise::Mailer.layout "mailer"
+    #ApplicationMap.ign_api_key = "i2aqyge3x3iovnuhz7z06flp"
     chouette_command_script = "tmp/chouette-command/chouette"
     if File.exists? chouette_command_script
       Chouette::Command.command = "tmp/chouette-command/chouette"

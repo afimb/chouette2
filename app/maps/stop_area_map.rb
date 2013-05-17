@@ -9,13 +9,9 @@ class StopAreaMap < ApplicationMap
     @stop_area = stop_area
   end
 
-  def map
-    @map ||= MapLayers::Map.new(id, :projection => projection("EPSG:900913"), :controls => controls) do |map, page|
-      page << map.add_layer(MapLayers::OSM_MAPNIK)
-      page << map.add_layer(google_physical) 
-      page << map.add_layer(google_streets) 
-      page << map.add_layer(google_hybrid) 
-      page << map.add_layer(google_satellite) 
+  def customize_map(map, page)
+      page.assign "edit_stop_area_layer", kml_layer(stop_area, { :default => editable? }, :style_map => StyleMap::EditStopAreaStyleMap.new(helpers).style_map)
+      page << map.add_layer(:edit_stop_area_layer)
 
       if stop_area.children.present?
         page.assign "children_layer", kml_layer(stop_area, { :children => true }, :style_map => StyleMap::StopAreasStyleMap.new(helpers).style_map)
@@ -30,7 +26,6 @@ class StopAreaMap < ApplicationMap
       
         page.assign "edit_stop_area_layer", kml_layer(stop_area, { :default => editable? }, :style_map => StyleMap::EditStopAreaStyleMap.new(helpers).style_map)
         page << map.add_layer(:edit_stop_area_layer)
-      
       
         if editable?
           page.assign "referential_projection", projection_type.present? ? projection("EPSG:" + projection_type) : JsVar.new("undefined")  
@@ -56,9 +51,8 @@ EOF
 
         end
 
-        page << map.set_center(center.to_google.to_openlayers, 16, false, true)
+      page << map.set_center(center.to_google.to_openlayers, 16, false, true)
       end
-    end
   end
   
   def projection_type
