@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130412094550) do
+ActiveRecord::Schema.define(:version => 20130517090647) do
 
   create_table "access_links", :force => true do |t|
     t.integer  "access_point_id",                        :limit => 8
@@ -63,12 +63,13 @@ ActiveRecord::Schema.define(:version => 20130412094550) do
 
   add_index "access_points", ["objectid"], :name => "access_points_objectid_key", :unique => true
 
-  create_table "api_keys", :force => true do |t|
+  create_table "api_keys", :id => false, :force => true do |t|
+    t.integer  "id",             :limit => 8
     t.integer  "referential_id"
     t.string   "token"
     t.string   "name"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "companies", :force => true do |t|
@@ -123,8 +124,8 @@ ActiveRecord::Schema.define(:version => 20130412094550) do
     t.datetime "failed_at"
     t.string   "locked_by"
     t.string   "queue"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
@@ -135,8 +136,8 @@ ActiveRecord::Schema.define(:version => 20130412094550) do
     t.string   "arguments",  :limit => 1000
     t.integer  "position"
     t.string   "severity"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "export_log_messages", ["export_id"], :name => "index_export_log_messages_on_export_id"
@@ -146,8 +147,8 @@ ActiveRecord::Schema.define(:version => 20130412094550) do
     t.string   "status"
     t.string   "type"
     t.string   "options"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "references_type"
     t.string   "reference_ids"
   end
@@ -229,8 +230,8 @@ ActiveRecord::Schema.define(:version => 20130412094550) do
     t.string   "arguments",  :limit => 1000
     t.integer  "position"
     t.string   "severity"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "import_log_messages", ["import_id"], :name => "index_import_log_messages_on_import_id"
@@ -238,8 +239,8 @@ ActiveRecord::Schema.define(:version => 20130412094550) do
   create_table "imports", :force => true do |t|
     t.integer  "referential_id", :limit => 8
     t.string   "status"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "type"
     t.string   "options"
     t.string   "file_type"
@@ -310,8 +311,9 @@ ActiveRecord::Schema.define(:version => 20130412094550) do
 
   create_table "organisations", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "geoportail_key"
   end
 
   create_table "pt_links", :force => true do |t|
@@ -332,8 +334,8 @@ ActiveRecord::Schema.define(:version => 20130412094550) do
   create_table "referentials", :force => true do |t|
     t.string   "name"
     t.string   "slug"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "prefix"
     t.string   "projection_type"
     t.string   "time_zone"
@@ -469,8 +471,8 @@ ActiveRecord::Schema.define(:version => 20130412094550) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                           :null => false
-    t.datetime "updated_at",                                           :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "organisation_id"
     t.string   "name"
     t.string   "confirmation_token"

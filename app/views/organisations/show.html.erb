@@ -1,5 +1,12 @@
 <%= title_tag @organisation.name %>
 
+<div class="summary">
+  <p>
+    <label><%= Organisation.human_attribute_name(:geoportail_key) %>: </label>
+    <%= @organisation.geoportail_key ? t('.key_registered') : t('.key_not_registered') %>
+  </p>
+</div>
+
 <div class="users">
   <% @organisation.users.each do |user| %>
     <%= div_for user do %>
@@ -12,7 +19,8 @@
 
 <% content_for :sidebar do %>
 <ul class="actions">
-  <%= link_to t('users.actions.new'), new_organisation_user_path, :class => "add" %>
+  <li><%= link_to t('organisations.actions.edit'), edit_organisation_path, :class => "edit" %></li>
+  <li><%= link_to t('users.actions.new'), new_organisation_user_path, :class => "add" %></li>
 </ul>
 <% end %>
 

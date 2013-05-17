@@ -19,6 +19,15 @@ class ApplicationMap
     self
   end
 
+  def geoportail_key
+    if ( self.helpers && self.helpers.current_user && 
+         self.helpers.current_user.organisation && 
+         self.helpers.current_user.organisation.geoportail_key)
+      return self.helpers.current_user.organisation.geoportail_key
+    end
+    return nil
+  end
+
   class Helpers
     include ActionDispatch::Routing::UrlFor
     include Rails.application.routes.url_helpers
@@ -43,7 +52,7 @@ class ApplicationMap
   def map
     @map ||= MapLayers::Map.new(id, :projection => projection("EPSG:900913"), :controls => controls) do |map, page|
       page << map.add_layer(MapLayers::OSM_MAPNIK)
-      page << map.add_layer(geoportail_wmts)
+      page << map.add_layer(geoportail_wmts) if self.geoportail_key
       page << map.add_layer(google_physical) 
       page << map.add_layer(google_streets) 
       page << map.add_layer(google_hybrid) 
@@ -70,7 +79,7 @@ class ApplicationMap
 
   def geoportail_wmts
       OpenLayers::Layer::WMTS.new :name => I18n.t("maps.ign_map"),
-        :url => "http://gpp3-wxs.ign.fr/#{self.class.ign_api_key}/wmts",
+        :url => "http://gpp3-wxs.ign.fr/#{self.geoportail_key}/wmts",
         :layer => "GEOGRAPHICALGRIDSYSTEMS.MAPS",
         :matrixSet => "PM",
         :style => "normal",
