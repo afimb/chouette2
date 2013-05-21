@@ -11,7 +11,7 @@ Warbler::Config.new do |config|
   # config.features = %w(gemjar)
 
   # Application directories to be included in the webapp.
-  config.dirs = %w(app config lib log vendor tmp db)
+  config.dirs = %w(app config lib vendor db)
 
   # Additional files/directories to include, above those in config.dirs
   #config.includes = FileList["db"]
