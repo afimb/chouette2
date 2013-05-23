@@ -77,7 +77,7 @@ ChouetteIhm::Application.configure do
   if ENV['OS'] == 'Windows_NT'
     ## using SMTP (maybe useful for Windows or VM platforms): 
      ActionMailer::Base.delivery_method = :smtp
-     ActionMailer::Base.server_settings = {
+     ActionMailer::Base.smtp_settings = {
        :address => "smtp.sample.com",
        #:port => 25,
        :domain => "sample.com",
@@ -90,7 +90,12 @@ ChouetteIhm::Application.configure do
   else
     ## using SENDMAIL (easy on Linux platforms) : 
     ActionMailer::Base.delivery_method = :sendmail
+    ActionMailer::Base.smtp_settings = {
+      :address        => "mail.dryade.priv",
+      :domain         => "dryade.priv"
+    }
   end
+  
   
   # paths for external resources
   if ENV['OS'] == 'Windows_NT'
