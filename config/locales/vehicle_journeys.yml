@@ -74,6 +74,10 @@ en:
       models:
         vehicle_journey:
           invalid_times: "Invalid times"
+  formtastic:
+    hints:
+      vehicle_journey:
+        objectid: "[prefix]:VehicleJourney:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
 
 fr:
   vehicle_journeys:
@@ -151,4 +155,8 @@ fr:
       models:
         vehicle_journey:
           invalid_times: "Horaires invalides"
+  formtastic:
+    hints:
+      vehicle_journey:
+        objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
 

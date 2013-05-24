@@ -39,6 +39,10 @@ en:
         object_version: "Version"
         creation_time: "Created on"
         creator_id: "Created by"
+  formtastic:
+    hints:
+      journey_pattern:
+        objectid: "[prefix]:JourneyPattern:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
 
 fr:
   journey_patterns:
@@ -81,3 +85,7 @@ fr:
         object_version: "Version"
         creation_time: "Créé le"
         creator_id: "Créé par"
+  formtastic:
+    hints:
+      journey_pattern:
+        objectid: "[prefixe]:JourneyPattern:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
