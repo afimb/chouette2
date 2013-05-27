@@ -1,16 +1,16 @@
 # Licence
 
-Copyright "AFIMB":http://www.developpement-durable.gouv.fr/Presentation-de-l-AFIMB.html
+Copyright [AFIMB](http://www.developpement-durable.gouv.fr/Presentation-de-l-AFIMB.html)
 
 contributeurs / contributors :
-* "DRYADE":http://www.dryade.net
-* "MobiGIS":http://www.mobigis.fr
-* "Cityway":http://www.cityway.fr
+* [Dryade](http://www.cityway.fr)
+* [MobiGIS](http://www.mobigis.fr)
+* [Cityway](http://www.cityway.fr)
 
 
 Ce logiciel est un programme informatique servant à créer et à échanger des données de modélisation d'offres de transport en commun en respectant les préconisations de la norme NEPTUNE [ref AFNOR en cour] . 
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site "http://www.cecill.info":http://www.cecill.info .
+Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site [http://www.cecill.info](http://www.cecill.info).
 
 En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée. Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire des droits patrimoniaux et les concédants successifs.
 
@@ -22,7 +22,7 @@ Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris c
 
 This software is a computer program whose purpose is to to manage and disseminate public transfort offers according to the french NEPTUNE standard [AFNOR reference in progress].
 
-This software is governed by the CeCILL-B license under French law and abiding by the rules of distribution of free software.  You can  use,  modify and/ or redistribute the software under the terms of the CeCILL-B license as circulated by CEA, CNRS and INRIA at the following URL "http://www.cecill.info":http://www.cecill.info . 
+This software is governed by the CeCILL-B license under French law and abiding by the rules of distribution of free software.  You can  use,  modify and/ or redistribute the software under the terms of the CeCILL-B license as circulated by CEA, CNRS and INRIA at the following URL [http://www.cecill.info](http://www.cecill.info).
 
 As a counterpart to the access to the source code and rights to copy, modify and redistribute granted by the license, users are provided only with a limited warranty  and the software's author, the holder of the economic rights, and the successive licensors have only limited liability. 
 

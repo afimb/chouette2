@@ -4,7 +4,7 @@ Chouette2 is a web project in Ruby/Rails and can :
 * Exchange transport data : Neptune, GTFS, Netex, CSV
 * Edit transport data
 * Validate transport data
-* Offer a Rest API
+* Offer a Restful API in read-only
 * Import and Export Data asynchronously                
 
 Requirements
@@ -27,8 +27,9 @@ sudo apt-get install git
 Installation
 ------------
  
-Install [Postgres] (https://github.com/dryade/chouette2/install/postgresql.md)
-Install [JRuby] (https://github.com/dryade/chouette2/install/jruby.md)
+Install [Postgres] (https://github.com/dryade/chouette2/doc/install/postgresql.md)
+
+Install [JRuby] (https://github.com/dryade/chouette2/doc/install/jruby.md)
 
 Get git code : 
 ```sh
@@ -36,7 +37,8 @@ cd workspace
 git clone -b V2_0_3 git://github.com/dryade/chouette2
 ```
 
-Install chouette-gui-command
+Install chouette-gui-command to import and export transport offer : 
+```sh
 sudo mkdir -p /usr/local/opt/chouette-command/
 cd /usr/local/opt/chouette-command/
 
@@ -45,7 +47,7 @@ sudo mv chouette-cmd_2.0.3 chouette-gui-2.0.3
 cd chouette-cmd_2.0.3
 sudo chmod a+x chouette
 sudo chmod a+w .
-
+```
 
 **JRuby**
 
@@ -56,11 +58,13 @@ sudo apt-get install proj-bin
 sudo apt-get install libproj-dev
 sudo apt-get install make
 ```
+
 Build War ( Use RAILS_ENV production mode and parameters )
 ```sh 
 jgem install bundler --version 1.2.4
 jgem install jruby-openssl 
 bundle install --path vendor/bundle
+bundle exec rake db:create
 bundle exec rake war
 ```
 
@@ -77,10 +81,14 @@ sudo chmod a+x /var/lib/chouette/imports /var/lib/chouette/exports /var/lib/chou
 ```sh
 gem install bundler
 bundle exec rake db:create
-bundle exec rake jobs:work
-bundle exec rails server
 ```
 
+Test
+----
+
+```sh
+bundle exec rake spec
+```
 
 More Information
 ----------------
@@ -88,15 +96,33 @@ More Information
 More information can be found on the [project website on GitHub](http://github.com/dryade/chouette2). 
 There is extensive usage documentation available [on the wiki](https://github.com/dryade/chouette2/wiki).
 
+API Documentation
+-----------------
+
+You can view the [xsd file](https://github.com/dryade/chouette2/doc/interfaces/api_rest_v1.xsd) for the API
+
+
+
+
 Example Usage 
-------------
+-------------
+
+```sh
+bundle exec rake jobs:work
+bundle exec rails server
+```
 
 
 License
 -------
  
-This project is licensed under the CeCILL-B license, a copy of which can be found in the LICENSE file.
+This project is licensed under the CeCILL-B license, a copy of which can be found in the [LICENSE](http://github.com/dryade/chouette2/LICENSE.md) file.
 
+Release Notes
+-------------
+
+The release notes can be found in [CHANGELOG](http://github.com/dryade/chouette2/CHANGELOG.md) file 
+ 
 
 Support
 -------
