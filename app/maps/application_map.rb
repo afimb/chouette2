@@ -20,10 +20,8 @@ class ApplicationMap
   end
 
   def geoportail_key
-    if ( self.helpers && self.helpers.current_user && 
-         self.helpers.current_user.organisation && 
-         self.helpers.current_user.organisation.geoportail_key)
-      return self.helpers.current_user.organisation.geoportail_key
+    if ( ChouetteIhm::Application.config.respond_to? :geoportail_api_key)
+      return ChouetteIhm::Application.config.geoportail_api_key
     end
     return nil
   end

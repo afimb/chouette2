@@ -57,6 +57,9 @@ ChouetteIhm::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
+  #
+  # api key to geoportail IGN (production key link to "chouette.dryade.net" referer)
+  config.geoportail_api_key = "bt4z711qv8uw4zmk2bxl4d5l"
 
   # Enable threaded mode
   # NOTICE : With Rails 3.2, Delayed::JRubyWorker blocks the application without threaded mode
