@@ -1,6 +1,4 @@
-h1. Chouette2 !https://travis-ci.org/dryade/chouette2.png?branch=master!:https://travis-ci.org/dryade/chouette2 !https://codeclimate.com/badge.png!:https://codeclimate.com/github/dryade/ninoxe
-
-h2. Licence
+# Licence
 
 Copyright "AFIMB":http://www.developpement-durable.gouv.fr/Presentation-de-l-AFIMB.html
 
@@ -31,32 +29,3 @@ As a counterpart to the access to the source code and rights to copy, modify and
 In this respect, the user's attention is drawn to the risks associated with loading, using, modifying and/or developing or reproducing the software by the user in light of its specific status of free software, that may mean that it is complicated to manipulate,and that also therefore means that it is reserved for developers and experienced professionals having in-depth computer knowledge. Users are therefore encouraged to load and test the software's suitability as regards their requirements in conditions enabling the security of their systems and/or data to be ensured and, more generally, to use and operate it in the same conditions as regards security. 
 
 The fact that you are presently reading this means that you have had knowledge of the CeCILL-B license and that you accept its terms.
-
-h2. Notes de version
-
-h3. V2.0.3 
-
-* Ajout des imports/export NeTex 
-* Fonctionnement sous windows
-* Prise en compte de grandes quantités de calendriers.
-* Reprise des logs d'import Neptune
-
-h3. V2.0.2 
-
-* Ajout de l'import GTFS (expérimental, ne traite pas les stations)
-* Ajout d'API Rest pour accéder aux données depuis une autre application
-
-h3. V2.0.1 
-
-* Ajout de la gestion des groupes de lignes
-* Ajout de la gestion des accès et des relations arrêts-accès
-* Ajout d'une vue calendaire des calendriers d'application
-* Améliorations ergonomiques et cartographiques
-* L'import Neptune accepte les principaux formats d'encodage : ISO-8859-1, UTF-8, ...
-
-h3. V2.0.0 
-
-* refonte de l'interface graphique
-* ajout d'une gestion simplifiée d'utilisateurs :
-** ajout d'une notion d'organisation
-** ajout d'une notion d'espace de données
