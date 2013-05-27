@@ -43,6 +43,9 @@ ChouetteIhm::Application.configure do
     :domain         => "dryade.priv"
   }
 
+  # api key to geoportail IGN (development key 3 month validity)
+  config.geoportail_api_key = "i2aqyge3x3iovnuhz7z06flp"
+
   config.to_prepare do
     Devise::Mailer.layout "mailer"
     #ApplicationMap.ign_api_key = "i2aqyge3x3iovnuhz7z06flp"

@@ -1,3 +1,7 @@
+# V2.1.a
+
+* Intégration des cartes du géoportail (IGN)
+
 # V2.0.3
 
 * Ajout des imports/export NeTex
