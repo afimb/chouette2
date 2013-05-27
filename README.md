@@ -1,7 +1,7 @@
 # Chouette2 [![Build Status](https://travis-ci.org/dryade/chouette2.png)](http://travis-ci.org/dryade/chouette2?branch=master) [![Dependency Status](https://gemnasium.com/dryade/chouette2.png)](https://gemnasium.com/dryade/chouette2) [![Code Climate](https://codeclimate.com/github/dryade/chouette2.png)](https://codeclimate.com/github/dryade/chouette2)
 
 Chouette2 is a web project in Ruby/Rails and can :
-* Exchange transport data : Neptune, GTFS, Netex, CSV
+* Exchange transport data : [Neptune](http://www.chouette.mobi/spip.php?rubrique61), [GTFS](https://developers.google.com/transit/gtfs/reference?hl=fr), [NeTEx](http://www.kizoom.com/standards/netex/), CSV
 * Edit transport data
 * Validate transport data
 * Offer a Restful API in read-only
@@ -10,7 +10,7 @@ Chouette2 is a web project in Ruby/Rails and can :
 Requirements
 ------------
  
-This code has been run and tested on [travis](http://travis-ci.org/dryade/chouette2?branch=master) with : 
+This code has been run and tested on [Travis](http://travis-ci.org/dryade/chouette2?branch=master) with : 
 * Ruby 1.8.7
 * JRuby 1.6.8 (oraclejdk7, openjdk7, openjdk6)
 
@@ -27,9 +27,9 @@ sudo apt-get install git
 Installation
 ------------
  
-Install [Postgres] (https://github.com/dryade/chouette2/doc/install/postgresql.md)
+Install [Postgres] (https://github.com/dryade/chouette2/blob/master/doc/install/postgresql.md)
 
-Install [JRuby] (https://github.com/dryade/chouette2/doc/install/jruby.md)
+Install [JRuby] (https://github.com/dryade/chouette2/blob/master/doc/install/jruby.md)
 
 Get git code : 
 ```sh
@@ -80,6 +80,7 @@ sudo chmod a+x /var/lib/chouette/imports /var/lib/chouette/exports /var/lib/chou
 **Ruby**
 ```sh
 gem install bundler
+bundle install
 bundle exec rake db:create
 ```
 
@@ -99,31 +100,33 @@ There is extensive usage documentation available [on the wiki](https://github.co
 API Documentation
 -----------------
 
-You can view the [xsd file](https://github.com/dryade/chouette2/doc/interfaces/api_rest_v1.xsd) for the API
-
-
-
+The description of the restful API is described in : 
+* [Description](https://github.com/dryade/chouette2/blob/master/doc/interfaces/Chouette_API_REST_v1.2.pdf)
+* [XSD file](https://github.com/dryade/chouette2/blob/master/doc/interfaces/api_rest_v1.xsd)
 
 Example Usage 
 -------------
 
+Launch the task to import and export asynchronously
 ```sh
 bundle exec rake jobs:work
-bundle exec rails server
 ```
 
+Launch rails server
+```sh
+bundle exec rails server
+```    
 
 License
 -------
  
-This project is licensed under the CeCILL-B license, a copy of which can be found in the [LICENSE](http://github.com/dryade/chouette2/LICENSE.md) file.
+This project is licensed under the CeCILL-B license, a copy of which can be found in the [LICENSE](https://github.com/dryade/chouette2/blob/master/LICENSE.md) file.
 
 Release Notes
 -------------
 
-The release notes can be found in [CHANGELOG](http://github.com/dryade/chouette2/CHANGELOG.md) file 
+The release notes can be found in [CHANGELOG](https://github.com/dryade/chouette2/blob/master/CHANGELOG.md) file 
  
-
 Support
 -------
  
