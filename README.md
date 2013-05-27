@@ -1,11 +1,12 @@
 # Chouette2 [![Build Status](https://travis-ci.org/dryade/chouette2.png)](http://travis-ci.org/dryade/chouette2?branch=master) [![Dependency Status](https://gemnasium.com/dryade/chouette2.png)](https://gemnasium.com/dryade/chouette2) [![Code Climate](https://codeclimate.com/github/dryade/chouette2.png)](https://codeclimate.com/github/dryade/chouette2)
 
-Chouette2 is a web project in Ruby/Rails and can :
+Chouette2 is a web project in Ruby/Rails. It's designed as an [SaaS](http://en.wikipedia.org/wiki/Software_as_a_service) platform and can :
 * Exchange transport data : [Neptune](http://www.chouette.mobi/spip.php?rubrique61), [GTFS](https://developers.google.com/transit/gtfs/reference?hl=fr), [NeTEx](http://www.kizoom.com/standards/netex/), CSV
 * Edit transport data
 * Validate transport data
 * Offer a Restful API in read-only
-* Import and Export Data asynchronously                
+* Import and Export Data asynchronously
+* Use [multi-tenancy database](http://en.wikipedia.org/wiki/Multitenancy)
 
 Requirements
 ------------
@@ -101,7 +102,7 @@ API Documentation
 -----------------
 
 The description of the restful API is described in : 
-* [Description](https://github.com/dryade/chouette2/blob/master/doc/interfaces/Chouette_API_REST_v1.2.pdf)
+* [User manual file](https://github.com/dryade/chouette2/blob/master/doc/interfaces/Chouette_API_REST_v1.2.pdf)
 * [XSD file](https://github.com/dryade/chouette2/blob/master/doc/interfaces/api_rest_v1.xsd)
 
 Example Usage 
