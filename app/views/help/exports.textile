@@ -10,6 +10,7 @@ p. L'export permet d'extraire de la base un ensemble de données selon un format
 h3. Formats disponibles
 
 - Neptune := format normalisé des échanges de données de transport en commun pour la France (cf "Normalisation":normalisation)
+- NeTEx := format d'échanges de données de transport en commun expérimental sur la norme européenne NeTEx mais limité aux données définies dans la norme Neptune
 - CSV := format tabulaire spécifique à Chouette (cf "CSV":csv)
 - GTFS := format destiné à ["Google Transit":https://developers.google.com/transit/gtfs/?hl=fr]
 

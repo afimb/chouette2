@@ -59,7 +59,7 @@ en:
         company: "Company"
         comment: "Comments"
         status_value: "Status Value"
-        transport_mode: "Transport Mode"
+        transport_mode_name: "Transport Mode"
         published_journey_name: "Published Name"
         published_journey_identifier: "Published Identifier"
         facility: "Facility"
@@ -74,6 +74,10 @@ en:
       models:
         vehicle_journey:
           invalid_times: "Invalid times"
+  formtastic:
+    hints:
+      vehicle_journey:
+        objectid: "[prefix]:VehicleJourney:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
 
 fr:
   vehicle_journeys:
@@ -136,7 +140,7 @@ fr:
         company: "Transporteur"
         comment: "Commentaires"
         status_value: "Etat de trafic"
-        transport_mode: "Mode de transport"
+        transport_mode_name: "Mode de transport"
         published_journey_name: "Nom public"
         published_journey_identifier: "Identifiant public"
         facility: "Equipement"
@@ -151,4 +155,8 @@ fr:
       models:
         vehicle_journey:
           invalid_times: "Horaires invalides"
+  formtastic:
+    hints:
+      vehicle_journey:
+        objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
 
