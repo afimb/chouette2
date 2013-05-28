@@ -69,6 +69,7 @@ group :development do
   gem 'capistrano-ext'   
   gem 'guard'
   gem 'guard-rspec'
+  gem 'rails-erd'       
 end
 
 group :test, :development do

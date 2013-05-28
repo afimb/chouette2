@@ -1,937 +1,1066 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  targetNamespace="http://www.chouette.mobi/schema/api/v1"
-  xmlns="http://www.chouette.mobi/schema/api/v1">
-  <xs:element name="Lines">
-    <xs:annotation>
-      <xs:documentation>Conteneur de réponse pour les requêtes de sélection de lignes</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" minOccurs="0" ref="Line"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="Line" type="LineType">
-    <xs:annotation>
-      <xs:documentation>Conteneur de réponse pour les requêtes de sélection du détail d'une ligne</xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  <xs:element name="Networks">
-    <xs:annotation>
-      <xs:documentation>Conteneur de réponse pour les requêtes de sélection de réseaux</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" minOccurs="0" ref="Network"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="Network" type="NetworkType">
-    <xs:annotation>
-      <xs:documentation>Conteneur de réponse pour les requêtes de sélection du détail d'un réseau</xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  <xs:element name="Companies">
-    <xs:annotation>
-      <xs:documentation>Conteneur de réponse pour les requêtes de sélection de transporteurs</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" minOccurs="0" ref="Company"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="Company" type="CompanyType">
-    <xs:annotation>
-      <xs:documentation>Conteneur de réponse pour les requêtes de sélection du détail d'un transporteur</xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  <xs:element name="StopAreas">
-    <xs:annotation>
-      <xs:documentation>Conteneur de réponse pour les requêtes de sélection d'arrêts</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" minOccurs="0" ref="StopArea"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="StopArea" type="StopAreaType">
-    <xs:annotation>
-      <xs:documentation>Conteneur de réponse pour les requêtes de sélection du détail d'un arrêt</xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  <xs:element name="ConnectionLinks">
-    <xs:annotation>
-      <xs:documentation>Conteneur de réponse pour les requêtes de sélection de correspondances</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" minOccurs="0" ref="ConnectionLink"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConnectionLink" type="ConnectionLinkType">
-    <xs:annotation>
-      <xs:documentation>Conteneur de réponse pour les requêtes de sélection du détail d'une correspondance</xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  <xs:element name="TimeTables">
-    <xs:annotation>
-      <xs:documentation>Conteneur de réponse pour les requêtes de sélection de calendriers</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" minOccurs="0" ref="TimeTable"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="TimeTable" type="TimeTableType">
-    <xs:annotation>
-      <xs:documentation>Conteneur de réponse pour les requêtes de sélection du détail d'un calendrier</xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  <xs:element name="Routes">
-    <xs:annotation>
-      <xs:documentation>Conteneur de réponse pour les requêtes de sélection de séquences d'arrêts</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" minOccurs="0" ref="Route"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="Route" type="RouteType">
-    <xs:annotation>
-      <xs:documentation>Conteneur de réponse pour les requêtes de sélection du détail d'une séquence d'arrêts</xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  <xs:element name="JourneyPatterns">
-    <xs:annotation>
-      <xs:documentation>Conteneur de réponse pour les requêtes de sélection de missions</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" minOccurs="0" ref="JourneyPattern"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="JourneyPattern" type="JourneyPatternType">
-    <xs:annotation>
-      <xs:documentation>Conteneur de réponse pour les requêtes de sélection du détail d'une mission</xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  <xs:element name="VehicleJourneys">
-    <xs:annotation>
-      <xs:documentation>Conteneur de réponse pour les requêtes de sélection de courses</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" minOccurs="0" ref="VehicleJourney"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="VehicleJourney" type="VehicleJourneyType">
-    <xs:annotation>
-      <xs:documentation>Conteneur de réponse pour les requêtes de sélection du détail d'une course</xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  <xs:complexType name="TridentObjectType">
-    <xs:annotation>
-      <xs:documentation>Structure qui correspond au TridentObjectType NEPTUNE</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="TridentShortDescription">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="CreationTime" type="xs:dateTime">
-            <xs:annotation>
-              <xs:documentation>creationTime de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="CreatorId" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>creatorId de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="TridentShortDescription">
-    <xs:annotation>
-      <xs:documentation>Structure qui rassemble les propriétés du TridentObjectType NEPTUNE qui servent à l'identification.</xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="ObjectId" type="TridentIdType">
-        <xs:annotation>
-          <xs:documentation>objectid de la structure NEPTUNE associée</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="ObjectVersion" type="xs:positiveInteger">
-        <xs:annotation>
-          <xs:documentation>objectVersion de la structure NEPTUNE associée</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="NetworkType">
-    <xs:annotation>
-      <xs:documentation>Structure qui correspond au PTNetworkType NEPTUNE</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="TridentObjectType">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="VersionDate" type="xs:date">
-            <xs:annotation>
-              <xs:documentation>versionDate de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="Description" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>description de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="Name" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>name de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="RegistrationNumber" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>registrationNumber de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="SourceName" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>sourceName de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="SourceIdentifier" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>sourceIdentifier de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="SourceType" type="SourceTypeType">
-            <xs:annotation>
-              <xs:documentation>sourceType de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="Comment" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>comment de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="CompanyType">
-    <xs:annotation>
-      <xs:documentation>Structure qui correspond au CompanyType NEPTUNE</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="TridentObjectType">
-        <xs:sequence>
-          <xs:element name="Name" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>name de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="ShortName" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>shortName de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="OrganisationalUnit" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>organisationalUnit de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="OperatingDepartmentName" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>operatingDepartmentName de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="Code" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>code de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="Phone" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>phone de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="Fax" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>fax de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="Email" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>email de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="RegistrationNumber" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>registrationNumber de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="CompanyShortDescriptionType">
-    <xs:annotation>
-      <xs:documentation>Structure équivalente la structure CompanyType mais qui n'en décrit que les propriétés principales.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="TridentShortDescription">
-        <xs:sequence>
-          <xs:element name="Name" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>name de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="ShortName" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>shortName de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="RegistrationNumber" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>registrationNumber de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="NetworkShortDesciptionType">
-    <xs:annotation>
-      <xs:documentation>Structure équivalente la structure NetworkType mais qui n'en décrit que les propriétés principales.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="TridentShortDescription">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Description" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>description de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="Name" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>name de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="RegistrationNumber" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>registrationNumber de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="RoutingLineObjectIdsType">
-    <xs:annotation>
-      <xs:documentation>Structure utilisée uniquement pour décrire les StopArea ayant "ITL" comme AreaType.
+<!-- edited with XMLSpy v2013 sp1 (http://www.altova.com) by w (efwf) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.chouette.mobi/schema/api/v1"
+	targetNamespace="http://www.chouette.mobi/schema/api/v1" elementFormDefault="qualified">
+	<xs:element name="Lines">
+		<xs:annotation>
+			<xs:documentation>Conteneur de réponse pour les requêtes de sélection de lignes</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Line" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Line" type="LineType">
+		<xs:annotation>
+			<xs:documentation>Conteneur de réponse pour les requêtes de sélection du détail d'une ligne</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Networks">
+		<xs:annotation>
+			<xs:documentation>Conteneur de réponse pour les requêtes de sélection de réseaux</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Network" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Network" type="NetworkType">
+		<xs:annotation>
+			<xs:documentation>Conteneur de réponse pour les requêtes de sélection du détail d'un réseau</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Companies">
+		<xs:annotation>
+			<xs:documentation>Conteneur de réponse pour les requêtes de sélection de transporteurs</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Company" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Company" type="CompanyType">
+		<xs:annotation>
+			<xs:documentation>Conteneur de réponse pour les requêtes de sélection du détail d'un transporteur</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="StopAreas">
+		<xs:annotation>
+			<xs:documentation>Conteneur de réponse pour les requêtes de sélection d'arrêts</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="StopArea" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="StopArea" type="StopAreaType">
+		<xs:annotation>
+			<xs:documentation>Conteneur de réponse pour les requêtes de sélection du détail d'un arrêt</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ConnectionLinks">
+		<xs:annotation>
+			<xs:documentation>Conteneur de réponse pour les requêtes de sélection de correspondances</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ConnectionLink" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ConnectionLink" type="ConnectionLinkType">
+		<xs:annotation>
+			<xs:documentation>Conteneur de réponse pour les requêtes de sélection du détail d'une correspondance</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="TimeTables">
+		<xs:annotation>
+			<xs:documentation>Conteneur de réponse pour les requêtes de sélection de calendriers</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="TimeTable" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TimeTable" type="TimeTableType">
+		<xs:annotation>
+			<xs:documentation>Conteneur de réponse pour les requêtes de sélection du détail d'un calendrier</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Routes">
+		<xs:annotation>
+			<xs:documentation>Conteneur de réponse pour les requêtes de sélection de séquences d'arrêts</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Route" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Route" type="RouteType">
+		<xs:annotation>
+			<xs:documentation>Conteneur de réponse pour les requêtes de sélection du détail d'une séquence d'arrêts</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="JourneyPatterns">
+		<xs:annotation>
+			<xs:documentation>Conteneur de réponse pour les requêtes de sélection de missions</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="JourneyPattern" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="JourneyPattern" type="JourneyPatternType">
+		<xs:annotation>
+			<xs:documentation>Conteneur de réponse pour les requêtes de sélection du détail d'une mission</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="VehicleJourneys">
+		<xs:annotation>
+			<xs:documentation>Conteneur de réponse pour les requêtes de sélection de courses</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="VehicleJourney" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="VehicleJourney" type="VehicleJourneyType">
+		<xs:annotation>
+			<xs:documentation>Conteneur de réponse pour les requêtes de sélection du détail d'une course</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="TridentObjectType">
+		<xs:annotation>
+			<xs:documentation>Structure qui correspond au TridentObjectType NEPTUNE</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="TridentShortDescription">
+				<xs:sequence>
+					<xs:element name="CreationTime" type="xs:dateTime" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>creationTime de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="CreatorId" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>creatorId de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="TridentShortDescription">
+		<xs:annotation>
+			<xs:documentation>Structure qui rassemble les propriétés du TridentObjectType NEPTUNE qui servent à l'identification.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ObjectId" type="TridentIdType">
+				<xs:annotation>
+					<xs:documentation>objectid de la structure NEPTUNE associée</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ObjectVersion" type="xs:positiveInteger" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>objectVersion de la structure NEPTUNE associée</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NetworkType">
+		<xs:annotation>
+			<xs:documentation>Structure qui correspond au PTNetworkType NEPTUNE</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="TridentObjectType">
+				<xs:sequence>
+					<xs:element name="VersionDate" type="xs:date" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>versionDate de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Description" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>description de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Name" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>name de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="RegistrationNumber" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>registrationNumber de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="SourceName" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>sourceName de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="SourceIdentifier" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>sourceIdentifier de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="SourceType" type="SourceTypeType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>sourceType de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Comment" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>comment de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CompanyType">
+		<xs:annotation>
+			<xs:documentation>Structure qui correspond au CompanyType NEPTUNE</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="TridentObjectType">
+				<xs:sequence>
+					<xs:element name="Name" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>name de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ShortName" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>shortName de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="OrganisationalUnit" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>organisationalUnit de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="OperatingDepartmentName" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>operatingDepartmentName de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Code" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>code de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Phone" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>phone de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Fax" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>fax de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Email" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>email de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="RegistrationNumber" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>registrationNumber de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CompanyShortDescriptionType">
+		<xs:annotation>
+			<xs:documentation>Structure équivalente la structure CompanyType mais qui n'en décrit que les propriétés principales.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="TridentShortDescription">
+				<xs:sequence>
+					<xs:element name="Name" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>name de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ShortName" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>shortName de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="RegistrationNumber" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>registrationNumber de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="NetworkShortDesciptionType">
+		<xs:annotation>
+			<xs:documentation>Structure équivalente la structure NetworkType mais qui n'en décrit que les propriétés principales.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="TridentShortDescription">
+				<xs:sequence>
+					<xs:element name="Description" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>description de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Name" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>name de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="RegistrationNumber" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>registrationNumber de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="RoutingLineObjectIdsType">
+		<xs:annotation>
+			<xs:documentation>Structure utilisée uniquement pour décrire les StopArea ayant "ITL" comme AreaType.
 La structure qui rassemble les identififiants (TridentIdType NEPTUNE) des lignes de l'ITL.</xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element maxOccurs="unbounded" name="RoutingLineObjectId" type="TridentIdType">
-        <xs:annotation>
-          <xs:documentation>Identififiant (TridentIdType NEPTUNE) d'une ligne (structure LineType)</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="RoutingStopAreaObjectIdsType">
-    <xs:annotation>
-      <xs:documentation>Structure utilisée uniquement pour décrire les StopArea ayant "ITL" comme AreaType.
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="RoutingLineObjectId" type="TridentIdType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Identififiant (TridentIdType NEPTUNE) d'une ligne (structure LineType)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RoutingStopAreaObjectIdsType">
+		<xs:annotation>
+			<xs:documentation>Structure utilisée uniquement pour décrire les StopArea ayant "ITL" comme AreaType.
 La structure qui rassemble les identififiants (TridentIdType NEPTUNE) des arrêts de l'ITL.</xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element maxOccurs="unbounded" name="RoutingStopAreaObjectId" type="TridentIdType">
-        <xs:annotation>
-          <xs:documentation>Identififiant (TridentIdType NEPTUNE) d'un arrêt (structure StopAreaType)</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="LineType">
-    <xs:annotation>
-      <xs:documentation>Structure qui correspond au LineType NEPTUNE</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="TridentObjectType">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Name" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>name de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="Number" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>number de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="PublishedName" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>publishedName de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="TransportModeName" type="TransportModeNameType">
-            <xs:annotation>
-              <xs:documentation>transportModeName de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="RegistrationNumber" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>registrationNumber de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="Comment" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>comment de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="MobilityRestrictedSuitability" type="xs:boolean">
-            <xs:annotation>
-              <xs:documentation>mobilityRestrictedSuitability de la structure NEPTUNE associée</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="NetworkShortDescription" type="NetworkShortDesciptionType"/>
-          <xs:element minOccurs="0" name="CompanyShortDescription"
-            type="CompanyShortDescriptionType"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="LineShortDescriptionType">
-    <xs:annotation>
-      <xs:documentation>Structure équivalente la structure LineType mais qui n'en décrit que les propriétés principales.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="TridentShortDescription">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Name" type="xs:string"/>
-          <xs:element minOccurs="0" name="Number" type="xs:string"/>
-          <xs:element minOccurs="0" name="PublishedName" type="xs:string"/>
-          <xs:element minOccurs="0" name="RegistrationNumber" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="StopAreaType">
-    <xs:annotation>
-      <xs:documentation>Structure qui correspond à l'élément ChouetteArea NEPTUNE (qui regroupe les éléments StopArea at AreaCentroid).</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="TridentObjectType">
-        <xs:sequence>
-          <xs:element name="Name" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>correspond au StopAreaType.name (du format NEPTUNE)</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="AreaType" type="ChouetteAreaType">
-            <xs:annotation>
-              <xs:documentation>correspond au StopAreaType.areaType (du format NEPTUNE)</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="NearestTopicName" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>correspond au StopAreaType.nearestTopicName (du format NEPTUNE)</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="FareCode" type="xs:int">
-            <xs:annotation>
-              <xs:documentation>correspond au StopAreaType.fareCode (du format NEPTUNE)</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="RegistrationNumber" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>correspond au StopAreaType.registrationNumber (du format NEPTUNE)</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="Longitude" type="LongitudeType">
-            <xs:annotation>
-              <xs:documentation>correspond au AreaCentroid.longitude (du format NEPTUNE)</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="Latitude" type="LatitudeType">
-            <xs:annotation>
-              <xs:documentation>correspond au AreaCentroid.latitude (du format NEPTUNE)</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="LongLatType" type="LongLatTypeType">
-            <xs:annotation>
-              <xs:documentation>correspond au AreaCentroid.longLatType (du format NEPTUNE)</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="StreetName" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>correspond au AreaCentroid.streetName (du format NEPTUNE)</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="CountryCode" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>correspond au AreaCentroid.countryCode (du format NEPTUNE)</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="X" type="xs:decimal">
-            <xs:annotation>
-              <xs:documentation>correspond au AreaCentroid.X (du format NEPTUNE)</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="Y" type="xs:decimal">
-            <xs:annotation>
-              <xs:documentation>correspond au AreaCentroid.Y (du format NEPTUNE)</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="ProjectionType" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>correspond au AreaCentroid.projectionType (du format NEPTUNE)</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="Comment" type="xs:string">
-            <xs:annotation>
-              <xs:documentation>correspond au AreaCentroid.comment (du format NEPTUNE)</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element maxOccurs="1" minOccurs="0" name="RoutingStopAreaObjectIds"
-            type="RoutingStopAreaObjectIdsType">
-            <xs:annotation>
-              <xs:documentation>Element présent uniquement pour les StopArea ayant "ITL" comme AreaType.
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="RoutingStopAreaObjectId" type="TridentIdType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Identififiant (TridentIdType NEPTUNE) d'un arrêt (structure StopAreaType)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LineType">
+		<xs:annotation>
+			<xs:documentation>Structure qui correspond au LineType NEPTUNE</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="TridentObjectType">
+				<xs:sequence>
+					<xs:element name="Name" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>name de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Number" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>number de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="PublishedName" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>publishedName de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="TransportModeName" type="TransportModeNameType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>transportModeName de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="RegistrationNumber" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>registrationNumber de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Comment" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>comment de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="MobilityRestrictedSuitability" type="xs:boolean" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>mobilityRestrictedSuitability de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="NetworkShortDescription" type="NetworkShortDesciptionType"
+						minOccurs="0"/>
+					<xs:element name="CompanyShortDescription" type="CompanyShortDescriptionType"
+						minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="LineShortDescriptionType">
+		<xs:annotation>
+			<xs:documentation>Structure équivalente la structure LineType mais qui n'en décrit que les propriétés principales.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="TridentShortDescription">
+				<xs:sequence>
+					<xs:element name="Name" type="xs:string" minOccurs="0"/>
+					<xs:element name="Number" type="xs:string" minOccurs="0"/>
+					<xs:element name="PublishedName" type="xs:string" minOccurs="0"/>
+					<xs:element name="RegistrationNumber" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StopAreaType">
+		<xs:annotation>
+			<xs:documentation>Structure qui correspond à l'élément ChouetteArea NEPTUNE (qui regroupe les éléments StopArea at AreaCentroid).</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="TridentObjectType">
+				<xs:sequence>
+					<xs:element name="Name" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>correspond au StopAreaType.name (du format NEPTUNE)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="AreaType" type="ChouetteAreaType">
+						<xs:annotation>
+							<xs:documentation>correspond au StopAreaType.areaType (du format NEPTUNE)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="NearestTopicName" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>correspond au StopAreaType.nearestTopicName (du format NEPTUNE)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="FareCode" type="xs:int" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>correspond au StopAreaType.fareCode (du format NEPTUNE)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="RegistrationNumber" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>correspond au StopAreaType.registrationNumber (du format NEPTUNE)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Longitude" type="LongitudeType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>correspond au AreaCentroid.longitude (du format NEPTUNE)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Latitude" type="LatitudeType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>correspond au AreaCentroid.latitude (du format NEPTUNE)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="LongLatType" type="LongLatTypeType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>correspond au AreaCentroid.longLatType (du format NEPTUNE)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="StreetName" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>correspond au AreaCentroid.streetName (du format NEPTUNE)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="CountryCode" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>correspond au AreaCentroid.countryCode (du format NEPTUNE)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="X" type="xs:decimal" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>correspond au AreaCentroid.X (du format NEPTUNE)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Y" type="xs:decimal" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>correspond au AreaCentroid.Y (du format NEPTUNE)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ProjectionType" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>correspond au AreaCentroid.projectionType (du format NEPTUNE)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Comment" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>correspond au AreaCentroid.comment (du format NEPTUNE)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="RoutingStopAreaObjectIds" type="RoutingStopAreaObjectIdsType"
+						minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Element présent uniquement pour les StopArea ayant "ITL" comme AreaType.
 L'élément rassemble les identififiants (TridentIdType NEPTUNE) des lignes de l'ITL.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="RoutingLineObjectIds" type="RoutingLineObjectIdsType">
-            <xs:annotation>
-              <xs:documentation>Element présent uniquement pour les StopArea ayant "ITL" comme AreaType.
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="RoutingLineObjectIds" type="RoutingLineObjectIdsType"
+						minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Element présent uniquement pour les StopArea ayant "ITL" comme AreaType.
 L'élément rassemble les identififiants (TridentIdType NEPTUNE) des arrêts de l'ITL.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" name="Parent" type="StopAreaShortDescriptionType">
-            <xs:annotation>
-              <xs:documentation>Element qui décrit le StopAreaType du niveau hiérachique supérieur si celui-ci existe.
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Parent" type="StopAreaShortDescriptionType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Element qui décrit le StopAreaType du niveau hiérachique supérieur si celui-ci existe.
 
 Si on note s un StopAreaType (NEPTUNE) et p le StopAreaType (NEPTUNE) de son niveau supérieur,
 la relation s'établit sur p  au niveau du  AreCentroid.containIn (NEPTUNE) qui fait apparaitre une référence s.
 
 Si on note S et P les structures StopAreaType équivalentes dans schéma décrit par cette XSD, 
 c'est S qui référence P au niveau de S.parent.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="StopAreaShortDescriptionType">
-    <xs:annotation>
-      <xs:documentation>Structure équivalente la structure StopAreaType mais qui n'en décrit que les propriétés principales.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="TridentShortDescription">
-        <xs:sequence>
-          <xs:element name="Name" type="xs:string"/>
-          <xs:element name="AreaType" type="ChouetteAreaType"/>
-          <xs:element minOccurs="0" name="Longitude" type="LongitudeType"/>
-          <xs:element minOccurs="0" name="Latitude" type="LatitudeType"/>
-          <xs:element minOccurs="0" name="LongLatType" type="LongLatTypeType"/>
-          <xs:element minOccurs="0" name="ParentObjectId" type="TridentIdType"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="StopAreaShortDescriptionsType">
-    <xs:sequence>
-      <xs:element maxOccurs="unbounded" name="StopAreaShortDescription"
-        type="StopAreaShortDescriptionType"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="RouteType">
-    <xs:annotation>
-      <xs:documentation>Structure qui correspond au RouteType NEPTUNE</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="TridentObjectType">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Name" type="xs:string"/>
-          <xs:element minOccurs="0" name="PublishedName" type="xs:string"/>
-          <xs:element minOccurs="0" name="Number" type="xs:string"/>
-          <xs:element minOccurs="0" name="Direction" type="PTDirectionType"/>
-          <xs:element minOccurs="0" name="WayBackRouteId" type="TridentIdType"/>
-          <xs:element minOccurs="0" name="Comment" type="xs:string"/>
-          <xs:element minOccurs="0" name="WayBack" type="xs:string"/>
-          <xs:element name="LineShortDescription" type="LineShortDescriptionType"/>
-          <xs:element minOccurs="0" name="JourneyPatternShortDescriptions"
-            type="JourneyPatternShortDescriptionsType"/>
-          <xs:element minOccurs="0" name="VehicleJourneyObjectIds">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element maxOccurs="unbounded" name="VehicleJourneyObjectId" type="TridentIdType"
-                />
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
-          <xs:element minOccurs="0" name="StopAreaShortDescriptions"
-            type="StopAreaShortDescriptionsType"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="RouteShortDescriptionType">
-    <xs:annotation>
-      <xs:documentation>Structure équivalente la structure RouteType mais qui n'en décrit que les propriétés principales.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="TridentShortDescription">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="name" type="xs:string"/>
-          <xs:element minOccurs="0" name="publishedName" type="xs:string"/>
-          <xs:element minOccurs="0" name="number" type="xs:string"/>
-          <xs:element minOccurs="0" name="direction" type="PTDirectionType"/>
-          <xs:element minOccurs="0" name="wayBack" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="JourneyPatternType">
-    <xs:annotation>
-      <xs:documentation>Structure qui correspond au JourneyPatternType NEPTUNE</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="TridentObjectType">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Name" type="xs:string"/>
-          <xs:element minOccurs="0" name="PublishedName" type="xs:string"/>
-          <xs:element minOccurs="0" name="RegistrationNumber" type="xs:string"/>
-          <xs:element minOccurs="0" name="Comment" type="xs:string"/>
-          <xs:element name="RouteShortDescription" type="RouteShortDescriptionType"/>
-          <xs:element minOccurs="0" name="VehicleJourneyObjectIds">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element maxOccurs="unbounded" name="VehicleJourneyObjectId" type="TridentIdType"
-                />
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
-          <xs:element minOccurs="0" name="StopAreaShortDescriptions"
-            type="StopAreaShortDescriptionsType"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="JourneyPatternShortDescriptionType">
-    <xs:complexContent>
-      <xs:extension base="TridentShortDescription">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Name" type="xs:string"/>
-          <xs:element minOccurs="0" name="PublishedName" type="xs:string"/>
-          <xs:element minOccurs="0" name="RegistrationNumber" type="xs:string"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="JourneyPatternShortDescriptionsType">
-    <xs:sequence>
-      <xs:element name="JourneyPatternShortDescription" type="JourneyPatternShortDescriptionType"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="ConnectionLinkType">
-    <xs:annotation>
-      <xs:documentation>Structure qui correspond au ConnectionLinkType NEPTUNE</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="TridentObjectType">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Name" type="xs:string"/>
-          <xs:element minOccurs="0" name="LinkDistance" type="xs:decimal"/>
-          <xs:element minOccurs="0" name="LinkType" type="ConnectionLinkTypeType"/>
-          <xs:element minOccurs="0" name="defaultDuration" type="xs:duration"/>
-          <xs:element minOccurs="0" name="FrequentTravellerDuration" type="xs:duration"/>
-          <xs:element minOccurs="0" name="OccasionalTravellerDuration" type="xs:duration"/>
-          <xs:element minOccurs="0" name="MobilityRestrictedTravellerDuration" type="xs:duration"/>
-          <xs:element minOccurs="0" name="MobilityRestrictedSuitability" type="xs:boolean"/>
-          <xs:element minOccurs="0" name="StairsAvailability" type="xs:boolean"/>
-          <xs:element minOccurs="0" name="LiftAvailability" type="xs:boolean"/>
-          <xs:element minOccurs="0" name="Comment" type="xs:string"/>
-          <xs:element minOccurs="1" name="StartOfLinkShortDescription"
-            type="StopAreaShortDescriptionType"/>
-          <xs:element name="EndOfLinkShortDescription" type="StopAreaShortDescriptionType"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="TimeTableType">
-    <xs:annotation>
-      <xs:documentation>Structure qui correspond au TimetableType NEPTUNE</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="TridentObjectType">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Version" type="xs:string"/>
-          <xs:element minOccurs="0" name="Comment" type="xs:string"/>
-          <xs:element minOccurs="0" name="Dates">
-            <xs:complexType>
-              <xs:sequence maxOccurs="unbounded">
-                <xs:element name="Date" type="xs:date"/>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
-          <xs:sequence minOccurs="0">
-            <xs:element name="Monday" type="xs:boolean"/>
-            <xs:element name="Tuesday" type="xs:boolean"/>
-            <xs:element name="Wednesday" type="xs:boolean"/>
-            <xs:element name="Thursday" type="xs:boolean"/>
-            <xs:element name="Friday" type="xs:boolean"/>
-            <xs:element name="Saturday" type="xs:boolean"/>
-            <xs:element name="Sunday" type="xs:boolean"/>
-            <xs:element maxOccurs="1" minOccurs="1" name="Periods">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element maxOccurs="unbounded" name="Period">
-                    <xs:complexType>
-                      <xs:sequence>
-                        <xs:element name="PeriodStart"/>
-                        <xs:element name="PeriodEnd"/>
-                      </xs:sequence>
-                    </xs:complexType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-          </xs:sequence>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="VehicleJourneyType">
-    <xs:annotation>
-      <xs:documentation>Structure qui correspond au VehicleJourneyType NEPTUNE</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="TridentObjectType">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="PublishedJourneyName" type="xs:string"/>
-          <xs:element minOccurs="0" name="PublishedJourneyIdentifier" type="xs:string"/>
-          <xs:element minOccurs="0" name="TransportMode" type="TransportModeNameType"/>
-          <xs:element minOccurs="0" name="VehicleTypeIdentifier" type="xs:string"/>
-          <xs:element minOccurs="0" name="StatusValue" type="ServiceStatusValueType"/>
-          <xs:element minOccurs="0" name="Facility" type="xs:string"/>
-          <xs:element minOccurs="0" name="Number" type="xs:integer"/>
-          <xs:element minOccurs="0" name="Comment" type="xs:string"/>
-          <xs:element name="RouteShortDescription" type="RouteShortDescriptionType"/>
-          <xs:element name="JourneyPatternShortDescription"
-            type="JourneyPatternShortDescriptionType"/>
-          <xs:element minOccurs="0" name="TimeTableObjectIds">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element maxOccurs="unbounded" name="TimeTableObjectId" type="TridentIdType"/>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
-          <xs:element minOccurs="0" name="VehicleJourneyAtStops">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element maxOccurs="unbounded" name="VehicleJourneyAtStop">
-                  <xs:complexType>
-                    <xs:sequence>
-                      <xs:element minOccurs="0" name="Order" type="xs:positiveInteger"/>
-                      <xs:element name="StopAreaObjectId" type="TridentIdType"/>
-                      <xs:element minOccurs="0" name="ConnectingServiceId" type="TridentIdType"/>
-                      <xs:element minOccurs="0" name="ArrivalTime" type="xs:time"/>
-                      <xs:element minOccurs="0" name="DepartureTime" type="xs:time"/>
-                      <xs:element minOccurs="0" name="WaitingTime" type="xs:time"/>
-                      <xs:element minOccurs="0" name="ElapseDuration" type="xs:duration"/>
-                      <xs:element minOccurs="0" name="HeadwayFrequency" type="xs:duration"/>
-                      <xs:element minOccurs="0" name="BoardingAlightingPossibility"
-                        type="BoardingAlightingPossibilityType"/>
-                    </xs:sequence>
-                  </xs:complexType>
-                </xs:element>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:simpleType name="TransportModeNameType">
-    <xs:annotation>
-      <xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StopAreaShortDescriptionType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>Structure équivalente la structure StopAreaType mais qui n'en décrit que les propriétés principales.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="TridentShortDescription">
+				<xs:sequence>
+					<xs:element name="Name" type="xs:string"/>
+					<xs:element name="AreaType" type="ChouetteAreaType"/>
+					<xs:element name="Longitude" type="LongitudeType" minOccurs="0"/>
+					<xs:element name="Latitude" type="LatitudeType" minOccurs="0"/>
+					<xs:element name="LongLatType" type="LongLatTypeType" minOccurs="0"/>
+					<xs:element name="ParentObjectId" type="TridentIdType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StopAreaShortDescriptionsType" abstract="false">
+		<xs:sequence>
+			<xs:element name="StopAreaShortDescription" type="StopAreaShortDescriptionType"
+				maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RouteType">
+		<xs:annotation>
+			<xs:documentation>Structure qui correspond au RouteType NEPTUNE</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="TridentObjectType">
+				<xs:sequence>
+					<xs:element name="Name" type="xs:string" minOccurs="0"/>
+					<xs:element name="PublishedName" type="xs:string" minOccurs="0"/>
+					<xs:element name="Number" type="xs:string" minOccurs="0"/>
+					<xs:element name="Direction" type="PTDirectionType" minOccurs="0"/>
+					<xs:element name="WayBackRouteId" type="TridentIdType" minOccurs="0"/>
+					<xs:element name="Comment" type="xs:string" minOccurs="0"/>
+					<xs:element name="WayBack" type="xs:string" minOccurs="0"/>
+					<xs:element name="LineShortDescription" type="LineShortDescriptionType"/>
+					<xs:element name="JourneyPatternShortDescriptions"
+						type="JourneyPatternShortDescriptionsType" minOccurs="0"/>
+					<xs:element name="VehicleJourneyObjectIds" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="VehicleJourneyObjectId" type="TridentIdType"
+									maxOccurs="unbounded"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="StopAreaShortDescriptions"
+						type="StopAreaShortDescriptionsType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="RouteShortDescriptionType">
+		<xs:annotation>
+			<xs:documentation>Structure équivalente la structure RouteType mais qui n'en décrit que les propriétés principales.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="TridentShortDescription">
+				<xs:sequence>
+					<xs:element name="name" type="xs:string" minOccurs="0"/>
+					<xs:element name="publishedName" type="xs:string" minOccurs="0"/>
+					<xs:element name="number" type="xs:string" minOccurs="0"/>
+					<xs:element name="direction" type="PTDirectionType" minOccurs="0"/>
+					<xs:element name="wayBack" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="JourneyPatternType">
+		<xs:annotation>
+			<xs:documentation>Structure qui correspond au JourneyPatternType NEPTUNE</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="TridentObjectType">
+				<xs:sequence>
+					<xs:element name="Name" type="xs:string" minOccurs="0"/>
+					<xs:element name="PublishedName" type="xs:string" minOccurs="0"/>
+					<xs:element name="RegistrationNumber" type="xs:string" minOccurs="0"/>
+					<xs:element name="Comment" type="xs:string" minOccurs="0"/>
+					<xs:element name="RouteShortDescription" type="RouteShortDescriptionType"/>
+					<xs:element name="VehicleJourneyObjectIds" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="VehicleJourneyObjectId" type="TridentIdType"
+									maxOccurs="unbounded"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="StopAreaShortDescriptions"
+						type="StopAreaShortDescriptionsType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="JourneyPatternShortDescriptionType">
+		<xs:complexContent>
+			<xs:extension base="TridentShortDescription">
+				<xs:sequence>
+					<xs:element name="Name" type="xs:string" minOccurs="0"/>
+					<xs:element name="PublishedName" type="xs:string" minOccurs="0"/>
+					<xs:element name="RegistrationNumber" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="JourneyPatternShortDescriptionsType">
+		<xs:sequence>
+			<xs:element name="JourneyPatternShortDescription"
+				type="JourneyPatternShortDescriptionType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ConnectionLinkType">
+		<xs:annotation>
+			<xs:documentation>Structure qui correspond au ConnectionLinkType NEPTUNE</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="TridentObjectType">
+				<xs:sequence>
+					<xs:element name="Name" type="xs:string" minOccurs="0"/>
+					<xs:element name="LinkDistance" type="xs:decimal" minOccurs="0"/>
+					<xs:element name="LinkType" type="ConnectionLinkTypeType" minOccurs="0"/>
+					<xs:element name="defaultDuration" type="xs:duration" minOccurs="0"/>
+					<xs:element name="FrequentTravellerDuration" type="xs:duration" minOccurs="0"/>
+					<xs:element name="OccasionalTravellerDuration" type="xs:duration" minOccurs="0"/>
+					<xs:element name="MobilityRestrictedTravellerDuration" type="xs:duration"
+						minOccurs="0"/>
+					<xs:element name="MobilityRestrictedSuitability" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="StairsAvailability" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="LiftAvailability" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="Comment" type="xs:string" minOccurs="0"/>
+					<xs:element name="StartOfLinkShortDescription"
+						type="StopAreaShortDescriptionType" minOccurs="1"/>
+					<xs:element name="EndOfLinkShortDescription" type="StopAreaShortDescriptionType"
+					/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="TimeTableType">
+		<xs:annotation>
+			<xs:documentation>Structure qui correspond au TimetableType NEPTUNE</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="TridentObjectType">
+				<xs:sequence>
+					<xs:element name="Version" type="xs:string" minOccurs="0"/>
+					<xs:element name="Comment" type="xs:string" minOccurs="0"/>
+					<xs:element name="Dates" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence maxOccurs="unbounded">
+								<xs:element name="Date" type="xs:date"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:sequence minOccurs="0">
+						<xs:element name="Monday" type="xs:boolean"/>
+						<xs:element name="Tuesday" type="xs:boolean"/>
+						<xs:element name="Wednesday" type="xs:boolean"/>
+						<xs:element name="Thursday" type="xs:boolean"/>
+						<xs:element name="Friday" type="xs:boolean"/>
+						<xs:element name="Saturday" type="xs:boolean"/>
+						<xs:element name="Sunday" type="xs:boolean"/>
+						<xs:element name="Periods" minOccurs="1" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Period" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="PeriodStart"/>
+												<xs:element name="PeriodEnd"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="VehicleJourneyType">
+		<xs:annotation>
+			<xs:documentation>Structure qui correspond au VehicleJourneyType NEPTUNE</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="TridentObjectType">
+				<xs:sequence>
+					<xs:element name="PublishedJourneyName" type="xs:string" minOccurs="0"/>
+					<xs:element name="PublishedJourneyIdentifier" type="xs:string" minOccurs="0"/>
+					<xs:element name="TransportMode" type="TransportModeNameType" minOccurs="0"/>
+					<xs:element name="VehicleTypeIdentifier" type="xs:string" minOccurs="0"/>
+					<xs:element name="StatusValue" type="ServiceStatusValueType" minOccurs="0"/>
+					<xs:element name="Facility" type="xs:string" minOccurs="0"/>
+					<xs:element name="Number" type="xs:integer" minOccurs="0"/>
+					<xs:element name="Comment" type="xs:string" minOccurs="0"/>
+					<xs:element name="RouteShortDescription" type="RouteShortDescriptionType"/>
+					<xs:element name="JourneyPatternShortDescription"
+						type="JourneyPatternShortDescriptionType"/>
+					<xs:element name="TimeTableObjectIds" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="TimeTableObjectId" type="TridentIdType"
+									maxOccurs="unbounded"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="VehicleJourneyAtStops" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="VehicleJourneyAtStop" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="Order" type="xs:positiveInteger"
+												minOccurs="0"/>
+											<xs:element name="StopAreaObjectId" type="TridentIdType"/>
+											<xs:element name="ConnectingServiceId"
+												type="TridentIdType" minOccurs="0"/>
+											<xs:element name="ArrivalTime" type="xs:time"
+												minOccurs="0"/>
+											<xs:element name="DepartureTime" type="xs:time"
+												minOccurs="0"/>
+											<xs:element name="WaitingTime" type="xs:time"
+												minOccurs="0"/>
+											<xs:element name="ElapseDuration" type="xs:duration"
+												minOccurs="0"/>
+											<xs:element name="HeadwayFrequency" type="xs:duration"
+												minOccurs="0"/>
+											<xs:element name="BoardingAlightingPossibility"
+												type="BoardingAlightingPossibilityType"
+												minOccurs="0"/>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="TransportModeNameType">
+		<xs:annotation>
+			<xs:documentation>
 		Enumeration containing all the possible transport modes
 			</xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Air"/>
-      <xs:enumeration value="Train"/>
-      <xs:enumeration value="LongDistanceTrain"/>
-      <xs:enumeration value="LongDistanceTrain_2"/>
-      <xs:enumeration value="LocalTrain"/>
-      <xs:enumeration value="RapidTransit"/>
-      <xs:enumeration value="Metro"/>
-      <xs:enumeration value="Tramway"/>
-      <xs:enumeration value="Coach"/>
-      <xs:enumeration value="Bus"/>
-      <xs:enumeration value="Ferry"/>
-      <xs:enumeration value="Waterborne"/>
-      <xs:enumeration value="PrivateVehicle"/>
-      <xs:enumeration value="Walk"/>
-      <xs:enumeration value="Trolleybus"/>
-      <xs:enumeration value="Bicycle"/>
-      <xs:enumeration value="Shuttle"/>
-      <xs:enumeration value="Taxi"/>
-      <xs:enumeration value="VAL"/>
-      <xs:enumeration value="Other"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="TridentIdType">
-    <xs:annotation>
-      <xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Air"/>
+			<xs:enumeration value="Train"/>
+			<xs:enumeration value="LongDistanceTrain"/>
+			<xs:enumeration value="LongDistanceTrain_2"/>
+			<xs:enumeration value="LocalTrain"/>
+			<xs:enumeration value="RapidTransit"/>
+			<xs:enumeration value="Metro"/>
+			<xs:enumeration value="Tramway"/>
+			<xs:enumeration value="Coach"/>
+			<xs:enumeration value="Bus"/>
+			<xs:enumeration value="Ferry"/>
+			<xs:enumeration value="Waterborne"/>
+			<xs:enumeration value="PrivateVehicle"/>
+			<xs:enumeration value="Walk"/>
+			<xs:enumeration value="Trolleybus"/>
+			<xs:enumeration value="Bicycle"/>
+			<xs:enumeration value="Shuttle"/>
+			<xs:enumeration value="Taxi"/>
+			<xs:enumeration value="VAL"/>
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TridentIdType">
+		<xs:annotation>
+			<xs:documentation>
 	Defines the way an TRIDENT ID has to be built:
 	{PeerID}:{Class name}:{Progressive integer}
 	For example: RATP:Event:12332  or  ATAC:Line:9987
       </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:pattern value="(\w|_)+:\w+:[0-9A-Za-z]+"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="SourceTypeType">
-    <xs:annotation>
-      <xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(\w|_)+:\w+:[0-9A-Za-z]+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SourceTypeType">
+		<xs:annotation>
+			<xs:documentation>
 		Enumeration containing all the possible type of information 
 source
 			</xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="AutomobileClubPatrol"/>
-      <xs:enumeration value="SpotterAircraft"/>
-      <xs:enumeration value="BreakdownService"/>
-      <xs:enumeration value="CameraObservation"/>
-      <xs:enumeration value="EmergencyServicePatrol"/>
-      <xs:enumeration value="FreightVehicleOperator"/>
-      <xs:enumeration value="InfraredMonitoringStation"/>
-      <xs:enumeration value="InductionLoopMonitoringStation"/>
-      <xs:enumeration value="MicrowaveMonitoringStation"/>
-      <xs:enumeration value="MobileTelephoneCaller"/>
-      <xs:enumeration value="OtherInformation"/>
-      <xs:enumeration value="OtherOfficialVehicle"/>
-      <xs:enumeration value="PolicePatrol"/>
-      <xs:enumeration value="PublicAndPrivateUtilities"/>
-      <xs:enumeration value="RoadAuthorities"/>
-      <xs:enumeration value="RegisteredMotoristObserver"/>
-      <xs:enumeration value="RoadsideTelephoneCaller"/>
-      <xs:enumeration value="TrafficMonitoringStation"/>
-      <xs:enumeration value="TransitOperator"/>
-      <xs:enumeration value="VideoProcessingMonitoringStation"/>
-      <xs:enumeration value="VehicleProbeMeasurement"/>
-      <xs:enumeration value="PublicTransport"/>
-      <xs:enumeration value="PassengerTransportCoordinatingAuthority"/>
-      <xs:enumeration value="TravelInformationServiceProvider"/>
-      <xs:enumeration value="TravelAgency"/>
-      <xs:enumeration value="IndividualSubjectOfTravelItinerary"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="LongitudeType">
-    <xs:restriction base="xs:decimal">
-      <xs:minInclusive value="-180"/>
-      <xs:maxInclusive value="180"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="LatitudeType">
-    <xs:restriction base="xs:decimal">
-      <xs:minInclusive value="-90"/>
-      <xs:maxInclusive value="90"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="LongLatTypeType">
-    <xs:annotation>
-      <xs:documentation>Type of geodesic reference</xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="WGS84"/>
-      <xs:enumeration value="WGS92"/>
-      <xs:enumeration value="Standard"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="ChouetteAreaType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Quay"/>
-      <xs:enumeration value="BoardingPosition"/>
-      <xs:enumeration value="CommercialStopPoint"/>
-      <xs:enumeration value="StopPlace"/>
-      <xs:enumeration value="ITL"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="PTDirectionType">
-    <xs:annotation>
-      <xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AutomobileClubPatrol"/>
+			<xs:enumeration value="SpotterAircraft"/>
+			<xs:enumeration value="BreakdownService"/>
+			<xs:enumeration value="CameraObservation"/>
+			<xs:enumeration value="EmergencyServicePatrol"/>
+			<xs:enumeration value="FreightVehicleOperator"/>
+			<xs:enumeration value="InfraredMonitoringStation"/>
+			<xs:enumeration value="InductionLoopMonitoringStation"/>
+			<xs:enumeration value="MicrowaveMonitoringStation"/>
+			<xs:enumeration value="MobileTelephoneCaller"/>
+			<xs:enumeration value="OtherInformation"/>
+			<xs:enumeration value="OtherOfficialVehicle"/>
+			<xs:enumeration value="PolicePatrol"/>
+			<xs:enumeration value="PublicAndPrivateUtilities"/>
+			<xs:enumeration value="RoadAuthorities"/>
+			<xs:enumeration value="RegisteredMotoristObserver"/>
+			<xs:enumeration value="RoadsideTelephoneCaller"/>
+			<xs:enumeration value="TrafficMonitoringStation"/>
+			<xs:enumeration value="TransitOperator"/>
+			<xs:enumeration value="VideoProcessingMonitoringStation"/>
+			<xs:enumeration value="VehicleProbeMeasurement"/>
+			<xs:enumeration value="PublicTransport"/>
+			<xs:enumeration value="PassengerTransportCoordinatingAuthority"/>
+			<xs:enumeration value="TravelInformationServiceProvider"/>
+			<xs:enumeration value="TravelAgency"/>
+			<xs:enumeration value="IndividualSubjectOfTravelItinerary"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LongitudeType">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="-180"/>
+			<xs:maxInclusive value="180"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LatitudeType">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="-90"/>
+			<xs:maxInclusive value="90"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LongLatTypeType">
+		<xs:annotation>
+			<xs:documentation>Type of geodesic reference</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="WGS84"/>
+			<xs:enumeration value="WGS92"/>
+			<xs:enumeration value="Standard"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ChouetteAreaType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Quay"/>
+			<xs:enumeration value="BoardingPosition"/>
+			<xs:enumeration value="CommercialStopPoint"/>
+			<xs:enumeration value="StopPlace"/>
+			<xs:enumeration value="ITL"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PTDirectionType">
+		<xs:annotation>
+			<xs:documentation>
 		Enumeration containing all the possible directions on a PT Network
 			</xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="North"/>
-      <xs:enumeration value="NorthEast"/>
-      <xs:enumeration value="East"/>
-      <xs:enumeration value="SouthEast"/>
-      <xs:enumeration value="South"/>
-      <xs:enumeration value="SouthWest"/>
-      <xs:enumeration value="West"/>
-      <xs:enumeration value="NorthWest"/>
-      <xs:enumeration value="ClockWise"/>
-      <xs:enumeration value="CounterClockWise"/>
-      <xs:enumeration value="A"/>
-      <xs:enumeration value="R"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="ConnectionLinkTypeType">
-    <xs:annotation>
-      <xs:documentation>Type of connection</xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Underground"/>
-      <xs:enumeration value="Mixed"/>
-      <xs:enumeration value="Overground"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="ServiceStatusValueType">
-    <xs:annotation>
-      <xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="North"/>
+			<xs:enumeration value="NorthEast"/>
+			<xs:enumeration value="East"/>
+			<xs:enumeration value="SouthEast"/>
+			<xs:enumeration value="South"/>
+			<xs:enumeration value="SouthWest"/>
+			<xs:enumeration value="West"/>
+			<xs:enumeration value="NorthWest"/>
+			<xs:enumeration value="ClockWise"/>
+			<xs:enumeration value="CounterClockWise"/>
+			<xs:enumeration value="A"/>
+			<xs:enumeration value="R"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ConnectionLinkTypeType">
+		<xs:annotation>
+			<xs:documentation>Type of connection</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Underground"/>
+			<xs:enumeration value="Mixed"/>
+			<xs:enumeration value="Overground"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ServiceStatusValueType">
+		<xs:annotation>
+			<xs:documentation>
 		Enumeration containing all the possible status of a PT service
 			</xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Normal"/>
-      <xs:enumeration value="Delayed"/>
-      <xs:enumeration value="Cancelled"/>
-      <xs:enumeration value="Disrupted"/>
-      <xs:enumeration value="ReducedService"/>
-      <xs:enumeration value="IncreasedService"/>
-      <xs:enumeration value="Rerouted"/>
-      <xs:enumeration value="NotStopping"/>
-      <xs:enumeration value="Early"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="BoardingAlightingPossibilityType">
-    <xs:annotation>
-      <xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Normal"/>
+			<xs:enumeration value="Delayed"/>
+			<xs:enumeration value="Cancelled"/>
+			<xs:enumeration value="Disrupted"/>
+			<xs:enumeration value="ReducedService"/>
+			<xs:enumeration value="IncreasedService"/>
+			<xs:enumeration value="Rerouted"/>
+			<xs:enumeration value="NotStopping"/>
+			<xs:enumeration value="Early"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BoardingAlightingPossibilityType">
+		<xs:annotation>
+			<xs:documentation>
 		Enumeration containing all the ways to board or alight a bus
 			</xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="BoardAndAlight"/>
-      <xs:enumeration value="AlightOnly"/>
-      <xs:enumeration value="BoardOnly"/>
-      <xs:enumeration value="NeitherBoardOrAlight"/>
-      <xs:enumeration value="BoardAndAlightOnRequest"/>
-      <xs:enumeration value="AlightOnRequest"/>
-      <xs:enumeration value="BoardOnRequest"/>
-    </xs:restriction>
-  </xs:simpleType>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BoardAndAlight"/>
+			<xs:enumeration value="AlightOnly"/>
+			<xs:enumeration value="BoardOnly"/>
+			<xs:enumeration value="NeitherBoardOrAlight"/>
+			<xs:enumeration value="BoardAndAlightOnRequest"/>
+			<xs:enumeration value="AlightOnRequest"/>
+			<xs:enumeration value="BoardOnRequest"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="GroupOfLines">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="GroupOfLine" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GroupOfLine" type="GroupOfLineType"/>
+	<xs:complexType name="GroupOfLineType">
+		<xs:complexContent>
+			<xs:extension base="TridentObjectType">
+				<xs:sequence>
+					<xs:element name="Name" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>name de la structure NEPTUNE associée</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="AccessPoints">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="AccessPoint" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AccessPoint" type="AccessPointType"/>
+	<xs:complexType name="AccessPointType">
+		<xs:complexContent>
+			<xs:extension base="TridentObjectType">
+				<xs:sequence>
+					<xs:element name="Longitude" type="LongitudeType" minOccurs="0"> </xs:element>
+					<xs:element name="Latitude" type="LatitudeType" minOccurs="0"> </xs:element>
+					<xs:element name="LongLatType" type="LongLatTypeType" minOccurs="0"> </xs:element>
+					<xs:element name="StreetName" type="xs:string" minOccurs="0"> </xs:element>
+					<xs:element name="CountryCode" type="xs:string" minOccurs="0"> </xs:element>
+					<xs:element name="X" type="xs:decimal" minOccurs="0"> </xs:element>
+					<xs:element name="Y" type="xs:decimal" minOccurs="0"> </xs:element>
+					<xs:element name="ProjectionType" type="xs:string" minOccurs="0"> </xs:element>
+					<xs:element name="Name" type="xs:string" minOccurs="0"> </xs:element>
+					<xs:element name="AccessType" type="xs:string" minOccurs="0"> </xs:element>
+					<xs:element name="OpenningTime" type="xs:time" minOccurs="0"> </xs:element>
+					<xs:element name="ClosingTime" type="xs:time" minOccurs="0"> </xs:element>
+					<xs:element name="MobilityRestrictedSuitability" type="xs:boolean" minOccurs="0"
+						> </xs:element>
+					<xs:element name="StairsAvailability" type="xs:boolean" minOccurs="0"> </xs:element>
+					<xs:element name="LiftAvailability" type="xs:boolean" minOccurs="0"> </xs:element>
+					<xs:element name="Comment" type="xs:string" minOccurs="0"> </xs:element>
+					<xs:element name="ContainedInShortDescription"
+						type="StopAreaShortDescriptionType" minOccurs="0"> </xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AccessPointShortDescriptionType">
+		<xs:complexContent>
+			<xs:extension base="TridentShortDescription">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="Name" type="xs:string"/>
+					<xs:element name="AccessType" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation/>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Longitude" type="LongitudeType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Latitude" type="LatitudeType" minOccurs="0"> </xs:element>
+					<xs:element name="LongLatType" type="LongLatTypeType" minOccurs="0"> </xs:element>
+					<xs:element name="ContainedInShortDescription"
+						type="StopAreaShortDescriptionType" minOccurs="0"> </xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="AccessLinks">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="AccessLink" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AccessLink" type="AccessLinkType"/>
+	<xs:complexType name="AccessLinkType">
+		<xs:complexContent>
+			<xs:extension base="TridentObjectType">
+				<xs:sequence>
+					<xs:element name="Name" type="xs:string" minOccurs="0"> </xs:element>
+					<xs:element name="LinkDistance" type="xs:decimal" minOccurs="0"> </xs:element>
+					<xs:element name="LinkType" type="xs:string" minOccurs="0"> </xs:element>
+					<xs:element name="LinkOrientation" type="xs:string"/>
+					<xs:element name="DefaultDuration" type="xs:duration" minOccurs="0"> </xs:element>
+					<xs:element name="FrequentTravellerDuration" type="xs:duration" minOccurs="0"> </xs:element>
+					<xs:element name="OccasionalTravellerDuration" type="xs:duration" minOccurs="0"> </xs:element>
+					<xs:element name="MobilityRestrictedTravellerDuration" type="xs:duration"
+						minOccurs="0"> </xs:element>
+					<xs:element name="MobilityRestrictedSuitability" type="xs:boolean" minOccurs="0"
+						> </xs:element>
+					<xs:element name="StairsAvailability" type="xs:boolean" minOccurs="0"> </xs:element>
+					<xs:element name="LiftAvailability" type="xs:boolean" minOccurs="0"> </xs:element>
+					<xs:element name="Comment" type="xs:string" minOccurs="0"> </xs:element>
+					<xs:element name="AccessPointShortDescription"
+						type="AccessPointShortDescriptionType" minOccurs="0"> </xs:element>
+					<xs:element minOccurs="0" name="StopAreaShortDescription"
+						type="StopAreaShortDescriptionType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 </xs:schema>

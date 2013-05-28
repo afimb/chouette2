@@ -66,6 +66,7 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.3.5)
       ffi (~> 1.0, >= 1.0.6)
+    choice (0.1.6)
     cocoon (1.1.2)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -211,6 +212,11 @@ GEM
       activesupport (= 3.2.6)
       bundler (~> 1.0)
       railties (= 3.2.6)
+    rails-erd (1.1.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      choice (~> 0.1.6)
+      ruby-graphviz (~> 1.0.4)
     railties (3.2.6)
       actionpack (= 3.2.6)
       activesupport (= 3.2.6)
@@ -257,6 +263,7 @@ GEM
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
       rspec-mocks (~> 2.13.0)
+    ruby-graphviz (1.0.9)
     rubyzip (0.9.9)
     sass (3.2.1)
     sass-rails (3.2.5)
@@ -347,6 +354,7 @@ DEPENDENCIES
   pg (~> 0.11.0)
   rabl
   rails (= 3.2.6)
+  rails-erd
   ransack
   rb-fsevent
   rb-inotify
