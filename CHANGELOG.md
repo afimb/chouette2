@@ -1,13 +1,10 @@
-# V2.1.a
-
-* Intégration des cartes du géoportail (IGN)
-
 # V2.0.3
 
 * Ajout des imports/export NeTex
 * Fonctionnement sous windows
 * Prise en compte de grandes quantités de calendriers.
 * Reprise des logs d'import Neptune
+* Intégration des cartes du géoportail (IGN)
 
 # V2.0.2
 
