@@ -1,12 +1,20 @@
 # Chouette2 [![Build Status](https://travis-ci.org/dryade/chouette2.png)](http://travis-ci.org/dryade/chouette2?branch=master) [![Dependency Status](https://gemnasium.com/dryade/chouette2.png)](https://gemnasium.com/dryade/chouette2) [![Code Climate](https://codeclimate.com/github/dryade/chouette2.png)](https://codeclimate.com/github/dryade/chouette2)
 
-Chouette2 is a web project in Ruby/Rails. It's designed as an [SaaS](http://en.wikipedia.org/wiki/Software_as_a_service) platform and can :
+Chouette2 is an open source web project in Ruby/Rails to edit and view transport offer. It's designed as an [SaaS](http://en.wikipedia.org/wiki/Software_as_a_service) platform and can :
 * Exchange transport data : [Neptune](http://www.chouette.mobi/spip.php?rubrique61), [GTFS](https://developers.google.com/transit/gtfs/reference?hl=fr), [NeTEx](http://www.kizoom.com/standards/netex/), CSV
 * Edit transport data
 * Validate transport data
-* Offer a Restful API in read-only
+* Offer a [Restful API](https://en.wikipedia.org/wiki/Representational_state_transfer) in read-only
 * Import and Export Data asynchronously
 * Use [multi-tenancy database](http://en.wikipedia.org/wiki/Multitenancy)
+
+It uses java library from another git project to import and export various transport data [chouette](http://github.com/dryade/chouette)
+
+Feel free to test and access to the demonstration web site at [http://www.chouette.mobi](http://www.chouette.mobi/chouette2/users/sign_in). Two types of access are granted : 
+* A demo organisation with a set of data
+  * login : demo@chouette.mobi
+  * password : chouette
+* Create your own organisation : Must follow the link "Sign up" ("S'inscrire")
 
 Requirements
 ------------
