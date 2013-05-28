@@ -31,6 +31,7 @@ sudo apt-get install postgresql
 sudo apt-get install pgadmin3 
 sudo apt-get install openjdk-7-jdk 
 sudo apt-get install git 
+sudo apt-get install unzip
 ```
 
 Installation
@@ -44,18 +45,7 @@ Get git code :
 ```sh
 cd workspace
 git clone -b V2_0_3 git://github.com/dryade/chouette2
-```
-
-Install chouette-gui-command to import and export transport offer : 
-```sh
-sudo mkdir -p /usr/local/opt/chouette-command/
-cd /usr/local/opt/chouette-command/
-
-sudo unzip /home/chouette/workspace/chouette/chouette-gui-command/target/chouette-cmd_2.0.3.zip
-sudo mv chouette-cmd_2.0.3 chouette-gui-2.0.3
-cd chouette-cmd_2.0.3
-sudo chmod a+x chouette
-sudo chmod a+w .
+cd chouette2
 ```
 
 **JRuby**
@@ -66,6 +56,16 @@ sudo apt-get install tomcat7
 sudo apt-get install proj-bin
 sudo apt-get install libproj-dev
 sudo apt-get install make
+```
+
+Install chouette-gui-command to import and export transport offer : 
+```sh
+sudo mkdir -p /usr/local/opt/chouette-command/
+cd /usr/local/opt/chouette-command/
+wget http://chouette.dryade.net/chouette-cmd_2.0.3.zip
+unzip chouette-cmd_2.0.3.zip
+cd chouette-cmd_2.0.3
+sudo chmod a+w .
 ```
 
 Build War ( Use RAILS_ENV production mode and parameters )
@@ -87,6 +87,17 @@ sudo chmod a+x /var/lib/chouette/imports /var/lib/chouette/exports /var/lib/chou
 ```
 
 **Ruby**
+Install chouette-gui-command to import and export transport offer : 
+```sh
+sudo mkdir -p tmp/chouette-command/
+cd tmp/chouette-command/
+wget http://chouette.dryade.net/chouette-cmd_2.0.3.zip
+unzip chouette-cmd_2.0.3.zip
+cd chouette-cmd_2.0.3
+sudo chmod a+w .
+```
+
+Install
 ```sh
 gem install bundler
 bundle install
