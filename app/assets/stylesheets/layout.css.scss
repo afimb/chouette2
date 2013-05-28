@@ -10,12 +10,20 @@ $text_color: #222;
 p.after_map {
   clear: both;
 }
+
+#header .infos div.version
+{
+    float: left;
+    padding: 50px 0 0 0;
+    font-weight: bold;
+    color: white;
+}
+
 #header .infos div.title
 {
-    margin: 20px 0 0 30px;
-
+    padding: 20px 0 0 150px;
     h1 {
-        font-family: "Comic Sans", "Comic Sans MS", cursive;    
+        font-family: Arial, Verdana, Helvetica, sans-serif;
         font-size: 32px;      
         font-weight: bold;
         padding: 0px;
