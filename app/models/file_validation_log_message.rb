@@ -36,7 +36,7 @@ class FileValidationLogMessage < ActiveRecord::Base
     if last_key == 'TooMuchDetails' 
       4
     else
-      last_key.count("_") + 1
+      [last_key.count("_") + 1,4].min
     end
   end
  
