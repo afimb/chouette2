@@ -28,6 +28,7 @@ en:
       EMPTY_LINE: "Line without valid vehicle journey : not exported"
       EXPORT_ERROR: "Error durring export"
       EXCEPTION: "Origin %{0}" 
+      WRONG_DATA: "Missing arguments to produce log message %{0}"
       # old report for backward compatibility
       NEPTUNE_EXPORT: "Neptune Export"
       NEPTUNE_EXPORTED_LINE: "Line %{0} (%{1}) exported"
@@ -116,6 +117,7 @@ fr:
       EMPTY_LINE: "Ligne sans course valide : non exportée"
       EXPORT_ERROR: "Erreur lors de l'export"
       EXCEPTION: "Cause %{0}" 
+      WRONG_DATA: "Il manque des données pour afficher le message de log %{0}"
       # old report for backward compatibility
       NEPTUNE_EXPORT: "Export Neptune"
       NEPTUNE_EXPORTED_LINE: "Ligne %{0} (%{1}) exportée"
