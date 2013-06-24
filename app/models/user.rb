@@ -6,12 +6,14 @@ class User < ActiveRecord::Base
          :confirmable, :invitable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name
+  attr_accessible :email, :password, :current_password, :password_confirmation, :remember_me, :name
 
   belongs_to :organisation
   
   validates_presence_of :email
+  validates_presence_of :name
   validates_presence_of :password
+  validates_presence_of :password_confirmation
 
   before_validation(:on => :create) do
     self.password ||= Devise.friendly_token.first(6)
