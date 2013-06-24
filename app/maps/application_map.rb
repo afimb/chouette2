@@ -49,8 +49,14 @@ class ApplicationMap
 
   def map
     @map ||= MapLayers::Map.new(id, :projection => projection("EPSG:900913"), :controls => controls) do |map, page|
+      if self.geoportail_key
+        page << map.add_layer(geoportail_ortho_wmts)
+        page << map.add_layer(geoportail_scans_wmts)
+        page << map.add_layer(geoportail_cadastre_wmts)
+      end
+
       page << map.add_layer(MapLayers::OSM_MAPNIK)
-      page << map.add_layer(geoportail_wmts) if self.geoportail_key
+      #page << map.add_layers([geoportail_scans, geoportail_ortho]) 
       page << map.add_layer(google_physical) 
       page << map.add_layer(google_streets) 
       page << map.add_layer(google_hybrid) 
@@ -74,15 +80,29 @@ class ApplicationMap
   def kml
     OpenLayers::Format::KML.new :extractStyles => true, :extractAttributes => true, :maxDepth => 2
   end
+  def geoportail_cadastre_wmts
+    OpenLayers::Layer::WMTS.new( geoportail_options.update(:name => I18n.t("maps.ign_cadastre"),
+        :format => "image/png",
+        :layer => "CADASTRALPARCELS.PARCELS"))
+  end
 
-  def geoportail_wmts
-      OpenLayers::Layer::WMTS.new :name => I18n.t("maps.ign_map"),
-        :url => "http://gpp3-wxs.ign.fr/#{self.geoportail_key}/wmts",
-        :layer => "GEOGRAPHICALGRIDSYSTEMS.MAPS",
+  def geoportail_ortho_wmts
+    OpenLayers::Layer::WMTS.new( geoportail_options.update(:name => I18n.t("maps.ign_ortho"),
+        :layer => "ORTHOIMAGERY.ORTHOPHOTOS"))
+  end
+
+  def geoportail_scans_wmts
+    OpenLayers::Layer::WMTS.new( geoportail_options.update(:name => I18n.t("maps.ign_map"),
+        :layer => "GEOGRAPHICALGRIDSYSTEMS.MAPS"))
+  end
+
+  def geoportail_options
+    { :url => "http://gpp3-wxs.ign.fr/#{self.geoportail_key}/wmts",
         :matrixSet => "PM",
         :style => "normal",
         :numZoomLevels => 19,
-	:attribution => 'Map base: &copy;IGN <a href="http://www.geoportail.fr/" target="_blank"><img src="http://api.ign.fr/geoportail/api/js/2.0.0beta/theme/geoportal/img/logo_gp.gif"></a> <a href="http://www.geoportail.gouv.fr/depot/api/cgu/licAPI_CGUF.pdf" alt="TOS" title="TOS" target="_blank">Terms of Service</a>'
+        :group => "IGN",
+	:attribution => 'Map base: &copy;IGN <a href="http://www.geoportail.fr/" target="_blank"><img src="http://api.ign.fr/geoportail/api/js/2.0.0beta/theme/geoportal/img/logo_gp.gif"></a> <a href="http://www.geoportail.gouv.fr/depot/api/cgu/licAPI_CGUF.pdf" alt="TOS" title="TOS" target="_blank">Terms of Service</a>'}
   end
 
   def strategy_fixed
@@ -90,20 +110,20 @@ class ApplicationMap
   end
 
   def google_physical
-    OpenLayers::Layer::Google.new("Google Physical",
+    OpenLayers::Layer::Google.new(I18n.t("maps.google_physical"),
                       :type => :"google.maps.MapTypeId.TERRAIN")
   end
 
   def google_streets
-    OpenLayers::Layer::Google.new "Google Streets", :numZoomLevels => 20
+    OpenLayers::Layer::Google.new I18n.t("maps.google_streets"), :numZoomLevels => 20
   end
 
   def google_hybrid
-    OpenLayers::Layer::Google.new "Google Hybrid", :type => :"google.maps.MapTypeId.HYBRID", :numZoomLevels => 20
+    OpenLayers::Layer::Google.new I18n.t("maps.google_hybrid"), :type => :"google.maps.MapTypeId.HYBRID", :numZoomLevels => 20
   end
   
   def google_satellite
-    OpenLayers::Layer::Google.new "Google Satellite", :type => :"google.maps.MapTypeId.SATELLITE", :numZoomLevels => 22
+    OpenLayers::Layer::Google.new I18n.t("maps.google_satellite"), :type => :"google.maps.MapTypeId.SATELLITE", :numZoomLevels => 22
   end
 
   def hover_control_display_name(layer)
