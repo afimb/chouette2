@@ -31,7 +31,12 @@ class ImportLogMessage < ActiveRecord::Base
  
   def full_message
     last_key=key.rpartition("|").last
-    I18n.translate last_key, arguments.symbolize_keys.merge(:scope => "import_log_messages.messages").merge(:default => :undefined).merge(:key => last_key)
+    begin
+      I18n.translate last_key, arguments.symbolize_keys.merge(:scope => "import_log_messages.messages").merge(:default => :undefined).merge(:key => last_key)
+    rescue => e
+      Rails.logger.error "missing arguments for message "+last_key
+      I18n.translate "WRONG_DATA",{"0"=>last_key}.symbolize_keys.merge(:scope => "import_log_messages.messages").merge(:default => :undefined).merge(:key => "WRONG_DATA")
+    end
   end
 
 end

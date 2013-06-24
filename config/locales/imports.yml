@@ -51,6 +51,7 @@ en:
       SAVE_ERROR: "%{0} save failed : %{1}"
       IMPORT_ERROR: "Import Error"
       EXCEPTION: "Problem : %{0}"
+      WRONG_DATA: "Missing arguments to produce log message %{0}"
       # old Import reports (before 2.0.3)
       SAVE: "Save" 
       NEPTUNE_ONE: "Conformité du fichier"
@@ -195,6 +196,7 @@ fr:
       SAVE_ERROR: "Echec de l'enregistrement de %{0} : %{1}"
       IMPORT_ERROR: "Erreur d'import"
       EXCEPTION: "Problème : %{0}"
+      WRONG_DATA: "Il manque des données pour afficher le message de log %{0}"
       # old Import reports (before 2.0.3)
       SAVE: "Sauvegarde" 
       NEPTUNE_ONE: "Conformité du fichier"
