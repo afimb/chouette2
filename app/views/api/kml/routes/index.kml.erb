@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+  <% @routes.each do |route| %>
+    <Placemark id="<%= route.objectid %>:StopAreas" >
+      <%= route.geometry_presenter.stop_areas_geometry.kml_representation.html_safe %>
+    </Placemark>
+    <Placemark id="<%= route.objectid %>" >
+      <objectid><%= route.objectid %></objectid>
+      <object_version><%= route.object_version %></object_version>
+      <creation_time><%= route.creation_time %></creation_time>
+      <creator_id><%= route.creator_id %></creator_id>
+      <name><%= route.name %></name>
+      <direction_code><%= route.direction_code %></direction_code>
+      <comment><%= route.comment %></comment>
+      <published_name><%= route.published_name %></published_name>
+      <number><%= route.number %></number>
+      <direction><%= route.direction %></direction>
+      <wayback><%= route.wayback %></wayback>
+      <%= route.geometry_presenter.geometry.kml_representation.html_safe %>
+    </Placemark>
+  <% end %>
+  </Document>
+</kml>
+

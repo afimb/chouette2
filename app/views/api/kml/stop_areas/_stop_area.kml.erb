@@ -1,0 +1,21 @@
+      <objectid><%= stop_area.objectid.to_s.html_safe %></objectid>
+      <object_version><%= stop_area.object_version.to_s.html_safe %></object_version>
+      <creation_time><%= stop_area.creation_time.to_s.html_safe %></creation_time>
+      <creator_id><%= stop_area.creator_id.to_s.html_safe %></creator_id>
+      <name><%= stop_area.name.to_s.html_safe %></name>
+      <comment><%= stop_area.comment.to_s.html_safe %></comment>
+      <area_type><%= stop_area.area_type.to_s.html_safe %></area_type>
+      <registration_number><%= stop_area.registration_number.to_s.html_safe %></registration_number>
+      <nearest_topic_name><%= stop_area.nearest_topic_name.to_s.html_safe %></nearest_topic_name>
+      <fare_code><%= stop_area.fare_code.to_s.html_safe %></fare_code>
+      <longitude><%= stop_area.longitude.to_s.html_safe %></longitude>
+      <latitude><%= stop_area.latitude.to_s.html_safe %></latitude>
+      <long_lat_type><%= stop_area.long_lat_type.to_s.html_safe %></long_lat_type>
+      <x><%= stop_area.x.to_s.html_safe %></x>
+      <y><%= stop_area.y.to_s.html_safe %></y>
+      <projection_type><%= stop_area.projection_type.to_s.html_safe %></projection_type>
+      <country_code><%= stop_area.country_code.to_s.html_safe %></country_code>
+      <street_name><%= stop_area.street_name.to_s.html_safe %></street_name>
+    
+      <%= stop_area.geometry_presenter.geometry.kml_representation.html_safe %>
+

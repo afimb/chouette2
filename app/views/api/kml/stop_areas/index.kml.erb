@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+
+  <Document>
+  <% @places.each do |stop_area| %>
+    <Placemark id="<%= stop_area.objectid %>:Places" >
+    <%= render :partial => "stop_area", :locals => { :stop_area => stop_area} %>
+    </Placemark>
+  <% end %>
+  <% @commercials.each do |stop_area| %>
+    <Placemark id="<%= stop_area.objectid %>:Commercials" >
+    <%= render :partial => "stop_area", :locals => { :stop_area => stop_area} %>
+    </Placemark>
+  <% end %>
+  <% @physicals.each do |stop_area| %>
+    <Placemark id="<%= stop_area.objectid %>:Physicals" >
+    <%= render :partial => "stop_area", :locals => { :stop_area => stop_area} %>
+    </Placemark>
+  <% end %>
+  </Document>
+</kml>
+
