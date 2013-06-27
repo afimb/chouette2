@@ -104,7 +104,7 @@ ChouetteIhm::Application.configure do
   if ENV['OS'] == 'Windows_NT'
     config.to_prepare do
       Devise::Mailer.layout "mailer"
-      Chouette::Command.command = "C:/chouette/chouette-cmd_2.0.3/chouette.bat"
+      Chouette::Command.command = "C:/chouette/chouette-cmd_2.1.0/chouette.bat"
       Import.root = "C:/chouette/chouette/imports"
       Export.root = "C:/chouette/chouette/exports"
       FileValidation.root = "C:/chouette/chouette/validations"
@@ -112,7 +112,7 @@ ChouetteIhm::Application.configure do
   else
     config.to_prepare do
       Devise::Mailer.layout "mailer"
-      Chouette::Command.command = "/usr/local/opt/chouette-command/chouette-cmd_2.0.3/chouette"
+      Chouette::Command.command = "/usr/local/opt/chouette-command/chouette-cmd_2.1.0/chouette"
       Import.root = "/var/lib/chouette/imports"
       Export.root = "/var/lib/chouette/exports"
       FileValidation.root = "/var/lib/chouette/validations"
