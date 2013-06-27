@@ -10,17 +10,15 @@ module Api
     protected
 
       def collection
-        @commercials = []
-        @places = []
-        @physicals = []
-        referential.stop_areas.select {|sa| sa.longitude && sa.latitude}.each do |sa|
-          case sa.area_type
+        @stop_areas ||= referential.stop_areas.select {|sa| sa.longitude && sa.latitude}.select do |sa|
+          case params[ :category]
           when "StopPlace"
-            @places << sa
+            sa.area_type == "StopPlace"
           when "CommercialStopPoint"
-            @commercials << sa
-          when "BoardingPosition", "Quay"
-            @physicals << sa
+            sa.area_type == "CommercialStopPoint"
+          when "Physical"
+            sa.area_type == "BoardingPosition" ||
+              sa.area_type == "Quay"
           end
         end
       end
