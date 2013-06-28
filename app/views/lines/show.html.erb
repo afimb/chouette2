@@ -72,6 +72,8 @@
   <li><%= link_to  t('lines.actions.destroy'), referential_line_path(@referential, @line), :method => :delete, :data => {:confirm =>  t('lines.actions.destroy_confirm')}, :class => "remove" %></li>
   <li><%= link_to t('routes.actions.new'), new_referential_line_route_path(@referential, @line), :class => "add" %></li> 
   <br>
+  <li><%= link_to t('lines.actions.export_kml'), api_kml_referential_line_path(@referential, @line, :format => :kml), :class => "kml" %></li>
+  <li><%= link_to t('routes.actions.export_kml_all'), api_kml_referential_line_routes_path(@referential, @line, :format => :kml), :class => "kml" %></li>
 </ul>
   <%= creation_tag(@line) %>
 <% end %>

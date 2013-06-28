@@ -5,6 +5,8 @@ en:
       edit: "Edit this route"
       destroy: "Remove this route"
       destroy_confirm: "Are you sure you want destroy this route?"
+      export_kml: "Export KML route"
+      export_kml_all: "Export KML routes"
     new:
       title: "Add a new route"
     edit:
@@ -64,6 +66,8 @@ fr:
       edit: "Modifier cette séquence d'arrêts"
       destroy: "Supprimer cette séquence d'arrêts"
       destroy_confirm: "Etes vous sûr de détruire cette séquence d'arrêts ?"
+      export_kml: "Export KML de l'itinéraire"
+      export_kml_all: "Export KML des itinéraires"
     new:
       title: "Ajouter une séquence d'arrêts"
     edit:
