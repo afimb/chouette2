@@ -1,3 +1,28 @@
+GIT
+  remote: git://github.com/dryade/georuby-ext.git
+  revision: 014bb8903d08bdf9fb946e06ac757c8213158b88
+  specs:
+    georuby-ext (0.0.2)
+      activesupport
+      dbf
+      dr-ffi-proj4 (= 0.0.1)
+      ffi-geos (= 0.1.1)
+      geokit
+      georuby (= 1.9.8)
+      json_pure
+      nokogiri (= 1.5.10)
+      rgeo (= 0.3.20)
+
+GIT
+  remote: git://github.com/dryade/ninoxe.git
+  revision: 6aeb68e174b35f70c368997282923f95f0d31299
+  specs:
+    ninoxe (0.1.2)
+      activerecord (~> 3.1)
+      acts_as_list (~> 0.1.6)
+      foreigner (= 1.4.0)
+      georuby-ext (= 0.0.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -75,7 +100,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.3.3)
-    dbf (2.0.3)
+    dbf (2.0.4)
       fastercsv (~> 1.5.4)
     delayed_job (3.0.3)
       activesupport (~> 3.0)
@@ -115,16 +140,6 @@ GEM
     geokit (1.6.5)
       multi_json
     georuby (1.9.8)
-    georuby-ext (0.0.2)
-      activesupport
-      dbf
-      dr-ffi-proj4 (= 0.0.1)
-      ffi-geos (= 0.1.1)
-      geokit
-      georuby (= 1.9.8)
-      json_pure
-      nokogiri
-      rgeo (= 0.3.20)
     gravatar_image_tag (1.1.3)
     guard (1.3.2)
       listen (>= 0.4.2)
@@ -152,7 +167,7 @@ GEM
       jruby-rack (>= 1.1.1)
     json (1.7.7)
     json (1.7.7-java)
-    json_pure (1.7.7)
+    json_pure (1.8.0)
     launchy (2.1.0)
       addressable (~> 2.2.6)
     launchy (2.1.0-java)
@@ -173,7 +188,7 @@ GEM
     map_layers (0.0.4)
     mime-types (1.19)
     modernizr-rails (2.0.6)
-    multi_json (1.7.2)
+    multi_json (1.7.7)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -181,13 +196,8 @@ GEM
     net-ssh (2.6.2)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
-    ninoxe (0.1.2)
-      activerecord (>= 3.1.3)
-      acts_as_list (= 0.1.6)
-      foreigner (= 1.4.0)
-      georuby-ext (= 0.0.2)
-    nokogiri (1.5.9)
-    nokogiri (1.5.9-java)
+    nokogiri (1.5.10)
+    nokogiri (1.5.10-java)
     open4 (1.3.0)
     orm_adapter (0.4.0)
     pg (0.11.0)
@@ -338,7 +348,7 @@ DEPENDENCIES
   dr-apartment
   factory_girl_rails (= 1.7)
   formtastic
-  georuby-ext (= 0.0.2)
+  georuby-ext!
   gravatar_image_tag
   guard
   guard-rspec
@@ -350,7 +360,7 @@ DEPENDENCIES
   launchy
   map_layers (= 0.0.4)
   modernizr-rails (~> 2.0.6)
-  ninoxe (= 0.1.2)
+  ninoxe!
   pg (~> 0.11.0)
   rabl
   rails (= 3.2.6)

@@ -11,9 +11,9 @@
       <longitude><%= stop_area.longitude.to_s.html_safe %></longitude>
       <latitude><%= stop_area.latitude.to_s.html_safe %></latitude>
       <long_lat_type><%= stop_area.long_lat_type.to_s.html_safe %></long_lat_type>
-      <x><%= stop_area.x.to_s.html_safe %></x>
-      <y><%= stop_area.y.to_s.html_safe %></y>
-      <projection_type><%= stop_area.projection_type.to_s.html_safe %></projection_type>
+      <x><%= stop_area.projection_x.to_s.html_safe %></x>
+      <y><%= stop_area.projection_y.to_s.html_safe %></y>
+      <projection_type><%= stop_area.projection.to_s.html_safe %></projection_type>
       <country_code><%= stop_area.country_code.to_s.html_safe %></country_code>
       <street_name><%= stop_area.street_name.to_s.html_safe %></street_name>
     

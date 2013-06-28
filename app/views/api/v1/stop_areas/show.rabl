@@ -3,7 +3,7 @@ extends "api/v1/trident_objects/show"
 
 [ :name, :area_type,:nearest_topic_name, :fare_code, :registration_number, 
   :longitude, :latitude, :long_lat_type,
-  :country_code, :street_name, :x, :y, :projection_type, :comment
+  :country_code, :street_name, :projection_x, :projection_y, :projection, :comment
 ].each do |attr|
   attributes attr, :unless => lambda { |m| m.send( attr).nil?}
 end
