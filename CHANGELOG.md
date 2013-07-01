@@ -3,7 +3,10 @@
 * suppression des coordonnées projetées en base
 ** les données sont produites à la volée pour l'export et l'affichage à partir de la projection fixée dans le référentiel
 * consolidation de l'import GTFS
-* ajout d'un export KML 
+* ajout d'un export KML :
+** lignes
+** séquences d'arrêt
+** arrêts
 
 # V2.0.3 (27/05/13)
 

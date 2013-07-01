@@ -1,6 +1,6 @@
 <%= title_tag t('access_points.show.title', :access_point => @access_point.name) %>
 <div class="access_point_show">
-  <% if @access_point.projection_type != nil || @access_point.long_lat_type != nil %>
+  <% if @access_point.long_lat_type != nil %>
     <%= @map.to_html %>
   <% end %>  
   <div class="summary">
@@ -53,7 +53,7 @@
       <%= t((@access_point.lift_availability == true).to_s) %>
     </p>
     <p> <label><%= t('access_points.show.geographic_data') %> </label></p>
-    <% if @access_point.projection_type == nil && @access_point.long_lat_type == nil %>
+    <% if @access_point.long_lat_type == nil %>
 	    <span class='geo_data'><%= t('access_points.show.no_geographic_data') %></span>
     <% else %>
 	    <% if !@access_point.projection.nil? %>

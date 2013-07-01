@@ -16,6 +16,9 @@ en:
       add_routing_lines: "Manage constraint's lines"
       add_routing_stops: "Manage constraint's stops"
       default_geometry: "Compute missing geometries"
+      export_kml_place: "Export KML places"
+      export_kml_commercial: "Export KML commercial stop points"
+      export_kml_physical: "Export KML physical"
     new:
       title: "Add a new stop"
     edit:
@@ -76,7 +79,7 @@ en:
         objectid: "Neptune identifier"
         object_version: "Version"
         creation_time: "Created on"
-        creatorid: Created by 
+        creatorid: "Created by"
         children_ids: "Children" 
         routing_stop_ids: "Attached stops"
         routing_line_ids: "Attached lines"
@@ -106,6 +109,9 @@ fr:
       manage_access_links: "Gérer les liens arrêt-accès"
       add_children: "Gérer les fils"
       default_geometry: "Calculer les géométries manquantes"
+      export_kml_place: "Export KML des pôles d'échange"
+      export_kml_commercial: "Export KML des arrêts commerciaux"
+      export_kml_physical: "Export KML des arrêts physiques"
     new:
       title: "Ajouter un arrêt"
     edit:

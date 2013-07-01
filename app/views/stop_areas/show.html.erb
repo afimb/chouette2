@@ -39,7 +39,7 @@
     </p>
     <% if !manage_itl %>
 	    <p> <label><%= t('stop_areas.show.geographic_data') %> </label></p>
-	    <% if @stop_area.projection_type == nil && @stop_area.long_lat_type == nil %>
+	    <% if @stop_area.long_lat_type == nil %>
 		    <span class='geo_data'><%= t('stop_areas.show.no_geographic_data') %></span>
 	    <% else %>
 		    <% if !@stop_area.projection.nil? %>
