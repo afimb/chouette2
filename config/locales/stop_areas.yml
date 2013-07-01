@@ -110,7 +110,7 @@ fr:
       add_children: "Gérer les fils"
       default_geometry: "Calculer les géométries manquantes"
       export_kml_place: "Export KML des pôles d'échange"
-      export_kml_commercial: "Export KML des arrêt commerciaux"
+      export_kml_commercial: "Export KML des arrêts commerciaux"
       export_kml_physical: "Export KML des arrêts physiques"
     new:
       title: "Ajouter un arrêt"

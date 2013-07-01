@@ -44,7 +44,7 @@ Install [JRuby] (https://github.com/dryade/chouette2/blob/master/doc/install/jru
 Get git code : 
 ```sh
 cd workspace
-git clone -b V2_0_3 git://github.com/dryade/chouette2
+git clone -b V2_1_0 git://github.com/dryade/chouette2
 cd chouette2
 ```
 
@@ -62,9 +62,9 @@ Install chouette-gui-command to import and export transport offer :
 ```sh
 sudo mkdir -p /usr/local/opt/chouette-command/
 cd /usr/local/opt/chouette-command/
-wget http://chouette.dryade.net/chouette-cmd_2.0.3.zip
-unzip chouette-cmd_2.0.3.zip
-cd chouette-cmd_2.0.3
+wget http://chouette.dryade.net/chouette-cmd_2.1.0.zip
+unzip chouette-cmd_2.1.0.zip
+cd chouette-cmd_2.1.0
 sudo chmod a+w .
 ```
 
@@ -91,9 +91,9 @@ Install chouette-gui-command to import and export transport offer :
 ```sh
 sudo mkdir -p tmp/chouette-command/
 cd tmp/chouette-command/
-wget http://chouette.dryade.net/chouette-cmd_2.0.3.zip
-unzip chouette-cmd_2.0.3.zip
-cd chouette-cmd_2.0.3
+wget http://chouette.dryade.net/chouette-cmd_2.1.0.zip
+unzip chouette-cmd_2.1.0.zip
+cd chouette-cmd_2.1.0
 sudo chmod a+w .
 ```
 
