@@ -5,7 +5,7 @@ module StopAreasHelper
   end
  
   def show_map?
-    manage_itl || @stop_area.projection_type != nil || @stop_area.long_lat_type != nil
+    manage_itl || @stop_area.long_lat_type != nil
   end  
 
   def manage_access_points

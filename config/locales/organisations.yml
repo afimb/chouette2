@@ -15,7 +15,7 @@ en:
 fr:
   organisations:
     actions:
-      edit: "Mofifier votre organisation"
+      edit: "Modifier votre organisation"
     edit:
       title: "Modifier votre organisation"
       key_registered: "Clé enregistrée"
