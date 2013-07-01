@@ -2,7 +2,7 @@ object @access_point
 extends "api/v1/trident_objects/show"
 
 [ :longitude, :latitude, :long_lat_type, :street_name, :country_code, 
-    :x , :y , :projection_type, :name, :access_type, 
+    :projection_x , :projection_y , :projection, :name, :access_type, 
     :openning_time, :closing_time, 
     :mobility_restricted_suitability, :stairs_availability, :lift_availability, :comment].each do |attr|
   attributes attr, :unless => lambda { |m| m.send( attr).nil?}

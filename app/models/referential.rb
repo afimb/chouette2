@@ -192,6 +192,9 @@ Rails.application.config.after_initialize do
   Chouette::StopArea
   
   class Chouette::StopArea
+    
+    attr_accessible :projection_x,:projection_y
+    
     # override default_position method to add referential envelope when no stoparea is positioned
     def default_position 
       # for first StopArea ... the bounds is nil , set to referential center 
@@ -206,24 +209,59 @@ Rails.application.config.after_initialize do
       else
         self.long_lat_type = nil
       end
-      if ! self.referential.projection_type.nil? && !self.referential.projection_type.empty?
-        if ! self.x.nil?  && ! self.y.nil?
-          self.projection_type = referential.projection_type_label
-        else
-          self.projection_type = nil
-        end
+#      if ! self.referential.projection_type.nil? && !self.referential.projection_type.empty?
+#        if ! self.x.nil?  && ! self.y.nil?
+#          self.projection_type = referential.projection_type_label
+#        else
+#          self.projection_type = nil
+#        end
+#      else
+#          self.projection_type = nil
+#          self.x = nil
+#          self.y = nil
+#      end
+    end
+    
+    def projection
+      if self.referential.projection_type.nil? || self.referential.projection_type.empty? 
+        nil
       else
-          self.projection_type = nil
-          self.x = nil
-          self.y = nil
+        self.referential.projection_type
       end
     end
+    @point = nil
+
+    def projection_x
+      if self.long_lat_type.nil? || self.projection.nil?
+        nil
+      else
+        @point ||= GeoRuby::SimpleFeatures::Point::from_lat_lng(Geokit::LatLng.new(self.latitude,self.longitude)).project_to(self.projection.to_i)
+        
+        @point.x
+      end
+    end
+    def projection_y
+      if self.long_lat_type.nil? || self.projection.nil?
+        nil
+      else
+        @point ||= GeoRuby::SimpleFeatures::Point::from_lat_lng(Geokit::LatLng.new(self.latitude,self.longitude)).project_to(self.projection.to_i)
+        @point.y
+      end
+    end
+    def projection_x=(dummy)
+      # dummy method
+    end
+    def projection_y=(dummy)
+      # dummy method
+    end
+ 
   end
 
   Chouette::AccessPoint
   
   class Chouette::AccessPoint
-     
+    attr_accessible :projection_x,:projection_y
+
     # add projection_type set on pre-insert and pre_update action
     before_validation :set_projections
     def set_projections
@@ -232,18 +270,51 @@ Rails.application.config.after_initialize do
       else
         self.long_lat_type = nil
       end
-      if ! self.referential.projection_type.nil? && !self.referential.projection_type.empty?
-        if ! self.x.nil?  && ! self.y.nil?
-          self.projection_type = referential.projection_type_label
-        else
-          self.projection_type = nil
-        end
+#      if ! self.referential.projection_type.nil? && !self.referential.projection_type.empty?
+#        if ! self.x.nil?  && ! self.y.nil?
+#          self.projection_type = referential.projection_type_label
+#        else
+#          self.projection_type = nil
+#        end
+#      else
+#          self.projection_type = nil
+#          self.x = nil
+#          self.y = nil
+#      end
+    end
+    
+    def projection
+      if self.referential.projection_type.nil? || self.referential.projection_type.empty? 
+        nil
       else
-          self.projection_type = nil
-          self.x = nil
-          self.y = nil
+        self.referential.projection_type
       end
     end
-  end
+    @point = nil
 
+    def projection_x
+      if self.long_lat_type.nil? || self.projection.nil?
+        nil
+      else
+        @point ||= GeoRuby::SimpleFeatures::Point::from_lat_lng(Geokit::LatLng.new(self.latitude,self.longitude)).project_to(self.projection.to_i)
+        
+        @point.x
+      end
+    end
+    def projection_y
+      if self.long_lat_type.nil? || self.projection.nil?
+        nil
+      else
+        @point ||= GeoRuby::SimpleFeatures::Point::from_lat_lng(Geokit::LatLng.new(self.latitude,self.longitude)).project_to(self.projection.to_i)
+        @point.y
+      end
+    end
+    def projection_x=(dummy)
+      # dummy method
+    end
+    def projection_y=(dummy)
+      # dummy method
+    end
+  end
+ 
 end

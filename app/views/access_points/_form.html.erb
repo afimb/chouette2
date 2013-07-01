@@ -26,8 +26,8 @@
     <%= form.inputs :name => t('access_points.show.geographic_data') do %> 
       <% if ! @referential.projection_type_label.empty? %>
         <%= form.inputs :name => @referential.projection_type_label do %> 
-          <%= form.input :x %>
-          <%= form.input :y %>
+          <%= form.input :projection_x %>
+          <%= form.input :projection_y %>
         <% end %>
       <% end %>
       <%= form.inputs :name => "WGS84" do %> 

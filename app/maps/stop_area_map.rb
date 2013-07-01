@@ -40,8 +40,8 @@ class StopAreaMap < ApplicationMap
                             if(referential_projection != undefined)
                             {
                               projection_geometry = event.feature.geometry.clone().transform(new OpenLayers.Projection("EPSG:900913"), referential_projection );
-                              $('#stop_area_x').val(projection_geometry.x);
-                              $('#stop_area_y').val(projection_geometry.y);                                                   }
+                              $('#stop_area_projection_x').val(projection_geometry.x);
+                              $('#stop_area_projection_y').val(projection_geometry.y);                                                   }
                            }
                         });
 EOF

@@ -36,8 +36,8 @@ class AccessPointMap < ApplicationMap
                             if(referential_projection != undefined)
                             {
                               projection_geometry = event.feature.geometry.clone().transform(new OpenLayers.Projection("EPSG:900913"), referential_projection );
-                              $('#access_point_x').val(projection_geometry.x);
-                              $('#access_point_y').val(projection_geometry.y);                                                   }
+                              $('#access_point_projection_x').val(projection_geometry.x);
+                              $('#access_point_projection_y').val(projection_geometry.y);                                                   }
                            }
                         });
 EOF
