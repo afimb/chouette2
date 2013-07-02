@@ -59,7 +59,7 @@
 	    <% if !@access_point.projection.nil? %>
 	    <p>
 	      <span class='geo_data'><%= @access_point.human_attribute_name("projection") %>: </span>
-	      <%= @access_point.projection %>
+	      <%= @referential.projection_type_label %>
 	    </p>
 	    <p>
 	      <span class='geo_data'><%= @access_point.human_attribute_name("projection_x") %>: </span>

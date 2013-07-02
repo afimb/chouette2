@@ -45,7 +45,7 @@
 		    <% if !@stop_area.projection.nil? %>
 		    <p>
 		      <span class='geo_data'><%= @stop_area.human_attribute_name("projection") %>: </span>
-		      <%= @stop_area.projection %>
+		      <%= @referential.projection_type_label %>
 		    </p>
 		    <p>
 		      <span class='geo_data'><%= @stop_area.human_attribute_name("projection_x") %>: </span>
