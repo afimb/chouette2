@@ -137,10 +137,13 @@ class Export < ActiveRecord::Base
   end
 
   def self.format_name(format)
-    name_by_format = { "NeptuneExport" => "Neptune",
-                       "CsvExport" => "CSV",
-                       "GtfsExport" => "GTFS",
-                       "NetexExport" => "NeTEx"}
+    name_by_format = { 
+      "NeptuneExport" => "Neptune",
+      "CsvExport" => "CSV",
+      "GtfsExport" => "GTFS",
+      "NetexExport" => "NeTEx",
+      "KmlExport" => "KML"
+    }
     name_by_format[format]
   end
 
@@ -149,7 +152,7 @@ class Export < ActiveRecord::Base
       subclasses.map(&:to_s)
     else
       # FIXME
-      %w{NeptuneExport CsvExport GtfsExport NetexExport}
+      %w{NeptuneExport CsvExport GtfsExport NetexExport KmlExport}
     end
   end
 

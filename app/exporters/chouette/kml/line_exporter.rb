@@ -11,10 +11,14 @@ class Chouette::Kml::LineExporter
     ERB.new(@template).result(binding)
   end
 
-  def save(file)
-    File.open(file, "w+") do |f|
+  def kml_name
+    "/line_#{line.id}.kml"
+  end
+
+  def save(directory)
+    File.open(directory + kml_name , "w+") do |f|
       f.write(render)
-    end
+    end if line.present?
   end
 end
 

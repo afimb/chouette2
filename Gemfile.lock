@@ -13,9 +13,8 @@ GIT
       nokogiri (= 1.5.10)
       rgeo (= 0.3.20)
 
-GIT
-  remote: git://github.com/dryade/ninoxe.git
-  revision: 6aeb68e174b35f70c368997282923f95f0d31299
+PATH
+  remote: /home/luc/projects/ninoxe
   specs:
     ninoxe (0.1.2)
       activerecord (~> 3.1)
@@ -100,7 +99,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.3.3)
-    dbf (2.0.4)
+    dbf (2.0.5)
       fastercsv (~> 1.5.4)
     delayed_job (3.0.3)
       activesupport (~> 3.0)
@@ -371,6 +370,7 @@ DEPENDENCIES
   remarkable (~> 4.0.0.alpha4)
   remarkable_activerecord (~> 4.0.0.alpha4)
   rspec-rails (~> 2.0)
+  rubyzip
   sass-rails (~> 3.2.3)
   shoulda-matchers
   sqlite3

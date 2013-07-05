@@ -46,7 +46,7 @@ describe Export do
   describe ".types" do
     
     it "should return available Export implementations" do
-      Export.types.should =~ %w{NeptuneExport CsvExport GtfsExport NetexExport}
+      Export.types.should =~ %w{NeptuneExport CsvExport GtfsExport NetexExport KmlExport}
     end
 
   end
