@@ -9,7 +9,7 @@ class Import < ActiveRecord::Base
   attr_accessor :resources
   attr_accessor :loader
 
-  has_many :log_messages, :class_name => "ImportLogMessage", :order => :position, :dependent => :destroy
+  has_many :log_messages, :class_name => "ImportLogMessage", :order => :position, :dependent => :delete_all
 
   serialize :options
 
