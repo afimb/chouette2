@@ -13,8 +13,9 @@ GIT
       nokogiri (= 1.5.10)
       rgeo (= 0.3.20)
 
-PATH
-  remote: /home/luc/projects/ninoxe
+GIT
+  remote: git://github.com/dryade/ninoxe.git
+  revision: 3b2dea4584e6ce4206ac71afac596efd6ba19680
   specs:
     ninoxe (0.1.2)
       activerecord (~> 3.1)
