@@ -72,6 +72,8 @@ class Export < ActiveRecord::Base
     FileUtils.mkdir_p root
 
     begin
+      # delayed job may repeat call
+      ExportLogMessage.where(:export_id => self.id).delete_all 
       log_messages.create :key => :started
 
       exporter.export file, export_options

@@ -1,7 +1,7 @@
 class Chouette::Kml::Exporter 
 
-  def initialize()
-
+  def initialize(referential)
+    @referential = referential
   end
 
   def lines(object, ids)
@@ -17,8 +17,9 @@ class Chouette::Kml::Exporter
   end
 
   def export(zip_file_path, options = {})    
-
     begin       
+      @referential.switch
+
       FileUtils.rm(zip_file_path) if File.exists? zip_file_path        
 
       Dir.mktmpdir{ |temp_dir|

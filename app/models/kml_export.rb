@@ -5,7 +5,7 @@ class KmlExport < Export
   end
 
   def exporter
-    exporter ||= ::Chouette::Kml::Exporter.new()
+    exporter ||= ::Chouette::Kml::Exporter.new(referential)
   end
 
 end

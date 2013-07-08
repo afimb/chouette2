@@ -2,10 +2,13 @@ require 'spec_helper'
 
 describe Chouette::Kml::Exporter do
 
-  subject { Chouette::Kml::Exporter.new }
+  let(:referential) { Factory(:referential) }
+  subject { Chouette::Kml::Exporter.new(referential) }
 
   let(:zip_file_path) { "#{Rails.root}/tmp/exports/test.zip" }
-  let(:line) { Factory(:line_with_stop_areas_having_parent) }
+  let(:line) {
+    referential.switch
+    Factory(:line_with_stop_areas_having_parent) }
 
   describe "#export" do    
 
