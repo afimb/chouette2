@@ -38,6 +38,18 @@
       <%= t("area_types.label.#{@stop_area.stop_area_type}") %>
     </p>
     <% if !manage_itl %>
+	    <p>
+	      <label><%= @stop_area.human_attribute_name("mobility_restricted_suitability") %>: </label>
+	      <%= t((@stop_area.mobility_restricted_suitability == true).to_s) %>
+	    </p>
+	    <p>
+	      <label><%= @stop_area.human_attribute_name("stairs_availability") %>: </label>
+	      <%= t((@stop_area.stairs_availability == true).to_s) %>
+	    </p>
+	    <p>
+	      <label><%= @stop_area.human_attribute_name("lift_availability") %>: </label>
+	      <%= t((@stop_area.lift_availability == true).to_s) %>
+	    </p>
 	    <p> <label><%= t('stop_areas.show.geographic_data') %> </label></p>
 	    <% if @stop_area.long_lat_type == nil %>
 		    <span class='geo_data'><%= t('stop_areas.show.no_geographic_data') %></span>
@@ -77,14 +89,14 @@
       <%= @stop_area.objectid %>
     </p>
   </div>
-  
-  <p class="after_map" />
-
-  <div class="genealogical">
-  	<%= render "stop_areas/genealogical" %>
-  </div>
-                         
 </div>
+<p class="after_map" />
+
+<div class="genealogical">
+  	<%= render "stop_areas/genealogical" %>
+</div>
+                         
+
 
 <% if manage_access_points %>
   <p class="after_map" />

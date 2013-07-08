@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130628130528) do
+ActiveRecord::Schema.define(:version => 20130708084944) do
 
   create_table "access_links", :force => true do |t|
     t.integer  "access_point_id",                        :limit => 8
@@ -361,8 +361,8 @@ ActiveRecord::Schema.define(:version => 20130628130528) do
   end
 
   create_table "stop_areas", :force => true do |t|
-    t.integer  "parent_id",           :limit => 8
-    t.string   "objectid",                                                         :null => false
+    t.integer  "parent_id",                       :limit => 8
+    t.string   "objectid",                                                                     :null => false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
@@ -372,11 +372,15 @@ ActiveRecord::Schema.define(:version => 20130628130528) do
     t.string   "registration_number"
     t.string   "nearest_topic_name"
     t.integer  "fare_code"
-    t.decimal  "longitude",                        :precision => 19, :scale => 16
-    t.decimal  "latitude",                         :precision => 19, :scale => 16
+    t.decimal  "longitude",                                    :precision => 19, :scale => 16
+    t.decimal  "latitude",                                     :precision => 19, :scale => 16
     t.string   "long_lat_type"
     t.string   "country_code"
     t.string   "street_name"
+    t.boolean  "mobility_restricted_suitability"
+    t.boolean  "stairs_availability"
+    t.boolean  "lift_availability"
+    t.integer  "int_user_needs"
   end
 
   add_index "stop_areas", ["objectid"], :name => "stop_areas_objectid_key", :unique => true
