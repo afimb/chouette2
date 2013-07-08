@@ -88,7 +88,7 @@ class Export < ActiveRecord::Base
   @@references_types = [ Chouette::Line, Chouette::Network, Chouette::Company ]
   cattr_reader :references_types
 
-  validates_inclusion_of :references_type, :in => references_types.map(&:to_s), :all_blank => true, :allow_nil => true
+  validates_inclusion_of :references_type, :in => references_types.map(&:to_s), :allow_blank => true, :allow_nil => true
 
   def references
     if references_relation.present? and reference_ids.present?
