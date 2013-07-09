@@ -11,7 +11,9 @@
   </p>
   <p>
   <label><%= Referential.human_attribute_name("projection_type") %>: </label>
-  <%= @referential.projection_type %>
+  <% if ! @referential.projection_type_label.empty? %>
+     <%= @referential.projection_type_label %> (epsg:<%= @referential.projection_type %>)
+  <% end %>
   </p>
   <p>
   <label><%= Referential.human_attribute_name("time_zone").capitalize %>: </label>
