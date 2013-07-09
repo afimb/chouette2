@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
-    <% @stop_areas.each do |stop_area| %>    
+    <% @stop_areas.select { |sa| sa.latitude && sa.longitude}.each do |stop_area| %>    
       <Placemark id="<%= stop_area.objectid %>" >
         <name><%=  stop_area.name %></name>    
         <ExtendedData>

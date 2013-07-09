@@ -1,16 +1,18 @@
 class Chouette::Kml::Exporter 
 
+  attr_reader :referential
+
   def initialize(referential)
     @referential = referential
   end
 
   def lines(object, ids)
     if object == "network"
-      Chouette::Network.find( ids ).collect(&:lines)
+      ids.present? ? referential.networks.find( ids.split(",") ).collect(&:lines).flatten : referential.networks.collect(&:lines).flatten 
     elsif object == "company"
-      Chouette::Company.find( ids ).collect(&:lines)
+      ids.present? ? referential.companies.find( ids.split(",") ).collect(&:lines).flatten : referential.companies.collect(&:lines).flatten
     elsif object == "line"
-      Chouette::Line.find( ids ).to_a
+      ids.present? ? referential.lines.find( ids.split(",") ): referential.lines
     else
       []
     end    
@@ -18,7 +20,7 @@ class Chouette::Kml::Exporter
 
   def export(zip_file_path, options = {})    
     begin       
-      @referential.switch
+      referential.switch
 
       FileUtils.rm(zip_file_path) if File.exists? zip_file_path        
 
@@ -39,7 +41,6 @@ class Chouette::Kml::Exporter
         end
         
         stop_areas = lines_collected.collect(&:stop_areas).flatten.uniq
-        puts stop_areas.inspect
         Chouette::Kml::StopAreaExporter.new( stop_areas ).tap do |stop_area_exporter|
           stop_area_exporter.save(temp_dir, "stop_areas")
         end
