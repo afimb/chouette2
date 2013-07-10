@@ -36,6 +36,12 @@ describe Chouette::Kml::Exporter do
       ::Zip::ZipFile.open(zip_file_path).size.should == 6
     end
 
+    it "should return a zip file with 6 kml files" do
+      subject.export(zip_file_path, {:export_id => 1, :o => "", :id => "" } )  
+      File.exists?(zip_file_path).should be_true
+      ::Zip::ZipFile.open(zip_file_path).size.should == 6
+    end
+    
   end
                               
 

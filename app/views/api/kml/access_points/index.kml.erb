@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>access</name>
+    <% @access_points.each do |access_point| %>    
+      <Placemark id="<%= access_point.objectid %>" >
+        <name><%=  access_point.name %></name>    
+        <ExtendedData>
+          <Data name="object_id">
+            <value><%= access_point.objectid %></value>
+          </Data>
+          <Data name="object_version">
+            <value><%= access_point.object_version %></value>
+          </Data>
+          <Data name="creation_time">
+            <value><%= access_point.creation_time %></value>
+          </Data>
+          <Data name="creator_id">
+            <value><%= access_point.creator_id %></value>
+          </Data>
+          <Data name="name">
+            <value><%= access_point.name %></value>
+          </Data>
+          <Data name="comment">
+            <value><%= access_point.comment %></value>
+          </Data>
+          <Data name="longitude">
+            <value><%= access_point.longitude %></value>
+          </Data>
+          <Data name="latitude">
+            <value><%= access_point.latitude %></value>
+          </Data>
+          <Data name="long_lat_type">
+            <value><%= access_point.long_lat_type %></value>
+          </Data>
+          <Data name="country_code">
+            <value><%= access_point.country_code %></value>
+          </Data>
+          <Data name="street_name">
+            <value><%= access_point.street_name %></value>
+          </Data>
+          <Data name="contained_in">
+            <value><%= access_point.contained_in %></value>
+          </Data>
+          <Data name="openning_time">
+            <value><%= access_point.openning_time %></value>
+          </Data>
+          <Data name="closing_time">
+            <value><%= access_point.closing_time %></value>
+          </Data>
+          <Data name="access_type">
+            <value><%= access_point.access_type %></value>
+          </Data>          
+          <Data name="lift_availability">
+            <value><%= access_point.lift_availability %></value>
+          </Data>          
+          <Data name="mobility_restricted_suitability">
+            <value><%= access_point.mobility_restricted_suitability %></value>
+          </Data>          
+          <Data name="stairs_availability">
+            <value><%= access_point.stairs_availability %></value>
+          </Data>          
+        </ExtendedData>        
+    
+        <%= access_point.geometry_presenter.geometry.kml_representation.html_safe %>
+      </Placemark>
+    <% end %>
+  </Document>
+</kml>
+
