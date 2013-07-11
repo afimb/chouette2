@@ -23,7 +23,7 @@ en:
       completed: "Completed export"
       failed: "Failed export"
       undefined: "%{key} undefined"
-      EXPORT: %{0} Export
+      EXPORT: "%{0} Export"
       EXPORTED_LINE: "Line %{0} (%{1}) exported"
       EMPTY_LINE: "Line without valid vehicle journey : not exported"
       EXPORT_ERROR: "Error durring export"
