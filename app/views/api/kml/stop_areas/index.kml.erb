@@ -3,65 +3,18 @@
   <Document>
     <% @stop_areas.select { |sa| sa.latitude && sa.longitude}.each do |stop_area| %>    
       <Placemark id="<%= stop_area.objectid %>" >
-        <name><%=  stop_area.name %></name>    
+        <name><%=  h(stop_area.name) %></name>    
         <ExtendedData>
-          <Data name="object_id">
-            <value><%= stop_area.objectid %></value>
+        <% [:objectid, :object_version, :creation_time, :creator_id, :name, :comment, :area_type, :registration_number, :nearest_topic_name, :fare_code, :longitude, :latitude, :long_lat_type, :country_code, :street_name, :mobility_restricted_suitability, :stairs_availability, :lift_availability, :int_user_needs].each do |prop| %>
+          <Data name="<%= prop.to_s %>">
+            <value><%= h(stop_area.send( prop)) %></value>
           </Data>
-          <Data name="object_version">
-            <value><%= stop_area.object_version %></value>
+        <% end %>
+        <% if stop_area.parent %>
+          <Data name="parent_objectid">
+            <value><%= h(stop_area.parent.object_id) %></value>
           </Data>
-          <Data name="object_id">
-            <value><%= stop_area.objectid %></value>
-          </Data>
-          <Data name="creation_time">
-            <value><%= stop_area.creation_time %></value>
-          </Data>
-          <Data name="creator_id">
-            <value><%= stop_area.creator_id %></value>
-          </Data>
-          <Data name="name">
-            <value><%= stop_area.name %></value>
-          </Data>
-          <Data name="comment">
-            <value><%= stop_area.comment %></value>
-          </Data>
-          <Data name="area_type">
-            <value><%= stop_area.area_type %></value>
-          </Data>
-          <Data name="registration_number">
-            <value><%= stop_area.registration_number %></value>
-          </Data>
-          <Data name="nearest_topic_name">
-            <value><%= stop_area.nearest_topic_name %></value>
-          </Data>
-          <Data name="fare_code">
-            <value><%= stop_area.fare_code %></value>
-          </Data>
-          <Data name="longitude">
-            <value><%= stop_area.longitude %></value>
-          </Data>
-          <Data name="latitude">
-            <value><%= stop_area.latitude %></value>
-          </Data>
-          <Data name="long_lat_type">
-            <value><%= stop_area.long_lat_type %></value>
-          </Data>
-          <Data name="projection_x">
-            <value><%= stop_area.projection_x %></value>
-          </Data>
-          <Data name="projection_y">
-            <value><%= stop_area.projection_y %></value>
-          </Data>
-          <Data name="projection">
-            <value><%= stop_area.projection %></value>
-          </Data>
-          <Data name="country_code">
-            <value><%= stop_area.country_code %></value>
-          </Data>
-          <Data name="street_name">
-            <value><%= stop_area.street_name %></value>
-          </Data>
+        <% end %>
         </ExtendedData>        
     
         <%= stop_area.geometry_presenter.geometry.kml_representation.html_safe %>

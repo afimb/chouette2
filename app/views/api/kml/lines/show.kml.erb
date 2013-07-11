@@ -1,47 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
-    <name><%= @line.name %></name>
+    <name><%= h(@line.name) %></name>
     <Placemark id="<%= @line.objectid %>" >
-      <name><%= @line.name %></name>
+      <name><%= h(@line.name) %></name>
       <ExtendedData>
-        <Data name="object_id">
-          <value><%= @line.objectid %></value>
+      <% [ :transport_mode, :objectid, :object_version, :creation_time, :creator_id, :name, :number, :published_name, :registration_number, :comment, :mobility_restricted_suitability, :int_user_needs].each do |prop| %>
+        <Data name="<%= prop.to_s %>">
+          <value><%= h(@line.send( prop)) %></value>
         </Data>
-        <Data name="object_version">
-          <value><%= @line.object_version %></value>
+      <% end %>
+        <Data name="company_objectid">
+          <value><%= h(@line.company.object_id) %></value>
         </Data>
-        <Data name="creation_time">
-          <value><%= @line.creation_time %></value>
+        <Data name="network_objectid">
+          <value><%= h(@line.network.object_id) %></value>
         </Data>
-        <Data name="creator_id">
-          <value><%= @line.creator_id %></value>
-        </Data>
-        <Data name="name">
-          <value><%= @line.name %></value>
-        </Data>
-        <Data name="number">
-          <value><%= @line.number %></value>
-        </Data>
-        <Data name="published_name">
-          <value><%= @line.published_name %></value>
-        </Data>
-        <Data name="transport_mode_name">
-          <value><%= @line.transport_mode_name %></value>
-        </Data>
-        <Data name="registration_number">
-          <value><%= @line.registration_number %></value>
-        </Data>
-        <Data name="comment">
-          <value><%= @line.comment %></value>
-        </Data>
-        <Data name="mobility_restricted_suitability">
-          <value><%= @line.mobility_restricted_suitability %></value>
-        </Data>
-        <Data name="int_user_needs">
-          <value><%= @line.int_user_needs %></value>
-        </Data>
-      </ExtendedData>          
+      </ExtendedData>        
       <%= @line.geometry_presenter.geometry.kml_representation.html_safe %>
     </Placemark>
   </Document>

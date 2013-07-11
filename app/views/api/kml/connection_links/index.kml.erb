@@ -4,64 +4,20 @@
     <name>correspondances</name>
     <% @connection_links.each do |connection_link| %>    
       <Placemark id="<%= connection_link.objectid %>" >
-        <name><%=  connection_link.name %></name>    
+        <name><%= h(connection_link.name) %></name>    
         <ExtendedData>
-          <Data name="departure_id">
-            <value><%= connection_link.departure_id %></value>
+        <% [ :connection_link_type, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :link_distance, :link_type, :default_duration, :frequent_traveller_duration, :occasional_traveller_duration, :mobility_restricted_traveller_duration, :mobility_restricted_suitability, :stairs_availability, :lift_availability, :int_user_needs].each do |prop| %>
+          <Data name="<%= prop.to_s %>">
+            <value><%= h(connection_link.send( prop)) %></value>
           </Data>
-          <Data name="arrival_id">
-            <value><%= connection_link.arrival_id %></value>
-          </Data>
-          <Data name="object_id">
-            <value><%= connection_link.objectid %></value>
-          </Data>
-          <Data name="object_version">
-            <value><%= connection_link.object_version %></value>
-          </Data>
-          <Data name="creation_time">
-            <value><%= connection_link.creation_time %></value>
-          </Data>
-          <Data name="creator_id">
-            <value><%= connection_link.creator_id %></value>
-          </Data>
-          <Data name="name">
-            <value><%= connection_link.name %></value>
-          </Data>
-          <Data name="comment">
-            <value><%= connection_link.comment %></value>
-          </Data>
-          <Data name="link_distance">
-            <value><%= connection_link.link_distance %></value>
-          </Data>
-          <Data name="link_type">
-            <value><%= connection_link.link_type %></value>
-          </Data>
-          <Data name="default_duration">
-            <value><%= connection_link.default_duration %></value>
-          </Data>
-          <Data name="frequent_traveller_duration">
-            <value><%= connection_link.frequent_traveller_duration %></value>
-          </Data>
-          <Data name="occasional_traveller_duration">
-            <value><%= connection_link.occasional_traveller_duration %></value>
-          </Data>
-          <Data name="mobility_restricted_traveller_duration">
-            <value><%= connection_link.mobility_restricted_traveller_duration %></value>
-          </Data>
-          <Data name="mobility_restricted_suitability">
-            <value><%= connection_link.mobility_restricted_suitability %></value>
-          </Data>
-          <Data name="stairs_availability">
-            <value><%= connection_link.stairs_availability %></value>
-          </Data>
-          <Data name="lift_availability">
-            <value><%= connection_link.lift_availability %></value>
-          </Data>          
-          <Data name="int_user_needs">
-            <value><%= connection_link.int_user_needs %></value>
-          </Data>          
+        <% end %>
+        <Data name="departure_objectid">
+          <value><%= h(connection_link.departure.object_id) %></value>
+        </Data>
+        <Data name="arrival_objectid">
+          <value><%= h(connection_link.arrival.object_id) %></value>
+        </Data>
         </ExtendedData>        
-    
         <%= connection_link.geometry_presenter.geometry.kml_representation.html_safe %>
       </Placemark>
     <% end %>

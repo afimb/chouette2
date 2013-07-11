@@ -4,67 +4,20 @@
     <name>liens acces arrets</name>
     <% @access_links.each do |access_link| %>    
       <Placemark id="<%= access_link.objectid %>" >
-        <name><%=  access_link.name %></name>    
+        <name><%= h(access_link.name) %></name>    
         <ExtendedData>
-          <Data name="access_point_id">
-            <value><%= access_link.access_point_id %></value>
+        <% [ :access_link_type, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :link_distance, :link_type, :default_duration, :frequent_traveller_duration, :occasional_traveller_duration, :mobility_restricted_traveller_duration, :mobility_restricted_suitability, :stairs_availability, :lift_availability, :int_user_needs, :link_orientation].each do |prop| %>
+          <Data name="<%= prop.to_s %>">
+            <value><%= h(access_link.send( prop)) %></value>
           </Data>
-          <Data name="stop_area_id">
-            <value><%= access_link.stop_area_id %></value>
-          </Data>
-          <Data name="object_id">
-            <value><%= access_link.objectid %></value>
-          </Data>
-          <Data name="object_version">
-            <value><%= access_link.object_version %></value>
-          </Data>
-          <Data name="creation_time">
-            <value><%= access_link.creation_time %></value>
-          </Data>
-          <Data name="creator_id">
-            <value><%= access_link.creator_id %></value>
-          </Data>
-          <Data name="name">
-            <value><%= access_link.name %></value>
-          </Data>
-          <Data name="comment">
-            <value><%= access_link.comment %></value>
-          </Data>
-          <Data name="link_distance">
-            <value><%= access_link.link_distance %></value>
-          </Data>
-                    <Data name="link_type">
-            <value><%= access_link.link_type %></value>
-          </Data>
-          <Data name="default_duration">
-            <value><%= access_link.default_duration %></value>
-          </Data>
-          <Data name="frequent_traveller_duration">
-            <value><%= access_link.frequent_traveller_duration %></value>
-          </Data>
-          <Data name="occasional_traveller_duration">
-            <value><%= access_link.occasional_traveller_duration %></value>
-          </Data>
-          <Data name="mobility_restricted_traveller_duration">
-            <value><%= access_link.mobility_restricted_traveller_duration %></value>
-          </Data>
-          <Data name="mobility_restricted_suitability">
-            <value><%= access_link.mobility_restricted_suitability %></value>
-          </Data>
-          <Data name="stairs_availability">
-            <value><%= access_link.stairs_availability %></value>
-          </Data>
-          <Data name="lift_availability">
-            <value><%= access_link.lift_availability %></value>
-          </Data>          
-          <Data name="int_user_needs">
-            <value><%= access_link.int_user_needs %></value>
-          </Data>          
-          <Data name="link_orientation">
-            <value><%= access_link.link_orientation %></value>
-          </Data>
+        <% end %>
+        <Data name="access_point_objectid">
+          <value><%= h(access_link.access_point.object_id) %></value>
+        </Data>
+        <Data name="stop_area_objectid">
+          <value><%= h(access_link.stop_area.object_id) %></value>
+        </Data>
         </ExtendedData>        
-    
         <%= access_link.geometry_presenter.geometry.kml_representation.html_safe %>
       </Placemark>
     <% end %>

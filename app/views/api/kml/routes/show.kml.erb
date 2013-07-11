@@ -2,45 +2,17 @@
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
     <Placemark id="<%= @route.objectid %>" >
-      <name><%= @route.name %></name>
+      <name><%= h(@route.name) %></name>
       <ExtendedData>
-        <Data name="object_id">
-          <value><%= @route.objectid %></value>
+      <% [:direction_code, :wayback_code, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :published_name, :number, :direction, :wayback].each do |prop| %>
+        <Data name="<%= prop.to_s %>">
+          <value><%= h(@route.send( prop)) %></value>
         </Data>
-        <Data name="object_version">
-          <value><%= @route.object_version %></value>
+      <% end %>
+        <Data name="line_objectid">
+          <value><%= h(@route.line.object_id) %></value>
         </Data>
-        <Data name="creation_time">
-          <value><%= @route.creation_time %></value>
-        </Data>
-        <Data name="creator_id">
-          <value><%= @route.creator_id %></value>
-        </Data>
-        <Data name="name">
-          <value><%= @route.name %></value>
-        </Data>
-        <Data name="direction_code">
-          <value><%= @route.direction_code %></value>
-        </Data>
-        <Data name="comment">
-          <value><%= @route.comment %></value>
-        </Data>        
-        <Data name="published_name">
-          <value><%= @route.published_name %></value>
-        </Data>        
-        <Data name="number">
-          <value><%= @route.number %></value>
-        </Data>        
-        <Data name="direction">
-          <value><%= @route.direction %></value>
-        </Data>        
-        <Data name="number">
-          <value><%= @route.number %></value>
-        </Data>        
-        <Data name="wayback">
-          <value><%= @route.wayback %></value>
-        </Data>        
-      </ExtendedData>  
+      </ExtendedData>        
       <%= @route.geometry_presenter.geometry.kml_representation.html_safe %>
     </Placemark>
   </Document>
