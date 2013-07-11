@@ -27,7 +27,7 @@ gem "georuby-ext", :git => 'git://github.com/dryade/georuby-ext.git'
 #gem "georuby-ext", "0.0.2"
 
 # User interface
-gem 'user_interface', "0.0.3"
+gem 'user_interface', "0.0.4"
 gem 'gravatar_image_tag'
 gem 'calendar_helper', "0.2.5"
 gem 'cocoon', "1.1.2"

@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: git://github.com/dryade/ninoxe.git
-  revision: 148f0dfabdd5d21c95afff614a4c7403815ced9b
+  revision: ae8291fe90073bf5f00fe26526c3aa0abc0b602b
   specs:
     ninoxe (0.1.2)
       activerecord (~> 3.1)
@@ -311,7 +311,7 @@ GEM
     uglifier (1.2.7)
       execjs (>= 0.3.0)
       multi_json (~> 1.3)
-    user_interface (0.0.3)
+    user_interface (0.0.4)
       rails (> 3.1.0)
     warbler (1.3.6)
       jruby-jars (>= 1.4.0)
@@ -379,6 +379,6 @@ DEPENDENCIES
   therubyracer (~> 0.10.2)
   therubyrhino
   uglifier (>= 1.0.3)
-  user_interface (= 0.0.3)
+  user_interface (= 0.0.4)
   warbler
   will_paginate (~> 3.0)
