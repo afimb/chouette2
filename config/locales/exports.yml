@@ -80,13 +80,21 @@ en:
     attributes:
       export:
         status: "Status"
+        created_at: "Created on"
         references_type: "Associated Data Type"
         reference_ids: "Associated Data"
         time_zone: "Time Zone"
+        start_date: "Start of period"
+        end_date: "End of period"
       export_log_message:
         created_at: "Date"
         position: "N."
         full_message: "Message"
+  formtastic:
+    hints:
+      time_zone: "according to TZ  encoding (see http://en.wikipedia.org/wiki/Tz_database)"
+      start_date: "reduce import to vehicle journeys running from this date"
+      end_date: "reduce import to vehicle journeys running until this date"
 fr:
   exports:
     actions:
@@ -169,9 +177,12 @@ fr:
     attributes:
       export:
         status: "Status"
+        created_at: "Créé le"
         references_type: "Type de données incluses"
         reference_ids: "Données incluses"
         time_zone: "Fuseau horaire"
+        start_date: "Début de période"
+        end_date: "Fin de période"
       export_log_message:
         created_at: "Date"
         position: "No"
@@ -179,3 +190,5 @@ fr:
   formtastic:
     hints:
       time_zone: "selon le codage TZ  (http://fr.wikipedia.org/wiki/Tz_database)"
+      start_date: "limite l'export aux courses circulant à partir de cette date"
+      end_date: "limite l'export aux courses circulant jusqu'à cette date"

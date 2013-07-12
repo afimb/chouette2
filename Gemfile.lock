@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/dryade/georuby-ext.git
-  revision: 014bb8903d08bdf9fb946e06ac757c8213158b88
+  revision: 69e3460141d831f0ad76780ee2b3f0a925a744f8
   specs:
     georuby-ext (0.0.2)
       activesupport
@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: git://github.com/dryade/ninoxe.git
-  revision: 8e555ff5bd94250c98940878c052f449f4d14d7f
+  revision: ae8291fe90073bf5f00fe26526c3aa0abc0b602b
   specs:
     ninoxe (0.1.2)
       activerecord (~> 3.1)
