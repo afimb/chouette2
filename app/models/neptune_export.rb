@@ -4,6 +4,8 @@ class NeptuneExport < Export
   option :end_date
   
   def export_options
+    start_date ||= ""
+    end_date ||= ""
     if (start_date.empty? && end_date.empty?)
        super.merge(:format => :neptune).except(:start_date).except(:end_date)
     elsif start_date.empty?
