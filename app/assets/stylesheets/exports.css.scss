@@ -31,11 +31,29 @@
 #workspace.exports.show {
     table {
         th {
-            text-align: center;
             font-style: italic;
         }
-        td.message, td.created_at, td.position {
-            padding: 0 20px;
+        th.severity {
+            width: 30px;
+        }
+        th.created_at {
+            text-align: center;
+            width: 100px;
+        }
+        th.position {
+            padding-right: 5px;
+            text-align: right;
+            width: 40px;
+        }
+        td.severity {
+            text-align: center;
+        }
+        td.created_at {
+            padding-right: 3px;
+        }
+        td.position {
+            padding-right: 5px;
+            text-align: right;
         }
     }                       
 }

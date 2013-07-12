@@ -25,10 +25,10 @@
   <h3><%= t(".report") %></h3>
   <table>
     <tr>
-      <th></th>
-      <th><%= ExportLogMessage.human_attribute_name(:created_at) %></th>
-      <th><%= ExportLogMessage.human_attribute_name(:position) %></th>
-      <th><%= ExportLogMessage.human_attribute_name(:full_message) %></th>
+      <th class="severity"></th>
+      <th class="created_at"><%= ExportLogMessage.human_attribute_name(:created_at) %></th>
+      <th class="position"><%= ExportLogMessage.human_attribute_name(:position) %></th>
+      <th class="message"><%= ExportLogMessage.human_attribute_name(:full_message) %></th>
     </tr>
     <% @export.log_messages.each do |message| %>
     <tr>

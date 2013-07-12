@@ -12,23 +12,27 @@
     </p>
   </div>
 
-  <h3><%= t(".report") %></h3>
-  <table>
-    <tr>
-      <th></th>
-      <th><%= ImportLogMessage.human_attribute_name(:created_at) %></th>
-      <th><%= ImportLogMessage.human_attribute_name(:position) %></th>
-      <th><%= ImportLogMessage.human_attribute_name(:full_message) %></th>
-    </tr>
-    <% @import.log_messages.each do |message| %>
-    <tr>
-      <td class="severity"><%= image_tag "severity-#{message.severity}.png", :alt => t(message.severity, :scope => "import_log_messages.severities") %></td>
-      <td class="created_at"><%= l message.created_at, :format => :short %></td>
-      <td class="position"><%= message.position %></td>
-      <td class="message"><%= message.full_message %></td>
-    </tr>
-    <% end %>
-  </table>
+  <% if @import.log_messages.empty? %>
+  	  <p> <%= t(".not_yet_started") %> </p>
+  <% else %>
+	  <h3><%= t(".report") %></h3>
+	  <table>
+	    <tr>
+	      <th class="severity"></th>
+	      <th class="created_at"><%= ImportLogMessage.human_attribute_name(:created_at) %></th>
+	      <th class="position"><%= ImportLogMessage.human_attribute_name(:position) %></th>
+	      <th class="message"><%= ImportLogMessage.human_attribute_name(:full_message) %></th>
+	    </tr>
+	    <% @import.log_messages.each do |message| %>
+	    <tr>
+	      <td class="severity"><%= image_tag "severity-#{message.severity}.png", :alt => t(message.severity, :scope => "import_log_messages.severities") %></td>
+	      <td class="created_at"><%= l message.created_at, :format => :short %></td>
+	      <td class="position"><%= message.position %></td>
+	      <td class="message"><%= message.full_message %></td>
+	    </tr>
+	    <% end %>
+	  </table>
+  <% end %>
 </div>
 
 <% content_for :sidebar do %>
