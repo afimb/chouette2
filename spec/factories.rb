@@ -31,6 +31,10 @@ FactoryGirl.define do
     f.sequence(:key) { "key_#{n}" }
   end
 
+  factory :kml_export do |f|
+    f.referential { Referential.find_by_slug("first") }
+  end
+
   factory :export do |f|
     f.referential { Referential.find_by_slug("first") }
   end

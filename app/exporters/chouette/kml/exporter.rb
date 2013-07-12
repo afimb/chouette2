@@ -1,9 +1,11 @@
 class Chouette::Kml::Exporter 
 
   attr_reader :referential
+  attr_reader :kml_export
 
-  def initialize(referential)
+  def initialize(referential, kml_export)
     @referential = referential
+    @kml_export = kml_export
   end
 
   def lines(object, ids)
@@ -24,57 +26,52 @@ class Chouette::Kml::Exporter
 
       FileUtils.rm(zip_file_path) if File.exists? zip_file_path        
 
+      kml_export.log_messages.create( :severity => "ok", :key => "EXPORT", :arguments => {"0" => "KML"})
+
       Dir.mktmpdir(nil, "/tmp"){ |temp_dir|
         
         lines_collected = lines( options[:o], options[:id] )
-        lines_collected.each do |line|
-          Chouette::Kml::LineExporter.new( line ).tap do |line_exporter|
-            line_exporter.save(temp_dir)
-          end
-        end
+        Chouette::Kml::LineExporter.save( lines_collected, temp_dir, kml_export)
         
         routes = lines_collected.collect(&:routes).flatten.uniq
-        routes.each do |route|
-          Chouette::Kml::RouteExporter.new( route ).tap do |route_exporter|
-            route_exporter.save(temp_dir)
-          end
-        end
+        Chouette::Kml::RouteExporter.save( routes, temp_dir, kml_export)
+
+        journey_patterns = routes.map { |r| r.journey_patterns}.flatten
+        Chouette::Kml::JourneyPatternExporter.save( journey_patterns, temp_dir, kml_export)
         
         stop_areas = lines_collected.collect(&:stop_areas).flatten.uniq
-        Chouette::Kml::StopAreaExporter.new( stop_areas ).tap do |stop_area_exporter|
-          stop_area_exporter.save(temp_dir, "stop_areas")
+        Chouette::Kml::StopAreaExporter.new( stop_areas, temp_dir ).tap do |stop_area_exporter|
+          stop_area_exporter.save( "stop_areas")
         end
+        kml_export.log_messages.create( :severity => "ok", :key => "EXPORT|QUAY_AND_BOARDING_POSITION_COUNT", :arguments => {"0" => stop_areas.size})
         
         commercial_stop_areas = lines_collected.collect(&:commercial_stop_areas).flatten.uniq
-        Chouette::Kml::StopAreaExporter.new( commercial_stop_areas ).tap do |stop_area_exporter|
-          stop_area_exporter.save(temp_dir, "commercial_stop_areas")
+        Chouette::Kml::StopAreaExporter.new( commercial_stop_areas, temp_dir ).tap do |stop_area_exporter|
+          stop_area_exporter.save( "commercial_stop_areas")
         end      
+        kml_export.log_messages.create( :severity => "ok", :key => "EXPORT|COMMERCIAL_COUNT", :arguments => {"0" => commercial_stop_areas.size})
       
         if(options[:o].present?) # Add all objects
           stop_places = referential.stop_areas.stop_place
-          Chouette::Kml::StopAreaExporter.new( stop_places ).tap do |stop_area_exporter|
-            stop_area_exporter.save(temp_dir, "stop_places")
+          Chouette::Kml::StopAreaExporter.new( stop_places, temp_dir ).tap do |stop_area_exporter|
+            stop_area_exporter.save( "stop_places")
           end
+          kml_export.log_messages.create( :severity => "ok", :key => "EXPORT|STOP_PLACE_COUNT", :arguments => {"0" => stop_places.size})
 
           itls = referential.stop_areas.itl
-          Chouette::Kml::StopAreaExporter.new( itls ).tap do |stop_area_exporter|
-            stop_area_exporter.save(temp_dir, "itls")
+          Chouette::Kml::StopAreaExporter.new( itls, temp_dir ).tap do |stop_area_exporter|
+            stop_area_exporter.save( "itls")
           end
+          kml_export.log_messages.create( :severity => "ok", :key => "EXPORT|ITL_COUNT", :arguments => {"0" => itls.size})
           
           connection_links = referential.connection_links
-          Chouette::Kml::ConnectionLinkExporter.new( connection_links ).tap do |connection_link_exporter|
-            connection_link_exporter.save(temp_dir)
-          end
+          Chouette::Kml::ConnectionLinkExporter.save( connection_links, temp_dir, kml_export)
 
           access_links = referential.access_links
-          Chouette::Kml::AccessLinkExporter.new( access_links ).tap do |access_link_exporter|
-            access_link_exporter.save(temp_dir)
-          end
+          Chouette::Kml::AccessLinkExporter.save(access_links, temp_dir, kml_export)
 
           access_points = referential.access_points
-          Chouette::Kml::AccessPointExporter.new( access_points ).tap do |access_point_exporter|
-            access_point_exporter.save(temp_dir)
-          end
+          Chouette::Kml::AccessPointExporter.save(access_points, temp_dir, kml_export)
           
         end
 

@@ -47,8 +47,8 @@ gem 'inherited_resources'
 gem 'will_paginate', '~> 3.0'
 gem 'ransack'
 gem 'squeel'
-gem 'ninoxe', :git => 'git://github.com/dryade/ninoxe.git'
-#gem 'ninoxe', '0.1.2'
+#gem 'ninoxe', :git => 'git://github.com/dryade/ninoxe.git'
+gem 'ninoxe', '0.1.3'
 gem 'acts_as_list', '0.1.6'
 gem "acts_as_tree-1.8", '1.1.0', :require => "acts_as_tree"
 

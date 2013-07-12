@@ -69,12 +69,13 @@ class Export < ActiveRecord::Base
   end
 
   def export
+    result_severity = "ok"
     FileUtils.mkdir_p root
 
     begin
       # delayed job may repeat call
       ExportLogMessage.where(:export_id => self.id).delete_all 
-      log_messages.create :key => :started
+      log_messages.create :severity => "ok", :key => :started
 
       exporter.export file, export_options
 
@@ -82,9 +83,10 @@ class Export < ActiveRecord::Base
     rescue => e
       Rails.logger.error "Export #{id} failed : #{e}, #{e.backtrace}"
       update_attribute :status, "failed"
+      result_severity = "error"
     end
 
-    log_messages.create :key => status
+    log_messages.create :severity => result_severity, :key => status
   end
 
   @@references_types = [ Chouette::Line, Chouette::Network, Chouette::Company ]

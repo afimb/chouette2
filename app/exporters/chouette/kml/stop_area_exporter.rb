@@ -1,9 +1,10 @@
 class Chouette::Kml::StopAreaExporter
   include ERB::Util
-  attr_accessor :stop_areas, :template
+  attr_accessor :stop_areas, :directory, :template
 
-  def initialize(stop_areas)
+  def initialize(stop_areas,directory)
     @stop_areas = stop_areas
+    @directory = directory
     @template = File.open('app/views/api/kml/stop_areas/index.kml.erb' ){ |f| f.read }
   end
 
@@ -19,7 +20,7 @@ class Chouette::Kml::StopAreaExporter
     ".kml"
   end
 
-  def save(directory, name = nil)
+  def save( name = nil)
     File.open(directory + "/" + (name || kml_name) + file_extension, "w+") do |f|
       f.write(render)
     end if stop_areas.present?

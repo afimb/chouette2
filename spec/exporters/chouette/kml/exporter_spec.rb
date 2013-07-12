@@ -10,7 +10,8 @@ describe Chouette::Kml::Exporter do
   #   referential.switch
   #   Factory(:line_with_stop_areas_having_parent) }
 
-  subject { Chouette::Kml::Exporter.new(first_referential) }
+  let(:kml_export){ Factory(:kml_export)}
+  subject { Chouette::Kml::Exporter.new(first_referential, kml_export) }
 
   let(:tmp_path) { File.join( Rails.root, "tmp")}
   let(:exports_path) { File.join( tmp_path, "exports")}
