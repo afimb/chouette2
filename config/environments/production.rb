@@ -88,7 +88,7 @@ ChouetteIhm::Application.configure do
        :user_name => "username",
        #:password => "password",
        #:enable_starttls_auto => true,
-       #openssl_verify_mode => # set one in ‘none’ ‘peer’ ‘client_once’ ‘fail_if_no_peer_cert’
+       #openssl_verify_mode => # set one in 'none' 'peer' 'client_once' 'fail_if_no_peer_cert'
      }
   else
     ## using SENDMAIL (easy on Linux platforms) : 

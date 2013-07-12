@@ -11,6 +11,7 @@ en:
       warning: ""
     show:
       report: "Report"
+      not_yet_started: "On queue"
     statuses:
       pending: "Pending"
       completed: "Completed"
@@ -33,7 +34,7 @@ en:
       VALIDATION_CAUSE: "%{0}"
       IMPORTED_LINE: "Imported Line : %{0}"
       LINE_COUNT: "Line count : %{0}"
-      TIME_TABLE_COUNT: "Tiemtable count : %{0}"
+      TIME_TABLE_COUNT: "Timetable count : %{0}"
       ROUTE_COUNT: "Route count : %{0}"
       JOURNEY_PATTERN_COUNT: "Journey pattern count : %{0}"
       VEHICLE_JOURNEY_COUNT: "Vehicle journey count : %{0}"
@@ -48,6 +49,15 @@ en:
       EMPTY_TAG: "Empty value : %{0}"
       BAD_REFERENCE: "%{0} %{1} missing reference %{2}, id = %{3}"
       BAD_REFERENCE_IN_FILE: "%{0} line %{1} missing reference %{2}, id = %{3}"
+      NETWORK_ANALYSE: "Analysing networks"
+      COMPANY_ANALYSE: "Analysing networks"
+      GROUP_OF_LINES_ANALYSE: "Analysing networks"
+      LINE_ANALYSE: "Analysing lines"
+      ROUTE_ANALYSE: "Analysing routes"
+      STOP_ANALYSE: "Analysing stops"
+      VEHICLE_JOURNEY_ANALYSE: "Analysing vehicle journeys"
+      TIME_TABLE_ANALYSE: "Analysing timetables"
+      CONNECTION_LINK_ANALYSE: "Analysing connection links"
       EMPTY_LINE: "Empty Line %{0} "
       EMPTY_ROUTE: "Empty Route {0} "
       EMPTY_JOURNEY_PATTERN: "Empty Journey pattern %{0}"
@@ -58,6 +68,7 @@ en:
       IMPORT_ERROR: "Import Error"
       EXCEPTION: "Problem : %{0}"
       WRONG_DATA: "Missing arguments to produce log message %{0}"
+      COUNT_MORE_ITEMS: "%{0} similar problems"
       # old Import reports (before 2.0.3)
       SAVE: "Save" 
       CSV_IMPORT: "Import CVS file"
@@ -115,6 +126,7 @@ en:
     attributes:
       import:
         resources: "File to import"
+        created_at: "Created on"
         status: "Status"
         objectid_prefix: "Neptune Id prefix"
         max_distance_for_commercial: "Max distance for commercial stop"
@@ -145,6 +157,7 @@ fr:
       warning: ""
     show:
       report: "Rapport"
+      not_yet_started: "En file d'attente"
     statuses:
       pending: "En cours"
       completed: "Achevé"
@@ -182,6 +195,15 @@ fr:
       EMPTY_TAG: "Valeur vide : %{0}"
       BAD_REFERENCE: "%{0} %{1} Référence %{2} d'identifiant %{3} manquant"
       BAD_REFERENCE_IN_FILE: "%{0} ligne %{1} Référence %{2} d'identifiant %{3} manquant"
+      NETWORK_ANALYSE: "Analyse des réseaux"
+      COMPANY_ANALYSE: "Analyse des  networks"
+      GROUP_OF_LINES_ANALYSE: "Analyse des  networks"
+      LINE_ANALYSE: "Analyse des lignes"
+      ROUTE_ANALYSE: "Analyse des séquences d'arrêts"
+      STOP_ANALYSE: "Analyse des arrêts"
+      VEHICLE_JOURNEY_ANALYSE: "Analyse des courses"
+      TIME_TABLE_ANALYSE: "Analyse des calendriers"
+      CONNECTION_LINK_ANALYSE: "Analyse des correspondances"
       EMPTY_LINE: "Ligne %{0} sans séquence d'arrêt"
       EMPTY_ROUTE: "Séquence d'arrêts %{0} sans mission ou arrêt"
       EMPTY_JOURNEY_PATTERN: "Mission %{0} sans arrêt ou course"
@@ -192,6 +214,7 @@ fr:
       IMPORT_ERROR: "Erreur d'import"
       EXCEPTION: "Problème : %{0}"
       WRONG_DATA: "Il manque des données pour afficher le message de log %{0}"
+      COUNT_MORE_ITEMS: "%{0} problèmes similaires"
       # old Import reports (before 2.0.3)
       SAVE: "Sauvegarde" 
       CSV_IMPORT: "Import de fichier au format CSV"
@@ -249,6 +272,7 @@ fr:
     attributes:
       import:
         resources: "Fichier à importer"
+        created_at: "Créé le"
         status: "Status"
         objectid_prefix: "Préfixe d'identifiants"
         max_distance_for_commercial: "Distance max pour créer les zones"
