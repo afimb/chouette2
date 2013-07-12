@@ -5,7 +5,7 @@ class Export < ActiveRecord::Base
 
   validates_inclusion_of :status, :in => %w{ pending completed failed }
 
-  has_many :log_messages, :class_name => "ExportLogMessage", :order => :position, :dependent => :destroy
+  has_many :log_messages, :class_name => "ExportLogMessage", :order => :position, :dependent => :delete_all
 
   serialize :options
 
@@ -69,10 +69,13 @@ class Export < ActiveRecord::Base
   end
 
   def export
+    result_severity = "ok"
     FileUtils.mkdir_p root
 
     begin
-      log_messages.create :key => :started
+      # delayed job may repeat call
+      ExportLogMessage.where(:export_id => self.id).delete_all 
+      log_messages.create :severity => "ok", :key => :started
 
       exporter.export file, export_options
 
@@ -80,9 +83,10 @@ class Export < ActiveRecord::Base
     rescue => e
       Rails.logger.error "Export #{id} failed : #{e}, #{e.backtrace}"
       update_attribute :status, "failed"
+      result_severity = "error"
     end
 
-    log_messages.create :key => status
+    log_messages.create :severity => result_severity, :key => status
   end
 
   @@references_types = [ Chouette::Line, Chouette::Network, Chouette::Company ]
@@ -137,10 +141,13 @@ class Export < ActiveRecord::Base
   end
 
   def self.format_name(format)
-    name_by_format = { "NeptuneExport" => "Neptune",
-                       "CsvExport" => "CSV",
-                       "GtfsExport" => "GTFS",
-                       "NetexExport" => "NeTEx"}
+    name_by_format = { 
+      "NeptuneExport" => "Neptune",
+      "CsvExport" => "CSV",
+      "GtfsExport" => "GTFS",
+      "NetexExport" => "NeTEx",
+      "KmlExport" => "KML"
+    }
     name_by_format[format]
   end
 
@@ -149,7 +156,7 @@ class Export < ActiveRecord::Base
       subclasses.map(&:to_s)
     else
       # FIXME
-      %w{NeptuneExport CsvExport GtfsExport NetexExport}
+      %w{NeptuneExport CsvExport GtfsExport NetexExport KmlExport}
     end
   end
 

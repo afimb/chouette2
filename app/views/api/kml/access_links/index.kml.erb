@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>liens acces arrets</name>
+    <% @access_links.each do |access_link| %>    
+      <Placemark id="<%= access_link.objectid %>" >
+        <name><%= h(access_link.name) %></name>    
+        <ExtendedData>
+        <% [ :access_link_type, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :link_distance, :link_type, :default_duration, :frequent_traveller_duration, :occasional_traveller_duration, :mobility_restricted_traveller_duration, :mobility_restricted_suitability, :stairs_availability, :lift_availability, :int_user_needs, :link_orientation].each do |prop| %>
+          <Data name="<%= prop.to_s %>">
+            <value><%= h(access_link.send( prop)) %></value>
+          </Data>
+        <% end %>
+        <Data name="access_point_objectid">
+          <value><%= h(access_link.access_point.object_id) %></value>
+        </Data>
+        <Data name="stop_area_objectid">
+          <value><%= h(access_link.stop_area.object_id) %></value>
+        </Data>
+        </ExtendedData>        
+        <%= access_link.geometry_presenter.geometry.kml_representation.html_safe %>
+      </Placemark>
+    <% end %>
+  </Document>
+</kml>
+

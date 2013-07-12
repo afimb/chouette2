@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
-
   <Document>
-  <% @stop_areas.each do |stop_area| %>
-    <Placemark id="<%= stop_area.objectid %>" >
-    <%= render :partial => "stop_area", :locals => { :stop_area => stop_area} %>
-    </Placemark>
-  <% end %>
+    <% @stop_areas.select { |sa| sa.latitude && sa.longitude}.each do |stop_area| %>    
+      <Placemark id="<%= stop_area.objectid %>" >
+        <name><%=  h(stop_area.name) %></name>    
+        <ExtendedData>
+        <% [:objectid, :object_version, :creation_time, :creator_id, :name, :comment, :area_type, :registration_number, :nearest_topic_name, :fare_code, :longitude, :latitude, :long_lat_type, :country_code, :street_name, :mobility_restricted_suitability, :stairs_availability, :lift_availability, :int_user_needs].each do |prop| %>
+          <Data name="<%= prop.to_s %>">
+            <value><%= h(stop_area.send( prop)) %></value>
+          </Data>
+        <% end %>
+        <% if stop_area.parent %>
+          <Data name="parent_objectid">
+            <value><%= h(stop_area.parent.object_id) %></value>
+          </Data>
+        <% end %>
+        </ExtendedData>        
+    
+        <%= stop_area.geometry_presenter.geometry.kml_representation.html_safe %>
+      </Placemark>
+    <% end %>
   </Document>
 </kml>
 

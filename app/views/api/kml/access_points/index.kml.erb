@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>access</name>
+    <% @access_points.each do |access_point| %>    
+      <Placemark id="<%= access_point.objectid %>" >
+        <name><%= h(access_point.name) %></name>    
+        <ExtendedData>
+        <% [ :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :longitude, :latitude, :long_lat_type, :country_code, :street_name, :openning_time, :closing_time, :access_type, :access_point_type, :mobility_restricted_suitability, :stairs_availability, :lift_availability].each do |prop| %>
+          <Data name="<%= prop.to_s %>">
+            <value><%= h(access_point.send( prop)) %></value>
+          </Data>
+        <% end %>
+        <Data name="stop_area_objectid">
+          <value><%= h(access_point.stop_area.object_id) %></value>
+        </Data>
+        </ExtendedData>        
+        <%= access_point.geometry_presenter.geometry.kml_representation.html_safe %>
+      </Placemark>
+    <% end %>
+  </Document>
+</kml>
+

@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
-  <% @route.stop_areas.each do |stop_area| %>
-    <Placemark id="<%= stop_area.objectid %>" >
-      <name><%= stop_area.name %></name>
-      <stop_area_type><%= stop_area.area_type.underscore %></stop_area_type>
-      <%= (stop_area.position or stop_area.default_position).kml_representation.html_safe %>
-    </Placemark>
-  <% end %>
     <Placemark id="<%= @route.objectid %>" >
-      <objectid><%= @route.objectid %></objectid>
-      <object_version><%= @route.object_version %></object_version>
-      <creation_time><%= @route.creation_time %></creation_time>
-      <creator_id><%= @route.creator_id %></creator_id>
-      <name><%= @route.name %></name>
-      <direction_code><%= @route.direction_code %></direction_code>
-      <comment><%= @route.comment %></comment>
-      <published_name><%= @route.published_name %></published_name>
-      <number><%= @route.number %></number>
-      <direction><%= @route.direction %></direction>
-      <wayback><%= @route.wayback %></wayback>
+      <name><%= h(@route.name) %></name>
+      <ExtendedData>
+      <% [:direction_code, :wayback_code, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :published_name, :number, :direction, :wayback].each do |prop| %>
+        <Data name="<%= prop.to_s %>">
+          <value><%= h(@route.send( prop)) %></value>
+        </Data>
+      <% end %>
+        <Data name="line_objectid">
+          <value><%= h(@route.line.object_id) %></value>
+        </Data>
+      </ExtendedData>        
       <%= @route.geometry_presenter.geometry.kml_representation.html_safe %>
     </Placemark>
   </Document>
