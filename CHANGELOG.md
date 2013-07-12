@@ -6,7 +6,10 @@
 * ajout d'un export KML :
 ** lignes
 ** séquences d'arrêt
-** arrêts
+** arrêts (une chouche par type)
+** missions
+** correspondances
+** accès et liaisons accès-arrêt
 * Intégration des cartes du géoportail (IGN)
 ** ajout des fonds niveau cadastre et orthophoto
 ** affichage de l'orthophoto IGN par défaut lorsque la clé IGN est présente
