@@ -7,9 +7,9 @@ describe "imports/new.html.erb" do
 
   let!(:available_imports) { assign(:available_imports, []) }
 
-  it "should display a select to choose import type" do
+  it "should display a radio button to choose import type" do
     render
-    rendered.should have_selector("select", :name => "import[type]")
+    rendered.should have_selector("input", :type => "radio", :name => "import[type]")
   end
 
 end
