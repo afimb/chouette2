@@ -1,18 +1,18 @@
-# V2.1.0 (en cours)
+# V2.1.0 (15/07/13)
 
 * suppression des coordonnées projetées en base
-** les données sont produites à la volée pour l'export et l'affichage à partir de la projection fixée dans le référentiel
+  * les données sont produites à la volée pour l'export et l'affichage à partir de la projection fixée dans le référentiel
 * consolidation de l'import GTFS
 * ajout d'un export KML :
-** lignes
-** séquences d'arrêt
-** arrêts (une chouche par type)
-** missions
-** correspondances
-** accès et liaisons accès-arrêt
+  * lignes
+  * séquences d'arrêt
+  * arrêts (une chouche par type)
+  * missions
+  * correspondances
+  * accès et liaisons accès-arrêt
 * Intégration des cartes du géoportail (IGN)
-** ajout des fonds niveau cadastre et orthophoto
-** affichage de l'orthophoto IGN par défaut lorsque la clé IGN est présente
+  * ajout des fonds niveau cadastre et orthophoto
+  * affichage de l'orthophoto IGN par défaut lorsque la clé IGN est présente
 
 # V2.0.3 (27/05/13)
 
@@ -39,5 +39,5 @@
 
 * refonte de l'interface graphique
 * ajout d'une gestion simplifiée d'utilisateurs :
-** ajout d'une notion d'organisation
-** ajout d'une notion d'espace de données
+  * ajout d'une notion d'organisation
+  * ajout d'une notion d'espace de données
