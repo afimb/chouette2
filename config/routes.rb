@@ -6,16 +6,6 @@ ChouetteIhm::Application.routes.draw do
   devise_for :users
 
   namespace :api do
-    namespace :kml do
-      resources :referentials do
-        resources :stop_areas, :only => [:index, :show]
-        resources :lines, :only => [:index, :show] do
-          resources :routes, :only => [:index, :show] 
-        end
-      end
-    end
-  end
-  namespace :api do
     namespace :v1 do
       resources :time_tables, :only => [:index, :show]
       resources :connection_links, :only => [:index, :show]
