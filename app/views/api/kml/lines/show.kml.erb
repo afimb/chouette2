@@ -11,10 +11,10 @@
         </Data>
       <% end %>
         <Data name="company_objectid">
-          <value><%= h(@line.company.object_id) %></value>
+          <value><%= h(@line.company.objectid) %></value>
         </Data>
         <Data name="network_objectid">
-          <value><%= h(@line.network.object_id) %></value>
+          <value><%= h(@line.network.objectid) %></value>
         </Data>
       </ExtendedData>        
       <%= @line.geometry_presenter.geometry.kml_representation.html_safe %>

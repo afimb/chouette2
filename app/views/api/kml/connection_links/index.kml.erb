@@ -12,10 +12,10 @@
           </Data>
         <% end %>
         <Data name="departure_objectid">
-          <value><%= h(connection_link.departure.object_id) %></value>
+          <value><%= h(connection_link.departure.objectid) %></value>
         </Data>
         <Data name="arrival_objectid">
-          <value><%= h(connection_link.arrival.object_id) %></value>
+          <value><%= h(connection_link.arrival.objectid) %></value>
         </Data>
         </ExtendedData>        
         <%= connection_link.geometry_presenter.geometry.kml_representation.html_safe %>

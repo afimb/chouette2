@@ -9,7 +9,7 @@
         </Data>
       <% end %>
         <Data name="route_objectid">
-          <value><%= h(@journey_pattern.route.object_id) %></value>
+          <value><%= h(@journey_pattern.route.objectid) %></value>
         </Data>
       </ExtendedData>        
     <% @journey_pattern.route.stop_points.each_with_index do |stop_point, index| %>
@@ -25,7 +25,7 @@
         <% end %>
         <% if stop_area.parent %>
           <Data name="parent_objectid">
-            <value><%= h(stop_area.parent.object_id) %></value>
+            <value><%= h(stop_area.parent.objectid) %></value>
           </Data>
         <% end %>
           <Data name="stop">

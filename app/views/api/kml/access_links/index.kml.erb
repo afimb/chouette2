@@ -12,10 +12,10 @@
           </Data>
         <% end %>
         <Data name="access_point_objectid">
-          <value><%= h(access_link.access_point.object_id) %></value>
+          <value><%= h(access_link.access_point.objectid) %></value>
         </Data>
         <Data name="stop_area_objectid">
-          <value><%= h(access_link.stop_area.object_id) %></value>
+          <value><%= h(access_link.stop_area.objectid) %></value>
         </Data>
         </ExtendedData>        
         <%= access_link.geometry_presenter.geometry.kml_representation.html_safe %>
