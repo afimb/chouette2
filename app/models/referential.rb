@@ -94,15 +94,28 @@ class Referential < ActiveRecord::Base
 
   def self.available_srids
     [
-     [ "NTF Lambert Zone 1 (27561)", 27561 ],
-     [ "NTF Lambert Zone 2 (27562)", 27562 ],
-     [ "NTF Lambert Zone 3 (27563)", 27563 ],
-     [ "NTF Lambert Zone 4 (27564)", 27564 ],
-     [ "NTF Lambert 1 (27571)", 27571 ],
-     [ "NTF Lambert 2 étendu (27572)", 27572 ],
-     [ "NTF Lambert 3 (27573)", 27573 ],
-     [ "NTF Lambert 4 (27574)", 27574 ],
-     [ "RGF 93 Lambert 93 (2154)", 2154 ]
+      [ "RGF 93 Lambert 93 (2154)", 2154 ],
+      [ "RGF93 CC42 (zone 1) (3942)", 3942 ],
+      [ "RGF93 CC43 (zone 2) (3943)", 3943 ],
+      [ "RGF93 CC44 (zone 3) (3944)", 3944 ],
+      [ "RGF93 CC45 (zone 4) (3945)", 3945 ],
+      [ "RGF93 CC46 (zone 5) (3946)", 3946 ],
+      [ "RGF93 CC47 (zone 6) (3947)", 3947 ],
+      [ "RGF93 CC48 (zone 7) (3948)", 3948 ],
+      [ "RGF93 CC49 (zone 8) (3949)", 3949 ],
+      [ "RGF93 CC50 (zone 9) (3950)", 3950 ],
+      [ "NTF Lambert Zone 1 Nord (27561)", 27561 ],
+      [ "NTF Lambert Zone 2 Centre (27562)", 27562 ],
+      [ "NTF Lambert Zone 3 Sud (27563)", 27563 ],
+      [ "NTF Lambert Zone 4 Corse (27564)", 27564 ],
+      [ "NTF Lambert 1 Carto (27571)", 27571 ],
+      [ "NTF Lambert 2 Carto (27572)", 27572 ],
+      [ "NTF Lambert 3 Carto (27573)", 27573 ],
+      [ "NTF Lambert 4 Carto (27574)", 27574 ] ,
+      [ "Réunion RGR92 - UTM 40S (2975)", 2975 ],
+      [ "Antilles Françaises RRAF1991 - UTM 20N - IGN (4559)", 4559 ],
+      [ "Guyane RGFG95 - UTM 22N (2972)", 2972 ],
+      [ "Guyane RGFG95 - UTM 21N (2313)", 2313 ]
     ]
   end
 
