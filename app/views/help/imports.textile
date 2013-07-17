@@ -10,9 +10,50 @@ p. L'import permet d'enregistrer dans la base un ensemble de données selon un f
 h3. Formats disponibles
 
 - Neptune := format normalisé des échanges de données de transport en commun pour la France (cf "Normalisation":normalisation)
-- NeTEx := format d'échanges de données de transport en commun expérimental sur la norme européenne NeTEx mais limité aux données définies dans la norme Neptune
+- NeTEx := format d'échanges de données de transport en commun expérimental sur la norme européenne ["NeTEx":http://normes-donnees-tc.org/spip.php?article66] mais limité aux données définies dans la norme Neptune
 - CSV := format tabulaire spécifique à Chouette  (cf "CSV":csv)
-- GTFS := format originaire de ["Google Transit":https://support.google.com/transitpartners/], à condition que le fichier soit préalablement validé avec l'outil Feed Validator
+- GTFS := 
+format originaire de ["Google Transit":https://support.google.com/transitpartners/], à condition que le fichier soit préalablement validé avec l'outil Feed Validator
+ les données exportées en GTFS sont explicités ["ICI":http://normes-donnees-tc.org/spip.php?article64] =:
+
+h3. Options des formats
+
+Les options des différents formats apparaissent en fonction de celui qui a été choisi.
+
+* *tout format* : 
+
+- Fichier à importer := fichier (plat ou zip selon format)
+
+* *Neptune* : pas d'option particulière
+
+* *NeTex* : pas d'option particulière
+
+* *GTFS* :
+
+- Préfixe d'identifiants := 
+préfixe à utiliser pour générer les identifiants Neptune des objets importés,
+initialisé à la valeur définie pour l'espace de données =:
+- Distance max pour créer les zones := 
+Distance maximale entre deux arrêts homonymes pour les regrouper au sein d'un arrêt commercial de même nom,
+ces zones viennent en supplément de celles définies dans GTFS, 
+une distance de 0 ne génère aucune zone =:
+- ignorer le dernier mot := 
+lors de la comparaison des noms d'arrêts, il est possible par cette option de ne pas prendre en compte le dernier mot du nom de l'arrêt 
+(sauf si celui-ci n'est composé que d'un seul mot) =:
+- ignorer les n derniers caractères := 
+lors de la comparaison des noms d'arrêts, il est possible par cette option de ne pas prendre en compte les derniers cractères du nom de l'arrêt 
+(sauf si celui-ci n'a pas assez de caractères pour cela) =:
+- Distance max pour créer les corresondances := 
+Distance maximale entre deux arrêts pour les lier par une correspondance, 
+ces correspondances sont hors zone d'arrêt,
+elles viennent en supplément de celles définies dans GTFS (ce mécanisme tient compte des correspondances exclues), 
+une distance de 0 ne génère aucune correspondance =:
+
+* *CSV* : 
+
+- Préfixe d'identifiants := 
+préfixe à utiliser pour générer les identifiants Neptune des objets importés,
+initialisé à la valeur définie pour l'espace de données =:
 
 h3. Consultation des résultats
 
