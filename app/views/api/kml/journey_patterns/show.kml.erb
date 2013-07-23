@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
-      <name><%= h(@journey_pattern.name) %></name>
+      <name><%= h(Chouette::JourneyPattern.model_name.human) %> : <%= h(@journey_pattern.name) %></name>
       <ExtendedData>
       <% [:objectid, :object_version, :creation_time, :creator_id, :name, :comment, :registration_number, :published_name].each do |prop| %>
         <Data name="<%= prop.to_s %>">
@@ -11,12 +11,12 @@
         <Data name="route_objectid">
           <value><%= h(@journey_pattern.route.objectid) %></value>
         </Data>
-      </ExtendedData>        
+      </ExtendedData>
     <% @journey_pattern.route.stop_points.each_with_index do |stop_point, index| %>
       <% stop_area = stop_point.stop_area %>
       <% if stop_area.geometry %>
       <Placemark id="<%= stop_area.objectid %>" >
-        <name><%=  h(stop_area.name) %></name>    
+        <name><%=  h(stop_area.name) %></name>
         <ExtendedData>
         <% [ :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :area_type, :registration_number, :nearest_topic_name, :fare_code, :longitude, :latitude, :long_lat_type, :country_code, :street_name, :mobility_restricted_suitability, :stairs_availability, :lift_availability, :int_user_needs].each do |prop| %>
           <Data name="<%= prop.to_s %>">
@@ -31,8 +31,8 @@
           <Data name="stop">
             <value><%= @journey_pattern.stop_points.include?( stop_point) ? "true" : "false" %></value>
           </Data>
-        </ExtendedData>        
-    
+        </ExtendedData>
+
         <%= stop_area.geometry_presenter.geometry.kml_representation.html_safe %>
       </Placemark>
       <% end %>

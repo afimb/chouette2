@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
-    <name>correspondances</name>
-    <% @connection_links.each do |connection_link| %>    
+    <name><%= h(Chouette::ConnectionLink.model_name.human) %> : <%= h(@journey_pattern.name) %></name>
+    <% @connection_links.each do |connection_link| %>
       <Placemark id="<%= connection_link.objectid %>" >
-        <name><%= h(connection_link.name) %></name>    
+        <name><%= h(connection_link.name) %></name>
         <ExtendedData>
         <% [ :connection_link_type, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :link_distance, :link_type, :default_duration, :frequent_traveller_duration, :occasional_traveller_duration, :mobility_restricted_traveller_duration, :mobility_restricted_suitability, :stairs_availability, :lift_availability, :int_user_needs].each do |prop| %>
           <Data name="<%= prop.to_s %>">
@@ -17,7 +17,7 @@
         <Data name="arrival_objectid">
           <value><%= h(connection_link.arrival.objectid) %></value>
         </Data>
-        </ExtendedData>        
+        </ExtendedData>
         <%= connection_link.geometry_presenter.geometry.kml_representation.html_safe %>
       </Placemark>
     <% end %>
