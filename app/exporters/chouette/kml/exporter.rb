@@ -43,14 +43,14 @@ class Chouette::Kml::Exporter
         Chouette::Kml::StopAreaExporter.save( stop_areas, temp_dir, kml_export, "Quay")
 
         commercial_stop_areas = lines_collected.collect(&:commercial_stop_areas).flatten.uniq.sort_by(&:name)
-        Chouette::Kml::StopAreaExporter.save( stop_areas, temp_dir, kml_export, "CommercialStopPoint")
+        Chouette::Kml::StopAreaExporter.save( commercial_stop_areas, temp_dir, kml_export, "CommercialStopPoint")
 
         if(options[:o].present?) # Add all objects
           stop_places = referential.stop_areas.stop_place.sort_by(&:name)
-          Chouette::Kml::StopAreaExporter.save( stop_areas, temp_dir, kml_export, "StopPlace")
+          Chouette::Kml::StopAreaExporter.save( stop_places, temp_dir, kml_export, "StopPlace")
 
           itls = referential.stop_areas.itl.sort_by(&:name)
-          Chouette::Kml::StopAreaExporter.save( stop_areas, temp_dir, kml_export, "ITL")
+          Chouette::Kml::StopAreaExporter.save( itls, temp_dir, kml_export, "ITL")
 
           connection_links = referential.connection_links.sort_by(&:name)
           Chouette::Kml::ConnectionLinkExporter.save( connection_links, temp_dir, kml_export)
