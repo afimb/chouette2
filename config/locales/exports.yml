@@ -93,6 +93,11 @@ en:
       time_zone: "according to TZ  encoding (see http://en.wikipedia.org/wiki/Tz_database)"
       start_date: "reduce import to vehicle journeys running from this date"
       end_date: "reduce import to vehicle journeys running until this date"
+  area_types:
+    quay: "Quays"
+    commercial_stop_point: "Commercial Stop Points"
+    stop_place: "Stop Places"
+    itl: "Restriction Constraints"
 fr:
   exports:
     actions:
@@ -188,3 +193,8 @@ fr:
       time_zone: "selon le codage TZ  (http://fr.wikipedia.org/wiki/Tz_database)"
       start_date: "limite l'export aux courses circulant à partir de cette date"
       end_date: "limite l'export aux courses circulant jusqu'à cette date"
+  area_types:
+    quay: "Quais"
+    commercial_stop_point: "Arrêts commerciaux"
+    stop_place: "Pôles d'échange"
+    itl: "ITL"
