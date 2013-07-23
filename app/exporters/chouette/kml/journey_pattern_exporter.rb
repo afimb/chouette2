@@ -12,7 +12,7 @@ class Chouette::Kml::JourneyPatternExporter
   end
 
   def kml_name
-    "/line_#{journey_pattern.route.line_id}_route_#{journey_pattern.route.id}_journey_attern_#{journey_pattern.id}.kml"
+    "/line_#{journey_pattern.route.line_id}_route_#{journey_pattern.route.id}_journey_pattern_#{journey_pattern.id}.kml"
   end
 
   def self.save( journey_patterns, directory, kml_export)

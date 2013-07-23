@@ -37,7 +37,7 @@ en:
       EXPORTED_LINE: "Line %{0} (%{1}) exported"
       EMPTY_LINE: "Line without valid vehicle journey : not exported"
       EXPORT_ERROR: "Error durring export"
-      EXCEPTION: "Origin %{0}" 
+      EXCEPTION: "Origin %{0}"
       WRONG_DATA: "Missing arguments to produce log message %{0}"
       # old report for backward compatibility
       NEPTUNE_EXPORT: "Neptune Export"
@@ -65,28 +65,16 @@ en:
       warning: "Warning"
       error: "Error"
       fatal: "Fatal"
-  activerecord:        
-    models:        
+  activerecord:
+    models:
       export:
-        zero:  "export"
-        one:   "export"
+        one: "export"
         other: "exports"
-      neptune_export: 
-        zero:  "Export"
-        one:   "Neptune Export" 
-        other: "Exports"
-      csv_export: 
-        zero:  "Export"
-        one:   "CSV Export" 
-        other: "Exports"
-      gtfs_export: 
-        zero:  "Export"
-        one:   "GTFS Export"
-        other: "Exports"
-      netex_export: 
-        zero:  "Export"
-        one:   "NeTEx Export"
-        other: "Exports"
+      kml_export: "KML export"
+      neptune_export: "Neptune export"
+      csv_export: "CSV export"
+      gtfs_export: "GTFS export"
+      netex_export: "NeTEx export"
     attributes:
       export:
         status: "Status"
@@ -144,7 +132,7 @@ fr:
       EXPORTED_LINE: "Ligne %{0} (%{1}) exportée"
       EMPTY_LINE: "Ligne sans course valide : non exportée"
       EXPORT_ERROR: "Erreur lors de l'export"
-      EXCEPTION: "Cause %{0}" 
+      EXCEPTION: "Cause %{0}"
       WRONG_DATA: "Il manque des données pour afficher le message de log %{0}"
       # old report for backward compatibility
       NEPTUNE_EXPORT: "Export Neptune"
@@ -172,28 +160,16 @@ fr:
       warning: "Alerte"
       error: "Erreur"
       fatal: "Fatal"
-  activerecord:        
+  activerecord:
     models:
       export:
-        zero:  "export"
-        one:   "export"
+        one: "export"
         other: "exports"
-      neptune_export: 
-        zero:  "Export"
-        one:   "Export Neptune"
-        other: "Exports"
-      csv_export: 
-        zero:  "Export"
-        one:   "Export CSV"
-        other: "Exports"
-      gtfs_export: 
-        zero:  "Export"
-        one:   "Export GTFS"
-        other: "Exports"
-      netex_export: 
-        zero:  "Export"
-        one:   "Export NeTEx"
-        other: "Exports"
+      kml_export: "export KML"
+      neptune_export: "export Neptune "
+      csv_export: "export CSV"
+      gtfs_export: "export GTFS "
+      netex_export: "export NeTEx "
     attributes:
       export:
         status: "Status"

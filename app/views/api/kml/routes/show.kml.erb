@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
+    <name><%= Chouette::Route.model_name.human %> : <%= h(@route.name) %></name>
     <Placemark id="<%= @route.objectid %>" >
       <name><%= h(@route.name) %></name>
       <ExtendedData>
@@ -12,7 +13,7 @@
         <Data name="line_objectid">
           <value><%= h(@route.line.objectid) %></value>
         </Data>
-      </ExtendedData>        
+      </ExtendedData>
       <%= @route.geometry_presenter.geometry.kml_representation.html_safe %>
     </Placemark>
   </Document>
