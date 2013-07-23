@@ -31,6 +31,7 @@ h3. Sommaire
 # Divers
 ## "Tutoriel/Démonstrateur":tutorial
 ## "API Rest":restapis
+## "Export KML":kml_exports
 ## "format d'échange CSV":csv
 ## "FAQ":faq
 
