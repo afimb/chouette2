@@ -7,14 +7,14 @@ jdk:
   - openjdk7
   - openjdk6
 matrix:
-  exclude: 
+  exclude:
     - rvm:  1.8.7
       jdk: openjdk7
     - rvm:  1.8.7
       jdk: oraclejdk7
-before_install:
-  - sudo apt-get install build-essential ruby-dev libproj-dev libgeos-dev libffi-dev libsparsehash-dev zlib1g-dev libxslt1-dev libxml2-dev libbz2-dev
-before_script: 
+#before_install:
+#  - sudo apt-get install build-essential ruby-dev libproj-dev libgeos-dev libffi-dev libsparsehash-dev zlib1g-dev libxslt1-dev libxml2-dev libbz2-dev
+before_script:
   - "rake ci:db_travis_config"
   - "rake db:create"
   - "rake apartment:migrate"
