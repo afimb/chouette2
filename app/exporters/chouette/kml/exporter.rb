@@ -78,7 +78,7 @@ class Chouette::Kml::Exporter
         # if too many lines
         # there may be too many stop_areas
         if lines_exportable?
-          stop_areas = Chouette::StopArea.joins(:children => [:stop_points => [:route => :line] ]).where(:lines => {:id => lines.map(&:id)}).uniq.order(:name)
+          stop_areas = Chouette::StopArea.joins( :stop_points => [:route => :line]).where(:lines => {:id => lines.map(&:id)}).uniq.order(:name)
           Chouette::Kml::StopAreaExporter.save( stop_areas, temp_dir, kml_export, "Quay")
 
           commercial_stop_areas = Chouette::StopArea.where( :id => stop_areas.map(&:parent_id).compact.uniq).order(:name)

@@ -28,9 +28,6 @@ describe Chouette::Kml::Exporter do
     it "should return a zip file with nothing inside with no objects in arguments" do
       subject.export(zip_file_path, {:export_id => 1, :o => "line"} )
       File.exists?(zip_file_path).should be_true
-      ::Zip::ZipFile.open(zip_file_path) do |f|
-        puts "f = #{f.inspect}"
-      end
       ::Zip::ZipFile.open(zip_file_path).size.should == 6
     end
 
