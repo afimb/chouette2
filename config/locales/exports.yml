@@ -123,6 +123,7 @@ fr:
       completed: "Export achevé avec succès"
       failed: "Export interrompu"
       undefined: "%{key} non défini"
+      overflow: "Impossible d'exporter plus de %{count} %{data} en un seul export. Veuillez procéder par exports successifs en sélectionnant une moindre quantité de lignes."
       LINE_COUNT: "Nombre de lignes exportées : %{0}"
       ROUTE_COUNT: "Nombre de séquences d'arrêts exportées : %{0}"
       QUAY_AND_BOARDING_POSITION_COUNT: "Nombre d'arrêts physiques exportés : %{0}"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
-    <name><%= h(Chouette::AccessPoint.model_name.human) %> : <%= h(@journey_pattern.name) %></name>
+    <name><%= h(Chouette::AccessPoint.model_name.human) %></name>
     <name>access</name>
     <% @access_points.each do |access_point| %>
       <Placemark id="<%= access_point.objectid %>" >
