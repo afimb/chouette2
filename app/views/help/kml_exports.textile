@@ -80,6 +80,14 @@ h5. Géométrie associée au KML de tracé de séquence d'arrêts :
 Ce fichier KML rassemble en une seule géométrie la totalité des tronçons reliant les arrêts physiques entre eux.
 Ce tracé relie les arrêts physiques en suivant l'ordre de parcours de la séquence.
 
+h5. Limitations de volumétrie
+
+La fonction d'export KML autorise un export de plusieurs lignes dans la limite de 150 au maximum. Au-delà les fichiers KML des lignes ne sont pas produitq, les fichiers des arrêts physiques et commerciaux non plus. Le rapport d'export mentionne dans ce cas une alerte pour prévenir que le quota de lignes autorisées est dépassé.
+Les séquences d'arrêt et les missions ne sont pas non plus exportées lorsque la limite de 150 est dépassée.
+
+Dans le cas des référentiels qui comptent plus de 150 lignes, il est nécessaire de procéder en plusieurs opérations d'export.
+Cependant, il faut garder à l'esprit que les outils SIG ont aussi leurs propres limites quant au nombre de couches qui peuvent être gérées en même temps.
+
 h4. Pour un export de « Tout »
 
 L'archive ZIP contient tous les fichiers KML produits par un export de tous les réseaux (ou tous les transporteurs).
