@@ -7,6 +7,7 @@ h3. Introduction
 
 Un certain nombre de données de l'application Chouette ont une composante géographique et peuvent donc intéresser des outils SIG.
 Pour faciliter l 'exploitation des données de Chouette par un SIG, la fonction d'export doit être étendue pour proposer un format KML qui a l'avantage d'être relativement répandu dans le domaine des SIG.
+A noter que par ailleurs, il est possible de récupérer la géométrie (sans les attributs) de tous les objets affichés dans des cartes dans Chouette, il suffit d'ajouter «.KML » à la fin de l'url : par ex. www.chouette.mobi/chouette2/referentials/114/lines/1/routes/2.KML .
 
 h3. Sélection des données à exporter
 
@@ -43,29 +44,34 @@ L'archive ZIP contient les fichiers KML suivants :
   - les attributs de ligne figurent dans l'élément KML ExtendedData
   - l'attribut « name » du Document KML porte le nom « Ligne : nom de la ligne »
   - le nom de ce fichier KML est de la forme : line_identifiant de ligne.kml, l'identifiant de ligne étant un entier
-* un fichier de tracé de séquence d'arrêt pour chacune des séquences d'arrêts des lignes
+* un fichier de tracé de chacune des séquences d'arrêts des lignes
   - le type de géométrie est LineString
   - les attributs de la séquence d'arrêts figurent dans l'élément KML ExtendedData
-  - l'attribut « name » du Document KML porte le « Séquence d'arrêts : nom de la séquence d'arrêts »
+  - l'attribut « name » du Document KML porte le nom « Séquence d'arrêts : nom de la séquence d'arrêts »
   - le nom de ce fichier KML est de la forme : line_identifiant de ligne_route_identifiant de séquence d'arrêts.kml, l'identifiant de ligne et de séquence étant des  entiers
+* un fichier KML pour chaque mission de chaque séquence d'arrêts
+  - le type de géométrie est Point
+  - les attributs de la séquence d'arrêts figurent dans l'élément KML ExtendedData
+  - l'attribut « name » du Document KML porte le nom «Mission : nom de la mission »
+  - le nom de ce fichier KML est de la forme : line_identifiant de ligne_route_identifiant de séquence d'arrêts_journey_pattern_id_mission.kml, les identifiants étant des  entiers
 * un fichier des arrêts commerciaux appartenant à au moins une des lignes sélectionnées
   - le type de géométrie est Point
   - les attributs d'arrêt commercial figurent dans l'élément KML ExtendedData
-  - l'attribut « name » du Document KML porte le nom « arrêts commerciaux des réseaux : noms des réseaux sélectionnés »
-  - le nom de ce fichier KML est : commercial_stop_points.kml
-* un fichier des arrêt physiques appartenant à au moins une des lignes sélectionnées
+  - l'attribut « name » du Document KML porte le nom « arrêts commerciaux»
+  - le nom de ce fichier KML est : commercial_stop_areas.kml
+* un fichier des arrêts physiques appartenant à au moins une des lignes sélectionnées
   - le type de géométrie est Point
   - les attributs d'arrêt physique figurent dans l'élément KML ExtendedData
-  - l'attribut « name » du Document KML porte le nom « arrêts physiques des réseaux : noms des réseaux sélectionnés »
-  - le nom de ce fichier KML est : quays_and_boarding_positions.kml
+  - l'attribut « name » du Document KML porte le nom « arrêts physiques»
+  - le nom de ce fichier KML est : stop_areas.kml
 
 h5. Remarque sur le nom des fichiers
 
 Certains fichiers exportés font apparaître un ou plusieurs identifiants dans leur nom.
 C'est le cas notamment du fichier de ligne et du fichier de séquence d'arrêts.
-L'identifiant considéré est un entier qui correspond à un identifiant interne. C'est l'identifiant qui apparaît dans les URL de chouette : par exemple, supposons que nous ayons défini une ligne dans un référentiel et que la page de consultation de cette ligne ait l'URL suivante
+Ces identifiants sont des identifiants internes, pas des identifiants « métier » connus de l'utilisateur (indice de ligne, Id Neptune ou autre). C'est l'identifiant qui apparaît dans les URL de chouette : par exemple, supposons que nous ayons défini une ligne dans un référentiel et que la page de consultation de cette ligne ait l'URL suivante
 http://chouette.dryade.net/chouette2/referentials/114/lines/9
-Dans ce cas, le dossier .ZIP de l'export KML contient un fichier KML de cette ligne et ce fichier est nommé « line_9.kml »
+Dans ce cas, le dossier .ZIP de l'export KML contiendra un fichier KML de cette ligne contient un fichier nommé « line_9.kml »
 
 h5. Géométrie associée au KML de tracé de ligne :
 
@@ -82,10 +88,11 @@ Ce tracé relie les arrêts physiques en suivant l'ordre de parcours de la séqu
 
 h5. Limitations de volumétrie
 
-La fonction d'export KML autorise un export de plusieurs lignes dans la limite de 150 au maximum. Au-delà les fichiers KML des lignes ne sont pas produitq, les fichiers des arrêts physiques et commerciaux non plus. Le rapport d'export mentionne dans ce cas une alerte pour prévenir que le quota de lignes autorisées est dépassé.
-Les séquences d'arrêt et les missions ne sont pas non plus exportées lorsque la limite de 150 est dépassée.
+1. La fonction d'export KML autorise un export de plusieurs lignes dans la limite de 150 au maximum. Au-delà, les fichiers KML des lignes ne sont pas produits, ni les fichiers des arrêts physiques, des commerciaux, des séquences d'arrêt et des missions. Seuls seront présents les fichiers des pôles d'échange, des ITL, des correspondances, des accès et  des liens accès-arrêt si l'utilisateur a choisi de tout exporter (comme indiqué au § 4.2). Le rapport d'export mentionne dans ce cas une alerte pour prévenir que le quota de lignes autorisées est dépassé.
+2. Si il y a plus de 150 séquences d'arrêt, elles ne sont pas exportées, un message d'alerte est affiché dans le résultat de l'export. Dans ce cas les fichiers des missions ne sont pas produits non plus.
+3. De même, s'il y a plus de 150 missions elles ne sont pas exportées, un message d'alerte est affiché dans le résultat de l'export.
 
-Dans le cas des référentiels qui comptent plus de 150 lignes, il est nécessaire de procéder en plusieurs opérations d'export.
+Par conséquent, dans le cas des référentiels qui comptent plus de 150 lignes, il est nécessaire de procéder en plusieurs opérations d'export.
 Cependant, il faut garder à l'esprit que les outils SIG ont aussi leurs propres limites quant au nombre de couches qui peuvent être gérées en même temps.
 
 h4. Pour un export de « Tout »

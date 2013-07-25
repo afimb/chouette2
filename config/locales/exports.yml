@@ -95,7 +95,7 @@ en:
       start_date: "reduce import to vehicle journeys running from this date"
       end_date: "reduce import to vehicle journeys running until this date"
   area_types:
-    quay: "Quays"
+    quay: "Quays and Boarding Positions"
     commercial_stop_point: "Commercial Stop Points"
     stop_place: "Stop Places"
     itl: "Restriction Constraints"
@@ -196,7 +196,7 @@ fr:
       start_date: "limite l'export aux courses circulant à partir de cette date"
       end_date: "limite l'export aux courses circulant jusqu'à cette date"
   area_types:
-    quay: "Quais"
+    quay: "Arrêts"
     commercial_stop_point: "Arrêts commerciaux"
     stop_place: "Pôles d'échange"
     itl: "ITL"
