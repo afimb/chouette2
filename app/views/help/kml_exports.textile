@@ -88,7 +88,7 @@ Ce tracé relie les arrêts physiques en suivant l'ordre de parcours de la séqu
 
 h5. Limitations de volumétrie
 
-1. La fonction d'export KML autorise un export de plusieurs lignes dans la limite de 150 au maximum. Au-delà, les fichiers KML des lignes ne sont pas produits, ni les fichiers des arrêts physiques, des commerciaux, des séquences d'arrêt et des missions. Seuls seront présents les fichiers des pôles d'échange, des ITL, des correspondances, des accès et  des liens accès-arrêt si l'utilisateur a choisi de tout exporter (comme indiqué au § 4.2). Le rapport d'export mentionne dans ce cas une alerte pour prévenir que le quota de lignes autorisées est dépassé.
+1. La fonction d'export KML autorise un export de plusieurs lignes dans la limite de 150 au maximum. Au-delà, les fichiers KML des lignes ne sont pas produits, ni les fichiers des arrêts physiques, des commerciaux, des séquences d'arrêt et des missions. Seuls seront présents les fichiers des pôles d'échange, des ITL, des correspondances, des accès et  des liens accès-arrêt si l'utilisateur a choisi de tout exporter (comme indiqué au paragraphe 4.2). Le rapport d'export mentionne dans ce cas une alerte pour prévenir que le quota de lignes autorisées est dépassé.
 2. Si il y a plus de 150 séquences d'arrêt, elles ne sont pas exportées, un message d'alerte est affiché dans le résultat de l'export. Dans ce cas les fichiers des missions ne sont pas produits non plus.
 3. De même, s'il y a plus de 150 missions elles ne sont pas exportées, un message d'alerte est affiché dans le résultat de l'export.
 
