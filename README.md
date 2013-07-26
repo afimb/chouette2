@@ -1,4 +1,4 @@
-# Chouette2 [![Build Status](https://travis-ci.org/dryade/chouette2.png)](http://travis-ci.org/dryade/chouette2?branch=master) [![Dependency Status](https://gemnasium.com/dryade/chouette2.png)](https://gemnasium.com/dryade/chouette2) [![Code Climate](https://codeclimate.com/github/dryade/chouette2.png)](https://codeclimate.com/github/dryade/chouette2)
+# Chouette2 [![Build Status](https://travis-ci.org/afimb/chouette2.png)](http://travis-ci.org/afimb/chouette2?branch=master) [![Dependency Status](https://gemnasium.com/afimb/chouette2.png)](https://gemnasium.com/afimb/chouette2) [![Code Climate](https://codeclimate.com/github/afimb/chouette2.png)](https://codeclimate.com/github/afimb/chouette2)
 
 Chouette2 is an open source web project in Ruby/Rails to edit and view transport offer. It's designed as an [SaaS](http://en.wikipedia.org/wiki/Software_as_a_service) platform and can :
 * Exchange transport data : [Neptune](http://www.chouette.mobi/spip.php?rubrique61), [GTFS](https://developers.google.com/transit/gtfs/reference?hl=fr), [NeTEx](http://www.kizoom.com/standards/netex/), CSV
@@ -19,7 +19,7 @@ Feel free to test and access to the demonstration web site at [http://www.chouet
 Requirements
 ------------
  
-This code has been run and tested on [Travis](http://travis-ci.org/dryade/chouette2?branch=master) with : 
+This code has been run and tested on [Travis](http://travis-ci.org/afimb/chouette2?branch=master) with : 
 * Ruby 1.8.7
 * JRuby 1.6.8 (oraclejdk7, openjdk7, openjdk6)
 
@@ -37,9 +37,9 @@ sudo apt-get install unzip
 Installation
 ------------
  
-Install [Postgres] (https://github.com/afimb/chouette2/blob/master/doc/install/postgresql.md)
+Install [Postgres] (./doc/install/postgresql.md)
 
-Install [JRuby] (https://github.com/afimb/chouette2/blob/master/doc/install/jruby.md)
+Install [JRuby] (./doc/install/jruby.md)
 
 Get git code : 
 ```sh
@@ -114,15 +114,15 @@ bundle exec rake spec
 More Information
 ----------------
  
-More information can be found on the [project website on GitHub](http://github.com/afimb/chouette2). 
-There is extensive usage documentation available [on the wiki](https://github.com/afimb/chouette2/wiki).
+More information can be found on the [project website on GitHub](.). 
+There is extensive usage documentation available [on the wiki](../../wiki).
 
 API Documentation
 -----------------
 
 The description of the restful API is described in : 
-* [User manual file](https://github.com/afimb/chouette2/blob/master/doc/interfaces/Chouette_API_REST_v1.2.pdf)
-* [XSD file](https://github.com/afimb/chouette2/blob/master/doc/interfaces/api_rest_v1.xsd)
+* [User manual file](./doc/interfaces/Chouette_API_REST_v1.2.pdf)
+* [XSD file](./doc/interfaces/api_rest_v1.xsd)
 
 Example Usage 
 -------------
@@ -140,14 +140,14 @@ bundle exec rails server
 License
 -------
  
-This project is licensed under the CeCILL-B license, a copy of which can be found in the [LICENSE](https://github.com/afimb/chouette2/blob/master/LICENSE.md) file.
+This project is licensed under the CeCILL-B license, a copy of which can be found in the [LICENSE](./LICENSE.md) file.
 
 Release Notes
 -------------
 
-The release notes can be found in [CHANGELOG](https://github.com/afimb/chouette2/blob/master/CHANGELOG.md) file 
+The release notes can be found in [CHANGELOG](./CHANGELOG.md) file 
  
 Support
 -------
  
-Users looking for support should file an issue on the GitHub issue tracking page (https://github.com/afimb/chouette2/issues), or file a pull request (https://github.com/dryade/chouette2/pulls) if you have a fix available.
+Users looking for support should file an issue on the GitHub [issue tracking page](../../issues), or file a [pull request](../../pulls) if you have a fix available.
