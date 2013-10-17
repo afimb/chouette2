@@ -33,6 +33,9 @@ class Referential < ActiveRecord::Base
       if slug == 'public'
         errors.add(:slug,I18n.t("referentials.errors.public_excluded"))
       end
+      if slug == connection.config[:username]
+        errors.add(:slug,I18n.t("referentials.errors.user_excluded", :user => slug))
+      end
     end
   end
 

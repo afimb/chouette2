@@ -26,7 +26,8 @@ en:
       edit: "Edit this data space"
     errors:
       pg_excluded: "can't begins with pg_"
-      public_excluded: "public is reserved value"
+      public_excluded: "public is a reserved value"
+      user_excluded: "%{user} is a reserved value"
   activerecord:
     models:
       referential: 
@@ -98,6 +99,7 @@ fr:
     errors:
       pg_excluded: "ne peut pas commencer par pg_ (valeurs réservées)"
       public_excluded: "public est une valeur réservée"
+      user_excluded: "%{user} est une valeur réservée"
   activerecord:
     models:
       referential: 
