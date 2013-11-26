@@ -23,8 +23,6 @@ gem 'devise_invitable'
 
 # Map, Geolocalization
 gem "map_layers", "0.0.4"
-gem "georuby-ext", :git => 'git://github.com/dryade/georuby-ext.git'
-#gem "georuby-ext", "0.0.2"
 
 # User interface
 gem 'user_interface', "0.0.4"
@@ -47,8 +45,7 @@ gem 'inherited_resources'
 gem 'will_paginate', '~> 3.0'
 gem 'ransack'
 gem 'squeel'
-#gem 'ninoxe', :git => 'git://github.com/dryade/ninoxe.git'
-gem 'ninoxe', '0.1.3'
+gem 'ninoxe', '0.1.5'
 gem 'acts_as_list', '0.1.6'
 gem "acts_as_tree-1.8", '1.1.0', :require => "acts_as_tree"
 

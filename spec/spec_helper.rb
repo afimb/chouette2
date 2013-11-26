@@ -14,6 +14,7 @@ unless defined?(FactoryGirl)
   require 'spec/factories.rb'
 end
 require 'chouette_factories'
+require 'georuby-ext'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
