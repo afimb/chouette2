@@ -1,3 +1,8 @@
+# V2.1.1 (en cours)
+
+* Clonage de courses
+  * les calendiers de la course initiale sont reportés dans les copies
+
 # V2.1.0 (15/07/13)
 
 * suppression des coordonnées projetées en base

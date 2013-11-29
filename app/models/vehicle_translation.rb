@@ -26,6 +26,7 @@ class VehicleTranslation
 
     1.upto( count.to_i) do |index|
       translated = Chouette::VehicleJourney.create( copied_attributes)
+      translated.time_tables = vehicle.time_tables
       vehicle.vehicle_journey_at_stops.each do |vjas|
         vjas_attributes = vjas.attributes.merge( "vehicle_journey_id" => translated.id)
         vjas_attributes.merge! "departure_time" => ( vjas_attributes[ "departure_time"] + (index * duration.to_i.minutes) ),
