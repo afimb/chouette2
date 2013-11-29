@@ -23,7 +23,7 @@ gem 'devise_invitable'
 
 # Map, Geolocalization
 gem "map_layers", "0.0.4"
-gem "georuby-ext", :git => 'git://github.com/dryade/georuby-ext.git' , :ref => '69e3460141d831f0ad76780ee2b3f0a925a744f8'
+gem "georuby-ext", :git => 'https://github.com/dryade/georuby-ext.git' , :ref => '69e3460141d831f0ad76780ee2b3f0a925a744f8'
 gem "geokit","1.6.5"
 gem "dbf","2.0.5"
 gem "json_pure","1.7.7"
