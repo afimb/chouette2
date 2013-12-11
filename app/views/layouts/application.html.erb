@@ -2,29 +2,30 @@
 <html lang="<%= I18n.locale %>">
   <head>
     <title>Chouette V2 - <%= title %></title>
-    <%= stylesheet_link_tag :application %>      
+    <%= stylesheet_link_tag :application %>
     <%= javascript_include_tag :application %>
     <% if defined?( @map) %>
-      <script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script> 
+      <script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
       <script src="http://openlayers.org/api/OpenLayers.js"></script>
       <script type="text/JavaScript">
         OpenLayers.ImgPath = "<%= polymorphic_path_patch("/assets/openlayers/") %>";
       </script>
     <% end %>
+    <%= analytics_init if Rails.env.production? %>
     <%= csrf_meta_tag %>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
   </head>
   <body>
     <div id="header">
-      <div class="infos">               
-        <div class="logo"> 
+      <div class="infos">
+        <div class="logo">
           <%= link_to image_tag("logo_chouette.png"), referentials_path %>
         </div>
         <div class="version">
           <%= APP_VERSION %>
         </div>
-        <div class="title"> 
+        <div class="title">
           <% if selected_referential? %>
             <h1><%= @referential.name %></h1>
           <% elsif help_page?  || test_sheet_page? %>
@@ -58,7 +59,7 @@
 
             <li><%= tab_link_to Import, referential_imports_path(@referential) %></li>
             <li><%= tab_link_to Export, referential_exports_path(@referential) %></li>
-          <% end %>    
+          <% end %>
         </ul>
       </div>
     </div>

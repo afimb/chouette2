@@ -1,21 +1,23 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.6'    
+gem 'rails', '3.2.6'
 
 platforms :jruby do
   gem 'activerecord-jdbcpostgresql-adapter', '1.2.9'
   gem 'activerecord-jdbcsqlite3-adapter'
   gem 'jruby-openssl'
   gem "jruby-rack-worker"
-  gem 'warbler'   
-  gem 'therubyrhino'      
+  gem 'warbler'
+  gem 'therubyrhino'
 end
 
 platforms :ruby do
-  gem 'therubyracer', '~> 0.10.2'          
-  gem 'pg', '~> 0.11.0' 
+  gem 'therubyracer', '~> 0.10.2'
+  gem 'pg', '~> 0.11.0'
   gem 'sqlite3'
 end
+
+gem 'google-analytics-rails'
 
 # Authentication
 gem 'devise', '2.1.3'
@@ -72,20 +74,20 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-group :development do 
+group :development do
   gem 'capistrano'
-  gem 'capistrano-ext'   
+  gem 'capistrano-ext'
   gem 'guard'
   gem 'guard-rspec'
-  gem 'rails-erd'       
+  gem 'rails-erd'
 end
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
-  gem "remarkable", "~> 4.0.0.alpha4"           
-  gem "remarkable_activerecord", "~> 4.0.0.alpha4" 
+  gem "remarkable", "~> 4.0.0.alpha4"
+  gem "remarkable_activerecord", "~> 4.0.0.alpha4"
   gem "shoulda-matchers"
-  gem 'capybara'     
+  gem 'capybara'
   gem 'launchy'
   gem 'factory_girl_rails', '1.7'
   gem 'rb-inotify', :require => RUBY_PLATFORM.include?('linux') && 'rb-inotify'

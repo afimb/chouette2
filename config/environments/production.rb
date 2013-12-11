@@ -1,5 +1,8 @@
 ChouetteIhm::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
+  #
+  # # replace this with your production tracker code
+  GA.tracker = "UA-xxxxxx-x"
 
   # Code is not reloaded between requests
   config.cache_classes = true
@@ -35,7 +38,7 @@ ChouetteIhm::Application.configure do
 
   # Use a different logger for distributed setups
   if ENV['OS'] == 'Windows_NT'
-    # args = log_path,number of files,file sizes 
+    # args = log_path,number of files,file sizes
     config.logger = Logger.new("C:/chouette/logs/chouette2.log", 5, 10.megabytes)
   else
     require 'syslog_logger'
@@ -43,7 +46,7 @@ ChouetteIhm::Application.configure do
       # logger.level = Logger::INFO
     end
   end
-  
+
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
@@ -74,11 +77,11 @@ ChouetteIhm::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'chouette.dryade.net/chouette2' }
 
-  #  mailer configuration : 
+  #  mailer configuration :
   #  by default : set to smtp on windows platforms and sendmail on unix one
   #               may be changed as convenience
   if ENV['OS'] == 'Windows_NT'
-    ## using SMTP (maybe useful for Windows or VM platforms): 
+    ## using SMTP (maybe useful for Windows or VM platforms):
      ActionMailer::Base.delivery_method = :smtp
      ActionMailer::Base.smtp_settings = {
        :address => "smtp.sample.com",
@@ -91,15 +94,15 @@ ChouetteIhm::Application.configure do
        #openssl_verify_mode => # set one in 'none' 'peer' 'client_once' 'fail_if_no_peer_cert'
      }
   else
-    ## using SENDMAIL (easy on Linux platforms) : 
+    ## using SENDMAIL (easy on Linux platforms) :
     ActionMailer::Base.delivery_method = :sendmail
     ActionMailer::Base.smtp_settings = {
       :address        => "mail.dryade.priv",
       :domain         => "dryade.priv"
     }
   end
-  
-  
+
+
   # paths for external resources
   if ENV['OS'] == 'Windows_NT'
     config.to_prepare do
