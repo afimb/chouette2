@@ -95,6 +95,7 @@ group :test, :development do
 end
 
 group :production do
-   gem "SyslogLogger"
+  gem "SyslogLogger"
+  gem "daemons"
 end
 
