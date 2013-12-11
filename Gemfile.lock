@@ -131,6 +131,7 @@ GEM
     geokit (1.6.5)
       multi_json
     georuby (1.9.8)
+    google-analytics-rails (0.0.4)
     gravatar_image_tag (1.1.3)
     guard (1.3.2)
       listen (>= 0.4.2)
@@ -347,6 +348,7 @@ DEPENDENCIES
   formtastic
   geokit (= 1.6.5)
   georuby-ext!
+  google-analytics-rails
   gravatar_image_tag
   guard
   guard-rspec
