@@ -42,7 +42,7 @@ namespace :deploy do
 
   desc "Runs rake task which migrates database tables for all tenants"
   task :migrate_tenants do
-    run "cd #{release_path} && rake apartment:migrate"
+    run "cd #{release_path} && RAILS_ENV=production bundle exec rake apartment:migrate"
   end
 
   desc "Install gems"
