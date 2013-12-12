@@ -85,7 +85,7 @@ ChouetteIhm::Application.configure do
      ActionMailer::Base.delivery_method = :smtp
      ActionMailer::Base.smtp_settings = {
        :address => "smtp.sample.com",
-       #:port => 25,
+      #:port => 25,
        :domain => "sample.com",
        #:authentication => :login,
        :user_name => "username",
@@ -94,11 +94,13 @@ ChouetteIhm::Application.configure do
        #openssl_verify_mode => # set one in 'none' 'peer' 'client_once' 'fail_if_no_peer_cert'
      }
   else
-    ## using SENDMAIL (easy on Linux platforms) :
-    ActionMailer::Base.delivery_method = :sendmail
     ActionMailer::Base.smtp_settings = {
-      :address        => "mail.dryade.priv",
-      :domain         => "dryade.priv"
+      :address              => "smtp.sendgrid.net",
+      :port                 => 25,
+      :domain               => "cityway.fr",
+      :user_name            => "jdleca@cityway.fr",
+      :password             => "waycity",
+      :authentication       => "plain"  
     }
   end
 
