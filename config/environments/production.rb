@@ -77,6 +77,8 @@ ChouetteIhm::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'chouette.dryade.net/chouette2' }
 
+
+
   #  mailer configuration :
   #  by default : set to smtp on windows platforms and sendmail on unix one
   #               may be changed as convenience
@@ -100,10 +102,12 @@ ChouetteIhm::Application.configure do
       :domain               => "cityway.fr",
       :user_name            => "jdleca@cityway.fr",
       :password             => "waycity",
-      :authentication       => "plain"  
+      :authentication       => "plain"
     }
   end
 
+  # file to data for demo
+  config.demo_data = "/var/lib/chouette/demo.zip"
 
   # paths for external resources
   if ENV['OS'] == 'Windows_NT'
