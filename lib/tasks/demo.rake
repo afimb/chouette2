@@ -2,7 +2,7 @@ namespace :demo do
   desc "restore demo account"
   task :restore  => :environment  do
     puts "Restore demo environment"
-    old_organisation = Organisation.find_by_name("demo")
+    old_organisation = Organisation.find_by_name("DemoChouette")
     if old_organisation
       old_organisation.users.each &:destroy
       old_organisation.destroy
