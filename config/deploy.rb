@@ -3,16 +3,16 @@ require './config/boot'
 
 set :stages, %w(sandbox unstable staging production)
 set :application, "chouette2"
-set :user, "ldonnet"
+set :user, "mflorisson"
 set :scm, :git
-set :repository,  "git@github.com:afimb/chouette2.git"
+set :repository,  "https://github.com/afimb/chouette2.git"
 set :deploy_to, "/var/www/chouette2"
 set :use_sudo, false
 default_run_options[:pty] = true
 set :group_writable, true
 set :rake, "bundle exec rake"
 set :keep_releases, 4
-set :rails_env, "production" #added for delayed job  
+set :rails_env, "production" #added for delayed job
 
 after "deploy:update", "deploy:cleanup", "deploy:group_writable"
 after "deploy:update_code", "deploy:symlink_shared", "deploy:chouette_command", "deploy:gems"
@@ -31,7 +31,7 @@ namespace :deploy do
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-  end 
+  end
 
  # Prevent errors when chmod isn't allowed by server
   task :setup, :except => { :no_release => true } do
@@ -63,14 +63,14 @@ namespace :deploy do
     run "mkdir -p /var/lib/chouette/validations"
     run "mkdir -p /usr/local/opt/chouette-command/"
   end
-  
+
   desc "Make group writable all deployed files"
-  task :group_writable do 
+  task :group_writable do
     run "sudo /usr/local/sbin/cap-fix-permissions /var/www/chouette2"
   end
 
   # desc "Generate jekyll static sites"
-  # task :jekyll, :except => { :no_release => true }  do    
+  # task :jekyll, :except => { :no_release => true }  do
   #   run "cd #{release_path} && jekyll --auto doc/functional public/help"
   # end
 

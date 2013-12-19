@@ -1,20 +1,21 @@
 namespace :demo do
   desc "restore demo account"
   task :restore  => :environment  do
-    puts "A" * 40
-    oo = Organisation.find_by_name("demo").destroy
-    if oo
-      oo.users.each &:destroy
+    puts "Restore demo environment"
+    old_organisation = Organisation.find_by_name("demo")
+    if old_organisation
+      old_organisation.users.each &:destroy
+      old_organisation.destroy
     end
 
-    o = Organisation.create!(:name => "demo")
-    u = o.users.build( :name => "Demo", :email => "demo@chouette.mobi", :password => "chouette", :password_confirmation =>"chouette")
-    u.save
-    u.confirm!
-    r = o.referentials.create( :name => "Tatrobus", :slug => "tatrobus", :prefix => "TAT")
+    organisation = Organisation.create!(:name => "demo")
+    user = organisation.users.create( :name => "Demo", :email => "demo@chouette.mobi", :password => "chouette", :password_confirmation =>"chouette")
+    user.confirm!
+    referential = organisation.referentials.create( :name => "Tatrobus", :slug => "tatrobus", :prefix => "TAT")
 
-    res = Rack::Test::UploadedFile.new( Rails.application.config.demo_data, 'application/zip', false)
-    i = r.imports.create( :resources => res, :referential_id => r.id)
+    resource = Rack::Test::UploadedFile.new( Rails.application.config.demo_data, 'application/zip', false)
+    import_instance = referential.imports.create( :resources => resource, :referential_id => referential.id, :background => false)
+    puts "Restore demo environment complete"
   end
 end
 

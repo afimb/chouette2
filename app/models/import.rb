@@ -6,6 +6,7 @@ class Import < ActiveRecord::Base
 
   validates_inclusion_of :status, :in => %w{ pending completed failed }
 
+  attr_accessor :background
   attr_accessor :resources
   attr_accessor :loader
 
@@ -35,7 +36,7 @@ class Import < ActiveRecord::Base
 
   def self.types
     # if Rails.env.development? and subclasses.blank?
-    #   Dir[File.expand_path("../*_import.rb", __FILE__)].each do |f| 
+    #   Dir[File.expand_path("../*_import.rb", __FILE__)].each do |f|
     #     require f
     #   end
     # end
@@ -67,15 +68,24 @@ class Import < ActiveRecord::Base
 
   before_validation :extract_file_type, :on => :create
   def extract_file_type
-    if ! resources.nil? 
-      self.file_type = resources.original_filename.rpartition(".").last      
+    if ! resources.nil?
+      self.file_type = resources.original_filename.rpartition(".").last
     end
   end
 
   after_create :delayed_import
   def delayed_import
     save_resources
-    delay.import
+    if import_in_background?
+      delay.import
+    else
+      # do not call self.inport
+      import
+    end
+  end
+
+  def import_in_background?
+    return background.nil? || background
   end
 
   @@root = "#{Rails.root}/tmp/imports"
@@ -83,7 +93,7 @@ class Import < ActiveRecord::Base
 
   def save_resources
     FileUtils.mkdir_p root
-    FileUtils.cp resources.path, saved_resources 
+    FileUtils.cp resources.path, saved_resources
   end
 
   after_destroy :destroy_resources
@@ -106,14 +116,9 @@ class Import < ActiveRecord::Base
   def import
     begin
       log_messages.create :key => :started
-      if resources
-        with_original_filename do |file|
-          # chouette-command checks the file extension (and requires .zip) :(
-          loader.import file
-        end
-      else
-        loader.import saved_resources, import_options
-      end
+
+      loader.import saved_resources, import_options
+
       update_attribute :status, "completed"
     rescue => e
       Rails.logger.error "Import #{id} failed : #{e}, #{e.backtrace}"

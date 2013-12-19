@@ -204,16 +204,6 @@ ActiveRecord::Schema.define(:version => 20130710123351) do
     t.integer  "organisation_id", :limit => 8
   end
 
-  create_table "geometry_columns", :id => false, :force => true do |t|
-    t.string  "f_table_catalog",   :limit => 256, :null => false
-    t.string  "f_table_schema",    :limit => 256, :null => false
-    t.string  "f_table_name",      :limit => 256, :null => false
-    t.string  "f_geometry_column", :limit => 256, :null => false
-    t.integer "coord_dimension",                  :null => false
-    t.integer "srid",                             :null => false
-    t.string  "type",              :limit => 30,  :null => false
-  end
-
   create_table "group_of_lines", :force => true do |t|
     t.string   "objectid",       :null => false
     t.integer  "object_version"
@@ -368,14 +358,6 @@ ActiveRecord::Schema.define(:version => 20130710123351) do
   create_table "routing_constraints_lines", :id => false, :force => true do |t|
     t.integer "stop_area_id", :limit => 8
     t.integer "line_id",      :limit => 8
-  end
-
-  create_table "spatial_ref_sys", :id => false, :force => true do |t|
-    t.integer "srid",                      :null => false
-    t.string  "auth_name", :limit => 256
-    t.integer "auth_srid"
-    t.string  "srtext",    :limit => 2048
-    t.string  "proj4text", :limit => 2048
   end
 
   create_table "stop_areas", :force => true do |t|
