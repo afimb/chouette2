@@ -8,7 +8,7 @@ namespace :demo do
       old_organisation.destroy
     end
 
-    organisation = Organisation.create!(:name => "demo")
+    organisation = Organisation.create!(:name => "DemoChouette")
     user = organisation.users.create( :name => "Demo", :email => "demo@chouette.mobi", :password => "chouette", :password_confirmation =>"chouette")
     user.confirm!
     referential = organisation.referentials.create( :name => "Tatrobus", :slug => "tatrobus", :prefix => "TAT")
