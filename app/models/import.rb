@@ -6,7 +6,6 @@ class Import < ActiveRecord::Base
 
   validates_inclusion_of :status, :in => %w{ pending completed failed }
 
-  attr_accessor :background
   attr_accessor :resources
   attr_accessor :loader
 
@@ -73,19 +72,9 @@ class Import < ActiveRecord::Base
     end
   end
 
-  after_create :delayed_import
   def delayed_import
     save_resources
-    if import_in_background?
-      delay.import
-    else
-      # do not call self.inport
-      import
-    end
-  end
-
-  def import_in_background?
-    return background.nil? || background
+    delay.import
   end
 
   @@root = "#{Rails.root}/tmp/imports"

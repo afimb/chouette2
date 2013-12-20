@@ -15,6 +15,12 @@ class ImportsController < ChouetteController
     end
   end
 
+  def create_resource( import )
+    if import.save
+      import.delayed_import
+    end
+  end
+
   protected
 
   def available_imports
