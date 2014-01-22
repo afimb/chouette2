@@ -15,7 +15,7 @@ describe ImportsController do
     before(:each) do
       post :create,
           :referential_id => referential.id,
-          :import => { :resources => Rack::Test::UploadedFile.new( "tmp/demo.zip", 'application/zip', false)}
+          :import => { :resources => Rack::Test::UploadedFile.new( "spec/fixtures/neptune.zip", 'application/zip', false)}
     end
 
     it "assigns import.referential as @referential" do
