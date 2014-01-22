@@ -1,0 +1,81 @@
+@mixin div_for_object { 
+    margin-bottom: 10px;
+    background-color: #DEFFA8;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 10px;
+    padding-left: 10px;
+
+    .color {
+        width: 64px;
+        height: 64px;
+        float: left;
+        margin-right: 10px;
+    }
+
+    img {
+        float: left;
+        margin-right: 10px;
+    }
+
+    img.preview {
+        width: 90px;
+        height: 70px;
+    }
+
+    a { 
+        display:block;
+        text-decoration: underline;
+        margin: 5px 0px 0px 0px;
+    }
+
+    .info {
+        font-size: 10px;
+        color: #777;
+        font-weight: normal;
+        line-height: 14px;
+        margin-top: 5px;
+
+        a {
+            display:inline;
+            color: #777;
+        }
+
+        .actions {
+            margin-top: 10px;
+            a {
+                color: #666;
+                padding-left: 12px;
+            }
+
+            a.link {
+                background: url(image-path('icons/link-small.png')) no-repeat 0% 50%;
+            }
+            a.edit {
+                background: url(image-path('user_interface/ui/edit-small.png')) no-repeat 0% 50%;
+            }
+            a.remove {
+                background: url(image-path('user_interface/ui/remove-small.png')) no-repeat 0% 50%;
+            }
+            a.download {
+                background: url(image-path('download-small.png')) no-repeat 0% 50%;
+            }
+        }
+
+        p {
+            margin:0;
+        }
+    }
+}
+
+@mixin content_to_clear {
+    content: " ";  
+    display: block; 
+    height: 0; 
+    clear: both;
+    visibility: hidden;
+}
+
+@mixin after_div_for_object {
+    @include content_to_clear;
+}

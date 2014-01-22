@@ -4,9 +4,9 @@ require 'spec_helper'
 describe "Routes" do
   login_user
 
-  let(:line) { Factory(:line) }
-  let(:route) { Factory(:route, :line => line) }
-  let(:route2) { Factory(:route, :line => line) }
+  let!(:line) { Factory(:line) }
+  let!(:route) { Factory(:route, :line => line) }
+  let!(:route2) { Factory(:route, :line => line) }
 
   describe "from lines page to a line page" do
     it "display line's routes" do

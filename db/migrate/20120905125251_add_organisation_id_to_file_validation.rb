@@ -4,9 +4,9 @@ class AddOrganisationIdToFileValidation < ActiveRecord::Migration
       f.belongs_to :organisation
     end
     
-    FileValidation.reset_column_information
-    organisation = Organisation.find_or_create_by_name!("Chouette")
-    FileValidation.update_all :organisation_id => organisation.id
+    #FileValidation.reset_column_information
+    #organisation = Organisation.find_or_create_by_name!("Chouette")
+    #FileValidation.update_all :organisation_id => organisation.id
     
   end
 end

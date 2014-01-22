@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ImportsController do
+describe ExportsController do
   login_user
 
   describe "GET 'new'" do

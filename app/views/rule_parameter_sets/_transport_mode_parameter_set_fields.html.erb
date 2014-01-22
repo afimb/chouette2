@@ -1,0 +1,10 @@
+<%= f.inputs :class => 'transport_mode_parameter_sets nested-fields' do %>
+  <%= f.input :transport_mode, :as => :select, :collection => Chouette::TransportMode.all, :include_blank => false, :member_label => Proc.new { |mode| t("transport_modes.label.#{mode}") }, :label => "transport_mode", :wrapper_html => { :class => 'fl1' } %>
+  <%= f.input :inter_stop_area_distance_min, :as => :number, :label => "inter_stop_area_distance_min", :wrapper_html => { :class => 'fl1' } %>
+  <%= f.input :inter_stop_area_distance_max, :as => :number, :label => "inter_stop_area_distance_max", :wrapper_html => { :class => 'fl2' } %>
+  <%= f.input :speed_min, :as => :number, :label => "speed_min", :wrapper_html => { :class => 'fl2' } %>
+  <%= f.input :speed_max, :as => :number, :label => "speed_max", :wrapper_html => { :class => 'fl2' } %>
+  <%= f.input :inter_stop_duration_variation_max, :as => :number, :label => "inter_stop_duration_variation_max", :wrapper_html => { :class => 'fl2' } %>
+  <%= link_to_remove_association t('actions.destroy'), f %>
+<% end %>
+

@@ -1,0 +1,96 @@
+// Place all the styles related to the rule_parameter_sets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "common/mixins";
+
+#workspace.rule_parameter_sets.index
+{
+    .rule_parameter_set:after {
+        @include after_div_for_object;
+    }
+
+    .rule_parameter_sets {
+        margin-top: 20px;
+    }
+
+    .rule_parameter_sets:after {
+        @include content_to_clear;
+    }
+
+    .rule_parameter_set {
+        @include div_for_object;
+
+        /* to create multi-column index */
+        width: 350px;
+        float: left;
+        padding-right: 10px;
+        position: relative;
+
+        .color {
+            background-color: white;
+            width: 64px;
+            height: 64px;
+            float: left;
+            margin-right: 10px;
+            border: 1px solid #999;
+
+            a {
+                text-decoration: none;
+            }
+        }
+
+        .number {
+            font-size: 16px;
+            text-align: center;
+            font-weight: bold;
+            padding-top: 21px;
+        }
+        .name a {
+            display: inline;
+        }
+    }
+}
+
+#workspace.rule_parameter_sets.show, #workspace.compliance_check_tasks.rule_parameter_set
+{
+    .summary label {
+        font-weight: bold;
+    }
+
+    div.attributes_group {
+        margin: 15px 0 15px 0;
+
+        .title { font-weight: bold; }
+
+        .columns{
+            margin-left: 10px;
+
+            div {
+                display: inline-block;
+
+                &.two_columns { width: 45%; }
+                &.three_columns { width: 30%; }
+                &.four_columns { width: 23%; }
+
+                label {
+                    color: #616161;
+                }
+
+                .value { margin-left: 5px; }
+            }
+        }
+    }
+
+    div.rule_parameter_by_mode {
+        margin: 20px 0 0 0 !important;
+
+        .mode_specific {
+            display: none;
+            margin: 0 0 0 10px;
+
+            p label { color: #616161; }
+        }
+    }
+}
+
+

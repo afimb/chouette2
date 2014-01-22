@@ -1,0 +1,109 @@
+<%= title_tag t('rule_parameter_sets.show.title', :rule_parameter_set => @rule_parameter_set.name ) %>
+
+<div class="rule_parameter_set_show">
+
+  <div class="summary">
+    <p>
+      <label><%= RuleParameterSet.human_attribute_name("name") %>: </label>
+      <%= @rule_parameter_set.name %>
+    </p>
+    <p>
+      <label><%= RuleParameterSet.human_attribute_name("stop_areas_area") %>: </label>
+      <%= @rule_parameter_set.stop_areas_area %>
+    </p>
+    <div class="attributes_group" >
+      <span class="title"><%= t(".min_distance") %></span>
+      <div class="columns">
+        <div class="two_columns">
+          <label><%= t(".inter_stop_area_distance_min") %> : </label>
+          <span class="value"><%= @rule_parameter_set.inter_stop_area_distance_min %></span>
+        </div>
+        <div class="two_columns">
+          <label><%= t(".inter_access_point_distance_min") %> : </label>
+          <span class="value"><%= @rule_parameter_set.inter_access_point_distance_min %></span>
+        </div>
+      </div>
+    </div>
+    <div class="attributes_group" >
+      <span class="title"><%= t(".max_distance") %></span>
+      <div class="columns">
+        <div class="two_columns">
+          <label><%= t(".parent_stop_area_distance_max") %>: </label>
+          <span class="value"><%= @rule_parameter_set.parent_stop_area_distance_max %></span>
+        </div>
+        <div class="two_columns">
+          <label><%= t(".inter_connection_link_distance_max") %>: </label>
+          <span class="value"><%= @rule_parameter_set.inter_connection_link_distance_max %></span>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="two_columns">
+          <label><%= t(".inter_access_link_distance_max") %>: </label>
+          <span class="value"><%= @rule_parameter_set.inter_access_link_distance_max %></span>
+        </div>
+        <div class="two_columns">
+          <label><%= t(".facility_stop_area_distance_max") %>: </label>
+          <span class="value"><%= @rule_parameter_set.facility_stop_area_distance_max %></span>
+        </div>
+      </div>
+    </div>
+    <div class="attributes_group" >
+      <span class="title"><%= t(".walk_speed") %></span>
+      <div class="columns">
+        <div class="four_columns">
+          <label><%= t(".walk_default_speed_max") %>: </label>
+          <span class="value"><%= @rule_parameter_set.walk_default_speed_max %></span>
+        </div>
+        <div class="four_columns">
+          <label><%= t(".walk_occasional_traveller_speed_max") %>: </label>
+          <span class="value"><%= @rule_parameter_set.walk_occasional_traveller_speed_max %></span>
+        </div>
+        <div class="four_columns">
+          <label><%= t(".walk_frequent_traveller_speed_max") %>: </label>
+          <span class="value"><%= @rule_parameter_set.walk_frequent_traveller_speed_max %></span>
+        </div>
+        <div class="four_columns">
+          <label><%= t(".walk_mobility_restricted_traveller_speed_max") %>: </label>
+          <span class="value"><%= @rule_parameter_set.walk_mobility_restricted_traveller_speed_max %></span>
+        </div>
+      </div>
+    </div>
+    <p>
+      <label><%= t(".inter_stop_duration_max") %>: </label>
+      <%= @rule_parameter_set.inter_stop_duration_max %>
+    </p>
+    <div class="rule_parameter_by_mode">
+      <label><%= t(".rule_parameter_by_mode") %>: </label>
+      <select id="mode" >
+        <%= options_for_select( Chouette::Line.transport_modes.map(&:to_s).map { |s| [ I18n.t("transport_modes.label.#{s}"), s]}, 1) %>
+      </select>
+      <% Chouette::Line.transport_modes.map(&:to_s).each_with_index do |mode, index| %>
+        <% selected_class = (index==0) ? 'selected' : '' %>
+        <% style = (index==0) ? "style='display: block;'" : '' %>
+        <div class='<%= "#{mode} mode_specific #{selected_class}" %>' <%= style %> >
+        <% RuleParameterSet.mode_attribute_prefixes.each do |prefix| %>
+          <% unless @rule_parameter_set.send("#{prefix}_mode_#{mode}" ).blank? %>
+            <p>
+              <label><%= RuleParameterSet.human_attribute_name( prefix) %>: </label>
+              <%= @rule_parameter_set.send  "#{prefix}_mode_#{mode}" %>
+            </p>
+          <% end %>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <% if @rule_parameter_set.persisted? %>
+  <li><%= link_to t('rule_parameter_sets.actions.index'), referential_rule_parameter_sets_path(@referential), :class => "link" %></li>
+  <li><%= link_to t('rule_parameter_sets.actions.edit'), edit_referential_rule_parameter_set_path(@referential, @rule_parameter_set), :class => "edit" %></li>
+  <% if @referential.rule_parameter_sets.size > 1 %>
+  <li><%= link_to  t('rule_parameter_sets.actions.destroy'), referential_rule_parameter_set_path(@referential, @rule_parameter_set), :method => :delete, :data => {:confirm =>  t('rule_parameter_sets.actions.destroy_confirm')}, :class => "remove" %></li>
+  <% end %>
+  <li><%= link_to t('rule_parameter_sets.actions.new'), new_referential_rule_parameter_set_path(@referential), :class => "add" %></li>
+  <% end %>
+</ul>
+<% end %>

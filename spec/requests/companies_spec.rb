@@ -4,12 +4,11 @@ require 'spec_helper'
 describe "Companies" do
   login_user
 
-  let(:companies) { Array.new(2) { create :company } }
+  let!(:companies) { Array.new(2) { create :company } }
   subject { companies.first }
 
   describe "list" do
     it "display companies" do
-      pending
       visit referential_companies_path(referential)
       page.should have_content(companies.first.name)
       page.should have_content(companies.last.name)
@@ -19,7 +18,6 @@ describe "Companies" do
 
   describe "show" do      
     it "display company" do
-      pending
       visit referential_companies_path(referential)
       click_link "#{companies.first.name}"
       page.should have_content(companies.first.name)
@@ -29,7 +27,6 @@ describe "Companies" do
 
   describe "new" do      
     it "creates company and return to show" do
-      pending
       visit referential_companies_path(referential)
       click_link "Ajouter un transporteur"
       fill_in "Nom", :with => "Company 1"
@@ -42,7 +39,6 @@ describe "Companies" do
 
   describe "edit and return to show" do      
     it "edit company" do
-      pending
       visit referential_company_path(referential, subject)
       click_link "Modifier ce transporteur"
       fill_in "Nom", :with => "Company Modified"

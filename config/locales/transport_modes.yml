@@ -15,13 +15,13 @@ en:
       waterborne: "Waterborne"
       private_vehicle: "Private vehicle"
       walk: "Walk"
-      trolley_bus: "Trolleybus"
+      trolleybus: "Trolleybus"
       bicycle: "Bicycle"
       shuttle: "Shuttle"
       taxi: "Taxi"
       val: "VAL"
       other: "Other"
-      
+
 fr:
   transport_modes:
     label:
@@ -29,8 +29,8 @@ fr:
       air: "Air"
       train: "Train"
       long_distance_train: "Train Grande Ligne"
-      local_train: "TER" 
-      rapid_transit: "RER" 
+      local_train: "TER"
+      rapid_transit: "RER"
       metro: "Métro"
       tramway: "Tramway"
       coach: "Autocar"
@@ -39,7 +39,7 @@ fr:
       waterborne: "Bac"
       private_vehicle: "Voiture particulière"
       walk: "Marche à pied"
-      trolley_bus: "Trolleybus"
+      trolleybus: "Trolleybus"
       bicycle: "Vélo"
       shuttle: "Navette"
       taxi: "Taxi"

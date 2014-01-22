@@ -9,6 +9,8 @@ class Export < ActiveRecord::Base
 
   serialize :options
 
+  include ::TypeIdsModelable
+
   def self.option(name)
     name = name.to_s
 
@@ -74,7 +76,7 @@ class Export < ActiveRecord::Base
 
     begin
       # delayed job may repeat call
-      ExportLogMessage.where(:export_id => self.id).delete_all 
+      ExportLogMessage.where(:export_id => self.id).delete_all
       log_messages.create :severity => "ok", :key => :started
 
       exporter.export file, export_options
@@ -94,54 +96,8 @@ class Export < ActiveRecord::Base
 
   validates_inclusion_of :references_type, :in => references_types.map(&:to_s), :allow_blank => true, :allow_nil => true
 
-  def references
-    if references_relation.present? and reference_ids.present?
-      referential.send(references_relation).find(reference_ids)
-    else
-      []
-    end
-  end
-
-  def references=(references)
-    unless references.blank?
-      self.references_type = references.first.class.name
-      self.reference_ids = references.map(&:id)
-    else
-      self.references_type = nil
-      self.reference_ids = []
-    end
-  end
-
-  def references_relation
-    if references_type.present?
-      relation = self.class.references_relation(references_type)
-      relation if referential.respond_to?(relation)
-    end
-  end
-
-  def self.references_relation(type)
-    type.to_s.demodulize.underscore.pluralize 
-  end
-
-  def reference_ids
-    if raw_reference_ids
-      raw_reference_ids.split(',').map(&:to_i) 
-    else
-      []
-    end
-  end
-
-  def reference_ids=(records)
-    records = Array(records)
-    write_attribute :reference_ids, (records.present? ? records.join(',') : nil)
-  end
-
-  def raw_reference_ids
-    read_attribute :reference_ids
-  end
-
   def self.format_name(format)
-    name_by_format = { 
+    name_by_format = {
       "NeptuneExport" => "Neptune",
       "CsvExport" => "CSV",
       "GtfsExport" => "GTFS",

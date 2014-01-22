@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class Referential < ActiveRecord::Base
-  validates_presence_of :name 
+  validates_presence_of :name
   validates_presence_of :slug
   validates_presence_of :prefix
   validates_presence_of :time_zone
@@ -13,21 +13,24 @@ class Referential < ActiveRecord::Base
   validates_format_of :upper_corner, :with => %r{\A-?[0-9]+\.?[0-9]*\,-?[0-9]+\.?[0-9]*\Z}
   validates_format_of :lower_corner, :with => %r{\A-?[0-9]+\.?[0-9]*\,-?[0-9]+\.?[0-9]*\Z}
   validate :slug_excluded_values
-  
+
   attr_accessor :resources
   attr_accessor :upper_corner
   attr_accessor :lower_corner
 
-  has_many :imports, :dependent => :destroy
+  has_one :user
+  has_many :rule_parameter_sets, :dependent => :destroy
+  has_many :import_tasks, :dependent => :destroy
+  has_many :compliance_check_tasks, :dependent => :destroy
   has_many :exports, :dependent => :destroy
   has_many :api_keys, :class_name => 'Api::V1::ApiKey', :dependent => :destroy
-  
+
   belongs_to :organisation
   validates_presence_of :organisation
 
   def slug_excluded_values
     if ! slug.nil?
-      if slug.start_with? "pg_" 
+      if slug.start_with? "pg_"
         errors.add(:slug,I18n.t("referentials.errors.pg_excluded"))
       end
       if slug == 'public'
@@ -74,7 +77,7 @@ class Referential < ActiveRecord::Base
   def time_tables
     Chouette::TimeTable.scoped
   end
-  
+
   def connection_links
     Chouette::ConnectionLink.scoped
   end
@@ -122,7 +125,7 @@ class Referential < ActiveRecord::Base
     ]
   end
 
-  def projection_type_label 
+  def projection_type_label
     self.class.available_srids.each do |a|
       if a.last.to_s == projection_type
         return a.first.split('(').first.rstrip
@@ -141,9 +144,15 @@ class Referential < ActiveRecord::Base
     Apartment::Database.drop slug
   end
 
-  after_create :import_resources  
+  after_create :import_resources, :add_rule_parameter_set
   def import_resources
-    imports.create(:resources => resources) if resources
+    import_tasks.create(:resources => resources, :no_save => false,
+                        :format => "Neptune", :user_id => user_id,
+                        :user_name => user_name) if resources
+  end
+
+  def add_rule_parameter_set
+    RuleParameterSet.default_for_all_modes( self).save
   end
 
   def upper_corner
@@ -161,7 +170,7 @@ class Referential < ActiveRecord::Base
     end
   end
 
-  def lower_corner    
+  def lower_corner
     envelope.lower_corner
   end
 
@@ -188,7 +197,7 @@ class Referential < ActiveRecord::Base
 end
 
 Rails.application.config.after_initialize do
-  
+
   Chouette::TridentActiveRecord
 
   class Chouette::TridentActiveRecord
@@ -204,19 +213,19 @@ Rails.application.config.after_initialize do
     end
 
   end
-  
+
   Chouette::StopArea
-  
+
   class Chouette::StopArea
-    
+
     attr_accessible :projection_x,:projection_y
-    
+
     # override default_position method to add referential envelope when no stoparea is positioned
-    def default_position 
-      # for first StopArea ... the bounds is nil , set to referential center 
+    def default_position
+      # for first StopArea ... the bounds is nil , set to referential center
       Chouette::StopArea.bounds ? Chouette::StopArea.bounds.center : self.referential.envelope.center
     end
-    
+
     # add projection_type set on pre-insert and pre_update action
     before_validation :set_projections
     def set_projections
@@ -237,9 +246,9 @@ Rails.application.config.after_initialize do
 #          self.y = nil
 #      end
     end
-    
+
     def projection
-      if self.referential.projection_type.nil? || self.referential.projection_type.empty? 
+      if self.referential.projection_type.nil? || self.referential.projection_type.empty?
         nil
       else
         self.referential.projection_type
@@ -252,7 +261,7 @@ Rails.application.config.after_initialize do
         nil
       else
         @point ||= GeoRuby::SimpleFeatures::Point::from_lat_lng(Geokit::LatLng.new(self.latitude,self.longitude)).project_to(self.projection.to_i)
-        
+
         @point.x
       end
     end
@@ -270,11 +279,11 @@ Rails.application.config.after_initialize do
     def projection_y=(dummy)
       # dummy method
     end
- 
+
   end
 
   Chouette::AccessPoint
-  
+
   class Chouette::AccessPoint
     attr_accessible :projection_x,:projection_y
 
@@ -298,9 +307,9 @@ Rails.application.config.after_initialize do
 #          self.y = nil
 #      end
     end
-    
+
     def projection
-      if self.referential.projection_type.nil? || self.referential.projection_type.empty? 
+      if self.referential.projection_type.nil? || self.referential.projection_type.empty?
         nil
       else
         self.referential.projection_type
@@ -313,7 +322,7 @@ Rails.application.config.after_initialize do
         nil
       else
         @point ||= GeoRuby::SimpleFeatures::Point::from_lat_lng(Geokit::LatLng.new(self.latitude,self.longitude)).project_to(self.projection.to_i)
-        
+
         @point.x
       end
     end
@@ -332,5 +341,5 @@ Rails.application.config.after_initialize do
       # dummy method
     end
   end
- 
+
 end

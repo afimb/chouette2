@@ -14,7 +14,7 @@ namespace :demo do
     referential = organisation.referentials.create( :name => "Tatrobus", :slug => "tatrobus", :prefix => "TAT")
 
     resource = Rack::Test::UploadedFile.new( Rails.application.config.demo_data, 'application/zip', false)
-    import_instance = referential.imports.create( :resources => resource, :referential_id => referential.id)
+    import_instance = referential.import_tasks.create( :resources => resource, :referential_id => referential.id)
     import_instance.save_resources
     import_instance.import
     puts "Restore demo environment complete"

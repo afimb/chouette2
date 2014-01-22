@@ -9,7 +9,7 @@ module TitleHelper
   end
   
   def title_tag(title, options = nil)
-    content_tag :h2, title(title), options
+    content_tag :h2, title(title).html_safe, options
   end
 
 end

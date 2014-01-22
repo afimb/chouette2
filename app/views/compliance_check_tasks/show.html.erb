@@ -1,0 +1,38 @@
+<%= title_tag "#{@compliance_check_task.name} <span class='status status_#{@compliance_check_task.status}'>#{ t('compliance_check_tasks.show.'+@compliance_check_task.status) }</span>" %>
+
+<div class="compliance_check_task_show">
+   <div class="links">
+     <% if @compliance_check_task.import_task %>
+       <%= link_to t("compliance_check_tasks.import_task"), referential_import_task_path(@compliance_check_task.referential, @compliance_check_task.import_task), :class => "btn btn-default"  %>
+     <% end %>
+     <% if @compliance_check_task.rule_parameter_set_archived %>
+       <%= link_to t("compliance_check_tasks.rule_parameter_set"), rule_parameter_set_referential_compliance_check_task_path(@compliance_check_task.referential, @compliance_check_task), :class => "btn btn-default" %>
+     <% end %>
+   </div>
+  <% if @compliance_check_task.status == 'completed'%>
+   <div class="resume">
+     <div class="col1">
+       <div class="caption"><%= t "error", :scope => "compliance_check_result.severities" %></div>
+       <div class="graph" id="error"></div>
+     </div>
+     <div class="col2">
+       <div class="caption"><%= t "warning", :scope => "compliance_check_result.severities" %></div>
+       <div class="graph" id="warning"></div>
+     </div>
+   </div>
+   <div class="order" style="display: none;">
+     Filtre : <%= select_tag "order", ("<option value='severity'>" + ComplianceCheckResult.human_attribute_name(:severity) +"</option><option value='status'>" + ComplianceCheckResult.human_attribute_name(:status) + "</option>").html_safe, :include_blank => false %>
+   </div>
+
+   <div class="report"></div>
+   <% end %>
+  <%= javascript_include_tag referential_compliance_check_task_path(@compliance_check_task.referential, @compliance_check_task,:format => :js) %>
+</div>
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to  t('compliance_check_tasks.actions.destroy'), referential_compliance_check_task_path(@referential, @compliance_check_task), :method => :delete,  :data => {:confirm =>  t('compliance_check_tasks.actions.destroy_confirm')}, :class => "remove" %></li>
+</ul>
+
+<%= history_tag(@compliance_check_task) %>
+
+<% end %>

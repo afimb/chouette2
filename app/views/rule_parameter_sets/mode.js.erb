@@ -1,0 +1,13 @@
+if ( $('#specific_parameters_<%= @mode %>').length == 0) {
+  <% form_content = "" %>
+  <% semantic_form_for [@referential, @rule_parameter_set] do |form| %>
+    <% form_content += render(:partial => 'mode_fields', :locals => { :mode => @mode, :f => form }) %>
+  <% end %>
+  $('#added_mode_parameter_set').before('<%= escape_javascript( form_content).html_safe %>');
+}
+else {
+  $('#_destroy_mode_<%= @mode %>').attr( "value", false);
+  $('#specific_parameters_<%= @mode %>').toggle();
+}
+
+

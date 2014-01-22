@@ -1,0 +1,31 @@
+<%= title_tag t(".title") %>
+
+<%= semantic_form_for([@referential, @import_task], :as => :import_task, :url => new_referential_import_task_path(@referential), :method => :get) do |form| %>
+  <%= form.inputs do %>
+    <%= form.input :format, :as => :radio, :collection => ImportTask.formats, :required => true, :include_blank => false %>
+  <% end %>
+<% end %>
+
+<% @available_imports.each do |import_task| %>
+  <%= semantic_form_for [@referential, import_task], :as => :import_task, :url => referential_import_tasks_path(@referential), :html => { :id => "#{import_task.format}_new",  :style => ('display: none' unless @import_task == import_task)} do |form| %>
+
+    <%= form.inputs do %>
+      <%= fields_for_import_task_format form %>
+    <% end %>
+
+    <%= form.inputs do %>
+      <%= form.input :format, :as => :hidden %>
+      <%= form.input :no_save, :as => :boolean, :collection => [true, false] %>
+      <%= form.input :rule_parameter_set_id, :as => :select,
+          :collection =>  @referential.rule_parameter_sets.map { |rps| [ rps.name, rps.id ] }, :include_blank => true %>
+      <%= form.input :resources, :as => :file %>
+    <% end %>
+
+    <%= form.actions do %>
+     <%= form.action :submit, :as => :button , :label => t( 'formtastic.import' ) %>
+     <%= form.action :cancel, :as => :link %>
+   <% end %>
+  <% end %>
+<% end %>
+
+

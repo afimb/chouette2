@@ -22,8 +22,6 @@ describe "Referentials" do
                               retrieve_referential_by_slug("bb")] }  
 
       it "should show n referentials" do
-        pending
-
         visit referentials_path
         page.should have_content(referentials.first.name)
         page.should have_content(referentials.last.name)

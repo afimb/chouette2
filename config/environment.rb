@@ -6,4 +6,4 @@ require File.expand_path('../application', __FILE__)
 ChouetteIhm::Application.initialize!
 
 # Fix version
-APP_VERSION = '2.1.1'
+APP_VERSION = '2.2.0'

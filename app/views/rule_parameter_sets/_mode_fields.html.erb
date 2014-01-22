@@ -1,0 +1,5 @@
+<%= f.inputs t("transport_modes.label.#{mode}"), :id => "specific_parameters_#{mode}" do %>
+  <% RuleParameterSet.mode_attribute_prefixes.each do |prefix| %>
+    <%= f.input "#{prefix}_mode_#{mode}".to_sym, :as => :number, :label => RuleParameterSet.human_attribute_name(prefix), :wrapper_html => { :class => "special"} %>
+  <% end %>
+<% end %>

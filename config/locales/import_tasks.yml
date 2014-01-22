@@ -1,0 +1,195 @@
+en:
+  import_tasks:
+    actions:
+      new: "New import"
+      destroy: "Destroy"
+      destroy_confirm: "Are you sure you want destroy this import?"
+    new:
+      title: "New import"
+    index:
+      title: "Imports"
+      warning: ""
+    show:
+      report: "Report"
+      not_yet_started: "On queue"
+      imported_file: "Imported file"
+      completed: "[ Completed ]"
+      failed: "[ Failed ]"
+      pending: "[ In the treatment queue ]"
+      processing: "[ In progress... ]"
+      graph:
+        files:
+          title_zip: "Import results for files in zip"
+          title_default: "Import result for %{extension} file"
+          error: "Errors"
+          ignored: "Ignored"
+          ok: "Success"
+        lines:
+          title: "Imported objects"
+          objects_label: "Objects count"
+          lines_stats: "Lines"
+          routes_stats: "Routes"
+          connection_links_stats: "Connection Links"
+          time_tables_stats: "Timetables"
+          stop_areas_stats: "Stop Areas"
+          access_points_stats: "Access Points"
+          vehicle_journeys_stats: "Vehicle Journeys"
+          journey_patterns_stats: "Journey Patterns"
+    statuses:
+      pending: "Pending"
+      completed: "Completed"
+      failed: "Failed"
+    compliance_check_task: "Validate Report"
+    severities:
+      info: "Information"
+      uncheck: "Unchecked"
+      ok: "Ok"
+      warning: "Warning"
+      error: "Error"
+      fatal: "Fatal"
+  activerecord:
+    models:
+      import_task:
+        zero:  "import"
+        one:   "import"
+        other: "imports"
+      neptune_import:
+        zero:  "import"
+        one:   "Neptune import"
+        other: "imports"
+      csv_import:
+        zero:  "import"
+        one:   "CSV import"
+        other: "imports"
+      gtfs_import:
+        zero:  "import"
+        one:   "GTFS import"
+        other: "imports"
+      netex_import:
+        zero:  "import"
+        one:   "NeTEx import"
+        other: "imports"
+    attributes:
+      import_task:
+        resources: "File to import"
+        created_at: "Created on"
+        status: "Status"
+        no_save: "No save"
+        rule_parameter_set_id: "Rule parameter set for compliance check"
+        object_id_prefix: "Neptune Id prefix"
+        max_distance_for_commercial: "Max distance for commercial stop"
+        max_distance_for_connection_link: "Max distance for connection link"
+        ignore_last_word: "ignore last word"
+        ignore_end_chars: "ignore last chars"
+  tipsy:
+    hints:
+      import_task:
+        max_distance_for_commercial: "Maximal distance to merge homonymous stops in commercial stop in meter"
+        max_distance_for_connection_link: "Maximal distance to link stops by connection link stop in meter"
+        ignore_last_word: "ignore last word on stop name in homonymous detection (inappliable when just one word occurs)"
+        ignore_end_chars: "ignore some chars at the end of stop names in homonymous detection"
+fr:
+  import_tasks:
+    actions:
+      new: "Nouvel import"
+      destroy: "Supprimer cet import"
+      destroy_confirm: "Etes vous sûr de détruire cet import ?"
+    new:
+      title: "Nouvel import"
+    index:
+      title: "Imports"
+      warning: ""
+      imported_file: "Fichier importé"
+    show:
+      report: "Rapport"
+      not_yet_started: "En file d'attente"
+      imported_file: "Fichier importé"
+      completed: "[ Terminé ]"
+      failed: "[ Echoué ]"
+      pending: "[ En file d'attente ]"
+      processing: "[ En progression... ]"
+      graph:
+        files:
+          title_zip: "Résultat d'import des fichiers du zip"
+          title_default: "Résultat d'import du fichier %{extension}"
+          error: "Erreurs"
+          ignored: "Ignorés"
+          ok: "Succès"
+        lines:
+          title: "Volume de données lues par type de donnée"
+          objects_label: "Quantité lue"
+          lines_stats: "Lignes"
+          routes_stats: "Séquences d'arrêts"
+          connection_links_stats: "Correspondances"
+          time_tables_stats: "Calendriers"
+          stop_areas_stats: "Zones d'arrèt"
+          access_points_stats: "Accès"
+          vehicle_journeys_stats: "Courses"
+          journey_patterns_stats: "Missions"
+      table:
+        line:
+          name: "Nom"
+          save: "Sauvegarde"
+          routes: "Séquences d'arrêts"
+          connection_links: "Correspondances"
+          time_tables: "Calendriers"
+          stop_areas: "Zones d'arrèt"
+          access_points: "Accès"
+          vehicle_journeys: "Courses"
+          journey_patterns: "Missions"
+          not_saved: "Non Sauvé"
+          saved: "Sauvé"
+          save_error: "Sauvegarde en erreur"
+    statuses:
+      pending: "En cours"
+      completed: "Achevé"
+      failed: "Echoué"
+    compliance_check_task: "Validation"
+    severities:
+      info: "Information"
+      uncheck: "Non testé"
+      ok: "Ok"
+      warning: "Alerte"
+      error: "Erreur"
+      fatal: "Fatal"
+  activerecord:
+    models:
+      import_task:
+        zero:  "import"
+        one:   "import"
+        other: "imports"
+      neptune_import:
+        zero:  "import"
+        one:   "import Neptune"
+        other: "imports"
+      csv_import:
+        zero:  "import"
+        one:   "import CSV"
+        other: "imports"
+      gtfs_import:
+        zero:  "import"
+        one:   "import GTFS"
+        other: "imports"
+      netex_import:
+        zero:  "import"
+        one:   "import NeTEx"
+        other: "imports"
+    attributes:
+      import_task:
+        resources: "Fichier à importer"
+        created_at: "Créé le"
+        status: "Status"
+        no_save: "Pas de sauvegarde"
+        rule_parameter_set_id: "Jeu de paramètres pour validation"
+        object_id_prefix: "Préfixe d'identifiants"
+        max_distance_for_commercial: "Distance max pour créer les zones"
+        max_distance_for_connection_link: "Distance max pour créer les correspondances"
+        ignore_last_word: "ignorer le dernier mot"
+        ignore_end_chars: "ignorer les n derniers caractères"
+  tipsy:
+    hints:
+      import_task:
+        max_distance_for_commercial: "Distance maximale entre deux arrêts homonymes pour créer les zones d'arrêt (en mètre)"
+        max_distance_for_connection_link: "Distance maximale entre deux arrêts pour créer les correspondances (en mètre)"
+        ignore_last_word: "Ignorer le dernier mot pour détecter l'homonymie des noms d'arrêt (inapplicable quand le nom ne comporte qu'un mot)"
+        ignore_end_chars: "Ignorer les n derniers caractères du nom de l'arrêt pour détecter l'homonymie"

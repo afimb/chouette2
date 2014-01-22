@@ -9,8 +9,8 @@ class LineMap < ApplicationMap
   end
 
   def customize_map(map, page)
-    page << map.add_layer(kml_layer(line, :styleMap => StyleMap::LineStyleMap.new( :style => line_style).style_map))
-    page.assign "stop_areas_layer", kml_layer([line.referential, line], :styleMap => StyleMap::StopAreasStyleMap.new(helpers).style_map)
+    page << map.add_layer(kml_layer(line, :styleMap => Design::LineStyleMap.new( :style => line_style).style_map))
+    page.assign "stop_areas_layer", kml_layer([line.referential, line], :styleMap => Design::StopAreasStyleMap.new(helpers).style_map)
 
 
     page << map.add_layer(:stop_areas_layer)

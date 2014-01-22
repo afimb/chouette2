@@ -26,9 +26,9 @@ class ExportsController < ChouetteController
 
   def references
     @references = referential.send(params[:type]).where("name ilike ?", "%#{params[:q]}%")
-    respond_to do |format|  
+    respond_to do |format|
       format.json do
-        render :json => @references.collect { |child| { :id => child.id, :name => child.name } } 
+        render :json => @references.collect { |child| { :id => child.id, :name => child.name } }
       end
     end
   end
@@ -53,7 +53,7 @@ class ExportsController < ChouetteController
   end
 
   def collection
-    @exports ||= end_of_association_chain.paginate(:page => params[:page])
+    @exports ||= end_of_association_chain.order('created_at DESC').paginate(:page => params[:page])
   end
 
 end

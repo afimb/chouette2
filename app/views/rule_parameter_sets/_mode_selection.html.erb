@@ -1,0 +1,6 @@
+<select class="undescribed_modes">
+  <% Chouette::TransportMode.all.map { |m| m.name.downcase}.each do |mode| %>
+  <option value='<%= mode %>'><%= t("transport_modes.label.#{mode}") %></option>
+  <% end %>
+</select>
+

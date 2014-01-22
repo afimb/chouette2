@@ -3,7 +3,7 @@ module DeviseRequestHelper
 
   def login_user
     organisation = Organisation.find_by_name("first") || create(:organisation, :name => "first")
-    @user ||= create(:user, :organisation => organisation) 
+    @user ||= create(:user, :organisation => organisation)
     @user.confirm!
     login_as @user, :scope => :user
     # post_via_redirect user_session_path, 'user[email]' => @user.email, 'user[password]' => @user.password
@@ -22,7 +22,7 @@ module DeviseRequestHelper
         login_user
       end
       after(:each) do
-        Warden.test_reset!            
+        Warden.test_reset!
       end
     end
 

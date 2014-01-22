@@ -44,7 +44,6 @@
           <% elsif ! selected_referential? %>
             <% if  user_signed_in? %>
               <li><%= link_to Referential.model_name.human(:count=>2), referentials_path, :class => ("current" if current_page?(referentials_path) || current_page?(root_url)) %></li>
-              <li><%= tab_link_to FileValidation.model_name.human(:count=>2), file_validations_path %></li>
               <li class="admin"><%= tab_link_to Organisation.model_name.human, organisation_path %></li>
             <% end %>
           <% else %>
@@ -56,18 +55,16 @@
             <li><%= tab_link_to Chouette::StopArea, referential_stop_areas_path(@referential) %></li>
             <li><%= tab_link_to Chouette::ConnectionLink, referential_connection_links_path(@referential) %></li>
             <li><%= tab_link_to Chouette::TimeTable, referential_time_tables_path(@referential) %></li>
-
-            <li><%= tab_link_to Import, referential_imports_path(@referential) %></li>
+            <li><%= tab_link_to ImportTask, referential_import_tasks_path(@referential) %></li>
             <li><%= tab_link_to Export, referential_exports_path(@referential) %></li>
+            <li><%= tab_link_to ComplianceCheckTask, referential_compliance_check_tasks_path(@referential) %></li>
           <% end %>
         </ul>
       </div>
     </div>
     <div id="body">
-      <div id="flash">
-        <%= flash_tag flash %>
-      </div>
       <div id="workspace" class="<%= controller_name %> <%= action_name %>">
+        <%= render partial: "shared/flash_messages", flash: flash %>
         <%= yield %>
       </div>
       <div id="sidebar">

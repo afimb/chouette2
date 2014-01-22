@@ -1,7 +1,7 @@
-class NetexImport < Import
+class NetexImport < ImportTask
 
-  def import_options
-    super.merge(:format => :netex)
-  end
+  # def import_options
+  #   super.merge(:format => :netex)
+  # end
 
 end

@@ -5,5 +5,7 @@
  *= require_self
  *= require formtastic
  *= require jquery-ui
+ *= require morris
+ *= require font-awesome
  *= require_tree . 
 */

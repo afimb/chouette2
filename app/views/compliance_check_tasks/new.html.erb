@@ -1,0 +1,22 @@
+<%= title_tag t(".title") %>
+
+<%= semantic_form_for [@referential, @compliance_check_task] do |form| %>
+  <%= form.inputs do %>
+    <%= form.input :rule_parameter_set_id, :as => :select,
+          :collection => @referential.rule_parameter_sets.map { |rps| [ rps.name, rps.id ] }, :include_blank => false %>
+
+    <%= form.input :references_type, :as => :select, :collection => ComplianceCheckTask.references_types.map { |c| [ c.model_name.human.capitalize.pluralize, c.name ] }, :include_blank => t(".all") %>
+
+    <% ComplianceCheckTask.references_types.each do |type| %>
+      <%= type_ids_model_references_input(form, @compliance_check_task, ComplianceCheckTask, type).input %>
+    <% end %>
+  <% end %>
+
+   <%= form.actions do %>
+     <%= form.action :submit, :as => :button , :label => t( 'formtastic.validate' ) %>
+     <%= form.action :cancel, :as => :link %>
+   <% end %>
+<% end %>
+
+<%= javascript_include_tag new_referential_compliance_check_task_path(@referential, :format => :js) %>
+

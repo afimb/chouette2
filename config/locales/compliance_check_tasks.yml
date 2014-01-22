@@ -1,0 +1,143 @@
+en:
+  compliance_check_tasks:
+    index:
+      title: "Validation"
+      warning: ""
+    edit:
+      title: "Edit the Validation"
+    show:
+      title: "Neptune Validation"
+      summary: "Rapport de conformité à la norme NEPTUNE"
+      completed: "[ Completed ]"
+      failed: "[ Failed ]"
+      pending: "[ In the treatment queue ]"
+      processing: "[ In progress... ]"
+    new:
+      title: "Create a new validation"
+      submit: "Create a validation"
+      all: "All"
+    actions:
+      new: "Add a validation"
+      destroy_confirm: "Do you confirm to destroy this validation ?"
+      destroy: "Destroy this validation"
+      edit: "Edit this validation"
+      rule_parameter_set: "Rule parameter set"
+    statuses:
+      pending: "Pending"
+      completed: "Completed"
+      failed: "Failed"
+  file_validation_log_messages:
+    messages:
+      undefined: "%{key} undefined"
+      TooMuchDetails: ( %{0} erreurs / warnings supplémentaires )
+      ONE: "Catégorie 1 : Syntaxe"
+    severities:
+      uncheck: "Unchecked"
+      ok: "Ok"
+      warning: "Warning"
+      error: "Error"
+      fatal: "Fatal"
+    import_task: "Import Report"
+    rule_parameter_set: "Rule Parameter Set"
+  activerecord:
+    models:
+      file_validation:
+        zero: "Validation"
+        one: "Validation"
+        other: "Validation"
+    attributes:
+      file_validation:
+        created_at: "Executed at"
+        references_type: "Associated Data Type"
+        reference_ids: "Associated Data"
+        rule_parameter_set_id: "Rule parameters set"
+        resources: "File to validate"
+        status: "Status"
+        file_name: "Tested data"
+        projection_reference: "Système de projection de référence"
+      file_validation_log_message:
+        created_at: "Date"
+        position: "N."
+        full_message: "Message"
+
+fr:
+  compliance_check_tasks:
+    index:
+      title: "Validation"
+      warning: ""
+    edit:
+      title: "Editer la validation"
+    show:
+      title: "Validation Neptune"
+      summary: "Rapport de conformité à la norme NEPTUNE"
+      details: "Détails"
+      parameters: "Paramètres des tests"
+      completed: "[ Terminé ]"
+      failed: "[ Echoué ]"
+      pending: "[ En file d'attente ]"
+      processing: "[ En progression... ]"
+    new:
+      title: "Démarrer une nouvelle validation"
+      submit: "Lancer la validation"
+      all: "Toutes"
+    actions:
+      new: "Ajouter une validation"
+      destroy_confirm: "Voulez-vous supprimer ce résultat de validation ?"
+      destroy: "Supprimer cette validation"
+      edit: "Editer cette validation"
+      rule_parameter_set: "Jeu de paramètres"
+    statuses:
+      pending: "En cours"
+      completed: "Achevé"
+      failed: "Echoué"
+    uncheck_count:
+      zero: "aucun inapplicable"
+      one: "un inapplicable"
+      other: "%{count} inapplicables"
+    ok_count:
+      zero: "aucun test réussi"
+      one: "un test réussi"
+      other: "%{count} tests réussis"
+    warning_count:
+      zero: "aucun warning"
+      one: "un warning"
+      other: "%{count} warnings"
+    error_count:
+      zero: "aucune erreur"
+      one: "une erreur"
+      other: "%{count} erreurs"
+    fatal_count:
+      zero: "aucune erreur fatale"
+      one: "une erreur fatale"
+      other: "%{count} erreurs fatales"
+    import_task: "Import"
+    rule_parameter_set: "Jeu de paramètres"
+  file_validation_log_messages:
+    messages:
+      undefined: "%{key} non défini"
+      TooMuchDetails: "( %{0} erreurs / warnings supplémentaires )"
+    severities:
+      uncheck: "Non testé"
+      ok: "Ok"
+      warning: "Alerte"
+      error: "Erreur"
+      fatal: "Fatal"
+  activerecord:
+    models:
+      compliance_check_task:
+        zero:  "Validation"
+        one:   "Validation"
+        other: "Validations"
+    attributes:
+      compliance_check_task:
+        created_at: "Exécuté le"
+        references_type: "Type de données incluses"
+        reference_ids: "Données incluses"
+        rule_parameter_set_id: "Jeu de paramètres"
+        resources: "Fichier à valider"
+        status: "Status"
+        file_name: "Jeu de données"
+      compliance_check_task_log_message:
+        created_at: "Date"
+        position: "N."
+        full_message: "Message"

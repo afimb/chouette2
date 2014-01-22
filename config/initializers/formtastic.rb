@@ -1,6 +1,5 @@
   Formtastic::FormBuilder.i18n_lookups_by_default = true
 
-
 module Formtastic
   module Inputs
     class CheckBoxesInput

@@ -2,8 +2,8 @@ class ReferentialsController < InheritedResources::Base
   respond_to :html
   respond_to :json, :only => :show
   respond_to :js, :only => :show
-  
-  def show 
+
+  def show
      resource.switch
      show! do |format|
        format.json {
@@ -15,17 +15,23 @@ class ReferentialsController < InheritedResources::Base
        }
      end
   end
-  
+
   protected
   def resource
     @referential ||= current_organisation.referentials.find_by_id(params[:id])
   end
-  def collection    
+  def collection
     @referentials ||= current_organisation.referentials
+  end
+  def build_resource
+    super.tap do |referential|
+      referential.user_id = current_user.id
+      referential.user_name = current_user.name
+    end
   end
   def create_resource(referential)
     referential.organisation = current_organisation
     super
   end
-    
+
 end

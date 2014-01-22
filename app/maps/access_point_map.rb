@@ -10,9 +10,9 @@ class AccessPointMap < ApplicationMap
   end
 
   def customize_map(map, page)
-    page.assign "parent_layer", kml_layer(access_point.stop_area,  :style_map => StyleMap::StopAreasStyleMap.new(helpers).style_map)
+    page.assign "parent_layer", kml_layer(access_point.stop_area,  :style_map => Design::StopAreasStyleMap.new(helpers).style_map)
     page << map.add_layer(:parent_layer)
-    page.assign "edit_access_point_layer", kml_layer(access_point, { :default => editable? }, :style_map => StyleMap::EditAccessPointStyleMap.new(helpers).style_map)
+    page.assign "edit_access_point_layer", kml_layer(access_point, { :default => editable? }, :style_map => Design::EditAccessPointStyleMap.new(helpers).style_map)
     page << map.add_layer(:edit_access_point_layer)
     
     

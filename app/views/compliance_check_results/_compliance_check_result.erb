@@ -1,0 +1,21 @@
+ <div class="severity_<%= compliance_check_result.severity %> status_<%= compliance_check_result.status %>"> 
+   <div class="status_icon">
+     <%= image_tag "icons/status_#{compliance_check_result.status}.png", :class => "status" %>      
+   </div> 
+   <div class="status_text">
+   <div class="code">
+     <%= compliance_check_result.rule_code %>
+   </div>
+   <div class="severity">
+     [ <%= ComplianceCheckResult.human_attribute_name(:severity) %> : <%= t compliance_check_result.severity, :scope => "compliance_check_result.severities" %> ]
+   </div>
+   <div class="explanation">
+     <%= ComplianceCheckResult.human_attribute_name(compliance_check_result.rule_code) %>
+   </div>
+   <div class="attributes">
+     <% if compliance_check_result.violation_count > 0 %>
+       <%= ComplianceCheckResult.human_attribute_name(:violation_count) %> : 
+     <% end %>
+   </div>
+   </div>
+</div>

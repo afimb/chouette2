@@ -1,23 +1,21 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.6'    
 
 platforms :jruby do
   gem 'activerecord-jdbcpostgresql-adapter', '1.2.9'
   gem 'activerecord-jdbcsqlite3-adapter'
   gem 'jruby-openssl'
   gem "jruby-rack-worker"
-  gem 'warbler'
-  gem 'therubyrhino'
+  gem 'warbler'   
+  gem 'therubyrhino'      
 end
 
 platforms :ruby do
-  gem 'therubyracer', '~> 0.10.2'
-  gem 'pg', '~> 0.11.0'
+  gem 'therubyracer', '~> 0.10.2'          
+  gem 'pg', '~> 0.11.0' 
   gem 'sqlite3'
 end
-
-gem 'google-analytics-rails'
 
 # Authentication
 gem 'devise', '2.1.3'
@@ -25,12 +23,7 @@ gem 'devise_invitable'
 
 # Map, Geolocalization
 gem "map_layers", "0.0.4"
-gem "georuby-ext", :git => 'https://github.com/dryade/georuby-ext.git' , :ref => '69e3460141d831f0ad76780ee2b3f0a925a744f8'
-gem "geokit","1.6.5"
-gem "dbf","2.0.5"
-gem "json_pure","1.7.7"
-gem "multi_json","1.7.7"
-
+gem "georuby-ext", :git => 'git://github.com/dryade/georuby-ext.git'
 #gem "georuby-ext", "0.0.2"
 
 # User interface
@@ -42,6 +35,9 @@ gem 'formtastic'
 gem 'RedCloth'
 gem 'jquery-rails', '2.2.1'
 gem "modernizr-rails", "~> 2.0.6"
+gem 'morrisjs-rails'
+gem 'raphael-rails'
+gem 'font-awesome-sass'
 
 # Format Output
 gem 'json'
@@ -58,6 +54,7 @@ gem 'squeel'
 gem 'ninoxe', '0.1.3'
 gem 'acts_as_list', '0.1.6'
 gem "acts_as_tree-1.8", '1.1.0', :require => "acts_as_tree"
+gem "active_enum"
 
 gem 'delayed_job_active_record'
 gem 'dr-apartment', :require => "apartment"
@@ -74,20 +71,20 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-group :development do
+group :development do 
   gem 'capistrano'
-  gem 'capistrano-ext'
+  gem 'capistrano-ext'   
   gem 'guard'
   gem 'guard-rspec'
-  gem 'rails-erd'
+  gem 'rails-erd'       
 end
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
-  gem "remarkable", "~> 4.0.0.alpha4"
-  gem "remarkable_activerecord", "~> 4.0.0.alpha4"
+  gem "remarkable", "~> 4.0.0.alpha4"           
+  gem "remarkable_activerecord", "~> 4.0.0.alpha4" 
   gem "shoulda-matchers"
-  gem 'capybara'
+  gem 'capybara'     
   gem 'launchy'
   gem 'factory_girl_rails', '1.7'
   gem 'rb-inotify', :require => RUBY_PLATFORM.include?('linux') && 'rb-inotify'
@@ -95,7 +92,6 @@ group :test, :development do
 end
 
 group :production do
-  gem "SyslogLogger"
-  gem "daemons"
+   gem "SyslogLogger"
 end
 

@@ -225,16 +225,4 @@ fr:
       <<: *errors
 
 # FIN: https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/fr.yml
-  "true": "oui"
-  "false": "non"
-  or: "ou"
-  back: "Revenir"
-  today: "Aujourd'hui"
-  yesterday: "Hier"
-  edit_periods: "Editer Périodes"   
-  delete_periods: "Supprimer Périodes" 
-  attributes:
-    author: "Modifié par"
-    created_at: "Créé le"
-    updated_at: "Modifié le"
 

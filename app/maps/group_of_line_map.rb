@@ -8,7 +8,7 @@ class GroupOfLineMap < ApplicationMap
   end
 
   def customize_map(map, page)
-    page.assign "stop_areas_layer", kml_layer([group_of_line.referential, group_of_line], :styleMap => StyleMap::StopAreasStyleMap.new(helpers).style_map)
+    page.assign "stop_areas_layer", kml_layer([group_of_line.referential, group_of_line], :styleMap => Design::StopAreasStyleMap.new(helpers).style_map)
 
     page << map.add_layer(:stop_areas_layer)
     page << map.add_control( hover_control_display_name(:stop_areas_layer) )

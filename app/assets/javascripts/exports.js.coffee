@@ -1,5 +1,5 @@
 jQuery ->
-  export_references_type_change = (event) -> 
+  export_references_type_change = (event) ->
     references_type = $(event.target).val()
 
     toggle_input = (li) ->
@@ -15,7 +15,7 @@ jQuery ->
 
   $('#export_type_submit').hide()
 
-  export_type_change = (event) -> 
+  export_type_change = (event) ->
     export_type = $("input:radio:checked").attr("value")
     $(form).toggle($(form).is("#" + export_type + "_new")) for form in $('form.export[method = "post"]')
 

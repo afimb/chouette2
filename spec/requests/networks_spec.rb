@@ -4,13 +4,11 @@ require 'spec_helper'
 describe "Networks" do
   login_user
 
-  let(:networks) { Array.new(2) { Factory(:network) } }
+  let!(:networks) { Array.new(2) { Factory(:network) } }
   subject { networks.first }
 
   describe "list" do
     it "display networks" do
-      pending
-
       visit referential_networks_path(referential)
       page.should have_content(networks.first.name)
       page.should have_content(networks.last.name)
@@ -20,8 +18,6 @@ describe "Networks" do
 
   describe "show" do      
     it "display network" do
-      pending
-
       subject.stub(:stop_areas).and_return(Array.new(2) { Factory(:stop_area) })
       visit referential_networks_path(referential)
       click_link "#{networks.first.name}"
@@ -29,8 +25,6 @@ describe "Networks" do
     end
 
     it "display map" do
-      pending
-
       subject.stub(:stop_areas).and_return(Array.new(2) { Factory(:stop_area) })
       visit referential_networks_path(referential)
       click_link "#{networks.first.name}"
@@ -41,8 +35,6 @@ describe "Networks" do
 
   describe "new" do      
     it "creates network and return to show" do
-      pending
-
       subject.stub(:stop_areas).and_return(Array.new(2) { Factory(:stop_area) })
       visit referential_networks_path(referential)
       click_link "Ajouter un réseau"
@@ -56,8 +48,6 @@ describe "Networks" do
 
   describe "edit and return to show" do      
     it "edit network" do
-      pending
-
       subject.stub(:stop_areas).and_return(Array.new(2) { Factory(:stop_area) })
       visit referential_network_path(referential, subject)
       click_link "Modifier ce réseau"
@@ -68,23 +58,15 @@ describe "Networks" do
     end
   end
 
-  describe "delete", :js => true do      
-    it "delete network and return to the list" do
-      # subject.stub(:stop_areas).and_return(Array.new(2) { Factory(:stop_area) })
-      
-      # visit referential_networks_path(referential)
-      # click_link "#{networks.first.name}"
-      # click_link "Modifier ce réseau"
-      # fill_in "Nom", :with => "Network 1"
-      # fill_in "Numéro d'enregistrement", :with => "test-1"
-      # click_button("Modifier Réseau")
-      # page.should have_content("Network 1")
-      # visit referential_network_path(referential, subject)
-      # click_link "Supprimer ce réseau"
-      # page.evaluate_script('window.confirm = function() { return true; }')
-      # click_button "Valider"
-      # page.should have_no_content("Network 1")
-    end
+  # describe "delete", :js => true do      
+  #   it "delete network and return to the list" do
+  #     subject.stub(:stop_areas).and_return(Array.new(2) { Factory(:stop_area) })     
+  #     visit referential_network_path(referential, subject)
+  #     click_link "Supprimer ce réseau"
+  #     page.evaluate_script('window.confirm = function() { return true; }')
+  #     click_button "Valider"
+  #     page.should have_no_content(subject.name)
+  #   end
 
-  end
+  # end
 end

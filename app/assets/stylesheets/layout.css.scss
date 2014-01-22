@@ -7,6 +7,12 @@ $text_color: #222;
 
 @import "user_interface/layout";
 
+// Override user_interface/layout
+b { font-weight: bold; }
+
+// Add margin-top to alert
+.alert { margin-top: 10px;}
+
 p.after_map {
   clear: both;
 }

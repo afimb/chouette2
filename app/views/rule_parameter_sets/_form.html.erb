@@ -1,0 +1,27 @@
+<%= semantic_form_for [@referential, @rule_parameter_set] do |form| %>
+  <%= form.inputs do %>
+    <%= form.input :name %>
+    <%= form.input :inter_stop_area_distance_min, :as => :number %>
+    <%= form.input :parent_stop_area_distance_max, :as => :number %>
+    <%= form.input :stop_areas_area %>
+    <%= form.input :inter_access_point_distance_min, :as => :number %>
+    <%= form.input :inter_connection_link_distance_max, :as => :number %>
+    <%= form.input :walk_default_speed_max, :as => :number %>
+    <%= form.input :walk_occasional_traveller_speed_max, :as => :number %>
+    <%= form.input :walk_frequent_traveller_speed_max, :as => :number %>
+    <%= form.input :walk_mobility_restricted_traveller_speed_max, :as => :number %>
+
+    <%= form.input :inter_access_link_distance_max, :as => :number %>
+    <%= form.input :inter_stop_duration_max, :as => :number %>
+    <%= form.input :facility_stop_area_distance_max, :as => :number %>
+
+    <% Chouette::Line.transport_modes.map(&:to_s).each do |mode| %>
+      <%= render :partial => "mode_fields", :locals => { :f => form, :mode => mode} %>
+    <% end %>
+  <% end %>
+
+   <%= form.actions do %>
+     <%= form.action :submit, :as => :button %>
+     <%= form.action :cancel, :as => :link %>
+   <% end %>
+<% end %>

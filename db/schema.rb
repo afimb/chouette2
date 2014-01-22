@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710123351) do
+ActiveRecord::Schema.define(:version => 20140113103544) do
 
   create_table "access_links", :force => true do |t|
     t.integer  "access_point_id",                        :limit => 8
@@ -86,6 +87,36 @@ ActiveRecord::Schema.define(:version => 20130710123351) do
 
   add_index "companies", ["objectid"], :name => "companies_objectid_key", :unique => true
   add_index "companies", ["registration_number"], :name => "companies_registration_number_key", :unique => true
+
+  create_table "compliance_check_results", :force => true do |t|
+    t.integer  "compliance_check_task_id", :limit => 8
+    t.string   "rule_code"
+    t.string   "severity"
+    t.string   "status"
+    t.integer  "violation_count"
+    t.text     "detail"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.string   "rule_target"
+    t.string   "rule_format"
+    t.integer  "rule_level"
+    t.integer  "rule_number"
+  end
+
+  create_table "compliance_check_tasks", :force => true do |t|
+    t.integer  "referential_id",     :limit => 8
+    t.integer  "import_task_id",     :limit => 8
+    t.string   "status"
+    t.string   "parameter_set_name"
+    t.text     "parameter_set"
+    t.integer  "user_id",            :limit => 8
+    t.string   "user_name"
+    t.text     "progress_info"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.string   "references_type"
+    t.string   "reference_ids"
+  end
 
   create_table "connection_links", :force => true do |t|
     t.integer  "departure_id",                           :limit => 8
@@ -182,28 +213,6 @@ ActiveRecord::Schema.define(:version => 20130710123351) do
     t.integer "choice_code"
   end
 
-  create_table "file_validation_log_messages", :force => true do |t|
-    t.integer  "file_validation_id", :limit => 8
-    t.string   "key"
-    t.string   "arguments",          :limit => 1000
-    t.integer  "position"
-    t.string   "severity"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
-  end
-
-  add_index "file_validation_log_messages", ["file_validation_id"], :name => "index_file_validation_log_messages_on_file_validation_id"
-
-  create_table "file_validations", :force => true do |t|
-    t.string   "status"
-    t.string   "options",         :limit => 2000
-    t.string   "file_name"
-    t.string   "file_type"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
-    t.integer  "organisation_id", :limit => 8
-  end
-
   create_table "group_of_lines", :force => true do |t|
     t.string   "objectid",       :null => false
     t.integer  "object_version"
@@ -220,29 +229,17 @@ ActiveRecord::Schema.define(:version => 20130710123351) do
     t.integer "line_id",          :limit => 8
   end
 
-  create_table "import_log_messages", :force => true do |t|
-    t.integer  "import_id",  :limit => 8
-    t.string   "key"
-    t.string   "arguments",  :limit => 1000
-    t.integer  "position"
-    t.string   "severity"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
-  end
-
-  add_index "import_log_messages", ["import_id"], :name => "index_import_log_messages_on_import_id"
-
-  create_table "imports", :force => true do |t|
+  create_table "import_tasks", :force => true do |t|
     t.integer  "referential_id", :limit => 8
     t.string   "status"
+    t.text     "parameter_set"
+    t.integer  "user_id",        :limit => 8
+    t.string   "user_name"
+    t.text     "result"
+    t.text     "progress_info"
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
-    t.string   "type"
-    t.string   "options"
-    t.string   "file_type"
   end
-
-  add_index "imports", ["referential_id"], :name => "index_imports_on_referential_id"
 
   create_table "journey_patterns", :force => true do |t|
     t.integer  "route_id",                :limit => 8
@@ -329,13 +326,16 @@ ActiveRecord::Schema.define(:version => 20130710123351) do
   create_table "referentials", :force => true do |t|
     t.string   "name"
     t.string   "slug"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.string   "prefix"
     t.string   "projection_type"
     t.string   "time_zone"
     t.string   "bounds"
-    t.integer  "organisation_id", :limit => 8
+    t.integer  "organisation_id",     :limit => 8
+    t.text     "geographical_bounds"
+    t.integer  "user_id",             :limit => 8
+    t.string   "user_name"
   end
 
   create_table "routes", :force => true do |t|
@@ -358,6 +358,14 @@ ActiveRecord::Schema.define(:version => 20130710123351) do
   create_table "routing_constraints_lines", :id => false, :force => true do |t|
     t.integer "stop_area_id", :limit => 8
     t.integer "line_id",      :limit => 8
+  end
+
+  create_table "rule_parameter_sets", :force => true do |t|
+    t.integer  "referential_id", :limit => 8
+    t.text     "parameters"
+    t.string   "name"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   create_table "stop_areas", :force => true do |t|
@@ -456,6 +464,14 @@ ActiveRecord::Schema.define(:version => 20130710123351) do
   add_index "time_tables_vehicle_journeys", ["time_table_id"], :name => "index_time_tables_vehicle_journeys_on_time_table_id"
   add_index "time_tables_vehicle_journeys", ["vehicle_journey_id"], :name => "index_time_tables_vehicle_journeys_on_vehicle_journey_id"
 
+  create_table "transport_mode_parameter_sets", :force => true do |t|
+    t.integer  "rule_parameter_set_id", :limit => 8
+    t.string   "transport_mode"
+    t.text     "parameters"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                                :default => "", :null => false
     t.string   "encrypted_password",                   :default => ""
@@ -532,11 +548,18 @@ ActiveRecord::Schema.define(:version => 20130710123351) do
 
   add_foreign_key "access_points", "stop_areas", :name => "access_area_fkey", :dependent => :delete
 
+  add_foreign_key "compliance_check_results", "compliance_check_tasks", :name => "compliance_check_results_compliance_check_task_id_fk", :dependent => :delete
+
+  add_foreign_key "compliance_check_tasks", "import_tasks", :name => "compliance_check_tasks_import_task_id_fk", :dependent => :delete
+  add_foreign_key "compliance_check_tasks", "referentials", :name => "compliance_check_tasks_referential_id_fk", :dependent => :delete
+
   add_foreign_key "connection_links", "stop_areas", :name => "colk_endarea_fkey", :column => "arrival_id", :dependent => :delete
   add_foreign_key "connection_links", "stop_areas", :name => "colk_startarea_fkey", :column => "departure_id", :dependent => :delete
 
   add_foreign_key "group_of_lines_lines", "group_of_lines", :name => "groupofline_group_fkey", :dependent => :delete
   add_foreign_key "group_of_lines_lines", "lines", :name => "groupofline_line_fkey", :dependent => :delete
+
+  add_foreign_key "import_tasks", "referentials", :name => "import_tasks_referential_id_fk", :dependent => :delete
 
   add_foreign_key "journey_patterns", "routes", :name => "jp_route_fkey", :dependent => :delete
   add_foreign_key "journey_patterns", "stop_points", :name => "arrival_point_fkey", :column => "arrival_stop_point_id", :dependent => :nullify

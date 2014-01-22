@@ -9,5 +9,6 @@
 //= require jquery-ui
 //= require modernizr
 //= require cocoon
-//= require_directory ./public
+//= require raphael
+//= require morris
 //= require_directory .

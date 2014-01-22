@@ -10,6 +10,17 @@ en:
       dashboard: "dashboard"
     creation_tag:
       title: "Create"
+    history_tag:
+      title: "History"  
+      created_at: "Created at"
+      updated_at: "Updated at"
+      user_name: "User"
+    flash_messages:
+      success: "Success"
+      error: "Error"
+      alert: "Alert"
+      notice: "Info"      
+        
 fr:
   layouts:
     back_to_dashboard: "Retour au Tableau de Bord"
@@ -22,3 +33,27 @@ fr:
       dashboard: "Tableau de bord"
     creation_tag:
       title: "Création"
+    history_tag:
+      title: "Historique"    
+      created_at: "Créé le"
+      updated_at: "Mise à jour le"
+      user_name: "Auteur"
+    flash_messages:
+      success: "Succès"
+      error: "Erreur"
+      alert: "Alerte"
+      notice: "Info"
+      
+  true: "oui"
+  false: "non"
+  or: "ou"
+  back: "Revenir"
+  today: "Aujourd'hui"
+  yesterday: "Hier"
+  edit_periods: "Editer Périodes"   
+  delete_periods: "Supprimer Périodes" 
+  attributes:
+    author: "Modifié par"
+    created_at: "Créé le"
+    updated_at: "Modifié le"
+      

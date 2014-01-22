@@ -1,21 +1,21 @@
 <%= div_for(connection_link) do %>
-  <%= link_to truncate(connection_link.name, :length => 30), [@referential, connection_link], :title => "#{Chouette::TimeTable.model_name.human} #{connection_link.name}" %>
+  <%= link_to truncate(connection_link.name, :length => 35), [@referential, connection_link], :title => "#{Chouette::TimeTable.model_name.human} #{connection_link.name}" %>
   <div class="info">
     <%= t('.from') %>
-    <% if connection_link.departure.present? %> 
-        <%= link_to_if connection_link.departure, connection_link.departure.name, referential_stop_area_path(@referential, connection_link.departure), :title => "#{connection_link.human_attribute_name('departure')} #{connection_link.departure.name}" %>
+    <% if connection_link.departure.present? %>
+      <%= link_to_if connection_link.departure, truncate(connection_link.departure.name, :length => 15) , referential_stop_area_path(@referential, connection_link.departure), :title => "#{connection_link.human_attribute_name('departure')} #{connection_link.departure.name}" %>
     <% else %>
-  	<%= connection_link.human_attribute_name('undefined') %> 
+  	<%= connection_link.human_attribute_name('undefined') %>
     <% end %>
     <%= t('.to') %>
-    <% if connection_link.arrival.present? %> 
-        <%= link_to_if( connection_link.arrival, connection_link.arrival.name, referential_stop_area_path(@referential, connection_link.arrival), :title => "#{connection_link.human_attribute_name('arrival')} #{connection_link.arrival.name}" )  %>
+    <% if connection_link.arrival.present? %>
+      <%= link_to_if( connection_link.arrival, truncate(connection_link.arrival.name, :length => 15), referential_stop_area_path(@referential, connection_link.arrival), :title => "#{connection_link.human_attribute_name('arrival')} #{connection_link.arrival.name}" )  %>
     <% else %>
         <%= connection_link.human_attribute_name("undefined") %>
-    <% end %> - 
-    <%= connection_link.human_attribute_name('default_duration').capitalize %>: <%= connection_link.default_duration ? connection_link.default_duration.strftime('%Mm %Ss') : connection_link.human_attribute_name("undefined") %> 
+    <% end %> -
+    <%= connection_link.human_attribute_name('default_duration').capitalize %>: <%= connection_link.default_duration ? connection_link.default_duration.strftime('%Mm %Ss') : connection_link.human_attribute_name("undefined") %>
 
-    <div class="actions">  
+    <div class="actions">
       <%= link_to t("actions.edit"), edit_referential_connection_link_path(@referential, connection_link), :class => "edit" %> |
       <%= link_to t("actions.destroy"), referential_connection_link_path(@referential, connection_link), :method => :delete,  :data => {:confirm =>  t('connection_links.actions.destroy_confirm')}, :class => "remove" %>
     </div>

@@ -10,21 +10,21 @@ class StopAreaMap < ApplicationMap
   end
 
   def customize_map(map, page)
-      page.assign "edit_stop_area_layer", kml_layer(stop_area, { :default => editable? }, :style_map => StyleMap::EditStopAreaStyleMap.new(helpers).style_map)
+      page.assign "edit_stop_area_layer", kml_layer(stop_area, { :default => editable? }, :style_map => Design::EditStopAreaStyleMap.new(helpers).style_map)
       page << map.add_layer(:edit_stop_area_layer)
 
       if stop_area.children.present?
-        page.assign "children_layer", kml_layer(stop_area, { :children => true }, :style_map => StyleMap::StopAreasStyleMap.new(helpers).style_map)
+        page.assign "children_layer", kml_layer(stop_area, { :children => true }, :style_map => Design::StopAreasStyleMap.new(helpers).style_map)
         page << map.add_layer(:children_layer)
       end
       if stop_area.routing_stops.present?
-        page.assign "routing_layer", kml_layer(stop_area, { :routing => true }, :style_map => StyleMap::StopAreasStyleMap.new(helpers).style_map)
+        page.assign "routing_layer", kml_layer(stop_area, { :routing => true }, :style_map => Design::StopAreasStyleMap.new(helpers).style_map)
         page << map.add_layer(:routing_layer)
         page << map.add_control( hover_control_display_name(:routing_layer) )
         page << map.zoom_to_extent(bounds.to_google.to_openlayers) if bounds
       else
       
-        page.assign "edit_stop_area_layer", kml_layer(stop_area, { :default => editable? }, :style_map => StyleMap::EditStopAreaStyleMap.new(helpers).style_map)
+        page.assign "edit_stop_area_layer", kml_layer(stop_area, { :default => editable? }, :style_map => Design::EditStopAreaStyleMap.new(helpers).style_map)
         page << map.add_layer(:edit_stop_area_layer)
       
         if editable?

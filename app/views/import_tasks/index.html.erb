@@ -1,0 +1,18 @@
+<%= title_tag t('.title') %>
+<div class="warning"><%= t('.warning') %> </div>
+<div class="page_info">
+  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @import_tasks %>
+</div>
+<div class="import_tasks paginated_content">
+  <%= render :partial => "import_task", :collection => @import_tasks %>
+</div>
+<div class="pagination">
+  <%= will_paginate @import_tasks, :container => false %>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('import_tasks.actions.new'), new_referential_import_task_path(@referential), :class => "add" %></li>
+  <li><%= link_to t('rule_parameter_sets.actions.index'), referential_rule_parameter_sets_path(@referential), :class => "link" %></li>
+</ul>
+<% end %>

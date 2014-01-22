@@ -28,7 +28,7 @@ ChouetteIhm::Application.routes.draw do
       resources :vehicle_journeys, :only => :show
     end
   end
-  
+
 
   resource :subscription
 
@@ -36,10 +36,9 @@ ChouetteIhm::Application.routes.draw do
     resources :users
   end
 
-  resources :file_validations
-
   resources :referentials do
     resources :api_keys
+    resources :rule_parameter_sets
     resources :stop_point_areas
     match 'lines' => 'lines#destroy_all', :via => :delete
     resources :group_of_lines do
@@ -55,7 +54,7 @@ ChouetteIhm::Application.routes.draw do
           get 'add_routing_lines'
           get 'add_routing_stops'
         end
-      end       
+      end
       resources :lines
       collection do
         get :name_filter
@@ -81,7 +80,7 @@ ChouetteIhm::Application.routes.draw do
           get 'add_routing_lines'
           get 'add_routing_stops'
         end
-      end        
+      end
       resources :routes do
         resources :journey_patterns do
           member do
@@ -101,15 +100,30 @@ ChouetteIhm::Application.routes.draw do
       end
     end
 
-    resources :imports
+    resources :import_tasks do
+      member do
+        get 'file_to_import'
+      end
+    end
+
     resources :exports do
       collection do
         get 'references'
       end
     end
+    resources :compliance_check_tasks do
+      member do
+        get 'rule_parameter_set'
+      end
+      collection do
+        get 'references'
+      end
+
+      resources :compliance_check_results
+    end
 
     resources :companies
-    
+
     resources :time_tables do
       collection do
         get :comment_filter
@@ -123,7 +137,7 @@ ChouetteIhm::Application.routes.draw do
     end
 
     resources :stop_areas do
-      resources :access_points 
+      resources :access_points
       resources :stop_area_parents
       resources :stop_area_children
       resources :stop_area_routing_lines
@@ -135,13 +149,13 @@ ChouetteIhm::Application.routes.draw do
         get 'add_routing_stops'
         get 'access_links'
       end
-      collection do 
+      collection do
         put 'default_geometry'
       end
     end
 
     resources :connection_links do
-      resources :connection_link_areas 
+      resources :connection_link_areas
       member do
         get 'select_areas'
       end
@@ -157,12 +171,12 @@ ChouetteIhm::Application.routes.draw do
           get 'add_routing_lines'
           get 'add_routing_stops'
         end
-      end        
+      end
     end
 
     resources :clean_ups
-    
-  end 
+
+  end
 
   match '/help/(*slug)' => 'help#show'
   match '/test_sheet/(*slug)' => 'test_sheet#show'

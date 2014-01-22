@@ -1,7 +1,6 @@
-class NeptuneImport < Import
-
-  def import_options
-    super.merge(:format => :neptune)
-  end
+class NeptuneImport < ImportTask
+  # def import_options
+  #   super.merge()
+  # end
 
 end
