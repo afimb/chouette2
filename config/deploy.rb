@@ -3,7 +3,6 @@ require './config/boot'
 
 set :stages, %w(sandbox unstable staging production)
 set :application, "chouette2"
-set :user, "mflorisson"
 set :scm, :git
 set :repository,  "https://github.com/afimb/chouette2.git"
 set :deploy_to, "/var/www/chouette2"
@@ -13,6 +12,12 @@ set :group_writable, true
 set :rake, "bundle exec rake"
 set :keep_releases, 4
 set :rails_env, "production" #added for delayed job
+set :user, "mflorisson"
+set :deploy_via, :copy
+set :copy_via, :scp
+set :copy_exclude, ".git/*"
+ssh_options[:forward_agent] =   true
+ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa")]
 
 after "deploy:update", "deploy:cleanup", "deploy:group_writable"
 after "deploy:update_code", "deploy:symlink_shared", "deploy:chouette_command", "deploy:gems"

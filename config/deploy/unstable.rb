@@ -1,1 +1,2 @@
-server "chouette-int.cityway.fr", :app, :web, :db, :primary => true
+server "chouette-p.aix.cityway.fr", :app, :web, :db, :primary => true
+set :branch, "master"
