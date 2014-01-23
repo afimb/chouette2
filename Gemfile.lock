@@ -370,6 +370,7 @@ DEPENDENCIES
   rabl
   rails (= 3.2.6)
   rails-erd
+  rake (~> 10.1.0)
   ransack
   raphael-rails
   rb-fsevent
