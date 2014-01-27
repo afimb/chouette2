@@ -1,5 +1,10 @@
-# V2.1.1 (en cours)
+# V2.2.0 (en cours)
 
+* Refonte des fonctions d'import et validation
+
+# V2.1.1 (20/12/13)
+
+* Ajout de Google Analytics
 * Clonage de courses
   * les calendiers de la course initiale sont reportés dans les copies
 
