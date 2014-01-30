@@ -23,7 +23,7 @@ jQuery ->
       {label: "<%= t 'na', :scope => 'compliance_check_result.statuses' %>", value: <%= @compliance_check_task.compliance_check_results.na.error.count %>},
       {label: "<%= t 'ok', :scope => 'compliance_check_result.statuses' %>", value: <%= @compliance_check_task.compliance_check_results.ok.error.count %>}
     ]
-    colors: [ "#e22b1b", "#ffbd2b", "#8fc861" ]
+    colors: [ "#e22b1b", "#898e7f", "#8fc861" ]
   }).on('click', update = (i, row) ->
     $(".report").empty()
     switch i
@@ -39,7 +39,7 @@ jQuery ->
       {label: "<%= t 'na', :scope => 'compliance_check_result.statuses' %>", value: <%= @compliance_check_task.compliance_check_results.na.warning.count %>},
       {label: "<%= t 'ok', :scope => 'compliance_check_result.statuses' %>", value: <%= @compliance_check_task.compliance_check_results.ok.warning.count %>}
     ]
-    colors: [ "#e22b1b", "#ffbd2b", "#8fc861" ]
+    colors: [ "#ffbd2b", "#898e7f", "#8fc861" ]
   }).on('click', update = (i, row) ->
     $(".report").empty()
     switch i
