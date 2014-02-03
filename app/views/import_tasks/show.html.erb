@@ -4,7 +4,7 @@
   <div class="links">
     <%= link_to t("import_tasks.show.imported_file"), file_to_import_referential_import_task_path(@import_task.referential, @import_task), :class => "btn btn-default" %>
     <% if @import_task.compliance_check_task %>
-      <%= link_to t("import_tasks.compliance_check_task"), referential_compliance_check_task_path(@import_task.referential, @import_task.compliance_check_task), :class => "btn btn-default"  %>
+      <%= link_to t("import_tasks.compliance_check_task"), referential_compliance_check_task_path(@import_task.referential, @import_task.compliance_check_task), :class => "btn #{button_link_class(@import_task.compliance_check_task)}"  %>
     <% end %>
   </div>
   <%= render( :partial => "results_dashboard") if @import_task.completed? %>

@@ -46,7 +46,8 @@
        </thead>
        <tbody>
          <% @lines_list.each_with_index do |line, index| %>
-         <tr>
+           <% tr_class = (line["status"]=="saved") ? '' : 'class=\'danger\''%>
+           <tr <%=  tr_class %>>
            <td><%= index + 1 %></td>
            <td><%= line["name"] %></td>
            <td><%= t("import_tasks.show.table.line." + line["status"] ) %></td>
