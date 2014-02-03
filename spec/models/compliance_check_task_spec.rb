@@ -10,6 +10,37 @@ describe ComplianceCheckTask do
     end
   end
 
+
+  describe "#any_error_severity_failure?" do
+    context "when compliance_check_results empty" do
+      before(:each) do
+        subject.compliance_check_results = []
+      end
+      it "does return false" do
+        subject.any_error_severity_failure?.should be_false
+      end
+    end
+    context "when compliance_check_results contains a error_severity_failure" do
+      let( :valid_result){ Factory.build( :compliance_check_result) }
+      let( :invalid_result){ Factory.build( :compliance_check_result, :severity => "error", :status => "nok") }
+      before(:each) do
+        subject.compliance_check_results = [ valid_result, invalid_result]
+      end
+      it "does return true" do
+        subject.any_error_severity_failure?.should be_true
+      end
+    end
+    context "when compliance_check_results contains no error_severity_failure" do
+      let( :valid_result){ Factory.build( :compliance_check_result) }
+      before(:each) do
+        subject.compliance_check_results = [ valid_result]
+      end
+      it "does return false" do
+        subject.any_error_severity_failure?.should be_false
+      end
+    end
+  end
+
   describe "#destroy" do
     let(:import_task){ Factory( :import_task )}
     context "with an import_task" do

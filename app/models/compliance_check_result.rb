@@ -5,7 +5,7 @@ class ComplianceCheckResult < ActiveRecord::Base
 
   scope :ok, -> { where status: 'ok' }
   scope :nok, -> { where status: 'nok' }
-  scope :na, -> { where status: 'na' }  
+  scope :na, -> { where status: 'na' }
 
   attr_accessible :violation_count
   belongs_to :compliance_check_task
@@ -15,6 +15,10 @@ class ComplianceCheckResult < ActiveRecord::Base
   validates_inclusion_of :status, :in => %w{na ok nok}
 
   serialize :detail, JSON
+
+  def error_severity_failure?
+    severity == "error" && status == "nok"
+  end
 
   def indice
     return nil unless rule_code

@@ -15,6 +15,12 @@ class ComplianceCheckTask < ActiveRecord::Base
 
   include ::TypeIdsModelable
 
+  def any_error_severity_failure?
+    return false if compliance_check_results.empty? || compliance_check_results.nil?
+
+    compliance_check_results.any? { |r| r.error_severity_failure? }
+  end
+
   def chouette_command
     Chouette::Command.new(:schema => referential.slug)
   end
