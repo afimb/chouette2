@@ -14,7 +14,6 @@ class Referential < ActiveRecord::Base
   validates_format_of :lower_corner, :with => %r{\A-?[0-9]+\.?[0-9]*\,-?[0-9]+\.?[0-9]*\Z}
   validate :slug_excluded_values
 
-  attr_accessor :resources
   attr_accessor :upper_corner
   attr_accessor :lower_corner
 
@@ -142,13 +141,6 @@ class Referential < ActiveRecord::Base
   before_destroy :destroy_schema
   def destroy_schema
     Apartment::Database.drop slug
-  end
-
-  after_create :import_resources, :add_rule_parameter_set
-  def import_resources
-    import_tasks.create(:resources => resources, :no_save => false,
-                        :format => "Neptune", :user_id => user_id,
-                        :user_name => user_name) if resources
   end
 
   def add_rule_parameter_set
