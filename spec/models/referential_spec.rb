@@ -7,13 +7,17 @@ describe Referential do
   it { should validate_presence_of(:prefix) }
   it { should validate_presence_of(:time_zone) }
 
+  it "create a rule_parameter_set" do
+    referential = Factory.create(:referential)
+    referential.rule_parameter_sets.size.should == 1
+  end
 end
 
 describe Chouette::StopArea do
   # check override methods
-  
+
    subject {Factory(:stop_area)}
-  
+
     it "should return referential projection " do
       subject.referential.projection_type='27572'
       subject.projection.should == subject.referential.projection_type
@@ -39,9 +43,9 @@ end
 
 describe Chouette::AccessPoint do
   # check override methods
-  
+
    subject {Factory(:access_point)}
-  
+
     it "should return referential projection " do
       subject.referential.projection_type='27572'
       subject.projection.should == subject.referential.projection_type

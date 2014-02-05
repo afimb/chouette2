@@ -143,6 +143,7 @@ class Referential < ActiveRecord::Base
     Apartment::Database.drop slug
   end
 
+  after_create :add_rule_parameter_set
   def add_rule_parameter_set
     RuleParameterSet.default_for_all_modes( self).save
   end
