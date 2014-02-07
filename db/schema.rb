@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140113103544) do
+ActiveRecord::Schema.define(:version => 20140207162334) do
 
   create_table "access_links", :force => true do |t|
     t.integer  "access_point_id",                        :limit => 8
@@ -463,14 +463,6 @@ ActiveRecord::Schema.define(:version => 20140113103544) do
 
   add_index "time_tables_vehicle_journeys", ["time_table_id"], :name => "index_time_tables_vehicle_journeys_on_time_table_id"
   add_index "time_tables_vehicle_journeys", ["vehicle_journey_id"], :name => "index_time_tables_vehicle_journeys_on_vehicle_journey_id"
-
-  create_table "transport_mode_parameter_sets", :force => true do |t|
-    t.integer  "rule_parameter_set_id", :limit => 8
-    t.string   "transport_mode"
-    t.text     "parameters"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
-  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                :default => "", :null => false
