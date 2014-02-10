@@ -37,8 +37,8 @@ fr:
       detail_1_neptune_xml_2: "%{xmlKey} : %{message}"
       #### level 2
       ## NEPTUNE
-      detail_2_neptune_common_1: ""
-      detail_2_neptune_common_2: "RegistrationNumber = %{RegistrationNumber}"
+      detail_2_neptune_common_1: "L'élément %{objectId} a des attributs qui diffèrent entre les différents fichiers qui le définissent"
+      detail_2_neptune_common_2: "L'élément %{objectId} partage l'attribut RegistrationNumber = %{RegistrationNumber} avec un autre objet de même type"
       detail_2_neptune_network_1: "La ligne %{lineId} est absente de la liste des lignes du réseau %{objectId}"
       detail_2_neptune_groupofline_1: "La ligne %{lineId} est absente de la liste des lignes du du groupe de lignes %{objectId}"
       detail_2_neptune_stoparea_1: "Le fils (contains = %{contains}) de l'arrêt %{objectId} n'est pas de type StopArea ni StopPoint"
