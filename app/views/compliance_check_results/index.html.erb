@@ -4,7 +4,6 @@
       <th>#</th>
       <th><%= ComplianceCheckResult.human_attribute_name(:status) %></th>
       <th><%= ComplianceCheckResult.human_attribute_name(:severity) %></th>
-      <th><%= ComplianceCheckResult.human_attribute_name(:rule_level) %></th>
       <th><%= ComplianceCheckResult.human_attribute_name(:rule_code) %></th>
       <% if @compliance_check_results && @compliance_check_results.first.status == "nok" %>
         <th><%= ComplianceCheckResult.human_attribute_name(:detail) %></th>
@@ -17,7 +16,6 @@
       <td><%= index + 1 %></td>
       <td><%= image_tag "icons/status_#{compliance_check_result.status}.png" %></td>
       <td><%= t compliance_check_result.severity, :scope => "compliance_check_result.severities" %></td>
-      <td><%= compliance_check_result.rule_level %></td>
       <td>
         <%= image_tag "icons/notice.png", :"data-content" => ComplianceCheckResult.human_attribute_name(compliance_check_result.rule_code), :"data-title" => t("activerecord.attributes.compliance_check_result.detail"), :class =>"notice" %>
         <%= link_to compliance_check_result.rule_code, "#", :title => ComplianceCheckResult.human_attribute_name(compliance_check_result.rule_code) %></td>
