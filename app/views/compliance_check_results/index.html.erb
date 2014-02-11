@@ -31,9 +31,9 @@
           <% compliance_check_result.detail["detail"].first(10).each do |error| %>
             <p class="detail_error">
               <% if error["messageArgs"] %>
-                |- <%= image_tag "icons/notice.png", :"data-content" => ComplianceCheckResult.human_attribute_name(compliance_check_result.rule_code) + "<br>" + t("compliance_check_result.details." + error["messageKey"], error["messageArgs"].symbolize_keys ), :"data-title" => t("activerecord.attributes.compliance_check_result.detail"), :class =>"notice" %>
+                |- <%= image_tag "icons/notice.png", :"data-content" => ComplianceCheckResult.human_attribute_name(compliance_check_result.rule_code) + t("compliance_check_result.details." + error["messageKey"], error["messageArgs"].symbolize_keys ), :"data-title" => t("activerecord.attributes.compliance_check_result.detail"), :class =>"notice" %>
               <% else %>
-                |- <%= image_tag "icons/notice.png", :"data-content" => ComplianceCheckResult.human_attribute_name(compliance_check_result.rule_code) + "<br>" + t("compliance_check_result.details." + error["messageKey"]), :"data-title" => t("activerecord.attributes.compliance_check_result.detail"), :class =>"notice" %>
+                |- <%= image_tag "icons/notice.png", :"data-content" => ComplianceCheckResult.human_attribute_name(compliance_check_result.rule_code) + t("compliance_check_result.details." + error["messageKey"]), :"data-title" => t("activerecord.attributes.compliance_check_result.detail"), :class =>"notice" %>
               <% end %>
               <% if error["location"]["url"].present? %>
                 <%= link_to error["objectId"], referential_path(@referential) + "/" + error["location"]["url"] %>
