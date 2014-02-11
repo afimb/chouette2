@@ -93,6 +93,14 @@
         border-bottom: 1px solid #e4e4e4;
     }
 
+    .status_ok_error { color: #8fc861; }
+    .status_nok_error { color: #e22b1b;  }
+    .status_na_error { color: #898e7f; }
+    
+    .status_ok_warning { color: #8fc861; }
+    .status_nok_warning { color: #ffbd2b;  } 
+    .status_na_warning { color: #898e7f; }
+    
     .resume {
         &:after{
             content: " ";
