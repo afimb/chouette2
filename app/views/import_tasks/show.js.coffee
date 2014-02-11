@@ -14,7 +14,7 @@ jQuery ->
       {label: "<%= t 'import_tasks.show.graph.files.ignored' %>", value: <%= @files_stats["ignored_count"] %> },
       {label: "<%= t 'import_tasks.show.graph.files.ok' %>", value: <%= @files_stats["ok_count"] %> }
     ]
-    colors: [ "#e22b1b", "#ffbd2b", "#8fc861" ]
+    colors: [ "#e22b1b", "#898e7f", "#8fc861" ]
   }).on('click', update = (i, row) ->
     switch i
       when 0 then get_import_results( $(".report"), $(".files_error"))
