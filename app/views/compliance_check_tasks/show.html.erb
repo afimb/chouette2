@@ -3,10 +3,10 @@
 <div class="compliance_check_task_show">
    <div class="links">
      <% if @compliance_check_task.import_task %>
-       <%= link_to t("compliance_check_tasks.import_task"), referential_import_task_path(@compliance_check_task.referential, @compliance_check_task.import_task), :class => "btn btn-default"  %>
+       <%= link_to image_tag('icons/link_page.png') + t("compliance_check_tasks.import_task"), referential_import_task_path(@compliance_check_task.referential, @compliance_check_task.import_task)  %>
      <% end %>
      <% if @compliance_check_task.rule_parameter_set_archived %>
-       <%= link_to t("compliance_check_tasks.rule_parameter_set"), rule_parameter_set_referential_compliance_check_task_path(@compliance_check_task.referential, @compliance_check_task), :class => "btn btn-default" %>
+       <%= link_to image_tag('icons/link_page.png') + t("compliance_check_tasks.rule_parameter_set"), rule_parameter_set_referential_compliance_check_task_path(@compliance_check_task.referential, @compliance_check_task) %>
      <% end %>
    </div>
   <% if @compliance_check_task.status == 'completed'%>

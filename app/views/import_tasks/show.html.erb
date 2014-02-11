@@ -2,11 +2,9 @@
 
 <div class="import_task_show">
   <div class="links">
-    <%= link_to(file_to_import_referential_import_task_path(@import_task.referential, @import_task), :class => "btn btn-default") do %>
-      <i class="fa fa-save"></i> <%= t("import_tasks.show.imported_file") %>
-    <% end %>
+    <%= link_to image_tag("icons/file_#{@import_task.file_path_extension}.png") + t("import_tasks.show.imported_file"),  file_to_import_referential_import_task_path(@import_task.referential, @import_task) %>
     <% if @import_task.compliance_check_task %>
-      <%= link_to t("import_tasks.compliance_check_task"), referential_compliance_check_task_path(@import_task.referential, @import_task.compliance_check_task), :class => "btn #{button_link_class(@import_task.compliance_check_task)}"  %>
+      <%= link_to image_tag('icons/link_page.png') + t("import_tasks.compliance_check_task"), referential_compliance_check_task_path(@import_task.referential, @import_task.compliance_check_task), :class => "#{button_link_class(@import_task.compliance_check_task)}"  %>
     <% end %>
   </div>
   <%= render( :partial => "results_dashboard") if @import_task.completed? %>
