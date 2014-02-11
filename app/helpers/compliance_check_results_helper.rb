@@ -6,7 +6,7 @@ module ComplianceCheckResultsHelper
     elsif compliance_check_result_status == "ok"
       ("<i class='fa fa-check status_" + compliance_check_result_status + "_" + compliance_check_result_severity + "'></i>").html_safe
     else
-      ("<i class='fa fa-minus-circle status_" + compliance_check_result_status + "_" + compliance_check_result_severity  + "'></i>").html_safe
+      ("<i class='fa fa-times status_" + compliance_check_result_status + "_" + compliance_check_result_severity  + "'></i>").html_safe
     end
   end
   
