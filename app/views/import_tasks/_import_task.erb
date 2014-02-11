@@ -4,13 +4,13 @@
   </div>
   <div class="resume">
     <ul class="header clearfix">
-      <li class="title"><%= link_to(import_task.name, referential_import_task_path(@referential, import_task)) %></li>
+      <li class="title"><% if import_task.save_requested? %><i class="fa fa-save"></i><% end %> <%= link_to(import_task.name, referential_import_task_path(@referential, import_task)) %></li>
       <li class="remove"><%= link_to "<i class='fa fa-trash-o'></i>".html_safe, referential_import_task_path(@referential, import_task), :method => :delete, :class => "delete", :data => {:confirm =>  t('import_tasks.actions.destroy_confirm')} %></li>
     </ul>
     <div class="links">
       <p><%= link_to image_tag("icons/file_#{import_task.file_path_extension}.png") + t("import_tasks.index.imported_file"), file_to_import_referential_import_task_path(@referential, import_task) %></p>
       <% if import_task.compliance_check_task.present? %>
-        <p><%= link_to image_tag('icons/link_page.png') + t("import_tasks.compliance_check_task"), referential_compliance_check_task_path(@referential, import_task.compliance_check_task) %></p>
+        <p><%= link_to image_tag("icons/link_page.png") + t("import_tasks.compliance_check_task"), referential_compliance_check_task_path(@referential, import_task.compliance_check_task) %></p>
       <% end %>      
     </div>
     <div class="history">

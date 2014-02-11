@@ -21,6 +21,10 @@ class ComplianceCheckTask < ActiveRecord::Base
     compliance_check_results.any? { |r| r.error_severity_failure? }
   end
 
+  def failed?
+    status == "failed"
+  end
+  
   def chouette_command
     Chouette::Command.new(:schema => referential.slug)
   end

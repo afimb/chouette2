@@ -45,6 +45,10 @@ class ImportTask < ActiveRecord::Base
     delay.import
   end
 
+  def save_requested?
+    !parameter_set["no_save"]
+  end
+
   protected
 
   option :no_save, :boolean
