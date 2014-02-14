@@ -21,9 +21,12 @@ Requirements
  
 This code has been run and tested on [Travis](http://travis-ci.org/afimb/chouette2?branch=master) with : 
 * Ruby 1.9.3
+* Postgres 9.x
+* Proj 4.8.0
 
 External Deps
 -------------
+
 On Debian/Ubuntu/Kubuntu OS : assume depot contains the correct version
 ```sh
 sudo apt-get install postgresql 
@@ -32,30 +35,24 @@ sudo apt-get install openjdk-7-jdk
 sudo apt-get install git 
 sudo apt-get install unzip
 sudo apt-get install ruby
+sudo apt-get install proj-bin
+sudo apt-get install libproj-dev
+sudo apt-get install make
 ```
 
 Installation
 ------------
- 
-Install [Postgres] (./doc/install/postgresql.md)
 
-Get git code : 
+Get git source code : 
 ```sh
 cd workspace
 git clone -b V2_2 git://github.com/afimb/chouette2
 cd chouette2
 ```
 
-Install dependencies
-```sh 
-sudo apt-get install proj-bin
-sudo apt-get install libproj-dev
-sudo apt-get install make
-```
+The next step assume default path defined by ```Chouette::Command.command``` in file [production.rb](./config/environments/production.rb) is unchanged
 
-The next steps assume default path values set in file config/environments/production.rb
-
-Install chouette-gui-command to import and export transport offer : 
+Install chouette-gui-command to import, export and validate transport offer : 
 ```sh
 sudo mkdir -p /usr/local/opt/chouette-command/
 cd /usr/local/opt/chouette-command/
@@ -65,15 +62,21 @@ mv chouette-gui-command-2.2.0.zip chouette-cmd_2.2.0
 cd chouette-cmd_2.2.0
 sudo chmod a+w .
 ```
+ 
+Create [Postgres database user] (./doc/install/postgresql.md)
 
-Build rails application ( Use RAILS_ENV production mode and parameters )
+Download gem libraries and create database
 ```sh 
 setenv RAILS_ENV=production
 bundle install
 bundle exec rake db:create
 ```
 
-Create directories ( Use RAILS_ENV production mode and parameters )
+The next step assume default path defined by following settings in file [production.rb](./config/environments/production.rb) are unchanged
+* ```ImportTask.root``` 
+* ```Export.root```
+
+Create directories
 ```sh 
 sudo mkdir -p /var/lib/chouette/imports
 sudo mkdir -p /var/lib/chouette/exports
@@ -81,20 +84,42 @@ sudo mkdir -p /var/lib/chouette/validations
 sudo chmod a+x /var/lib/chouette/imports /var/lib/chouette/exports /var/lib/chouette/validations
 ```
 
+Configuration
+-------------
+
+Configure for Generating URLs in Action Mailer Views.
+* Edit [production.rb](./config/environments/production.rb) and change ```config.action_mailer.default_url_options```
+* see [Action Mailer Configuration documentation](http://guides.rubyonrails.org/action_mailer_basics.html)
+
+Configure SMTP settings.
+* Edit [production.rb](./config/environments/production.rb) and change ```ActionMailer::Base.smtp_settings```
+* see [Action Mailer Configuration documentation](http://guides.rubyonrails.org/action_mailer_basics.html)
+
+Configure IGN Géoportail Key.
+* Edit [production.rb](./config/environments/production.rb) and uncomment and set```config.geoportail_api_key```
+* see [API Géoportail documentation](http://api.ign.fr/accueil)
+
+Configure Google Analytics Key.
+* Edit [production.rb](./config/environments/production.rb) and change```GA.tracker```
+* see [Google Analytics](https://www.google.fr/intl/fr/analytics/)
+
+
 Run
 ---
 
 Launch the task to import and export asynchronously
 ```sh
-bundle exec rake jobs:work
+RAILS_ENV=production bundle exec rake jobs:work
+```
+This task may be added in system start up configuration
+
+Launch rails server with [WEBrick](http://guides.rubyonrails.org/command_line.html#server-with-different-backends) ( default RoR web server, note: running on default port 3000)
+```sh
+RAILS_ENV=production bundle exec rails server
 ```
 
-Launch rails server
-```sh
-bundle exec rails server
-```    
-
-These commands shoud be added in system start up configuration
+This task may be added in system start up configuration.
+Instead of using WEBrick, Rails application may be deployed on [Pushion Passenger](https://www.phusionpassenger.com/) with an [Apache](http://httpd.apache.org/) or [NGinx](http://nginx.com/) front-end, to make server faster and more robust.
 
 Test
 ----
