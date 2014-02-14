@@ -6,10 +6,11 @@ title: Validations
 h3. Rôle
 
 p. La validation permet d'effectuer un ensemble de contrôles syntaxiques, sématiques et structurels sur une offre de transport.
+Elle se décompose en 3 phases (ou niveaux)
 
-- Phase 1 : les données d'offre de transport sont importées depuis le format Neptune et subit les contrôles syntaxiques vis-à-vis du format XML et du Schéma spécifique Neptune 
-- Phase 2 : les données d'offre sont analysées (structure, contrôles de complétude et de connexité des données).
-- Phase 3 : l'offre est analysée dans ses fonctionnalités et subit des contrôles de réalisme. 
+- Phase 1 := les données doivent respecter un format d'échange définissant une syntaxe et une sémantique précise (Actuellement seul le format Neptune est implémenté)
+- Phase 2 := les données doivent respecter le niveau de complétude et de cohérence du format d'échange (Actuellement seul le format Neptune est implémenté).
+- Phase 3 := l'offre est analysée dans ses fonctionnalités et subit des contrôles de réalisme, cette phase effectuée sur les données une fois mises en base est indépendante du format d'échange. 
 
 Les tests de validation sont décrits dans l'aide en ligne de l'application, onglet 'Validation'. Ils sont également disponibles sur le site "chouette.mobi":http://www.chouette.mobi/spip.php?rubrique24
 

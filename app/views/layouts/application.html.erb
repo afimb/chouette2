@@ -40,7 +40,6 @@
         <ul class="main">
           <% if help_page? || test_sheet_page? %>
             <li><%= link_to "Aide", help_path, :class =>("current" if help_page?) %></li>
-            <li><%= link_to "Tests de validation", test_sheet_path+"1_1", :class =>("current" if test_sheet_page?) %></li>
           <% elsif ! selected_referential? %>
             <% if  user_signed_in? %>
               <li><%= link_to Referential.model_name.human(:count=>2), referentials_path, :class => ("current" if current_page?(referentials_path) || current_page?(root_url)) %></li>

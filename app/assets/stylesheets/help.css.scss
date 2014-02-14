@@ -8,14 +8,21 @@ h3 {
 }
 
 h4 {
+    text-decoration: underline;
     font-weight: bold;
     padding: 7px 0;
+    font-size: 14px;
 }
 
 ul li {
     list-style: circle;
     margin: 7px 0 7px 20px;
 }
+ol ul li {
+    list-style: circle;
+    margin: 7px 0 7px 20px;
+}
+
 
 ol {
     list-style: none; 
@@ -49,6 +56,30 @@ p.attr_data {
   font-style: italic;
   text-decoration: underline;
 }
+
+p.olnext {
+  margin: -7px 0 0 40px !important;
+}
+
+p.ddnext {
+  margin: 0 0 0 30px !important;
+}
+
+p.note {
+  margin-left: 20px !important;
+  font-weight: bold;
+}
+
+p.border_image {
+  text-align: center;
+}
+
+p.border_image img {
+  border-style:solid;
+  border-width:1px;
+  border-color: rgb(187,187,187);
+}
+
 
 table {
     width: 100%;
