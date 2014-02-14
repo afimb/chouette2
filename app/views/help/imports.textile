@@ -7,22 +7,43 @@ h3. Rôle
 
 p. L'import permet d'enregistrer dans la base un ensemble de données selon un format au choix 
 
+h3. Validation
+
+p. Lors de l'import, des tests sont effectués : 
+
+# sur le respect du format (syntaxique et sémantique)
+# sur la complétude et la cohérence des relations exprimées dans le format d'échange
+# optionnellement sur la qualité des données en vue de son exploitation dans une centrale de mobilité
+
+p(olnext). - nécessite la fourniture d'un jeu de paramètres définissant les seuils (cf "Validation":validations) 
+
+p(note). Les tests de niveau 1 et 2 ne sont actuellement implémentés que pour le format Neptune
+
 h3. Formats disponibles
 
 - Neptune := format normalisé des échanges de données de transport en commun pour la France (cf "Normalisation":normalisation)
-- NeTEx := format d'échanges de données de transport en commun expérimental sur la norme européenne ["NeTEx":http://normes-donnees-tc.org/spip.php?article66] mais limité aux données définies dans la norme Neptune
+- NeTEx := format d'échange de données de transport en commun expérimental sur la norme européenne ["NeTEx":http://normes-donnees-tc.org/spip.php?article66] mais limité au sous-ensemble des données définies dans la norme Neptune
 - CSV := format tabulaire spécifique à Chouette  (cf "CSV":csv)
 - GTFS := 
-format originaire de ["Google Transit":https://support.google.com/transitpartners/], à condition que le fichier soit préalablement validé avec l'outil Feed Validator
- les données exportées en GTFS sont explicités ["ICI":http://normes-donnees-tc.org/spip.php?article64] =:
+format originaire de ["Google Transit":https://support.google.com/transitpartners/], à condition que le fichier soit préalablement validé avec l'outil Feed Validator =:
+
+p(olnext). - les données exportées en GTFS sont explicités ["ICI":http://normes-donnees-tc.org/spip.php?article64] 
+
+h3. Paramètres communs
+
+- Pas de sauvegarde := permet d'effecter une simulation de l'import sans enregistrer les données
+
+p(ddnext). - active donc les tests de validation de niveau 1 et 2
+
+- Jeu de paramètres pour validation := paramètres définisant les seuils des tests de niveau 3 (indisponible si l'option 'pas de sauvegarde' est cochée)
+
+p(ddnext). - les jeux de paramètres sont créés via le lien 'Jeux de paramètres' disponible sur les vues des listes d'imports et de validations
+
+- Fichier à importer := fichier (plat ou zip selon format)
 
 h3. Options des formats
 
 Les options des différents formats apparaissent en fonction de celui qui a été choisi.
-
-* *tout format* : 
-
-- Fichier à importer := fichier (plat ou zip selon format)
 
 * *Neptune* : pas d'option particulière
 
@@ -34,18 +55,16 @@ Les options des différents formats apparaissent en fonction de celui qui a ét�
 préfixe à utiliser pour générer les identifiants Neptune des objets importés,
 initialisé à la valeur définie pour l'espace de données =:
 - Distance max pour créer les zones := 
-Distance maximale entre deux arrêts homonymes pour les regrouper au sein d'un arrêt commercial de même nom,
+distance maximale entre deux arrêts homonymes pour les regrouper au sein d'un arrêt commercial de même nom,
 ces zones viennent en supplément de celles définies dans GTFS, 
 une distance de 0 ne génère aucune zone =:
 - ignorer le dernier mot := 
-lors de la comparaison des noms d'arrêts, il est possible par cette option de ne pas prendre en compte le dernier mot du nom de l'arrêt 
-(sauf si celui-ci n'est composé que d'un seul mot) =:
+lors de la comparaison des noms d'arrêts, cette option permet de ne pas prendre en compte le dernier mot du nom de l'arrêt (sauf si celui-ci n'est composé que d'un seul mot) =:
 - ignorer les n derniers caractères := 
-lors de la comparaison des noms d'arrêts, il est possible par cette option de ne pas prendre en compte les derniers cractères du nom de l'arrêt 
-(sauf si celui-ci n'a pas assez de caractères pour cela) =:
-- Distance max pour créer les corresondances := 
-Distance maximale entre deux arrêts pour les lier par une correspondance, 
-ces correspondances sont hors zone d'arrêt,
+lors de la comparaison des noms d'arrêts, cette option permet de ne pas prendre en compte les derniers caractères du nom de l'arrêt (sauf si celui-ci n'a pas assez de caractères pour cela) =:
+- Distance max pour créer les correspondances := 
+distance maximale entre deux arrêts pour les lier par une correspondance,
+ces correspondances sont hors zone d'arrêt;
 elles viennent en supplément de celles définies dans GTFS (ce mécanisme tient compte des correspondances exclues), 
 une distance de 0 ne génère aucune correspondance =:
 
@@ -57,14 +76,65 @@ initialisé à la valeur définie pour l'espace de données =:
 
 h3. Consultation des résultats
 
-p. L'import est lancé en différé; son état d'avancement est affiché sous la forme d'une icône donc la couleur dépend de l'état:
+p. L'import est lancé en différé; son état d'avancement est affiché sous la forme d'une icône dont la couleur dépend de l'état:
 
 - bleu : en cours
 - vert : terminé correctement
 - rouge : terminé en échec
 
-p. La consultation du résultat de l'import donnera les éléments importés ou les motifs de l'échec.
-
 p. Le résultat est conservé tant que l'import n'est pas supprimé.
 
-p. Note : la suppression d'un import ne fait que supprimer le rapport; les données sont conservées
+p(note). Note : la suppression d'un import ne fait que supprimer le rapport; les données sont conservées
+
+p. La consultation du résultat de l'import donnera :
+
+p=. !import.png!
+
+* le lien 'Import _Format n°_' permet de voir les éléments et volumes importés
+* le lien 'Fichier importé' permet de récupérer le fichier source de l'import
+* le lien 'Validation' permet de consulter les résultats des tests de validation exécutés lors de l'import
+
+h4. Résultats d'import
+
+p=. !import_result.png!
+
+p. Le résultat d'import fournit 2 synthèses : 
+
+# Synthèse des fichiers analysés
+# Synthèse des lignes lues
+
+p. _1 - La synthèse des fichiers analysés affiche 3 secteurs_
+
+p(border_image). !import_file_result.png!
+
+* en vert les fichiers correctements lus 
+* en rouge les fichiers comportant des erreurs bloquantes
+* en gris les fichiers non exploités
+
+p. La sélection d'un des secteurs affiche la liste des fichiers concernés :
+
+p(border_image). !import_file_detail.png!
+
+p. _2 - La synthèse des lignes lues affiche le compte des objets extraits des fichiers correctement lus_
+
+p(border_image). !import_line_result.png!
+
+* lignes
+* séquences d'arrêts
+* correspondances
+* calendriers
+* zones d'arrêt
+* accès
+* courses
+* missions
+
+p. La sélection de l'histogramme affiche le détail des lignes lues :
+
+p(border_image). !import_line_detail.png!
+
+h4. Résultats de validation
+
+p. Les résultats de validation des niveaux 1, 2 et 3 sont consolidés dans un même formulaire de résultat.
+voir "Validation":validations
+
+
