@@ -5,10 +5,9 @@ jQuery ->
     $(".notice").each ->    
       #the 'is' for buttons that trigger popups
       #the 'has' for icons within a button that triggers a popup
-      if not $(this).is(e.target) and $(this).has(e.target).length is 0 and $(".popover").has(e.target).length is 0                
+      if not $(this).is(e.target) and $(this).has(e.target).length is 0 and $(".popover").has(e.target).length is 0
         if( $(this).data('bs.popover').tip().hasClass('in') )
-          $(this).popover('toggle');  
-        return
+          $(this).popover('toggle')
 
   # Hide and show error details
   $(".title_error").each ->     

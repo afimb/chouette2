@@ -3,18 +3,15 @@ jQuery ->
   get_compliance_check_results = (html_container, status, severity) ->
     h = new Object()
     h["status"] = status if status
-    h["severity"] = severity if severity
+    h["severity"] = severity if severity    
+      
     $.get(
         "<%= @compliance_check_task.id %>/compliance_check_results",
         h,
-        update = (data) ->    
-             html_container.append(data)
+        update = (data) ->
+          html_container.empty()
+          html_container.append(data)
     )
-
-  order_change = (event) -> 
-    console.log "order change"
-
-  $('.compliance_check_tasks.show .order').change(order_change)
 
   Morris.Donut({
     element: 'error',
@@ -25,7 +22,6 @@ jQuery ->
     ]
     colors: [ "#e22b1b", "#898e7f", "#8fc861" ]
   }).on('click', update = (i, row) ->
-    $(".report").empty()
     switch i
       when 0 then get_compliance_check_results( $(".report"), "nok", "error")
       when 1 then get_compliance_check_results( $(".report"), "na", "error")
@@ -41,7 +37,6 @@ jQuery ->
     ]
     colors: [ "#ffbd2b", "#898e7f", "#8fc861" ]
   }).on('click', update = (i, row) ->
-    $(".report").empty()
     switch i
       when 0 then get_compliance_check_results( $(".report"), "nok", "warning")
       when 1 then get_compliance_check_results( $(".report"), "na", "warning")
@@ -49,11 +44,9 @@ jQuery ->
       else console.log "Error no other value for donut chart")
 
   $(".resume .col1 .caption").click ->
-    $(".report").empty()
     get_compliance_check_results( $(".report"), null, "error")
 
   $(".resume .col2 .caption").click ->
-    $(".report").empty()
     get_compliance_check_results( $(".report"), null, "warning")
 
   $('img[title]').tipsy({gravity: 'w'})
