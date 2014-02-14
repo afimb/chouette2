@@ -20,18 +20,18 @@ Requirements
 ------------
  
 This code has been run and tested on [Travis](http://travis-ci.org/afimb/chouette2?branch=master) with : 
-* Ruby 1.8.7
-* JRuby 1.6.8 (oraclejdk7, openjdk7, openjdk6)
+* Ruby 1.9.3
 
 External Deps
 -------------
-On Debian/Ubuntu/Kubuntu OS : 
+On Debian/Ubuntu/Kubuntu OS : assume depot contains the correct version
 ```sh
 sudo apt-get install postgresql 
 sudo apt-get install pgadmin3 
 sudo apt-get install openjdk-7-jdk 
 sudo apt-get install git 
 sudo apt-get install unzip
+sudo apt-get install ruby
 ```
 
 Installation
@@ -39,75 +39,69 @@ Installation
  
 Install [Postgres] (./doc/install/postgresql.md)
 
-Install [JRuby] (./doc/install/jruby.md)
-
 Get git code : 
 ```sh
 cd workspace
-git clone -b V2_1_0 git://github.com/afimb/chouette2
+git clone -b V2_2 git://github.com/afimb/chouette2
 cd chouette2
 ```
 
-**JRuby**
-
 Install dependencies
 ```sh 
-sudo apt-get install tomcat7
 sudo apt-get install proj-bin
 sudo apt-get install libproj-dev
 sudo apt-get install make
 ```
 
+The next steps assume default path values set in file config/environments/production.rb
+
 Install chouette-gui-command to import and export transport offer : 
 ```sh
 sudo mkdir -p /usr/local/opt/chouette-command/
 cd /usr/local/opt/chouette-command/
-wget http://chouette.dryade.net/chouette-cmd_2.1.0.zip
-unzip chouette-cmd_2.1.0.zip
-cd chouette-cmd_2.1.0
+wget http://maven.chouette.cityway.fr/fr/certu/chouette/chouette-gui-command/2.2.0/chouette-gui-command-2.2.0.zip
+unzip chouette-gui-command-2.2.0.zip
+mv chouette-gui-command-2.2.0.zip chouette-cmd_2.2.0
+cd chouette-cmd_2.2.0
 sudo chmod a+w .
 ```
 
-Build War ( Use RAILS_ENV production mode and parameters )
+Build rails application ( Use RAILS_ENV production mode and parameters )
 ```sh 
-jgem install bundler --version 1.2.4
-jgem install jruby-openssl 
-bundle install --path vendor/bundle
+setenv RAILS_ENV=production
+bundle install
 bundle exec rake db:create
-bundle exec rake war
 ```
 
-Install war file ( Use RAILS_ENV production mode and parameters )
+Create directories ( Use RAILS_ENV production mode and parameters )
 ```sh 
-sudo cp chouette2.war /var/lib/tomcat7/webapp/.
 sudo mkdir -p /var/lib/chouette/imports
 sudo mkdir -p /var/lib/chouette/exports
 sudo mkdir -p /var/lib/chouette/validations
 sudo chmod a+x /var/lib/chouette/imports /var/lib/chouette/exports /var/lib/chouette/validations
 ```
 
-**Ruby**
-Install chouette-gui-command to import and export transport offer : 
+Run
+---
+
+Launch the task to import and export asynchronously
 ```sh
-sudo mkdir -p tmp/chouette-command/
-cd tmp/chouette-command/
-wget http://chouette.dryade.net/chouette-cmd_2.1.0.zip
-unzip chouette-cmd_2.1.0.zip
-cd chouette-cmd_2.1.0
-sudo chmod a+w .
+bundle exec rake jobs:work
 ```
 
-Install
+Launch rails server
 ```sh
-gem install bundler
-bundle install
-bundle exec rake db:create
-```
+bundle exec rails server
+```    
+
+These commands shoud be added in system start up configuration
 
 Test
 ----
 
 ```sh
+setenv RAILS_ENV=tests
+bundle exec rake db:create
 bundle exec rake spec
 ```
 
@@ -124,18 +118,6 @@ The description of the restful API is described in :
 * [User manual file](./doc/interfaces/Chouette_API_REST_v1.2.pdf)
 * [XSD file](./doc/interfaces/api_rest_v1.xsd)
 
-Example Usage 
--------------
-
-Launch the task to import and export asynchronously
-```sh
-bundle exec rake jobs:work
-```
-
-Launch rails server
-```sh
-bundle exec rails server
-```    
 
 License
 -------
