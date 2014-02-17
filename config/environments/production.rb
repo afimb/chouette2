@@ -10,7 +10,7 @@ ChouetteIhm::Application.configure do
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
-  # Uncomment to add suburi for your application 
+  # Uncomment to add suburi for your application
   #config.action_controller.relative_url_root = "/chouette2"
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
@@ -39,15 +39,15 @@ ChouetteIhm::Application.configure do
   #config.log_level = :info
 
   # Use a different logger for distributed setups
-  if ENV['OS'] == 'Windows_NT'
-    # args = log_path,number of files,file sizes
-    config.logger = Logger.new("C:/chouette/logs/chouette2.log", 5, 10.megabytes)
-  else
+  #if ENV['OS'] == 'Windows_NT'
+  #  # args = log_path,number of files,file sizes
+  #  config.logger = Logger.new("C:/chouette/logs/chouette2.log", 5, 10.megabytes)
+  #else
     require 'syslog_logger'
     config.logger = SyslogLogger.new("rails/chouette2").tap do |logger|
       # logger.level = Logger::INFO
     end
-  end
+  #end
 
 
   # Use a different cache store in production
@@ -63,7 +63,7 @@ ChouetteIhm::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
   #
-  # api key to geoportail IGN (production key link to "chouette.dryade.net" referer)
+  # api key to geoportail IGN (production key link to public site url referer)
   #config.geoportail_api_key = "bt4z711qv8uw4zmk2bxl4d5l"
 
   # Enable threaded mode
@@ -77,55 +77,55 @@ ChouetteIhm::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => 'chouette.dryade.net/chouette2' }
+  config.action_mailer.default_url_options = { :host => 'hostname.com' }
 
 
 
   #  mailer configuration :
   #  by default : set to smtp on windows platforms and sendmail on unix one
   #               may be changed as convenience
-  if ENV['OS'] == 'Windows_NT'
-    ## using SMTP (maybe useful for Windows or VM platforms):
-     ActionMailer::Base.delivery_method = :smtp
-     ActionMailer::Base.smtp_settings = {
-       :address => "smtp.sample.com",
-      #:port => 25,
-       :domain => "sample.com",
-       #:authentication => :login,
-       :user_name => "username",
-       #:password => "password",
-       #:enable_starttls_auto => true,
-       #openssl_verify_mode => # set one in 'none' 'peer' 'client_once' 'fail_if_no_peer_cert'
-     }
-  else
+  #if ENV['OS'] == 'Windows_NT'
+  #  ## using SMTP (maybe useful for Windows or VM platforms):
+  #   ActionMailer::Base.delivery_method = :smtp
+  #   ActionMailer::Base.smtp_settings = {
+  #     :address => "smtp.sample.com",
+  #    #:port => 25,
+  #     :domain => "sample.com",
+  #     #:authentication => :login,
+  #     :user_name => "username",
+  #     #:password => "password",
+  #     #:enable_starttls_auto => true,
+  #     #openssl_verify_mode => # set one in 'none' 'peer' 'client_once' 'fail_if_no_peer_cert'
+  #   }
+  #else
     ActionMailer::Base.smtp_settings = {
-      :address              => "smtp.sendgrid.net",
+      :address              => "smtp.sample.com",
       :port                 => 25,
-      :domain               => "cityway.fr",
-      :user_name            => "jdleca@cityway.fr",
-      :password             => "waycity",
+      :domain               => "sample.com",
+      :user_name            => "username",
+      :password             => "password",
       :authentication       => "plain"
     }
-  end
+  #end
 
   # file to data for demo
   config.demo_data = "/var/lib/chouette/demo.zip"
 
   # paths for external resources
-  if ENV['OS'] == 'Windows_NT'
-    config.to_prepare do
-      Devise::Mailer.layout "mailer"
-      Chouette::Command.command = "C:/chouette/chouette-cmd_2.2.0/chouette.bat"
-      ImportTask.root = "C:/chouette/chouette/imports"
-      Export.root = "C:/chouette/chouette/exports"
-    end
-  else
+  #if ENV['OS'] == 'Windows_NT'
+  #  config.to_prepare do
+  #    Devise::Mailer.layout "mailer"
+  #    Chouette::Command.command = "C:/chouette/chouette-cmd_2.2.0/chouette.bat"
+  #    ImportTask.root = "C:/chouette/chouette/imports"
+  #    Export.root = "C:/chouette/chouette/exports"
+  #  end
+  #else
     config.to_prepare do
       Devise::Mailer.layout "mailer"
       Chouette::Command.command = "/usr/local/opt/chouette-command/chouette-cmd_2.2.0/chouette"
       ImportTask.root = "/var/lib/chouette/imports"
       Export.root = "/var/lib/chouette/exports"
     end
-  end
+  #end
 
 end
