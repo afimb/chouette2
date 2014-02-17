@@ -37,7 +37,7 @@ p(ddnext). - active donc les tests de validation de niveau 1 et 2
 
 - Jeu de paramètres pour validation := paramètres définisant les seuils des tests de niveau 3 (indisponible si l'option 'pas de sauvegarde' est cochée)
 
-p(ddnext). - les jeux de paramètres sont créés via le lien 'Jeux de paramètres' disponible sur les vues des listes d'imports et de validations
+p(ddnext). - les jeux de paramètres sont créés via le lien ["Jeux de paramètres":parametersets] disponible sur les vues des listes d'imports et de validations
 
 - Fichier à importer := fichier (plat ou zip selon format)
 

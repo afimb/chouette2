@@ -28,6 +28,7 @@ h3. Sommaire
 ## "Imports":imports
 ## "Exports":exports
 ## "Validation":validations
+## "Jeux de paramètres":parametersets
 # Divers
 ## "Tutoriel/Démonstrateur":tutorial
 ## "API Rest":restapis

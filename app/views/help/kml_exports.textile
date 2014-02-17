@@ -70,7 +70,7 @@ h5. Remarque sur le nom des fichiers
 Certains fichiers exportés font apparaître un ou plusieurs identifiants dans leur nom.
 C'est le cas notamment du fichier de ligne et du fichier de séquence d'arrêts.
 Ces identifiants sont des identifiants internes, pas des identifiants « métier » connus de l'utilisateur (indice de ligne, Id Neptune ou autre). C'est l'identifiant qui apparaît dans les URL de chouette : par exemple, supposons que nous ayons défini une ligne dans un référentiel et que la page de consultation de cette ligne ait l'URL suivante
-http://chouette.dryade.net/chouette2/referentials/114/lines/9
+http://www.chouette.mobi/chouette2/referentials/114/lines/9
 Dans ce cas, le dossier .ZIP de l'export KML contiendra un fichier KML de cette ligne contient un fichier nommé « line_9.kml »
 
 h5. Géométrie associée au KML de tracé de ligne :

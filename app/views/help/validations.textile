@@ -25,6 +25,14 @@ La validation peut être activée sur un fichier lors de son import en précisan
 
 L'onglet validation permet de réaliser un contrôle 'Phase 3' sur tout ou partie des lignes stockées en base. 
 
+h3. Paramètres communs
+
+- Jeu de paramètres pour validation := paramètres définisant les seuils des tests de niveau 3
+
+p(ddnext). - les jeux de paramètres sont créés via le lien ["Jeux de paramètres":parametersets] disponible sur les vues des listes d'imports et de validations
+
+- Type de données incluses := critère de sélection des lignes à contrôler.
+
 h3. Consultation des résultats
 
 p. La validation est lancée en différé; son état d'avancement est affiché sous la forme d'une icône donc la couleur dépend de l'état:

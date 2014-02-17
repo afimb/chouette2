@@ -1,0 +1,61 @@
+---
+layout: default
+title: Jeux de paramètres de validation
+---
+
+h3. Définition
+
+La phase 3 de la validation nécessite de définir des paramètres afin d'adapter les tests au plus proche de la réalité du terrain.
+
+Afin de rejouer facilement les tests dans différent contextes, il est possible de définir plusieurs jeux qui sont conservés indépendament des validations.
+
+Un jeu de paramètre est proposé par défaut à la création du référentiel; celui-ci peut être modifié ou détruit; il n'est alors pas possible de le recréer.
+
+h3. Paramètres généraux
+
+- Nom := Nom du jeu de données (nom utilisé pour sa sélection dans les imports et validations)
+- Délimitation géographique des arrêts := 
+Emprise géographique du réseau (tous les arrêts testés devront être inclus dans cette zone)
+Le format de ce champs est un ensembe de points formant une polyligne fermée:
+[[longitude1,latitude1],[longitude2,latitude2],,,[longitudeN,latitudeN],[longitude1,latitude1]]
+Les longitudes et latitudes sont exprimées en degré, décimaux positifs à l'est et au nord
+=:
+- Durée maximum de stationnement à un arrêt (en secondes) := écart de temps maximal autorisé entre l'heure d'arrivée et l'heure de départ à un arrêt
+
+p. *Distance minimum entre :* (en mètres)
+
+- 2 arrêts n'ayant pas le même parent := distance en deça de laquelle 2 arrêts devraient être regroupés dans la même zone
+- 2 accès de noms différents pour un même arrêt := distance en deça de laquelle 2 accès d'un même arrêt devraient en être qu'un
+
+p. *Distance maximum entre :* (en mètres)
+
+- un arrêt et son parent := distance au delà de laquelle un arrêt ne devrait pas être rattaché à une zone
+- les arrêts en correspondance := distance au delà de laquelle la correspondance entre 2 arrêts ne devraient pas être possible
+- liaison accès - arrêt := distance au delà de laquelle l'accès à un arrêt ne devrait pas être possible
+- un arrêt et un équipement := distance au delà de laquelle un équipement ne devrait pas être rattaché à un arrêt
+
+p. *Vitesse de marche maximum d'un voyageur :* (en kilomètres/heure)
+vitesse maximale admise dans les correspondances et les liaisons arrêt - accès pour : 
+
+- un voyageur ordinaire := qui a un connaissance théorique du réseau
+- un voyageur occasionnel := qui ne connait pas le réseau
+- un voyageur habituel := qui connait bien le réseau
+- un voyageur à mobilité réduite := qui a des difficultés de déplacement
+
+
+h3. Paramètres par mode de transport.
+
+p. les paramètres suivants sont à définir pour chaque mode de transport disponible dans le réseau à tester.
+
+- Distance minimum entre 2 arrêts (en mètres) := distance minimale de parcours d'un véhicule entre 2 arrêts.
+- Distance maximum entre 2 arrêts (en mètres) := distance maximale de parcours d'un véhicule entre 2 arrêts.
+- Vitesse minimum (en kilomètres/heure) := vitesse minimale attendue entre 2 arrêts d'une course
+- Vitesse maximum (en kilomètres/heure) := vitesse maximale attendue entre 2 arrêts d'une course
+- Ecart maximum de durée de trajet entre 2 arrêts successifs pour les différentes courses (en secondes) := 
+la différence de temps de trajet entre 2 arrêts successifs de 2 courses d'une même mission ne doit pas dépasser ce seuil =:
+
+h3. Remarques
+
+p. Les distances sont calculées _à vol d'oiseau_ et les vitesses sont déterminées par rapport à ces distances.
+Les résultats des tests utilisant ces valeurs sont donc à prendre avec les réserves adéquates.
+
