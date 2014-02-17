@@ -41,9 +41,12 @@ ChouetteIhm::Application.configure do
   # file to data for demo
   config.demo_data = "tmp/demo.zip"
 
+  # Configure the e-mail address which will be shown in Devise::Maile
+  config.mailer_sender = "appli@chouette.mobi"
+
   ActionMailer::Base.smtp_settings = {
-    :address        => "mail.dryade.priv",
-    :domain         => "dryade.priv"
+    :address        => "smtp.samle.com",
+    :domain         => "sample.com"
   }
 
   # api key to geoportail IGN (development key 3 month validity)
