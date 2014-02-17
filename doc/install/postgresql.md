@@ -1,5 +1,10 @@
 # Install Postgresql
 
+Requirement
+-----------
+
+Minimal version : 9.1
+
 Setup
 -----
 

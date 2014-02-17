@@ -80,7 +80,7 @@ p. L'import est lancé en différé; son état d'avancement est affiché sous la
 
 - bleu : en cours
 - vert : terminé correctement
-- rouge : terminé en échec
+- rouge : terminé en échec (L'import n'a pas pu aboutir, contacter l'administrateur système pour plus de détails)
 
 p. Le résultat est conservé tant que l'import n'est pas supprimé.
 
@@ -107,15 +107,15 @@ p. _1 - La synthèse des fichiers analysés affiche 3 secteurs_
 
 p(border_image). !import_file_result.png!
 
-* en vert les fichiers correctements lus 
-* en rouge les fichiers comportant des erreurs bloquantes
-* en gris les fichiers non exploités
+* en vert les fichiers correctements traités 
+* en rouge les fichiers comportant des erreurs qui empêche leur traitement
+* en gris les fichiers ignorés
 
 p. La sélection d'un des secteurs affiche la liste des fichiers concernés :
 
 p(border_image). !import_file_detail.png!
 
-p. _2 - La synthèse des lignes lues affiche le compte des objets extraits des fichiers correctement lus_
+p. _2 - La synthèse des lignes lues affiche le compte des objets extraits des fichiers correctement traités_
 
 p(border_image). !import_line_result.png!
 
