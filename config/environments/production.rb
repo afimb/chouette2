@@ -79,7 +79,8 @@ ChouetteIhm::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'hostname.com' }
 
-
+  # Configure the e-mail address which will be shown in Devise::Maile
+  config.mailer_sender = "appli@chouette.mobi"
 
   #  mailer configuration :
   #  by default : set to smtp on windows platforms and sendmail on unix one
