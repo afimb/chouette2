@@ -3,37 +3,49 @@ layout: default
 title: Validation
 ---
 
-h3. Rôle
+* "Rôle":#rol
+* "Formats disponibles":#fmt
+* "Ajouter une Validation":#new
+* "Consultation des résultats : détail de l'objet Validation":#res
+* "Résultats de validation":#rvl
 
-p. La validation permet d'effectuer un ensemble de contrôles syntaxiques, sématiques et structurels sur une offre de transport.
-Elle se décompose en 3 phases (ou niveaux)
+h3(#rol). Rôle
 
-- Phase 1 := les données doivent respecter un format d'échange définissant une syntaxe et une sémantique précise (Actuellement seul le format Neptune est implémenté)
-- Phase 2 := les données doivent respecter le niveau de complétude et de cohérence du format d'échange (Actuellement seul le format Neptune est implémenté).
-- Phase 3 := l'offre est analysée dans ses fonctionnalités et subit des contrôles de réalisme, cette phase est indépendante du format d'échange. 
+p. La validation effectue un ensemble de contrôles syntaxiques, sémantiques et structurels sur un jeu de données d'offre de transport collectif, à 3 niveaux :
 
-Les tests de validation sont décrits sur le site "chouette.mobi":http://www.chouette.mobi/spip.php?rubrique24
+* les deux premiers niveaux sont spécifiques à Neptune (dans la version actuelle):
+** les données d’offre de transport sont importées depuis le format Neptune et subissent des contrôles vis-à-vis du format XML et du Schéma XSD Neptune ;
+** les données d’offre sont analysées (structure, contrôles de complétude et de connexité des données) ;
+* le 3ème niveau d'analyse concerne plutôt des contrôles du « réalisme » des données ; il peut être effectué en base de données, donc y compris sur des données importées depuis un autre format que Neptune (GTFS, CSV, etc.). A ces points de contrôle est associé un jeu de paramètres modifiable par l'utilisateur.
 
-h3. Formats disponibles 
+p. Les tests (« points de contrôle ») de validation Neptune sont décrits sur le site "chouette.mobi":http://www.chouette.mobi/spip.php?rubrique108
+
+h3(#fmt). Formats disponibles 
 
 - Neptune := format normalisé des échanges de données de transport en commun pour la France (cf "Normalisation":normalisation)
 - Données internes Chouette := tests sur les objets déjà importés ou créés/modifiés en base (Phase 3 uniquement)
 
-h3. Activation
+h3(#val). Onglet VALIDATIONS
 
-La validation peut être activée sur un fichier lors de son import en précisant les paramètres nécessaires à la phase 3.
+p. L'onglet VALIDATIONS contient les objets Validation de l'espace de données courant. A chaque objet Import est associé un objet Validation.
 
-L'onglet validation permet de réaliser un contrôle 'Phase 3' sur tout ou partie des lignes stockées en base. 
+p. Chaque objet Validation est représenté par une vignette comprenant : sa date, l'utilisateur qui l'a créé, son état (bleu : en cours ; vert : terminé correctement ; rouge : terminé en échec), un lien vers le détail de l'objet, et le cas échéant : un lien vers l'objet Import associé s'il existe, un lien vers le jeu de paramètres s'il existe).
 
-h3. Paramètres communs
+p=. !validation.png!
 
-- Jeu de paramètres pour validation := paramètres définisant les seuils des tests de niveau 3
+p. Dans la partie droite de l'écran :
 
-p(ddnext). - les jeux de paramètres sont créés via le lien ["Jeux de paramètres":parametersets] disponible sur les vues des listes d'imports et de validations
+* ajouter une Validation
+* Jeu de paramètres
 
-- Type de données incluses := critère de sélection des lignes à contrôler.
+h3(#new). Ajouter une Validation
 
-h3. Consultation des résultats
+p. A chaque objet Import est associé un objet Validation, mais l'inverse est faux : on peut créer de nouveaux objets Validation, afin de faire passer des tests de validation de données en base. L'utilisateur doit sélectionner :
+
+* un ["jeu de paramètres":parametersets] pour cette validation
+* les données incluses : Toutes, ou un ou plusieurs Lignes, Réseaux, Transporteurs, Groupes de lignes. 
+
+h3(#res). Consultation des résultats : détail de l'objet Validation
 
 p. La validation est lancée en différé; son état d'avancement est affiché sous la forme d'une icône donc la couleur dépend de l'état:
 
@@ -41,24 +53,21 @@ p. La validation est lancée en différé; son état d'avancement est affiché s
 - vert : terminé correctement
 - rouge : terminé en échec (la validation n'a pas pu aboutir, contacter l'administrateur système pour plus de détails)
 
-p. Le résultat est conservé tant que la validation n'est pas supprimée.
+p. La consultation du résultat de la validation donne le bilan des contrôles ou les motifs de l’échec. Le résultat est conservé tant que la validation n’est pas supprimée.
 
-p. La consultation du résultat de la validation donnera : 
+p. Pour une validation terminée, on peut :
 
-p=. !validation.png!
+* basculer vers l'onglet d'import des données (s'il y a lieu)
+* visualiser les résultats  :
 
-* le lien 'Validation _n°_' permet de voir la liste des tests de validation effectués sur le jeu de données
-* le lien 'Import' permet de voir le bilan d'import si la validation est faite sur fichiers 
-* le lien 'Jeu de paramètres' permet de consulter les paramètres de seuils pour les tests de phase 3
-
-h4. Résultats de validation
+h3(#rvl). Résultats de validation
 
 p=. !validation_result.png!
 
 p. Le résultat de validation fournit 2 synthèses : 
 
-# Synthèse des tests obligatoires
-# Synthèse des tests optionnels
+# Synthèse des tests obligatoires (à gauche)
+# Synthèse des tests optionnels (à droite)
 
 p. _1 - La synthèse des tests obligatoires affiche 3 secteurs_
 
@@ -66,9 +75,11 @@ p(border_image). !validation_mandatory_result.png!
 
 * en vert les tests valides 
 * en rouge les tests en échec
-* en gris les tests non réalisables (contexte du test ne permettant pas de l'effectuer)
+* en gris les tests ignorés (contexte du test ne permettant pas de l'effectuer)
 
 p(olnext). exemple : tests sur les accès avec aucun accès dans le jeu de données à valider
+
+p. En passant la souris (resp. en cliquant) sur chaque partie on affiche le nombre de tests correspondants (resp. la liste des tests)
 
 p. _2 - La synthèse des tests optionnels affiche 3 secteurs_
 
@@ -76,7 +87,7 @@ p(border_image). !validation_optionnal_result.png!
 
 * en vert les tests valides 
 * en jaune les tests en échec
-* en gris les tests non réalisables (contexte du test ne permettant pas de l'effectuer)
+* en gris les tests ignorés (contexte du test ne permettant pas de l'effectuer)
 
 p. Dans les 2 cas, la sélection d'un des secteurs affiche la liste des tests concernés avec le détail en cas d'erreur
 
@@ -86,7 +97,9 @@ Une bulle d'information s'affiche en sélectionnant une icone bleue !notice.png!
 
 p(border_image). !validation_bulle.png!
 
-En cas d'erreur, la localisation est fournie dans la colonne 'Détail': 
+p. La spécificaation du test s'affiche par le lien sur le code 
+
+p. En cas d'erreur, la localisation est fournie dans la colonne 'Détail': 
 
 * pour les tests des phases 1 et 2, par l'emplacement (nom du fichier, ligne et colonne) de l'objet en erreur,
 * pour les tests de la phase 3, par un lien vers la page de consultation de l'objet en erreur.
