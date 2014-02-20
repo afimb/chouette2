@@ -3,11 +3,23 @@ layout: default
 title: Imports
 ---
 
-h3. Rôle
+* "Rôle":#rol
+* "Validation":#val
+* "Formats disponibles":#fmt
+* "Paramètres communs":#com
+* "Options des formats":#opt
+* "l’onglet IMPORTS":#imp
+* "Nouvel Import":#new
+* "Paramètres de validation":pvl
+* "Consultation des résultats":#res
+* "Résultats de validation":#rvl
 
-p. L'import permet d'enregistrer dans la base un ensemble de données selon un format au choix 
 
-h3. Validation
+h3(#rol). Rôle
+
+p. L’import permet d’enregistrer dans la base un jeu de données d'offre TC, selon un format au choix. Des tests de validation des données sont exécutés avant l'import en base de données (plus détaillées dans le cas du format Neptune). Il est possible d'importer sans sauver en base, uniquement pour jouer les tests de vérification de conformité. Dans ce cas les tests en base de données (auxquels sont associés les jeux de paramètres) ne seront pas exécutés (et donc aucun test ne sera exécuté, pour des données CSV, GTFS, ou Netex).
+
+h3(#val). Validation
 
 p. Lors de l'import, des tests sont effectués : 
 
@@ -19,7 +31,7 @@ p(olnext). - nécessite la fourniture d'un jeu de paramètres définissant les s
 
 p(note). Les tests de niveau 1 et 2 ne sont actuellement implémentés que pour le format Neptune
 
-h3. Formats disponibles
+h3(#fmt). Formats disponibles
 
 - Neptune := format normalisé des échanges de données de transport en commun pour la France (cf "Normalisation":normalisation)
 - NeTEx := format d'échange de données de transport en commun expérimental sur la norme européenne ["NeTEx":http://normes-donnees-tc.org/spip.php?article66] mais limité au sous-ensemble des données définies dans la norme Neptune
@@ -29,7 +41,7 @@ format originaire de ["Google Transit":https://support.google.com/transitpartner
 
 p(olnext). - les données exportées en GTFS sont explicités ["ICI":http://normes-donnees-tc.org/spip.php?article64] 
 
-h3. Paramètres communs
+h3(#com). Paramètres communs
 
 - Pas de sauvegarde := permet d'effecter une simulation de l'import sans enregistrer les données
 
@@ -41,7 +53,7 @@ p(ddnext). - les jeux de paramètres sont créés via le lien ["Jeux de paramèt
 
 - Fichier à importer := fichier (plat ou zip selon format)
 
-h3. Options des formats
+h3(#opt). Options des formats
 
 Les options des différents formats apparaissent en fonction de celui qui a été choisi.
 
@@ -74,34 +86,45 @@ une distance de 0 ne génère aucune correspondance =:
 préfixe à utiliser pour générer les identifiants Neptune des objets importés,
 initialisé à la valeur définie pour l'espace de données =:
 
-h3. Consultation des résultats
+h3(#imp). l'onglet IMPORTS
 
-p. L'import est lancé en différé; son état d'avancement est affiché sous la forme d'une icône dont la couleur dépend de l'état:
+p. L'onglet IMPORTS contient les objets Import de l'espace de données courant.
 
-- bleu : en cours
-- vert : terminé correctement
-- rouge : terminé en échec (L'import n'a pas pu aboutir, contacter l'administrateur système pour plus de détails)
-
-p. Le résultat est conservé tant que l'import n'est pas supprimé.
-
-p(note). Note : la suppression d'un import ne fait que supprimer le rapport; les données sont conservées
-
-p. La consultation du résultat de l'import donnera :
+p. Chaque objet Import est représenté par une vignette comprenant : sa date, l'utilisateur qui l'a créé, son état (bleu : en cours ; vert : terminé correctement ; rouge : terminé en échec), un lien pour télécharger le fichier importé, un lien vers le détail de l'objet, un lien vers l'objet Validation associé).
 
 p=. !import.png!
 
-* le lien 'Import _Format n°_' permet de voir les éléments et volumes importés
-* le lien 'Fichier importé' permet de récupérer le fichier source de l'import
-* le lien 'Validation' permet de consulter les résultats des tests de validation exécutés lors de l'import
+p. Comme les fichiers importés restent stockés en base, il est opportun que  l'utilisateur supprime périodiquement les objets Imports devenus inutiles. La suppression supprimera aussi les objets Validation associés.
 
-h4. Résultats d'import
+p. Dans la partie droite de l'écran, 
+
+* créer un nouvel Import
+* Jeu de paramètres
+
+h3(#new). Nouvel Import
+
+p. Il est possible de modifier le jeu de paramètres par défaut ou de créer un nouveau Jeu de paramètres. Il est possible de ne choisir aucun jeu de paramètres.
+
+p. L’import est lancé en différé, son résultat n'est pas immédiat. Le résultat est conservé tant que l’import n’est pas supprimé. L'import lance également la validation (avec ou sans jeu de paramètres associés), ce qui crée un objet Validation associé. La suppression d’un import également l'objet Validation associé à cet import ; néanmoins si les données ont été sauvergardées en base, elles seront conservées.
+
+p. Si les données ne sont pas sauvées en base, il faut relancer un import avec sauvegarde si on souhaite effectivement importer ces données en base après une première validation « à blanc ».
+
+h3(#pvl). Paramètres de validation
+
+p. Il est possible de modifier le jeu de paramètres par défaut ou de créer un nouveau Jeu de paramètres. Les paramètres de vitesses et durée entre arrêts successifs sont définis mode par mode.
+
+h3(#res). Consultation des résultats : détail de l'objet Import
 
 p=. !import_result.png!
 
 p. Le résultat d'import fournit 2 synthèses : 
 
-# Synthèse des fichiers analysés
-# Synthèse des lignes lues
+# Synthèse des fichiers analysés (à gauche)
+# Synthèse des lignes lues (à droite)
+
+p. Le bouton « Fichier Importé » permet de télécharger le fichier sur son poste.
+
+p. Le bouton « Validation » permet de basculer vers la validation des données.
 
 p. _1 - La synthèse des fichiers analysés affiche 3 secteurs_
 
@@ -111,7 +134,9 @@ p(border_image). !import_file_result.png!
 * en rouge les fichiers comportant des erreurs qui empêche leur traitement
 * en gris les fichiers ignorés
 
-p. La sélection d'un des secteurs affiche la liste des fichiers concernés :
+p. En passant la souris sur chaque partie, le nombre de fchiers correspondant est affiché.
+
+p. La sélection (clic souris) d'un des secteurs affiche la liste des fichiers concernés :
 
 p(border_image). !import_file_detail.png!
 
@@ -132,7 +157,11 @@ p. La sélection de l'histogramme affiche le détail des lignes lues :
 
 p(border_image). !import_line_detail.png!
 
-h4. Résultats de validation
+p. un survol affiche le nombre de données concernées par type.
+
+p. la sélection du graphique affiche le détail par ligne
+
+h3(#rvl). Résultats de validation
 
 p. Les résultats de validation des niveaux 1, 2 et 3 sont consolidés dans un même formulaire de résultat.
 voir "Validation":validations

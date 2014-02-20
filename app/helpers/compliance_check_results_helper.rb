@@ -10,4 +10,8 @@ module ComplianceCheckResultsHelper
     end
   end
   
+  def test_definition (compliance_check_result_code)
+    Rails.application.config.validation_spec + I18n.locale.to_s + "/" + compliance_check_result_code +".html"
+  end
+  
 end

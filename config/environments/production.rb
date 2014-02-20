@@ -112,6 +112,10 @@ ChouetteIhm::Application.configure do
   # file to data for demo
   config.demo_data = "/var/lib/chouette/demo.zip"
 
+  # link to validation specification pages
+  config.validation_spec = "http://www.chouette.mobi/neptune-validation/v20/"
+
+
   # paths for external resources
   #if ENV['OS'] == 'Windows_NT'
   #  config.to_prepare do
