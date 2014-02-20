@@ -18,7 +18,7 @@
       <td><%= t compliance_check_result.severity, :scope => "compliance_check_result.severities" %></td>
       <td>
         <%= image_tag "icons/notice.png", :"data-content" => ComplianceCheckResult.human_attribute_name(compliance_check_result.rule_code), :"data-title" => t("activerecord.attributes.compliance_check_result.detail"), :class =>"notice" %>
-        <%= link_to compliance_check_result.rule_code, "#", :title => ComplianceCheckResult.human_attribute_name(compliance_check_result.rule_code) %></td>
+        <%= link_to compliance_check_result.rule_code, test_definition(compliance_check_result.rule_code), :title => ComplianceCheckResult.human_attribute_name(compliance_check_result.rule_code), :target => "validation" %></td>
       <% if @compliance_check_results && @compliance_check_results.first.status == "nok" %>
       <td class="td_error">
         <% if compliance_check_result.detail.present? %>

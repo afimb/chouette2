@@ -44,6 +44,8 @@ ChouetteIhm::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 
+  # link to validation specification pages
+  config.validation_spec = "http://www.chouette.mobi/neptune-validation/v20/"
 
   config.to_prepare do
     Chouette::Command.command = "true"
