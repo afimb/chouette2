@@ -96,7 +96,6 @@ Create directories
 ```sh
 sudo mkdir -p /var/lib/chouette/imports
 sudo mkdir -p /var/lib/chouette/exports
-sudo mkdir -p /var/lib/chouette/validations
 sudo chmod a+x /var/lib/chouette/imports /var/lib/chouette/exports
 ```
 
