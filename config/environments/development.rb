@@ -34,7 +34,7 @@ ChouetteIhm::Application.configure do
   # uncomment to show chouette error view in development
   #config.consider_all_requests_local = false
 
-  config.active_record.auto_explain_threshold_in_seconds = (RUBY_PLATFORM == "java" ? nil : 0.5)
+  # config.active_record.auto_explain_threshold_in_seconds = (RUBY_PLATFORM == "java" ? nil : 0.5)
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 

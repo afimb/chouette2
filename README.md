@@ -27,14 +27,24 @@ This code has been run and tested on [Travis](http://travis-ci.org/afimb/chouett
 External Deps
 -------------
 
+If Linux distribution does't publish RVM package,
+install [RVM from sources](./doc/install/rvm.md)
+
+Install ruby 1.9.3
+```sh
+rvm  install ruby-1.9.3-p448
+source ~/.rvm/scripts/rvm
+rvm --default use 1.9.3-p448
+```
+
 On Debian/Ubuntu/Kubuntu OS : assume depot contains the correct version
+
 ```sh
 sudo apt-get install postgresql
-sudo apt-get install pgadmin3
+sudo apt-get install postgresql-client
 sudo apt-get install openjdk-7-jdk
 sudo apt-get install git
 sudo apt-get install unzip
-sudo apt-get install ruby
 sudo apt-get install proj-bin
 sudo apt-get install libproj-dev
 sudo apt-get install make
@@ -43,18 +53,12 @@ sudo apt-get install make
 Installation
 ------------
 
-Get git source code :
-```sh
-cd workspace
-git clone -b V2_2 git://github.com/afimb/chouette2
-cd chouette2
-```
 
-The next step assume default path defined by ```Chouette::Command.command``` in file [production.rb](./config/environments/production.rb) is unchanged
-
-Install chouette-gui-command to import, export and validate transport offer :
+Install chouette-gui-command to import, export and validate transport offer,
+Assume Linux user is myuser and its group mygroup
 ```sh
 sudo mkdir -p /usr/local/opt/chouette-command/
+sudo chown -R myuser:mygroup /usr/local/opt/chouette-command/
 cd /usr/local/opt/chouette-command/
 wget http://maven.chouette.cityway.fr/fr/certu/chouette/chouette-gui-command/2.2.0/chouette-gui-command-2.2.0.zip
 unzip chouette-gui-command-2.2.0.zip
@@ -63,13 +67,25 @@ cd chouette-cmd_2.2.0
 sudo chmod a+w .
 ```
 
+Install web application
+
+Get git source code :
+```sh
+cd
+git clone -b V2_2 git://github.com/afimb/chouette2
+cd chouette2
+```
+Download gem librairies
+```sh
+gem install bundler
+bundle install
+```
 Create [Postgres database user] (./doc/install/postgresql.md)
 
-Download gem libraries and create database
+Create database and its schema
 ```sh
-setenv RAILS_ENV=production
-bundle install
-bundle exec rake db:create
+RAILS_ENV=production bundle exec rake db:create
+RAILS_ENV=production bundle exec rake apartment:migrate
 ```
 
 The next step assume default path defined by following settings in file [production.rb](./config/environments/production.rb) are unchanged
@@ -81,7 +97,7 @@ Create directories
 sudo mkdir -p /var/lib/chouette/imports
 sudo mkdir -p /var/lib/chouette/exports
 sudo mkdir -p /var/lib/chouette/validations
-sudo chmod a+x /var/lib/chouette/imports /var/lib/chouette/exports /var/lib/chouette/validations
+sudo chmod a+x /var/lib/chouette/imports /var/lib/chouette/exports
 ```
 
 Configuration
@@ -128,8 +144,8 @@ Test
 ----
 
 ```sh
-setenv RAILS_ENV=tests
 bundle exec rake db:create
+bundle exec rake apartment:migrate
 bundle exec rake spec
 ```
 
