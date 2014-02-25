@@ -14,7 +14,7 @@ sudo apt-get install build-essential openssl libreadline6 libreadline6-dev curl 
 
 curl -L https://get.rvm.io | bash -s stable
 
-echo ‘source ~/.rvm/scripts/rvm’ » ~/.bash_aliases && bash
+echo 'source ~/.rvm/scripts/rvm' >> ~/.bash_aliases && bash
 ```
 
 Test
