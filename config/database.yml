@@ -8,6 +8,7 @@ development:
   adapter: <%= RUBY_PLATFORM == "java" ? "jdbcpostgresql" : "postgresql" %>
   database: chouette_dev
   encoding: utf8
+  host: localhost
   username: chouette
   password: chouette
 
@@ -18,6 +19,7 @@ test:
   adapter: <%= RUBY_PLATFORM == "java" ? "jdbcpostgresql" : "postgresql" %>
   database: chouette_test
   encoding: utf8
+  host: localhost
   username: chouette
   password: chouette
 
@@ -27,4 +29,4 @@ production:
   encoding: utf8
   host: localhost
   username: chouette
-  password: chouette    
+  password: chouette
