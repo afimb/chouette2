@@ -33,7 +33,6 @@ install [RVM from sources](./doc/install/rvm.md)
 Install ruby 1.9.3
 ```sh
 rvm  install ruby-1.9.3-p448
-source ~/.rvm/scripts/rvm
 rvm --default use 1.9.3-p448
 ```
 
@@ -41,7 +40,7 @@ On Debian/Ubuntu/Kubuntu OS : assume depot contains the correct version
 
 ```sh
 sudo apt-get install postgresql
-sudo apt-get install postgresql-client
+sudo apt-get install libpq-dev
 sudo apt-get install openjdk-7-jdk
 sudo apt-get install git
 sudo apt-get install unzip
