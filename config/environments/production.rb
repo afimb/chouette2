@@ -76,7 +76,7 @@ ChouetteIhm::Application.configure do
   # paths for external resources
   config.to_prepare do
     Devise::Mailer.layout "mailer"
-    Chouette::Command.command = "tmp/chouette-command/chouette"
+    Chouette::Command.command = "/usr/local/opt/chouette-command/chouette-cmd_2.2.0/chouette"
     ImportTask.root = "/var/lib/chouette/imports"
     Export.root = "/var/lib/chouette/exports"
   end
