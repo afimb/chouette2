@@ -21,6 +21,7 @@ Requirements
 
 This code has been run and tested on [Travis](http://travis-ci.org/afimb/chouette2?branch=master) with :
 * Ruby 1.9.3
+* Java 7
 * Postgres 9.x
 * Proj 4.8.0
 
