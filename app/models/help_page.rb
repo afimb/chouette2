@@ -21,10 +21,10 @@ class HelpPage
     self.data ||= {}
 
     if self.content =~ /^(---\s*\n.*?\n?)^(---\s*$\n?)/m
-      self.content = $POSTMATCH
+      self.content = $' # cryptic name for $POSTMATCH, but since V2.2
       self.data.merge! YAML.load($1)
     end
-    
+
     # workaround for special chars
     self.content = self.content.gsub('é','&eacute;')
     self.content = self.content.gsub('è','&egrave;')
@@ -66,7 +66,7 @@ class HelpPage
       if page.exists?
         page.load
       else
-        raise ActiveRecord::RecordNotFound 
+        raise ActiveRecord::RecordNotFound
       end
     end
   end

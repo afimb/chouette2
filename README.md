@@ -21,6 +21,7 @@ Requirements
 
 This code has been run and tested on [Travis](http://travis-ci.org/afimb/chouette2?branch=master) with :
 * Ruby 1.9.3
+* Java 7
 * Postgres 9.x
 * Proj 4.8.0
 
@@ -83,8 +84,12 @@ Create [Postgres database user] (./doc/install/postgresql.md)
 
 Create database and its schema
 ```sh
-RAILS_ENV=production bundle exec rake db:create
-RAILS_ENV=production bundle exec rake apartment:migrate
+RAILS_ENV=production bundle exec rake db:create apartment:migrate
+```
+
+Prepare static resources (assets)
+```sh
+RAILS_ENV=production bundle exec rake assets:clean assets:precompile
 ```
 
 The next step assume default path defined by following settings in file [production.rb](./config/environments/production.rb) are unchanged
@@ -137,6 +142,9 @@ RAILS_ENV=production bundle exec rails server
 
 This task may be added in system start up configuration.
 Instead of using WEBrick, Rails application may be deployed on [Pushion Passenger](https://www.phusionpassenger.com/) with an [Apache](http://httpd.apache.org/) or [NGinx](http://nginx.com/) front-end, to make server faster and more robust.
+
+Apache like NGinx can serve static resources
+so, change parameter ```serve_static_assets``` to false in [production.rb](./config/environments/production.rb)
 
 Test
 ----
