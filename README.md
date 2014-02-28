@@ -55,14 +55,13 @@ Installation
 
 
 Install chouette-gui-command to import, export and validate transport offer,
-Assume Linux user is myuser and its group mygroup
+Assume Linux user is myuser and its group mygroup (that user is the one who starts Rails server)
 ```sh
 sudo mkdir -p /usr/local/opt/chouette-command/
 sudo chown -R myuser:mygroup /usr/local/opt/chouette-command/
 cd /usr/local/opt/chouette-command/
 wget http://maven.chouette.cityway.fr/fr/certu/chouette/chouette-gui-command/2.2.0/chouette-gui-command-2.2.0.zip
 unzip chouette-gui-command-2.2.0.zip
-mv chouette-gui-command-2.2.0.zip chouette-cmd_2.2.0
 cd chouette-cmd_2.2.0
 sudo chmod a+w .
 ```
