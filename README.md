@@ -10,7 +10,7 @@ Chouette2 is an open source web project in Ruby/Rails to edit and view transport
 
 It uses java library from another git project to import and export various transport data [chouette](http://github.com/afimb/chouette)
 
-Feel free to test and access to the demonstration web site at [http://www.chouette.mobi](http://www.chouette.mobi/chouette2/users/sign_in). Two types of access are granted : 
+Feel free to test and access to the demonstration web site at [http://demo.chouette.mobi](http://demo.chouette.mobi/chouette2/users/sign_in). Two types of access are granted : 
 * A demo organisation with a set of data
   * login : demo@chouette.mobi
   * password : chouette
@@ -20,134 +20,163 @@ Requirements
 ------------
  
 This code has been run and tested on [Travis](http://travis-ci.org/afimb/chouette2?branch=master) with : 
-* Ruby 1.8.7
-* JRuby 1.6.8 (oraclejdk7, openjdk7, openjdk6)
+* Ruby 1.9.3
+* Java 7
+* Postgres 9.x
+* Proj 4.8.0
 
 External Deps
 -------------
+If Linux distribution does't publish RVM package,
+install [RVM from sources](./doc/install/rvm.md)
+
+Install ruby 1.9.3
+```sh
+rvm  install ruby-1.9.3-p448
+rvm --default use 1.9.3-p448
+```
+
 On Debian/Ubuntu/Kubuntu OS : 
 ```sh
-sudo apt-get install postgresql 
-sudo apt-get install pgadmin3 
-sudo apt-get install openjdk-7-jdk 
-sudo apt-get install git 
+sudo apt-get install postgresql
+sudo apt-get install libpq-dev
+sudo apt-get install openjdk-7-jdk
+sudo apt-get install git
 sudo apt-get install unzip
-```
-
-Installation
-------------
- 
-Install [Postgres] (./doc/install/postgresql.md)
-
-Install [JRuby] (./doc/install/jruby.md)
-
-Get git code : 
-```sh
-cd workspace
-git clone -b V2_1_0 git://github.com/afimb/chouette2
-cd chouette2
-```
-
-**JRuby**
-
-Install dependencies
-```sh 
-sudo apt-get install tomcat7
 sudo apt-get install proj-bin
 sudo apt-get install libproj-dev
 sudo apt-get install make
 ```
 
-Install chouette-gui-command to import and export transport offer : 
+Installation
+------------
+ 
+
+Install chouette-gui-command to import, export and validate transport offer,
+Assume Linux user is myuser and its group mygroup (that user is the one who starts Rails server)
 ```sh
 sudo mkdir -p /usr/local/opt/chouette-command/
+sudo chown -R myuser:mygroup /usr/local/opt/chouette-command/
 cd /usr/local/opt/chouette-command/
-wget http://chouette.dryade.net/chouette-cmd_2.1.0.zip
-unzip chouette-cmd_2.1.0.zip
+wget http://maven.chouette.cityway.fr/fr/certu/chouette/chouette-gui-command/2.1.0/chouette-gui-command-2.1.0.zip
+unzip chouette-gui-command-2.1.0.zip
 cd chouette-cmd_2.1.0
 sudo chmod a+w .
 ```
 
-Build War ( Use RAILS_ENV production mode and parameters )
-```sh 
-jgem install bundler --version 1.2.4
-jgem install jruby-openssl 
-bundle install --path vendor/bundle
-bundle exec rake db:create
-bundle exec rake war
-```
+Install web application
 
-Install war file ( Use RAILS_ENV production mode and parameters )
-```sh 
-sudo cp chouette2.war /var/lib/tomcat7/webapp/.
-sudo mkdir -p /var/lib/chouette/imports
-sudo mkdir -p /var/lib/chouette/exports
-sudo mkdir -p /var/lib/chouette/validations
-sudo chmod a+x /var/lib/chouette/imports /var/lib/chouette/exports /var/lib/chouette/validations
-```
-
-**Ruby**
-Install chouette-gui-command to import and export transport offer : 
+Get git source code :
 ```sh
-sudo mkdir -p tmp/chouette-command/
-cd tmp/chouette-command/
-wget http://chouette.dryade.net/chouette-cmd_2.1.0.zip
-unzip chouette-cmd_2.1.0.zip
-cd chouette-cmd_2.1.0
-sudo chmod a+w .
+cd
+git clone -b V2_1_0 git://github.com/afimb/chouette2
+cd chouette2
 ```
-
-Install
+Download gem librairies
 ```sh
 gem install bundler
 bundle install
-bundle exec rake db:create
 ```
+Create [Postgres database user] (./doc/install/postgresql.md)
+
+Create database and its schema
+```sh
+RAILS_ENV=production bundle exec rake db:create apartment:migrate
+```
+
+Prepare static resources (assets)
+```sh
+RAILS_ENV=production bundle exec rake assets:clean assets:precompile
+```
+
+The next step assume default path defined by following settings in file [production.rb](./config/environments/production.rb) are unchanged
+* ```ImportTask.root```
+* ```Export.root```
+
+Create directories
+```sh
+sudo mkdir -p /var/lib/chouette/imports
+sudo mkdir -p /var/lib/chouette/exports
+sudo chmod a+x /var/lib/chouette/imports /var/lib/chouette/exports
+```
+
+Configuration
+-------------
+
+Configure for Generating URLs in Action Mailer Views.
+* Edit [production.rb](./config/environments/production.rb) and change ```config.action_mailer.default_url_options```
+* see [Action Mailer Configuration documentation](http://guides.rubyonrails.org/action_mailer_basics.html)
+
+Configure SMTP settings.
+* Edit [production.rb](./config/environments/production.rb) and change ```ActionMailer::Base.smtp_settings```
+* see [Action Mailer Configuration documentation](http://guides.rubyonrails.org/action_mailer_basics.html)
+
+Configure e-mail address shown on mail sent when user registers, re-initialises its password, ...
+* Edit [production.rb](./config/environments/production.rb) and change ```config.mailer_sender```
+
+Configure IGN Géoportail Key.
+* Edit [production.rb](./config/environments/production.rb) and uncomment and set```config.geoportail_api_key```
+* see [API Géoportail documentation](http://api.ign.fr/accueil)
+
+Configure Google Analytics Key.
+* Edit [production.rb](./config/environments/production.rb) and change```GA.tracker```
+* see [Google Analytics](https://www.google.fr/intl/fr/analytics/)
+
+
+Run
+---
+
+Launch the task to import and export asynchronously
+```sh
+RAILS_ENV=production bundle exec rake jobs:work
+```
+This task may be added in system start up configuration
+
+Launch rails server with [WEBrick](http://guides.rubyonrails.org/command_line.html#server-with-different-backends) ( default RoR web server, note: running on default port 3000)
+```sh
+RAILS_ENV=production bundle exec rails server
+```
+
+This task may be added in system start up configuration.
+Instead of using WEBrick, Rails application may be deployed on [Pushion Passenger](https://www.phusionpassenger.com/) with an [Apache](http://httpd.apache.org/) or [NGinx](http://nginx.com/) front-end, to make server faster and more robust.
+
+Apache like NGinx can serve static resources
+so, change parameter ```serve_static_assets``` to false in [production.rb](./config/environments/production.rb)
 
 Test
 ----
 
 ```sh
+bundle exec rake db:create
+bundle exec rake apartment:migrate
 bundle exec rake spec
 ```
 
 More Information
 ----------------
- 
-More information can be found on the [project website on GitHub](.). 
+
+More information can be found on the [project website on GitHub](.).
 There is extensive usage documentation available [on the wiki](../../wiki).
 
 API Documentation
 -----------------
 
-The description of the restful API is described in : 
+The description of the restful API is described in :
 * [User manual file](./doc/interfaces/Chouette_API_REST_v1.2.pdf)
 * [XSD file](./doc/interfaces/api_rest_v1.xsd)
 
-Example Usage 
--------------
-
-Launch the task to import and export asynchronously
-```sh
-bundle exec rake jobs:work
-```
-
-Launch rails server
-```sh
-bundle exec rails server
-```    
 
 License
 -------
- 
+
 This project is licensed under the CeCILL-B license, a copy of which can be found in the [LICENSE](./LICENSE.md) file.
 
 Release Notes
 -------------
 
-The release notes can be found in [CHANGELOG](./CHANGELOG.md) file 
- 
+The release notes can be found in [CHANGELOG](./CHANGELOG.md) file
+
 Support
 -------
- 
+
 Users looking for support should file an issue on the GitHub [issue tracking page](../../issues), or file a [pull request](../../pulls) if you have a fix available.
