@@ -19,6 +19,7 @@ end
 
 # Authentication
 gem 'devise', '2.1.3'
+gem 'devise-encryptable'
 gem 'devise_invitable'
 
 # Map, Geolocalization
