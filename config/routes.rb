@@ -179,7 +179,6 @@ ChouetteIhm::Application.routes.draw do
   end
 
   match '/help/(*slug)' => 'help#show'
-  match '/test_sheet/(*slug)' => 'test_sheet#show'
 
   match '/404', :to => 'errors#not_found'
   match '/422', :to => 'errors#server_error'
