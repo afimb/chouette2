@@ -54,5 +54,11 @@
     }
 }
 
-
+#workspace.connection_links.edit,#workspace.connection_links.new,#workspace.connection_links.create,#workspace.connection_links.update
+{
+     .time_select ol {
+        padding: 0 0 0 40%;
+        width: 100%;
+     }
+}
 

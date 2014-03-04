@@ -16,6 +16,13 @@
     
 }        
 
+#workspace.access_links.edit,#workspace.access_links.new,#workspace.access_links.create,#workspace.access_links.update
+{
+     .time_select ol {
+        padding: 0 0 0 40%;
+        width: 100%;
+     }
+}
 
 
 
