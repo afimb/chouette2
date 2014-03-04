@@ -309,7 +309,7 @@ GEM
     uglifier (1.2.7)
       execjs (>= 0.3.0)
       multi_json (~> 1.3)
-    user_interface (0.0.4)
+    user_interface (0.0.5)
       rails (> 3.1.0)
     warbler (1.3.6)
       jruby-jars (>= 1.4.0)
@@ -383,6 +383,6 @@ DEPENDENCIES
   therubyracer (~> 0.10.2)
   therubyrhino
   uglifier (>= 1.0.3)
-  user_interface (= 0.0.4)
+  user_interface (= 0.0.5)
   warbler
   will_paginate (~> 3.0)

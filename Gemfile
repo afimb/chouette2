@@ -34,7 +34,7 @@ gem "multi_json","1.7.7"
 #gem "georuby-ext", "0.0.2"
 
 # User interface
-gem 'user_interface', "0.0.4"
+gem 'user_interface', "0.0.5"
 gem 'gravatar_image_tag'
 gem 'calendar_helper', "0.2.5"
 gem 'cocoon', "1.1.2"
