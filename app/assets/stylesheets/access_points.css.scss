@@ -35,6 +35,14 @@
     }
 }
 
+#workspace.access_points.edit,#workspace.access_points.new,#workspace.access_points.create,#workspace.access_points.update
+{
+     .time_select ol {
+        padding: 0 0 0 40%;
+        width: 100%;
+     }
+}
+
 #workspace.access_points.edit {
   legend { padding-bottom: 20px; }
 }
