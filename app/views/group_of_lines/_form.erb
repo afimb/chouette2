@@ -1,11 +1,11 @@
 <%= semantic_form_for [@referential, @group_of_line] do |form| %>
-  <%= form.inputs do %> 
-    <%= form.input :name %> 
+  <%= form.inputs do %>
+    <%= form.input :name %>
     <%= form.input :comment %>
-    <%= form.input :objectid, :required => !@group_of_line.new_record?, :input_html => { :disabled => !@group_of_line.new_record? } %>  
+    <%= form.input :objectid, :required => !@group_of_line.new_record?, :input_html => { :disabled => !@group_of_line.new_record? } %>
   <% end %>
 
-  <%= form.inputs do %> 
+  <%= form.inputs do %>
     <%= form.input :line_tokens, :label => t('.lines'), :as => :text,  :input_html => { :"data-pre" => ( @group_of_line.lines.map { |line| { :id => line.id, :name => line.published_name } } ).to_json }  %>
   <% end %>
 
@@ -17,11 +17,14 @@
 
 <script>
 	$(function() {
-          $( "#group_of_line_line_tokens" ).tokenInput('<%= name_filter_referential_lines_path(@referential, :format => :json) %>', { 
-       crossDomain: false, 
+          $( "#group_of_line_line_tokens" ).tokenInput('<%= name_filter_referential_lines_path(@referential, :format => :json) %>', {
+       crossDomain: false,
        prePopulate: $('#line_tokens').data('pre'),
        minChars: 1,
        preventDuplicates: true,
+       hintText: '<%= t('search_hint') %>',
+       noResultsText: '<%= t('no_result_text') %>',
+       searchingText: '<%= t('searching_term') %>'
     });
 	});
 </script>
