@@ -4,7 +4,7 @@
     <%= form.input :published_journey_name %>
     <%= form.input :published_journey_identifier %>
     <%= form.input :comment %>
-    <%= form.input :transport_mode_name, :as => :select, :collection => Chouette::Line.transport_modes, :include_blank => true, :member_label => Proc.new { |mode| t("transport_mode_names.label.#{mode}") }  %>
+    <%= form.input :transport_mode_name, :as => :select, :collection => Chouette::Line.transport_modes, :include_blank => true, :member_label => Proc.new { |mode| t("transport_modes.label.#{mode}") }  %>
     <%= form.input :status_value %>
     <%= form.input :facility %>
     <%= form.input :vehicle_type_identifier%>
