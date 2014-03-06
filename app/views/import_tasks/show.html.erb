@@ -1,5 +1,6 @@
 <% title = @import_task.save_requested? ? "<i class='fa fa-save'></i>" : "" %>
 <%= title_tag "#{title} #{@import_task.name} <span class='status status_#{@import_task.status}'>#{ t('import_tasks.show.'+@import_task.status) }</span>" %>
+<% @title = "#{@import_task.name}" %>
 
 <div class="import_task_show">
   <div class="links">

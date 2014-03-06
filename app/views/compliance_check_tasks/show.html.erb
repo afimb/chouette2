@@ -1,4 +1,5 @@
 <%= title_tag "#{@compliance_check_task.name} <span class='status status_#{@compliance_check_task.status}'>#{ t('compliance_check_tasks.show.'+@compliance_check_task.status) }</span>" %>
+<% @title = "#{@compliance_check_task.name}" %>
 
 <div class="compliance_check_task_show">
    <div class="links">
