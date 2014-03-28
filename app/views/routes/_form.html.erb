@@ -1,14 +1,24 @@
 <%= semantic_form_for [@referential, @line, @route] do |form| %>
-  <%= form.inputs do %> 
+  <%= form.inputs do %>
     <%= form.input :name %>
     <%= form.input :published_name %>
     <%= form.input :number %>
-    <%= form.input :comment %>              
+    <%= form.input :comment %>
     <%= form.input :opposite_route, :as => :select, :collection => @line.routes.select { |r| r.id != @route.id } %>
     <%= form.input :direction_code, :as => :select, :collection => Chouette::Route.directions, :include_blank => false, :member_label => Proc.new { |mode| t("directions.label.#{mode}") } %>
     <%= form.input :wayback_code, :as => :select, :collection => Chouette::Route.waybacks, :include_blank => false, :member_label => Proc.new { |mode| t("waybacks.label.#{mode}") } %>
-    <%= form.input :objectid, :required => !@route.new_record?, :input_html => { :disabled => !@route.new_record? } %>  
+    <%= form.input :objectid, :required => !@route.new_record?, :input_html => { :disabled => !@route.new_record? } %>
   <% end %>
+  <div class="stop_points content" >
+	  <div id="stop_points">
+		  <%= form.semantic_fields_for :stop_points do |p| %>
+		     <%= render "stop_point_fields",  :f => p %>
+		  <% end %>
+	  </div>
+	  <%= link_to_add_association t("routes.actions.add_stop_point"), form, :stop_points ,
+	  :"data-association-insertion-method" => "append",
+	  :"data-association-insertion-node" => "div#stop_points"%>
+  </div>
 
    <%= form.actions do %>
      <%= form.action :submit, :as => :button %>

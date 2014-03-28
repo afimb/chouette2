@@ -1,5 +1,10 @@
 <%= title_tag  t('.title', :route => @route.name) %>
 
+<ul>
+  <% @route.stop_areas.last(3).each do |stop_area| %>
+    <li><%= stop_area.parent.name %></li>
+  <% end %>
+</ul>
 <%= semantic_form_for [@referential, @line, @route, @stop_point] do |form| %>
 <div>
   <%= form.inputs do %>

@@ -1,0 +1,9 @@
+<%= f.inputs :class => 'stop_points nested-fields' do %>
+  <%= f.input :stop_area_id, :as => :hidden %>
+  <% if f.object.stop_area.nil? %>
+    <p>nouveau formulaire</p>
+  <% else %>
+    <%= f.object.stop_area.name %>
+  <% end %>
+  <%= link_to_remove_association t('actions.destroy'), f %>
+<% end %>
