@@ -3,7 +3,7 @@ layout: default
 title: Chouette v2 
 ---
 
-Version 2.2.0
+Version 2.3.0
 
 h3. Logiciel libre propriété de :
 
@@ -24,6 +24,12 @@ A cet égard  l'attention de l'utilisateur est attirée sur les risques associé
 
 h3. Notes de version
 
+h4. V2.3.0
+
+* Migration technique des frameworks JAVA
+** Spring 4
+** Hibernate 4
+
 h4. V2.2.0
 
 * Refonte de la validation
@@ -43,7 +49,7 @@ h4. V2.1.0
 * ajout d'un export KML :
 ** lignes
 ** séquences d'arrêt
-** arrêts (une chouche par type)
+** arrêts (une couche par type)
 ** missions
 ** correspondances
 ** accès et liaisons accès-arrêt
