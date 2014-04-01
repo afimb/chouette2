@@ -1,4 +1,8 @@
-# V2.2.0 (en cours)
+# V2.3.0 (en cours)
+
+* Migration technique de chouette (Java)
+
+# V2.2.0 (06/03/14)
 
 * Refonte des fonctions d'import et validation
 
