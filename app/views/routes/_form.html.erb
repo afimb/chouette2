@@ -25,4 +25,78 @@
      <%= form.action :cancel, :as => :link %>
    <% end %>
 <% end %>
+<script>
+// Sorting the list
+
+  $(document).ready(function(){
+    $('.stop_points.content').on('cocoon:after-insert', function(e, insertedItem) {
+        // ... do something
+        console.log("insertedItem="+insertedItem);
+        var total = $( "input.position" ).length;
+        var input_position = insertedItem.find( "input.position" );
+        $(input_position).attr( "value", total - 1);
+        console.log( "position set = " + $(input_position).val());
+    });
+
+    $('#stop_points').sortable({
+      axis: 'y',
+      dropOnEmpty: false,
+      handle: '.handle',
+      cursor: 'crosshair',
+      items: '.stop_points.nested-fields',
+      opacity: 0.4,
+      scroll: true,
+      update: function(){
+        $('.stop_points input.position').map(function(index,element){
+//          var stop_point_id =$('#sortable_stop_points .stop_point')[index].id.replace("stop_point_","");
+//          var before = $( element).attr("value");
+//          $( element).attr("value",stop_point_id);
+//          var after = $( element).attr("value");
+
+//          change stop_point stop_area_id
+// trouver le stop_area correspond à l'index
+          var stopAreaInitialList = <%= @route.stop_points.map(&:stop_area_id).compact.to_json %>;
+
+          // list added stop area ids
+          var addedStopAreaIds = [];
+          $('input.new_stop_point').each ( function(index,element) { addedStopAreaIds.push( parseInt( $(element).val())); });
+          console.log(addedStopAreaIds);
+
+          // list added stop area positions
+          var addedStopAreaPositions = [];
+          $('input.position.added').each ( function(index,element) {
+            console.log( "parseInt( $( element ).val())="+parseInt( $( element ).val()) );
+            console.log( " stopAreaInitialList.length="+ stopAreaInitialList.length );
+              var position = parseInt( $( element ).val()) - stopAreaInitialList.length;
+              addedStopAreaPositions.push( position);
+          });
+          console.log(addedStopAreaPositions);
+
+          if (addedStopAreaIds.length != addedStopAreaPositions.length) {
+            console.log( "Erreur, arrays should have same length: addedStopAreaIds.length="+insertedItem.length+", addedStopAreaPositions.length = "+ addedStopAreaPositions.length)
+          }
+          for ( var i=0; i<addedStopAreaIds.length; i++ ) {
+            stopAreaInitialList.push(  addedStopAreaIds[ addedStopAreaPositions[ i ]]);
+          }
+          console.log(stopAreaInitialList);
+
+          // si la position de l'élément a été modifiée
+          // autrement dit le stop_area_id occupe la même position
+          var stopPointPosition = parseInt( $( element ).attr("value"));
+            console.log( "index = " + index + ", position = " + stopPointPosition +
+                         ", stop_area_id old id = "+
+                         $( '#route_stop_points_attributes_'+index+'_stop_area_id' ).attr("value") +
+                         ", new id = " + stopAreaInitialList[ stopPointPosition]
+            );
+            // maj de la référence au stop area id
+            $( '#route_stop_points_attributes_'+index+'_stop_area_id' ).attr( "value", stopAreaInitialList[ stopPointPosition]);
+
+            // rectifier le stop_point associé à la suppression
+            $($('.remove_fields.existing').prev("input[type=hidden]")[index]).attr("name","route[stop_points_attributes]["+index+"][_destroy]");
+
+        });
+      }
+    });
+  });
+</script>
 

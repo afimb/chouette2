@@ -1,9 +1,26 @@
 <%= f.inputs :class => 'stop_points nested-fields' do %>
-  <%= f.input :stop_area_id, :as => :hidden %>
+  <div class="handle" alt="<%= t('stop_points.index.move') %>" title="<%= t('stop_points.index.move') %>" ><%= image_tag "icons/move.png" %></div>
   <% if f.object.stop_area.nil? %>
-    <p>nouveau formulaire</p>
+    <%= f.input :position, :as => :hidden, :input_html => { :class => "position added" } %>
+    <%= f.input :stop_area_id, :label => t('.select_area'),:input_html => { :class => "new_stop_point", :"data-pre" => [].to_json }  %>
   <% else %>
+    <%= f.input :position, :as => :hidden, :input_html => { :class => "position" } %>
+    <%= f.input :stop_area_id, :as => :hidden %>
     <%= f.object.stop_area.name %>
   <% end %>
   <%= link_to_remove_association t('actions.destroy'), f %>
 <% end %>
+
+<script>
+	$(function() {
+      $( ".new_stop_point" ).tokenInput('<%= referential_stop_point_areas_path(@referential, :format => :json) %>', {
+         crossDomain: false,
+         prePopulate: $('#stop_area_id').data('pre'),
+         tokenLimit: 1,
+         minChars: 3,
+         hintText: '<%= t('search_hint') %>',
+         noResultsText: '<%= t('no_result_text') %>',
+         searchingText: '<%= t('searching_term') %>'
+      });
+	});
+</script>
