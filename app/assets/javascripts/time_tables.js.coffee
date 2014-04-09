@@ -42,5 +42,7 @@ jQuery ->
     $('#periods_content').bind('insertion-callback',after_inserts)
     $('#dates_content').bind('insertion-callback',after_inserts)
     #after_inserts()
+  
+  $(document).on('cocoon:after-insert',after_inserts)  
     
   $(document).ready(bind_after_inserts) if $('.time_tables').length > 0

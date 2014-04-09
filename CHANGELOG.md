@@ -1,19 +1,24 @@
-# V2.3.0 (en cours)
-
+# Version 2.4.0 (en développement)
+* Corrections d'annomalies
+  * L'Import GTFS importe les fichiers avec marqueurs BOM (Mantis 21260)
+  * L'Import GTFS accepte des routes sans colonne agencyId (Mantis 22665)
+  * L'Export GTFS sort en erreur sur objet à exportee incomplêt (Mantis 24484)
+  * L'Export CSV sort un message inexploitable sur informations incomplètes (Mantis 24485)
+  * L'import NeTEx n'importe pas les ITL (Mantis 20889)
+  * L'ajout de nouvelles dates et périodes d'un calendrier ne propose pas l'assitant de saisie de date (Mantis 24440)
+  
+# Version 2.3.0 (06/03/14, en cours de qualification)
 * Migration technique de chouette (Java)
 
 # V2.2.0 (06/03/14)
-
 * Refonte des fonctions d'import et validation
 
 # V2.1.1 (20/12/13)
-
 * Ajout de Google Analytics
 * Clonage de courses
   * les calendiers de la course initiale sont reportés dans les copies
 
 # V2.1.0 (15/07/13)
-
 * suppression des coordonnées projetées en base
   * les données sont produites à la volée pour l'export et l'affichage à partir de la projection fixée dans le référentiel
 * consolidation de l'import GTFS
@@ -29,7 +34,6 @@
   * affichage de l'orthophoto IGN par défaut lorsque la clé IGN est présente
 
 # V2.0.3 (27/05/13)
-
 * Ajout des imports/export NeTex
 * Fonctionnement sous windows
 * Prise en compte de grandes quantités de calendriers.
@@ -37,12 +41,10 @@
 * Intégration des cartes du géoportail (IGN)
 
 # V2.0.2 (28/01/13)
-
 * Ajout de l'import GTFS (expérimental, ne traite pas les stations)
 * Ajout d'API Rest pour accéder aux données depuis une autre application
 
 # V2.0.1 (17/12/12)
-
 * Ajout de la gestion des groupes de lignes
 * Ajout de la gestion des accès et des relations arrêts-accès
 * Ajout d'une vue calendaire des calendriers d'application
@@ -50,7 +52,6 @@
 * L'import Neptune accepte les principaux formats d'encodage : ISO-8859-1, UTF-8, ...
 
 # V2.0.0 (10/09/12)
-
 * refonte de l'interface graphique
 * ajout d'une gestion simplifiée d'utilisateurs :
   * ajout d'une notion d'organisation
