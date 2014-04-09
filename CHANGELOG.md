@@ -6,6 +6,7 @@
   * L'Export CSV sort un message inexploitable sur informations incomplètes (Mantis 24485)
   * L'import NeTEx n'importe pas les ITL (Mantis 20889)
   * L'ajout de nouvelles dates et périodes d'un calendrier ne propose pas l'assitant de saisie de date (Mantis 24440)
+  * Le format de date n'est pas correct en saisie (Mantis 23913)
   
 # Version 2.3.0 (06/03/14, en cours de qualification)
 * Migration technique de chouette (Java)
