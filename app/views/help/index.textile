@@ -3,7 +3,7 @@ layout: default
 title: Chouette v2 
 ---
 
-Version 2.3.0
+Version 2.4.0
 
 h3. Logiciel libre propriété de :
 
@@ -23,6 +23,19 @@ En contrepartie de l'accessibilité au code source et des droits de copie, de mo
 A cet égard  l'attention de l'utilisateur est attirée sur les risques associés au chargement,  à l'utilisation,  à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve donc à des développeurs et des professionnels avertis possédant  des  connaissances  informatiques approfondies.  Les utilisateurs sont donc invités à charger  et  tester  l'adéquation  du logiciel à leurs besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et, plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité. 
 
 h3. Notes de version
+
+h4. V2.4.0
+
+* Corrections des annomalies suivantes :
+** L'Import GTFS importe les fichiers avec marqueurs BOM (Mantis 21260)
+** L'Import GTFS accepte des routes sans colonne agencyId (Mantis 22665)
+** L'Export GTFS sort en erreur sur objet à exporter incomplêt (Mantis 24484)
+** L'Export CSV sort un message inexploitable sur informations incomplètes (Mantis 24485)
+** L'import NeTEx n'importe pas les ITL (Mantis 20889)
+** L'ajout de nouvelles dates et périodes d'un calendrier ne propose pas l'assitant de saisie de date (Mantis 24440)
+** Le format de date n'est pas correct en saisie (Mantis 23913)
+** La modification de dates ou de périodes n'actualise pas les limites du calendrier (Mantis 23801)
+** Mieux expliquer les espaces de données dans l'aide (Mantis 22286 et 22811)
 
 h4. V2.3.0
 
