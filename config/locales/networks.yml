@@ -47,7 +47,7 @@ fr:
       new: "Ajouter un réseau"
       edit: "Modifier ce réseau"
       destroy: "Supprimer ce réseau"
-      destroy_confirm: "Etes vous sûr de détruire ce réseau ?"
+      destroy_confirm: "Etes vous sûr de supprimer ce réseau ?"
     new:
       title: "Ajouter un réseau"
     edit:

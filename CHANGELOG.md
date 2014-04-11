@@ -9,6 +9,8 @@
   * Le format de date n'est pas correct en saisie (Mantis 23913)
   * La modification de dates ou de périodes n'actualise pas les limites du calendrier (Mantis 23801)
   * Mieux expliquer les espaces de données dans l'aide (Mantis 22286 et 22811)
+  * Créer un calendrier avec des dates ou périodes vides, crée un calendrier vide (Mantis 24425)
+  * Remplacer détruire par supprimer dans les confirmation de suppression (Mantis 24414)
   
 # Version 2.3.0 (06/03/14, en cours de qualification)
 * Migration technique de chouette (Java)

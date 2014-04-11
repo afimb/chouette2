@@ -65,7 +65,7 @@ fr:
       new: "Ajouter une séquence d'arrêts"
       edit: "Modifier cette séquence d'arrêts"
       destroy: "Supprimer cette séquence d'arrêts"
-      destroy_confirm: "Etes vous sûr de détruire cette séquence d'arrêts ?"
+      destroy_confirm: "Etes vous sûr de supprimer cette séquence d'arrêts ?"
       export_kml: "Export KML de la séquence d'arrêts"
       export_kml_all: "Export KML des séquences d'arrêts"
     new:

@@ -25,7 +25,7 @@ fr:
       new: "Ajouter un utilisateur"
       edit: "Modifier cet utilisateur"
       destroy: "Supprimer cet utilisateur"
-      destroy_confirm: "Etes vous sûr de détruire cet utilisateur ?"
+      destroy_confirm: "Etes vous sûr de supprimer cet utilisateur ?"
     new:
       title: "Ajouter un utilisateur"
     edit:

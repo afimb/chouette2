@@ -50,7 +50,7 @@ fr:
       new: "Ajouter un lien"
       edit: "Modifier ce lien"
       destroy: "Supprimer ce lien"
-      destroy_confirm: "Etes vous sûr de détruire ce lien ?"
+      destroy_confirm: "Etes vous sûr de supprimer ce lien ?"
     new:
       title_access_point_to_stop_area: "Créer un lien depuis l'accès %{access_point} vers l'arrêt %{stop_area}"
       title_stop_area_to_access_point: "Créer un lien depuis l'arrêt %{stop_area} vers l'accès %{access_point}"

@@ -64,7 +64,7 @@ fr:
       new: "Ajouter un accès"
       edit: "Modifier cet accès"
       destroy: "Supprimer cet accès"
-      destroy_confirm: "Etes vous sûr de détruire cet accès ?"
+      destroy_confirm: "Etes vous sûr de supprimer cet accès ?"
     new:
       title: "Ajouter un accès"
     edit:

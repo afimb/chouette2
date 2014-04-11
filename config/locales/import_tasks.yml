@@ -93,7 +93,7 @@ fr:
     actions:
       new: "Nouvel import"
       destroy: "Supprimer cet import"
-      destroy_confirm: "Etes vous sûr de détruire cet import ?"
+      destroy_confirm: "Etes vous sûr de supprimer cet import ?"
     new:
       title: "Nouvel import"
     index:
