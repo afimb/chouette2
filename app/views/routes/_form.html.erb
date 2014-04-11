@@ -47,6 +47,31 @@
       opacity: 0.4,
       scroll: true,
       update: function(){
+      console.log( "appel update" );
+        var addedStopPseudoPositionByPosition = {};
+        $('input.position.added').each ( function(index,element) {
+            addedStopPseudoPositionByPosition[ $( element ).val()] = $(element).attr("id").match( /route_stop_points_attributes_(\d+)_position/)[1];
+            console.log( "pseudo "+$( element ).val()+" -  "+ addedStopPseudoPositionByPosition[ $( element ).val()]);
+        });
+
+        var newOrderedStopAreaIds = [];
+        // selection perturbee au des le 2° changement
+        $('input.stop_area_id').each ( function(index,element) { newOrderedStopAreaIds.push( $(element).val() ) ;});
+        console.log( "newOrderedStopAreaIds="+newOrderedStopAreaIds );
+
+        $(newOrderedStopAreaIds).each( function(index,e){
+          var effective_index = index;
+          if ( addedStopPseudoPositionByPosition.hasOwnProperty( index)) {
+              effective_index = addedStopPseudoPositionByPosition[ index];
+          }
+          $( '#route_stop_points_attributes_'+effective_index+'_stop_area_id' ).attr( "value", newOrderedStopAreaIds[ effective_index]);
+          console.log( "index="+index+", effective_index="+effective_index+", stop_area_id="+newOrderedStopAreaIds[ effective_index]+", input val="+$( '#route_stop_points_attributes_'+effective_index+'_stop_area_id' ).val());
+          $('#stop_points');
+
+        });
+
+
+
         $('.stop_points input.position').map(function(index,element){
 //          var stop_point_id =$('#sortable_stop_points .stop_point')[index].id.replace("stop_point_","");
 //          var before = $( element).attr("value");
@@ -55,44 +80,33 @@
 
 //          change stop_point stop_area_id
 // trouver le stop_area correspond à l'index
-          var stopAreaInitialList = <%= @route.stop_points.map(&:stop_area_id).compact.to_json %>;
-
-          // list added stop area ids
-          var addedStopAreaIds = [];
-          $('input.new_stop_point').each ( function(index,element) { addedStopAreaIds.push( parseInt( $(element).val())); });
-          console.log(addedStopAreaIds);
-
-          // list added stop area positions
-          var addedStopAreaPositions = [];
-          $('input.position.added').each ( function(index,element) {
-            console.log( "parseInt( $( element ).val())="+parseInt( $( element ).val()) );
-            console.log( " stopAreaInitialList.length="+ stopAreaInitialList.length );
-              var position = parseInt( $( element ).val()) - stopAreaInitialList.length;
-              addedStopAreaPositions.push( position);
-          });
-          console.log(addedStopAreaPositions);
-
-          if (addedStopAreaIds.length != addedStopAreaPositions.length) {
-            console.log( "Erreur, arrays should have same length: addedStopAreaIds.length="+insertedItem.length+", addedStopAreaPositions.length = "+ addedStopAreaPositions.length)
-          }
-          for ( var i=0; i<addedStopAreaIds.length; i++ ) {
-            stopAreaInitialList.push(  addedStopAreaIds[ addedStopAreaPositions[ i ]]);
-          }
-          console.log(stopAreaInitialList);
 
           // si la position de l'élément a été modifiée
           // autrement dit le stop_area_id occupe la même position
-          var stopPointPosition = parseInt( $( element ).attr("value"));
-            console.log( "index = " + index + ", position = " + stopPointPosition +
-                         ", stop_area_id old id = "+
-                         $( '#route_stop_points_attributes_'+index+'_stop_area_id' ).attr("value") +
-                         ", new id = " + stopAreaInitialList[ stopPointPosition]
-            );
-            // maj de la référence au stop area id
-            $( '#route_stop_points_attributes_'+index+'_stop_area_id' ).attr( "value", stopAreaInitialList[ stopPointPosition]);
-
-            // rectifier le stop_point associé à la suppression
-            $($('.remove_fields.existing').prev("input[type=hidden]")[index]).attr("name","route[stop_points_attributes]["+index+"][_destroy]");
+          //console.log( "AAA: id="+$( element ).attr("id") );
+//          var stopPointPosition = parseInt( $( element ).attr("value"));
+//          var route_sp_index = index;
+//          if ( addedStopPseudoPositionByPosition.hasOwnProperty( index )) {
+//              route_sp_index = addedStopPseudoPositionByPosition[ index ];
+//          }
+// //         console.log( "index = " + index + ", route_sp_index = " + route_sp_index+
+// //                      ", position = " + stopPointPosition +
+// //                      ", stop_area_id old id = "+
+// //                      $( '#route_stop_points_attributes_'+route_sp_index+'_stop_area_id' ).attr("value") +
+// //                      ", new id = " + stopAreaIds[ stopPointPosition]
+// //           );
+//            if ( $( '#route_stop_points_attributes_'+route_sp_index+'_stop_area_id' ).size() == 0 ) {
+// //             console.log( "ERR: index="+route_sp_index+", html id="+$( element ).attr("id") );
+//
+//            }
+//            // maj de la référence au stop area id
+//            $( '#route_stop_points_attributes_'+route_sp_index+'_stop_area_id' ).attr( "value", stopAreaIds[ stopPointPosition]);
+//
+//            console.log( '#route_stop_points_attributes_'+route_sp_index+'_stop_area_id' + " = "+$( '#route_stop_points_attributes_'+route_sp_index+'_stop_area_id' ).val());
+//            console.log( '#route_stop_points_attributes_'+route_sp_index+'_position' + " = "+$( '#route_stop_points_attributes_'+route_sp_index+'_position' ).val());
+//
+//            // rectifier le stop_point associé à la suppression
+//            $($('.remove_fields.existing').prev("input[type=hidden]")[index]).attr("name","route[stop_points_attributes]["+route_sp_index+"][_destroy]");
 
         });
       }
