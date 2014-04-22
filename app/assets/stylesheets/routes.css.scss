@@ -46,6 +46,28 @@
     #route_color{ width: 100px;
                  color: white;
                  font-weight: bold;}
+    
+     #stop_points .nested-fields {
+        ol {
+            margin-left: 25%;
+            i.fa { margin-right: 10px;}   
+
+            li {
+                display: inline;
+
+                .token-input-list {
+                    overflow: visible;
+                    .token-input-token {                        
+                        p { margin: 0px 0px !important; }                        
+                    }
+                }
+            }
+        }                       
+     }
+
+     #stop_points .links {
+         margin: 10px 0 15px 25%;
+     }       
 }
 
 #workspace.routes.show
