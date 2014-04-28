@@ -11,21 +11,21 @@
   <% end %>
 	<div id="stop_points">
 		<%= form.semantic_fields_for :stop_points, :include_id => false, :label => "TOTO" do |p| %>
-		  <%= render "stop_point_fields",  :f => p %>
+          <%= render "stop_point_fields",  :f => p, :test1 => "oiuoiu" %>
 		<% end %>
     <div class="links">
 	    <%= link_to_add_association t("routes.actions.add_stop_point"), form, :stop_points, :class => 'add_stop_point' %>
-    </div>   
-	</div>   
+    </div>
+	</div>
 
    <%= form.actions do %>
      <%= form.action :submit, :as => :button %>
      <%= form.action :cancel, :as => :link %>
    <% end %>
 <% end %>
-   
+
 <script>
-var stop_point_ids = [];  
+var stop_point_ids = [];
 var order_position;
 
 order_position = function() {
@@ -33,6 +33,17 @@ order_position = function() {
     $(this).val(index);
   });
 };
+var read_stop_point_ids = function(){
+  $('#stop_points input[type="hidden"][class="stop_point_id"]').map(function() {
+      return $(this).val();
+  });
+}
+var write_stop_point_ids = function(){
+  $('#stop_points input[type="hidden"][class="stop_point_id"]').each(function(index) {
+    $(this).attr("value", stop_point_ids[index])
+  });
+}
+
 
   $('#stop_points').sortable({
       axis: 'y',
@@ -45,8 +56,8 @@ order_position = function() {
       start: function( event, ui ) {
         stop_point_ids = $('#stop_points input[type="hidden"][class="stop_point_id"]').map(function() {
           return $(this).val();
-        }); },  
-      update: function( event, ui ) {  
+        }); },
+      update: function( event, ui ) {
         $('#stop_points input[type="hidden"][class="stop_point_id"]').each(function(index) {
           $(this).attr("value", stop_point_ids[index])
         });
@@ -54,14 +65,37 @@ order_position = function() {
       }
   });
 
-$('#stop_points').bind("cocoon:after-insert", function(event) {
+$('#stop_points').bind("cocoon:after-insert", function(event, insertedItem) {
+  //$( ".stop_point" ).last().val(  );
+
+  var new_stop_count = $('div.nested-fields.stop_point').size();
+  var cocoonId = insertedItem.find("input.new_stop_point").attr("id").match( /route_stop_points_attributes_(\d+)_stop_area_id/)[1];
+  insertedItem.find('input').each( function(index,e){
+    var old = $(e).attr("name");
+    console.log(old);
+    if (old!=undefined) {
+      $(e).attr("name", old.replace( cocoonId, new_stop_count - 1));
+    }
+  });
+
+  console.log( "cocoonId="+cocoonId+", new_stop_count="+new_stop_count);
   order_position();
 });
 
-$('#stop_points').bind("cocoon:after-remove", function(event) {
+$('#stop_points').on("cocoon:before-remove", function() {
+  stop_point_ids =   $('#stop_points input[type="hidden"][class="stop_point_id"]').map(function() {
+      return $(this).val();
+  });
+  //var stop_point_ids = read_stop_point_ids();
+  console.log(  "before-remove");
+  console.log(  stop_point_ids);
+});
+
+$('#stop_points').on("cocoon:after-remove", function() {
+  write_stop_point_ids();
   order_position();
 });
 
-  
+
 </script>
 

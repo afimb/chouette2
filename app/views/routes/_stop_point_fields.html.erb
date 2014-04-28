@@ -3,9 +3,9 @@
     <%= link_to_remove_association "<i class='fa fa-trash-o'></i>".html_safe, f %>
     <span class="handle" alt="<%= t('stop_points.index.move') %>" title="<%= t('stop_points.index.move') %>" ><i class='fa fa-arrows'></i></span>
   <% if f.object.stop_area.nil? %>
-    <%= f.input :id, :as => :hidden, :input_html => { :class => "stop_point_id", :value => Time.now.to_i } %>    
+    <%= f.input :id, :as => :hidden, :input_html => { :class => "stop_point_id", :value => "" } %>
     <%= f.input :position, :as => :hidden, :input_html => { :class => "position" } %>
-    <%= f.input :stop_area_id, :label => false, :input_html => { :class => "new_stop_point stop_area_id", :"data-pre" => [].to_json }  %>
+    <%= f.input :stop_area_id, :label => false, :wrapper_html => { :class => (f.object.valid? ? "" : "error") }, :input_html => { :class => "new_stop_point stop_area_id", :"data-pre" => [].to_json }  %>
     <script>
 	    $(function() {
       $( ".new_stop_point" ).last().tokenInput('<%= referential_stop_point_areas_path(@referential, :format => :json) %>',
@@ -16,11 +16,11 @@
                hintText: '<%= t('search_hint') %>',
                noResultsText: '<%= t('no_result_text') %>',
                searchingText: '<%= t('searching_term') %>' }
-      );  
+      );
       });
     </script>
     <% else %>
-    <%= f.input :id, :as => :hidden, :input_html => { :class => "stop_point_id" } %>    
+    <%= f.input :id, :as => :hidden, :input_html => { :class => "stop_point_id" } %>
     <%= f.input :position, :as => :hidden, :input_html => { :class => "position" } %>
     <%= f.input :stop_area_id, :as => :hidden, :input_html => { :class => "stop_area_id"} %>
     <%= f.object.stop_area.name %>
