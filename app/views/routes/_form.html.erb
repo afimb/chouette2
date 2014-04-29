@@ -39,8 +39,15 @@ var read_stop_point_ids = function(){
   });
 }
 var write_stop_point_ids = function(){
-  $('#stop_points input[type="hidden"][class="stop_point_id"]').each(function(index) {
-    $(this).attr("value", stop_point_ids[index])
+  $('#stop_points input[type="hidden"][class~="stop_point_id"]').each(function(index,element) {
+
+
+    // soit le parent a la classe added_stop_point
+      if ( $(element).hasClass("added_stop_point") ){
+        $(this).attr("value", "");
+      } else {
+        $(this).attr("value", stop_point_ids.shift());
+      }
   });
 }
 
@@ -54,12 +61,21 @@ var write_stop_point_ids = function(){
       opacity: 0.4,
       scroll: true,
       start: function( event, ui ) {
-        stop_point_ids = $('#stop_points input[type="hidden"][class="stop_point_id"]').map(function() {
-          return $(this).val();
-        }); },
+        while(stop_point_ids.length > 0) {
+          stop_point_ids.pop();
+        }
+        $('#stop_points input[type="hidden"][class="stop_point_id"]').map(function() {
+          stop_point_ids.push( $(this).val());
+        });
+        console.log( stop_point_ids );
+      },
       update: function( event, ui ) {
-        $('#stop_points input[type="hidden"][class="stop_point_id"]').each(function(index) {
-          $(this).attr("value", stop_point_ids[index])
+        $('#stop_points input[type="hidden"][class~="stop_point_id"]').each( function( index,element) {
+          if ( $(element).hasClass("added_stop_point") ){
+            $(this).attr("value", "");
+          } else {
+            $(this).attr("value", stop_point_ids.shift());
+          }
         });
         order_position();
       }
@@ -72,7 +88,6 @@ $('#stop_points').bind("cocoon:after-insert", function(event, insertedItem) {
   var cocoonId = insertedItem.find("input.new_stop_point").attr("id").match( /route_stop_points_attributes_(\d+)_stop_area_id/)[1];
   insertedItem.find('input').each( function(index,e){
     var old = $(e).attr("name");
-    console.log(old);
     if (old!=undefined) {
       $(e).attr("name", old.replace( cocoonId, new_stop_count - 1));
     }
@@ -83,8 +98,11 @@ $('#stop_points').bind("cocoon:after-insert", function(event, insertedItem) {
 });
 
 $('#stop_points').on("cocoon:before-remove", function() {
-  stop_point_ids =   $('#stop_points input[type="hidden"][class="stop_point_id"]').map(function() {
-      return $(this).val();
+  while(stop_point_ids.length > 0) {
+    stop_point_ids.pop();
+  }
+  $('#stop_points input[type="hidden"][class="stop_point_id"]').map(function() {
+    stop_point_ids.push( $(this).val());
   });
   //var stop_point_ids = read_stop_point_ids();
   console.log(  "before-remove");
