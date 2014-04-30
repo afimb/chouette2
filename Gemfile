@@ -52,7 +52,7 @@ gem 'google-analytics-rails'
 gem 'will_paginate', '~> 3.0'
 gem 'ransack'
 gem 'squeel'
-gem 'ninoxe', :git => 'git://github.com/afimb/ninoxe.git'
+gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git'
 #gem 'ninoxe',:path => '~/workspace/chouette/ninoxe'
 #gem 'ninoxe', '0.1.7'
 

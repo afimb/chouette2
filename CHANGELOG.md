@@ -12,7 +12,7 @@
   * Créer un calendrier avec des dates ou périodes vides, crée un calendrier vide (Mantis 24425)
   * Remplacer détruire par supprimer dans les confirmation de suppression (Mantis 24414)
   
-# Version 2.3.0 (06/03/14, en cours de qualification)
+# Version 2.3.0 (18/04/14)
 * Migration technique de chouette (Java)
 
 # Version 2.2.0 (06/03/14)
