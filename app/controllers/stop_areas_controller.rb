@@ -1,10 +1,11 @@
+# -*- coding: utf-8 -*-
 class StopAreasController < ChouetteController
   defaults :resource_class => Chouette::StopArea
 
   belongs_to :referential do
     belongs_to :line, :parent_class => Chouette::Line, :optional => true, :polymorphic => true
     belongs_to :network, :parent_class => Chouette::Network, :optional => true, :polymorphic => true
-    belongs_to :connection_link, :parent_class => Chouette::Network, :optional => true, :polymorphic => true
+    belongs_to :connection_link, :parent_class => Chouette::ConnectionLink, :optional => true, :polymorphic => true
   end
 
   respond_to :html, :kml, :xml, :json
@@ -40,9 +41,16 @@ class StopAreasController < ChouetteController
     @detail_access_links = stop_area.detail_access_link_matrix
   end
 
-  def index
+  def index    
     request.format.kml? ? @per_page = nil : @per_page = 12
-    index!
+
+    index! do |format|
+      format.html {
+        if collection.out_of_bounds?
+          redirect_to params.merge(:page => 1)
+        end
+      }
+    end       
   end
 
   def show
