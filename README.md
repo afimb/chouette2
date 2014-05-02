@@ -10,7 +10,7 @@ Chouette2 is an open source web project in Ruby/Rails to edit and view transport
 
 It uses java library from another git project to import and export various transport data [chouette](http://github.com/afimb/chouette)
 
-Feel free to test and access to the demonstration web site at [http://demo.chouette.mobi](http://demo.chouette.mobi/chouette2/users/sign_in). Two types of access are granted :
+Feel free to test and access to the free SaaS web site at [http://appli.chouette.mobi](http://appli.chouette.mobi/chouette2/users/sign_in). Two types of access are granted :
 * A demo organisation with a set of data
   * login : demo@chouette.mobi
   * password : chouette
