@@ -30,15 +30,15 @@ class VehicleJourneysController < ChouetteController
     update!(:alert => t('activerecord.errors.models.vehicle_journey.invalid_times'))
   end
 
-  def index    
-    index! do |format|
-      format.html {
-        if collection.out_of_bounds?
-          redirect_to params.merge(:page => 1)
-        end
-      }
-    end       
-  end
+#  def index    
+#    index! do |format|
+#      format.html {
+#        if collection.out_of_bounds?
+#          redirect_to params.merge(:page => 1)
+#        end
+#      }
+#    end       
+#  end
 
 
   # overwrite inherited resources to use delete instead of destroy 
