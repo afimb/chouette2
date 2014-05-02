@@ -11,6 +11,7 @@
   * Mieux expliquer les espaces de données dans l'aide (Mantis 22286 et 22811)
   * Créer un calendrier avec des dates ou périodes vides, crée un calendrier vide (Mantis 24425)
   * Remplacer détruire par supprimer dans les confirmation de suppression (Mantis 24414)
+  * Protection des listes avec filtre si la page courante est au dela du nombre de pages (Mantis 20954)
   
 # Version 2.3.0 (18/04/14)
 * Migration technique de chouette (Java)

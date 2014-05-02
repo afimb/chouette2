@@ -18,6 +18,19 @@ class TimeTablesController < ChouetteController
     
   end
 
+  def index    
+    request.format.kml? ? @per_page = nil : @per_page = 12
+
+    index! do |format|
+      format.html {
+        if collection.out_of_bounds?
+          redirect_to params.merge(:page => 1)
+        end
+      }
+    end       
+  end
+
+
   protected
 
   def filtered_time_tables_maps
