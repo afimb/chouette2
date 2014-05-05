@@ -30,31 +30,31 @@ class VehicleJourneysController < ChouetteController
     update!(:alert => t('activerecord.errors.models.vehicle_journey.invalid_times'))
   end
 
-#  def index    
-#    index! do |format|
-#      format.html {
-#        if collection.out_of_bounds?
-#          redirect_to params.merge(:page => 1)
-#        end
-#      }
-#    end       
-#  end
+  def index  
+    index! do |format|
+      format.html {
+        @matrix ||= matrix
+        if collection.out_of_bounds?
+          redirect_to params.merge(:page => 1)
+        end
+      }
+    end       
+  end
 
 
   # overwrite inherited resources to use delete instead of destroy 
   # foreign keys will propagate deletion)
   def destroy_resource(object)
-        object.delete
+    object.delete
   end
 
   protected
   
   alias_method :vehicle_journey, :resource
-
+  
   def collection
     @q = parent.sorted_vehicle_journeys.search(params[:q])
-    @vehicle_journeys ||= @q.result.order( "vehicle_journey_at_stops.departure_time").paginate(:page => params[:page], :per_page => 8)
-    @matrix ||= matrix 
+    @vehicle_journeys ||= @q.result.order( "vehicle_journey_at_stops.departure_time").paginate(:page => params[:page], :per_page => 8) 
   end
 
   def matrix
