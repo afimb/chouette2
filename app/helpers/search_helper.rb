@@ -5,7 +5,7 @@ module SearchHelper
     if is_current
       html_options[:class] = [html_options[:class], "current"].compact.join(" ")
     end
-    link_to name, params.deep_merge("q" => search), html_options
+    link_to name, params.deep_merge("q" => search,:page => 1), html_options
   end
 
 end
