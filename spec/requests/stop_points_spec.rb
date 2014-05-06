@@ -20,7 +20,7 @@ describe "StopPoints" do
   end
   describe "from route's page, go to new stop point page" do
     it "display route's stop points" do
-      
+      pending
       visit referential_line_route_path(referential,line,route)
       click_link "Gérer les arrêts de la séquence"
       click_link "Ajouter un arrêt à la séquence"
