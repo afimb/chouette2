@@ -23,21 +23,15 @@
      <%= form.action :cancel, :as => :link %>
    <% end %>
 <% end %>
-
 <script>
 var stop_point_ids = [];
-var order_position;
 
-order_position = function() {
+var order_position = function() {
   $('#stop_points input[type="hidden"][id$="position"]').each(function(index) {
     $(this).val(index);
   });
 };
-var read_stop_point_ids = function(){
-  $('#stop_points input[type="hidden"][class="stop_point_id"]').map(function() {
-      return $(this).val();
-  });
-}
+
 var write_stop_point_ids = function(){
   $('#stop_points input[type="hidden"][class~="stop_point_id"]').each(function(index,element) {
 
@@ -51,7 +45,32 @@ var write_stop_point_ids = function(){
   });
 }
 
+var empty_stop_point_ids = function() {
+  while(stop_point_ids.length > 0) {
+    stop_point_ids.pop();
+  }
+  $('#stop_points input[type="hidden"][class="stop_point_id"]').map(function() {
+    stop_point_ids.push( $(this).val());
+  });
+  // console.log(  "before-remove");
+  // console.log(  stop_point_ids);
+};
+var stop_area_selection_token_input = function( element ) {
+  element.tokenInput('<%= referential_stop_point_areas_path(@referential, :format => :json) %>',
+        {  crossDomain: false,
+           prePopulate: $(element).data('pre'),
+           tokenLimit: 1,
+           minChars: 3,
+           hintText: '<%= t('search_hint') %>',
+           noResultsText: '<%= t('no_result_text') %>',
+           searchingText: '<%= t('searching_term') %>' }
+        );
+};
 
+$(document).ready( function() {
+  $( ".new_stop_point" ).each( function(index, element){
+    stop_area_selection_token_input( $(element))
+  });
   $('#stop_points').sortable({
       axis: 'y',
       dropOnEmpty: false,
@@ -61,58 +80,38 @@ var write_stop_point_ids = function(){
       opacity: 0.4,
       scroll: true,
       start: function( event, ui ) {
-        while(stop_point_ids.length > 0) {
-          stop_point_ids.pop();
-        }
-        $('#stop_points input[type="hidden"][class="stop_point_id"]').map(function() {
-          stop_point_ids.push( $(this).val());
-        });
-        console.log( stop_point_ids );
+        empty_stop_point_ids();
       },
       update: function( event, ui ) {
-        $('#stop_points input[type="hidden"][class~="stop_point_id"]').each( function( index,element) {
-          if ( $(element).hasClass("added_stop_point") ){
-            $(this).attr("value", "");
-          } else {
-            $(this).attr("value", stop_point_ids.shift());
-          }
-        });
+        write_stop_point_ids();
         order_position();
       }
   });
+  $('#stop_points').bind("cocoon:after-insert", function(event, insertedItem) {
+    stop_area_selection_token_input( insertedItem.find( ".new_stop_point" ));
 
-$('#stop_points').bind("cocoon:after-insert", function(event, insertedItem) {
-  //$( ".stop_point" ).last().val(  );
+    var new_stop_count = $('div.nested-fields.stop_point').size();
+    var cocoonId = insertedItem.find("input.new_stop_point").attr("id").match( /route_stop_points_attributes_(\d+)_stop_area_id/)[1];
+    insertedItem.find('input').each( function(index,e){
+      var old = $(e).attr("name");
+      if (old!=undefined) {
+        $(e).attr("name", old.replace( cocoonId, new_stop_count - 1));
+      }
+    });
 
-  var new_stop_count = $('div.nested-fields.stop_point').size();
-  var cocoonId = insertedItem.find("input.new_stop_point").attr("id").match( /route_stop_points_attributes_(\d+)_stop_area_id/)[1];
-  insertedItem.find('input').each( function(index,e){
-    var old = $(e).attr("name");
-    if (old!=undefined) {
-      $(e).attr("name", old.replace( cocoonId, new_stop_count - 1));
-    }
+    //console.log( "cocoonId="+cocoonId+", new_stop_count="+new_stop_count);
+    order_position();
   });
 
-  console.log( "cocoonId="+cocoonId+", new_stop_count="+new_stop_count);
-  order_position();
-});
+  $('#stop_points').on("cocoon:before-remove", empty_stop_point_ids);
 
-$('#stop_points').on("cocoon:before-remove", function() {
-  while(stop_point_ids.length > 0) {
-    stop_point_ids.pop();
-  }
-  $('#stop_points input[type="hidden"][class="stop_point_id"]').map(function() {
-    stop_point_ids.push( $(this).val());
+  $('#stop_points').on("cocoon:after-remove", function() {
+    write_stop_point_ids();
+    order_position();
   });
-  //var stop_point_ids = read_stop_point_ids();
-  console.log(  "before-remove");
-  console.log(  stop_point_ids);
 });
 
-$('#stop_points').on("cocoon:after-remove", function() {
-  write_stop_point_ids();
-  order_position();
-});
+
 
 
 </script>

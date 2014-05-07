@@ -5,20 +5,7 @@
   <% if f.object.stop_area.nil? %>
     <%= f.input :id, :as => :hidden, :input_html => { :class => "stop_point_id added_stop_point", :value => "" } %>
     <%= f.input :position, :as => :hidden, :input_html => { :class => "position" } %>
-    <%= f.input :stop_area_id, :label => false, :wrapper_html => { :class => (f.object.valid? ? "" : "error") }, :input_html => { :class => "new_stop_point stop_area_id", :"data-pre" => [].to_json }  %>
-    <script>
-	    $(function() {
-      $( ".new_stop_point" ).last().tokenInput('<%= referential_stop_point_areas_path(@referential, :format => :json) %>',
-            {  crossDomain: false,
-               prePopulate: $('#stop_area_id').data('pre'),
-               tokenLimit: 1,
-               minChars: 3,
-               hintText: '<%= t('search_hint') %>',
-               noResultsText: '<%= t('no_result_text') %>',
-               searchingText: '<%= t('searching_term') %>' }
-      );
-      });
-    </script>
+    <%= f.input :stop_area_id, :label => false, :input_html => { :class => "new_stop_point stop_area_id", :"data-pre" => [].to_json }  %>
     <% else %>
     <%= f.input :id, :as => :hidden, :input_html => { :class => "stop_point_id" } %>
     <%= f.input :position, :as => :hidden, :input_html => { :class => "position" } %>
