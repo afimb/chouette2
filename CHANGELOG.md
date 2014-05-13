@@ -1,7 +1,7 @@
-# Version 2.4.0 (en développement)
-* Corrections d'annomalies
-  * L'Import GTFS importe les fichiers avec marqueurs BOM (Mantis 21260)
-  * L'Import GTFS accepte des routes sans colonne agencyId (Mantis 22665)
+# Version 2.4.0 (en recette)
+* Corrections d'anomalies
+  * L'Import GTFS n'importe pas les fichiers avec marqueurs BOM (Mantis 21260)
+  * L'Import GTFS n'accepte pas des routes sans colonne agencyId (Mantis 22665)
   * L'Export GTFS sort en erreur sur objet à exporter incomplêt (Mantis 24484)
   * L'Export CSV sort un message inexploitable sur informations incomplètes (Mantis 24485)
   * L'import NeTEx n'importe pas les ITL (Mantis 20889)
@@ -12,13 +12,22 @@
   * Créer un calendrier avec des dates ou périodes vides, crée un calendrier vide (Mantis 24425)
   * Remplacer détruire par supprimer dans les confirmation de suppression (Mantis 24414)
   * Protection des listes avec filtre si la page courante est au delà du nombre de pages (Mantis 20954)
-  * l'export n'accepte plus une liste de réseaux (Mantis 26438)
-  
+  * L'export n'accepte plus une liste de réseaux (Mantis 26438)
+  * L'insertion d'un arrêt dans une séquence perturbe les courses existantes (Mantis 23800)
+
 # Version 2.3.0 (18/04/14)
 * Migration technique de chouette (Java)
+  * passage sous spring 4
+  * passage sous hibernate 4
+  * utilisation des annotations JPA
 
 # Version 2.2.0 (06/03/14)
 * Refonte des fonctions d'import et validation
+  * suppression de la validation de fichiers
+  * mise en place de la validation durant l'import
+  * ajout de la validation sur les objets en base
+  * redéfinition des tests
+  * refonte des IHM de résultat
 
 # Version 2.1.1 (20/12/13)
 * Ajout de Google Analytics
