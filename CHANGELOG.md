@@ -14,6 +14,7 @@
   * Protection des listes avec filtre si la page courante est au delà du nombre de pages (Mantis 20954)
   * L'export n'accepte plus une liste de réseaux (Mantis 26438)
   * L'insertion d'un arrêt dans une séquence perturbe les courses existantes (Mantis 23800)
+  * Import Neptune : erreur de sauvegarde si le mode de transport est manquant (Mantis 26702)
 
 # Version 2.3.0 (18/04/14)
 * Migration technique de chouette (Java)
