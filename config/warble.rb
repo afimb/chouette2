@@ -8,16 +8,16 @@ Warbler::Config.new do |config|
   # - gemjar: package the gem repository in a jar file in WEB-INF/lib
   # - executable: embed a web server and make the war executable
   # - compiled: compile .rb files to .class files
-  # config.features = %w(gemjar)
+  #config.features = %w(gemjar)
 
   # Application directories to be included in the webapp.
-  config.dirs = %w(app config lib vendor db)
+  config.dirs = %w(app config db lib log script vendor tmp)
 
   # Additional files/directories to include, above those in config.dirs
-  #config.includes = FileList["db"]
+  # config.includes = FileList["db"]
 
   # Additional files/directories to exclude
-  # config.excludes = FileList["lib/tasks/*"]
+  config.excludes = FileList["Guardfile", "Capfile", "config/deploy/*", "config/deploy.rb"]
 
   # Additional Java .jar files to include.  Note that if .jar files are placed
   # in lib (and not otherwise excluded) then they need not be mentioned here.
@@ -41,8 +41,8 @@ Warbler::Config.new do |config|
   # config.bundler = false
 
   # An array of Bundler groups to avoid including in the war file.
-  # Defaults to ["development", "test"].
-  config.bundle_without = %w{development test assets}
+  # Defaults to ["development", "test", "assets"].
+  # config.bundle_without = []
 
   # Other gems to be included. If you don't use Bundler or a gemspec
   # file, you need to tell Warbler which gems your application needs
@@ -53,7 +53,7 @@ Warbler::Config.new do |config|
   # config.gems << "tzinfo"
 
   # Uncomment this if you don't want to package rails gem.
-  #config.gems -= ["rails"]
+  # config.gems -= ["rails"]
 
   # The most recent versions of gems are used.
   # You can specify versions of gems by using a hash assignment:
@@ -71,7 +71,7 @@ Warbler::Config.new do |config|
   # Array of regular expressions matching relative paths in gems to be
   # excluded from the war. Defaults to empty, but you can set it like
   # below, which excludes test files.
-  # config.gem_excludes = [/^(test|spec)\//]
+  config.gem_excludes = [/^(test|spec)\//]
 
   # Pathmaps for controlling how application files are copied into the archive
   # config.pathmaps.application = ["WEB-INF/%p"]
@@ -89,6 +89,22 @@ Warbler::Config.new do |config|
   # the application.
   # config.compiled_ruby_files = FileList['app/**/*.rb']
 
+  # When set to true, Warbler will override the value of ENV['GEM_HOME'] even it
+  # has already been set. When set to false it will use any existing value of
+  # GEM_HOME if it is set.
+  # config.override_gem_home = true
+
+  # Allows for specifing custom executables 
+  # config.executable = ["rake", "bin/rake"]
+  
+  # Sets default (prefixed) parameters for the executables
+  # config.executable_params = "do:something"
+
+  # If set to true, moves jar files into WEB-INF/lib. Prior to version 1.4.2 of Warbler this was done
+  # by default. But since 1.4.2 this config defaults to false. It may need to be set to true for
+  # web servers that do not explode the WAR file.
+  config.move_jars_to_webinf_lib = true
+
   # === War files only below here ===
 
   # Path to the pre-bundled gem directory inside the war file. Default
@@ -105,9 +121,17 @@ Warbler::Config.new do |config|
   # Files to be included in the root of the webapp.  Note that files in public
   # will have the leading 'public/' part of the path stripped during staging.
   # config.public_html = FileList["public/**/*", "doc/**/*"]
+  config.public_html = FileList["public/**/*"]
 
   # Pathmaps for controlling how public HTML files are copied into the .war
   # config.pathmaps.public_html = ["%{public/,}p"]
+
+  # Embedded webserver to use with the 'executable' feature. Currently supported
+  # webservers are:
+  # * <tt>winstone</tt> (default) - Winstone 0.9.10 from sourceforge
+  # * <tt>jenkins-ci.winstone</tt> - Improved Winstone from Jenkins CI
+  # * <tt>jetty</tt> - Embedded Jetty from Eclipse
+  # config.webserver = 'jetty'
 
   # Value of RAILS_ENV for the webapp -- default as shown below
   # config.webxml.rails.env = ENV['RAILS_ENV'] || 'production'
@@ -116,7 +140,7 @@ Warbler::Config.new do |config|
   # config.webxml.booter = :rails
 
   # Set JRuby to run in 1.9 mode.
-  # config.webxml.jruby.compat.version = "1.9"
+  config.webxml.jruby.compat.version = "1.9"
 
   # When using the :rack booter, "Rackup" script to use.
   # - For 'rackup.path', the value points to the location of the rackup
@@ -131,25 +155,22 @@ Warbler::Config.new do |config|
   # config.webxml.rackup = %{require './lib/demo'; run Rack::Adapter::Camping.new(Demo)}
   # config.webxml.rackup = require 'cgi' && CGI::escapeHTML(File.read("config.ru"))
 
+  config.webxml.jruby.worker = 'delayed_job'
+
   # Control the pool of Rails runtimes. Leaving unspecified means
   # the pool will grow as needed to service requests. It is recommended
   # that you fix these values when running a production server!
+  # If you're using threadsafe! mode, you probably don't want to set these values,
+  # since 1 runtime(default for threadsafe mode) will be enough.
   config.webxml.jruby.min.runtimes = 2
   config.webxml.jruby.max.runtimes = 4
-
-  config.webxml.jruby.worker.script = <<EOF
-Rails.logger.info "start Delayed::JRubyWorker"
-begin
-require 'delayed/jruby_worker'
-Delayed::JRubyWorker.new(:quiet => false).start
-rescue => e
-  Rails.logger.fatal(e)
-  raise e
-end
-EOF
 
   # JNDI data source name
   # config.webxml.jndi = 'jdbc/rails'
 
-  config.init_contents << "config/war_init.rb"
+  # Update rackup configuration
+  # config.webxml.rails.relative_url_append = '/chouette2'
+  
+  # Play migrations 
+  #config.init_contents << "config/war_init.rb"
 end

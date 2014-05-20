@@ -3,12 +3,13 @@ source 'http://rubygems.org'
 gem 'rails', '3.2.6'
 
 platforms :jruby do
-  gem 'activerecord-jdbcpostgresql-adapter', '1.2.9'
+  gem 'activerecord-jdbcpostgresql-adapter', '~> 1.2.9'
   gem 'activerecord-jdbcsqlite3-adapter'
   gem 'jruby-openssl'
   gem "jruby-rack-worker"
   gem 'warbler'
   gem 'therubyrhino'
+  gem 'jruby-lint'
 end
 
 platforms :ruby do
@@ -63,17 +64,11 @@ gem "active_enum"
 gem 'delayed_job_active_record'
 gem 'dr-apartment', :require => "apartment"
 
-# some views use coffee script
-gem 'coffee-rails', '~> 3.2.1'
-gem 'coffee-script-source'
 gem 'rabl'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'sass-rails',   '~> 3.2.3'
+gem 'coffee-rails', '~> 3.2.1'
+gem 'uglifier', '>= 1.0.3'
 
 group :development do
   gem 'capistrano'

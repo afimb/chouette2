@@ -1,8 +1,5 @@
 ChouetteIhm::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
-  #
-  # replace this with your production tracker code
-  GA.tracker = "UA-AAAAAAAA"
 
   # Code is not reloaded between requests
   config.cache_classes = true
@@ -10,9 +7,10 @@ ChouetteIhm::Application.configure do
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
+  # config.action_controller.relative_url_root = "/chouette2"
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
-  config.serve_static_assets = true
+  config.serve_static_assets = false
 
   # Compress JavaScripts and CSS
   config.assets.compress = false
@@ -22,6 +20,19 @@ ChouetteIhm::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
+
+  # Defaults to Rails.root.join("public/assets")
+  # config.assets.manifest = YOUR_PATH
+
+  # Specifies the header that your server uses for sending files
+  # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
+  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
+
+  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+  # config.force_ssl = true
+
+  # See everything in the log (default is :info)
+  #config.log_level = :info
 
   # Use a different logger for distributed setups
   #if ENV['OS'] == 'Windows_NT'
@@ -34,8 +45,21 @@ ChouetteIhm::Application.configure do
   end
   #end
 
-  # api key to geoportail IGN (production key link to application url root referer)
-  config.geoportail_api_key = "aaaaaaaaaaaaaa"
+  # Use a different cache store in production
+  # config.cache_store = :mem_cache_store
+
+  # Enable serving of images, stylesheets, and JavaScripts from an asset server
+  # config.action_controller.asset_host = "chouette2"
+
+  # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
+  # config.assets.precompile += %w( search.js )
+
+  # Disable delivery errors, bad email addresses will be ignored
+  # config.action_mailer.raise_delivery_errors = false
+  
+  # Enable threaded mode
+  # NOTICE : With Rails 3.2, Delayed::JRubyWorker blocks the application without threaded mode
+  config.threadsafe!
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
@@ -44,7 +68,7 @@ ChouetteIhm::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => 'my-domain-name.com' }
+  config.action_mailer.default_url_options = { :host => 'localhost:8080/chouette2' }
 
   # Configure the e-mail address which will be shown in Devise::Maile
   config.mailer_sender = "chouette-production@my-domain-name.com"
@@ -61,12 +85,19 @@ ChouetteIhm::Application.configure do
   #     :user_name => "username",
   #   }
   #else
+   ActionMailer::Base.delivery_method = :sendmail
    ActionMailer::Base.smtp_settings = {
-    :address        => "smtp.samle.com",
+    :address        => "smtp.sample.com",
     :domain         => "sample.com"
   }
   #end
 
+  # replace this with your production tracker code
+  GA.tracker = "UA-AAAAAAAA"
+  
+  # api key to geoportail IGN (production key link to application url root referer)
+  config.geoportail_api_key = "aaaaaaaaaaaaaa"
+  
   # file to data for demo
   config.demo_data = "/path/to/demo.zip"
 
@@ -76,8 +107,8 @@ ChouetteIhm::Application.configure do
   # paths for external resources
   config.to_prepare do
     Devise::Mailer.layout "mailer"
-    Chouette::Command.command = "/usr/local/opt/chouette-command/chouette-cmd_2.3.0/chouette"
-    ImportTask.root = "/var/lib/chouette/imports"
+    Chouette::Command.command = "/var/lib/chouette/chouette-command/chouette"
+    ImportTask.root = "/var/lib/chouette/import_tasks"
     Export.root = "/var/lib/chouette/exports"
   end
 
