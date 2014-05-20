@@ -9,6 +9,7 @@ module Api
       end
 
       def eql?(other)
+        return false unless other.respond_to?( :token)
         other.token == self.token
       end
 
@@ -21,7 +22,7 @@ module Api
     private
       def generate_access_token
         begin
-          self.token = "#{referential.id}-#{SecureRandom.hex}" 
+          self.token = "#{referential.id}-#{SecureRandom.hex}"
         end while self.class.exists?(:token => self.token)
       end
     end
