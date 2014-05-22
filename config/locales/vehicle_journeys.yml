@@ -89,7 +89,7 @@ fr:
       new: "Ajouter une course"
       edit: "Modifier cette course"
       destroy: "Supprimer cette course"
-      destroy_confirm: "Etes vous sûr de détruire cette course ?"
+      destroy_confirm: "Etes vous sûr de supprimer cette course ?"
     new:
       title: "Ajouter une course"
     edit:

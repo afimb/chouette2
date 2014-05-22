@@ -6,11 +6,16 @@ class CompaniesController < ChouetteController
 
   belongs_to :referential, :parent_class => Referential
 
-  # def update
-  #   update! do |success, failure|
-  #     failure.html { redirect_to referential_companies_path(@resource,  @referential) }
-  #   end    
-  # end
+  def index    
+
+    index! do |format|
+      format.html {
+        if collection.out_of_bounds?
+          redirect_to params.merge(:page => 1)
+        end
+      }
+    end       
+  end
 
   protected
   def collection    

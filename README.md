@@ -10,11 +10,16 @@ Chouette2 is an open source web project in Ruby/Rails to edit and view transport
 
 It uses java library from another git project to import and export various transport data [chouette](http://github.com/afimb/chouette)
 
-Feel free to test and access to the demonstration web site at [http://demo.chouette.mobi](http://demo.chouette.mobi/chouette2/users/sign_in). Two types of access are granted :
+Feel free to test and access to the free SaaS web site at [http://appli.chouette.mobi](http://appli.chouette.mobi/chouette2/users/sign_in). Two types of access are granted :
 * A demo organisation with a set of data
   * login : demo@chouette.mobi
   * password : chouette
 * Create your own organisation : Must follow the link "Sign up" ("S'inscrire")
+
+Release Notes
+-------------
+
+The release notes can be found in [CHANGELOG](./CHANGELOG.md) file
 
 Requirements
 ------------
@@ -38,7 +43,6 @@ rvm --default use 1.9.3-p448
 ```
 
 On Debian/Ubuntu/Kubuntu OS : assume depot contains the correct version
-
 ```sh
 sudo apt-get install postgresql
 sudo apt-get install libpq-dev
@@ -53,16 +57,15 @@ sudo apt-get install make
 Installation
 ------------
 
-
 Install chouette-gui-command to import, export and validate transport offer,
 Assume Linux user is myuser and its group mygroup (that user is the one who starts Rails server)
 ```sh
 sudo mkdir -p /usr/local/opt/chouette-command/
 sudo chown -R myuser:mygroup /usr/local/opt/chouette-command/
 cd /usr/local/opt/chouette-command/
-wget http://maven.chouette.cityway.fr/fr/certu/chouette/chouette-gui-command/2.2.0/chouette-gui-command-2.2.0.zip
-unzip chouette-gui-command-2.2.0.zip
-cd chouette-cmd_2.2.0
+wget http://maven.chouette.cityway.fr/fr/certu/chouette/chouette-gui-command/2.4.0/chouette-gui-command-2.4.0.zip
+unzip chouette-gui-command-2.4.0.zip
+cd chouette-cmd_2.4.0
 sudo chmod a+w .
 ```
 
@@ -71,7 +74,7 @@ Install web application
 Get git source code :
 ```sh
 cd
-git clone -b V2_2 git://github.com/afimb/chouette2
+git clone -b V2_4 git://github.com/afimb/chouette2
 cd chouette2
 ```
 Download gem librairies

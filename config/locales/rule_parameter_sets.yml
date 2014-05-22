@@ -61,7 +61,7 @@ fr:
       edit: "Modifier ce jeu de paramètres"
       index: "Jeux de paramètres"
       destroy: "Supprimer ce jeu de paramètres"
-      destroy_confirm: "Etes vous sûr de détruire ce jeu de paramètres ?"
+      destroy_confirm: "Etes vous sûr de supprimer ce jeu de paramètres ?"
     new:
       title: "Ajouter un jeu de paramètres"
     form:

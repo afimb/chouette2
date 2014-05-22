@@ -104,7 +104,7 @@ fr:
     actions:
       new: "Nouvel export"
       destroy: "Supprimer cet export"
-      destroy_confirm: "Etes vous sûr de détruire cet export ?"
+      destroy_confirm: "Etes vous sûr de supprimer cet export ?"
       download: "Télécharger"
     new:
       title: "Nouvel export"

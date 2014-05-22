@@ -81,9 +81,9 @@ fr:
       new: "Ajouter un calendrier"
       edit: "Modifier ce calendrier"
       destroy: "Supprimer ce calendrier"
-      destroy_confirm: "Etes vous sûr de détruire ce calendrier ?"
-      destroy_date_confirm: "Etes vous sûr de détruire cette date ?"
-      destroy_period_confirm: "Etes vous sûr de détruire cette période ?"
+      destroy_confirm: "Etes vous sûr de supprimer ce calendrier ?"
+      destroy_date_confirm: "Etes vous sûr de supprimer cette date ?"
+      destroy_period_confirm: "Etes vous sûr de supprimer cette période ?"
       add_period: "Ajouter une période"
       add_date: "Ajouter une date"
     new:

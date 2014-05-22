@@ -9,6 +9,16 @@ class ConnectionLinksController < ChouetteController
   respond_to :html, :xml, :json
   respond_to :kml, :only => :show
 
+  def index    
+    index! do |format|
+      format.html {
+        if collection.out_of_bounds?
+          redirect_to params.merge(:page => 1)
+        end
+      }
+    end       
+  end
+
   def show
     @map = ConnectionLinkMap.new(resource).with_helpers(self)
     show!

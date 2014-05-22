@@ -103,7 +103,7 @@ fr:
       new: "Ajouter un arrêt"
       edit: "Modifier cet arrêt"
       destroy: "Supprimer cet arrêt"
-      destroy_confirm: "Etes vous sûr de détruire cet arrêt ?"
+      destroy_confirm: "Etes vous sûr de supprimer cet arrêt ?"
       select_parent: "Gérer le parent"
       add_children: "Gérer les fils"
       add_routing_lines: "Gérer les lignes de l'ITL"

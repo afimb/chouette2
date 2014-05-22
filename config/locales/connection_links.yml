@@ -68,7 +68,7 @@ fr:
       new: "Ajouter une correspondance"
       edit: "Modifier cette correspondance"
       destroy: "Supprimer cette correspondance"
-      destroy_confirm: "Etes vous sûr de détruire cette correspondance ?"
+      destroy_confirm: "Etes vous sûr de supprimer cette correspondance ?"
       select_areas: "Modifier les départs/arrivées"
     new:
       title: "Ajouter une correspondance"

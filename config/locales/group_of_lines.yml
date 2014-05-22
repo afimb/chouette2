@@ -43,7 +43,7 @@ fr:
       new: "Ajouter un groupe de lignes"
       edit: "Modifier ce groupe de lignes"
       destroy: "Supprimer ce groupe de lignes"
-      destroy_confirm: "Etes vous sûr de détruire ce groupe de lignes ?"
+      destroy_confirm: "Etes vous sûr de supprimer ce groupe de lignes ?"
     new:
       title: "Ajouter un groupe de lignes"
     edit:

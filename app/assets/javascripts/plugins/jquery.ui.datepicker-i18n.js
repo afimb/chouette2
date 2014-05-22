@@ -47,7 +47,7 @@ jQuery(function($){
                                       {
                                           $(element).datepicker(
                                               { 
-                                                  dateFormat: "dd/mm/y",
+                                                  dateFormat: "dd/mm/yy",
                                                   dayNamesShort: $.datepicker.regional[ $('html').attr('lang') ].dayNamesShort, 
                                                   dayNames: $.datepicker.regional[ $('html').attr('lang') ].dayNames, 
                                                   monthNamesShort: $.datepicker.regional[ $('html').attr('lang') ].monthNamesShort, 
@@ -55,7 +55,7 @@ jQuery(function($){
                                               } );
                                           if ($(element).val().indexOf('/') >= 0) 
                                           {
-                                          	$(element).datepicker("setDate", $.datepicker.parseDate('dd/mm/y', $(element).val() ) );
+                                          	$(element).datepicker("setDate", $.datepicker.parseDate('dd/mm/yy', $(element).val() ) );
                                           }
                                           else 
                                           {
@@ -68,7 +68,7 @@ jQuery(function($){
             $this.find("input[type='date']").each( 
                 function(index, element)
                 {
-                    var date = $.datepicker.formatDate('yy-mm-dd', $.datepicker.parseDate('dd/mm/y', $(element).val() ) );                   
+                    var date = $.datepicker.formatDate('yy-mm-dd', $.datepicker.parseDate('dd/mm/yy', $(element).val() ) );                   
                     $(element).val(date);
                 }
             );

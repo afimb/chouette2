@@ -13,6 +13,16 @@ class GroupOfLinesController < ChouetteController
     show!
   end
 
+  def index    
+    index! do |format|
+      format.html {
+        if collection.out_of_bounds?
+          redirect_to params.merge(:page => 1)
+        end
+      }
+    end       
+  end
+
   def name_filter
     respond_to do |format|  
       format.json { render :json => filtered_group_of_lines_maps}  

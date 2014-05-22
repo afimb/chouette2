@@ -48,7 +48,7 @@ fr:
       new: "Ajouter un transporteur"
       edit: "Modifier ce transporteur"
       destroy: "Supprimer ce transporteur"
-      destroy_confirm: "Etes vous sûr de détruire ce transporteur ?"
+      destroy_confirm: "Etes vous sûr de supprimer ce transporteur ?"
     new:
       title: "Ajouter un transporteur"
     edit:

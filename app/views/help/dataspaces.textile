@@ -10,7 +10,7 @@ p. Un *espace de données* est le lieu de stockage d'un ensemble de données de 
 h3. Attributs
 
 - Nom := nom de l'espace de données 
-- Code := code de l'espace de données
+- Code := code de l'espace de données (voir implémentation)
 - Préfixe Neptune := préfixe utilisé par défaut lors la génération de nouveaux identifiants Neptune
 - Projection géographique := référentiel de projection des coordonnées cartographiques en complément du WGS84
 - Fuseau horaire := fuseau horaire applicable pour les horaires des courses. (cf "Tz_database":http://fr.wikipedia.org/wiki/Tz_database) 
@@ -18,7 +18,14 @@ h3. Attributs
 
 h3. Implémentation
 
-p. L'espace de données est concrétisé dans la base de données par un schéma au sens SQL portant le nom défini par l'attribut code, les attributs sont enregistrés dans la table REFERENTIALS du schema 'public'
+p. L'espace de données est concrétisé dans la base de données par un schéma au sens SQL portant le nom défini par l'attribut code.
+
+p. Les attributs de l'espace de données sont enregistrés dans la table REFERENTIALS du schema 'public'
+
+p. Le préfixe Neptune est utilisé dans la génération des identifiants de l'ensemble des objets du modèle; sa modification n'a d'effet que sur les objets créés après.
+
+p. La projection géographique permet un affichae et l'export des coordonnées selon un système géographique secondaires; les coordonnées de ce système ne sont pas conservés dans la base.
 
 p. Les limitations de PosgreSQL imposent qu'un nom de schéma soit en minuscule et commence par une lettre; les préfixes 'pg_' ainsi que 'public' sont réservés. 
 
+p. Les noms et codes des espaces de données sont uniques quelque soit l'organisation; une erreur de doublon peut donc arriver si une autre organisation a déjà utilisé le même terme.

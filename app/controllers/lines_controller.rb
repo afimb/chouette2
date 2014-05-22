@@ -7,6 +7,17 @@ class LinesController < ChouetteController
 
   belongs_to :referential
 
+  def index    
+    index! do |format|
+      format.html {
+        if collection.out_of_bounds?
+          redirect_to params.merge(:page => 1)
+        end
+      }
+    end       
+  end
+
+  
   def show
     @map = LineMap.new(resource).with_helpers(self)
     @routes = @line.routes
@@ -17,7 +28,7 @@ class LinesController < ChouetteController
   # overwrite inherited resources to use delete instead of destroy 
   # foreign keys will propagate deletion)
   def destroy_resource(object)
-        object.delete
+    object.delete
   end
       
   def destroy_all

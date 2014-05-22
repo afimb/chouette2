@@ -9,6 +9,7 @@ development:
   database: chouette_dev
   encoding: utf8
   host: localhost
+  port: 5432
   username: chouette
   password: chouette
 
@@ -20,6 +21,7 @@ test:
   database: chouette_test
   encoding: utf8
   host: localhost
+  port: 5432
   username: chouette
   password: chouette
 
@@ -28,5 +30,6 @@ production:
   database: chouette2
   encoding: utf8
   host: localhost
+  port: 5432
   username: chouette
   password: chouette
