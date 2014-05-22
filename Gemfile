@@ -54,7 +54,7 @@ gem 'ransack'
 gem 'squeel'
 #gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git'
 #gem 'ninoxe',:path => '~/workspace/chouette/ninoxe'
-gem 'ninoxe', '~> 1.0.0'
+gem 'ninoxe', '~> 1.0.1'
 
 gem 'acts_as_list', '0.1.6'
 gem "acts_as_tree-1.8", '1.1.0', :require => "acts_as_tree"
