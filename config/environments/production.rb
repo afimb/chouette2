@@ -7,7 +7,7 @@ ChouetteIhm::Application.configure do
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
-  # config.action_controller.relative_url_root = "/chouette2"
+  #config.action_controller.relative_url_root = "/chouette2"
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_assets = false
@@ -107,7 +107,7 @@ ChouetteIhm::Application.configure do
   # paths for external resources
   config.to_prepare do
     Devise::Mailer.layout "mailer"
-    Chouette::Command.command = "/usr/local/opt/chouette-command/chouette"
+    Chouette::Command.command = "/usr/local/opt/chouette-command/chouette-cmd_2.3.0/chouette"
     ImportTask.root = "/var/lib/chouette/import_tasks"
     Export.root = "/var/lib/chouette/exports"
   end
