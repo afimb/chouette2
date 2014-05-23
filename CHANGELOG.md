@@ -15,6 +15,7 @@
   * L'export n'accepte plus une liste de réseaux (Mantis 26438)
   * L'insertion d'un arrêt dans une séquence perturbe les courses existantes (Mantis 23800)
   * Import Neptune : erreur de sauvegarde si le mode de transport est manquant (Mantis 26702)
+  * Edition Calendrier : problème de saisie des dates sous Chrome (Mantis 26746)
 
 # Version 2.3.0 (18/04/14)
 * Migration technique de chouette (Java)
