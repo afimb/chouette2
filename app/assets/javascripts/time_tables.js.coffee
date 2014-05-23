@@ -23,8 +23,13 @@ jQuery ->
 
 # add trigger when creating new date or period entries to activate datepicker
   tt_datepickerI18n = (index, element) ->
-    # do nothig if a datepicker is already attached
+    # do nothing if a datepicker is already attached
     return if ($(element).hasClass('hasDatepicker') )
+    # check if html already manage date input 
+    i = document.createElement('input')
+    i.setAttribute('type', 'date')
+    return if i.type != 'text'
+    # affect datepicker on date input
     $(element).datepicker({ 
                               dateFormat: "dd/mm/y",
                               dayNamesShort: $.datepicker.regional[ $('html').attr('lang') ].dayNamesShort, 
