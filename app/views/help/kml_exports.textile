@@ -14,6 +14,7 @@ h3. Sélection des données à exporter
 L'écran d'export propose un formulaire de sélection de données d'un référentiel.
 
 Voici les choix possibles :
+
 * Tout
 * des réseaux
 * des transporteurs
@@ -22,13 +23,13 @@ Voici les choix possibles :
 Selon le type de données, les lignes sont sélectionnées en suivant les règles ci-dessous :
 
 * Si le type de données à exporter est « Tout »
-  - toutes les lignes du référentiel sont sélectionnées.
+** toutes les lignes du référentiel sont sélectionnées.
 * Si le type de données à exporter est le réseau,
-  - les lignes sélectionnées sont celles appartenant à l'un des réseaux.
+** les lignes sélectionnées sont celles appartenant à l'un des réseaux.
 * Si le type de données à exporter est le transporteur,
-  - les lignes sélectionnées sont celles appartenant à  l'un des transporteurs.
+** les lignes sélectionnées sont celles appartenant à  l'un des transporteurs.
 * Si le type de données à exporter est la ligne,
-  - les lignes sont explicitement sélectionnées
+** les lignes sont explicitement sélectionnées
 
 h3. Format et nom du fichier exporté
 
@@ -39,31 +40,32 @@ h3. Contenu de l'archive d'export
 h4. Pour un export de lignes, réseaux, transporteurs
 
 L'archive ZIP contient les fichiers KML suivants :
+
 * un fichier de tracé de ligne pour chacune des lignes sélectionnées des réseaux sélectionnés ou des transporteurs sélectionnés
-  - le type de géométrie est MultiLineString
-  - les attributs de ligne figurent dans l'élément KML ExtendedData
-  - l'attribut « name » du Document KML porte le nom « Ligne : nom de la ligne »
-  - le nom de ce fichier KML est de la forme : line_identifiant de ligne.kml, l'identifiant de ligne étant un entier
+** le type de géométrie est MultiLineString
+** les attributs de ligne figurent dans l'élément KML ExtendedData
+** l'attribut « name » du Document KML porte le nom « Ligne : nom de la ligne »
+** le nom de ce fichier KML est de la forme : line_identifiant de ligne.kml, l'identifiant de ligne étant un entier
 * un fichier de tracé de chacune des séquences d'arrêts des lignes
-  - le type de géométrie est LineString
-  - les attributs de la séquence d'arrêts figurent dans l'élément KML ExtendedData
-  - l'attribut « name » du Document KML porte le nom « Séquence d'arrêts : nom de la séquence d'arrêts »
-  - le nom de ce fichier KML est de la forme : line_identifiant de ligne_route_identifiant de séquence d'arrêts.kml, l'identifiant de ligne et de séquence étant des  entiers
+** le type de géométrie est LineString
+** les attributs de la séquence d'arrêts figurent dans l'élément KML ExtendedData
+** l'attribut « name » du Document KML porte le nom « Séquence d'arrêts : nom de la séquence d'arrêts »
+** le nom de ce fichier KML est de la forme : line_identifiant de ligne_route_identifiant de séquence d'arrêts.kml, l'identifiant de ligne et de séquence étant des  entiers
 * un fichier KML pour chaque mission de chaque séquence d'arrêts
-  - le type de géométrie est Point
-  - les attributs de la séquence d'arrêts figurent dans l'élément KML ExtendedData
-  - l'attribut « name » du Document KML porte le nom «Mission : nom de la mission »
-  - le nom de ce fichier KML est de la forme : line_identifiant de ligne_route_identifiant de séquence d'arrêts_journey_pattern_id_mission.kml, les identifiants étant des  entiers
+** le type de géométrie est Point
+** les attributs de la séquence d'arrêts figurent dans l'élément KML ExtendedData
+** l'attribut « name » du Document KML porte le nom «Mission : nom de la mission »
+** le nom de ce fichier KML est de la forme : line_identifiant de ligne_route_identifiant de séquence d'arrêts_journey_pattern_id_mission.kml, les identifiants étant des  entiers
 * un fichier des arrêts commerciaux appartenant à au moins une des lignes sélectionnées
-  - le type de géométrie est Point
-  - les attributs d'arrêt commercial figurent dans l'élément KML ExtendedData
-  - l'attribut « name » du Document KML porte le nom « arrêts commerciaux»
-  - le nom de ce fichier KML est : commercial_stop_areas.kml
+** le type de géométrie est Point
+** les attributs d'arrêt commercial figurent dans l'élément KML ExtendedData
+** l'attribut « name » du Document KML porte le nom « arrêts commerciaux»
+** le nom de ce fichier KML est : commercial_stop_areas.kml
 * un fichier des arrêts physiques appartenant à au moins une des lignes sélectionnées
-  - le type de géométrie est Point
-  - les attributs d'arrêt physique figurent dans l'élément KML ExtendedData
-  - l'attribut « name » du Document KML porte le nom « arrêts physiques»
-  - le nom de ce fichier KML est : stop_areas.kml
+** le type de géométrie est Point
+** les attributs d'arrêt physique figurent dans l'élément KML ExtendedData
+** l'attribut « name » du Document KML porte le nom « arrêts physiques»
+** le nom de ce fichier KML est : stop_areas.kml
 
 h5. Remarque sur le nom des fichiers
 
@@ -77,6 +79,7 @@ h5. Géométrie associée au KML de tracé de ligne :
 
 Ce fichier KML rassemble en une seule géométrie la totalité des tronçons reliant les arrêts commerciaux entre eux.
 Ce tracé ne porte pas d'information sur les sens de parcours. Un tronçon qui relie des arrêts commerciaux A et B peut correspondre :
+
 * à un seul itinéraire dans le sens A vers B
 * à un seul itinéraire dans le sens B vers A
 * à 2 itinéraires dans les sens A vers B et B vers A
@@ -88,9 +91,9 @@ Ce tracé relie les arrêts physiques en suivant l'ordre de parcours de la séqu
 
 h5. Limitations de volumétrie
 
-1. La fonction d'export KML autorise un export de plusieurs lignes dans la limite de 150 au maximum. Au-delà, les fichiers KML des lignes ne sont pas produits, ni les fichiers des arrêts physiques, des commerciaux, des séquences d'arrêt et des missions. Seuls seront présents les fichiers des pôles d'échange, des ITL, des correspondances, des accès et  des liens accès-arrêt si l'utilisateur a choisi de tout exporter (comme indiqué au paragraphe 4.2). Le rapport d'export mentionne dans ce cas une alerte pour prévenir que le quota de lignes autorisées est dépassé.
-2. Si il y a plus de 150 séquences d'arrêt, elles ne sont pas exportées, un message d'alerte est affiché dans le résultat de l'export. Dans ce cas les fichiers des missions ne sont pas produits non plus.
-3. De même, s'il y a plus de 150 missions elles ne sont pas exportées, un message d'alerte est affiché dans le résultat de l'export.
+# La fonction d'export KML autorise un export de plusieurs lignes dans la limite de 150 au maximum. Au-delà, les fichiers KML des lignes ne sont pas produits, ni les fichiers des arrêts physiques, des commerciaux, des séquences d'arrêt et des missions. Seuls seront présents les fichiers des pôles d'échange, des ITL, des correspondances, des accès et  des liens accès-arrêt si l'utilisateur a choisi de tout exporter (comme indiqué au paragraphe 4.2). Le rapport d'export mentionne dans ce cas une alerte pour prévenir que le quota de lignes autorisées est dépassé.
+# Si il y a plus de 150 séquences d'arrêt, elles ne sont pas exportées, un message d'alerte est affiché dans le résultat de l'export. Dans ce cas les fichiers des missions ne sont pas produits non plus.
+# De même, s'il y a plus de 150 missions elles ne sont pas exportées, un message d'alerte est affiché dans le résultat de l'export.
 
 Par conséquent, dans le cas des référentiels qui comptent plus de 150 lignes, il est nécessaire de procéder en plusieurs opérations d'export.
 Cependant, il faut garder à l'esprit que les outils SIG ont aussi leurs propres limites quant au nombre de couches qui peuvent être gérées en même temps.
@@ -100,28 +103,29 @@ h4. Pour un export de « Tout »
 L'archive ZIP contient tous les fichiers KML produits par un export de tous les réseaux (ou tous les transporteurs).
 
 L'archive ZIP contient également d'autres fichiers KML listés ci-dessous :
+
 * un fichier des pôles d'échange
-  - le type de géométrie est Point
-  - les attributs de pole d'échange figurent dans l'élément KML ExtendedData
-  - l'attribut « name » du Document KML porte le nom « poles d'échange »
-  - le nom de ce fichier KML est : stop_places.kml
+** le type de géométrie est Point
+** les attributs de pôle d'échange figurent dans l'élément KML ExtendedData
+** l'attribut « name » du Document KML porte le nom « pôles d'échange »
+** le nom de ce fichier KML est : stop_places.kml
 * un fichier des correspondances
-  - le type de géométrie est LineString
-  - les attributs de correspondance figurent dans l'élément KML ExtendedData
-  - l'attribut « name » du Document KML porte le nom « correspondances »
-  - le nom de ce fichier KML est : connection_links.kml
+** le type de géométrie est LineString
+** les attributs de correspondance figurent dans l'élément KML ExtendedData
+** l'attribut « name » du Document KML porte le nom « correspondances »
+** le nom de ce fichier KML est : connection_links.kml
 * un fichier des accès
-  - le type de géométrie est Point
-  - les attributs d'accès figurent dans l'élément KML ExtendedData
-  - l'attribut « name » du Document KML porte le nom « accès »
-  - le nom de ce fichier KML est : access.kml
+** le type de géométrie est Point
+** les attributs d'accès figurent dans l'élément KML ExtendedData
+** l'attribut « name » du Document KML porte le nom « accès »
+** le nom de ce fichier KML est : access.kml
 * un fichier des liens accès-arrêt
-  - le type de géométrie est LineString
-  - les attributs de lien accès-arrêt figurent dans l'élément KML ExtendedData
-  - l'attribut « name » du Document KML porte le nom «liens d'accès »
-  - le nom de ce fichier KML est : access_links.kml
+** le type de géométrie est LineString
+** les attributs de lien accès-arrêt figurent dans l'élément KML ExtendedData
+** l'attribut « name » du Document KML porte le nom «liens d'accès »
+** le nom de ce fichier KML est : access_links.kml
 * un fichier des ITL
-  - le type de géométrie est MultiPoint
-  - les attributs d'ITL figurent dans l'élément KML ExtendedData
-  - l'attribut « name » du Document KML porte le nom «ITL »
-  - le nom de ce fichier KML est : itls.kml
+** le type de géométrie est MultiPoint
+** les attributs d'ITL figurent dans l'élément KML ExtendedData
+** l'attribut « name » du Document KML porte le nom «ITL »
+** le nom de ce fichier KML est : itls.kml

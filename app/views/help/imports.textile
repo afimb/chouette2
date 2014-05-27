@@ -43,11 +43,11 @@ p(olnext). - les données exportées en GTFS sont explicités ["ICI":http://norm
 
 h3(#com). Paramètres communs
 
-- Pas de sauvegarde := permet d'effecter une simulation de l'import sans enregistrer les données
+- Pas de sauvegarde := permet d'effectuer une simulation de l'import sans enregistrer les données
 
 p(ddnext). - active donc les tests de validation de niveau 1 et 2
 
-- Jeu de paramètres pour validation := paramètres définisant les seuils des tests de niveau 3 (indisponible si l'option 'pas de sauvegarde' est cochée)
+- Jeu de paramètres pour validation := paramètres définissant les seuils des tests de niveau 3 (indisponible si l'option 'pas de sauvegarde' est cochée)
 
 p(ddnext). - les jeux de paramètres sont créés via le lien ["Jeux de paramètres":parametersets] disponible sur les vues des listes d'imports et de validations
 
@@ -105,7 +105,7 @@ h3(#new). Nouvel Import
 
 p. Il est possible de modifier le jeu de paramètres par défaut ou de créer un nouveau Jeu de paramètres. Il est possible de ne choisir aucun jeu de paramètres.
 
-p. L’import est lancé en différé, son résultat n'est pas immédiat. Le résultat est conservé tant que l’import n’est pas supprimé. L'import lance également la validation (avec ou sans jeu de paramètres associés), ce qui crée un objet Validation associé. La suppression d’un import également l'objet Validation associé à cet import ; néanmoins si les données ont été sauvergardées en base, elles seront conservées.
+p. L’import est lancé en différé, son résultat n'est pas immédiat. Le résultat est conservé tant que l’import n’est pas supprimé. L'import lance également la validation (avec ou sans jeu de paramètres associés), ce qui crée un objet Validation associé. La suppression d’un import également l'objet Validation associé à cet import ; néanmoins si les données ont été sauvegardées en base, elles seront conservées.
 
 p. Si les données ne sont pas sauvées en base, il faut relancer un import avec sauvegarde si on souhaite effectivement importer ces données en base après une première validation « à blanc ».
 
@@ -130,11 +130,11 @@ p. _1 - La synthèse des fichiers analysés affiche 3 secteurs_
 
 p(border_image). !import_file_result.png!
 
-* en vert les fichiers correctements traités 
+* en vert les fichiers correctement traités 
 * en rouge les fichiers comportant des erreurs qui empêche leur traitement
 * en gris les fichiers ignorés
 
-p. En passant la souris sur chaque partie, le nombre de fchiers correspondant est affiché.
+p. En passant la souris sur chaque partie, le nombre de fichiers correspondant est affiché.
 
 p. La sélection (clic souris) d'un des secteurs affiche la liste des fichiers concernés :
 

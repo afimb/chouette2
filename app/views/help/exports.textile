@@ -48,9 +48,9 @@ h3. Consultation des résultats
 
 p. L'export est lancé en différé; son état d'avancement est affiché sous la forme d'une icône donc la couleur dépend de l'état:
 
-- bleu : en cours
-- vert : terminé correctement; un lien de téléchargement est alors disponible
-- rouge : terminé en échec
+* bleu : en cours
+* vert : terminé correctement; un lien de téléchargement est alors disponible
+* rouge : terminé en échec
 
 p. La consultation du résultat de l'export donnera la liste des éléments exportés ou les motifs de l'échec.
 
