@@ -38,9 +38,11 @@ p(attr_data). Données de gestion :
 - Identifiant Neptune := 
 clé unique pérenne identifiant la correspondance pour les échanges Neptune
 cet identifiant est composé de 3 parties : préfixe:type:id_technique
+
 * préfixe : clé identifiant un producteur de données unique
 * type = AccessLink : clé identifiant le type d'objet (valeur imposée)
 * id_technique : valeur identifiant un seul objet d'un type donné pour un même producteur
+
 ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
 il est possible aussi de ne renseigner que l'identifiant technique, auquel cas la valeur sera complétée automatiquement.
 =:
@@ -54,10 +56,11 @@ h4. Création/consultation
 
 Lors de la consultation d'une zone d'arrêts possédant au moins un accès, 
 l'action <<Gérer les liens arrêt-accès>> affiche deux matrices : 
+
 * _Liens génériques_ : les différentes combinaisons de liens entre les accès et la zone;
 * _Liens détaillés_ : les différentes combinaisons de liens entre les accès et les arrêts inclus dans la zone.
 
-Chaque lien est représenté par une flêche orientée représentant l'existance ou non de ce lien:
+Chaque lien est représenté par une flèche orientée représentant l'existence ou non de ce lien:
 
 * !gray_left_arrow.png! ou !gray_right_arrow.png! lien non défini; la flèche est un lien vers l'écran de création de ce lien
 * !green_left_arrow.png! ou !green_right_arrow.png! lien existant; la flèche est un lien vers l'écran de consultation/modification/suppression de ce lien

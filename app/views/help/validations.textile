@@ -49,9 +49,9 @@ h3(#res). Consultation des résultats : détail de l'objet Validation
 
 p. La validation est lancée en différé; son état d'avancement est affiché sous la forme d'une icône donc la couleur dépend de l'état:
 
-- bleu : en cours
-- vert : terminé correctement
-- rouge : terminé en échec (la validation n'a pas pu aboutir, contacter l'administrateur système pour plus de détails)
+* bleu : en cours
+* vert : terminé correctement
+* rouge : terminé en échec (la validation n'a pas pu aboutir, contacter l'administrateur système pour plus de détails)
 
 p. La consultation du résultat de la validation donne le bilan des contrôles ou les motifs de l’échec. Le résultat est conservé tant que la validation n’est pas supprimée.
 
@@ -93,11 +93,11 @@ p. Dans les 2 cas, la sélection d'un des secteurs affiche la liste des tests co
 
 p(border_image). !validation_mandatory_detail.png!
 
-Une bulle d'information s'affiche en sélectionnant une icone bleue !notice.png! :
+Une bulle d'information s'affiche en sélectionnant une icône bleue !notice.png! :
 
 p(border_image). !validation_bulle.png!
 
-p. La spécificaation du test s'affiche par le lien sur le code 
+p. La spécification du test s'affiche par le lien sur le code 
 
 p. En cas d'erreur, la localisation est fournie dans la colonne 'Détail': 
 
