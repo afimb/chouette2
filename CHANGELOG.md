@@ -6,7 +6,7 @@
   * L'import GTFS plante sur une course qui dessert plus de 2 fois le même arrêt (Mantis 26755)
   * L'export NeTEx produit un fichier invalide si le champ VersionDate du réseau est vide (Mantis 26434)
 
-# Version 2.4.0 (en recette)
+# Version 2.4.0 (27/05/14)
 * Corrections d'anomalies
   * L'Import GTFS n'importe pas les fichiers avec marqueurs BOM (Mantis 21260)
   * L'Import GTFS n'accepte pas des routes sans colonne agencyId (Mantis 22665)
