@@ -63,9 +63,9 @@ Assume Linux user is myuser and its group mygroup (that user is the one who star
 sudo mkdir -p /usr/local/opt/chouette-command/
 sudo chown -R myuser:mygroup /usr/local/opt/chouette-command/
 cd /usr/local/opt/chouette-command/
-wget http://maven.chouette.cityway.fr/fr/certu/chouette/chouette-gui-command/2.4.0/chouette-gui-command-2.4.0.zip
-unzip chouette-gui-command-2.4.0.zip
-cd chouette-cmd_2.4.0
+wget http://maven.chouette.cityway.fr/fr/certu/chouette/chouette-gui-command/2.3.0/chouette-gui-command-2.3.0.zip
+unzip chouette-gui-command-2.3.0.zip
+cd chouette-cmd_2.3.0
 sudo chmod a+w .
 ```
 
@@ -74,7 +74,7 @@ Install web application
 Get git source code :
 ```sh
 cd
-git clone -b V2_4 git://github.com/afimb/chouette2
+git clone -b V2_3 git://github.com/afimb/chouette2
 cd chouette2
 ```
 Download gem librairies
