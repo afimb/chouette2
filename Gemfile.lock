@@ -360,7 +360,6 @@ DEPENDENCIES
   inherited_resources
   jquery-rails (= 2.2.1)
   jruby-lint
-  jruby-openssl
   jruby-rack-worker
   json
   launchy

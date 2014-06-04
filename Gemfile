@@ -5,11 +5,8 @@ gem 'rails', '3.2.6'
 platforms :jruby do
   gem 'activerecord-jdbcpostgresql-adapter', '~> 1.2.9'
   gem 'activerecord-jdbcsqlite3-adapter'
-  gem 'jruby-openssl'
   gem "jruby-rack-worker"
-  gem 'warbler'
   gem 'therubyrhino'
-  gem 'jruby-lint'
 end
 
 platforms :ruby do
@@ -76,6 +73,8 @@ group :development do
   gem 'guard'
   gem 'guard-rspec'
   gem 'rails-erd'
+  gem 'warbler', :platform => :jruby
+  gem 'jruby-lint', :platform => :jruby
 end
 
 group :test, :development do
