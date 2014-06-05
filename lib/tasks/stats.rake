@@ -13,7 +13,7 @@ namespace :stats do
     end
 
     File.open('/tmp/stats_counts.csv','w') do |s|
-      [Organisation, User, Referential, Export, Import, FileValidation].each do |class_for_stat|
+      [Organisation, User, Referential, Export, ImportTask, ComplianceCheckTask].each do |class_for_stat|
         stats = []
         stats << class_for_stat.all.select {|o| o.created_at.month==12 && o.created_at.year==2013}.count
         1.upto(12) do |i|

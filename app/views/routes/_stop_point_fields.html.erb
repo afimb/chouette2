@@ -2,11 +2,12 @@
   <%= f.inputs do %>
     <%= link_to_remove_association "<i class='fa fa-trash-o'></i>".html_safe, f %>
     <span class="handle" alt="<%= t('stop_points.index.move') %>" title="<%= t('stop_points.index.move') %>" ><i class='fa fa-arrows'></i></span>
-  <% if f.object.stop_area.nil? %>
+  <% if f.object.stop_area.nil? || f.object.new_record? %>
     <%= f.input :id, :as => :hidden, :input_html => { :class => "stop_point_id added_stop_point", :value => "" } %>
     <%= f.input :position, :as => :hidden, :input_html => { :class => "position" } %>
-    <%= f.input :stop_area_id, :label => false, :input_html => { :class => "new_stop_point stop_area_id", :"data-pre" => [].to_json }  %>
-    <% else %>
+    <% data_pre = (f.object.stop_area.nil?) ? [] : [ :id => f.object.stop_area.id, :name => "#{f.object.stop_area.name} #{f.object.stop_area.country_code}" ] %>
+    <%= f.input :stop_area_id, :label => false, :input_html => { :class => "new_stop_point stop_area_id", :"data-pre" => data_pre.to_json }  %>
+  <% else %>
     <%= f.input :id, :as => :hidden, :input_html => { :class => "stop_point_id" } %>
     <%= f.input :position, :as => :hidden, :input_html => { :class => "position" } %>
     <%= f.input :stop_area_id, :as => :hidden, :input_html => { :class => "stop_area_id"} %>

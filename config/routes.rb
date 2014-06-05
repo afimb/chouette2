@@ -92,11 +92,6 @@ ChouetteIhm::Application.routes.draw do
           get 'select_journey_pattern', :on => :member
           resources :vehicle_translations
         end
-        resources :stop_points do
-          collection do
-            post :sort
-          end
-        end
       end
     end
 
