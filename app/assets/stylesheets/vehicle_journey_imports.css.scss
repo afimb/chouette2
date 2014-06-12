@@ -1,0 +1,10 @@
+@import "common/mixins";
+
+#workspace.vehicle_journey_imports.new
+{
+    .export{
+        margin: 5px 0 15px 0 !important;
+
+        .file{ margin-left: 5px; }
+    }
+}

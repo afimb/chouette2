@@ -91,7 +91,10 @@
   <li>
     <%= link_to t('vehicle_journeys.actions.index'), [@referential, @line, @route, :vehicle_journeys], :class => "link" %>
   </li>
-<% end %>
+  <% end %>
+  <li>
+    <%= link_to t('vehicle_journey_imports.new.title'), new_referential_line_route_vehicle_journey_import_path( @referential, @line, @route ), :class => "import" %>
+  </li>
 </ul>
 
   <%= creation_tag(@route) %>

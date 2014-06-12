@@ -1,0 +1,27 @@
+<%= title_tag t('vehicle_journey_imports.new.title') %>
+
+<p class="export"><%= t('vehicle_journey_imports.new.export_vehicle_journeys') %>
+  <span class="file"><%= link_to image_tag("icons/file_csv.png"), referential_line_route_vehicle_journey_exports_path(@referential, @line, @route, :format => :csv) %></span>
+  <span class="file"><%= link_to image_tag("icons/file_excel.png"), referential_line_route_vehicle_journey_exports_path(@referential, @line, @route, :format => :xls) %></span>
+</p>
+
+<%= semantic_form_for [@referential, @line, @route, @vehicle_journey_import] do |form| %>
+  <% if @vehicle_journey_import.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vehicle_journey_import.errors.count, "error") %> prohibited this import from completing:</h2>
+      <ul>
+      <% @vehicle_journey_import.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br>
+  <%= form.inputs do %> 
+    <%= form.input :file, :as => :file %>
+  <% end %>
+  <%= form.actions do %>
+    <%= form.action :submit, :as => :button , :label => t( 'formtastic.import' ) %> 
+    <%= form.action :cancel, :as => :link %>
+  <% end %>
+<% end %>

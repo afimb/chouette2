@@ -43,6 +43,7 @@ gem 'font-awesome-sass'
 # Format Output
 gem 'json'
 gem 'rubyzip', :require => 'zip/zip'
+gem 'roo'
 
 # Controller
 gem 'inherited_resources'
@@ -53,7 +54,7 @@ gem 'will_paginate', '~> 3.0'
 gem 'ransack'
 gem 'squeel'
 #gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git'
-#gem 'ninoxe',:path => '~/workspace/chouette/ninoxe'
+#gem 'ninoxe',:path => '~/projects/ninoxe'
 gem 'ninoxe', '~> 1.0.1'
 
 gem 'acts_as_list', '0.1.6'
@@ -91,6 +92,7 @@ group :test, :development do
   gem 'capybara'
   gem 'launchy'
   gem 'factory_girl_rails', '1.7'
+  # gem 'i18n-tasks'
   gem 'rb-inotify', :require => RUBY_PLATFORM.include?('linux') && 'rb-inotify'
   gem 'rb-fsevent', :require => RUBY_PLATFORM.include?('darwin') && 'rb-fsevent'
 end

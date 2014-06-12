@@ -92,6 +92,8 @@ ChouetteIhm::Application.routes.draw do
           get 'select_journey_pattern', :on => :member
           resources :vehicle_translations
         end
+        resources :vehicle_journey_imports
+        resources :vehicle_journey_exports
       end
     end
 
