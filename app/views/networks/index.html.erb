@@ -1,21 +1,24 @@
 <%= title_tag t('networks.index.title') %> 
-
-<%= search_form_for @q, :url => referential_networks_path(@referential), :html => {:method => :get} do |f| %>
-  <%= f.label :name_cont, "#{t('.name')} :" %>
-  <%= f.text_field :name_cont %>
-
-  <%= f.submit t('actions.search') %> <%= t("or") %>
-  <%= link_to t("cancel"), referential_networks_path(@referential) %>
-<% end %>
+<div class="container-fluid">
+  <form class="navbar-form navbar-left" role="search">
+    <%= search_form_for @q, :url => referential_networks_path(@referential), :html => {:method => :get} do |f| %>
+    <div class="form-group">
+      <%= f.text_field :name_cont, :class => "form-control", :placeholder => "#{t('.name')}" %>
+    </div>
+    <%= f.submit t('actions.search'), :class => "btn btn-default" %> <%= t("or") %>
+    <%= link_to t("cancel"), referential_networks_path(@referential) %>
+    <% end %>
+  </form>
+</div>
 
 <div class="page_info">
   <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @networks %>
 </div>
 <div class="networks paginated_content">
-  <%= render :partial => "network", :collection => @networks %>
+  <%= paginated_content(@networks) %>
 </div>
 <div class="pagination">
-  <%= will_paginate @networks, :container => false %>
+  <%= will_paginate @networks, :container => false, renderer: BootstrapPagination::Rails %>
 </div>
 
 <% content_for :sidebar do %>

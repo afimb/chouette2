@@ -11,4 +11,5 @@
 //= require cocoon
 //= require raphael
 //= require morris
+//= require bootstrap
 //= require_directory .

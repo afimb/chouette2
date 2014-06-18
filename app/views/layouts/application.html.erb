@@ -18,48 +18,51 @@
   </head>
   <body>
     <div id="header">
-      <div class="infos">
-        <div class="logo">
-          <%= link_to image_tag("logo_chouette.png"), referentials_path %>
-        </div>
-        <div class="version">
-          <%= APP_VERSION %>
-        </div>
-        <div class="title">
-          <% if selected_referential? %>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="logo">
+            <%= link_to image_tag("logo_chouette.png"), referentials_path %>
+            <span class="version"><%= APP_VERSION %></span>
+          </div>
+        </div>      
+        <div class="col-md-4">
+          <div class="title">
+            <% if selected_referential? %>
             <h1><%= @referential.name %></h1>
-          <% elsif help_page? %>
+            <% elsif help_page? %>
             <h1>Guide d'utilisation</h1>
-          <% end %>
+            <% end %>
+          </div>
         </div>
-        <div class="interaction">
-          <%= render "layouts/user_links" %>
-        </div>
+        <div class="col-md-4">
+          <div class="interaction">
+            <%= render "layouts/user_links" %>
+          </div>
+        </div>             
       </div>
       <div class="tabs">
-        <ul class="main">
+        <ul class="nav nav-tabs">
           <% if help_page? %>
-            <li><%= link_to "Aide", help_path, :class =>("current" if help_page?) %></li>
+          <li><%= link_to "Aide", help_path, :class =>("current" if help_page?) %></li>
           <% elsif ! selected_referential? %>
-            <% if  user_signed_in? %>
-              <li><%= link_to Referential.model_name.human(:count=>2), referentials_path, :class => ("current" if current_page?(referentials_path) || current_page?(root_url)) %></li>
-              <li class="admin"><%= tab_link_to Organisation.model_name.human, organisation_path %></li>
-            <% end %>
+          <% if  user_signed_in? %>
+          <li><%= link_to Referential.model_name.human(:count=>2), referentials_path, :class => ("current" if current_page?(referentials_path) || current_page?(root_url)) %></li>
+          <li class="admin"><%= tab_link_to Organisation.model_name.human, organisation_path %></li>
+          <% end %>
           <% else %>
-            <li><%= link_to t("layouts.tabs.dashboard").capitalize, referential_path(@referential), :class => ("current" if current_page?(referential_path(@referential)) || request.path.start_with?(referential_rule_parameter_sets_path(@referential))) %></li>
-            <li><%= tab_link_to Chouette::Network, referential_networks_path(@referential) %></li>
-            <li><%= tab_link_to Chouette::Company, referential_companies_path(@referential) %></li>
-            <li><%= tab_link_to Chouette::GroupOfLine, referential_group_of_lines_path(@referential) %></li>
-            <li><%= tab_link_to Chouette::Line, referential_lines_path(@referential) %></li>
-            <li><%= tab_link_to Chouette::StopArea, referential_stop_areas_path(@referential) %></li>
-            <li><%= tab_link_to Chouette::ConnectionLink, referential_connection_links_path(@referential) %></li>
-            <li><%= tab_link_to Chouette::TimeTable, referential_time_tables_path(@referential) %></li>
-            <li><%= tab_link_to ImportTask, referential_import_tasks_path(@referential) %></li>
-            <li><%= tab_link_to Export, referential_exports_path(@referential) %></li>
-            <li><%= tab_link_to ComplianceCheckTask, referential_compliance_check_tasks_path(@referential) %></li>
+          <li><%= link_to t("layouts.tabs.dashboard").capitalize, referential_path(@referential), :class => ("current" if current_page?(referential_path(@referential)) || request.path.start_with?(referential_rule_parameter_sets_path(@referential))) %></li>
+          <li><%= tab_link_to Chouette::Network, referential_networks_path(@referential) %></li>
+          <li><%= tab_link_to Chouette::Company, referential_companies_path(@referential) %></li>
+          <li><%= tab_link_to Chouette::GroupOfLine, referential_group_of_lines_path(@referential) %></li>
+          <li><%= tab_link_to Chouette::Line, referential_lines_path(@referential) %></li>
+          <li><%= tab_link_to Chouette::StopArea, referential_stop_areas_path(@referential) %></li>
+          <li><%= tab_link_to Chouette::ConnectionLink, referential_connection_links_path(@referential) %></li>
+          <li><%= tab_link_to Chouette::TimeTable, referential_time_tables_path(@referential) %></li>
+          <li><%= tab_link_to ImportTask, referential_import_tasks_path(@referential) %></li>
+          <li><%= tab_link_to Export, referential_exports_path(@referential) %></li>
+          <li><%= tab_link_to ComplianceCheckTask, referential_compliance_check_tasks_path(@referential) %></li>
           <% end %>
         </ul>
-      </div>
     </div>
     <div id="body">
       <div id="workspace" class="<%= controller_name %> <%= action_name %>">

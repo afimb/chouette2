@@ -38,8 +38,8 @@
 
 <p class="after_map" />
 <h3 class="journey_pattern_stop_points"><%= t('.stop_points') %></h3>
-<div class="stop_points_detail" >
-  <%= render :partial => "stop_points_detail" %>
+<div class="stop_points paginated_content" >
+  <%= paginated_content @stop_points, "stop_points/stop_point" %>
 </div>
 
 <% content_for :sidebar do %>

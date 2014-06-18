@@ -37,9 +37,9 @@ en:
   activerecord:        
     models:        
       time_table: 
-        zero:  "timetable"
-        one:   "timetable"
-        other: "timetables"
+        zero:  "Timetable"
+        one:   "Timetable"
+        other: "Timetables"
     attributes:
       time_table:
         comment: "Comment"
@@ -108,9 +108,9 @@ fr:
   activerecord:        
     models:        
       time_table: 
-        zero:  "calendrier"
-        one:   "calendrier"
-        other: "calendriers"
+        zero:  "Calendrier"
+        one:   "Calendrier"
+        other: "Calendriers"
     attributes:
       time_table:
         comment: "Description"

@@ -1,0 +1,26 @@
+// Place all the styles related to the lines controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#workspace.access_links.show
+{
+
+    .summary p label {
+        font-weight: bold;
+    }
+    .duration {
+        padding-left: 10px;
+    }
+    
+}        
+
+#workspace.access_links.edit,#workspace.access_links.new,#workspace.access_links.create,#workspace.access_links.update
+{
+     .time_select ol {
+        padding: 0 0 0 40%;
+        width: 100%;
+     }
+}
+
+
+

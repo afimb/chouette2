@@ -17,10 +17,10 @@
   <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @vehicle_journeys %>
 </div>
 <div class="pagination">
-  <%= will_paginate @vehicle_journeys, :container => false %>
+  <%= will_paginate @vehicle_journeys, :container => false, renderer: BootstrapPagination::Rails %>
 </div>
 <div class="vehicle_journeys paginated_content">
-  <table>
+  <table class="table table-hover">
   <thead>
     <tr>
       <th class="title"><%= Chouette::JourneyPattern.model_name.human.pluralize %> :</th>
@@ -58,7 +58,7 @@
   </table>
 </div>
 <div class="pagination">
-  <%= will_paginate @vehicle_journeys, :container => false %>
+  <%= will_paginate @vehicle_journeys, :container => false, renderer: BootstrapPagination::Rails %>
 </div>
 <% content_for :sidebar do %>
   <ul class="actions">
@@ -69,9 +69,9 @@
       <%= link_to t('.timeless'), timeless_referential_line_route_vehicle_journeys_path(@referential, @line, @route), :class => "link" %>
     </li>
   </ul>
-  <h3><%= t(".selection") %></h3>
+  <h4><%= t(".selection") %></h4>
 
-  <h4><%= Chouette::JourneyPattern.model_name.human.pluralize %></h4>
+  <h5><%= Chouette::JourneyPattern.model_name.human.pluralize %></h5>
 
   <ul class="selection">
   <% @route.journey_patterns.each do |journey_pattern| %>
@@ -80,7 +80,7 @@
   <li><%= link_with_search t(".selection_all"), {"journey_pattern_id_eq" => nil}, :class => "all" %></li>
   </ul>
 
-  <h4><%= Chouette::TimeTable.model_name.human.pluralize %></h4>
+  <h5><%= Chouette::TimeTable.model_name.human.pluralize %></h5>
 
   <ul class="selection">
   <% @route.time_tables.each do |time_table| %>

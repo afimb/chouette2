@@ -1,0 +1,55 @@
+// Place all the styles related to the routes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#workspace.journey_patterns.edit, #workspace.journey_patterns.new, #workspace.journey_patterns.create, #workspace.journey_patterns.update
+{
+    #route_color{ width: 100px;
+                 color: white;
+                 font-weight: bold;}
+    #journey_pattern_stop_point_ids_input fieldset .choices-group {
+        margin-top: 25px;
+    }
+}
+
+#workspace.journey_patterns.show
+{
+    .journey_pattern_color{ color: white;
+                  font-weight: bold;
+                  padding: 0 5px 0 5px;}
+
+    .summary p label {
+        font-weight: bold;
+    }
+
+    .stop_points_detail div.page_info {
+        margin-top: 0px;
+    }
+   
+    .stop_points {
+        margin-top: 20px;
+    }
+    
+    .journey_pattern_stop_points {
+        clear: both;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .stop_point {
+    
+        .position {
+            width: 25px;
+            height: 20px;
+            float: left;
+            background-color: #61970B;
+            font-weight: bold;
+            color: white;
+            margin-right: 10px;
+            padding-left: 4px;
+        }
+    }
+    
+}        
+
+

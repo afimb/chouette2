@@ -1,11 +1,11 @@
-<%= semantic_form_for @referential do |form| %>
+<%= semantic_form_for @referential, :class => "form-horizontal" do |form| %>
   <%= form.inputs do %>
     <%= form.input :name %>
     <% if @referential.new_record? %>
       <%= form.input :slug%>
     <% else %>
-      <li>
-      <label><%= @referential.human_attribute_name("slug") %></label>
+      <li class="input">
+      <label class="label" ><%= @referential.human_attribute_name("slug") %></label>
       <%= @referential.slug %>
       </li>
     <% end %>

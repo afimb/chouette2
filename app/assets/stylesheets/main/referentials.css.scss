@@ -1,0 +1,82 @@
+// Place all the styles related to the referentials controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#workspace.referentials.index
+{
+
+    .referentials {
+        margin-top: 20px;
+    }
+    
+    .referential {
+
+        /* to create multi-column index */
+        width: 350px;
+        float: left;
+        padding-right: 10px;
+        position: relative;
+
+    }
+}
+#workspace.referentials.show
+{
+    .summary p label {
+        font-weight: bold;
+    }
+    
+    .count td {
+      border: 1px solid #61970b;
+      padding-left: 5px;
+      padding-right: 5px;
+      height: 30px;
+    }
+    .count thead td {
+      background: #61970b;
+      color: white;
+    }
+    .count td.image {
+      padding-left: 25px;
+    }
+    .count td.value {
+      text-align: right;
+    }
+        
+}
+#sidebar div#clean_up {
+  form {
+    border-bottom: 1px solid #BBB;
+    fieldset {
+      padding: 0;
+      border: 0;
+      li.date {
+        padding: 0;
+        label { padding-left: 10px; 
+                width: 40%;}
+        input { width: 42%; }
+      }
+      li {
+        padding: 0;
+        label { padding-left: 10px; 
+                width: 90%;}
+        input { width: 12%; }
+      }
+    }
+    fieldset.actions {
+      margin-bottom: 0;
+      padding-left: 20px;
+    }
+    fieldset.inputs {
+      padding-top: 16px;
+    }
+  }
+}
+
+ul.logos {
+    margin: 30px 30px 0 0;
+    
+    li {                
+        display: inline;
+        margin: 0 3px;
+    }
+}

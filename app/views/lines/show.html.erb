@@ -53,16 +53,14 @@
 
 <p class="after_map" />
 <h3 class="routes"><%= t('.itineraries') %></h3>
-
 <div class="routes paginated_content">
-  <%= render :partial => "routes/route", :collection => @routes %>
+  <%= paginated_content @routes, "routes/route" %>
 </div>
 
 <% if @line.group_of_lines.any? %>
-  <h3 class="line_group_of_lines"><%= t('.group_of_lines') %>
-  </h3>
-  <div class="group_of_lines_detail">
-     <%= render :partial => "group_of_lines/group_of_line", :collection => @group_of_lines %>
+  <h3 class="line_group_of_lines"><%= t('.group_of_lines') %></h3>
+  <div class="group_of_lines paginated_content">
+     <%= paginated_content @group_of_lines, "group_of_lines/group_of_line" %>
   </div>
 <% end %>
 
