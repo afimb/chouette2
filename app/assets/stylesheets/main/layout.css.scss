@@ -15,23 +15,8 @@ h1, .h1, h2, .h2, h3, .h3 {
     margin-bottom: 20px;
 }
 
-a, a:visited {
-       color: $text_color;
-   }
-
-p.after_map {
-    clear: both;
-}
-
-#map {
-    float: right;
-    width: 400px;
-    height: 400px;
-}
-
-
 #header {
-    background: $header_background url(image-path('header.png')) no-repeat;
+    background: $brand_primary url(image-path('header.png')) no-repeat;
 
     div.logo {
         padding: 15px 0 0 30px;    
@@ -54,14 +39,7 @@ p.after_map {
 
     div.interaction{
         text-align: right;
-        margin: 0 20px 0 0;
-        
-        a.back_to_upper_menu { 
-	 	        color: $tabs_color; 
-	 	        text-decoration: underline; 
-	 	        font-size: 0.8em; 
-            display: block;
-        } 
+        margin: 0 20px 0 0;       
         
         ul.user {
             color: $tabs_color;
@@ -113,9 +91,9 @@ p.after_map {
         li {
 
             a:link, a:visited {
-                background-color: $tabs_background;
-                color: $tabs_color;
-            }
+                        background-color: $tabs_background;
+                        color: $tabs_color;
+                    }
 
             a.current {
                 color: $text_color;
