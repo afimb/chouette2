@@ -17,7 +17,6 @@ class LinesController < ChouetteController
     end       
   end
 
-  
   def show
     @map = LineMap.new(resource).with_helpers(self)
     @routes = @line.routes

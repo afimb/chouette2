@@ -40,6 +40,34 @@
       <label><%= @line.human_attribute_name("transport_mode") %>: </label>
       <%= t("transport_modes.label.#{@line.transport_mode}") %>
     </p>
+
+    <p>
+      <label><%= @line.human_attribute_name("mobility_restricted_suitability") %> : </label>
+      <% if @line.mobility_restricted_suitability.nil? %>
+      <%= @line.human_attribute_name("unspecified_mrs") %>
+      <% elsif @line.mobility_restricted_suitability? %>
+      <%= @line.human_attribute_name("accessible") %>
+      <% else %>
+      <%= @line.human_attribute_name("not_accessible") %>
+      <% end %>
+      <br>&nbsp;&nbsp;<%= @line.human_attribute_name("number_of_mrs_vj") %> : <%= @line.vehicle_journeys.where("mobility_restricted_suitability = ?", true).count %>
+      <br>&nbsp;&nbsp;<%= @line.human_attribute_name("number_of_non_mrs_vj") %> : <%= @line.vehicle_journeys.where("mobility_restricted_suitability = ?", false).count %>
+      <br>&nbsp;&nbsp;<%= @line.human_attribute_name("number_of_vj") %> : <%= @line.vehicle_journeys.count %>
+    </p>
+    <p>
+      <label><%= @line.human_attribute_name("flexible_service") %> : </label>
+      <% if @line.flexible_service.nil? %>
+      <%= @line.human_attribute_name("unspecified_fs") %>
+      <% elsif @line.flexible_service? %>
+      <%= @line.human_attribute_name("on_demaond_fs") %>
+      <% else %>
+      <%= @line.human_attribute_name("regular_fs") %>
+      <% end %>
+      <br>&nbsp;&nbsp;<%= @line.human_attribute_name("number_of_fs_vj") %> : <%= @line.vehicle_journeys.where("flexible_service = ?", true).count %>
+      <br>&nbsp;&nbsp;<%= @line.human_attribute_name("number_of_non_fs_vj") %> : <%= @line.vehicle_journeys.where("flexible_service = ?", false).count %>
+      <br>&nbsp;&nbsp;<%= @line.human_attribute_name("number_of_vj") %> : <%= @line.vehicle_journeys.count %>
+    </p>
+    
     <p>
       <label><%= @line.human_attribute_name("comment") %>: </label>
       <%= @line.comment %>

@@ -1,9 +1,10 @@
 GIT
   remote: https://github.com/afimb/ninoxe.git
-  revision: 81104810ace190584d6b445de0d0948bc204b7b5
+  revision: 74ebce7462c541521b554a7af2818d1055c404b8
+  branch: tad_pmr
   specs:
-    ninoxe (1.0.1)
-      activerecord (>= 3.1.3)
+    ninoxe (1.1.0)
+      activerecord (>= 3.1.3, < 4.0)
       acts_as_list (~> 0.1.6)
       foreigner (= 1.6.0)
       georuby-ext (= 0.0.5)
