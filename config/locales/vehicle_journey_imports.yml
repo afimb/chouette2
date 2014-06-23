@@ -1,0 +1,28 @@
+en:
+  vehicle_journey_imports:
+    new:
+      title: "Import vehicle journey at stops"
+      export_vehicle_journeys: "Export existing vehicle journey at stops :"
+    form:
+      file: "File"  
+    errors:
+      not_same_stop_points: "Error column 1 : Not same stop points than in route %{route}"
+      invalid_vehicle_journey_at_stop: "Error column %{column} line %{line} : vehicle journey at stop invalid %{time}"
+      invalid_vehicle_journey: "Error column %{column}, vehicle journey is invalid : %{message}"
+      exception: "An exception occured : %{message}"
+fr:
+  form:
+    file: "Fichier"
+  vehicle_journey_imports:
+    new:
+      title: "Import des horaires à l'arrêt"
+      export_vehicle_journeys: "Exporter les horaires à l'arrêt existants :"
+      file: "Fichier"  
+    form:
+      file: "Fichier"  
+    errors:
+      not_same_stop_points: "Erreur colonne 1 : Pas les mêmes points d'arrêt que sur l'itinéraire %{route}"
+      invalid_vehicle_journey_at_stop: "Erreur colonne %{column} ligne %{line} : horaire à l'arrêt invalide %{time}"
+      invalid_vehicle_journey: "Erreur colonne %{column}, la course est invalide : %{message}"
+      exception: "Une exception est survenu : %{message}"
+ 

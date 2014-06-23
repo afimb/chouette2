@@ -1,7 +1,7 @@
 module StopAreasHelper
   def genealogical_title
-    return t(".genealogical_routing") if @stop_area.stop_area_type == 'itl'    
-    t(".genealogical")
+    return t(".stop_areas.genealogical.genealogical_routing") if @stop_area.stop_area_type == 'itl'    
+    t("stop_areas.genealogical.genealogical")
   end
  
   def show_map?

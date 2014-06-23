@@ -1,0 +1,35 @@
+// Place all the styles related to the lines controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#workspace.stop_points.index
+{
+    .stop_points {
+    }
+    
+    #sortable_stop_points .stop_point {
+        /* to create multi-column index */
+        width: 350px;
+        padding-right: 10px;
+
+        .handle {
+            cursor: move;
+            margin-right: 7px;
+            margin-bottom: 20px;
+        }
+
+        a.link {
+            background: url(image-path('icons/link-small.png')) no-repeat 0% 50%;
+        }
+        
+        .position {
+          background-color: #61970B;
+          font-weight: bold;
+          color: white;
+          margin-right: 10px;
+          padding-left: 4px;
+        }
+
+    }
+}
+

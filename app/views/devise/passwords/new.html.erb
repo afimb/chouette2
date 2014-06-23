@@ -1,0 +1,13 @@
+<%= title_tag t('.title') %>
+
+<%= semantic_form_for(resource, :as => resource_name, :url => password_path(resource_name)) do |form| %>
+  <%= form.inputs :email %> 
+  
+  <%= form.actions do %>
+    <%= form.action :submit, :as => :button, :label => t('.commit') %>
+    <%= form.action :cancel, :as => :link %>
+  <% end %>
+
+<% end %>
+
+<%= render "links" %>

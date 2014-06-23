@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.18'
 
 platforms :jruby do
   gem 'activerecord-jdbcpostgresql-adapter', '1.2.9'
@@ -25,24 +25,32 @@ gem 'devise_invitable'
 # Map, Geolocalization
 gem "map_layers", "0.0.4"
 gem "georuby-ext", "0.0.5"
-#gem "georuby-ext", "0.0.2"
 
 # User interface
-gem 'user_interface', "0.0.5"
+gem 'language_engine', '0.0.4'
 gem 'gravatar_image_tag'
 gem 'calendar_helper', "0.2.5"
 gem 'cocoon', "1.1.2"
 gem 'formtastic'
 gem 'RedCloth'
+
+# Javascript
 gem 'jquery-rails', '2.2.1'
+gem 'jquery-ui-sass-rails'
 gem "modernizr-rails", "~> 2.0.6"
 gem 'morrisjs-rails'
 gem 'raphael-rails'
+
+# Use twitter bootstrap resources
+gem 'bootstrap-sass', '~> 3.1.1'
+gem 'bootswatch-rails'
 gem 'font-awesome-sass'
+gem 'will_paginate-bootstrap'
 
 # Format Output
 gem 'json'
 gem 'rubyzip', :require => 'zip/zip'
+gem 'roo'
 
 # Controller
 gem 'inherited_resources'
@@ -52,13 +60,15 @@ gem 'google-analytics-rails'
 gem 'will_paginate', '~> 3.0'
 gem 'ransack'
 gem 'squeel'
-#gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git'
-#gem 'ninoxe',:path => '~/workspace/chouette/ninoxe'
-gem 'ninoxe', '~> 1.0.1'
+gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git'
+#gem 'ninoxe',:path => '~/projects/ninoxe'
+#gem 'ninoxe', '~> 1.0.1'
 
 gem 'acts_as_list', '0.1.6'
 gem "acts_as_tree-1.8", '1.1.0', :require => "acts_as_tree"
 gem "active_enum"
+
+gem 'rabl'
 
 gem 'delayed_job_active_record'
 gem 'dr-apartment', :require => "apartment"
@@ -66,14 +76,9 @@ gem 'dr-apartment', :require => "apartment"
 # some views use coffee script
 gem 'coffee-rails', '~> 3.2.1'
 gem 'coffee-script-source'
-gem 'rabl'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'sass-rails',   '~> 3.2.3'
+gem 'uglifier', '>= 1.0.3'
 
 group :development do
   gem 'capistrano'
@@ -91,6 +96,7 @@ group :test, :development do
   gem 'capybara'
   gem 'launchy'
   gem 'factory_girl_rails', '1.7'
+  # gem 'i18n-tasks'
   gem 'rb-inotify', :require => RUBY_PLATFORM.include?('linux') && 'rb-inotify'
   gem 'rb-fsevent', :require => RUBY_PLATFORM.include?('darwin') && 'rb-fsevent'
 end

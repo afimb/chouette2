@@ -1,0 +1,87 @@
+// Place all the styles related to the lines controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#workspace.lines.index
+{
+
+    .lines {
+        margin-top: 20px;
+    }
+    
+    .line {
+
+        .color {
+            background-color: white;
+            width: 64px;
+            height: 64px;
+            float: left;
+            margin-right: 10px;
+            border: 1px solid #999;
+
+            a {
+                text-decoration: none;                   
+            }
+        }
+
+        .number {     
+            font-size: 16px;
+            text-align: center;
+            font-weight: bold;
+            padding-top: 21px;
+        }   
+        .name a {
+            display: inline;
+        }
+    }
+}
+
+#workspace.lines.edit, #workspace.lines.new, #workspace.lines.create, #workspace.lines.update
+{
+    #line_color{ width: 100px;
+                 color: white;
+                 font-weight: bold;}
+}
+
+#workspace.lines.show
+{
+    .line_color{ color: white;
+                 font-weight: bold;
+                 padding: 0 5px 0 5px;}
+
+    .summary p label {
+        font-weight: bold;
+    }
+    .group_of_line {   
+
+        .position {
+            width: 25px;
+            height: 20px;
+            float: left;
+            background-color: #61970B;
+            font-weight: bold;
+            color: white;
+            margin-right: 10px;
+            padding-left: 4px;
+        }
+        .color {
+            background-color: white;
+            width: 64px;
+            height: 64px;
+            float: left;
+            margin-right: 10px;
+            border: 1px solid #999;
+
+            a {
+                text-decoration: none;                   
+            }
+        }
+
+        .name a {
+            display: inline;
+        }
+    }
+}        
+
+
+

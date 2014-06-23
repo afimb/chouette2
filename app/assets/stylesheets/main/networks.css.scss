@@ -1,0 +1,26 @@
+// Place all the styles related to the lines controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#workspace.networks.index
+{
+    .networks {
+        margin-top: 20px;
+    }
+    
+    .network {
+        /* to create multi-column index */
+        width: 350px;
+        float: left;
+        padding-right: 10px;
+
+    }
+}
+
+#workspace.networks.show
+{
+    .summary p label {
+        font-weight: bold;
+    }
+}
+

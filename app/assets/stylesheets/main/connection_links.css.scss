@@ -1,0 +1,53 @@
+// Place all the styles related to the lines controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#workspace.connection_links.index
+{
+
+    .connection_links {
+        margin-top: 20px;
+    }
+    
+    .connection_link {
+
+        /* to create multi-column index */
+        width: 350px;
+        float: left;
+        padding-right: 10px;
+    }
+}
+
+
+#workspace.connection_links.show
+{
+
+    .summary p label {
+        font-weight: bold;
+    }
+    .duration {
+        padding-left: 10px;
+    }
+    
+}        
+
+#workspace.connection_links.select_departure
+{
+    .token-input-list{
+        display: inline-block;
+    }
+}
+
+#workspace.connection_links.select_arrival
+{
+    .token-input-list{
+        display: inline-block;
+    }
+}
+
+#workspace.connection_links.edit,#workspace.connection_links.new,#workspace.connection_links.create,#workspace.connection_links.update{
+    legend { border: 0px; }
+
+    panel{ margin-left: 25%; }
+}
+

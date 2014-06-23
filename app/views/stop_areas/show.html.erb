@@ -93,7 +93,7 @@
 <p class="after_map" />
 
 <div class="genealogical">
-  	<%= render "stop_areas/genealogical" %>
+  <%= render "stop_areas/genealogical" %>
 </div>
                          
 
@@ -104,7 +104,7 @@
 	<h3><%= t('.access_points') %></h3>
 	
 	<div class="access_points paginated_content">
-	  <%= render :partial => "access_points/access_point", :collection => @access_points %>
+	  <%= paginated_content @access_points, "access_points/access_point" %>
 	</div>
 </div>
 <% end %>
@@ -119,7 +119,7 @@
     </td></tr>
   <% if manage_itl %>
     <tr><td>	
-	<h3><%= t(".itl_managment") %></h3>
+	<h4><%= t(".itl_managment") %></h4>
 	<ul class="actions">
 	    <li><%= link_to  t('stop_areas.actions.add_routing_lines'), add_routing_lines_referential_stop_area_path(@referential, @stop_area), :class => "add_routing_lines" %></li>
 	    <li><%= link_to  t('stop_areas.actions.add_routing_stops'), add_routing_stops_referential_stop_area_path(@referential, @stop_area), :class => "add_routing_stops" %></li>
@@ -127,7 +127,7 @@
     </td></tr>
   <% else %>
     <tr><td>	
-	<h3><%= t(".stop_managment") %></h3>
+	<h4><%= t(".stop_managment") %></h4>
 	<ul class="actions">
 	    <li><%= link_to  t('stop_areas.actions.select_parent'), select_parent_referential_stop_area_path(@referential, @stop_area), :class => "select_parent" %></li>
 		  <% if manage_children %>
@@ -138,7 +138,7 @@
 	
 	<% if manage_access_points %>
     <tr><td>	
-	<h3><%= t(".access_managment") %></h3>
+	<h4><%= t(".access_managment") %></h4>
 	<ul class="actions">
         <li><%= link_to t('access_points.actions.new'), new_referential_stop_area_access_point_path(@referential,@stop_area), :class => "add" %></li>
         <li><%= link_to t('stop_areas.actions.manage_access_links'), access_links_referential_stop_area_path(@referential,@stop_area), :class => "select_parent" %></li>

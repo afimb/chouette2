@@ -12,10 +12,10 @@
   <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @group_of_lines %>
 </div>
 <div class="group_of_lines paginated_content">
-  <%= render :partial => "group_of_line", :collection => @group_of_lines %>
+  <%= paginated_content(@group_of_lines) %>
 </div>
 <div class="pagination">
-  <%= will_paginate @group_of_lines, :container => false %>
+  <%= will_paginate @group_of_lines, :container => false, renderer: BootstrapPagination::Rails %>
 </div>
 
 <% content_for :sidebar do %>

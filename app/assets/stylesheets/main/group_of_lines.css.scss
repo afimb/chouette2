@@ -1,0 +1,83 @@
+// Place all the styles related to the lines controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#workspace.group_of_lines.index
+{
+
+    .group_of_lines {
+        margin-top: 20px;
+    }
+    
+    .group_of_line {
+        /* to create multi-column index */
+        width: 350px;
+        float: left;
+        padding-right: 10px;
+
+    }
+}
+
+#workspace.group_of_lines.show
+{
+    .summary p label {
+        font-weight: bold;
+    }
+    .lines_detail div.page_info {
+        margin-top: 0px;
+    }   
+
+    .lines {
+        margin-top: 10px;
+    }
+
+    .group_of_line_lines {
+        clear: both;
+        margin: 0px;
+        padding: 0px;
+        a {
+          cursor: pointer;
+        }
+    }
+
+    .line {
+        /* to create multi-column index */
+        width: 250px;
+        float: left;
+        padding-right: 10px;
+
+        .position {
+            width: 25px;
+            height: 20px;
+            float: left;
+            background-color: #61970B;
+            font-weight: bold;
+            color: white;
+            margin-right: 10px;
+            padding-left: 4px;
+        }
+        .color {
+            background-color: white;
+            width: 64px;
+            height: 64px;
+            float: left;
+            margin-right: 10px;
+            border: 1px solid #999;
+
+            a {
+                text-decoration: none;                   
+            }
+        }
+
+        .number {     
+            font-size: 16px;
+            text-align: center;
+            font-weight: bold;
+            padding-top: 21px;
+        }   
+        .name a {
+            display: inline;
+        }
+    }
+}
+

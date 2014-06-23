@@ -1,0 +1,42 @@
+// First import journal variables
+// @import "bootswatch/cerulean/variables";
+$brand-primary: #61970b;
+
+// Then bootstrap itself
+@import "bootstrap";
+
+// Bootstrap body padding for fixed navbar
+// body { padding-top: 60px; }
+
+// And finally bootswatch style itself
+@import "bootswatch/cerulean/bootswatch";
+
+// Whatever application styles you have go last
+// Modules and Variables
+// @import "modules/base";
+
+// Partials
+// @import "partials/reset";
+
+// Third-party
+@import "font-awesome";
+@import "jquery.ui.all";
+@import "morris";
+@import "formtastic";
+
+@import "vendor/openlayers_style";
+@import "vendor/openlayers_ie6-style";
+@import "vendor/openlayers_google";
+@import "vendor/openlayers_framedCloud";
+@import "vendor/formtastic";
+@import "vendor/jquery.qtip.min";
+@import "vendor/tipsy";
+@import "vendor/pagination";
+
+// Main css
+@import "main/*";
+
+// Hack to make li simple
+li{
+  list-style: none;
+}

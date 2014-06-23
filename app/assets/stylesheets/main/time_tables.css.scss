@@ -1,0 +1,181 @@
+// Place all the styles related to the lines controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#workspace.time_tables.index
+{
+
+    .time_tables {
+        margin-top: 20px;
+    }
+    
+    .time_table {
+
+        /* to create multi-column index */
+        width: 350px;
+        float: left;
+        padding-right: 10px;
+        position: relative;
+
+        .state-code {
+            width: 25px;
+            height: 64px;
+            float: left;
+            margin-right: 10px;
+
+            .validity_out {
+                background-color: #FC4903;
+                width: 25px;
+                height: 25px;
+            }
+
+            .validity_out_soon {
+                background-color: orange;
+                width: 25px;
+                height: 25px;
+            }
+            
+            .validity_regular {
+                background-color: #86B41D;
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+}
+
+#workspace.time_tables.show
+{
+    .day_type { 
+      border-style:solid;
+      border-width:1px;
+      }
+      .period {
+        padding-left:50px;
+        padding-right:450px;
+      }
+      .date {
+        padding-left:50px;
+      }
+      .odd {
+        padding-left:50px;
+        padding-right:450px;
+      }
+      .even {
+        padding-left:50px;
+        padding-right:450px;
+      }
+  .actions {
+      float: right;
+    }
+
+    .summary p label {
+        font-weight: bold;
+    }
+
+    .resume {
+        .validity {
+            float: left;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        .validity.validity_out {
+            background-color: #FC4903;
+        }
+        .validity.validity_out_soon {
+            background-color: orange;
+        }
+        .validity.validity_regular {
+            background-color: #86B41D;
+        }
+    }
+}        
+
+#workspace.time_tables.edit,#workspace.time_tables.new,#workspace.time_tables.create,#workspace.time_tables.update
+{
+      h3 {
+      .dates {
+      cursor: pointer;
+      }
+      .periods {
+      cursor: pointer;
+      }
+    }
+
+  
+  .day_type ol {
+      float: left;
+      margin: 0;
+      padding: 0 0 0 0;
+      width: 100%;
+      list_style: none outside none;
+      margin-top: 0.5em;
+      margin-bottom: 1em;
+    }
+  .day_type ol li {
+      float: left;
+      margin: 0 O 0 0;
+      width: auto;
+      padding: 0;
+    }
+  .day_type_label {
+      float: left;
+      margin-top: 0;
+      width: 25%;
+    }
+  .day_type ol li label {
+      padding-left: 10%;
+    }
+
+  .dates ol {
+      margin-top: -0.3em;
+      margin-bottom: 1em;
+      margin-left: 25%;
+      padding: 0;
+      width: 75%;
+    }
+    .dates ol li { padding : 0.3em 0; }
+
+    .dates ol li label {
+      width: 40%;
+      margin-top: -0.3em;
+    }
+  .dates ol li.fl1 {float: left; width: 30% ;}
+  .dates ol li.fl1 label {width: 40%; margin-top: -0.3em; }
+  .dates ol li.fl1 input { width: 50%; }
+  
+
+  .periods ol {
+      margin-top: -0.3em;
+      margin-bottom: 1em;
+      margin-left: 25%;
+      padding: 0;
+      width: 75%;
+    }
+    .periods ol li { padding : 0.3em 0; }
+
+    .periods ol li label {
+      width: 40%;
+      margin-top: -0.3em;
+    }
+  .periods ol li.fl1 {float: left; width: 30% ;}
+  .periods ol li.fl1 label {width: 40%; margin-top: -0.3em; }
+  .periods ol li.fl1 input { width: 50%; }
+  
+  .periods ol li.fl2 {float: left; width: 30% ;}
+  .periods ol li.fl2 label {width: 40%; margin-top: -0.3em;}
+  .periods ol li.fl2 input { width: 50%; }
+  a.add_fields {
+    margin-left: 25%;
+    color: #666;
+    padding-left: 18px;
+    background: url(image-path('user_interface/ui/add.png')) no-repeat 0% 50%;
+  }
+  a.remove_fields {
+    color: #666;
+    padding-left: 18px;
+    background: url(image-path('user_interface/ui/remove.png')) no-repeat 0% 50%;
+  }
+
+}

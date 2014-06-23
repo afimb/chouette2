@@ -4,10 +4,10 @@
   <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @compliance_check_tasks %>
 </div>
 <div class="compliance_check_tasks paginated_content">
-  <%= render :partial => "compliance_check_task", :collection => @compliance_check_tasks %>
+  <%= paginated_content @compliance_check_tasks %>
 </div>
 <div class="pagination">
-  <%= will_paginate @compliance_check_tasks, :container => false %>
+  <%= will_paginate @compliance_check_tasks, :container => false, renderer: BootstrapPagination::Rails %>
 </div>
 
 <% content_for :sidebar do %>

@@ -34,10 +34,10 @@
   <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @lines %>
 </div>
 <div class="lines paginated_content">
-  <%= render :partial => "line", :collection => @lines %>
+    <%= paginated_content(@lines) %>
 </div>
 <div class="pagination">
-  <%= will_paginate @lines, :container => false %>
+  <%= will_paginate @lines, :container => false, renderer: BootstrapPagination::Rails %>
 </div>
 
 <% content_for :sidebar do %>
@@ -45,9 +45,9 @@
   <li><%= link_to t('lines.actions.new'), new_referential_line_path(@referential), :class => "add" %></li> 
 </ul>
 
-<h3><%= t(".selection") %></h3>
+<h4><%= t(".selection") %></h4>
 
-<h4><%= Chouette::Company.model_name.human.pluralize %></h4>
+<h5><%= Chouette::Company.model_name.human.pluralize %></h5>
 
 <ul class="selection">
 <% @referential.companies.each do |company| %>
@@ -56,7 +56,7 @@
 <li><%= link_with_search t(".selection_all"), {"company_id_eq" => nil}, :class => "all" %></li>
 </ul>
 
-<h4><%= Chouette::Network.model_name.human.pluralize %></h4>
+<h5><%= Chouette::Network.model_name.human.pluralize %></h5>
 
 <ul class="selection">
 <% @referential.networks.each do |network| %>
@@ -66,7 +66,7 @@
 </ul>
 
 <% if  @referential.group_of_lines.count > 0 %>
-	<h4><%= Chouette::GroupOfLine.model_name.human.pluralize %></h4>
+	<h5><%= Chouette::GroupOfLine.model_name.human.pluralize %></h5>
 	
 	<ul class="selection">
 	<% @referential.group_of_lines.each do |group_of_line| %>
@@ -77,7 +77,7 @@
 <% end %>
 
 <div id="multiple_selection_menu">
-  <h3><%= t(".multi_selection") %> </h3>
+  <h4><%= t(".multi_selection") %> </h4>
   <div class="disabled">
     <a class="enable" href="#"><%= t(".multi_selection_enable") %></a>
   </div>
