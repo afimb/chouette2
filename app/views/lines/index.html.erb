@@ -86,8 +86,7 @@
     <a class="disable" href="#"><%= t(".multi_selection_disable") %></a>
     
     <ul class="actions">
-      <%= link_to t(".delete_selected"), referential_lines_path(@referential), "data-multiple-method" => "delete", :class => "remove" %>
-      <li><a href="#" class="export"><%= t(".export_selected") %></a></li>
+       <li><%= link_to t(".delete_selected"), referential_lines_path(@referential), "data-multiple-method" => "delete", :class => "remove" %></li>
     </ul>
 
     <a class="select_all" href="#"><%= t(".select_all") %></a> | <a class="deselect_all" href="#"><%= t(".deselect_all") %></a>
