@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/afimb/ninoxe.git
-  revision: 81104810ace190584d6b445de0d0948bc204b7b5
+  revision: a0605b6d5430cf8e870f944ac2a34163a69a8e87
   specs:
     ninoxe (1.0.1)
-      activerecord (>= 3.1.3)
+      activerecord (>= 3.1.3, < 4.0)
       acts_as_list (~> 0.1.6)
       foreigner (= 1.6.0)
       georuby-ext (= 0.0.5)
@@ -123,9 +123,9 @@ GEM
       factory_girl (~> 2.6.0)
       railties (>= 3.0.0)
     fastercsv (1.5.5)
-    ffi (1.0.11)
-    ffi (1.0.11-java)
-    ffi-geos (0.4.0)
+    ffi (1.9.3)
+    ffi (1.9.3-java)
+    ffi-geos (1.0.0)
       ffi (>= 1.0.0)
     font-awesome-sass (4.1.0)
       sass (~> 3.2)

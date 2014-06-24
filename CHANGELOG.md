@@ -1,4 +1,4 @@
-# Version 2.5.0 (en développement)
+# Version 2.4.1 (en développement)
 * Corrections d'anomalies
   * L'export GTFS exige que l'indice de ligne soit renseigné (Mantis 26726)
   * L'import GTFS ne tient pas compte des courses commençant après minuit (Mantis 25824)

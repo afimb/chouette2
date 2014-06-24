@@ -28,7 +28,7 @@
     <%= form.input :mobility_restricted_suitability,:as => :boolean %>
     <%= form.input :stairs_availability,:as => :boolean %>
     <%= form.input :lift_availability,:as => :boolean %>
-    <%= form.input :objectid, :required => !@access_link.new_record?, :input_html => { :disabled => !@access_link.new_record? } %>  
+    <%= form.input :objectid, :required => !@access_link.new_record? %>  
    <% end %>
    <%= form.actions do %>
      <%= form.action :submit, :as => :button %>

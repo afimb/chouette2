@@ -3,7 +3,7 @@ layout: default
 title: Chouette v2 
 ---
 
-Version 2.5.0
+Version 2.4.1
 
 h3. Logiciel libre propriété de :
 
@@ -24,7 +24,7 @@ A cet égard  l'attention de l'utilisateur est attirée sur les risques associé
 
 h3. Notes de version
 
-h4. Version 2.5.0
+h4. Version 2.4.1
 
 * Corrections des anomalies suivantes :
 ** L'export GTFS exige que l'indice de ligne soit renseigné (Mantis 26726)

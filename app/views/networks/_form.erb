@@ -7,7 +7,7 @@
     <%= form.input :description %>              
     <%= form.input :source_name %>              
     <%= form.input :source_identifier %>              
-    <%= form.input :objectid, :required => !@network.new_record?, :input_html => { :disabled => !@network.new_record? } %>  
+    <%= form.input :objectid, :required => !@network.new_record? %>  
   <% end %>
 
    <%= form.actions do %>

@@ -35,7 +35,7 @@
 	        <%= form.input :lift_availability,:as => :boolean %>	     
         <% end %>
 
-        <%= form.input :objectid, :required => !@stop_area.new_record?, :input_html => { :disabled => !@stop_area.new_record? } %>  
+        <%= form.input :objectid, :required => !@stop_area.new_record? %>  
       <% end %>
 
     <%= form.actions do %>
