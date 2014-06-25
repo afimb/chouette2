@@ -11,13 +11,10 @@ en:
       invalid_vehicle_journey: "Error column %{column}, vehicle journey is invalid : %{message}"
       exception: "An exception occured : %{message}"
 fr:
-  form:
-    file: "Fichier"
   vehicle_journey_imports:
     new:
       title: "Import des horaires à l'arrêt"
-      export_vehicle_journeys: "Exporter les horaires à l'arrêt existants :"
-      file: "Fichier"  
+      export_vehicle_journeys: "Exporter les horaires existants"
     form:
       file: "Fichier"  
     errors:

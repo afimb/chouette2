@@ -1,4 +1,4 @@
-<%= div_for(compliance_check_task, :class => :compliance_check_task) do %>
+<%= div_for(compliance_check_task, :class => "compliance_check_task clearfix") do %>
   <div class="icon">
     <%= link_to image_tag("compliance_check_task-#{compliance_check_task.status}.png"), referential_compliance_check_task_path(@referential, compliance_check_task) %>
   </div>

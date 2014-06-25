@@ -5,30 +5,37 @@
 #workspace.lines.show
 {
 
-    .routes {
+    .routes{
         margin-top: 20px;
+
+        .route{
+
+            .header{
+                font-weight: bold;
+                
+                .wayback{
+                    float: right;            
+                }
+            }
+            
+            .body {
+                margin: 10px;
+                font-size: 11px;
+
+                p{ margin: 0 0 5px;}
+
+                i{
+                    margin-right: 10px;
+                    font-size: 12px;
+                }
+
+                img{
+                    margin-right: 10px;
+                }
+            }            
+        }
     }
     
-    .route {
-        /* to create multi-column index */
-        width: 350px;
-        padding-right: 10px;
-
-        .wayback {
-            width: 16px;
-            height: 16px;
-            float: left;
-            margin-right: 10px; 
-            
-            a{ margin:0px;}
-        }
-        
-        .name {
-            line-height: 16px;
-            float: left;
-        }
-        
-    }
 }
 
 #workspace.routes.edit, #workspace.routes.new, #workspace.routes.create, #workspace.routes.update

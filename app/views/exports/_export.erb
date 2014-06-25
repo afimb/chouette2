@@ -1,16 +1,21 @@
-<%= div_for(export, :class => :export) do %>
-  <%= link_to(referential_export_path(@referential, export), :class => "preview") do %>
-    <%= image_tag "export-#{export.status}.png" %>
-  <% end %>
-  <%= link_to(export.name, referential_export_path(@referential, export)) %>
-  <div class="info">
-    <%= l export.created_at %>
-
-    <div class="actions">  
+<%= div_for(export, :class => "export clearfix") do %>
+  <div class="icon">   
+    <%= link_to image_tag("export-#{export.status}.png"), referential_export_path(@referential, export) %>
+  </div>
+  <div class="resume">
+    <ul class="header clearfix">
+      <li class="title">
+        <%= link_to(export.name, referential_export_path(@referential, export)) %>
+      </li>
+      <li class="remove"><%= link_to "<i class='fa fa-trash-o'></i>".html_safe, referential_export_path(@referential, export), :method => :delete,  :data => {:confirm =>  t('exports.actions.destroy_confirm')}, :class => "remove" %></li>
+    </ul>    
+    <div class="links">  
       <% if export.status == 'completed' %>
-        <%= link_to t("exports.actions.download"), referential_export_path(@referential, export, :format => :zip), :class => "download" %>
+      <%= link_to t("exports.actions.download"), referential_export_path(@referential, export, :format => :zip), :class => "download" %>
       <% end %>
-      <%= link_to t("actions.destroy"), referential_export_path(@referential, export), :method => :delete,  :data => {:confirm =>  t('exports.actions.destroy_confirm')}, :class => "remove" %>
+    </div>
+    <div class="history">
+      <%= l  export.created_at, :format => "%d/%m/%Y %H:%M" %> 
     </div>
   </div>
 <% end %>

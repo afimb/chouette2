@@ -1,4 +1,4 @@
-<%= div_for import_task do %>
+<%= div_for import_task, :class => "clearfix" do %>
   <div class="icon">
     <%= link_to image_tag("import_task-#{import_task.status}.png"), referential_import_task_path(@referential, import_task) %>
   </div>

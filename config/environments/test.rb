@@ -44,6 +44,20 @@ ChouetteIhm::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 
+  # replace this with your production tracker code
+  GA.tracker = "UA-AAAAAAAA"
+
+  # api key to geoportail IGN (production key link to application url root referer)
+  config.geoportail_api_key = "aaaaaaaaaaaaaa" 
+
+  # Specific for each company
+  config.company_name = "afimb"
+  config.company_theme = "#61970b"
+  config.company_contact = "http://www.chouette.mobi/contact-support/"
+  
+  # file to data for demo
+  config.demo_data = "tmp/demo.zip"
+
   # link to validation specification pages
   config.validation_spec = "http://www.chouette.mobi/neptune-validation/v20/"
 

@@ -1,44 +1,51 @@
-<%= semantic_form_for [@referential, @stop_area, @access_point] do |form| %>
-  <%= form.inputs do %> 
-    <%= form.input :id, :as => :hidden %>
-    <%= form.input :name %>
-    <%= form.input :access_point_type, :as => :select, :input_html => { :disabled => !@access_point.new_record? },
-      :collection => Chouette::AccessPoint.access_point_types, :include_blank => false, :member_label => Proc.new { |access_point_type| t("access_types.label.#{access_point_type}") }  %>
-    <%= form.input :street_name %>              
-    <%= form.input :country_code %>              
-    <%= form.input :comment %>              
-    <%= form.inputs  do %> 
-      <%= form.input "openning_time(1i)", :as => :hidden ,:input_html => { :value => "2000" } %>
-      <%= form.input "openning_time(2i)", :as => :hidden ,:input_html => { :value => "1" } %>
-      <%= form.input "openning_time(3i)", :as => :hidden ,:input_html => { :value => "1" } %>
-      <%= form.input "openning_time(6i)", :as => :hidden ,:input_html => { :value => "0" } %>
-      <%= form.input :openning_time, :ignore_date=>true, :label => @access_point.human_attribute_name("openning_time")%>
-      <%= form.input "closing_time(1i)", :as => :hidden ,:input_html => { :value => "2000" } %>
-      <%= form.input "closing_time(2i)", :as => :hidden ,:input_html => { :value => "1" } %>
-      <%= form.input "closing_time(3i)", :as => :hidden ,:input_html => { :value => "1" } %>
-      <%= form.input "closing_time(6i)", :as => :hidden ,:input_html => { :value => "0" } %>
-      <%= form.input :closing_time, :ignore_date=>true, :label => @access_point.human_attribute_name("closing_time")%>
-    <% end %>
-    <%= form.input :mobility_restricted_suitability,:as => :boolean %>
-    <%= form.input :stairs_availability,:as => :boolean %>
-    <%= form.input :lift_availability,:as => :boolean %>
-    <%= form.input :objectid, :required => !@access_point.new_record?, :input_html => { :disabled => !@access_point.new_record? } %>  
-    <%= form.inputs :name => t('access_points.show.geographic_data') do %> 
-      <% if ! @referential.projection_type_label.empty? %>
-        <%= form.inputs :name => @referential.projection_type_label do %> 
-          <%= form.input :projection_x %>
-          <%= form.input :projection_y %>
-        <% end %>
-      <% end %>
-      <%= form.inputs :name => "WGS84" do %> 
-        <%= form.input :longitude %>
-        <%= form.input :latitude %>
-      <% end %>  
-    <% end %>
-  <% end %>
+<div class="container-fluid">
+  <div class="col-md-7">   
 
-   <%= form.actions do %>
-     <%= form.action :submit, :as => :button %>
-     <%= form.action :cancel, :as => :link %>
-   <% end %>
-<% end %>
+    <%= semantic_form_for [@referential, @stop_area, @access_point] do |form| %>
+      <%= form.inputs do %> 
+        <%= form.input :id, :as => :hidden %>
+        <%= form.input :name %>
+        <%= form.input :access_point_type, :as => :select, :input_html => { :disabled => !@access_point.new_record? },
+    :collection => Chouette::AccessPoint.access_point_types, :include_blank => false, :member_label => Proc.new { |access_point_type| t("access_types.label.#{access_point_type}") }  %>
+        <%= form.input :street_name %>              
+        <%= form.input :country_code %>              
+        <%= form.input :comment %>              
+        <%= form.input :openning_time, :as => :time_select %>
+        <%= form.input :closing_time, :as => :time_select %>
+        <%= form.input :mobility_restricted_suitability,:as => :boolean %>
+        <%= form.input :stairs_availability,:as => :boolean %>
+        <%= form.input :lift_availability,:as => :boolean %>
+        <%= form.input :objectid, :required => !@access_point.new_record?, :input_html => { :disabled => !@access_point.new_record? } %>
+        
+        <%= form.inputs :name => t('access_points.show.geographic_data') do %> 
+          <% if ! @referential.projection_type_label.empty? %>
+            <div class="panel panel-default">
+              <div class="panel-heading">@referential.projection_type_label</div>
+              <div class="panel-body">
+	              <%= form.input :projection_x %>
+	              <%= form.input :projection_y %>
+              </div>
+            </div>	       
+          <% end %>
+          <div class="panel panel-default">
+            <div class="panel-heading">WGS84</div>
+            <div class="panel-body">
+	            <%= form.input :longitude %>
+	            <%= form.input :latitude %>
+            </div>
+          </div>       
+        <% end %>
+    <% end %>
+
+    <%= form.actions do %>
+    <%= form.action :submit, :as => :button %>
+    <%= form.action :cancel, :as => :link %>
+    <% end %>
+    <% end %>
+  </div>
+  <div class="col-md-5">
+    <% if @map %>
+	  <%= @map.to_html %>
+    <% end %>
+  </div>
+</div>

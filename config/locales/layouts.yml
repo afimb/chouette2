@@ -6,8 +6,10 @@ en:
     user:
       profile: "My Profile"
       sign_out: "Sign out"
-    tabs:
-      dashboard: "dashboard"
+    navbar:
+      return_to_referentials: "Return to referentials"
+      select_referential: "Sélect referential"
+      referential_datas: "Referential datas"
     creation_tag:
       title: "Create"
     history_tag:
@@ -20,7 +22,22 @@ en:
       error: "Error"
       alert: "Alert"
       notice: "Info"      
-        
+    footer:
+      support:
+        title: "Support"
+        technical_support: "Technical support"
+        help: "Help"
+        good_practices: "Good pratices"
+      product:
+        title: "Product"
+        licence: "Licence"
+        source_code: "Source code"
+        user_group: "User group"
+      contact:
+        title: "Contact"
+        mail: "Contact us"      
+        newsletter: "Newsletter"    
+        forum: "Forum"         
 fr:
   layouts:
     back_to_dashboard: "Retour au Tableau de Bord"
@@ -29,8 +46,10 @@ fr:
     user:
       profile: "Mon Profil"      
       sign_out: "Déconnexion"
-    tabs:
-      dashboard: "Tableau de bord"
+    navbar:
+      return_to_referentials: "Retour à la liste des référentiels"
+      select_referential: "Sélection du référentiel"
+      referential_datas: "Données du référentiel"
     creation_tag:
       title: "Création"
     history_tag:
@@ -43,7 +62,22 @@ fr:
       error: "Erreur"
       alert: "Alerte"
       notice: "Info"
-      
+    footer:
+      support:
+        title: "Support"
+        technical_support: "Support technique"
+        help: "Aide"
+        good_practices: "Bonnes pratiques"
+      product:
+        title: "Produit"
+        licence: "Licence"
+        source_code: "Code Source"
+        user_group: "Club utilisateur"
+      contact:
+        title: "Contact"
+        mail: "Contactez nous"      
+        newsletter: "Lettre d'information"    
+        forum: "Forum"               
   true: "oui"
   false: "non"
   or: "ou"

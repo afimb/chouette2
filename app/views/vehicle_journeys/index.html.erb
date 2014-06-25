@@ -1,18 +1,9 @@
-<%= title_tag t('vehicle_journeys.index.title', :route => @route.name ) %>
+<ol class="breadcrumb">
+  <li><%= link_to line_formatted_name( @line), [@referential, @line] %></li>
+  <li><%= link_to @route.name, [@referential, @line, @route] %></li>
+</ol>
 
-<div class="vehicle_journey_index">
-  <div class="summary">
-    <p>
-      <label><%= @route.human_attribute_name(:line) %>: </label>
-      <%= link_to line_formatted_name( @line), [@referential, @line] %>
-    </p>
-    <p>
-      <label><%= Chouette::Route.model_name.human %>: </label>
-      <%= link_to @route.name, [@referential, @line, @route] %>
-    </p>
-  </div>
-</div>
-<h3 class="vehicle_journeys"><%= t('.vehicle_journeys') %></h3>
+<%= title_tag t('vehicle_journeys.index.title', :route => @route.name ) %>
 <div class="page_info">
   <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @vehicle_journeys %>
 </div>
@@ -20,7 +11,7 @@
   <%= will_paginate @vehicle_journeys, :container => false, renderer: BootstrapPagination::Rails %>
 </div>
 <div class="vehicle_journeys paginated_content">
-  <table class="table table-hover">
+  <table class="table table-hover table-striped">
   <thead>
     <tr>
       <th class="title"><%= Chouette::JourneyPattern.model_name.human.pluralize %> :</th>

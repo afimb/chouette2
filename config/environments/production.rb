@@ -1,8 +1,5 @@
 ChouetteIhm::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
-  #
-  # replace this with your production tracker code
-  GA.tracker = "UA-AAAAAAAA"
 
   # Code is not reloaded between requests
   config.cache_classes = true
@@ -23,6 +20,19 @@ ChouetteIhm::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  # Defaults to Rails.root.join("public/assets")
+  # config.assets.manifest = YOUR_PATH
+
+  # Specifies the header that your server uses for sending files
+  # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
+  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
+
+  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+  # config.force_ssl = true
+
+  # See everything in the log (default is :info)
+  #config.log_level = :info
+
   # Use a different logger for distributed setups
   #if ENV['OS'] == 'Windows_NT'
   #  # args = log_path,number of files,file sizes
@@ -34,8 +44,21 @@ ChouetteIhm::Application.configure do
   end
   #end
 
-  # api key to geoportail IGN (production key link to application url root referer)
-  config.geoportail_api_key = "aaaaaaaaaaaaaa"
+  # Use a different cache store in production
+  # config.cache_store = :mem_cache_store
+
+  # Enable serving of images, stylesheets, and JavaScripts from an asset server
+  # config.action_controller.asset_host = "chouette2"
+
+  # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
+  # config.assets.precompile += %w( search.js )
+
+  # Disable delivery errors, bad email addresses will be ignored
+  # config.action_mailer.raise_delivery_errors = false
+  
+  # Enable threaded mode
+  # NOTICE : With Rails 3.2, Delayed::JRubyWorker blocks the application without threaded mode
+  # config.threadsafe!
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
@@ -67,9 +90,20 @@ ChouetteIhm::Application.configure do
   }
   #end
 
+  # replace this with your production tracker code
+  GA.tracker = "UA-AAAAAAAA"
+
+  # api key to geoportail IGN (production key link to application url root referer)
+  config.geoportail_api_key = "aaaaaaaaaaaaaa" 
+
+  # Specific for each company
+  config.company_name = "afimb"
+  config.company_theme = "#61970b"
+  config.company_contact = "http://www.chouette.mobi/contact-support/"
+
   # file to data for demo
   config.demo_data = "/path/to/demo.zip"
-
+  
   # link to validation specification pages
   config.validation_spec = "http://www.chouette.mobi/neptune-validation/v20/"
 

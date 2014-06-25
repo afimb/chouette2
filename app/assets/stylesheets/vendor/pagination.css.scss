@@ -20,3 +20,22 @@
         @include border-bottom-radius(5px);
     }
 }
+
+.page_info {
+    margin: 20px 0 0 0;
+    height: 30px;
+    line-height: 30px;
+    color: $gray; 
+    border-bottom: solid 1px #cdc9c0;
+    border-top: solid 1px #cdc9c0;
+    
+    .search{
+        margin: 0 20px 0 10px;
+        color: $brand_primary;
+        font-weight:bold;
+    }
+    
+    b {
+        padding: 0.1em 0.25em; 
+    }
+}

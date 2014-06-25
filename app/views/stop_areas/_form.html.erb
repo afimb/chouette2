@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="col-md-8">   
+  <div class="col-md-7">   
     <%= semantic_form_for [@referential, @stop_area] do |form| %>
       <%= form.inputs do %> 
         <%= form.input :id, :as => :hidden %>
@@ -45,8 +45,9 @@
   <% end %>
 
   </div>
-  <div class="col-md-4">
+  <div class="col-md-5">
     <% if !manage_itl && @map %>
 	  <%= @map.to_html %>
     <% end %>
   </div>
+</div>

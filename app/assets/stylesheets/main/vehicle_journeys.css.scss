@@ -16,9 +16,16 @@
 
 #workspace.vehicle_journeys.index
 {
-    table{ margin: 20px 0 0 0;  }
-    
+    table{
 
+        margin: 20px 0 0 0;
+
+        .calendars{
+            font-size: 12px;
+        }
+
+        .stop_area{ width: 200px; }
+    }   
     
 }
 
@@ -30,8 +37,7 @@
     
     .to_arrivals {
         cursor: pointer;
-    }
-         
+    }            
 }
 
 #workspace.vehicle_journeys.show

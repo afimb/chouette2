@@ -6,7 +6,7 @@ class AccessPointsController < ChouetteController
   end
 
   respond_to :html, :kml, :xml, :json
-
+  layout "without_sidebar", :only => [:edit, :update]
 
   def index    
     request.format.kml? ? @per_page = nil : @per_page = 12

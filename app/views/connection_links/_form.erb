@@ -12,10 +12,10 @@
     <%= form.input :objectid, :required => !@connection_link.new_record?, :input_html => { :disabled => !@connection_link.new_record? } %>
   <% end %>
   <%= form.inputs :name => t('connection_links.show.durations') do %> 
-    <%= form.input :default_duration, :as => :time_picker, :ignore_date=>true,:include_seconds=>true, :label => @connection_link.human_attribute_name("default_duration"), :input_html => { :placeholder => "HH:MM" } %>       
-    <%= form.input :frequent_traveller_duration, :as => :time_picker, :ignore_date=>true,:include_seconds=>true, :label => @connection_link.human_attribute_name("frequent_traveller_duration"), :input_html => { :placeholder => "HH:MM" } %>      
-    <%= form.input :occasional_traveller_duration, :as => :time_picker, :ignore_date=>true,:include_seconds=>true, :label => @connection_link.human_attribute_name("occasional_traveller_duration"), :input_html => { :placeholder => "HH:MM" } %>        
-    <%= form.input :mobility_restricted_traveller_duration, :as => :time_picker, :ignore_date=>true,:include_seconds=>true, :label => @connection_link.human_attribute_name("mobility_restricted_traveller_duration"), :input_html => { :placeholder => "HH:MM" } %>
+    <%= form.input :default_duration, :as => :time_select, :size => 8, :include_seconds=>true, :label => @connection_link.human_attribute_name("default_duration"), :input_html => { :placeholder => "HH:MM" } %>       
+    <%= form.input :frequent_traveller_duration, :as => :time_select, :size => 8, :include_seconds=>true, :label => @connection_link.human_attribute_name("frequent_traveller_duration"), :input_html => { :placeholder => "HH:MM:SS" } %>      
+    <%= form.input :occasional_traveller_duration, :as => :time_select, :size => 8, :include_seconds=>true, :label => @connection_link.human_attribute_name("occasional_traveller_duration"), :input_html => { :placeholder => "HH:MM:SS" } %>        
+    <%= form.input :mobility_restricted_traveller_duration, :as => :time_select, :include_seconds=>true, :label => @connection_link.human_attribute_name("mobility_restricted_traveller_duration"), :input_html => { :placeholder => "HH:MM:SS" } %>
   <% end %>  
 
    <%= form.actions do %>

@@ -1,37 +1,36 @@
 <%= div_for(route) do %>
-    <% if ( route.wayback_code ) %>
-      <%= link_to image_tag("icons/#{route.wayback}.png"), referential_line_route_path( @referential, @line, route) %>
+<div class="header">
+  <% if ( route.wayback_code ) %>
+    <%= fonticon_wayback(route.wayback) %>
     <% end %>
-    <div>
-      <%= link_to route.name, referential_line_route_path( @referential, @line, route) %>
-    </div> 
-  <div class="info">
-    <% if ! route.number.blank? %>
-      <%= route.human_attribute_name('number') %> <%= route.number %> -
-    <% end %>
-    <% if ! route.direction.blank? %>
-      <%= route.human_attribute_name('direction_code') %> <%= t('directions.label.'+route.direction_code) %> - 
-    <% end %>
+    <%= link_to route.name, referential_line_route_path( @referential, @line, route) %>
     <% if route.wayback_code %>
-      <%= route.human_attribute_name('wayback_code') %> <%= (route.wayback=="A") ? t('.wayback.positive') : t('.wayback.negative') %>
+      <span class="wayback"><%= route.human_attribute_name('wayback_code') %> <%= (route.wayback=="A") ? t('.wayback.positive') : t('.wayback.negative') %></span>
     <% end %>
-    <% if route.wayback_code || (not route.direction.blank?) || ( not route.number.blank?) %>
-      <br/>
-    <% end %>
+</div>
+<div class="clearfix"></div>
+<div class="body">
+  <p>
+  <% if route.journey_patterns.size > 0 %>
+    <i class="fa fa-clock-o"></i><%= link_to t("vehicle_journeys.actions.index"), referential_line_route_vehicle_journeys_path(@referential, @line, route) %>
+  <% else %> 
+    <%= t('.no_journey_pattern')%>	
+  <% end%>
+  </p>
+  <p>
     <% if route.opposite_route %>
-      <%= t('.opposite') %> <%= link_to route.opposite_route.name, referential_line_route_path( @referential, @line, route.opposite_route) %>
+      <%= fonticon_wayback(route.opposite_route.wayback) %><%= link_to route.opposite_route.name, referential_line_route_path( @referential, @line, route.opposite_route) %> [<%= t('.opposite') %>]
     <% else %>
-      <%= t('.no_opposite') %>
+    <%= t('.no_opposite') %>
     <% end %>
-    <% if route.journey_patterns.size > 0 %>
-    <div class="actions">  
-      <%= link_to t("vehicle_journeys.actions.index"), referential_line_route_vehicle_journeys_path(@referential, @line, route), :class => "link" %>
-    </div>
+  </p>
+  <p>
+    <% if ! route.direction.blank? %>
+    <%= route.human_attribute_name('direction_code') %> : <%= t('directions.label.'+route.direction_code) %>
     <% else %>
-    <div class="actions">
-      <%= t('.no_journey_pattern')%>	
-    </div>	
-    <% end%>
-  </div>
+    <br>  
+    <% end %>
+  </p>
+</div>
 <% end %>
 

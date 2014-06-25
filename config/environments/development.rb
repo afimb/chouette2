@@ -7,6 +7,9 @@ ChouetteIhm::Application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
+  # Do not eager load code on boot.
+  config.eager_load = false
+
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
 
@@ -34,10 +37,21 @@ ChouetteIhm::Application.configure do
   # uncomment to show chouette error view in development
   #config.consider_all_requests_local = false
 
-  # config.active_record.auto_explain_threshold_in_seconds = (RUBY_PLATFORM == "java" ? nil : 0.5)
+  config.active_record.auto_explain_threshold_in_seconds = (RUBY_PLATFORM == "java" ? nil : 0.5)
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
+  # replace this with your production tracker code
+  GA.tracker = "UA-AAAAAAAA"
+
+  # api key to geoportail IGN (production key link to application url root referer)
+  config.geoportail_api_key = "aaaaaaaaaaaaaa" 
+
+  # Specific for each company
+  config.company_name = "afimb"
+  config.company_theme = "#61970b"
+  config.company_contact = "http://www.chouette.mobi/contact-support/"
+  
   # file to data for demo
   config.demo_data = "tmp/demo.zip"
 

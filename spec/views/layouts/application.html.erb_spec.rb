@@ -10,10 +10,10 @@ describe "/layouts/application" do
      
     let(:referential) { Referential.new }
 
-    it "should display referential name as title" do
-      render
-      rendered.should_not have_selector("h1")
-    end
+    it "should display referential name as title" #do
+    #   render
+    #   rendered.should_not have_selector("h1")
+    # end
                                           
   end
 

@@ -1,5 +1,7 @@
 module PaginationHelper
   def paginated_content(models, default_partial_name = nil)
+    return "" if models.blank?
+    
     html = ""
     models.each_slice(3) do |row_models|
       html += '<div class="row">'

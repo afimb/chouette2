@@ -101,14 +101,14 @@
     <%= link_to t('journey_patterns.actions.new'), new_referential_line_route_journey_pattern_path(@referential, @line, @route), :class => "add" %>
   </li>
 <% end %>
-<% if @route.journey_patterns.size > 0 %>
+  <!-- <li> -->
+  <!--   <%= link_to t('vehicle_journey_imports.new.title'), new_referential_line_route_vehicle_journey_import_path( @referential, @line, @route ), :class => "import" %> -->
+  <!-- </li> -->
+  <% if @route.journey_patterns.size > 0 %>
   <li>
-    <%= link_to t('vehicle_journeys.actions.index'), [@referential, @line, @route, :vehicle_journeys], :class => "link" %>
+    <i class="fa fa-clock-o"></i><%= link_to t('vehicle_journeys.actions.index'), [@referential, @line, @route, :vehicle_journeys], :class => "vehicle_journeys" %>
   </li>
-  <% end %>
-  <li>
-    <%= link_to t('vehicle_journey_imports.new.title'), new_referential_line_route_vehicle_journey_import_path( @referential, @line, @route ), :class => "import" %>
-  </li>
+<% end %>
 </ul>
 
   <%= creation_tag(@route) %>

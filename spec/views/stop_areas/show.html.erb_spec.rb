@@ -4,6 +4,7 @@ describe "/stop_areas/show" do
   
   assign_referential
   let!(:stop_area) { assign :stop_area, create(:stop_area) }
+  let!(:access_points) { assign :access_points, [] }
   let!(:map) { assign(:map, mock(:to_html => '<div id="map"/>'.html_safe)) }
 
   it "should render h2 with the stop_area name" do

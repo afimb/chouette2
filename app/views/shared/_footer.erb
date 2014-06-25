@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 logo">
+      <%= image_tag "#{ChouetteIhm::Application.config.company_name}.png" %>
+    </div>
+    <div class="col-md-3">
+      <ul>
+        <li><h4><%= t("layouts.footer.product.title") %></h4></li>
+        <li><%= link_to t("layouts.footer.product.licence"), "http://www.cecill.info/licences/Licence_CeCILL-B_V1-fr.html" %></li>
+        <li><%= link_to t("layouts.footer.product.source_code"), "https://github.com/afimb/chouette2" %></li>
+        <li><%= link_to t("layouts.footer.product.user_group") %></li>
+      </ul>
+    </div>
+    <div class="col-md-3">
+      <ul>
+        <li><h4><%= t("layouts.footer.support.title") %></h4></li>
+        <li>
+          <% if ChouetteIhm::Application.config.company_contact.include?("@") %>
+            <%= mail_to "#{ChouetteIhm::Application.config.company_contact}", t("layouts.footer.contact.mail") %>
+          <% else %>
+            <%= link_to t("layouts.footer.contact.mail"), "#{ChouetteIhm::Application.config.company_contact}" %>
+          <% end %>
+        </li>
+        <li><%= link_to t("layouts.footer.support.help"), "/help" %></li>
+      </ul>
+    </div>
+    <div class="col-md-3">
+      <ul>
+        <li><h4><%= t("layouts.footer.contact.title") %></h4></li>
+        <li>
+          <% if ChouetteIhm::Application.config.company_contact.include?("@") %>
+            <%= mail_to "#{ChouetteIhm::Application.config.company_contact}", t("layouts.footer.contact.mail") %>
+          <% else %>
+            <%= link_to t("layouts.footer.contact.mail"), "#{ChouetteIhm::Application.config.company_contact}" %>
+          <% end %>
+        </li>
+        <li><%= link_to t("layouts.footer.contact.newsletter"),"http://www.chouette.mobi/les-utilisateurs/etre-informe/" %></li>
+        <li><%= link_to t("layouts.footer.contact.forum"), "http://forum.chouette.mobi/" %></li>
+      </ul>
+    </div>
+  </div>
+</div>

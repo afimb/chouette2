@@ -1,29 +1,20 @@
 fieldset.inputs {
-
-    li.string input { width: 500px; }      
-
-    fieldset.inputs{
-        /* border: 2px groove threedface; */
-        /* margin-bottom: 20px; */
-        /* padding: 10px;        */
         
-        /* legend span{ */
-        /*     font-weight: bold; */
-        /*     padding: 5px; */
-        /* } */
+    a.action { float: right; }          
+}
 
-        /* li.special {  */
-        /*     display: inline-block;  */
-        /*     width: 40%;        */
-            
-        /*     label.label {  */
-        /*         width: 60%; */
-        /*         margin-right: 10px; */
-        /*     }            */
-            
-        /* } */
-        
-        a.action { float: right; }
-        
+.formtastic .choices .label, .formtastic .fragments .label {
+    width: 25%;
+    border: 0px;
+
+    label {
+        position: relative;
+        font-size: 14px;
     }
 }
+
+/* Hack to remove!!!! */ 
+.formtastic .inputs input[type="file"] {
+    display: initial;
+}
+/* Hack to remove!!!! */ 

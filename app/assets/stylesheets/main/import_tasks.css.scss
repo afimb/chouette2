@@ -17,23 +17,16 @@
     .import_task {
 
         div.icon{
-            display: inline-block;
-            vertical-align: top;
-            width: 74px;
-            padding-right: 5px;
-
-            img{
-                width: 64px;
-                height: 64px;
-            }
+            float: left;
         }
 
         div.resume{
-            display: inline-block;
+            float: right;
+            width: 70%;
 
             ul.header{
                 font-size: 14px;
-                width: 209px;
+                padding-left: 0px;
 
                 .title{ float: left; }
                 .remove{
@@ -44,11 +37,14 @@
 
             .links {
                 font-size: 10px;
-                height: 38px;
-
-                p { margin: 3px 0px 0px 0px !important; }
-                
+                p { margin: 3px 0px 0px 0px !important; }                
                 img { margin-right: 10px;}
+            }
+
+            .history {
+                color: $gray-light;
+                margin-top: 5px;
+                font-size: 10px;
             }
         }
     }

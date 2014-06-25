@@ -62,6 +62,9 @@ en:
         commercial_stops: "commercial stops"
         stop_places: "stop places"
         itls: "routing contraints"
+        import_tasks: "Imports"
+        export_tasks: "Exports"
+        compliance_check_tasks: "Validations"
   formtastic:
     hints:
       referential:
@@ -134,6 +137,9 @@ fr:
         commercial_stops: "arrêts commerciaux"
         stop_places: "pôles d'échange"
         itls: "ITL"
+        import_tasks: "Imports"
+        export_tasks: "Exports"
+        compliance_check_tasks: "Validations"
   formtastic:
     hints:
       referential:

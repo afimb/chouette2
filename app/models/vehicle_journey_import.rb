@@ -69,18 +69,20 @@ class VehicleJourneyImport
       (3..spreadsheet.last_column).each do |i|
         vehicle_journey_objectid = spreadsheet.column(i)[0]
         hours_by_stop_point_ids = Hash[[stop_point_ids, spreadsheet.column(i)[1..spreadsheet.last_row]].transpose]
-
+        
         journey_pattern = find_journey_pattern_schedule(hours_by_stop_point_ids)
+        #puts "journey_pattern #{journey_pattern.inspect}"
         vehicle_journey = journey_pattern.vehicle_journeys.where(:objectid => vehicle_journey_objectid, :route_id => route.id, :journey_pattern_id => journey_pattern.id).first_or_create
+        #puts "vehicle_journey #{vehicle_journey.inspect}"
 
         line = 0
         hours_by_stop_point_ids.each_pair do |key, value|
           line += 1
           if value.present? # Create a vehicle journey at stop when time is present
             main_time = Time.parse(value)
-            
             if main_time.present?
               vjas = Chouette::VehicleJourneyAtStop.where(:vehicle_journey_id => vehicle_journey.id, :stop_point_id => key).first_or_create(:departure_time => main_time, :arrival_time => main_time)
+              #puts "vjas #{vjas.inspect}"
             else
               errors.add :base, I18n.t("vehicle_journey_imports.errors.invalid_vehicle_journey", :column => i, :line => line, :time => value)
             end
