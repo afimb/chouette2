@@ -21,9 +21,11 @@ p(attr_data). Données de gestion :
 - Identifiant Neptune := 
 clé unique pérenne identifiant la course pour les échanges Neptune
 cet identifiant est composé de 3 parties : préfixe:type:id_technique
+
 * préfixe : clé identifiant un producteur de données unique
 * type = VehicleJourney : clé identifiant le type d'objet (valeur imposée)
 * id_technique : valeur identifiant un seul objet d'un type donné pour un même producteur
+
 ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
 il est possible aussi de ne renseigner que l'identifiant technique, auquel cas la valeur sera complétée automatiquement.
 =:

@@ -24,7 +24,7 @@ class JourneyPatternMap < ApplicationMap
   end
 
   def bounds
-    @bounds ||= journey_pattern.route.geometry.bounds
+    @bounds ||= GeoRuby::SimpleFeatures::Point.bounds(journey_pattern.route.stop_areas.collect(&:geometry).compact)
   end
 
 end

@@ -7,9 +7,8 @@ Le format CSV utilise un caractère comme séparateur de champs, c'est le caract
 Ce séparateur est configurable sur l'application WEB. Il est donc possible de le changer et le nouveau séparateur est pris en compte après redémarrage.
 Le format CSV est décrit par l'exemple ci-dessous (attention, le format est 'strict' ! et l'encodage attendu est en UTF-8)
 
-<notextile>
 <pre width="100%">
-
+<code>
 ;;;;;;;"Nom du réseau";"RER";;;;; 
 ;;;;;;;"Code Réseau";500;;;;; 
 ;;;;;;;"Description du réseau";"Réseau Express Régional ,exploités par la RATP et la SNCF";;;;; 
@@ -95,5 +94,5 @@ Le format CSV est décrit par l'exemple ci-dessous (attention, le format est 'st
 ;;;;;;;"Cergy-le Haut";09:54:00;09:54:00;;;; 
 ;;;;;;;"Achères-Grand Cormier";;;10:35:00;10:35:00;06:31:00;06:31:00 
 ;;;;;;;"Poissy";;;10:36:00;10:36:00;06:30:00;06:30:00 
+</code>
 </pre>
- </notextile>

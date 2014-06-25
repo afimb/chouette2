@@ -22,7 +22,7 @@
     <%= form.input :mobility_restricted_suitability,:as => :boolean %>
     <%= form.input :stairs_availability,:as => :boolean %>
     <%= form.input :lift_availability,:as => :boolean %>
-    <%= form.input :objectid, :required => !@access_point.new_record?, :input_html => { :disabled => !@access_point.new_record? } %>  
+    <%= form.input :objectid, :required => !@access_point.new_record? %>  
     <%= form.inputs :name => t('access_points.show.geographic_data') do %> 
       <% if ! @referential.projection_type_label.empty? %>
         <%= form.inputs :name => @referential.projection_type_label do %> 

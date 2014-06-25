@@ -3,7 +3,7 @@ layout: default
 title: Chouette v2 
 ---
 
-Version 2.4.0
+Version 2.4.1
 
 h3. Logiciel libre propriété de :
 
@@ -24,7 +24,16 @@ A cet égard  l'attention de l'utilisateur est attirée sur les risques associé
 
 h3. Notes de version
 
-h4. V2.4.0
+h4. Version 2.4.1
+
+* Corrections des anomalies suivantes :
+** L'export GTFS exige que l'indice de ligne soit renseigné (Mantis 26726)
+** L'import GTFS ne tient pas compte des courses commençant après minuit (Mantis 25824)
+** Mise en place d'un script produisant l'aide en ligne sous forme de docx (Mantis 26604)
+** L'import GTFS plante sur une course qui dessert plus de 2 fois le même arrêt (Mantis 26755)
+** L'export NeTEx produit un fichier invalide si le champ VersionDate du réseau est vide (Mantis 26434)
+
+h4. Version 2.4.0
 
 * Corrections des anomalies suivantes :
 ** L'Import GTFS n'importe pas les fichiers avec marqueurs BOM (Mantis 21260)
@@ -41,25 +50,27 @@ h4. V2.4.0
 ** Protection des listes avec filtre si la page courante est au delà du nombre de pages (Mantis 20954)
 ** L'export n'accepte plus une liste de réseaux (Mantis 26438)
 ** L'insertion d'un arrêt dans une séquence perturbe les courses existantes (Mantis 23800)
+** Import Neptune : erreur de sauvegarde si le mode de transport est manquant (Mantis 26702)
+** Edition Calendrier : problème de saisie des dates sous Chrome (Mantis 26746)
 
-h4. V2.3.0
+h4. Version 2.3.0
 
 * Migration technique des frameworks JAVA
 ** Spring 4
 ** Hibernate 4
 
-h4. V2.2.0
+h4. Version 2.2.0
 
 * Refonte de la validation
 ** La validation se fait soit lors d'un import, soit sur les données déjà en base.
 ** Les tests ont été redéfinis.
 
-h4. V2.1.1
+h4. Version 2.1.1
 
 * Clonage de courses
 ** les calendiers de la course initiale sont reportés dans les copies
 
-h4. V2.1.0 
+h4. Version 2.1.0 
 
 * suppression des coordonnées projetées en base
 ** les données sont produites à la volée pour l'export et l'affichage à partir de la projection fixée dans le référentiel
@@ -75,19 +86,19 @@ h4. V2.1.0
 ** ajout des fonds niveau cadastre et orthophoto
 ** affichage de l'orthophoto IGN par défaut lorsque la clé IGN est présente
 
-h4. V2.0.3 
+h4. Version 2.0.3 
 
 * Ajout des imports/export NeTex 
 * Fonctionnement sous windows
 * Prise en compte de grandes quantités de calendriers.
 * Reprise des logs d'import Neptune
 
-h4. V2.0.2 
+h4. Version 2.0.2 
 
 * Ajout de l'import GTFS (expérimental, ne traite pas les stations)
 * Ajout d'API Rest pour accéder aux données depuis une autre application
 
-h4. V2.0.1 
+h4. Version 2.0.1 
 
 * Ajout de la gestion des groupes de lignes
 * Ajout de la gestion des accès et des relations arrêts-accès
@@ -95,7 +106,7 @@ h4. V2.0.1
 * Améliorations ergonomiques et cartographiques
 * L'import Neptune accepte les principaux formats d'encodage : ISO-8859-1, UTF-8, ...
 
-h4. V2.0.0 
+h4. Version 2.0.0 
 
 * refonte de l'interface graphique
 * ajout d'une gestion simplifiée d'utilisateurs :
