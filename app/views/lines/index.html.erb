@@ -1,4 +1,4 @@
-<%= title_tag t('lines.index.title') %> 
+<%= title_tag t('lines.index.title') %>
 
 <%= search_form_for @q, :url => referential_lines_path(@referential), :html => {:method => :get} do |f| %>
   <%= f.label :name_or_number_cont, "#{t('.name_or_number')} :" %>
@@ -42,7 +42,7 @@
 
 <% content_for :sidebar do %>
 <ul class="actions">
-  <li><%= link_to t('lines.actions.new'), new_referential_line_path(@referential), :class => "add" %></li> 
+  <li><%= link_to t('lines.actions.new'), new_referential_line_path(@referential), :class => "add" %></li>
 </ul>
 
 <h4><%= t(".selection") %></h4>
@@ -67,7 +67,6 @@
 
 <% if  @referential.group_of_lines.count > 0 %>
 	<h5><%= Chouette::GroupOfLine.model_name.human.pluralize %></h5>
-	
 	<ul class="selection">
 	<% @referential.group_of_lines.each do |group_of_line| %>
 	<li><%= link_with_search group_of_line.name, "group_of_lines_id_eq" => group_of_line.id %></li>
@@ -84,13 +83,13 @@
 
   <div class="enabled" style="display: none;">
     <a class="disable" href="#"><%= t(".multi_selection_disable") %></a>
-    
+
     <ul class="actions">
-       <li><%= link_to t(".delete_selected"), referential_lines_path(@referential), "data-multiple-method" => "delete", :class => "remove" %></li>
+      <%= link_to t(".delete_selected"), referential_lines_path(@referential), "data-multiple-method" => "delete", :class => "remove", :confirm => t("lines.actions.destroy_selection_confirm") %>
     </ul>
 
     <a class="select_all" href="#"><%= t(".select_all") %></a> | <a class="deselect_all" href="#"><%= t(".deselect_all") %></a>
-  </div> 
+  </div>
 </div>
 
 <% end %>
