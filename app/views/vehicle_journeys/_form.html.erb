@@ -8,7 +8,7 @@
     <%= form.input :status_value %>
     <%= form.input :facility %>
     <%= form.input :vehicle_type_identifier%>
-    <%= form.input :objectid, :required => !@vehicle_journey.new_record?, :input_html => { :disabled => !@vehicle_journey.new_record? } %>
+    <%= form.input :objectid, :required => !@vehicle_journey.new_record? %>
 
 	  <%= form.inputs :class => "stop_times", :name => @vehicle_journey.human_attribute_name(:vehicle_journey_at_stop_ids) do %>
 	    <table border="0" class="vehicle_journey_at_stops">

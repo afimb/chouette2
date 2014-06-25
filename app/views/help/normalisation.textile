@@ -11,7 +11,7 @@ h3. TRANSMODEL (EN12896)
 
 La norme européenne TRANSMODEL constitue le modèle conceptuel de données sur lequel s'appuie l'ensemble des travaux normatifs (Neptune, SIRI, IFOPT, NETEX) . Elle est actuellement validée dans sa version 5.1.
 
-Elle a pour objectif de décrire les différents concepts utilisés au sein des multiples métiers du transport public (aussi bien dans le domaine de l'exploitation, de la régulation que dans celui de l'information voyageur) en usant de la modélisation UML. Cette description a abouti à la constitution d'un "dictionnaire" dans lequel chacun peut venir piocher la terminologie adéquate pour pouvoir désigner, quels que soient la structure et le métier de l'intéressé, de façon homogène et non ambiguëe les concepts qu'il va décliner dans son application.
+Elle a pour objectif de décrire les différents concepts utilisés au sein des multiples métiers du transport public (aussi bien dans le domaine de l'exploitation, de la régulation que dans celui de l'information voyageur) en usant de la modélisation UML. Cette description a abouti à la constitution d'un "dictionnaire" dans lequel chacun peut venir piocher la terminologie adéquate pour pouvoir désigner, quels que soient la structure et le métier de l'intéressé, de façon homogène et non ambiguë les concepts qu'il va décliner dans son application.
 
 h3. de TRIDENT à NEPTUNE (PR NF P99-506)
 
@@ -19,6 +19,7 @@ Dans le cadre de la "commission de normalisation CN03 pour les applications tél
 
 Après examen des travaux en cours au niveau européen, il est apparu au groupe que les spécifications d'échange élaborées dans le cadre du projet européen TRIDENT étaient la meilleure base de travail sur laquelle s'appuyer pour la normalisation. 
 Ces spécifications d'échange couvrent l'information VP et TC, théorique et en situation perturbée; elles s'appuient sur :
+
 * un modèle d'échange pair à pair entre fournisseur et client, avec possibilité d'abonnement ; 
 * un modèle de données orienté objets décrit en UML, reprenant pour ce qui concerne les transports publics, le modèle conceptuel de données Transmodel V4.0, normalisé au niveau européen ; 
 * un format d'échange XML spécifié sous forme de schémas XSD. 

@@ -22,18 +22,22 @@ Par la suite, on peut regrouper deux (ou plus) arrêts physiques au sein d'un *a
 Enfin, CHOUETTE offre la possibilité de regrouper les lieux d'arrêt agglomérés ainsi créés au sein d'une *zone d'arrêt de troisième niveau* pour constituer des *pôles d'échange*.
 
 Ainsi on obtient les possibilités de regroupements suivants:
+
 * un arrêt physique regroupe plusieurs arrêts sur itinéraire (ou séquence d'arrêts).
 * un arrêt commercial regroupe plusieurs arrêts physiques (quai, embarquement).
 * un pôle d'échange regroupe plusieurs arrêts commerciaux. 
 
 Pour ne pas aboutir à un système trop complexe, les règles suivantes sont posées:
+
 * un pôle d'échange peut contenir des arrêts commerciaux et/ou des pôles d'échanges (qui ne peuvent pas en contenir d'autres).
 * un arrêt commercial ne peut contenir que des arrêts physiques.
 
 Un dernier regroupement est *l'ITL* : 
 
-*L'interdiction de trafic local* est l'interdiction faite à un service routier de prendre et de laisser un même voyageur à l'intérieur du périmètre des transports urbains _(cf. Décret n°49-1473 du 14 novembre 1949)_ .
+*L'interdiction de trafic local* est l'interdiction faite à un service routier de prendre et de laisser un même voyageur à l'intérieur du périmètre des transports urbains (cf. Décret n°49-1473 du 14 novembre 1949) .
+
 Ainsi dans CHOUETTE:
+
 * Une ITL est un regroupement d'arrêts représentant le périmètre d'interdiction.
 * Une ITL est associée à une ou plusieurs lignes 
 
@@ -46,7 +50,6 @@ h3(#attr). Attributs
 * !commercialstoppoint.png! arrêt commercial
 * !stopplace.png! pôle d'échange
 * !itl.png! ITL
-
 
 - Nom := nom de l'arrêt 
 - Commentaire := zone de texte libre
@@ -68,9 +71,11 @@ p(attr_data). Données de gestion :
 - Identifiant Neptune :=
 clé unique pérenne identifiant la ligne pour les échanges Neptune
 cet identifiant est composé de 3 parties : préfixe:type:id_technique
+
 * préfixe : clé identifiant un producteur de données unique
 * type = StopArea : clé identifiant le type d'objet (valeur imposée)
 * id_technique : valeur identifiant un seul objet d'un type donné pour un même producteur
+
 ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
 il est possible aussi de ne renseigner que l'identifiant technique, auquel cas la valeur sera complétée automatiquement.
 =:
@@ -83,7 +88,7 @@ h3(#ope). Mode opératoire
 h4. Déplacement sur la carte
 
 * activer le déplacement en cliquant sur l'arrêt -> le curseur prend la forme d'une quadruple flèche
-* appuyer sur le bouton gauche de la souris et maintenir appuyer lors du déplacement -> l'arrêt suit la souris
+* appuyer sur le bouton gauche de la souris et maintenir appuyé lors du déplacement -> l'arrêt suit la souris
 * relâcher le bouton -> l'arrêt a une nouvelle position fixe
 * cliquer sur la carte -> sortie du mode déplacement; les coordonnées sont actualisées dans le formulaire
 

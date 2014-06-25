@@ -4,17 +4,12 @@
     <%= form.input :version %> 
   <% end %>
   <%= form.inputs :class => 'day_type' do %> 
-    <label class="day_type_label"><%= @time_table.human_attribute_name("day_types") %></label>
-    <%= form.input :monday, :as => :boolean, :class => "others" %> 
-    <%= form.input :tuesday, :as => :boolean %> 
-    <%= form.input :wednesday, :as => :boolean %> 
-    <%= form.input :thursday, :as => :boolean %> 
-    <%= form.input :friday, :as => :boolean %> 
-    <%= form.input :saturday, :as => :boolean %> 
-    <%= form.input :sunday, :as => :boolean %> 
+    <label class="day_type_label"><%= @time_table.human_attribute_name("peculiarities") %></label>
+    <%= form.input :school_holliday, :as => :boolean, :class => "others" %> 
+    <%= form.input :public_holliday, :as => :boolean %> 
   <% end %>
   <%= form.inputs do %> 
-    <%= form.input :objectid, :required => !@time_table.new_record?, :input_html => { :disabled => !@time_table.new_record? } %>  
+    <%= form.input :objectid, :required => !@time_table.new_record? %>  
   <% end %>
   
   <h3 class="time_table_periods">
@@ -25,6 +20,16 @@
   	
   </h3>
   <div class="periods content"  id="periods_content">
+	  <%= form.inputs :class => 'day_type' do %> 
+	    <label class="day_type_label"><%= @time_table.human_attribute_name("day_types") %></label>
+	    <%= form.input :monday, :as => :boolean, :class => "others" %> 
+	    <%= form.input :tuesday, :as => :boolean %> 
+	    <%= form.input :wednesday, :as => :boolean %> 
+	    <%= form.input :thursday, :as => :boolean %> 
+	    <%= form.input :friday, :as => :boolean %> 
+	    <%= form.input :saturday, :as => :boolean %> 
+	    <%= form.input :sunday, :as => :boolean %> 
+	  <% end %>
 	  <div id="periods">
 		  <%= form.semantic_fields_for :periods do |p| %>
 		     <%= render "period_fields",  :f => p %> 

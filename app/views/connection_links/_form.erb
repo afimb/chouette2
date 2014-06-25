@@ -9,7 +9,7 @@
     <%= form.input :stairs_availability,:as => :boolean %>
     <%= form.input :lift_availability,:as => :boolean %>
 
-    <%= form.input :objectid, :required => !@connection_link.new_record?, :input_html => { :disabled => !@connection_link.new_record? } %>
+    <%= form.input :objectid, :required => !@connection_link.new_record? %>  
   <% end %>
   <%= form.inputs :name => t('connection_links.show.durations') do %> 
     <%= form.input :default_duration, :as => :time_select, :size => 8, :include_seconds=>true, :label => @connection_link.human_attribute_name("default_duration"), :input_html => { :placeholder => "HH:MM" } %>       

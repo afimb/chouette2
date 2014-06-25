@@ -31,7 +31,7 @@ en:
       add_date: "Add a date"
     index:
       title: "Timetables"
-      comment: "Comment"
+      comment: "Name"
       selection: "Selection"
       selection_all: "All"
   activerecord:        
@@ -42,8 +42,11 @@ en:
         other: "Timetables"
     attributes:
       time_table:
-        comment: "Comment"
-        version: "Version"
+        comment: "Name"
+        version: "Short name"
+        peculiarities: "Peculiarities"
+        school_holliday: "School hollidays"
+        public_holliday: "Public hollidays"
         day_types: "Day types"
         none: "none"
         monday: "Monday"
@@ -101,7 +104,7 @@ fr:
       add_period: "Ajouter une période"
       add_date: "Ajouter une date"
     index:
-      comment: "Description"
+      comment: "Nom"
       title: "calendriers"
       selection: "Sélection"
       selection_all: "Tous"
@@ -113,8 +116,11 @@ fr:
         other: "Calendriers"
     attributes:
       time_table:
-        comment: "Description"
-        version: "Version"
+        comment: "Nom"
+        version: "Abréviation"
+        peculiarities: "Particularités"
+        school_holliday: "Vacances scolaires"
+        public_holliday: "Jours fériés"
         day_types: "Jours d'application"
         none: "aucun"
         monday: "Lundi"

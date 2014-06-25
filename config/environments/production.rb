@@ -67,10 +67,19 @@ ChouetteIhm::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => 'my-domain-name.com' }
+  if ENV['CHOUETTE_BASE_URL'].nil?
+     config.action_mailer.default_url_options = { :host => 'my-domain-name.com' }
+  else
+     config.action_mailer.default_url_options = { :host => ENV['CHOUETTE_BASE_URL'] }
+  end  
+  
 
   # Configure the e-mail address which will be shown in Devise::Maile
-  config.mailer_sender = "chouette-production@my-domain-name.com"
+  if ENV['CHOUETTE_MAIL_SENDER'].nil?
+     config.mailer_sender = "chouette-production@my-domain-name.com"
+  else
+     config.mailer_sender = ENV['CHOUETTE_MAIL_SENDER']
+  end  
 
   #  mailer configuration :
   #  by default : set to smtp on windows platforms and sendmail on unix one
@@ -84,17 +93,44 @@ ChouetteIhm::Application.configure do
   #     :user_name => "username",
   #   }
   #else
-   ActionMailer::Base.smtp_settings = {
-    :address        => "smtp.samle.com",
-    :domain         => "sample.com"
-  }
+  mailer = ""
+  if ENV['CHOUETTE_MAILER'].nil?
+    mailer = "smtp"
+  else
+    mailer = ENV['CHOUETTE_MAILER']
+  end
+  if mailer == "smtp"
+    if ENV['CHOUETTE_SMTP_USER'].nil?
+      ActionMailer::Base.smtp_settings = {
+	:address        => ENV['CHOUETTE_SMTP_ADDRESS'].nil? ? "smtp.sample.com" : ENV['CHOUETTE_SMTP_ADDRESS'],
+	:port           => ENV['CHOUETTE_SMTP_PORT'].nil? ? 25 : ENV['CHOUETTE_SMTP_PORT'].to_i,
+	:domain         => ENV['CHOUETTE_SMTP_DOMAIN'].nil? ? "sample.com" : ENV['CHOUETTE_SMTP_DOMAIN']   }
+    else
+      ActionMailer::Base.smtp_settings = {
+	:address        => ENV['CHOUETTE_SMTP_ADDRESS'],
+	:port           => ENV['CHOUETTE_SMTP_PORT'].nil? ? 25 : ENV['CHOUETTE_SMTP_PORT'].to_i,
+	:domain         => ENV['CHOUETTE_SMTP_DOMAIN'],
+	:user_name      => ENV['CHOUETTE_SMTP_USER'],
+	:password       => ENV['CHOUETTE_SMTP_PASSWORD'],
+	:authentication => ENV['CHOUETTE_SMTP_AUTH']    }
+    end  
+  end 
   #end
 
   # replace this with your production tracker code
-  GA.tracker = "UA-AAAAAAAA"
+  # replace this with your production tracker code
+  if ENV['CHOUETTE_GOOGLE_ANALYTICS'].nil?
+     GA.tracker = "UA-AAAAAAAA"
+  else
+     GA.tracker = ENV['CHOUETTE_GOOGLE_ANALYTICS']
+  end  
 
   # api key to geoportail IGN (production key link to application url root referer)
-  config.geoportail_api_key = "aaaaaaaaaaaaaa" 
+  if ENV['CHOUETTE_GEOPORTAIL_KEY'].nil?
+     config.geoportail_api_key = "aaaaaaaaaaaaaa"
+  else
+     config.geoportail_api_key = ENV['CHOUETTE_GEOPORTAIL_KEY']
+  end  
 
   # Specific for each company
   config.company_name = "afimb"
@@ -102,15 +138,15 @@ ChouetteIhm::Application.configure do
   config.company_contact = "http://www.chouette.mobi/contact-support/"
 
   # file to data for demo
-  config.demo_data = "/path/to/demo.zip"
-  
+  config.demo_data = ENV['CHOUETTE_DEMO_DATA'].nil? ? "/path/to/demo.zip" : ENV['CHOUETTE_DEMO_DATA']
+
   # link to validation specification pages
   config.validation_spec = "http://www.chouette.mobi/neptune-validation/v20/"
 
   # paths for external resources
   config.to_prepare do
     Devise::Mailer.layout "mailer"
-    Chouette::Command.command = "/usr/local/opt/chouette-command/chouette-cmd_2.4.0/chouette"
+    Chouette::Command.command = ENV['CHOUETTE_GUI_COMMAND'].nil? ? "/usr/local/opt/chouette-command/chouette-cmd_2.4.1/chouette" : ENV['CHOUETTE_GUI_COMMAND']
     ImportTask.root = "/var/lib/chouette/imports"
     Export.root = "/var/lib/chouette/exports"
   end
