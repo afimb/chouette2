@@ -17,13 +17,13 @@ h3. Sommaire
 # "Transporteurs":companies
 # "Lignes":lines
 ## "Séquences d'arrêts":routes
-## "Missions":journeypatterns
-## "Courses/Horaires":vehiclejourneys
+## "Missions":journey_patterns
+## "Courses/Horaires":vehicle_journeys
 # "Arrêts":stop_areas
 ## "Correspondances":connection_links
 ## "Accès":access_points
 ## "Liens Arrêts-Accès":access_links
-# "Calendriers d'application":timetables
+# "Calendriers d'application":time_tables
 # Outils
 ## "Imports":imports
 ## "Exports":exports

@@ -18,7 +18,7 @@ p. La validation effectue un ensemble de contrôles syntaxiques, sémantiques et
 ** les données d’offre sont analysées (structure, contrôles de complétude et de connexité des données) ;
 * le 3ème niveau d'analyse concerne plutôt des contrôles du « réalisme » des données ; il peut être effectué en base de données, donc y compris sur des données importées depuis un autre format que Neptune (GTFS, CSV, etc.). A ces points de contrôle est associé un jeu de paramètres modifiable par l'utilisateur.
 
-p. Les tests (« points de contrôle ») de validation Neptune sont décrits sur le site "chouette.mobi":http://www.chouette.mobi/spip.php?rubrique108
+p. Les tests (« points de contrôle ») de validation Neptune sont décrits sur le site "chouette.mobi":http://www.chouette.mobi/docs/
 
 h3(#fmt). Formats disponibles 
 

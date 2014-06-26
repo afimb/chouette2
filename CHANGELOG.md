@@ -5,6 +5,7 @@
   * Mise en place d'un script produisant l'aide en ligne sous forme de docx (Mantis 26604)
   * L'import GTFS plante sur une course qui dessert plus de 2 fois le même arrêt (Mantis 26755)
   * L'export NeTEx produit un fichier invalide si le champ VersionDate du réseau est vide (Mantis 26434)
+  * Liens cassés dans les pages d'aide (Mantis 26690)
 
 # Version 2.4.0 (27/05/14)
 * Corrections d'anomalies
