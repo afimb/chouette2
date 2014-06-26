@@ -61,7 +61,7 @@ gem 'google-analytics-rails'
 gem 'will_paginate', '~> 3.0'
 gem 'ransack'
 gem 'squeel'
-gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git'
+gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git', :branch => :sismo
 #gem 'ninoxe',:path => '~/projects/ninoxe'
 #gem 'ninoxe',:path => '~/workspace/chouette/ninoxe'
 #gem 'ninoxe', '~> 1.0.1'
