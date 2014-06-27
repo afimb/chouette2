@@ -29,7 +29,7 @@ describe "TimeTables" do
     it "creates time_table and return to show" do
       visit referential_time_tables_path(referential)
       click_link "Ajouter un calendrier"
-      fill_in "Description", :with => "TimeTable 1"
+      fill_in "Nom", :with => "TimeTable 1"
       fill_in "Identifiant Neptune", :with => "test:Timetable:1"
       click_button("Créer Calendrier")
       page.should have_content("TimeTable 1")
@@ -40,7 +40,7 @@ describe "TimeTables" do
     it "edit time_table" do
       visit referential_time_table_path(referential, subject)
       click_link "Modifier ce calendrier"
-      fill_in "Description", :with => "TimeTable Modified"
+      fill_in "Nom", :with => "TimeTable Modified"
       click_button("Modifier Calendrier")
       page.should have_content("TimeTable Modified")
     end
