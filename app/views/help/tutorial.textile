@@ -11,5 +11,5 @@ Des courses, horaires, missions, Interdictions de Trafic Local et calendriers d'
 L'utilisateur a alors la possibilité de découvrir et de modifier à souhait ces éléments afin d'expérimenter les différentes fonctions et possibilités de l'outil CHOUETTE.
 
 La démonstration est disponible en ligne sur "www.chouette.mobi":www.chouette.mobi
-Les données 'Tatrobus' sont disponibles ["ici":http://www.chouette.mobi/spip.php?rubrique46]
-A noter également que des données Neptune sont disponibles au format Neptune sous licence open data, cf. par exemple ["ici":http://www.chouette.mobi/spip.php?rubrique84]
+Les données 'Tatrobus' sont disponibles ["ici":http://www.chouette.mobi/docs/]
+A noter également que des données Neptune sont disponibles au format Neptune sous licence open data, cf. par exemple ["ici":http://www.chouette.mobi/docs/]

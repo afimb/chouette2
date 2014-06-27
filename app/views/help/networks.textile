@@ -5,7 +5,7 @@ title: Réseaux
 
 h3. Définition
 
-Un *réseau* est constitué par les "lignes":lines, les "séquences d'arrêts":routes, les "Interdictions de Trafic Local":stop_areas (ITL), les "horaires":vehiclejourneys, et les "courses":vehiclejourneys qui le définissent.
+Un *réseau* est constitué par les "lignes":lines, les "séquences d'arrêts":routes, les "Interdictions de Trafic Local":stop_areas (ITL), les "horaires":vehicle_journeys, et les "courses":vehicle_journeys qui le définissent.
 
 Chaque réseau dispose d'un identifiant fonctionnel (<< numéro d'enregistrement >>) qui est utilisé dans les échanges XML pour identifier le réseau et le mettre à jour. Il est très important que le gestionnaire le renseigne d'une manière bien définie et pérenne.
 
