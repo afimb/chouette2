@@ -73,14 +73,12 @@ describe VehicleJourneyImport do
     it "should import vehicle_journeys and create the right number of objects" do
       expect(VehicleJourneyImport.new(:file => valid_file, :route => route).save).to be_true
       expect(Chouette::VehicleJourney.all.size).to eq(4)
-      puts Chouette::VehicleJourneyAtStop.all.inspect
-      expect(Chouette::VehicleJourneyAtStop.all.size).to eq(19)
+      expect(Chouette::VehicleJourneyAtStop.all.size).to eq(17)
     end
 
     it "should not import vehicle_journeys and not create objects when vehicle journey at stops are not in ascendant order" do      
       expect(VehicleJourneyImport.new(:route => route, :file => invalid_file_on_vjas_object).save).to be_false
       expect(Chouette::VehicleJourney.all.size).to eq(3)
-      puts Chouette::VehicleJourneyAtStop.all.inspect
       expect(Chouette::VehicleJourneyAtStop.all.size).to eq(0)
     end
     
