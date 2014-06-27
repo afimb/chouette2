@@ -55,6 +55,7 @@ class VehicleJourneyImport
   def load_imported_vehicle_journeys
     spreadsheet = open_spreadsheet(file)
     vehicle_journeys = []
+    vehicle_journey_at_stops = []
     
     first_column = spreadsheet.column(1)
     stop_point_ids = first_column[1..spreadsheet.last_row].map(&:to_i)
@@ -80,8 +81,8 @@ class VehicleJourneyImport
             begin 
               main_time = Time.parse(value)
               if main_time.present?
-                vjas = Chouette::VehicleJourneyAtStop.where(:stop_point_id => key, :vehicle_journey_id => vehicle_journey.id).first_or_initialize(:departure_time => main_time, :arrival_time => main_time)
-                vehicle_journey.vehicle_journey_at_stops << vjas
+                vjas = { :stop_point_id => key, :vehicle_journey_id => vehicle_journey.id, :departure_time => main_time, :arrival_time => main_time } #Chouette::VehicleJourneyAtStop.where(:stop_point_id => key, :vehicle_journey_id => vehicle_journey.id).first_or_initialize(:departure_time => main_time, :arrival_time => main_time)
+                vehicle_journey_at_stops << vjas
               end
             rescue Exception => exception
               errors.add :base, I18n.t("vehicle_journey_imports.errors.invalid_vehicle_journey_at_stop", :column => i, :line => line, :time => value)
@@ -89,11 +90,13 @@ class VehicleJourneyImport
             end
           end         
         end
-        
+        vehicle_journey.vehicle_journey_at_stops_attributes = vehicle_journey_at_stops
         vehicle_journeys << vehicle_journey
       end
     end
 
+    vehicle_journeys
+    puts vehicle_journeys.inspect
     vehicle_journeys
   end
   

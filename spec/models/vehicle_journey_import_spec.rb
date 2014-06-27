@@ -24,7 +24,7 @@ describe VehicleJourneyImport do
   let!(:other_route) { create(:route) }
 
   let!(:journey_pattern) { create(:journey_pattern, :route => route) }
-  let!(:other_journey_pattern) { create(:journey_pattern_common, :route => route) }
+  let!(:other_journey_pattern) { create(:journey_pattern_even, :route => route) }
 
   let!(:vehicle_journey1) { create(:vehicle_journey_common, :objectid => "import:VehicleJourney:1", :route_id => route.id, :journey_pattern_id => journey_pattern.id) }
   let!(:vehicle_journey2) { create(:vehicle_journey_common, :objectid => "import:VehicleJourney:2", :route_id => route.id, :journey_pattern_id => other_journey_pattern.id) }
@@ -58,12 +58,7 @@ describe VehicleJourneyImport do
     mock("CSV", :tempfile => csv_file, :original_filename => File.basename(csv_file), :path => File.path(csv_file) )
   }
   
-  subject { VehicleJourneyImport.new(:route => route, :file => valid_file) }
-
-  before :each do
-    other_journey_pattern.stop_points << [stop_point0, stop_point2, stop_point3, stop_point4]
-  end
-  
+  subject { VehicleJourneyImport.new(:route => route, :file => valid_file) } 
 
   describe ".save" do
 
@@ -78,15 +73,16 @@ describe VehicleJourneyImport do
     it "should import vehicle_journeys and create the right number of objects" do
       expect(VehicleJourneyImport.new(:file => valid_file, :route => route).save).to be_true
       expect(Chouette::VehicleJourney.all.size).to eq(4)
+      puts Chouette::VehicleJourneyAtStop.all.inspect
       expect(Chouette::VehicleJourneyAtStop.all.size).to eq(19)
     end
 
-    it "should not import vehicle_journeys and not create objects when vehicle journey at stops are not in ascendant order" #do      
-    #   expect(VehicleJourneyImport.new(:route => route, :file => invalid_file_on_vjas_object).save).to be_false
-    #   expect(Chouette::VehicleJourney.all.size).to eq(3)
-    #   puts Chouette::VehicleJourneyAtStop.all.inspect
-    #   expect(Chouette::VehicleJourneyAtStop.all.size).to eq(0)
-    # end
+    it "should not import vehicle_journeys and not create objects when vehicle journey at stops are not in ascendant order" do      
+      expect(VehicleJourneyImport.new(:route => route, :file => invalid_file_on_vjas_object).save).to be_false
+      expect(Chouette::VehicleJourney.all.size).to eq(3)
+      puts Chouette::VehicleJourneyAtStop.all.inspect
+      expect(Chouette::VehicleJourneyAtStop.all.size).to eq(0)
+    end
     
     # it "should not import vehicle_journeys and not create objects with invalid file" do
     #   expect(VehicleJourneyImport.new(:file => invalid_file_on_vj, :route => route).save).to be_false
@@ -100,7 +96,7 @@ describe VehicleJourneyImport do
 
     it "should return journey pattern with same stop points" do          
       expect(subject.find_journey_pattern_schedule( { stop_point0.id => "9:00", stop_point1.id => "9:05", stop_point2.id => "9:10", stop_point3.id => "9:15", stop_point4.id => "9:20"} )).to eq(journey_pattern)
-      expect(subject.find_journey_pattern_schedule( { stop_point0.id => "9:00", stop_point2.id => "9:10", stop_point3.id => "9:15", stop_point4.id => "9:20"} )).to eq(other_journey_pattern)
+      expect(subject.find_journey_pattern_schedule( { stop_point1.id => "9:00", stop_point3.id => "9:10" } )).to eq(other_journey_pattern)
     end
 
     it "should return new journey_pattern if no journey pattern with same stop points is founded" do      
