@@ -10,9 +10,9 @@ p. L'export permet d'extraire de la base un ensemble de données selon un format
 h3. Formats disponibles
 
 - Neptune := format normalisé des échanges de données de transport en commun pour la France (cf "Normalisation":normalisation)
-- NeTEx := format d'échanges de données de transport en commun expérimental sur la norme européenne ["NeTEx":http://normes-donnees-tc.org/spip.php?article66] mais limité aux données définies dans la norme Neptune
+- NeTEx := format d'échanges de données de transport en commun expérimental sur la norme européenne ["NeTEx":http://www.normes-donnees-tc.org/format-dechange/donnees-theoriques/] mais limité aux données définies dans la norme Neptune
 - CSV := format tabulaire spécifique à Chouette (cf "CSV":csv)
-- GTFS := format destiné à ["Google Transit":https://developers.google.com/transit/gtfs/?hl=fr] ; les données exportées en GTFS sont explicités ["ICI":http://normes-donnees-tc.org/spip.php?article64]
+- GTFS := format destiné à ["Google Transit":https://developers.google.com/transit/gtfs/?hl=fr] ; les données exportées en GTFS sont explicités ["ICI":http://www.normes-donnees-tc.org/format-dechange/autres-normes/]
 - KML := format contenant l'ensemble des données cartographiées pouvant ainsi être importée dans un SIG
 
 h3. Options des formats

@@ -5,4 +5,4 @@ title: Foire aux questions
 
 N'hésitez pas à nous solliciter pour toute question, nous compléterons la FAQ progressivement !
 
-"FAQ de chouette.mobi":http://www.chouette.mobi/spip.php?rubrique38
+"Forum de chouette.mobi":http://forum.chouette.mobi
