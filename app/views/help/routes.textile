@@ -5,7 +5,7 @@ title: Séquence d'arrêts
 
 h3. Définition
 
-La *séquence d'arrêts* est une sélection ordonnée de références aux "points d'arrêt":stop_areas (exemple: itinéraires aller et retour d'une ligne). Une séquence d'arrêts est spécifique à une "ligne":line; les séquences d'arrêts peuvent référencer des arrêts communs.
+La *séquence d'arrêts* est une sélection ordonnée de références aux "points d'arrêt":stop_areas (exemple: itinéraires aller et retour d'une ligne). Une séquence d'arrêts est spécifique à une "ligne":lines; les séquences d'arrêts peuvent référencer des arrêts communs.
 
 (Dans les versions antérieures de Chouette jusqu'à la 1.6, la séquence d'arrêts était intitulée 'itinéraire')
 
