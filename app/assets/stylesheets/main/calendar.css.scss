@@ -31,49 +31,52 @@
 }
 
 .calendar {
-  color: white;
-  text-align: center;
-  margin-left: 30px;
-  display: inline-table;
+    font-size: 10px;
+    color: white;
+    text-align: center;
+    margin-left: 15px;
+    display: inline-table;
 }
 
 thead tr {
-  color: black;
+    color: black;
 }
 
- th.monthName {
-  font-weight: bold;
-  text-align: center;
-  padding-top: 1em;
-  padding-bottom: 0.7em;
-  color: black;
+th.monthName {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 0.7em;
+    color: black;
 }
 
 .dayName th {
-  font-size: 0.7em;
-  text-align: center;
-  padding-top: 0.6em;
-  padding-bottom: 0.3em;
-  background-color: #303030;
-  color: white;
-  border-bottom: 1px solid white;
+    text-align: center;
+    padding-top: 0.6em;
+    padding-bottom: 0.3em;
+    background-color: #303030;
+    color: white;
+    border-bottom: 1px solid white;
 }
 
 .otherMonth {
-  color: #999999;
-  background-color: #4f4f5b;
-  padding: 0.7em;
-  border-right: 1px solid #111111;
-  border-bottom: 1px solid #111111;
+    color: #999999;
+    background-color: #4f4f5b;
+    padding: 0.7em;
+    border-right: 1px solid #111111;
+    border-bottom: 1px solid #111111;
 }
 
-.day { background-color: #333333; }
+.day {
+    background-color: #333333;
+}
 
 .day, .specialDay, .selected_period, .selected_date, .overlap_date {
-  border-bottom: 1px solid #111111;
-  padding: 0.7em;
-  border-right: 1px solid #111111;
-  border-bottom: 1px solid #111111;
+    border-bottom: 1px solid #111111;
+    padding: 0.7em;
+    border-right: 1px solid #111111;
+    border-bottom: 1px solid #111111;
 }
 
 .specialDay { background-color: #a8a8a8 !important; }
@@ -88,9 +91,9 @@ thead tr {
 
 .specialDay, .selected_period, .selected_date, .overlap_date, .excluded_date {
     a, a:visited, a:hover {
-        color: white;
-        text-decoration: none;
-    }
+                      color: white;
+                      text-decoration: none;
+                  }
 }
 
 .specialDay a:hover, selected_period a:hover, selected_date a:hover, excluded_date a:hover, overlap_date a:hover {
@@ -98,9 +101,9 @@ thead tr {
 }
 
 .weekendDay {
-  background-color: #787888;
+    background-color: #787888;
 }
 .today {
-	background-color: white;
-	color: black;
+	  background-color: white;
+	  color: black;
 }

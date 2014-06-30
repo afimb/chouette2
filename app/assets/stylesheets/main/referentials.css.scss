@@ -7,17 +7,7 @@
 
     .referentials {
         margin-top: 20px;
-    }
-    
-    .referential {
-
-        /* to create multi-column index */
-        width: 350px;
-        float: left;
-        padding-right: 10px;
-        position: relative;
-
-    }
+    }    
 }
 #workspace.referentials.show
 {
@@ -63,13 +53,4 @@
       padding-top: 16px;
     }
   }
-}
-
-ul.logos {
-    margin: 30px 30px 0 0;
-    
-    li {                
-        display: inline;
-        margin: 0 3px;
-    }
 }

@@ -1,7 +1,7 @@
-"id","name","registration_number","longitude","latitude","area_type","comment","country_code","street_name","mobility_restricted_suitability","stairs_availability","lift_availability","int_user_needs"
-,"StopArea1",,"0.1","0.1",,"Comment",,,,,,
-,"StopArea2",,"0.2","0.2",,"Comment",,,,,,
-,"StopArea3",,"0.3","0.3",,"Comment",,,,,,
-,"StopArea4",,"0.4","0.4",,"Comment",,,,,,
-,"StopArea5",,"0.5","0.5",,"Comment",,,,,,
-,"StopArea6",,"0.6","0.6",,"Comment",,,,,,
+"id","name","longitude","latitude","area_type","comment","country_code","street_name","mobility_restricted_suitability","stairs_availability","lift_availability","int_user_needs"
+,"StopArea1","0.1","0.1",,"Comment",,,,,,
+,"StopArea2","0.2","0.2",,"Comment",,,,,,
+,"StopArea3","0.3","0.3",,"Comment",,,,,,
+,"StopArea4","0.4","0.4",,"Comment",,,,,,
+,"StopArea5","0.5","0.5",,"Comment",,,,,,
+,"StopArea6","0.6","0.6",,"Comment",,,,,,

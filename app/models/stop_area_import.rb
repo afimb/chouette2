@@ -10,7 +10,7 @@ class StopAreaImport
   validates_presence_of :file
 
   def initialize(attributes = {})    
-    attributes.each { |name, value| send("#{name}=", value) }
+    attributes.each { |name, value| send("#{name}=", value) } if attributes
   end
   
   def persisted?
@@ -26,14 +26,15 @@ class StopAreaImport
         else
           imported_stop_areas.each_with_index do |imported_stop_area, index|
             imported_stop_area.errors.full_messages.each do |message|
-              errors.add :base, I18n.t("stop_area_import.errors.invalid_stop_area", :column => index+2, :message => message)
+              errors.add :base, I18n.t("stop_area_imports.errors.invalid_stop_area", :column => index+2, :message => message)
             end
           end
           false
         end
       end
     rescue Exception => exception
-      errors.add :base, I18n.t("stop_area_import.errors.exception", :message => exception.message)
+      Rails.logger.error(exception.message)
+      errors.add :base, I18n.t("stop_area_imports.errors.exception")
       false
     end
   end   
@@ -58,7 +59,7 @@ class StopAreaImport
     when '.csv' then Roo::CSV.new(file.path)
     when '.xls' then Roo::Excel.new(file.path)
     when '.xlsx' then Roo::Excelx.new(file.path)
-    else
+    else      
       raise "Unknown file type: #{file.original_filename}"
     end
   end
