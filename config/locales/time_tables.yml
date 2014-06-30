@@ -14,7 +14,8 @@ en:
       destroy_date_confirm: "Are you sure you want destroy this date ?"
       destroy_period_confirm: "Are you sure you want destroy this period ?"
       add_period: "Add a period"
-      add_date: "Add a date"
+      add_date: "Add a peculiar date"
+      add_excluded_date: "Add an excluded date"
     new:
       title: "Add a new timetable"
     edit:
@@ -61,8 +62,9 @@ en:
         creation_time: "Created on"
         creator_id: "Created by "
         calendars: "Calendar view"
-        dates: "Application dates"
+        dates: "Peculiar dates"
         date: "On"
+        excluded_dates: "Excluded dates"
         periods: "Application periods"
         period_start: "From"
         period_end: "to"
@@ -88,7 +90,8 @@ fr:
       destroy_date_confirm: "Etes vous sûr de supprimer cette date ?"
       destroy_period_confirm: "Etes vous sûr de supprimer cette période ?"
       add_period: "Ajouter une période"
-      add_date: "Ajouter une date"
+      add_date: "Ajouter une date particulière"
+      add_excluded_date: "Ajouter une date exclue"
     new:
       title: "Ajouter un calendrier"
     edit:
@@ -135,8 +138,9 @@ fr:
         creation_time: "Créé le"
         creator_id: "Créé par"
         calendars: "Présentation calendaire"
-        dates: "Dates d'application"
-        date: "Date"
+        dates: "Dates particulières"
+        date: "Le"
+        excluded_dates: "Dates exclues"
         periods: "Périodes d'application"
         period_start: "Du" 
         period_end: "au"

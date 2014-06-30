@@ -14,6 +14,13 @@ jQuery ->
 
   $('.time_tables a.dates').click(switch_dates)
 
+  switch_excluded_dates = (event) -> 
+    event.preventDefault()
+    $('.time_tables .excluded_dates.content').toggle('slow')
+    $('a.excluded_dates .switcher').toggle()
+
+  $('.time_tables a.excluded_dates').click(switch_excluded_dates)
+
   switch_periods = (event) -> 
     event.preventDefault()
     $('.time_tables .periods.content').toggle('slow')

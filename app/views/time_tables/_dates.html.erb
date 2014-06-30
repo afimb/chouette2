@@ -1,5 +1,5 @@
   <ul class='dates'>
-    <% @time_table.dates.each do |tmd| %>
+    <% @time_table.dates.where("in_out = true").to_a.each do |tmd| %>
     <li class="<%= (tmd.position%2==0) ? 'odd' : 'even' %>"><%= l tmd.date %>
     </li>
     <% end %>

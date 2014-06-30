@@ -49,13 +49,33 @@
 
   <div class="dates content"  id="dates_content">
 	  <div id="dates">
-		  <%= form.semantic_fields_for :dates do |p| %>
-		     <%= render "date_fields",  :f => p %> 
+		  <%= form.semantic_fields_for :dates, @time_table.dates.where("in_out = true").to_a do |p| %>
+			     <%= render "date_fields",  :f => p %> 
 		  <% end %>
 	  </div>
 	  <%= link_to_add_association t("time_tables.actions.add_date"), form, :dates ,
 	  :"data-association-insertion-method" => "append",
+	  :"partial" => "date_fields",
 	  :"data-association-insertion-node" => "div#dates" %>
+  </div>
+
+  <h3 class="time_table_dates">
+	<a class="excluded_dates"><%= @time_table.human_attribute_name("excluded_dates") %>
+      <%= image_tag("icons/plus.png"  , :class => "switcher", :style => "display: none;") %>
+      <%= image_tag("icons/minus.png"  , :class => "switcher" ) %>
+    </a>
+  </h3>
+
+  <div class="excluded_dates content"  id="dates_content">
+	  <div id="excluded">
+		  <%= form.semantic_fields_for :dates, @time_table.dates.where("in_out = false").to_a do |p| %>
+			     <%= render "excluded_date_fields",  :f => p %> 
+		  <% end %>
+	  </div>
+	  <%= link_to_add_association t("time_tables.actions.add_excluded_date"), form, :dates ,
+	  :"data-association-insertion-method" => "append",
+	  :"partial" => "excluded_date_fields",
+	  :"data-association-insertion-node" => "div#excluded" %>
   </div>
   
   <p/>
