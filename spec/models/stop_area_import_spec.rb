@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
 
-describe VehicleJourneyImport do
+describe StopAreaImport do
 
    let(:valid_file) {
     csv_file = File.open(Rails.root.join("spec", "fixtures", "stop_area_import_valid.csv").to_s, "r")
