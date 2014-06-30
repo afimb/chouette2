@@ -2,24 +2,35 @@ en:
   vehicle_journey_imports:
     new:
       title: "Import vehicle journey at stops"
-      export_vehicle_journeys: "Export existing vehicle journey at stops :"
-    form:
-      file: "File"  
+      export_vehicle_journeys: "Export existing vehicle journey at stops"
+      succcess: "Import is a success"
+      tooltip:
+        file: "Select a CSV or Excel file"
     errors:
+      import_aborted: "Des erreurs ont empéchées le bon déroulement de l'import: "        
       not_same_stop_points: "Error column 1 : Not same stop points than in route %{route}"
       invalid_vehicle_journey_at_stop: "Error column %{column} line %{line} : vehicle journey at stop invalid %{time}"
       invalid_vehicle_journey: "Error column %{column}, vehicle journey is invalid : %{message}"
-      exception: "An exception occured : %{message}"
+      exception: "Invalid file, you must provide valid csv, xls or xlsx file"
+  activemodel:        
+    attributes:
+      vehicle_journey_import:
+        file: "File"
 fr:
   vehicle_journey_imports:
     new:
       title: "Import des horaires à l'arrêt"
       export_vehicle_journeys: "Exporter les horaires existants"
-    form:
-      file: "Fichier"  
+      succcess: "L'import des données est un succès"
+      tooltip:
+        file: "Sélectionner un fichier CSV ou Excel"  
     errors:
+      import_aborted: "Des erreurs ont empéchées le bon déroulement de l'import: "                  
       not_same_stop_points: "Erreur colonne 1 : Pas les mêmes points d'arrêt que sur l'itinéraire %{route}"
       invalid_vehicle_journey_at_stop: "Erreur colonne %{column} ligne %{line} : horaire à l'arrêt invalide %{time}"
       invalid_vehicle_journey: "Erreur colonne %{column}, la course est invalide : %{message}"
-      exception: "Une exception est survenu : %{message}"
- 
+      exception: "Le fichier est invalide, vous devez fournir un fichier csv, xls ou xlsx valide"
+  activemodel:        
+    attributes:
+      vehicle_journey_import:
+        file: "Fichier"

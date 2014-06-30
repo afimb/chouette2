@@ -13,19 +13,8 @@
 </div>
 
 <%= semantic_form_for [@referential, @line, @route, @vehicle_journey_import] do |form| %>
-  <% if @vehicle_journey_import.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@vehicle_journey_import.errors.count, "error") %> prohibited this import from completing:</h2>
-      <ul>
-      <% @vehicle_journey_import.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <br>
   <%= form.inputs do %> 
-    <%= form.input :file, :as => :file %>
+    <%= form.input :file, :as => :file, :input_html => { :title => "#{t('.tooltip.file')}", :'data-placement' => "right", :'data-toggle' => "tooltip", :'data-trigger' =>"hover" } %>
   <% end %>
   <%= form.actions do %>
     <%= form.action :submit, :as => :button , :label => t( 'formtastic.import' ) %> 

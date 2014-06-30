@@ -11,7 +11,7 @@ class VehicleJourneyImport
   validates_presence_of :route
 
   def initialize(attributes = {})    
-    attributes.each { |name, value| send("#{name}=", value) }
+    attributes.each { |name, value| send("#{name}=", value) } if attributes
   end
   
   def persisted?
@@ -34,7 +34,8 @@ class VehicleJourneyImport
         end
       end
     rescue Exception => exception
-      errors.add :base, I18n.t("vehicle_journey_imports.errors.exception", :message => exception.message)
+      Rails.logger.error(exception.message)
+      errors.add :base, I18n.t("vehicle_journey_imports.errors.exception")
       false
     end
   end   
