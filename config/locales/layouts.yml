@@ -8,7 +8,9 @@ en:
       sign_out: "Sign out"
     navbar:
       return_to_referentials: "Return to referentials"
-      select_referential: "Sélect referential"
+      select_referential: "Select referential"
+      select_referential_datas: "Select datas"
+      return_to_dashboard: "Return to Dashboard"
       referential_datas: "Referential datas"
     creation_tag:
       title: "Create"
@@ -49,6 +51,8 @@ fr:
     navbar:
       return_to_referentials: "Retour à la liste des référentiels"
       select_referential: "Sélection du référentiel"
+      select_referential_datas: "Sélection des données"
+      return_to_dashboard: "Retour au Tableau de Bord"
       referential_datas: "Données du référentiel"
     creation_tag:
       title: "Création"
