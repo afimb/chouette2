@@ -82,16 +82,18 @@ thead tr {
 
 .selected_date  { background-color: #8fc861 !important; }
 
-.overlap_date { background-color: #ffbd2b !important; }
+.excluded_date  { background-color: #ff8f85 !important; }
 
-.specialDay, .selected_period, .selected_date, .overlap_date {
+.overlap_date { background-color: #c082f4 !important; }
+
+.specialDay, .selected_period, .selected_date, .overlap_date, .excluded_date {
     a, a:visited, a:hover {
         color: white;
         text-decoration: none;
     }
 }
 
-.specialDay a:hover, selected_period a:hover, selected_date a:hover, overlap_date a:hover {
+.specialDay a:hover, selected_period a:hover, selected_date a:hover, excluded_date a:hover, overlap_date a:hover {
   color: black;
 }
 
