@@ -26,7 +26,7 @@
             <li role="presentation" class="dropdown-header"><%= t("layouts.navbar.select_referential") %></li>
             <% current_organisation.referentials.each do |referential| %>
             <li>
-              <%= link_to @referential.name, referential_path(@referential) %>
+              <%= link_to referential.name, referential_path(referential) %>
             </li>
             <% end %>
           </ul>
