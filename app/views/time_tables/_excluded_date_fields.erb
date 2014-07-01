@@ -1,0 +1,5 @@
+<%= f.inputs :class => 'dates1 nested-fields' do %>
+  <%= f.input :date, :as => :date_picker, :label => @time_table.human_attribute_name("date"), :wrapper_html => { :class => 'fl1' }%>
+  <%= f.input :in_out, :as => :hidden, :value => false %>
+  <%= link_to_remove_association t('actions.destroy'), f %>
+<% end %>
