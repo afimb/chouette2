@@ -61,7 +61,9 @@
     <%= cal = ""
       (1..12).each do |month|
         cal << calendar(:year => @year, :month => month, :first_day_of_week => 1) do |d|
-                 if @time_table.include_in_overlap_dates?(d)
+                 if @time_table.excluded_date?(d)
+                   [link_to(d.mday, edit_referential_time_table_path(@referential, @time_table) ), {:class => "excluded_date"}]
+                 elsif @time_table.include_in_overlap_dates?(d)
                    [link_to(d.mday, edit_referential_time_table_path(@referential, @time_table) ), {:class => "overlap_date"}]
                  elsif @time_table.include_in_dates?(d)
                    [link_to(d.mday, edit_referential_time_table_path(@referential, @time_table) ), {:class => "selected_date"}]
@@ -97,6 +99,17 @@
 
   <div class="dates content">
   	<%= render "dates" %>
+  </div>
+
+  <h3 class="time_table_dates">
+	<a class="excluded_dates"><%= @time_table.human_attribute_name("excluded_dates") %>
+      <%= image_tag("icons/plus.png"  , :class => "switcher", :style => "display: none;") %>
+      <%= image_tag("icons/minus.png"  , :class => "switcher" ) %>
+    </a>
+  </h3>
+
+  <div class="excluded_dates content">
+  	<%= render "excluded_dates" %>
   </div>
 
 </div>
