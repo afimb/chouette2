@@ -2,7 +2,7 @@ en:
   stop_area_imports:
     new:
       title: "Import stop areas"
-      export_stop_areas: "Export a model"
+      export_stop_areas: "Export existing stop_areas"
       succcess: "Import is a success"
       tooltip:
         file: "Select a CSV or Excel file"
@@ -18,7 +18,7 @@ fr:
   stop_area_imports:
     new:
       title: "Import des arrêts"
-      export_stop_areas: "Exporter un modèle"
+      export_stop_areas: "Exporter les arrêts existants"
       succcess: "L'import des données est un succès"
       tooltip:
         file: "Sélectionner un fichier CSV ou Excel"  
