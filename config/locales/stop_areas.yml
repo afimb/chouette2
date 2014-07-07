@@ -19,6 +19,9 @@ en:
       export_kml_place: "Export KML places"
       export_kml_commercial: "Export KML commercial stop points"
       export_kml_physical: "Export KML physical"
+      export_hub_place: "Export HUB places"
+      export_hub_commercial: "Export HUB commercial stop points"
+      export_hub_physical: "Export HUB physical"
     new:
       title: "Add a new stop"
     edit:
@@ -115,6 +118,9 @@ fr:
       export_kml_place: "Export KML des pôles d'échange"
       export_kml_commercial: "Export KML des arrêts commerciaux"
       export_kml_physical: "Export KML des arrêts physiques"
+      export_hub_place: "Export HUB des pôles d'échange"
+      export_hub_commercial: "Export HUB des arrêts commerciaux"
+      export_hub_physical: "Export HUB des arrêts physiques"
     new:
       title: "Ajouter un arrêt"
     edit:

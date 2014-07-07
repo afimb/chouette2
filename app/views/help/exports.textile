@@ -14,6 +14,7 @@ h3. Formats disponibles
 - CSV := format tabulaire spécifique à Chouette (cf "CSV":csv)
 - GTFS := format destiné à ["Google Transit":https://developers.google.com/transit/gtfs/?hl=fr] ; les données exportées en GTFS sont explicités ["ICI":http://normes-donnees-tc.org/spip.php?article64]
 - KML := format contenant l'ensemble des données cartographiées pouvant ainsi être importée dans un SIG
+- HUB := format tabulaire interne CityWay
 
 h3. Options des formats
 
@@ -42,6 +43,15 @@ fixe le fuseau horaire (paramètre obligatoire des données GTFS)
 * *NeTex* : pas d'option particulière
 
 * *CSV* : pas d'option particulière
+
+* *HUB* :
+
+- Début de période := permet d'exporter uniquement les courses circulant à partir de cette date
+- Fin de période := permet d'exporter uniquement les courses circulant jusqu'à cette date
+- Fuseau horaire := 
+fixe le fuseau horaire (paramètre obligatoire des données GTFS)
+ la valeur proposée par défaut est celle de l'espace de données =:
+
 
 
 h3. Consultation des résultats

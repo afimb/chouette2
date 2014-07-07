@@ -8,6 +8,8 @@ en:
       import: "Import lines"
       export_kml: "Export KML line"
       export__kml_all: "Export KML lines"
+      export_hub: "Export HUB line"
+      export__hub_all: "Export HUB lines"
     new:
       title: "Add a new line"
     edit:
@@ -86,6 +88,8 @@ fr:
       import: "Importer des lignes"
       export_kml: "Export KML de la ligne"
       export_kml_all: "Export KML des lignes"
+      export_hub: "Export HUB de la ligne"
+      export_hub_all: "Export HUB des lignes"
     new:
       title: "Ajouter une ligne"
     edit:
