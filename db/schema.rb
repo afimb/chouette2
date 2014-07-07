@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20140626081658) do
+=======
+ActiveRecord::Schema.define(:version => 20140618072859) do
+>>>>>>> tad_pmr
 
   create_table "access_links", :force => true do |t|
     t.integer  "access_point_id",                        :limit => 8
@@ -279,6 +283,7 @@ ActiveRecord::Schema.define(:version => 20140626081658) do
     t.string   "comment"
     t.boolean  "mobility_restricted_suitability"
     t.integer  "int_user_needs"
+    t.boolean  "flexible_service"
   end
 
   add_index "lines", ["objectid"], :name => "lines_objectid_key", :unique => true
@@ -515,11 +520,11 @@ ActiveRecord::Schema.define(:version => 20140626081658) do
   add_index "vehicle_journey_at_stops", ["vehicle_journey_id"], :name => "index_vehicle_journey_at_stops_on_vehicle_journey_id"
 
   create_table "vehicle_journeys", :force => true do |t|
-    t.integer  "route_id",                     :limit => 8
-    t.integer  "journey_pattern_id",           :limit => 8
-    t.integer  "time_slot_id",                 :limit => 8
-    t.integer  "company_id",                   :limit => 8
-    t.string   "objectid",                                  :null => false
+    t.integer  "route_id",                        :limit => 8
+    t.integer  "journey_pattern_id",              :limit => 8
+    t.integer  "time_slot_id",                    :limit => 8
+    t.integer  "company_id",                      :limit => 8
+    t.string   "objectid",                                     :null => false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
@@ -530,7 +535,9 @@ ActiveRecord::Schema.define(:version => 20140626081658) do
     t.string   "published_journey_identifier"
     t.string   "facility"
     t.string   "vehicle_type_identifier"
-    t.integer  "number",                       :limit => 8
+    t.integer  "number",                          :limit => 8
+    t.boolean  "mobility_restricted_suitability"
+    t.boolean  "flexible_service"
   end
 
   add_index "vehicle_journeys", ["objectid"], :name => "vehicle_journeys_objectid_key", :unique => true

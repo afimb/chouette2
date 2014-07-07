@@ -1,0 +1,1 @@
+<%= @journey_pattern.route.line_id %>;<%= @journey_pattern.id %>;<%= @journey_pattern.registration_number %>;<%= @journey_pattern.name %>;<%= @journey_pattern.route.wayback == 'A' ? 1 : 2 %>;<%= @type %>;<% @journey_pattern.stop_points.each do |sp| %>;<%= sp.stop_area_id %>;<%= sp.stop_area.registration_number %>;;<% end %>

@@ -102,7 +102,8 @@ class Export < ActiveRecord::Base
       "CsvExport" => "CSV",
       "GtfsExport" => "GTFS",
       "NetexExport" => "NeTEx",
-      "KmlExport" => "KML"
+      "KmlExport" => "KML",
+      "HubExport" => "HUB"
     }
     name_by_format[format]
   end
@@ -112,7 +113,7 @@ class Export < ActiveRecord::Base
       subclasses.map(&:to_s)
     else
       # FIXME
-      %w{NeptuneExport CsvExport GtfsExport NetexExport KmlExport}
+      %w{NeptuneExport CsvExport GtfsExport NetexExport KmlExport HubExport}
     end
   end
 
