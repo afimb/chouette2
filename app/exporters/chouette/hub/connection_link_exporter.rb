@@ -1,4 +1,4 @@
-class Chouette::Hub::Connection_LinkExporter
+class Chouette::Hub::ConnectionLinkExporter
   include ERB::Util
   attr_accessor :connection_link, :directory, :template
   

@@ -118,7 +118,7 @@ class Chouette::Hub::Exporter
         Chouette::Hub::CommercialStopAreaExporter.save(commercial_stop_areas, temp_dir, hub_export)
         Chouette::Hub::PhysicalStopAreaExporter.save(physical_stop_areas, temp_dir, hub_export)
 
-        connection_links = Chouette::ConnectionLink.where( "deprture_id IN (?) AND arrival_id IN (?)", (physical_stop_areas.map(&:id) + commercial_stop_areas.map(&:id)), (physical_stop_areas.map(&:id) + commercial_stop_areas.map(&:id)) )
+        connection_links = Chouette::ConnectionLink.where( "departure_id IN (?) AND arrival_id IN (?)", (physical_stop_areas.map(&:id) + commercial_stop_areas.map(&:id)), (physical_stop_areas.map(&:id) + commercial_stop_areas.map(&:id)) )
         
         Chouette::Hub::ConnectionLinkExporter.save(connection_links, temp_dir, hub_export)
         
@@ -130,15 +130,19 @@ class Chouette::Hub::Exporter
         
         if lines_exportable?
           Chouette::Hub::LineExporter.save(@lines, temp_dir, hub_export)
+          networks = Chouette::Network.where( :id => @lines.map(&:network_id))
+          companies = Chouette::Network.where( :id => @lines.map(&:company_id))
+          Chouette::Hub::NetworkExporter.save(networks, temp_dir, hub_export)
+          Chouette::Hub::CompanyExporter.save(companies, temp_dir, hub_export)
         else
           log_overflow_warning(Chouette::Line)
         end
         
-        if routes_exportable?
-          #Chouette::Hub::RouteExporter.save( routes, temp_dir, hub_export)
-        else
-          log_overflow_warning(Chouette::Route) if lines_exportable?
-        end
+        #if routes_exportable?
+        #  Chouette::Hub::RouteExporter.save( routes, temp_dir, hub_export)
+        #else
+        #  log_overflow_warning(Chouette::Route) if lines_exportable?
+        #end
 
         # if too many lines
         # there may be too many stop_areas

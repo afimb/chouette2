@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20140626081658) do
-=======
-ActiveRecord::Schema.define(:version => 20140618072859) do
->>>>>>> tad_pmr
 
   create_table "access_links", :force => true do |t|
     t.integer  "access_point_id",                        :limit => 8
