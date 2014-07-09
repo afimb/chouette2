@@ -38,6 +38,7 @@ ChouetteIhm::Application.routes.draw do
 
   resources :referentials do
     resources :stop_area_imports
+    resources :stop_area_exports
     resources :api_keys
     resources :rule_parameter_sets
     resources :stop_point_areas
