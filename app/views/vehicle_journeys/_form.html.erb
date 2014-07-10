@@ -34,7 +34,7 @@
 	      </tbody>
 	    </table>
 	  <% end %>
-    <%= form.input :time_table_tokens, :label => t('.time_tables'), :as => :text,  :input_html => { :"data-pre" => ( @vehicle_journey.time_tables.map { |time_table| { :id => time_table.id, :name => time_table.comment } } ).to_json }  %>
+    <%= form.input :time_table_tokens, :label => t('.time_tables'), :as => :text,  :input_html => { :"data-pre" => ( @vehicle_journey.time_tables.map { |time_table| { :id => time_table.id, :name => time_table_description(time_table) } } ).to_json }  %>
       
   <% end %>
 
@@ -55,7 +55,7 @@
           $( "#vehicle_journey_time_table_tokens" ).tokenInput('<%= comment_filter_referential_time_tables_path(@referential, :format => :json) %>', {
        crossDomain: false,
        prePopulate: $('#time_table_tokens').data('pre'),
-       minChars: 3,
+       minChars: 1,
        preventDuplicates: true,
        hintText: '<%= t('search_hint') %>',
        noResultsText: '<%= t('no_result_text') %>',

@@ -1,0 +1,27 @@
+<div id="compact_form" >
+
+<%= semantic_form_for [@referential, @time_table, TimeTableCombination.new] do |form| %>
+  <%= form.inputs do %>
+    <%= form.input :operation, :as => :radio, :collection => Hash[TimeTableCombination.operations.map {|b| [t( b, :scope => "time_table_combinations.operations"),b]}]  %>
+    <%= form.input :combined_id, :as => :text  %>
+  <% end %>
+
+   <%= form.actions do %>
+     <%= form.action :submit, :as => :button , :label => t('time_tables.show.combine')%>
+   <% end %>
+<% end %>
+</div>
+
+<script>
+	$(function() {
+		$( "#time_table_combination_combined_id" ).tokenInput('<%= comment_filter_referential_time_tables_path(@referential, :format => :json) %>', {
+       crossDomain: false,
+       prePopulate: $('#time_table_combination_combined_id').data('pre'),
+       tokenLimit: 1,
+       minChars: 1,
+       hintText: '<%= t('search_hint') %>',
+       noResultsText: '<%= t('no_result_text') %>',
+       searchingText: '<%= t('searching_term') %>'
+    });
+	});
+</script>

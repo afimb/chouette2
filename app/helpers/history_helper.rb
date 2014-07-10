@@ -12,7 +12,17 @@ module HistoryHelper
         end), 
         (content_tag :li do
            if object.has_attribute?(:creator_id)
-             object.human_attribute_name('creator_id') + ' : ' + object.creator_id if  object.creator_id
+             object.human_attribute_name('creator_id') + ' : ' + object.creator_id if object.creator_id
+           end
+        end), 
+        (content_tag :li do
+           if object.has_attribute?(:objectid)
+             object.human_attribute_name('objectid') + ' : ' + object.objectid if object.objectid
+           end
+        end), 
+        (content_tag :li do
+           if object.has_attribute?(:object_version)
+             object.human_attribute_name('object_version') + ' : ' + object.object_version.to_s if object.object_version
            end
         end)].join.html_safe
       end

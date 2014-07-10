@@ -42,5 +42,13 @@ module TimeTablesHelper
         :periods_count => time_table.periods.count)
     end
   end
+  
+  def time_table_description(time_table)
+    if time_table.bounding_dates.empty?
+      "#{time_table.comment} (vide)"
+    else
+      "#{time_table.comment} : #{time_table_bounding( time_table)} - #{composition_info(time_table)}"  
+    end
+  end
 end
 

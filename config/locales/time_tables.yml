@@ -21,7 +21,7 @@ en:
     edit:
       title: "Update timetable %{time_table}"
     show:
-      resume: "From %{start_date} to %{end_date} (independently of any period day types)"
+      resume: "From %{start_date} to %{end_date}"
       resume_empty: "Empty timetable"
       title: "Timetable %{time_table}"
       dates: "Application dates"
@@ -30,6 +30,8 @@ en:
       to: "to"
       add_period: "Add a period"
       add_date: "Add a date"
+      combine_form: "Combinations"
+      combine: "Apply"
     index:
       title: "Timetables"
       comment: "Name"
@@ -48,7 +50,7 @@ en:
         peculiarities: "Peculiarities"
         school_holliday: "School hollidays"
         public_holliday: "Public hollidays"
-        day_types: "Day types"
+        day_types: "Period day types"
         none: "none"
         monday: "Monday"
         tuesday: "Tuesday"
@@ -97,7 +99,7 @@ fr:
     edit:
       title: "Modifier le calendrier %{time_table}"
     show:
-      resume: "Validité comprise du %{start_date} au %{end_date} (sans tenir compte des jours d'application)"
+      resume: "Validité comprise du %{start_date} au %{end_date}"
       resume_empty: "Calendrier vide"
       title: Calendrier %{time_table}
       dates: "Dates d'application"
@@ -106,6 +108,8 @@ fr:
       to: "au"
       add_period: "Ajouter une période"
       add_date: "Ajouter une date"
+      combine_form: "Combinatoire"
+      combine: "Appliquer"
     index:
       comment: "Nom"
       title: "calendriers"
@@ -124,7 +128,7 @@ fr:
         peculiarities: "Particularités"
         school_holliday: "Vacances scolaires"
         public_holliday: "Jours fériés"
-        day_types: "Jours d'application"
+        day_types: "Jours d'application des périodes"
         none: "aucun"
         monday: "Lundi"
         tuesday: "Mardi"

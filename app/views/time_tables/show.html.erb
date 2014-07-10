@@ -1,5 +1,13 @@
 <% require 'calendar_helper' %>
+<ol class="breadcrumb">
+  <li><%= link_to Referential.human_attribute_name("time_tables"), referential_time_tables_path(@referential) %></li>
+</ol>
+
 <%= title_tag t('time_tables.show.title', :time_table => @time_table.comment )%>
+
+<h3><%= t('.combine_form') %></h3>
+<%= render "combine" %>
+
 
 <div class="time_table_show">
 
@@ -16,32 +24,56 @@
   </div>
   <div class="summary">
     <p>
-      <label><%= @time_table.human_attribute_name("comment") %>: </label>
-      <%= @time_table.comment %>
-    </p>
-    <p>
       <label><%= @time_table.human_attribute_name("version") %>: </label>
       <%= @time_table.version %>
     </p>
+    <% if @time_table.int_day_types & 1536 != 0 %>
+      <p>
+        <label><%= @time_table.human_attribute_name("peculiarities") %>:&nbsp;&nbsp;</label>
+        
+	    <% if @time_table.school_holliday %>
+	      <span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("school_holliday") %>&nbsp;</span>
+	    <% end %>
+
+	    <% if @time_table.public_holliday %>
+	      <span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("public_holliday") %>&nbsp;</span>
+	    <% end %>
+
+      </p>
+    <% end %>
     <p>
-      <label><%= @time_table.human_attribute_name("peculiarities") %>:&nbsp;&nbsp;</label>
-      <% if @time_table.int_day_types & 1536 == 0 %>
+      <label><%= @time_table.human_attribute_name("day_types") %>:&nbsp;&nbsp;</label>
+      <% if @time_table.int_day_types & 508 == 0 %>
         <label><%= @time_table.human_attribute_name("none") %></label>
-      <% else %>
-	      <% if @time_table.school_holliday %>
-	      	<span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("school_holliday") %>&nbsp;</span>
-	      <% end %>
-
-	      <% if @time_table.public_holliday %>
-	      	<span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("public_holliday") %>&nbsp;</span>
-	      <% end %>
-
-      <% end %>
-
-    </p>
-    <p>
-      <label><%= @time_table.human_attribute_name("objectid") %>: </label>
-      <%= @time_table.objectid %>
+      <% else %>  
+	      <% if @time_table.monday %> 
+	      	<span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("monday") %>&nbsp;</span>
+	      <% end %>	
+	      
+	      <% if @time_table.tuesday %> 
+	      	<span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("tuesday") %>&nbsp;</span>
+	      <% end %>	
+	      
+	      <% if @time_table.wednesday %> 
+	        <span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("wednesday") %>&nbsp;</span>
+	      <% end %>	
+	      
+	      <% if @time_table.thursday %> 
+	      	<span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("thursday") %>&nbsp;</span>
+	      <% end %>	
+	      
+	      <% if @time_table.friday %> 
+	      	<span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("friday") %>&nbsp;</span>
+	      <% end %>	
+	      
+	      <% if @time_table.saturday %> 
+	      	<span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("saturday") %>&nbsp;</span>
+	      <% end %>	
+	      
+	      <% if @time_table.sunday %> 
+	      	<span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("sunday") %>&nbsp;</span>
+	      <% end %>	
+      <% end %>	
     </p>
 
   <h3 class="time_table_calendars">
@@ -116,10 +148,12 @@
 
 <% content_for :sidebar do %>
 <ul class="actions">
+  <li><%= link_to t('time_tables.actions.new'), new_referential_time_table_path(@referential), :class => "add" %></li>
   <li><%= link_to t('time_tables.actions.edit'), edit_referential_time_table_path(@referential, @time_table), :class => "edit" %></li>
   <li><%= link_to t('time_tables.actions.destroy'), referential_time_table_path(@referential, @time_table), :method => :delete, :data => {:confirm =>  t('time_tables.actions.destroy_confirm')}, :class => "remove" %></li>
   <br>
 </ul>
+
 
   <%= creation_tag(@time_table) %>
 <% end %>

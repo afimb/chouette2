@@ -1,0 +1,27 @@
+en:
+  time_table_combinations:
+    success: "operation applied on timetable"
+    failure: "operation failed on timetable"
+    operations:
+      union: "merge"
+      intersection: "intersect"
+      disjunction: "disjoin"
+  activemodel:
+    attributes:
+      time_table_combination:
+        combined_id: "Time table to combine with"
+        operation: "operation"
+fr:
+  time_table_combinations:
+    success: "opération appliquée sur le calendrier"
+    failure: "opération échouée"
+    operations:
+      union: "fusion"
+      intersection: "intersection"
+      disjunction: "exclusion"
+  activemodel:
+    attributes:
+      time_table_combination:
+        combined_id: "Calendrier à combiner"
+        operation: "opération"
+

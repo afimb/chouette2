@@ -1,4 +1,5 @@
 class TimeTablesController < ChouetteController
+  include TimeTablesHelper
   defaults :resource_class => Chouette::TimeTable
   respond_to :html
   respond_to :xml
@@ -35,7 +36,7 @@ class TimeTablesController < ChouetteController
 
   def filtered_time_tables_maps
     filtered_time_tables.collect do |time_table|
-      { :id => time_table.id, :name => time_table.comment }
+      { :id => time_table.id, :name => time_table_description(time_table) }
     end
   end
   def filtered_time_tables

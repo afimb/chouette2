@@ -129,6 +129,7 @@ ChouetteIhm::Application.routes.draw do
       end
       resources :time_table_dates
       resources :time_table_periods
+      resources :time_table_combinations
     end
 
     resources :access_points do
