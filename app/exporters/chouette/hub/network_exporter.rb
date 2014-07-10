@@ -5,7 +5,7 @@ class Chouette::Hub::NetworkExporter
   def initialize(network, directory)
     @network = network
     @directory = directory
-    @template = File.open('app/views/api/hub/reseau/show.hub.erb' ){ |f| f.read }
+    @template = File.open('app/views/api/hub/reseaux.hub.erb' ){ |f| f.read }
   end
   
   def render()

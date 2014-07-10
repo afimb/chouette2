@@ -5,7 +5,7 @@ class Chouette::Hub::CommercialStopAreaExporter
   def initialize(stop_area, directory)
     @stop_area = stop_area
     @directory = directory
-    @template = File.open('app/views/api/hub/stop_area/commercial_show.hub.erb' ){ |f| f.read }
+    @template = File.open('app/views/api/hub/arrets_generiques.hub.erb' ){ |f| f.read }
     @type = "ONNNNNNNNNNNNNNNNN"
   end
   

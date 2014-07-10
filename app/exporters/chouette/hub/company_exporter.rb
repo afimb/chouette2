@@ -5,7 +5,7 @@ class Chouette::Hub::CompanyExporter
   def initialize(company, directory)
     @company = company
     @directory = directory
-    @template = File.open('app/views/api/hub/transporteur/show.hub.erb' ){ |f| f.read }
+    @template = File.open('app/views/api/hub/transporteurs.hub.erb' ){ |f| f.read }
   end
   
   def render()

@@ -5,7 +5,7 @@ class Chouette::Hub::ConnectionLinkExporter
   def initialize(connection_link, directory)
     @connection_link = connection_link
     @directory = directory
-    @template = File.open('app/views/api/hub/correspondance/show.hub.erb' ){ |f| f.read }
+    @template = File.open('app/views/api/hub/correspondances.hub.erb' ){ |f| f.read }
   end
   
   def render()

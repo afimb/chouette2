@@ -5,7 +5,7 @@ class Chouette::Hub::PhysicalStopAreaExporter
   def initialize(stop_area, directory)
     @stop_area = stop_area
     @directory = directory
-    @template = File.open('app/views/api/hub/stop_area/physical_show.hub.erb' ){ |f| f.read }
+    @template = File.open('app/views/api/hub/arrets_physiques.hub.erb' ){ |f| f.read }
     @type = "NNNNNNNNNNNNNNNNNN"
     @stop_area.referential.projection_type = "27562"
   end

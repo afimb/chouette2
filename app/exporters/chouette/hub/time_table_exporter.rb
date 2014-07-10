@@ -5,7 +5,7 @@ class Chouette::Hub::TimeTableExporter
   def initialize(time_table, directory)
     @time_table = time_table
     @directory = directory
-    @template = File.open('app/views/api/hub/periode/show.hub.erb' ){ |f| f.read }
+    @template = File.open('app/views/api/hub/periodes.hub.erb' ){ |f| f.read }
     @calendar = ""
     s_date = @time_table.start_date
     e_date = @time_table.end_date

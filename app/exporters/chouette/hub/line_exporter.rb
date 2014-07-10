@@ -5,7 +5,7 @@ class Chouette::Hub::LineExporter
   def initialize(line, directory)
     @line = line
     @directory = directory
-    @template = File.open('app/views/api/hub/ligne/show.hub.erb' ){ |f| f.read }
+    @template = File.open('app/views/api/hub/lignes.hub.erb' ){ |f| f.read }
   end
   
   def render()

@@ -5,7 +5,7 @@ class Chouette::Hub::JourneyPatternExporter
   def initialize(journey_pattern, directory)
     @journey_pattern = journey_pattern
     @directory = directory
-    @template = File.open('app/views/api/hub/chemin/show.hub.erb' ){ |f| f.read }
+    @template = File.open('app/views/api/hub/chemins.hub.erb' ){ |f| f.read }
     @type = "COM"
   end
   

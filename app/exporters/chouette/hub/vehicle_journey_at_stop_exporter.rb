@@ -5,7 +5,7 @@ class Chouette::Hub::VehicleJourneyAtStopExporter
   def initialize(vehicle_journey_at_stop, directory)
     @vehicle_journey_at_stop = vehicle_journey_at_stop
     @directory = directory
-    @template = File.open('app/views/api/hub/horaire/show.hub.erb' ) { |f| f.read }
+    @template = File.open('app/views/api/hub/horaires.hub.erb' ) { |f| f.read }
     @arrival_time = @vehicle_journey_at_stop.arrival_time.sec + 60 * @vehicle_journey_at_stop.arrival_time.min + 60 * 60 * @vehicle_journey_at_stop.arrival_time.hour
     @arrival_type = "A"
     @departure_time = @vehicle_journey_at_stop.departure_time.sec + 60 *  @vehicle_journey_at_stop.departure_time.min + 60 * 60 *  @vehicle_journey_at_stop.departure_time.hour
