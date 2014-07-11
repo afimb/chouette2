@@ -127,6 +127,9 @@ ChouetteIhm::Application.routes.draw do
       collection do
         get :comment_filter
       end
+      member do
+        get 'duplicate'
+      end
       resources :time_table_dates
       resources :time_table_periods
       resources :time_table_combinations

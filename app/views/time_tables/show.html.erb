@@ -151,6 +151,7 @@
   <li><%= link_to t('time_tables.actions.new'), new_referential_time_table_path(@referential), :class => "add" %></li>
   <li><%= link_to t('time_tables.actions.edit'), edit_referential_time_table_path(@referential, @time_table), :class => "edit" %></li>
   <li><%= link_to t('time_tables.actions.destroy'), referential_time_table_path(@referential, @time_table), :method => :delete, :data => {:confirm =>  t('time_tables.actions.destroy_confirm')}, :class => "remove" %></li>
+  <li><%= link_to t('time_tables.actions.duplicate'), duplicate_referential_time_table_path(@referential, @time_table), :class => "add" %></li>
   <br>
 </ul>
 

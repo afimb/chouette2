@@ -1,5 +1,6 @@
 en:
   time_tables:
+    duplicate_success: "duplication succeded"
     time_table:
       empty: "empty"
       bounding: "from %{start} to %{end}"
@@ -10,6 +11,7 @@ en:
       new: "Add a new timetable"
       edit: "Edit this timetable"
       destroy: "Remove this timetable"
+      duplicate: "Duplicate this timetable"
       destroy_confirm: "Are you sure you want destroy this timetable ?"
       destroy_date_confirm: "Are you sure you want destroy this date ?"
       destroy_period_confirm: "Are you sure you want destroy this period ?"
@@ -78,6 +80,7 @@ en:
 
 fr:
   time_tables:
+    duplicate_success: "duplication terminée"
     time_table:
       empty: "vide"
       bounding: "du %{start} au %{end}"
@@ -88,6 +91,7 @@ fr:
       new: "Ajouter un calendrier"
       edit: "Modifier ce calendrier"
       destroy: "Supprimer ce calendrier"
+      duplicate: "Dupliquer ce calendrier"
       destroy_confirm: "Etes vous sûr de supprimer ce calendrier ?"
       destroy_date_confirm: "Etes vous sûr de supprimer cette date ?"
       destroy_period_confirm: "Etes vous sûr de supprimer cette période ?"
