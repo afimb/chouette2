@@ -5,7 +5,7 @@ class Chouette::Hub::VehicleJourneyExporter
   def initialize(vehicle_journey, directory)
     @vehicle_journey = vehicle_journey
     @directory = directory
-    @template = File.open('app/views/api/hub/course/show.hub.erb' ) { |f| f.read }
+    @template = File.open('app/views/api/hub/courses.hub.erb' ) { |f| f.read }
   end
   
   def render()
