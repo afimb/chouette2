@@ -25,7 +25,6 @@ class TimeTableCombination
   def combine
     source = Chouette::TimeTable.find( source_id)
     combined = Chouette::TimeTable.find( combined_id)
-    puts operation
     if operation == "union"
       source.merge! combined
     elsif operation == "intersection"
