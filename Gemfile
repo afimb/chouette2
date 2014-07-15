@@ -3,8 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.2.18'
 
 platforms :jruby do
-  gem 'activerecord-jdbcpostgresql-adapter', '1.2.9'
-  gem 'activerecord-jdbcsqlite3-adapter'
+  gem 'activerecord-jdbcpostgresql-adapter', '~> 1.3.3'
   gem 'jruby-openssl'
   gem "jruby-rack-worker"
   gem 'warbler'
@@ -47,6 +46,7 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'bootswatch-rails'
 gem 'font-awesome-sass'
 gem 'will_paginate-bootstrap'
+gem 'simple_form'
 
 # Format Output
 gem 'json'
