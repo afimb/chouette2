@@ -11,7 +11,7 @@ en:
       select_referential: "Select referential"
       select_referential_datas: "Select datas"
       return_to_dashboard: "Return to Dashboard"
-      referential_datas: "Referential datas"
+      referential_datas: "Datas"
     creation_tag:
       title: "Create"
     history_tag:
@@ -43,7 +43,7 @@ en:
 fr:
   layouts:
     back_to_dashboard: "Retour au Tableau de Bord"
-    help: "Besoin d'aide?"
+    help: "Aide"
     home: "Accueil"
     user:
       profile: "Mon Profil"      
@@ -53,7 +53,7 @@ fr:
       select_referential: "Sélection du référentiel"
       select_referential_datas: "Sélection des données"
       return_to_dashboard: "Retour au Tableau de Bord"
-      referential_datas: "Données du référentiel"
+      referential_datas: "Données"
     creation_tag:
       title: "Création"
     history_tag:
