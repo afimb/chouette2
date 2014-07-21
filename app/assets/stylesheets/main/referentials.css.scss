@@ -25,32 +25,27 @@
             padding: 5px 15px;
         }
     }
-        
+    
 }
 #sidebar div#clean_up {
-  form {    
-    fieldset {
-      padding: 0;
-      border: 0;
-      li.date {
-        padding: 0;
-        label { padding-left: 10px; 
-                width: 40%;}
-        input { width: 42%; }
-      }
-      li {
-        padding: 0;
-        label { padding-left: 10px; 
-                width: 90%;}
-        input { width: 12%; }
-      }
+    form {    
+        fieldset {
+            li{
+                margin-bottom: 0px;
+            }
+
+            li.date {
+
+                input{
+                    width: 125px;
+                    font-size: 12px;
+                    height: 25px
+                }
+                label{
+                    width: 35%;
+                }
+            }
+        }
+
     }
-    fieldset.actions {
-      margin-bottom: 0;
-      padding-left: 20px;
-    }
-    fieldset.inputs {
-      padding-top: 16px;
-    }
-  }
 }

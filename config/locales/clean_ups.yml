@@ -16,16 +16,15 @@ en:
   activemodel:        
     attributes:
       clean_up:
-        expected_date: "Final date"
+        expected_date: "Final date : "
         keep_lines: "keep lines" 
         keep_stops: "keep stop areas"
         keep_companies: "keep companies"
         keep_networks: "keep networks"
         keep_group_of_lines: "keep groups of lines"
-  formtastic:
-    hints:
-      clean_up:
-        expected_date: "value included in clean up"  
+  hints:
+    clean_up:
+      expected_date: "value included in clean up"  
 fr:
   clean_ups:
     success_tm: "%{count} calendrier(s) supprimé(s)"
@@ -44,14 +43,13 @@ fr:
   activemodel:
     attributes:
       clean_up:
-        expected_date: "date limite"
+        expected_date: "Date limite : "
         keep_lines: "conserver les lignes" 
         keep_stops: "conserver les arrêts"
         keep_companies: "conserver les transporteurs" 
         keep_networks: "conserver les réseaux"
         keep_group_of_lines: "conserver les groupes de lignes"
-  formtastic:
-    hints:
-      clean_up:
-        expected_date: "valeur incluse dans la purge"  
+  hints:
+    clean_up:
+      expected_date: "valeur incluse dans la purge"  
 
