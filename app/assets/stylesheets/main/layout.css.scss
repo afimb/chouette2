@@ -47,22 +47,20 @@ ol.breadcrumb{
         }
     }
 
-    .language{
-        width: 40px;
-    }
-    
-    .language.selected
-    {
-        border-bottom: 1px solid white;
+    .dropdown.languages{
+        .dropdown-menu{ 
+            min-width: 56px;
+        }
     }
 
-    .dropdown-menu{
-        min-width: 230px;
-        
-        .badge{
-            background-color: #DADADA
+    .dropdown.datas{
+        .dropdown-menu{ 
+
+            .badge{
+                background-color: #DADADA
+            }
         }
-    } 
+    }   
 }
 
 #footer{

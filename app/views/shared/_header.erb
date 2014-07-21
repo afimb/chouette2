@@ -31,38 +31,38 @@
             <% end %>
           </ul>
         </li>
-        <li class="dropdown">
+        <li class="dropdown datas">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t("layouts.navbar.referential_datas") %><b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><%= link_to t("layouts.navbar.return_to_dashboard"), referential_path(@referential) %></li>
             <li class="divider"></li>
             <li role="presentation" class="dropdown-header"><%= t("layouts.navbar.select_referential_datas") %></li>
             <li><%= link_to referential_networks_path(@referential) do  %>
-              <%= Referential.human_attribute_name("networks") %><span class="badge pull-right"><%= @referential.networks.size %></span>
+              <span class="pull-left"><%= Referential.human_attribute_name("networks") %></span><span class="badge pull-right"><%= @referential.networks.size %></span>
               <% end %>
             </li>
             <li><%= link_to referential_companies_path(@referential) do  %>
-              <%= Referential.human_attribute_name("companies") %><span class="badge pull-right"><%= @referential.companies.size %></span>
+              <span class="pull-left"><%= Referential.human_attribute_name("companies") %></span><span class="badge pull-right"><%= @referential.companies.size %></span>
               <% end %>
             </li>
             <li><%= link_to referential_group_of_lines_path(@referential) do %>
-              <%= Referential.human_attribute_name("group_of_lines") %><span class="badge pull-right"><%= @referential.group_of_lines.size %></span>
+               <span class="pull-left"><%= Referential.human_attribute_name("group_of_lines") %></span><span class="badge pull-right"><%= @referential.group_of_lines.size %></span>
               <% end %>
             </li>
             <li><%= link_to referential_lines_path(@referential) do %>
-              <%= Referential.human_attribute_name("lines") %><span class="badge pull-right"><%= @referential.lines.size %></span>
+               <span class="pull-left"><%= Referential.human_attribute_name("lines") %></span><span class="badge pull-right"><%= @referential.lines.size %></span>
               <% end %>
             </li>
             <li><%= link_to referential_stop_areas_path(@referential) do %>
-              <%= Referential.human_attribute_name("stop_areas") %><span class="badge pull-right"><%= @referential.stop_areas.size %></span>
+               <span class="pull-left"><%= Referential.human_attribute_name("stop_areas") %></span><span class="badge pull-right"><%= @referential.stop_areas.size %></span>
               <% end %>
             </li>
             <li><%= link_to referential_connection_links_path(@referential) do %>
-              <%= Referential.human_attribute_name("connection_links") %><span class="badge pull-right"><%= @referential.connection_links.size %></span>
+               <span class="pull-left"><%= Referential.human_attribute_name("connection_links") %></span><span class="badge pull-right"><%= @referential.connection_links.size %></span>
               <% end %>
             </li>
             <li><%= link_to referential_time_tables_path(@referential) do %>
-              <%= Referential.human_attribute_name("time_tables") %><span class="badge pull-right"><%= @referential.time_tables.size %></span>
+               <span class="pull-left"><%= Referential.human_attribute_name("time_tables") %></span><span class="badge pull-right"><%= @referential.time_tables.size %></span>
               <% end %>
             </li>
           </ul>
@@ -73,8 +73,15 @@
         <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="<%= language_class('fr') %>"><%= link_to_language :fr %></li>
-        <li class="<%= language_class('en') %>"><%= link_to_language :en %></li>
+        <li class="dropdown languages">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <%= image_tag("language_engine/#{selected_language}_flag.png") %><b class='caret'></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to_language :fr %></li>
+            <li><%= link_to_language :en %></li>
+          </ul>
+        </li>        
         <li><%= link_to t('layouts.help'), help_path, :class =>("current" if help_page?), :target => "_blank" %></li>
         <% if user_signed_in?  %>
         <li class="dropdown">
