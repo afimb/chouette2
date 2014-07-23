@@ -189,7 +189,7 @@ GEM
       jruby-rack (>= 1.1.1)
     json (1.8.1)
     json (1.8.1-java)
-    language_engine (0.0.4)
+    language_engine (0.0.5)
       rails (~> 3.2.18)
     launchy (2.3.0)
       addressable (~> 2.3)
@@ -398,7 +398,7 @@ DEPENDENCIES
   jruby-openssl
   jruby-rack-worker
   json
-  language_engine (= 0.0.4)
+  language_engine (= 0.0.5)
   launchy
   map_layers (= 0.0.4)
   modernizr-rails (~> 2.0.6)

@@ -1,7 +1,7 @@
 module UsersHelper
 
-  def user_gravatar_image_tag(user)
-    gravatar_image_tag user.email, :alt => user.name, :class => "preview", :gravatar => { :default => user_default_avatar , :size => 64 }
+  def user_gravatar_image_tag(user, size = 64)
+    gravatar_image_tag user.email, :alt => user.name, :class => "preview", :gravatar => { :default => user_default_avatar , :size => size }
   end
 
   def user_default_avatar

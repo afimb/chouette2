@@ -30,7 +30,7 @@ ol.breadcrumb{
 
         .version
         {       
-            margin-left: 10px;
+            margin-left: 3px;
             vertical-align: text-top;
             color: white;
             font-size: 13px;
@@ -47,22 +47,20 @@ ol.breadcrumb{
         }
     }
 
-    .language{
-        width: 40px;
-    }
-    
-    .language.selected
-    {
-        border-bottom: 1px solid white;
+    .dropdown.languages{
+        .dropdown-menu{ 
+            min-width: 56px;
+        }
     }
 
-    .dropdown-menu{
-        min-width: 230px;
-        
-        .badge{
-            background-color: #DADADA
+    .dropdown.datas{
+        .dropdown-menu{ 
+
+            .badge{
+                background-color: #DADADA
+            }
         }
-    } 
+    }   
 }
 
 #footer{

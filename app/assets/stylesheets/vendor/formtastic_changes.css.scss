@@ -1,0 +1,27 @@
+.formtastic{
+
+    fieldset.inputs {
+        
+        a.action { float: right; }          
+    }
+    
+    .choices .label, .formtastic .fragments .label {
+        width: 25%;
+        border: 0px;
+        
+        label {
+            position: relative;
+            font-size: 14px;
+        }
+    }
+    
+    .token-input-list {
+        display: inline-block;
+    }
+
+    /* Hack to remove!!!! */ 
+    .inputs input[type="file"] {
+        display: initial;
+    }
+    /* Hack to remove!!!! */
+}

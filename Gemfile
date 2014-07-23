@@ -27,7 +27,7 @@ gem "map_layers", "0.0.4"
 gem "georuby-ext", "0.0.5"
 
 # User interface
-gem 'language_engine', '0.0.4'
+gem 'language_engine', '0.0.5'
 gem 'gravatar_image_tag'
 gem 'calendar_helper', "0.2.5"
 gem 'cocoon', "1.1.2"

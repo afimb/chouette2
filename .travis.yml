@@ -8,8 +8,9 @@ jdk:
 matrix:
   exclude:
     - rvm:  1.9.3
-      jdk: openjdk7
+    - jdk: openjdk7
 notifications:
+  email:        
     - mflorisson@cityway.fr
     - ldonnet@cityway.fr
     - metienne@cityway.fr
