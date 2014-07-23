@@ -11,6 +11,16 @@ class TimeTablesController < ChouetteController
     @year = params[:year] ? params[:year].to_i : Date.today.cwyear
     show!
   end
+  
+  def new 
+    @autocomplete_items = ActsAsTaggableOn::Tag.all
+    new!
+  end
+
+  def edit 
+    @autocomplete_items = ActsAsTaggableOn::Tag.all
+    edit!
+  end
 
   def comment_filter
     respond_to do |format|  

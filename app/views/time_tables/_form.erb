@@ -8,6 +8,16 @@
     <%= form.input :school_holliday, :as => :boolean, :class => "others" %> 
     <%= form.input :public_holliday, :as => :boolean %> 
   <% end %>
+  
+  <%= form.inputs do %> 
+     <%= form.label :tag_list %>  
+     <%= text_field_tag 'tag_input', nil, class: "tm-input", autocomplete: "off", data:{provide: "typeahead"} %>     
+     <%= hidden_field_tag 'time_table[tag_list]', nil , autocomplete: "off" %> 
+     <%= javascript_tag "var items = #{ @time_table.tag_list.to_json };" %>
+     <%= javascript_tag "var autocomplete_items = #{ @autocomplete_items.to_json };" %>
+  <% end %>
+  
+  
   <%= form.inputs do %> 
     <%= form.input :objectid, :required => !@time_table.new_record? %>  
   <% end %>
@@ -85,5 +95,14 @@
    <% end %>
 <% end %>
 
+<script>
+$(".tm-input").tagsManager(
+    {
+      prefilled: items,
+      output: '#time_table_tag_list'
+      
+    });
+    
+</script>
 
 

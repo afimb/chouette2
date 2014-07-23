@@ -47,6 +47,8 @@ gem 'bootswatch-rails'
 gem 'font-awesome-sass'
 gem 'will_paginate-bootstrap'
 gem 'simple_form'
+gem 'tagmanager-rails', '~> 3.0.1.0'
+gem 'typeahead-rails', '~> 0.10.1'
 
 # Format Output
 gem 'json'

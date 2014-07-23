@@ -42,6 +42,10 @@
       </p>
     <% end %>
     <p>
+      <label><%= @time_table.human_attribute_name("tag_list") %>: </label>
+      <%= @time_table.tag_list %>
+    </p>
+    <p>
       <label><%= @time_table.human_attribute_name("day_types") %>:&nbsp;&nbsp;</label>
       <% if @time_table.int_day_types & 508 == 0 %>
         <label><%= @time_table.human_attribute_name("none") %></label>

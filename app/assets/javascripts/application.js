@@ -12,4 +12,6 @@
 //= require raphael
 //= require morris
 //= require bootstrap
+//= require typeahead
+//= require tagmanager
 //= require_directory .
