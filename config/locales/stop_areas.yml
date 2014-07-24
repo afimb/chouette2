@@ -26,6 +26,8 @@ en:
       title: "Add a new stop"
     edit:
       title: "Update stop %{stop_area}"
+    form:
+      address: "Address"
     show:
       title: "Stop %{stop_area}"
       geographic_data: "Geographic data"
@@ -125,6 +127,8 @@ fr:
       title: "Ajouter un arrêt"
     edit:
       title: "Modifier l'arrêt %{stop_area}"
+    form:
+      address: "Adresse"
     show:
       title: "Arrêt %{stop_area}"
       geographic_data: "Données géographiques"

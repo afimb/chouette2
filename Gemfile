@@ -110,3 +110,7 @@ group :production do
    gem "daemons"
 end
 
+gem 'nominatim'
+gem 'bootstrap-typeahead-rails'
+
+

@@ -80,4 +80,9 @@ ChouetteIhm::Application.configure do
     end
   end
 
+  Nominatim.configure do |config|
+    config.email = 'zbouziane@gmail.com'
+    config.endpoint = 'http://open.mapquestapi.com/nominatim/v1'
+  end
+  
 end
