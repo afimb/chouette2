@@ -1,25 +1,17 @@
 <%= semantic_form_for [@referential, @time_table] do |form| %>
   <%= form.inputs do %> 
     <%= form.input :comment %>
-    <%= form.input :version %> 
+    <%= form.input :version %>
+
+    <%= form.input :tag_search, :input_html => { class: "tm-input typeahead", :placeholder => "Blabla" } %>
+    <%= form.input :tag_list, :as => :hidden, :input_html => { :id => "tag_list" } %>
+    
+    <%= form.input :objectid, :required => !@time_table.new_record? %>  
   <% end %>
-  <%= form.inputs :class => 'day_type' do %> 
-    <label class="day_type_label"><%= @time_table.human_attribute_name("peculiarities") %></label>
+  <%= form.inputs :name => "Advanced" do %> 
+    <label class="label"><%= @time_table.human_attribute_name("peculiarities") %></label>
     <%= form.input :school_holliday, :as => :boolean, :class => "others" %> 
     <%= form.input :public_holliday, :as => :boolean %> 
-  <% end %>
-  
-  <%= form.inputs do %> 
-     <%= form.label :tag_list %>  
-     <%= text_field_tag 'tag_input', nil, class: "tm-input", autocomplete: "off", data:{provide: "typeahead"} %>     
-     <%= hidden_field_tag 'time_table[tag_list]', nil , autocomplete: "off" %> 
-     <%= javascript_tag "var items = #{ @time_table.tag_list.to_json };" %>
-     <%= javascript_tag "var autocomplete_items = #{ @autocomplete_items.to_json };" %>
-  <% end %>
-  
-  
-  <%= form.inputs do %> 
-    <%= form.input :objectid, :required => !@time_table.new_record? %>  
   <% end %>
   
   <h3 class="time_table_periods">
@@ -95,14 +87,30 @@
    <% end %>
 <% end %>
 
+<%= javascript_tag "var items = #{ @time_table.tag_list.to_a };" %>
+
 <script>
-$(".tm-input").tagsManager(
-    {
-      prefilled: items,
-      output: '#time_table_tag_list'
-      
-    });
-    
+  $(".tm-input").tagsManager(
+  {
+    prefilled: items,
+    output: '#tag_list'
+  });
+  
+  var time_tables_tag_list = new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    prefetch: '<%= tags_referential_time_tables_path(@referential, :format => 'json') %>',
+    remote: '<%= tags_referential_time_tables_path(@referential, :format => 'json') %>?tag=%QUERY',
+  });
+
+  time_tables_tag_list.initialize();
+
+  $(".typeahead").typeahead(null, {
+    name: 'time_tables_tag_list',
+    displayKey: 'name',
+    source: time_tables_tag_list.ttAdapter()
+  });
+
 </script>
 
 

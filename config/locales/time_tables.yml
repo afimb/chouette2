@@ -72,7 +72,7 @@ en:
         periods: "Application periods"
         period_start: "From"
         period_end: "to"
-        
+        tag_search: "Tags"         
   formtastic:
     hints:
       time_table:
@@ -152,7 +152,7 @@ fr:
         periods: "Périodes d'application"
         period_start: "Du" 
         period_end: "au"
-
+        tag_search: "Tags" 
   formtastic:
     hints:
       time_table:

@@ -49,6 +49,12 @@ class TimeTablesController < ChouetteController
     redirect_to edit_referential_time_table_path(@referential, @time_table)
   end
 
+  def tags
+    @tags = ActsAsTaggableOn::Tag.where("tags.name LIKE ?", "%#{params[:tag]}%") 
+    respond_to do |format|
+      format.json { render :json => @tags.map{|t| {:id => t.id, :name => t.name }} }
+    end
+  end
 
   protected
 
