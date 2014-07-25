@@ -1,14 +1,7 @@
 GIT
-  remote: https://github.com/ldonnet/twitter-typeahead-rails
-  revision: 97466061dc7999ba1c7d153fba7ced8df846431a
-  specs:
-    twitter-typeahead-rails (0.10.2)
-      actionpack (>= 3.1)
-      jquery-rails
-      railties (>= 3.1)
-
-PATH
-  remote: ~/projects/ninoxe
+  remote: https://github.com/afimb/ninoxe.git
+  revision: 7447eab061036e07488f2f47ff8e0fb3f060e640
+  branch: sismo
   specs:
     ninoxe (1.1.0)
       activerecord (~> 3.2.13)
@@ -18,6 +11,15 @@ PATH
       deep_cloneable (~> 2.0.0)
       foreigner (= 1.6.0)
       georuby-ext (= 0.0.5)
+
+GIT
+  remote: https://github.com/ldonnet/twitter-typeahead-rails
+  revision: 97466061dc7999ba1c7d153fba7ced8df846431a
+  specs:
+    twitter-typeahead-rails (0.10.2)
+      actionpack (>= 3.1)
+      jquery-rails
+      railties (>= 3.1)
 
 GEM
   remote: http://rubygems.org/
