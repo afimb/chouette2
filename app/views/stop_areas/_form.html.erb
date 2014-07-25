@@ -1,25 +1,34 @@
 <div class="container-fluid">
   <div class="col-md-7">   
+
+    <form name="changer">
+      <label class=" label" for="stop_area_address">
+	<%= t(".address") %>
+      </label>
+      <div id="prefetch">
+	<input class="typeahead" maxlength="255" name="stop_area[address]" type="text"/>
+      </div>
+    </form>
+
     <%= semantic_form_for [@referential, @stop_area] do |form| %>
       <%= form.inputs do %> 
         <%= form.input :id, :as => :hidden %>
         <%= form.input :name %>
-        <%= form.input :stop_area_type, :as => :select, :input_html => { :disabled => !@stop_area.new_record? },
-    :collection => Chouette::StopArea.stop_area_types, :include_blank => false, :member_label => Proc.new { |stop_area_type| t("area_types.label.#{stop_area_type}") }  %>
-        <% if ! @referential.projection_type_label.empty? %>
+        <%= form.input :stop_area_type, :as => :select, :input_html => { :disabled => !@stop_area.new_record? }, :collection => Chouette::StopArea.stop_area_types, :include_blank => false, :member_label => Proc.new { |stop_area_type| t("area_types.label.#{stop_area_type}") }  %>
+        <% unless @referential.projection_type_label.empty? %>
           <div class="panel panel-default">
-            <div class="panel-heading">@referential.projection_type_label</div>
+            <div class="panel-heading"><%= @referential.projection_type_label %></div>
             <div class="panel-body">
-	            <%= form.input :projection_x %>
-	            <%= form.input :projection_y %>
+	      <%= form.input :projection_x %>
+	      <%= form.input :projection_y %>
             </div>
           </div>	       
-	      <% end %>
+	<% end %>
         <div class="panel panel-default">
           <div class="panel-heading">WGS84</div>
           <div class="panel-body">
-	          <%= form.input :longitude %>
-	          <%= form.input :latitude %>
+	    <%= form.input :longitude %>
+	    <%= form.input :latitude %>
           </div>
         </div>       
         <%= form.input :registration_number %>
@@ -30,24 +39,73 @@
         <%= form.input :comment, :as => :text %>              
 
         <% if !manage_itl %>
-	        <%= form.input :mobility_restricted_suitability,:as => :boolean %>
-	        <%= form.input :stairs_availability,:as => :boolean %>
-	        <%= form.input :lift_availability,:as => :boolean %>	     
+	  <%= form.input :mobility_restricted_suitability,:as => :boolean %>
+	  <%= form.input :stairs_availability,:as => :boolean %>
+	  <%= form.input :lift_availability,:as => :boolean %>	     
         <% end %>
 
         <%= form.input :objectid, :required => !@stop_area.new_record? %>  
+
       <% end %>
 
-    <%= form.actions do %>
-      <%= form.action :submit, :as => :button %>
-      <%= form.action :cancel, :as => :link %>
+      <%= form.actions do %>
+        <%= form.action :submit, :as => :button %>
+        <%= form.action :cancel, :as => :link %>
+      <% end %>
     <% end %>
-  <% end %>
 
   </div>
   <div class="col-md-5">
     <% if !manage_itl && @map %>
-	  <%= @map.to_html %>
+      <%= @map.to_html %>
     <% end %>
   </div>
 </div>
+
+<script>
+  var addressesEngine = new Bloodhound({
+    // datumTokenizer:  Bloodhound.tokenizers.obj.whitespace('the_key'),
+    // queryTokenizer: Bloodhound.tokenizers.whitespace,
+    datumTokenizer: function(d) {
+      return Bloodhound.tokenizers.whitespace(d.id+" : "+d.road);
+    },
+    queryTokenizer: function(d) {
+      return Bloodhound.tokenizers.whitespace(d.id+" :: "+d.road);
+    },
+    limit: 10,
+    remote: {
+      url: 'addresses?q=%QUERY',
+      filter: function(list) {
+        return $.map(list, function(d) { return { postcode: d.postcode, road: d.road, lon: d.lon, lat: d.lat, city: d.city, postcode: d.postcode, the_key: d.house_number+" "+d.road+", "+d.postcode+" "+d.city+", "+d.country }; });
+      },
+    }
+  });
+ 
+  // kicks off the loading/processing of `local` and `prefetch`
+  var promise = addressesEngine.initialize();
+
+  // promise.done(function() { console.log('success!'); });
+  // promise.fail(function() { console.log('err!'); });
+  
+  // passing in `null` for the `options` arguments will result in the default
+  // options being used
+  $('#prefetch .typeahead').typeahead({
+  hint: true,
+  highlight: true,
+  minLength: 1
+   },
+  {
+    name: 'addresses',
+    displayKey: 'the_key',
+    // `ttAdapter` wraps the suggestion engine in an adapter that
+    // is compatible with the typeahead jQuery plugin
+    source: addressesEngine.ttAdapter(),
+  });
+
+  $('.typeahead').on('typeahead:selected', function($e, datum) {
+    $('input[name="stop_area[longitude]"]').val(datum.lon);
+    $('input[name="stop_area[latitude]"]').val(datum.lat);
+    $('input[name="stop_area[street_name]"]').val(datum.road);
+    $('input[name="stop_area[country_code]"]').val(datum.postcode);
+  })
+</script>
