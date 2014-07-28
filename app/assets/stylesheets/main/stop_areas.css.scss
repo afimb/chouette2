@@ -31,6 +31,18 @@
     }
 }
 
+#workspace.stop_areas.new {
+    legend { padding-bottom: 20px; }
+    #prefetch { 
+    	padding: 10px 10px 30px 10px;
+
+	label{
+	    font-size: 18px;
+	    margin-right: 20px;
+	}
+    }
+}
+
 #workspace.stop_areas.show
 {
     .geo_data {

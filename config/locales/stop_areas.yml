@@ -24,10 +24,11 @@ en:
       export_hub_physical: "Export HUB physical"
     new:
       title: "Add a new stop"
+    form:
+      address: "15 rue du Louvre, Paris"
+      geolocalize: "Pinpoint : "
     edit:
       title: "Update stop %{stop_area}"
-    form:
-      address: "Address"
     show:
       title: "Stop %{stop_area}"
       geographic_data: "Geographic data"
@@ -125,10 +126,11 @@ fr:
       export_hub_physical: "Export HUB des arrêts physiques"
     new:
       title: "Ajouter un arrêt"
+    form:
+      address: "15 rue du Louvre, Paris"
+      geolocalize: "Géolocalisez : "
     edit:
       title: "Modifier l'arrêt %{stop_area}"
-    form:
-      address: "Adresse"
     show:
       title: "Arrêt %{stop_area}"
       geographic_data: "Données géographiques"

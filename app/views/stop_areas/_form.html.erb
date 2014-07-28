@@ -1,14 +1,10 @@
 <div class="container-fluid">
   <div class="col-md-7">   
 
-    <form name="changer">
-      <label class=" label" for="stop_area_address">
-	<%= t(".address") %>
-      </label>
       <div id="prefetch">
-	<input class="typeahead" maxlength="255" name="stop_area[address]" type="text"/>
+        <label><%= t('.geolocalize') %></label>
+	<input class="typeahead form-control input-lg" maxlength="255" name="stop_area[address]" type="text" placeholder="<%= t('.address') %>" />       
       </div>
-    </form>
 
     <%= semantic_form_for [@referential, @stop_area] do |form| %>
       <%= form.inputs do %> 
