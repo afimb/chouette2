@@ -31,4 +31,34 @@ jQuery ->
     $('a.vehicle_journey_time_tables .switcher').toggle()
 
   $('.vehicle_journeys.show a.vehicle_journey_time_tables').click(switch_time_tables)
+  
+  convert = (val) ->
+    if (val < 10)
+      return "0" + val.toString()
+    else
+      return val.toString()
 
+  slide_to = ( col, duration) ->
+    rows =  $('.vehicle_journeys tbody.journey_pattern_dependent_list .time')
+    for row in rows 
+      do (row) ->
+        oldHour = parseInt($(row).find( col).find('.hour')[0].value, 10)
+        oldMinute = parseInt($(row).find( col).find('.minute')[0].value, 10)
+        aTime = (((oldHour - 1) * 60) + oldMinute + duration) * 60000
+        newValue = new Date(aTime)
+        $(row).find( col).find('.hour')[0].value = convert(newValue.getHours())
+        $(row).find( col).find('.minute')[0].value = convert(newValue.getMinutes())
+
+  slide = (event) -> 
+    event.preventDefault()
+    # hour = $(".vehicle_journeys .date option[selected='selected']")[0].value
+    hour = $(".vehicle_journeys .date select#date_hour")[0].value
+    # minute = $(".vehicle_journeys .date option[selected='selected']")[1].value
+    minute = $(".vehicle_journeys .date select#date_minute")[0].value
+    departure_hour = $(".stop_times .journey_pattern_dependent_list .hour option[selected='selected']")[1].value
+    departure_minute = $(".stop_times .journey_pattern_dependent_list .minute option[selected='selected']")[1].value
+    duration = (hour - departure_hour) * 60 + (minute - departure_minute)
+    slide_to( '.departure_time', duration)
+    slide_to( '.arrival_time', duration)
+
+  $(document).on("click", '.vehicle_journeys a.slide', slide)

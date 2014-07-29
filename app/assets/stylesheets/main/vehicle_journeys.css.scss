@@ -11,7 +11,7 @@
         tr.no_stop { display: none; }
     }
     .time_table_list { padding-left: 25%; }
-    .vehicle_journey_at_stops { margin-left: 25%; }
+    .vehicle_journey_at_stops { margin-left: 20%; }
 }
 
 #workspace.vehicle_journeys.index
@@ -36,6 +36,10 @@
     }
     
     .to_arrivals {
+        cursor: pointer;
+    }            
+    
+    .slide {
         cursor: pointer;
     }            
 }

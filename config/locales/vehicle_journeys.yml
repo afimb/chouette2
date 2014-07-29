@@ -21,6 +21,7 @@ en:
       to_arrivals: "Copy departures to arrivals"
       to_departures: "Copy arrivals to departures"
       time_tables: "Associated calendars to vehicle journey"
+      slide: "Slide"
     timeless:
       title: "Timeless vehicle journeys"
       vehicle_journeys: "Vehicle journeys with times at stop"
@@ -110,6 +111,7 @@ fr:
       to_arrivals: "Copie départs vers arrivées"
       to_departures: "Copie arrivées vers départs"
       time_tables: "Calendriers associés à la course"
+      slide: "Décaler"
     timeless:
       title: "Courses sans horaire"
       vehicle_journeys: "Courses ayant des horaires"
