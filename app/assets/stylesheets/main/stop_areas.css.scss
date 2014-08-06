@@ -4,6 +4,7 @@
 
 #workspace.stop_areas.index
 {
+    #country_codes { display: none; }
     
     .stop_area {
 
@@ -22,24 +23,21 @@
     }
 }
 
-#workspace.stop_areas.edit {
+#workspace.stop_areas.edit, #workspace.stop_areas.new {
     legend { padding-bottom: 20px; }
 
+    #prefetch { 
+    	  padding: 10px 10px 30px 10px;
+        
+	      label{
+	          font-size: 18px;
+	          margin-right: 20px;
+	      }
+    }
+    
     #map{
         float:none;
         width: 100%;
-    }
-}
-
-#workspace.stop_areas.new {
-    legend { padding-bottom: 20px; }
-    #prefetch { 
-    	padding: 10px 10px 30px 10px;
-
-	label{
-	    font-size: 18px;
-	    margin-right: 20px;
-	}
     }
 }
 

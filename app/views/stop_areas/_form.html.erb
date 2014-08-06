@@ -60,8 +60,6 @@
 
 <script>
   var addressesEngine = new Bloodhound({
-    // datumTokenizer:  Bloodhound.tokenizers.obj.whitespace('the_key'),
-    // queryTokenizer: Bloodhound.tokenizers.whitespace,
     datumTokenizer: function(d) {
       return Bloodhound.tokenizers.whitespace(d.id+" : "+d.road);
     },
@@ -70,7 +68,7 @@
     },
     limit: 10,
     remote: {
-      url: 'addresses?q=%QUERY',
+      url: '<%= addresses_referential_stop_areas_path(@referential, :format => 'json') %>?q=%QUERY',
       filter: function(list) {
         return $.map(list, function(d) { return { postcode: d.postcode, road: d.road, lon: d.lon, lat: d.lat, city: d.city, postcode: d.postcode, the_key: d.house_number+" "+d.road+", "+d.postcode+" "+d.city+", "+d.country }; });
       },
@@ -79,24 +77,21 @@
  
   // kicks off the loading/processing of `local` and `prefetch`
   var promise = addressesEngine.initialize();
-
-  // promise.done(function() { console.log('success!'); });
-  // promise.fail(function() { console.log('err!'); });
   
   // passing in `null` for the `options` arguments will result in the default
   // options being used
-  $('#prefetch .typeahead').typeahead({
-  hint: true,
-  highlight: true,
-  minLength: 1
-   },
-  {
-    name: 'addresses',
-    displayKey: 'the_key',
-    // `ttAdapter` wraps the suggestion engine in an adapter that
-    // is compatible with the typeahead jQuery plugin
-    source: addressesEngine.ttAdapter(),
-  });
+  $('#prefetch .typeahead').typeahead(
+    {
+      hint: true,
+      highlight: true,
+      minLength: 1
+    },
+    {
+      name: 'addresses',
+      displayKey: 'the_key',
+      source: addressesEngine.ttAdapter(),
+    }
+  );
 
   $('.typeahead').on('typeahead:selected', function($e, datum) {
     $('input[name="stop_area[longitude]"]').val(datum.lon);
