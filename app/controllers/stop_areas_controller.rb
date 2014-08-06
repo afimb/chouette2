@@ -45,7 +45,7 @@ class StopAreasController < ChouetteController
 
   def index    
     request.format.kml? ? @per_page = nil : @per_page = 12
-
+    @country_codes = referential.stop_areas.collect(&:country_code).compact.uniq
     index! do |format|
       format.html {
         if collection.out_of_bounds?
@@ -79,6 +79,12 @@ class StopAreasController < ChouetteController
     count = referential.stop_areas.without_geometry.default_geometry!
     flash[:notice] = I18n.translate("stop_areas.default_geometry_success", :count => count)
     redirect_to referential_stop_areas_path(@referential)
+  end
+
+  def country_codes
+    respond_to do |format|
+      format.json { render :json => referential.stop_areas.collect(&:country_code).compact.uniq.to_json }
+    end
   end
 
   def addresses

@@ -29,17 +29,27 @@ jQuery ->
   $('input#stop_area_projection_x').change(lon_lat_change)
   $('input#stop_area_projection_y').change(lon_lat_change)
 
-  # switch visibility of access_links
-  switch_generics = (event) -> 
-    event.preventDefault()
-    $('.stop_areas .generics.content').toggle('slow')
-    $('a.generics .switcher').toggle()
+  # Autocomplete input to choose postal code in stop_areas index
+  # constructs the suggestion engine
+  country_codes = new Bloodhound(
+    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value')
+    queryTokenizer: Bloodhound.tokenizers.whitespace
+    local: $.map( JSON.parse($('#country_codes').text()), (country_code) ->  
+      value: country_code
+    )
+  )
 
-  $('.stop_areas a.generics').click(switch_generics)
-
-  switch_details = (event) -> 
-    event.preventDefault()
-    $('.stop_areas .details.content').toggle('slow')
-    $('a.details .switcher').toggle()
-
-  $('.stop_areas a.details').click(switch_details)
+  country_codes.initialize()
+  # kicks off the loading/processing of `local` and `prefetch`
+  $('#search .typeahead').typeahead(
+    {
+      hint: true,
+      highlight: true,
+      minLength: 1
+    },
+    {
+      name: 'country_codes',
+      displayKey: 'value',
+      source: country_codes.ttAdapter(),
+    }
+  )

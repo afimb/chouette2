@@ -1,16 +1,30 @@
 <%= title_tag t('stop_areas.index.title') %> 
 
-<form class="navbar-form" role="search">
-  <%= search_form_for @q, :url => referential_stop_areas_path(@referential), :html => {:method => :get} do |f| %>
-  <div class="form-group">
-    <%= f.label :name_or_country_code_cont, "#{t('.name_or_country_code')} :" %>
-    <%= f.text_field :name_or_country_code_cont %>
-    <%= f.hidden_field :area_type_eq %>
+<div id="country_codes">
+  <%= @country_codes.to_json %>
+</div>
+
+<%= search_form_for @q, :url => referential_stop_areas_path(@referential), :html => {:method => :get, class: "form-inline", :id => "search", role: "form"} do |f| %>
+<div class="panel panel-default">
+  <div class="panel-heading">   
+    <div class="input-group col-md-9">   
+      <%= f.text_field :name_cont, :placeholder => "#{t('.name')}", :class => 'form-control' %>
+      <div class="input-group-btn">
+        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+      </div>
+    </div><!-- /input-group -->
+    <a data-toggle="collapse" data-parent="#search" href="#advanced_search">
+      <i class="fa fa-plus"></i> Recherche Avancée
+    </a>
   </div>
-  <%= f.submit t('actions.search') %> <%= t("or") %>
-  <%= link_to t("cancel"), referential_stop_areas_path(@referential) %>
-  <% end %>
-</form>
+  
+  <div id="advanced_search" class="panel-collapse collapse">          
+    <div class="panel-body">
+      <%= f.text_field :country_code_cont, :placeholder => "#{t('.country_code')}", :class => 'form-control typeahead' %>
+    </div>
+  </div>
+</div>
+<% end %>
 
 <div class="page_info">
   <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @stop_areas %>
