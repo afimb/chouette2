@@ -5,6 +5,9 @@
 #workspace.stop_areas.index
 {
     #country_codes { display: none; }
+
+    // Fix for typeahead css to remove
+    span.twitter-typeahead { display: inline !important;}
     
     .stop_area {
 

@@ -42,7 +42,8 @@ en:
       genealogical_routing: "Routing constraint's links"
     index:
       title: "Stop areas"
-      name_or_country_code: "Name or Country code"
+      name: "Search by name"
+      country_code: "Postal Code : 78000"
       selection: "Filter on"
       selection_all: "All"
       area_type: "Area Type"
@@ -149,7 +150,8 @@ fr:
       access_link_legend_1: "Les flêches grises représentent des liens non définis"
       access_link_legend_2: "cliquer sur les flêches pour créer/éditer un lien"
     index:
-      name_or_country_code: "Nom ou Code INSEE"
+      name: "Recherche par nom"
+      country_code: "Code Postal : 78000"
       title: "Arrêts"
       selection: "Filtrer sur"
       selection_all: "Tous"
