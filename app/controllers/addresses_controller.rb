@@ -4,9 +4,7 @@ class AddressesController < ChouetteController
 
   def index
     referential_path(@referential)
-    #Rails.logger.error("SEARCHING FOR ADDRESSES : #{params[:q]}")
     @addresses = filtered_addresses
-    #Rails.logger.error("ADDRESSES : #{@addresses.inspect}")
     respond_to do |format|
       format.json { render :json => @addresses.collect { |add| { :id => add.osm_id, 
             :house_number => add.address ? "#{add.address.house_number}" : -1, 
