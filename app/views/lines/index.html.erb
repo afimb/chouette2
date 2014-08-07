@@ -1,33 +1,27 @@
 <%= title_tag t('lines.index.title') %>
 
-<%= search_form_for @q, :url => referential_lines_path(@referential), :html => {:method => :get} do |f| %>
-  <%= f.label :name_or_number_cont, "#{t('.name_or_number')} :" %>
-  <%= f.text_field :name_or_number_cont %>
-
-  <%= f.hidden_field :company_id_eq %>
-  <%= f.hidden_field :network_id_eq %>
-  <%= f.hidden_field :group_of_lines_id_eq %>
-
-  <%= f.submit t('actions.search') %> <%= t("or") %>
-  <%= link_to t("cancel"), referential_lines_path(@referential) %>
-<% end %>
-
-<% if @q.network_id_eq.present? %>
-<p>
-  <%= Chouette::Line.human_attribute_name('network') %> : <%= @referential.networks.find(@q.network_id_eq).name %>
-</p>
-<% end %>
-
-<% if @q.company_id_eq.present? %>
-<p>
-  <%= Chouette::Line.human_attribute_name('company') %> : <%= @referential.companies.find(@q.company_id_eq).name %>
-</p>
-<% end %>
-
-<% if @q.group_of_lines_id_eq.present? %>
-<p>
-  <%= Chouette::Line.human_attribute_name('group_of_line') %> : <%= @referential.group_of_lines.find(@q.group_of_lines_id_eq).name %>
-</p>
+<%= search_form_for @q, :url => referential_lines_path(@referential), :html => {:method => :get, class: "form-inline", :id => "search", role: "form"} do |f| %>
+<div class="panel panel-default">
+  <div class="panel-heading">   
+    <div class="input-group col-md-9">   
+      <%= f.text_field :name_cont, :placeholder => "#{t('.name')}", :class => 'form-control' %>
+      <div class="input-group-btn">
+        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+      </div>
+    </div><!-- /input-group -->
+    <a data-toggle="collapse" data-parent="#search" href="#advanced_search">
+      <i class="fa fa-plus"></i> <%= "#{t('.advanced_search')}" %>
+    </a>
+  </div>
+  
+  <div id="advanced_search" class="panel-collapse collapse">          
+    <div class="panel-body">
+      <%= f.select(:network_id_eq, @referential.networks.collect {|n| [ n.name, n.id ] }, {include_blank: "#{t('.all_networks')}"}, { :class => 'form-control' }) %>
+      <%= f.select(:company_id_eq, @referential.companies.collect {|c| [ c.name, c.id ] }, {include_blank: "#{t('.all_companies')}"}, { :class => 'form-control' }) %>
+      <%= f.select(:group_of_lines_id_eq, @referential.group_of_lines.collect {|c| [ c.name, c.id ] }, {include_blank: "#{t('.all_group_of_lines')}"}, { :class => 'form-control' }) %>
+    </div>
+  </div>
+</div>
 <% end %>
 
 <div class="page_info">
@@ -44,36 +38,6 @@
 <ul class="actions">
   <li><%= link_to t('lines.actions.new'), new_referential_line_path(@referential), :class => "add" %></li>
 </ul>
-
-<h4><%= t(".selection") %></h4>
-
-<h5><%= Chouette::Company.model_name.human.pluralize %></h5>
-
-<ul class="selection">
-<% @referential.companies.each do |company| %>
-<li><%= link_with_search company.name, "company_id_eq" => company.id %></li>
-<% end %>
-<li><%= link_with_search t(".selection_all"), {"company_id_eq" => nil}, :class => "all" %></li>
-</ul>
-
-<h5><%= Chouette::Network.model_name.human.pluralize %></h5>
-
-<ul class="selection">
-<% @referential.networks.each do |network| %>
-<li><%= link_with_search network.name, "network_id_eq" => network.id %></li>
-<% end %>
-<li><%= link_with_search t(".selection_all"), {"network_id_eq" => nil}, :class => "all" %></li>
-</ul>
-
-<% if  @referential.group_of_lines.count > 0 %>
-	<h5><%= Chouette::GroupOfLine.model_name.human.pluralize %></h5>
-	<ul class="selection">
-	<% @referential.group_of_lines.each do |group_of_line| %>
-	<li><%= link_with_search group_of_line.name, "group_of_lines_id_eq" => group_of_line.id %></li>
-	<% end %>
-	<li><%= link_with_search t(".selection_all"), {"group_of_lines_id_eq" => nil}, :class => "all" %></li>
-	</ul>
-<% end %>
 
 <div id="multiple_selection_menu">
   <h4><%= t(".multi_selection") %> </h4>
