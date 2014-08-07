@@ -68,7 +68,7 @@
     },
     limit: 10,
     remote: {
-      url: '<%= addresses_referential_stop_areas_path(@referential, :format => 'json') %>?q=%QUERY',
+      url: '<%= referential_addresses_path(@referential, :format => 'json') %>?q=%QUERY',
       filter: function(list) {
         return $.map(list, function(d) { return { postcode: d.postcode, road: d.road, lon: d.lon, lat: d.lat, city: d.city, postcode: d.postcode, the_key: d.house_number+" "+d.road+", "+d.postcode+" "+d.city+", "+d.country }; });
       },
