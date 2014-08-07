@@ -14,7 +14,7 @@ en:
       lines: "Lines list"
     index:
       title: "Group of Lines"
-      name: "Name"
+      name: "Search by name"
     form:
       lines: "Associated lines" 
   activerecord:
@@ -53,7 +53,7 @@ fr:
       lines: "Liste des lignes"
     index:
       title: "Groupes de lignes"
-      name: "Nom"
+      name: "Recherche par nom"
     form:
       lines: "Lignes associées"  
   activerecord:
