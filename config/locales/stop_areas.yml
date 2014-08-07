@@ -47,6 +47,7 @@ en:
       selection: "Filter on"
       selection_all: "All"
       area_type: "Area Type"
+      advanced_search: "Advanced Search"
     access_links: 
       title: "Access links for %{stop_area}'s access"
       generic_access_links: "Glogal links"
@@ -156,6 +157,7 @@ fr:
       selection: "Filtrer sur"
       selection_all: "Tous"
       area_type: "Type d'arrêt"
+      advanced_search: "Recherche avancée"
     select_parent:
       title: "Gérer le parent de l'arrêt %{stop_area}"
     add_children:

@@ -1,0 +1,13 @@
+#search{
+
+    #advanced_search{
+        
+        .form-control{
+            display: inline !important;
+        }
+    }
+        
+    // Fix for typeahead css to remove  
+    span.twitter-typeahead { display: inline !important;}
+
+}

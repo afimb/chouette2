@@ -36,9 +36,13 @@ en:
       combine: "Apply"
     index:
       title: "Timetables"
-      comment: "Name"
+      comment: "Search by name"
+      tags: "Tags : holliday"
+      from: "From : "
+      to: " to : "
       selection: "Selection"
       selection_all: "All"
+      advanced_search: "Advanced Search"      
   activerecord:        
     models:        
       time_table: 
@@ -115,10 +119,16 @@ fr:
       combine_form: "Combinatoire"
       combine: "Appliquer"
     index:
-      comment: "Nom"
+      comment: "Recherche par nom"
+      tags: "Tags : holliday"
+      from: "De : "
+      to: " à : "
+      start_date: "12/01/2014"
+      end_date: "15/06/2014"
       title: "calendriers"
       selection: "Sélection"
       selection_all: "Tous"
+      advanced_search: "Recherche avancée"      
   activerecord:        
     models:        
       time_table: 
