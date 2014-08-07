@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/afimb/ninoxe.git
-  revision: 7447eab061036e07488f2f47ff8e0fb3f060e640
+  revision: 71e72c8df6c4ac353611af4f8b8eb31287a9ddce
   branch: sismo
   specs:
     ninoxe (1.1.0)

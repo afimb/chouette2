@@ -37,7 +37,7 @@ en:
     index:
       title: "Timetables"
       comment: "Search by name"
-      tags: "Tags : holliday"
+      tag_search: "Tags : hollidays,public holliday"
       from: "From : "
       to: " to : "
       selection: "Selection"
@@ -120,7 +120,7 @@ fr:
       combine: "Appliquer"
     index:
       comment: "Recherche par nom"
-      tags: "Tags : holliday"
+      tag_search: "Tags : vacances,jour fériés"
       from: "De : "
       to: " à : "
       start_date: "12/01/2014"

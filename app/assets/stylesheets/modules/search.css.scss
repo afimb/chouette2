@@ -5,6 +5,12 @@
         .form-control{
             display: inline !important;
         }
+
+        .panel-body{            
+            div{
+                margin-bottom: 10px;
+            }
+        }
     }
         
     // Fix for typeahead css to remove  
