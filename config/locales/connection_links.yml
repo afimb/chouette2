@@ -18,7 +18,7 @@ en:
       to: "to"
     index:
       title: "Connection links"
-      name: "Name"
+      name: "Search by name"
       departure: "Start of link"
       arrival: "End of link"
       selection: "Selection"
@@ -81,7 +81,7 @@ fr:
       from: "De"
       to: "vers"
     index:
-      name: "Nom"
+      name: "Recherche par nom"
       title: "Correspondances"
       departure: "Arrêt de départ"
       arrival: "Arrêt d'arrivée"
