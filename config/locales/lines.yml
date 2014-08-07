@@ -21,7 +21,7 @@ en:
       group_of_lines: "Groups of lines"
     index:
       title: "Lines"
-      name: "Search by name"
+      name_or_number: "Search by name or number"
       all_networks: "All networks"
       all_companies: "All companies"
       all_group_of_lines: "All group of lines"
@@ -103,7 +103,7 @@ fr:
       itineraries: "Liste des séquences d'arrêts de la ligne"
       group_of_lines: "Groupes de lignes"
     index:
-      name: "Recherche par nom"
+      name_or_number: "Recherche par nom ou indice"
       title: "Lignes"
       all_networks: "Tous les réseaux"
       all_companies: "Tous les transporteurs"
