@@ -13,7 +13,7 @@ en:
       title: "Company  %{company}"
     index:
       title: "Companies"
-      name: "Name"
+      name: "Search by name"
 
   activerecord:
     models:
@@ -57,7 +57,7 @@ fr:
       title: "Transporteur %{company}"
     index:
       title: "Transporteurs"
-      name: "Nom"
+      name: "Recherche par nom"
 
   activerecord:
     models:
