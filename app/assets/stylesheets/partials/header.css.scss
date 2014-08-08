@@ -1,0 +1,45 @@
+#header {
+    
+    .navbar-brand{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        line-height: 40px;
+
+        img {
+            height: 40px;       
+        }
+
+        .version
+        {       
+            margin-left: 3px;
+            vertical-align: text-top;
+            color: white;
+            font-size: 13px;
+        }
+    }
+    
+    background: $brand_primary url(image-path('header.png')) no-repeat;
+
+    .gravatar {
+        margin-right: 5px;
+        img{
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+    .dropdown.languages{
+        .dropdown-menu{ 
+            min-width: 56px;
+        }
+    }
+
+    .dropdown.datas{
+        .dropdown-menu{ 
+
+            .badge{
+                background-color: #333
+            }
+        }
+    }   
+}

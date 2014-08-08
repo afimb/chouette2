@@ -49,7 +49,4 @@ jQuery ->
   $(".resume .col2 .caption").click ->
     get_compliance_check_results( $(".report"), null, "warning")
 
-  $('img[title]').tipsy({gravity: 'w'})
-  $('a[title]').tipsy({gravity: 'w'})
-
                                       

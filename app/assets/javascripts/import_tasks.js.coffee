@@ -6,8 +6,6 @@ jQuery ->
 
   $("#import_task_format_input :radio[name='import_task[format]']").change(import_format_change)
 
-  $('.import_tasks [title]').tipsy({gravity: 'w'})
-
   import_check_change = (event) ->
     import_task_type = $("input:radio:checked").attr("value")
     format_class = '#' + import_task_type + "_new"
