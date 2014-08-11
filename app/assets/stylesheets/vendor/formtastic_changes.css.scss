@@ -1,5 +1,19 @@
+input.typeahead{
+    & .formtastic .input {
+        overflow: inherit !important;
+    }
+}    
+
 .formtastic{
 
+    .label{
+        white-space: normal;
+    }
+
+    .input{
+        overflow: visible;
+    }
+    
     fieldset.inputs {
         
         a.action { float: right; }          
