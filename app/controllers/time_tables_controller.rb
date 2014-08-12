@@ -73,7 +73,7 @@ class TimeTablesController < ChouetteController
     tag_search = ransack_params["tag_search"].split(",").collect(&:strip) if ransack_params.present? && ransack_params["tag_search"].present?
     ransack_params.delete("tag_search") if ransack_params.present?
 
-    select_time_tables = tag_search ? referential.time_tables.tagged_with(tag_search, :match_all => true) : referential.time_tables
+    select_time_tables = tag_search ? referential.time_tables.tagged_with(tag_search) : referential.time_tables
     @q = select_time_tables.search(ransack_params)
     @time_tables ||= @q.result(:distinct => true).order(:comment).paginate(:page => params[:page])
   end

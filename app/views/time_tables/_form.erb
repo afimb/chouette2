@@ -8,11 +8,6 @@
     
     <%= form.input :objectid, :required => !@time_table.new_record? %>  
   <% end %>
-  <%= form.inputs :name => "Advanced" do %> 
-    <label class="label"><%= @time_table.human_attribute_name("peculiarities") %></label>
-    <%= form.input :school_holliday, :as => :boolean, :class => "others" %> 
-    <%= form.input :public_holliday, :as => :boolean %> 
-  <% end %>
   
   <h3 class="time_table_periods">
 	<a class="periods"><%= @time_table.human_attribute_name("periods") %>

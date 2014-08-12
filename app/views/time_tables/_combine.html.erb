@@ -1,15 +1,25 @@
-<div id="compact_form" >
-
-<%= semantic_form_for [@referential, @time_table, TimeTableCombination.new] do |form| %>
-  <%= form.inputs do %>
-    <%= form.input :operation, :as => :radio, :collection => Hash[TimeTableCombination.operations.map {|b| [t( b, :scope => "time_table_combinations.operations"),b]}]  %>
-    <%= form.input :combined_id, :as => :text  %>
-  <% end %>
-
-   <%= form.actions do %>
-     <%= form.action :submit, :as => :button , :label => t('time_tables.show.combine')%>
-   <% end %>
-<% end %>
+<div id="combine_form" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel"><%= t('time_tables.show.combine_form') %></h4>
+      </div>
+      <%= semantic_form_for [@referential, @time_table, TimeTableCombination.new] do |form| %>
+      <div class="modal-body">
+      <%= form.inputs do %>
+        <%= form.input :operation, :as => :radio, :collection => Hash[TimeTableCombination.operations.map {|b| [t( b, :scope => "time_table_combinations.operations"),b]}]  %>
+        <%= form.input :combined_id, :as => :text  %>
+      <% end %>
+      </div>
+      <div class="modal-footer">
+      <%= form.actions do %>
+        <%= form.action :submit, :as => :button , :label => t('time_tables.show.combine')%>
+      <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <script>

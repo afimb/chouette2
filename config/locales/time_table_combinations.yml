@@ -16,9 +16,9 @@ fr:
     success: "opération appliquée sur le calendrier"
     failure: "opération échouée"
     operations:
-      union: "fusion"
-      intersection: "intersection"
-      disjunction: "exclusion"
+      union: "ajouter les dates"
+      intersection: "conserver les dates communes"
+      disjunction: "soustraire les dates"
   activemodel:
     attributes:
       time_table_combination:
