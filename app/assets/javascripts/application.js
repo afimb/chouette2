@@ -12,6 +12,8 @@
 //= require raphael
 //= require morris
 //= require bootstrap
-//= require twitter/typeahead.min
+//= require typeahead.min
 //= require tagmanager
+//= require_directory ./plugins
 //= require_directory .
+//= require_directory ./stop_areas

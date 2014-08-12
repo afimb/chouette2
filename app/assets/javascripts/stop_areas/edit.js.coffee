@@ -1,4 +1,5 @@
-jQuery ->
+$(".stop_areas.edit").ready ->                    
+
   x_y_change = (event) -> 
     if referential_projection != undefined
       referential_point = new OpenLayers.Geometry.Point($('input#stop_area_longitude').val(), $('input#stop_area_latitude').val()).transform(new OpenLayers.Projection("EPSG:4326"), referential_projection )      
@@ -28,28 +29,3 @@ jQuery ->
 
   $('input#stop_area_projection_x').change(lon_lat_change)
   $('input#stop_area_projection_y').change(lon_lat_change)
-
-  # Autocomplete input to choose postal code in stop_areas index
-  # constructs the suggestion engine
-  country_codes = new Bloodhound(
-    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value')
-    queryTokenizer: Bloodhound.tokenizers.whitespace
-    local: $.map( JSON.parse($('#country_codes').text()), (country_code) ->  
-      value: country_code
-    )
-  )
-
-  country_codes.initialize()
-  # kicks off the loading/processing of `local` and `prefetch`
-  $('#search .typeahead').typeahead(
-    {
-      hint: true,
-      highlight: true,
-      minLength: 1
-    },
-    {
-      name: 'country_codes',
-      displayKey: 'value',
-      source: country_codes.ttAdapter(),
-    }
-  )
