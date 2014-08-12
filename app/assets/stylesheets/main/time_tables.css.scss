@@ -88,112 +88,72 @@
 
 #workspace.time_tables.edit,#workspace.time_tables.new,#workspace.time_tables.create,#workspace.time_tables.update
 {
-      h3 {
-      .dates {
-      cursor: pointer;
-      }
-      .periods {
-      cursor: pointer;
-      }
-      .excluded_dates {
-      cursor: pointer;
-      }
+    h3 {
+        .dates {
+            cursor: pointer;
+        }
+        .periods {
+            cursor: pointer;
+        }
+        .excluded_dates {
+            cursor: pointer;
+        }
     }
 
-  
+    #dates,#excluded_dates,#periods{
+        .nested-fields {
+            margin: 5px;
+            
+            ol {            
+                li {
+                    display: inline;
+                }
+            }
+        }
+        
+        margin-left: 25%;
+    }
+    
+    .day_type ol {
+        float: left;
+        margin: 0;
+        padding: 0 0 0 0;
+        width: 100%;
+        list_style: none outside none;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+    .day_type ol li {
+        float: left;
+        margin: 0 O 0 0;
+        width: auto;
+        padding: 0;
+    }
+    .day_type_label {
+        float: left;
+        margin-top: 0;
+        width: 25%;
+    }
+    .day_type ol li label {
+        padding-left: 10%;
+        margin-top: 0;
+    }
+        
+    a.add_fields {
+        margin-left: 25%;
+        margin-top: 20px;
+        padding-left: 18px;
+        background: url(image-path('icons/add.png')) no-repeat 0% 50%;
+    }
+    
+    a.remove_fields {
+        margin-left: 10px;
+        padding-left: 18px;
+        background: url(image-path('icons/remove.png')) no-repeat 0% 50%;
+    }
 
-  .dates ol {
-      margin-top: -0.3em;
-      margin-bottom: 1em;
-      margin-left: 25%;
-      padding: 0;
-      width: 75%;
+    .actions{
+        margin-top: 20px;
     }
-    .dates ol li { padding : 0.3em 0; }
-
-    .dates ol li label {
-      width: 40%;
-      margin-top: -0.3em;
-    }
-  .dates ol li.fl1 {float: left; width: 30% ;}
-  .dates ol li.fl1 label {width: 40%; margin-top: -0.3em; }
-  .dates ol li.fl1 input { width: 50%; }
-  
-  .excluded_dates ol {
-      margin-top: -0.3em;
-      margin-bottom: 1em;
-      margin-left: 25%;
-      padding: 0;
-      width: 75%;
-    }
-    .excluded_dates ol li { padding : 0.3em 0; }
-
-    .excluded_dates ol li label {
-      width: 40%;
-      margin-top: -0.3em;
-    }
-  .excluded_dates ol li.fl1 {float: left; width: 30% ;}
-  .excluded_dates ol li.fl1 label {width: 40%; margin-top: -0.3em; }
-  .excluded_dates ol li.fl1 input { width: 50%; }
-  
-
-  .periods ol {
-      margin-top: -0.3em;
-      margin-bottom: 1em;
-      margin-left: 25%;
-      padding: 0;
-      width: 75%;
-    }
-    .periods ol li { padding : 0.3em 0; }
-
-    .periods ol li label {
-      width: 40%;
-      margin-top: -0.3em;
-    }
-  .periods ol li.fl1 {float: left; width: 30% ;}
-  .periods ol li.fl1 label {width: 40%; margin-top: -0.3em; }
-  .periods ol li.fl1 input { width: 50%; }
-  
-  .periods ol li.fl2 {float: left; width: 30% ;}
-  .periods ol li.fl2 label {width: 40%; margin-top: -0.3em;}
-  .periods ol li.fl2 input { width: 50%; }
-
-  .day_type ol {
-      float: left;
-      margin: 0;
-      padding: 0 0 0 0;
-      width: 100%;
-      list_style: none outside none;
-      margin-top: 1em;
-      margin-bottom: 1em;
-    }
-  .day_type ol li {
-      float: left;
-      margin: 0 O 0 0;
-      width: auto;
-      padding: 0;
-    }
-  .day_type_label {
-      float: left;
-      margin-top: 0;
-      width: 25%;
-    }
-  .day_type ol li label {
-      padding-left: 10%;
-      margin-top: 0;
-    }
-  
-  
-  a.add_fields {
-    margin-left: 25%;
-    color: #666;
-    padding-left: 18px;
-    background: url(image-path('icons/add.png')) no-repeat 0% 50%;
-  }
-  a.remove_fields {
-    color: #666;
-    padding-left: 18px;
-    background: url(image-path('icons/remove.png')) no-repeat 0% 50%;
-  }
-
+    
 }

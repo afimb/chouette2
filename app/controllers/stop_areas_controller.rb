@@ -10,8 +10,6 @@ class StopAreasController < ChouetteController
 
   respond_to :html, :kml, :xml, :json
 
-  layout "without_sidebar", :only => [:edit, :update]
-
   # def complete
   #   @stop_areas = line.stop_areas
   #   render :layout => false

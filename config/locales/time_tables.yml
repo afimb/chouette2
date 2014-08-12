@@ -167,5 +167,9 @@ fr:
     hints:
       time_table:
         objectid: "[prefixe]:Timetable:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+    placeholders:
+      time_table:
+        tag_search: "vacances"
+          
 
 

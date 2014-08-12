@@ -4,6 +4,8 @@ class ChouetteController < InheritedResources::Base
   
   before_filter :switch_referential
 
+  layout "without_sidebar", :only => [:edit, :new, :update, :create]
+  
   def switch_referential
     Apartment::Database.switch(referential.slug)
   end 
