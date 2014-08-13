@@ -2,8 +2,8 @@
 
 <%= search_form_for @q, :url => referential_lines_path(@referential), :html => {:method => :get, class: "form-inline", :id => "search", role: "form"} do |f| %>
 <div class="panel panel-default">
-  <div class="panel-heading">   
-    <div class="input-group col-md-9">   
+  <div class="panel-heading">
+    <div class="input-group col-md-9">
       <%= f.text_field :name_or_number_cont, :placeholder => "#{t('.name_or_number')}", :class => 'form-control' %>
       <div class="input-group-btn">
         <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
@@ -13,8 +13,8 @@
       <i class="fa fa-plus"></i> <%= "#{t('.advanced_search')}" %>
     </a>
   </div>
-  
-  <div id="advanced_search" class="panel-collapse collapse">          
+
+  <div id="advanced_search" class="panel-collapse collapse">
     <div class="panel-body">
       <%= f.select(:network_id_eq, @referential.networks.collect {|n| [ n.name, n.id ] }, {include_blank: "#{t('.all_networks')}"}, { :class => 'form-control' }) %>
       <%= f.select(:company_id_eq, @referential.companies.collect {|c| [ c.name, c.id ] }, {include_blank: "#{t('.all_companies')}"}, { :class => 'form-control' }) %>
@@ -49,7 +49,7 @@
     <a class="disable" href="#"><%= t(".multi_selection_disable") %></a>
 
     <ul class="actions">
-      <%= link_to t(".delete_selected"), referential_lines_path(@referential), "data-multiple-method" => "delete", :class => "remove", :confirm => t("lines.actions.destroy_selection_confirm") %>
+      <%= link_to t(".delete_selected"), referential_lines_path(@referential), "data-multiple-method" => "delete", :class => "remove", "confirmation-text" => t("lines.actions.destroy_selection_confirm") %>
     </ul>
 
     <a class="select_all" href="#"><%= t(".select_all") %></a> | <a class="deselect_all" href="#"><%= t(".deselect_all") %></a>
