@@ -388,6 +388,11 @@ ol.breadcrumb{
         padding-left: 4px;
     }
     
+    /* to use with font awesome icon */
+    a.with_fa { 
+      padding-left: 2px;
+    }
+
     a.visit_site{
         background: url(image-path('icons/site.png')) no-repeat;
     }

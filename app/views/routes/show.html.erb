@@ -106,7 +106,7 @@
   </li>
   <% if @route.journey_patterns.size > 0 %>
   <li>
-    <i class="fa fa-clock-o"></i><%= link_to t('vehicle_journeys.actions.index'), [@referential, @line, @route, :vehicle_journeys], :class => "vehicle_journeys" %>
+    <i class="fa fa-clock-o fa-fw"></i><%= link_to t('vehicle_journeys.actions.index'), [@referential, @line, @route, :vehicle_journeys], :class => "with_fa" %>
   </li>
 <% end %>
 </ul>
