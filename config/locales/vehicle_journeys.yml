@@ -22,6 +22,8 @@ en:
       to_departures: "Copy arrivals to departures"
       time_tables: "Associated calendars to vehicle journey"
       slide: "Slide"
+      slide_departure: "Shift 1° departure time"
+      slide_arrival: "Shift 1° arrival time"
     timeless:
       title: "Timeless vehicle journeys"
       vehicle_journeys: "Vehicle journeys with times at stop"
@@ -43,10 +45,10 @@ en:
       selection_all: "All"
       time_range: "Departure time threshold"
     time_filter:
-      time_range_filter: "Filter" 
-  activerecord:        
-    models:        
-      vehicle_journey: 
+      time_range_filter: "Filter"
+  activerecord:
+    models:
+      vehicle_journey:
         zero:  "vehicle journey"
         one:   "vehicle journey"
         other: "vehicle journeys"
@@ -111,7 +113,8 @@ fr:
       to_arrivals: "Copie départs vers arrivées"
       to_departures: "Copie arrivées vers départs"
       time_tables: "Calendriers associés à la course"
-      slide: "Décaler"
+      slide_departure: "Fixer 1° horaire départ à"
+      slide_arrival: "Fixer 1° horaire arrivée à"
     timeless:
       title: "Courses sans horaire"
       vehicle_journeys: "Courses ayant des horaires"
@@ -133,10 +136,10 @@ fr:
       selection_all: "Tous"
       time_range: "Seuil horaire au départ"
     time_filter:
-      time_range_filter: "Filtrer" 
-  activerecord:        
-    models:        
-      vehicle_journey: 
+      time_range_filter: "Filtrer"
+  activerecord:
+    models:
+      vehicle_journey:
         zero:  "Course"
         one:   "Course"
         other: "Courses"
