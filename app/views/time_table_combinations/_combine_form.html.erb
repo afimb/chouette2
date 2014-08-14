@@ -1,0 +1,49 @@
+<%= semantic_form_for [@referential, @time_table, @time_table_combination], :remote => true do |form| %>
+  <div class="modal-body">
+  <%= render "shared/flash_messages" %>
+  <%= form.inputs do %>
+    <%= form.input :operation, :as => :radio, :collection => Hash[TimeTableCombination.operations.map {|b| [t( b, :scope => "time_table_combinations.operations"),b]}]  %>
+    <%= form.input :combined_name, :class =>  "typeahead form-control input-lg" %>
+    <%= form.input :combined_id, :as => :hidden  %>
+  <% end %>
+  </div>
+  <div class="modal-footer">
+  <%= form.actions do %>
+    <%= form.action :submit, :as => :button , :label => t('time_tables.show.combine')%>
+  <% end %>
+  </div>
+
+<script>
+	$(function() {
+		var timeTableSuggestion = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        limit: 12,
+        remote: {
+          url: '<%= comment_filter_referential_time_tables_path(@referential, :format => :json) %>',
+          },
+        });
+
+      timeTableSuggestion.initialize();
+
+      $('#time_table_combination_combined_name').typeahead(
+        {
+          hint: true,
+          highlight: true,
+          minLength: 1
+        },
+        {
+          name: 'comment',
+          displayKey: 'name',
+          source: timeTableSuggestion.ttAdapter()
+        }
+      );
+      
+  $('#time_table_combination_combined_name').on('typeahead:selected', function($e, datum) 
+  {
+    $('input[name="time_table_combination[combined_id]"]').val(datum.id);
+  })      
+      
+	});
+</script>
+<% end %>

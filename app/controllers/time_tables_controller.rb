@@ -9,6 +9,7 @@ class TimeTablesController < ChouetteController
 
   def show
     @year = params[:year] ? params[:year].to_i : Date.today.cwyear
+    @time_table_combination = TimeTableCombination.new 
     show!
   end
   
