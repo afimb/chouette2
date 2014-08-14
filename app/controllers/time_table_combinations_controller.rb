@@ -1,24 +1,26 @@
 class TimeTableCombinationsController < ChouetteController
-  respond_to :html, :only => [:create]
+  respond_to :js, :only => [:create]
 
   belongs_to :referential do
     belongs_to :time_table, :parent_class => Chouette::TimeTable 
   end
 
   def create
-    combination = TimeTableCombination.new( params[:time_table_combination].merge( :source_id => parent.id))
-    if combination.invalid?
-      flash[:error] = combination.errors.full_messages.join("<br/>")
-    else
+    @time_table_combination = TimeTableCombination.new( params[:time_table_combination].merge( :source_id => parent.id))
+    @year = params[:year] ? params[:year].to_i : Date.today.cwyear
+    if @time_table_combination.valid?
       begin
-        combination.combine
+        @time_table_combination.combine
         flash[:notice] = t('time_table_combinations.success')
       rescue
         flash[:error] = t('time_table_combinations.failure')
       end
+      parent.reload
     end
-    redirect_to referential_time_table_path(@referential, @time_table)
 
   end
+  protected
+
+  alias_method :time_table_combination, :resource
   
 end

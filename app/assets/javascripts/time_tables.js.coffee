@@ -5,7 +5,28 @@ jQuery ->
     $('.time_tables .calendars.content').toggle('slow')
     $('a.calendars .switcher').toggle()
 
-  $('.time_tables a.calendars').click(switch_calendars)
+  $('.time_tables').on('click','a.calendars',switch_calendars)
+
+  switch_dates = (event) -> 
+    event.preventDefault()
+    $('.time_tables .dates.content').toggle('slow')
+    $('a.dates .switcher').toggle()
+
+  $('.time_tables').on('click','a.dates',switch_dates)
+
+  switch_excluded_dates = (event) -> 
+    event.preventDefault()
+    $('.time_tables .excluded_dates.content').toggle('slow')
+    $('a.excluded_dates .switcher').toggle()
+
+  $('.time_tables').on('click','a.excluded_dates',switch_excluded_dates)
+
+  switch_periods = (event) -> 
+    event.preventDefault()
+    $('.time_tables .periods.content').toggle('slow')
+    $('a.periods .switcher').toggle()
+
+  $('.time_tables').on('click','a.periods',switch_periods)
 
 # add trigger when creating new date or period entries to activate datepicker
   tt_datepickerI18n = (index, element) ->

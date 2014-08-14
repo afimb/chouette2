@@ -38,8 +38,15 @@
     }
 }
 
+
 #workspace.time_tables.show
 {
+    .modal-body{overflow-y: visible;}
+    
+    .typeahead.dropdown-menu {
+    z-index: 100001;
+    }    
+
     .day_type { 
       border-style:solid;
       border-width:1px;

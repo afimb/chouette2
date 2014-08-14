@@ -1,0 +1,11 @@
+
+var combine_form_partial = '<%= j render "time_table_combinations/combine_form" %> ';
+
+$('#new_time_table_combination').replaceWith(combine_form_partial);
+
+<% if @time_table_combination.status %>
+
+var time_table_partial = '<%= j render "time_tables/show_time_table" %> ';
+$('#time_table_show').replaceWith(time_table_partial);
+
+<% end %>

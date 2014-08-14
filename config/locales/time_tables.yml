@@ -23,8 +23,6 @@ en:
     edit:
       title: "Update timetable %{time_table}"
     show:
-      resume: "From %{start_date} to %{end_date}"
-      resume_empty: "Empty timetable"
       title: "Timetable %{time_table}"
       dates: "Application dates"
       periods: "Application periods"
@@ -34,6 +32,9 @@ en:
       add_date: "Add a date"
       combine_form: "Combinations"
       combine: "Apply"
+    show_time_table:
+      resume: "From %{start_date} to %{end_date}"
+      resume_empty: "Empty timetable"      
     index:
       title: "Timetables"
       comment: "Search by name"
@@ -108,8 +109,6 @@ fr:
     edit:
       title: "Modifier le calendrier %{time_table}"
     show:
-      resume: "Validité comprise du %{start_date} au %{end_date}"
-      resume_empty: "Calendrier vide"
       title: Calendrier %{time_table}
       dates: "Dates d'application"
       periods: "Périodes d'application"
@@ -119,6 +118,9 @@ fr:
       add_date: "Ajouter une date"
       combine_form: "Combinaison de calendriers"
       combine: "Appliquer"
+    show_time_table:
+      resume: "Validité comprise du %{start_date} au %{end_date}"
+      resume_empty: "Calendrier vide"
     index:
       comment: "Recherche par nom"
       tag_search: "Tags : vacances,jour fériés"
