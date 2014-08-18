@@ -5,6 +5,7 @@ describe "/time_tables/show" do
   assign_referential
   let!(:time_table) { assign(:time_table, create(:time_table)) }
   let!(:year) { assign(:year, Date.today.cwyear) }
+  let!(:time_table_combination) {assign(:time_table_combination, TimeTableCombination.new)}
 
   it "should render h2 with the time_table comment" do    
     render
