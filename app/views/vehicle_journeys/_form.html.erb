@@ -11,26 +11,29 @@
     <%= form.input :facility %>
     <%= form.input :vehicle_type_identifier%>
     <%= form.input :objectid, :required => !@vehicle_journey.new_record? %>
-
-	  <%= form.inputs :class => "stop_times", :name => @vehicle_journey.human_attribute_name(:vehicle_journey_at_stop_ids) do %>
-	    <table border="0" class="vehicle_journey_at_stops">
+    <%= form.input :time_table_tokens, :label => t('.time_tables'), :as => :text,  :input_html => { :"data-pre" => ( @vehicle_journey.time_tables.map { |time_table| { :id => time_table.id, :name => time_table_description(time_table) } } ).to_json }  %>
+    <li class="input">
+	    <%= form.label @vehicle_journey.human_attribute_name(:vehicle_journey_at_stop_ids), :class => "label" %>
+    </li>
+    <div class="vehicle_journey_at_stops">
+	    <table class="table table-hover table-striped">
 	      <thead>
 	        <tr>
 	          <th class="hour title"><%= t('.arrival') %></th>
 	          <th class="stop title" ><%= t('.stop_title') %></th>
 	          <th class="hour title"><%= t('.departure') %></th>
 	        </tr>
-            <% unless @vehicle_journey.vehicle_journey_at_stops.empty? ||
-               @vehicle_journey.vehicle_journey_at_stops.any? { |vjas| vjas.departure_time.nil? } %>
-            <tr>
-              <td class="title"> <a class="slide arrival"><%= t('.slide_arrival') %></a></td>
-              <td class="date">
-                <%= select_hour(@vehicle_journey.vehicle_journey_at_stops.first.departure_time.hour, :class => "hour") %>
-                <%= select_minute(@vehicle_journey.vehicle_journey_at_stops.first.departure_time.min, :class => "minute") %>
-              </td>
-              <td class="title"> <a class="slide departure"><%= t('.slide_departure') %></a></td>
-            </tr>
-            <% end %>
+          <% unless @vehicle_journey.vehicle_journey_at_stops.empty? ||
+             @vehicle_journey.vehicle_journey_at_stops.any? { |vjas| vjas.departure_time.nil? } %>
+          <tr>
+            <td class="title"> <a class="slide arrival"><%= t('.slide_arrival') %></a></td>
+            <td class="date">
+              <%= select_hour(@vehicle_journey.vehicle_journey_at_stops.first.departure_time.hour, :class => "hour") %>
+              <%= select_minute(@vehicle_journey.vehicle_journey_at_stops.first.departure_time.min, :class => "minute") %>
+            </td>
+            <td class="title"> <a class="slide departure"><%= t('.slide_departure') %></a></td>
+          </tr>
+          <% end %>
 	      </thead>
 	      <tfoot>
 	        <tr>
@@ -44,9 +47,7 @@
 	        :collection => @vehicle_journey.vehicle_journey_at_stops, :as => :vehicle_journey_at_stop %>
 	      </tbody>
 	    </table>
-	  <% end %>
-    <%= form.input :time_table_tokens, :label => t('.time_tables'), :as => :text,  :input_html => { :"data-pre" => ( @vehicle_journey.time_tables.map { |time_table| { :id => time_table.id, :name => time_table_description(time_table) } } ).to_json }  %>
-
+    </div>
   <% end %>
 
   <%= form.actions do %>
