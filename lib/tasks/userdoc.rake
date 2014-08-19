@@ -1,4 +1,5 @@
 #encoding: utf-8 
+if Rails.env != 'production'
 require 'fileutils'
 require 'nokogiri'
 
@@ -129,4 +130,5 @@ namespace :doc do
   
 end
 
+end
 
