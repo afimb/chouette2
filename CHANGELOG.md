@@ -1,13 +1,13 @@
-# Version 2.4.1 (en développement)
+# Version 2.4.1 (13/08/14)
 * Corrections d'anomalies
   * L'export GTFS exige que l'indice de ligne soit renseigné (Mantis 26726)
   * L'import GTFS ne tient pas compte des courses commençant après minuit (Mantis 25824)
   * Mise en place d'un script produisant l'aide en ligne sous forme de docx (Mantis 26604)
-  * L'import GTFS plante sur une course qui dessert plus de 2 fois le même arrêt (Mantis 26755)
+  * L'import GTFS ne fonctionne pas sur une course qui dessert plus de 2 fois le même arrêt (Mantis 26755)
   * L'export NeTEx produit un fichier invalide si le champ VersionDate du réseau est vide (Mantis 26434)
   * Liens cassés dans les pages d'aide (Mantis 26690)
-  * La validation plante si un arrêt n'est pas géolocalisé (Mantis 26931) 
-  * L'import plante si l'encodage du catalogue d'un ZIP n'est pas compatible UTF-8 (Mantis 27011) 
+  * La validation ne fonctionne pas si un arrêt n'est pas géolocalisé (Mantis 26931) 
+  * L'import ne fonctionne pas si l'encodage du catalogue d'un ZIP n'est pas compatible UTF-8 (Mantis 27011) 
 
 # Version 2.4.0 (27/05/14)
 * Corrections d'anomalies
