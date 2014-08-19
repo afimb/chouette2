@@ -8,19 +8,27 @@ class TimeTablesController < ChouetteController
   belongs_to :referential
 
   def show
+    add_breadcrumb Referential.human_attribute_name("time_tables"), referential_time_tables_path(@referential)
+    
     @year = params[:year] ? params[:year].to_i : Date.today.cwyear
     @time_table_combination = TimeTableCombination.new 
     show!
   end
   
-  def new 
+  def new
+    add_breadcrumb Referential.human_attribute_name("time_tables"), referential_time_tables_path(@referential)
+    
     @autocomplete_items = ActsAsTaggableOn::Tag.all
     new!
   end
 
-  def edit 
-    @autocomplete_items = ActsAsTaggableOn::Tag.all
-    edit!
+  def edit
+    edit! do 
+      add_breadcrumb Referential.human_attribute_name("time_tables"), referential_time_tables_path(@referential)
+      add_breadcrumb @time_table.comment, referential_time_table_path(@referential, @time_table)
+    
+      @autocomplete_items = ActsAsTaggableOn::Tag.all
+    end
   end
 
   def comment_filter

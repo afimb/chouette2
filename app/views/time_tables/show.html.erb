@@ -1,7 +1,4 @@
 <% require 'calendar_helper' %>
-<ol class="breadcrumb">
-  <li><%= link_to Referential.human_attribute_name("time_tables"), referential_time_tables_path(@referential) %></li>
-</ol>
 
 <%= title_tag t('time_tables.show.title', :time_table => @time_table.comment )%>
 

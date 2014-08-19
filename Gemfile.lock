@@ -77,6 +77,7 @@ GEM
     bootswatch-rails (3.1.1.1)
       railties (>= 3.1)
     bouncy-castle-java (1.5.0146.1)
+    breadcrumbs_on_rails (2.3.0)
     builder (3.0.4)
     calendar_helper (0.2.5)
       open4
@@ -385,6 +386,7 @@ DEPENDENCIES
   acts_as_tree-1.8 (= 1.1.0)
   bootstrap-sass (~> 3.1.1)
   bootswatch-rails
+  breadcrumbs_on_rails
   calendar_helper (= 0.2.5)
   capistrano
   capistrano-ext
