@@ -55,7 +55,7 @@ jQuery ->
     hour = parseInt( $(".vehicle_journeys .date select#date_hour").val())
     minute = parseInt( $(".vehicle_journeys .date select#date_minute").val())
 
-    selector_prefix = ".stop_times .journey_pattern_dependent_list"
+    selector_prefix = ".vehicle_journey_at_stops .journey_pattern_dependent_list"
     if $(this).hasClass("departure")
       vjas_hour_selector = selector_prefix + " .departure_time select.hour"
       vjas_minute_selector = selector_prefix + " .departure_time select.minute"
