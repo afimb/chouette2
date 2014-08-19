@@ -3,13 +3,13 @@
   <%= render "shared/flash_messages" %>
   <%= form.inputs do %>
     <%= form.input :operation, :as => :radio, :collection => Hash[TimeTableCombination.operations.map {|b| [t( b, :scope => "time_table_combinations.operations"),b]}]  %>
-    <%= form.input :combined_name, :class =>  "typeahead form-control input-lg" %>
+    <%= form.input :combined_name, :class =>  "typeahead", :input_html => { :class => "form-control" } %>
     <%= form.input :combined_id, :as => :hidden  %>
   <% end %>
   </div>
   <div class="modal-footer">
   <%= form.actions do %>
-    <%= form.action :submit, :as => :button , :label => t('time_tables.show.combine')%>
+    <%= form.action :submit, :as => :button , :label => t('time_tables.show.combine') %>
   <% end %>
   </div>
 
