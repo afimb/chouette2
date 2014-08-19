@@ -51,6 +51,7 @@ gem 'simple_form'
 gem 'tagmanager-rails', '~> 3.0.1.0'
 #gem 'typeahead-rails', '~> 0.10.1'
 gem "twitter-typeahead-rails", :git => "https://github.com/ldonnet/twitter-typeahead-rails"
+gem "breadcrumbs_on_rails"
 
 # Format Output
 gem 'json'

@@ -25,6 +25,7 @@
         <div class="col-md-12">
           <div id="workspace" class="<%= controller_name %> <%= action_name %>">
             <%= render partial: "shared/flash_messages", flash: flash %>
+            <%= render partial: "shared/breadcrumb" %>
             <%= yield %>
           </div>
         </div>
