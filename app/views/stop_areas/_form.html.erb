@@ -15,19 +15,17 @@
           <div class="panel panel-default">
             <div class="panel-heading"><%= @referential.projection_type_label %></div>
             <div class="panel-body">
-	      <%= form.input :projection_x %>
-	      <%= form.input :projection_y %>
+	      <%= form.input :projection_xy, :input_html => { :title => t("formtastic.titles.stop_area.projection_xy")} %>
             </div>
           </div>	       
-	<% end %>
+	    <% end %>
         <div class="panel panel-default">
           <div class="panel-heading">WGS84</div>
           <div class="panel-body">
-	    <%= form.input :longitude %>
-	    <%= form.input :latitude %>
+	    <%= form.input :coordinates, :input_html => { :title => t("formtastic.titles.stop_area.coordinates")} %>
           </div>
         </div>       
-        <%= form.input :registration_number %>
+        <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles.stop_area.registration_number")} %>
         <%= form.input :street_name %>              
         <%= form.input :country_code %>              
         <%= form.input :fare_code %>              
@@ -40,7 +38,7 @@
 	  <%= form.input :lift_availability,:as => :boolean %>	     
         <% end %>
 
-        <%= form.input :objectid, :required => !@stop_area.new_record? %>  
+        <%= form.input :objectid, :required => !@stop_area.new_record?, :input_html => { :title => t("formtastic.titles.stop_area.objectid")} %>  
 
       <% end %>
 

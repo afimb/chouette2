@@ -34,14 +34,12 @@ class StopAreaMap < ApplicationMap
           edit_stop_area_layer.events.on({ 
                           'afterfeaturemodified': function(event) { 
                             geometry = event.feature.geometry.clone().transform(new OpenLayers.Projection("EPSG:900913"), new OpenLayers.Projection("EPSG:4326"));
-                            $('#stop_area_longitude').val(geometry.x);
-                            $('#stop_area_latitude').val(geometry.y);
+                            $('#stop_area_coordinates').val(geometry.y.toString()+ ","+ geometry.x.toString());
 
                             if(referential_projection != undefined)
                             {
                               projection_geometry = event.feature.geometry.clone().transform(new OpenLayers.Projection("EPSG:900913"), referential_projection );
-                              $('#stop_area_projection_x').val(projection_geometry.x);
-                              $('#stop_area_projection_y').val(projection_geometry.y);                                                   }
+                              $('#stop_area_projection_xy').val(projection_geometry.x.toString()+ ","+ projection_geometry.y.toString());                                                   }
                            }
                         });
 EOF

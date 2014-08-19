@@ -41,6 +41,7 @@ en:
         projection: "Projection type"
         projection_x: "x-position"
         projection_y: "y-position"
+        projection_xy: "position (x,y)"
         long_lat_type: "Projection type"
         longitude: "Longitude"
         latitude: "Latitude"
@@ -51,10 +52,13 @@ en:
         object_version: "Version"
         creation_time: "Created on"
         creatorid: "Created by" 
+        coordinates: "Coordinates (lat,lng)"
   formtastic:
-    hints:
+    titles:
       access_point:
         objectid: "[prefix]:AccessPoint:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+        coordinates: "latitude,longitude in WGS84 referential, dot for decimal separator"
+        projection_xy: "x,y in secondary referential, dot for decimal separator"
 
 fr:
   access_points:
@@ -97,6 +101,7 @@ fr:
         projection: "Projection"
         projection_x: "Position X"
         projection_y: "Position Y"
+        projection_xy: "Position (x,y)"
         long_lat_type: "Projection"
         longitude: "Longitude"
         latitude: "Latitude"
@@ -109,9 +114,12 @@ fr:
         object_version: "Version"
         creation_time: "Créé le"
         creator_id: "Créé par"
+        coordinates: "Coordonnées (lat,lng)"
   formtastic:
-    hints:
+    titles:
       access_point:
         objectid: "[prefixe]:AccessPoint:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+        coordinates: "latitude,longitude dans le référentiel WGS84, le séparateur de décimales est 'point'"
+        projection_xy: "x,y dans le référentiel secondaire, le séparateur de décimales est 'point'"
 
 

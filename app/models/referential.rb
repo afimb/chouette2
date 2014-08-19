@@ -221,7 +221,7 @@ Rails.application.config.after_initialize do
 
   class Chouette::StopArea
 
-    attr_accessible :projection_x,:projection_y
+    attr_accessible :projection_x,:projection_y,:projection_xy
     attr_accessible :address
     attr_reader :address
 
@@ -232,24 +232,13 @@ Rails.application.config.after_initialize do
     end
 
     # add projection_type set on pre-insert and pre_update action
-    before_validation :set_projections
+    before_save :set_projections
     def set_projections
-      if ! self.latitude.nil? && ! self.longitude.nil?
+      if ! self.coordinates.blank?
         self.long_lat_type = 'WGS84'
       else
         self.long_lat_type = nil
       end
-#      if ! self.referential.projection_type.nil? && !self.referential.projection_type.empty?
-#        if ! self.x.nil?  && ! self.y.nil?
-#          self.projection_type = referential.projection_type_label
-#        else
-#          self.projection_type = nil
-#        end
-#      else
-#          self.projection_type = nil
-#          self.x = nil
-#          self.y = nil
-#      end
     end
 
     def projection
@@ -266,7 +255,6 @@ Rails.application.config.after_initialize do
         nil
       else
         @point ||= GeoRuby::SimpleFeatures::Point::from_lat_lng(Geokit::LatLng.new(self.latitude,self.longitude)).project_to(self.projection.to_i)
-
         @point.x
       end
     end
@@ -278,10 +266,21 @@ Rails.application.config.after_initialize do
         @point.y
       end
     end
+    def projection_xy
+      if self.long_lat_type.nil? || self.projection.nil?
+        nil
+      else
+        @point ||= GeoRuby::SimpleFeatures::Point::from_lat_lng(Geokit::LatLng.new(self.latitude,self.longitude)).project_to(self.projection.to_i)
+        @point.x.to_s+","+@point.y.to_s
+      end
+    end
     def projection_x=(dummy)
       # dummy method
     end
     def projection_y=(dummy)
+      # dummy method
+    end
+    def projection_xy=(dummy)
       # dummy method
     end
 
@@ -290,27 +289,16 @@ Rails.application.config.after_initialize do
   Chouette::AccessPoint
 
   class Chouette::AccessPoint
-    attr_accessible :projection_x,:projection_y
+    attr_accessible :projection_x,:projection_y,:projection_xy
 
     # add projection_type set on pre-insert and pre_update action
-    before_validation :set_projections
+    before_save :set_projections
     def set_projections
-      if ! self.latitude.nil? && ! self.longitude.nil?
+      if ! self.coordinates.blank?
         self.long_lat_type = 'WGS84'
       else
         self.long_lat_type = nil
       end
-#      if ! self.referential.projection_type.nil? && !self.referential.projection_type.empty?
-#        if ! self.x.nil?  && ! self.y.nil?
-#          self.projection_type = referential.projection_type_label
-#        else
-#          self.projection_type = nil
-#        end
-#      else
-#          self.projection_type = nil
-#          self.x = nil
-#          self.y = nil
-#      end
     end
 
     def projection
@@ -327,7 +315,6 @@ Rails.application.config.after_initialize do
         nil
       else
         @point ||= GeoRuby::SimpleFeatures::Point::from_lat_lng(Geokit::LatLng.new(self.latitude,self.longitude)).project_to(self.projection.to_i)
-
         @point.x
       end
     end
@@ -339,10 +326,21 @@ Rails.application.config.after_initialize do
         @point.y
       end
     end
+    def projection_xy
+      if self.long_lat_type.nil? || self.projection.nil?
+        nil
+      else
+        @point ||= GeoRuby::SimpleFeatures::Point::from_lat_lng(Geokit::LatLng.new(self.latitude,self.longitude)).project_to(self.projection.to_i)
+        @point.x.to_s+","+@point.y.to_s
+      end
+    end
     def projection_x=(dummy)
       # dummy method
     end
     def projection_y=(dummy)
+      # dummy method
+    end
+    def projection_xy=(dummy)
       # dummy method
     end
   end

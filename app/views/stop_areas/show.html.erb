@@ -84,10 +84,6 @@
 		    <% end %>
 	    <% end %>
     <% end %>
-    <p>
-      <label><%= @stop_area.human_attribute_name("objectid") %>: </label>
-      <%= @stop_area.objectid %>
-    </p>
   </div>
 </div>
 <p class="after_map" />
@@ -110,6 +106,7 @@
     <table>
     <tr><td>	
 	<ul class="actions">
+      <li><%= link_to t('stop_areas.actions.new'), new_referential_stop_area_path(@referential), :class => "add" %></li>
 	  <li><%= link_to t('stop_areas.actions.edit'), edit_referential_stop_area_path(@referential, @stop_area), :class => "edit" %></li>
 	  <li><%= link_to  t('stop_areas.actions.destroy'), referential_stop_area_path(@referential, @stop_area), :method => :delete, :data => {:confirm =>  t('stop_areas.actions.destroy_confirm')}, :class => "remove" %></li>
 	</ul>

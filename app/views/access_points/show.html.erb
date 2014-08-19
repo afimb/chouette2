@@ -85,10 +85,6 @@
 	    </p>
 	    <% end %>
     <% end %>
-    <p>
-      <label><%= @access_point.human_attribute_name("objectid") %>: </label>
-      <%= @access_point.objectid %>
-    </p>
   </div>
                            
 </div>
@@ -133,6 +129,7 @@
                          
 <% content_for :sidebar do %>
 <ul class="actions">
+  <li><%= link_to t('access_points.actions.new'), new_referential_stop_area_access_point_path(@referential,@stop_area), :class => "add" %></li>
   <li><%= link_to t('access_points.actions.edit'), edit_referential_stop_area_access_point_path(@referential, @stop_area, @access_point), :class => "edit" %></li>
   <li><%= link_to  t('access_points.actions.destroy'), referential_stop_area_access_point_path(@referential, @stop_area, @access_point), :method => :delete, :data => {:confirm =>  t('access_points.actions.destroy_confirm')}, :class => "remove" %></li>
 </ul>
