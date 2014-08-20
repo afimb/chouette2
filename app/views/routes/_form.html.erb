@@ -13,9 +13,11 @@
 		<%= form.semantic_fields_for :stop_points, :include_id => false, :label => "TOTO" do |p| %>
           <%= render "stop_point_fields",  :f => p, :test1 => "oiuoiu" %>
 		<% end %>
-    <div class="links">
+      <div class="links">
 	    <%= link_to_add_association t("routes.actions.add_stop_point"), form, :stop_points, :class => 'add_stop_point' %>
-    </div>
+      <br/>
+        <%= link_to t('routes.actions.new_stop_point'), new_referential_stop_area_path(@referential), {:class => "add", :target => "_blank"} %>
+      </div>
 	</div>
 
    <%= form.actions do %>

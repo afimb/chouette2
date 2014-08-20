@@ -26,6 +26,14 @@
       <%= @stop_area.country_code %>
     </p>
     <p>
+      <label><%= @stop_area.human_attribute_name("zip_code") %>: </label>
+      <%= @stop_area.zip_code %>
+    </p>
+    <p>
+      <label><%= @stop_area.human_attribute_name("city_name") %>: </label>
+      <%= @stop_area.city_name %>
+    </p>
+    <p>
       <label><%= @stop_area.human_attribute_name("fare_code") %>: </label>
       <%= @stop_area.fare_code %>
     </p>
@@ -84,10 +92,6 @@
 		    <% end %>
 	    <% end %>
     <% end %>
-    <p>
-      <label><%= @stop_area.human_attribute_name("objectid") %>: </label>
-      <%= @stop_area.objectid %>
-    </p>
   </div>
 </div>
 <p class="after_map" />
@@ -110,6 +114,7 @@
     <table>
     <tr><td>	
 	<ul class="actions">
+      <li><%= link_to t('stop_areas.actions.new'), new_referential_stop_area_path(@referential), :class => "add" %></li>
 	  <li><%= link_to t('stop_areas.actions.edit'), edit_referential_stop_area_path(@referential, @stop_area), :class => "edit" %></li>
 	  <li><%= link_to  t('stop_areas.actions.destroy'), referential_stop_area_path(@referential, @stop_area), :method => :delete, :data => {:confirm =>  t('stop_areas.actions.destroy_confirm')}, :class => "remove" %></li>
 	</ul>

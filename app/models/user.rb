@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
 
   before_validation(:on => :create) do
     self.password ||= Devise.friendly_token.first(6)
+    self.password_confirmation ||= self.password
   end
   
   # remove organisation and referentials if last user of it
