@@ -10,10 +10,10 @@ class AccessPointMap < ApplicationMap
   end
 
   def customize_map(map, page)
-    page.assign "parent_layer", kml_layer(access_point.stop_area,  :style_map => Design::StopAreasStyleMap.new(helpers).style_map)
-    page << map.add_layer(:parent_layer)
     page.assign "edit_access_point_layer", kml_layer(access_point, { :default => editable? }, :style_map => Design::EditAccessPointStyleMap.new(helpers).style_map)
     page << map.add_layer(:edit_access_point_layer)
+    page.assign "parent_layer", kml_layer(access_point.stop_area,  :style_map => Design::StopAreasStyleMap.new(helpers).style_map)
+    page << map.add_layer(:parent_layer)
     
     
     if editable?
@@ -23,14 +23,12 @@ class AccessPointMap < ApplicationMap
       edit_access_point_layer.events.on({ 
                         'afterfeaturemodified': function(event) { 
                           geometry = event.feature.geometry.clone().transform(new OpenLayers.Projection("EPSG:900913"), new OpenLayers.Projection("EPSG:4326"));
-                          $('#access_point_longitude').val(geometry.x);
-                          $('#access_point_latitude').val(geometry.y);
+                          $('#access_point_coordinates').val(geometry.y.toString()+ ","+ geometry.x.toString());
 
                           if(referential_projection != undefined)
                           {
                             projection_geometry = event.feature.geometry.clone().transform(new OpenLayers.Projection("EPSG:900913"), referential_projection );
-                            $('#access_point_projection_x').val(projection_geometry.x);
-                            $('#access_point_projection_y').val(projection_geometry.y);                                                   }
+                            $('#access_point_projection_xy').val(projection_geometry.x.toString()+ ","+ projection_geometry.y.toString());                                                   }
                          }
                       });
 EOF

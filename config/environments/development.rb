@@ -45,7 +45,7 @@ ChouetteIhm::Application.configure do
   GA.tracker = "UA-AAAAAAAA"
 
   # api key to geoportail IGN (production key link to application url root referer)
-  config.geoportail_api_key = "aaaaaaaaaaaaaa" 
+  #config.geoportail_api_key = "aaaaaaaaaaaaaa" 
 
   # Specific for each company
   config.company_name = "afimb"

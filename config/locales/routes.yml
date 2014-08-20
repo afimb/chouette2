@@ -9,6 +9,8 @@ en:
       export_kml_all: "Export KML routes"
       export_hub: "Export HUB route"
       export_hub_all: "Export HUB routes"
+      add_stop_point: "Add stop point"
+      new_stop_point: "Create new stop"
     new:
       title: "Add a new route"
     edit:
@@ -72,6 +74,8 @@ fr:
       export_kml_all: "Export KML des séquences d'arrêts"
       export_hub: "Export HUB de la séquence d'arrêts"
       export_hub_all: "Export HUB des séquences d'arrêts"
+      add_stop_point: "Ajouter un arrêt"
+      new_stop_point: "Créer un arrêt pour l'ajouter"
     new:
       title: "Ajouter une séquence d'arrêts"
     edit:

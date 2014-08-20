@@ -15,21 +15,21 @@
           <div class="panel panel-default">
             <div class="panel-heading"><%= @referential.projection_type_label %></div>
             <div class="panel-body">
-	      <%= form.input :projection_x %>
-	      <%= form.input :projection_y %>
+	      <%= form.input :projection_xy, :input_html => { :title => t("formtastic.titles.stop_area.projection_xy")} %>
             </div>
           </div>	       
-	<% end %>
+	    <% end %>
         <div class="panel panel-default">
           <div class="panel-heading">WGS84</div>
           <div class="panel-body">
-	    <%= form.input :longitude %>
-	    <%= form.input :latitude %>
+	    <%= form.input :coordinates, :input_html => { :title => t("formtastic.titles.stop_area.coordinates")} %>
           </div>
         </div>       
-        <%= form.input :registration_number %>
+        <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles.stop_area.registration_number")} %>
         <%= form.input :street_name %>              
         <%= form.input :country_code %>              
+        <%= form.input :zip_code %>              
+        <%= form.input :city_name %>              
         <%= form.input :fare_code %>              
         <%= form.input :nearest_topic_name %>              
         <%= form.input :comment, :as => :text %>              
@@ -40,7 +40,7 @@
 	  <%= form.input :lift_availability,:as => :boolean %>	     
         <% end %>
 
-        <%= form.input :objectid, :required => !@stop_area.new_record? %>  
+        <%= form.input :objectid, :required => !@stop_area.new_record?, :input_html => { :title => t("formtastic.titles.stop_area.objectid")} %>  
 
       <% end %>
 
@@ -94,9 +94,10 @@
   );
 
   $('.typeahead').on('typeahead:selected', function($e, datum) {
-    $('input[name="stop_area[longitude]"]').val(datum.lon);
-    $('input[name="stop_area[latitude]"]').val(datum.lat);
+    $('input[name="stop_area[coordinates]"]').val(datum.lat+","+datum.lon);
+    $('input[name="stop_area[coordinates]"]').change();
     $('input[name="stop_area[street_name]"]').val(datum.road);
-    $('input[name="stop_area[country_code]"]').val(datum.postcode);
+    $('input[name="stop_area[zip_code]"]').val(datum.postcode);
+    $('input[name="stop_area[city_name]"]').val(datum.city);
   })
 </script>

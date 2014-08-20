@@ -70,8 +70,8 @@ en:
       referential:
         slug: "only lowercase alphanumerical or underscore characters, first character must be a letter"
         prefix: "only alphanumerical or underscore characters"
-        upper_corner: "longitude,latitude in WGS84 referential, dot for decimal separator"
-        lower_corner: "longitude,latitude in WGS84 referential, dot for decimal separator"
+        upper_corner: "latitude,longitude in WGS84 referential, dot for decimal separator"
+        lower_corner: "latitude,longitude in WGS84 referential, dot for decimal separator"
 
 fr:
   referentials:
@@ -145,5 +145,5 @@ fr:
       referential:
         slug: "caractères autorisés : alphanumériques minuscules et 'souligné' et doit commencer par une lettre"  
         prefix: "caractères autorisés : alphanumériques et 'souligné'"
-        upper_corner: "longitude,latitude dans le référentiel WGS84, le séparateur de décimales est 'point'"
-        lower_corner: "longitude,latitude dans le référentiel WGS84, le séparateur de décimales est 'point'"
+        upper_corner: "latitude,longitude dans le référentiel WGS84, le séparateur de décimales est 'point'"
+        lower_corner: "latitude,longitude dans le référentiel WGS84, le séparateur de décimales est 'point'"
