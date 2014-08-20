@@ -191,15 +191,6 @@ end
 
 Rails.application.config.after_initialize do
 
-  Nominatim::Search
-
-  class Nominatim::Search
-    
-    def each_address(&block)
-      @results ||= get(Nominatim.config.search_url, @criteria).body.map! { |attrs| Nominatim::Address.new(attrs) }
-      @results.each(&block)
-    end
-  end
 
   Chouette::TridentActiveRecord
 
@@ -222,8 +213,6 @@ Rails.application.config.after_initialize do
   class Chouette::StopArea
 
     attr_accessible :projection_x,:projection_y,:projection_xy
-    attr_accessible :address
-    attr_reader :address
 
     # override default_position method to add referential envelope when no stoparea is positioned
     def default_position

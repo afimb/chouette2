@@ -141,9 +141,6 @@ ChouetteIhm::Application.routes.draw do
     end
 
     resources :stop_areas do
-      #collection do
-      #  get 'addresses'
-      #end
       resources :access_points
       resources :stop_area_parents
       resources :stop_area_children
