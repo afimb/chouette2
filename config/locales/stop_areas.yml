@@ -26,7 +26,7 @@ en:
       title: "Add a new stop"
     form:
       address: "15 rue du Louvre, Paris"
-      geolocalize: "Pinpoint : "
+      geolocalize: "Pinpoint "
     edit:
       title: "Update stop %{stop_area}"
     show:
@@ -84,7 +84,7 @@ en:
         projection: "Projection type"
         projection_x: "x-position"
         projection_y: "y-position"
-        projection_xy: "position (x,y)"
+        projection_xy: "position (x,y) %{projection}"
         long_lat_type: "Projection type"
         longitude: "Longitude"
         latitude: "Latitude"
@@ -96,7 +96,7 @@ en:
         routing_stop_ids: "Attached stops"
         routing_line_ids: "Attached lines"
         parent: "Parent"
-        coordinates: "Coordinates (lat,lng)"
+        coordinates: "Coordinates (lat,lng) WGS84"
         zip_code: "Zip code"
         city_name: "City"
   formtastic:
@@ -136,7 +136,7 @@ fr:
       title: "Ajouter un arrêt"
     form:
       address: "15 rue du Louvre, Paris"
-      geolocalize: "Géolocalisez : "
+      geolocalize: "Géolocalisez "
     edit:
       title: "Modifier l'arrêt %{stop_area}"
     show:
@@ -195,7 +195,7 @@ fr:
         projection: "Projection"
         projection_x: "Position X"
         projection_y: "Position Y"
-        projection_xy: "Position (x,y)"
+        projection_xy: "Position (x,y) %{projection}"
         long_lat_type: "Projection"
         longitude: "Longitude"
         latitude: "Latitude"
@@ -207,7 +207,7 @@ fr:
         routing_stop_ids: "Arrêts concernés par l'ITL"
         routing_line_ids: "Lignes affectées par l'ITL"
         parent: "Parent"
-        coordinates: "Coordonnées (lat,lng)"
+        coordinates: "Coordonnées (lat,lng) WGS84"
         zip_code: "Code postal"
         city_name: "Commune"
   formtastic:
