@@ -25,7 +25,6 @@ gem 'devise_invitable'
 # Map, Geolocalization
 gem "map_layers", "0.0.4"
 gem "georuby-ext", "0.0.5"
-gem 'nominatim'
 
 # User interface
 gem 'language_engine', '0.0.5'

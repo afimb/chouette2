@@ -143,8 +143,6 @@ GEM
     factory_girl_rails (1.7.0)
       factory_girl (~> 2.6.0)
       railties (>= 3.0.0)
-    faraday (0.9.0)
-      multipart-post (>= 1.2, < 3)
     fastercsv (1.5.5)
     ffi (1.9.3)
     ffi (1.9.3-java)
@@ -221,7 +219,6 @@ GEM
     morrisjs-rails (0.4.3)
       railties (> 3.1, < 5)
     multi_json (1.10.1)
-    multipart-post (2.0.0)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -231,9 +228,6 @@ GEM
       net-ssh (>= 1.99.1)
     nokogiri (1.5.10)
     nokogiri (1.5.10-java)
-    nominatim (0.0.5)
-      faraday
-      multi_json
     open4 (1.3.0)
     orm_adapter (0.4.0)
     pg (0.11.0)
@@ -424,7 +418,6 @@ DEPENDENCIES
   modernizr-rails (~> 2.0.6)
   morrisjs-rails
   ninoxe!
-  nominatim
   pg (~> 0.11.0)
   rabl
   rails (= 3.2.18)
