@@ -45,13 +45,13 @@ ChouetteIhm::Application.configure do
   GA.tracker = "UA-AAAAAAAA"
 
   # api key to geoportail IGN (production key link to application url root referer)
-  #config.geoportail_api_key = "aaaaaaaaaaaaaa" 
+  #config.geoportail_api_key = "aaaaaaaaaaaaaa"
 
   # Specific for each company
   config.company_name = "afimb"
   config.company_theme = "#61970b"
   config.company_contact = "http://www.chouette.mobi/contact-support/"
-  
+
   # file to data for demo
   config.demo_data = "tmp/demo.zip"
 
@@ -72,17 +72,12 @@ ChouetteIhm::Application.configure do
   config.to_prepare do
     Devise::Mailer.layout "mailer"
     #ApplicationMap.ign_api_key = "i2aqyge3x3iovnuhz7z06flp"
-    chouette_command_script = "/home/zbouziane/Projects/dryade/chouette2_dev/tmp/chouette-command/chouette"
+    chouette_command_script = "tmp/chouette-command/chouette"
     if File.exists? chouette_command_script
-      Chouette::Command.command = "/home/zbouziane/Projects/dryade/chouette2_dev/tmp/chouette-command/chouette"
+      Chouette::Command.command = "tmp/chouette-command/chouette"
     else
       Chouette::Command.command = "true"
     end
   end
 
-  Nominatim.configure do |config|
-    config.email = 'zbouziane@gmail.com'
-    config.endpoint = 'http://open.mapquestapi.com/nominatim/v1'
-  end
-  
 end
