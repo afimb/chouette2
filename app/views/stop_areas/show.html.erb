@@ -26,6 +26,14 @@
       <%= @stop_area.country_code %>
     </p>
     <p>
+      <label><%= @stop_area.human_attribute_name("zip_code") %>: </label>
+      <%= @stop_area.zip_code %>
+    </p>
+    <p>
+      <label><%= @stop_area.human_attribute_name("city_name") %>: </label>
+      <%= @stop_area.city_name %>
+    </p>
+    <p>
       <label><%= @stop_area.human_attribute_name("fare_code") %>: </label>
       <%= @stop_area.fare_code %>
     </p>

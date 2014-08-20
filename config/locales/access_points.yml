@@ -53,6 +53,8 @@ en:
         creation_time: "Created on"
         creatorid: "Created by" 
         coordinates: "Coordinates (lat,lng)"
+        zip_code: "Zip code"
+        city_name: "City"
   formtastic:
     titles:
       access_point:
@@ -115,6 +117,8 @@ fr:
         creation_time: "Créé le"
         creator_id: "Créé par"
         coordinates: "Coordonnées (lat,lng)"
+        zip_code: "Code postal"
+        city_name: "Commune"
   formtastic:
     titles:
       access_point:

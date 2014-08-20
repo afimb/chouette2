@@ -9,6 +9,8 @@
     :collection => Chouette::AccessPoint.access_point_types, :include_blank => false, :member_label => Proc.new { |access_point_type| t("access_types.label.#{access_point_type}") }  %>
         <%= form.input :street_name %>              
         <%= form.input :country_code %>              
+        <%= form.input :zip_code %>              
+        <%= form.input :city_name %>              
         <%= form.input :comment %>              
         <%= form.input :openning_time, :as => :time_select %>
         <%= form.input :closing_time, :as => :time_select %>

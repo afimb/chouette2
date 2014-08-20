@@ -97,6 +97,8 @@ en:
         routing_line_ids: "Attached lines"
         parent: "Parent"
         coordinates: "Coordinates (lat,lng)"
+        zip_code: "Zip code"
+        city_name: "City"
   formtastic:
     titles:
       stop_area:
@@ -206,6 +208,8 @@ fr:
         routing_line_ids: "Lignes affectées par l'ITL"
         parent: "Parent"
         coordinates: "Coordonnées (lat,lng)"
+        zip_code: "Code postal"
+        city_name: "Commune"
   formtastic:
     titles:
       stop_area:

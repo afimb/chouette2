@@ -25,6 +25,14 @@
       <%= @access_point.country_code %>
     </p>
     <p>
+      <label><%= @access_point.human_attribute_name("zip_code") %>: </label>
+      <%= @access_point.zip_code %>
+    </p>
+    <p>
+      <label><%= @access_point.human_attribute_name("city_name") %>: </label>
+      <%= @access_point.city_name %>
+    </p>
+    <p>
       <label><%= @access_point.human_attribute_name("access_point_type") %>: </label>
       <%= t("access_types.label.#{@access_point.access_point_type}") %>
     </p>
