@@ -140,8 +140,6 @@ ChouetteIhm::Application.routes.draw do
        resources :access_links
     end
 
-    resources :addresses, :only => [:index]
-
     resources :stop_areas do
       #collection do
       #  get 'addresses'
