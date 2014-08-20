@@ -3,7 +3,7 @@ layout: default
 title: Chouette v2 
 ---
 
-Version 2.4.1
+Version 2.5.0
 
 h3. Logiciel libre propriété de :
 
@@ -23,6 +23,17 @@ En contrepartie de l'accessibilité au code source et des droits de copie, de mo
 A cet égard  l'attention de l'utilisateur est attirée sur les risques associés au chargement,  à l'utilisation,  à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve donc à des développeurs et des professionnels avertis possédant  des  connaissances  informatiques approfondies.  Les utilisateurs sont donc invités à charger  et  tester  l'adéquation  du logiciel à leurs besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et, plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité. 
 
 h3. Notes de version
+
+h4. Version 2.5.0
+
+* Evolutions :
+** Ajout de tags sur les calendriers (Mantis 26833)
+** Gestion de dates exclues sur les calendriers (Mantis 26837)
+** Fonctions de combinaisons de calendriers (Mantis 26838)
+** Recherches multi-critères pour les calendriers et les arrêts (Mantis 26829, 26834) 
+** Localisation des arrêts par résolution d'adresse (Mantis 26825) 
+** Attributs PMR et TAD sur les lignes (Mantis 26846)
+** Saisie des latitudes et longitudes sur un seul champ (Mantis 26827) 
 
 h4. Version 2.4.1
 
