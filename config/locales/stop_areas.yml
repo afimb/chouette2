@@ -4,6 +4,9 @@ en:
     stop_area:
       no_position: "No Position" 
       lines: "Lines :"
+      general: "General"
+      localisation: "Localisation"
+      accessibility: "Accessibility"      
     actions:
       new: "Add a new stop"
       edit: "Edit this stop"
@@ -113,6 +116,9 @@ fr:
     stop_area:
       no_position: "Pas de position" 
       lines: "Lignes :"
+      general: "General"
+      localisation: "Localisation"
+      accessibility: "Accessibilité"
     actions:
       new: "Ajouter un arrêt"
       edit: "Modifier cet arrêt"
