@@ -1,0 +1,15 @@
+<%= semantic_form_for [@referential, @line, @route, @vehicle_journey, @vehicle_translation], :remote => true, :html => {:id => "translate_form"} do |form| %>
+<div class="modal-body">
+  <%= render "shared/flash_messages" %>
+  <%= form.inputs do %>
+    <%= form.input :duration %>
+    <%= form.input :count %>
+  <% end %>
+</div>
+<div class="modal-footer">
+  <%= form.actions do %>
+    <%= form.action :submit, :as => :button, :label => t('.validation') %>
+  <% end %>
+<% end %>
+</div>
+

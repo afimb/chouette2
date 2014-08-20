@@ -1,5 +1,17 @@
 <%= title_tag vehicle_title(@vehicle_journey) %>
 
+<div id="modal_translation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel"><%= t('.translation_form') %></h4>
+        <p id="translate_form"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="vehicle_journey">
   <div class="summary">
     <p>
@@ -93,17 +105,19 @@
   <%= paginated_content @vehicle_journey.time_tables, "time_table" %>
 </div>
 
+
 <% content_for :sidebar do %>
   <ul class="actions">
     <li><%= link_to t('vehicle_journeys.actions.edit'), edit_referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey), :class => "edit" %></li>
     <li><%= link_to  t('vehicle_journeys.actions.destroy'), referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey), :method => :delete, :data => {:confirm =>  t('vehicle_journeys.actions.destroy_confirm')}, :class => "remove" %></li>
   </ul>
+  <li><%= link_to t('.translation_form'), new_referential_line_route_vehicle_journey_vehicle_translation_path(@referential, @line, @route, @vehicle_journey), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal_translation'} %></li>
   <% unless @vehicle_journey.vehicle_journey_at_stops.empty? ||
        @vehicle_journey.vehicle_journey_at_stops.any? { |vjas| vjas.departure_time.nil? } %>
     <h4><%= t('.translation_form') %></h4>
     <div id="compact_form" >
     <%= semantic_form_for [@referential, @line, @route, @vehicle_journey, VehicleTranslation.new] do |form| %>
-    <%= form.inputs do %> 
+    <%= form.inputs do %>
       <%= form.input :duration %>
       <%= form.input :count %>
       <% end %>
