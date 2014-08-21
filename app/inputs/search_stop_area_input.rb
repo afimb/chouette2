@@ -11,7 +11,7 @@ class SearchStopAreaInput < Formtastic::Inputs::SearchInput
              hintText: '#{options[:hint_text]}',
              noResultsText: '#{options[:no_result_text]}',
              searchingText: '#{options[:searching_text]}',
-             resultsFormatter: function(item){ return '<li><div class=\"name\">' + item.name + '</div><div class=\"info\">' +  item.zip_code + ' ' + item.city_name + '</div></li>' },
+             resultsFormatter: function(item){ return '<li><div class=\"name\">' + item.name + '</div><div class=\"info\">' + item.area_type + '</div><div class=\"info\">' +  item.zip_code + ' ' + item.city_name + '</div></li>' },
              tokenFormatter: function(item) { return '<li><p>' + item.name + '</p></li>' }
            });
         });").html_safe)

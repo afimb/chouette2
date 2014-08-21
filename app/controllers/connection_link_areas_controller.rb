@@ -15,8 +15,8 @@ class ConnectionLinkAreasController < ChouetteController
         :country_code =>  area.country_code,
         :zip_code => area.zip_code || "",
         :city_name => area.city_name || "",
-        :area_type => area.area_type
-        }
+        :area_type => t("area_types.label.#{area.area_type.underscore}")
+      }
     end
   end
 
