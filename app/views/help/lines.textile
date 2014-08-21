@@ -23,6 +23,8 @@ les autres transporteurs de la lignes peuvent être référencés au niveau de c
 mode de transport principal de la ligne
 d'autres modes de transports particuliers peuvent être indiqués au niveau de chaque course 
 =:
+- Accessibilité PMR	:= précise si la ligne est équipée PMR
+- Transport à la demande := précise si la ligne est en exploitation à la demande ou pas
 - Commentaire := zone de texte libre sur la ligne
 - Groupes de lignes := "groupes de lignes":group_of_lines auxquels appartient la ligne
 

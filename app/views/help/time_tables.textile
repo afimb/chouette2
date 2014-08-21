@@ -14,6 +14,7 @@ Les calendriers sont caractérisés par :
 * une liste de quantièmes (jours calendaires dans l'année)
 * une liste de jours d'application (lundis, mardis, etc.)
 * une liste de périodes sur lesquelles s'appliquent les jours d'application
+* une liste de dates à exclure des périodes.
 
 L'utilisateur doit donc faire attention au nommage de ses différents calendriers d'application.
 
@@ -23,14 +24,24 @@ Ainsi, il est possible de construire des calendriers d'application qui sont ensu
 
 h3. Attributs
 
-- Commentaire := Description du calendrier
-- Version := version du calendrier (différent de la version de l'objet)
-- Jours d'application := jours de la semaine effectivement applicables dans le cas où des périodes sont définies dans le calendrier
+- Nom := Description du calendrier
+- Abréviation := Code abrégé 
+- Etiquettes := 
+Marqueurs caractérisant le calendrier (pour simplifier la recherche)
+Afin d'être enregistrées, les étiquettes doivent être saisiées séparées par une ',' (virgule) et la touche 'tab' permet d'activer la dernière.
+Un assistant propose les étiquettes déjà saisies sur d'autres calendriers.
+=:
 - Périodes d'application := périodes calendaires durant lesquelles le calendrier est applicable
-- Dates d'application := 
+- Jours d'application := jours de la semaine effectivement applicables dans le cas où des périodes sont définies dans le calendrier
+- Dates particulières := 
 dates spécifiques pour lesquelles le calendrier est applicable;
 ces dates peuvent être ajoutées dans ou en dehors des périodes calendaires.
 Un calendrier peut n'avoir que des dates calendaires, auquel cas les jours d'applications n'ont pas de signification
+=:
+- Dates exclues := 
+dates spécifiques à retirer des dates définies par les périodes et les jours d'application;
+une même date calendaire ne peut pas être à la fois particulière et exclue;
+une date exclue hors périodes et jours d'application n'a aucun effet.
 =:
 
 p(attr_data). Données de gestion :
@@ -50,7 +61,25 @@ il est possible aussi de ne renseigner que l'identifiant technique, auquel cas l
 - Version := version de l'objet (auto incrémenté à chaque modification)
 - Créé par := compte utilisateur ayant procédé à la dernière modification
 
-h3. Implémentation
+h3. Opérations particulières
 
-p. TODO
+Lors de la consultation d'un calendrier, 2 opérations particulières sont disponibles : *Dupliquer* et *Combiner*
 
+h4. Duplication
+
+La duplication d'un calendrier consiste à créer un calendrier copie conforme du calendrier consulté à l'exception du nom et de l'identifiant Neptune
+
+* le nom est précédé de "Copie de"
+* l'identifiant Neptune est complété par un numéro secondaire "_n" où n est la valeur minimale non présente dans l'Espace de données.   
+
+Une fois la duplication effectuée, le double est enregistré en base et affiché en mode édition afin de permettre à l'opérateur de l'adapter à ses besoins.
+
+h4. Combinaisons
+
+La combinaison de calendriers consiste à modifier le calendrier consulté à l'aide d'un autre; les opérations sont : 
+
+- ajouter les dates := les dates et périodes du second calendrier sont ajoutées au premier
+- conserver les dates commune := seules les dates et périodes communes aux 2 calendriers sont conservées
+- soustraire les dates := les dates communes aux 2 calendriers sont retirées du premier
+
+L'opération est effectuée en base et ne nécessite pas d'action de sauvegarde. 
