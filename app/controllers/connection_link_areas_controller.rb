@@ -10,7 +10,13 @@ class ConnectionLinkAreasController < ChouetteController
 
   def areas_maps
     areas.collect do |area|
-      { :id => area.id.to_s, :name => "#{area.name} #{area.country_code}" }
+      { :id => area.id.to_s, 
+        :name => area.name,
+        :country_code =>  area.country_code,
+        :zip_code => area.zip_code || "",
+        :city_name => area.city_name || "",
+        :area_type => area.area_type
+        }
     end
   end
 
