@@ -1,62 +1,60 @@
-<div class="container-fluid">
-  <div class="col-md-7">
-
+<%= semantic_form_for [@referential, @stop_area] do |form| %>
+  <div class="row">
+    <div class="col-md-6">      
+      <%= form.inputs do %>
+      <%= form.input :id, :as => :hidden %>
+      <%= form.input :name %>
+      <%= form.input :stop_area_type, :as => :select, :input_html => { :disabled => !@stop_area.new_record? }, :collection => Chouette::StopArea.stop_area_types, :include_blank => false, :member_label => Proc.new { |stop_area_type| t("area_types.label.#{stop_area_type}") }  %>
+      <div class="location_info">
+      <h3><%= t("stop_areas.stop_area.localisation") %></h3>
+      <% if @stop_area.new_record? %>  
       <div id="prefetch">
         <label><%= t('.geolocalize') %></label>
-	<input class="typeahead form-control input-lg" maxlength="255" name="stop_area[address]" type="text" placeholder="<%= t('.address') %>" />
+	      <input class="typeahead form-control input-lg" maxlength="255" type="text" placeholder="<%= t('.address') %>" />       
       </div>
-
-    <%= semantic_form_for [@referential, @stop_area] do |form| %>
-      <%= form.inputs do %>
-        <%= form.input :id, :as => :hidden %>
-        <%= form.input :name %>
-        <%= form.input :stop_area_type, :as => :select, :input_html => { :disabled => !@stop_area.new_record? }, :collection => Chouette::StopArea.stop_area_types, :include_blank => false, :member_label => Proc.new { |stop_area_type| t("area_types.label.#{stop_area_type}") }  %>
-        <% unless @referential.projection_type_label.empty? %>
-          <div class="panel panel-default">
-            <div class="panel-heading"><%= @referential.projection_type_label %></div>
-            <div class="panel-body">
-	      <%= form.input :projection_xy, :input_html => { :title => t("formtastic.titles.stop_area.projection_xy")} %>
-            </div>
-          </div>
+      <% end %>
+      <% unless @referential.projection_type_label.empty? %>
+  	    <%= form.input :projection_xy, :label => t("projection_xy", :projection => @referential.projection_type_label), :input_html => { :title => t("formtastic.titles.stop_area.projection_xy")} %>   
 	    <% end %>
-        <div class="panel panel-default">
-          <div class="panel-heading">WGS84</div>
-          <div class="panel-body">
 	    <%= form.input :coordinates, :input_html => { :title => t("formtastic.titles.stop_area.coordinates")} %>
-          </div>
-        </div>
-        <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles.stop_area.registration_number")} %>
-        <%= form.input :street_name %>
-        <%= form.input :country_code %>
-        <%= form.input :zip_code %>
-        <%= form.input :city_name %>
-        <%= form.input :fare_code %>
-        <%= form.input :nearest_topic_name %>
-        <%= form.input :comment, :as => :text %>
-
-        <% if !manage_itl %>
-	  <%= form.input :mobility_restricted_suitability,:as => :boolean %>
-	  <%= form.input :stairs_availability,:as => :boolean %>
-	  <%= form.input :lift_availability,:as => :boolean %>
-        <% end %>
-
-        <%= form.input :objectid, :required => !@stop_area.new_record?, :input_html => { :title => t("formtastic.titles.stop_area.objectid")} %>
-
-      <% end %>
-
-      <%= form.actions do %>
-        <%= form.action :submit, :as => :button %>
-        <%= form.action :cancel, :as => :link %>
-      <% end %>
-    <% end %>
-
-  </div>
-  <div class="col-md-5">
-    <% if !manage_itl && @map %>
+      <%= form.input :street_name %>              
+      <%= form.input :country_code %>              
+      <%= form.input :zip_code %>              
+      <%= form.input :city_name %>
+    <% end %>  
+    </div>
+    <div class="col-md-6">
+      <% if !manage_itl && @map %>
       <%= @map.to_html %>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
+  <div class="stop_areas.stop_area.general_info">
+    <h3><%= t("stop_area.general") %></h3> 
+    <%= form.inputs do %>
+      <%= form.input :objectid, :required => !@stop_area.new_record?, :input_html => { :title => t("formtastic.titles.stop_area.objectid")} %> 
+      <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles.stop_area.registration_number")} %>         
+      <%= form.input :fare_code, :as => :number %>              
+      <%= form.input :nearest_topic_name %>              
+      <%= form.input :comment, :as => :text, :input_html => { :rows => 5 } %>
+    <% end %>
+  </div>    
+  <div class="pmr_info">
+    <h3><%= t("stop_areas.stop_area.accessibility") %></h3> 
+    <%= form.inputs do %>
+      <% if !manage_itl %>
+	      <%= form.input :mobility_restricted_suitability,:as => :boolean %>
+	      <%= form.input :stairs_availability,:as => :boolean %>
+	      <%= form.input :lift_availability,:as => :boolean %>	     
+      <% end %>        
+    <% end %>
+  </div>    
+
+  <%= form.actions do %>
+    <%= form.action :submit, :as => :button %>
+    <%= form.action :cancel, :as => :link %>
+  <% end %>
+<% end %>
 
 <script>
   var address_display = function( address ) {
@@ -132,3 +130,4 @@
     $('input[name="stop_area[city_name]"]').val(datum.city);
   })
 </script>
+
