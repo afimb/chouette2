@@ -48,10 +48,6 @@
         <%= t(".no_opposite_route") %>
       <% end %>
     </p>
-    <p>
-      <label><%= @route.human_attribute_name("objectid") %>: </label>
-      <%= @route.objectid %>
-    </p>
   </div>
 
 </div>
@@ -94,6 +90,7 @@
 
 <% content_for :sidebar do %>
 <ul class="actions">
+  <li><%= link_to t('routes.actions.new'), new_referential_line_route_path(@referential, @line), :class => "add" %></li> 
   <li><%= link_to t('routes.actions.edit'), edit_referential_line_route_path(@referential, @line, @route), :class => "edit" %></li>
   <li><%= link_to t('routes.actions.destroy'), referential_line_route_path(@referential, @line, @route), :method => :delete, :data => {:confirm =>  t('routes.actions.destroy_confirm')}, :class => "remove" %></li>
 <% if @route.stop_points.size >= 2 %>

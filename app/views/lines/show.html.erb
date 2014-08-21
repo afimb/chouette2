@@ -21,10 +21,6 @@
     <% end %>
     </p>
     <p>
-      <label><%= @line.human_attribute_name("name") %>: </label>
-      <%= @line.name %>
-    </p>
-    <p>
       <label><%= @line.human_attribute_name("published_name") %>: </label>
       <%= @line.published_name %>
     </p>
@@ -80,10 +76,6 @@
       <label><%= @line.human_attribute_name("comment") %>: </label>
       <%= @line.comment %>
     </p>
-    <p>
-      <label><%= @line.human_attribute_name("objectid") %>: </label>
-      <%= @line.objectid %>
-    </p>
   </div>
 </div>
 
@@ -102,8 +94,9 @@
 
 <% content_for :sidebar do %>
 <ul class="actions">
+  <li><%= link_to t('lines.actions.new'), new_referential_line_path(@referential), :class => "add" %></li>
   <li><%= link_to t('lines.actions.edit'), edit_referential_line_path(@referential, @line), :class => "edit" %></li>
-  <li><%= link_to  t('lines.actions.destroy'), referential_line_path(@referential, @line), :method => :delete, :data => {:confirm =>  t('lines.actions.destroy_confirm')}, :class => "remove" %></li>
+  <li><%= link_to t('lines.actions.destroy'), referential_line_path(@referential, @line), :method => :delete, :data => {:confirm =>  t('lines.actions.destroy_confirm')}, :class => "remove" %></li>
   <li><%= link_to t('routes.actions.new'), new_referential_line_route_path(@referential, @line), :class => "add" %></li> 
 </ul>
   <%= creation_tag(@line) %>
