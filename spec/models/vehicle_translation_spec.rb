@@ -3,15 +3,17 @@ require 'spec_helper'
 describe VehicleTranslation do
   let!(:company){ Factory(:company )}
   let!(:journey_pattern){Factory(:journey_pattern)}
-  let!(:vehicle_journey){ Factory(:vehicle_journey, 
+  let!(:vehicle_journey){ Factory(:vehicle_journey,
                                   :objectid => "dummy",
                                   :journey_pattern => journey_pattern,
                                   :route => journey_pattern.route,
                                   :company => company,
-                                  :transport_mode => Chouette::TransportMode.new("metro"), 
+                                  :transport_mode => Chouette::TransportMode.new("metro"),
                                   :published_journey_name => "dummy"
                                   )}
-  subject {Factory.build(:vehicle_translation, :vehicle_journey_id => vehicle_journey.id)}
+  subject {Factory.build(:vehicle_translation,
+                         :vehicle_journey_id => vehicle_journey.id,
+                         :first_stop_departure_time => "12:00")}
 
   describe "#translate" do
     it "should add new vehicle" do
@@ -29,19 +31,19 @@ describe VehicleTranslation do
     end
     it "should add vehicle having same transport_mode" do
       subject.translate
-      last_created_vehicle.transport_mode.should == vehicle_journey.transport_mode 
+      last_created_vehicle.transport_mode.should == vehicle_journey.transport_mode
     end
     it "should add vehicle having same journey_pattern" do
       subject.translate
-      last_created_vehicle.journey_pattern.should == vehicle_journey.journey_pattern 
+      last_created_vehicle.journey_pattern.should == vehicle_journey.journey_pattern
     end
     it "should add vehicle having same route" do
       subject.translate
-      last_created_vehicle.route.should == vehicle_journey.route 
+      last_created_vehicle.route.should == vehicle_journey.route
     end
     it "should add vehicle having same company" do
       subject.translate
-      last_created_vehicle.company.should == vehicle_journey.company 
+      last_created_vehicle.company.should == vehicle_journey.company
     end
     it "should add vehicle with as many vehicle_journey_at_stops as on basic vehicle" do
       subject.translate
