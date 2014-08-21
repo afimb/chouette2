@@ -76,7 +76,7 @@ en:
         period_end: "to"
         tag_search: "Tags"         
   formtastic:
-    hints:
+    titles:
       time_table:
         objectid: "[prefix]:Timetable:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
     placeholders:
@@ -165,7 +165,7 @@ fr:
         tag_search: "Etiquettes" 
         tag_list: "Etiquettes" 
   formtastic:
-    hints:
+    titles:
       time_table:
         objectid: "[prefixe]:Timetable:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
     placeholders:

@@ -8,8 +8,8 @@
     <%= form.input :phone, :as => :phone %>
     <%= form.input :fax, :as => :phone %>
     <%= form.input :email, :as => :email %>              
-    <%= form.input :registration_number %>
-    <%= form.input :objectid, :required => !@company.new_record? %>  
+    <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles.company.registration_number")} %>
+    <%= form.input :objectid, :required => !@company.new_record?, :input_html => { :title => t("formtastic.titles.company.objectid")} %>  
   <% end %>
 
    <%= form.actions do %>

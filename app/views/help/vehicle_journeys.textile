@@ -10,7 +10,7 @@ De plus, la course est rattachée à un nombre variable de "calendriers d'applic
 
 h3. Attributs
 
-- numéro := numéro de la course 
+- Numéro := numéro de la course 
 - Nom public := nom public pour les voyageurs
 - Identifiant public := identifiant public
 - Commentaire := zone de texte libre

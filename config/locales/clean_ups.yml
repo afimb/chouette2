@@ -22,7 +22,7 @@ en:
         keep_companies: "keep companies"
         keep_networks: "keep networks"
         keep_group_of_lines: "keep groups of lines"
-  hints:
+  titles:
     clean_up:
       expected_date: "value included in clean up"  
 fr:
@@ -49,7 +49,7 @@ fr:
         keep_companies: "conserver les transporteurs" 
         keep_networks: "conserver les réseaux"
         keep_group_of_lines: "conserver les groupes de lignes"
-  hints:
+  titles:
     clean_up:
       expected_date: "valeur incluse dans la purge"  
 
