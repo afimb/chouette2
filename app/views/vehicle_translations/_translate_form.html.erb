@@ -1,15 +1,37 @@
-<%= semantic_form_for [@referential, @line, @route, @vehicle_journey, @vehicle_translation], :remote => true, :html => {:id => "translate_form"} do |form| %>
-<div class="modal-body">
+<div id="translate_form">
   <%= render "shared/flash_messages" %>
-  <%= form.inputs do %>
-    <%= form.input :duration %>
-    <%= form.input :count %>
+  <%= semantic_form_for [@referential, @line, @route, @vehicle_journey, @vehicle_translation], remote: true do |form| %>
+  <div class="modal-body">
+    <%= form.inputs do %>
+      <%= form.input :first_stop_arrival_time,
+        as: :time_picker, label: t( ".first_stop_arrival_time", stop_name: @vehicle_translation.first_stop_name),
+        input_html: { class: "form-control input-sm timepicker_basic"}, wrapper_html: { class: "input-append bootstrap-timepicker" } %>
+      <%= form.input :first_stop_departure_time,
+        as: :time_picker, label: t( ".first_stop_departure_time", stop_name: @vehicle_translation.first_stop_name),
+        input_html: { class: "form-control input-sm timepicker_basic"}, wrapper_html: { class: "input-append bootstrap-timepicker" } %>
+      <div class="panel-group" id="accordion">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+              <%= t('.multiple_cloning_form') %>
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <%= form.input :duration, as: :number %>
+            <%= form.input :count, as: :number %>
+           </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="modal-footer">
+    <%= form.actions do %>
+      <%= form.action :submit, as: :button, label: t('.validation') %>
+    <% end %>
   <% end %>
+  </div>
 </div>
-<div class="modal-footer">
-  <%= form.actions do %>
-    <%= form.action :submit, :as => :button, :label => t('.validation') %>
-  <% end %>
-<% end %>
-</div>
-
