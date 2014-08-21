@@ -3,7 +3,7 @@ class TimeTableCombination
   include ActiveModel::Conversion  
   extend ActiveModel::Naming
   
-  attr_accessor :source_id, :combined_id, :combined_name, :operation, :status
+  attr_accessor :source_id, :combined_id, :combined_name, :operation
   
   validates_presence_of :source_id, :combined_id, :operation, :combined_name
   validates_inclusion_of :operation, :in =>  %w( union intersection disjunction)
@@ -14,7 +14,6 @@ class TimeTableCombination
     self.combined_name = nil
     self.operation = nil
     self.errors.clear
-    self.status = false
   end  
     
   def valid?(context = nil) 
@@ -35,7 +34,6 @@ class TimeTableCombination
     attributes.each do |name, value|  
       send("#{name}=", value)  
     end  
-    self.status = false
   end  
     
   def persisted?  
@@ -43,7 +41,6 @@ class TimeTableCombination
   end 
 
   def combine
-    self.status = false
     source = Chouette::TimeTable.find( source_id)
     combined = Chouette::TimeTable.find( combined_id)
     if operation == "union"
@@ -55,8 +52,7 @@ class TimeTableCombination
     else 
       raise "unknown operation"
     end
-    source.save
-    self.status = true
+    source
   end
   
 end
