@@ -15,6 +15,10 @@
       <%= link_to journey_name(@vehicle_journey.journey_pattern), [@referential, @line, @route, @vehicle_journey.journey_pattern] %>
     </p>
     <p>
+      <label><%= @vehicle_journey.human_attribute_name("number") %>: </label>
+      <%= @vehicle_journey.number %>
+    </p>
+    <p>
       <label><%= @vehicle_journey.human_attribute_name("published_journey_name") %>: </label>
       <%= @vehicle_journey.published_journey_name %>
     </p>

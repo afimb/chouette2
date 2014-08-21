@@ -21,6 +21,10 @@
       <% end %>
     </p>
     <p>
+      <label><%= @connection_link.human_attribute_name(:name) %>: </label>
+      <%= @connection_link.name %>
+    </p>
+    <p>
       <label><%= @connection_link.human_attribute_name("connection_link_type") %>: </label>
       <%= t("connection_link_types.label.#{@connection_link.connection_link_type}") %>
     </p>

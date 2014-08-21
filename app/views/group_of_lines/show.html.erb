@@ -4,6 +4,10 @@
   <%= @map.to_html %>
   <div class="summary">
     <p>
+      <label><%= @group_of_line.human_attribute_name(:name) %>: </label>
+      <%= @group_of_line.name %>
+    </p>
+    <p>
       <label><%= @group_of_line.human_attribute_name("comment") %>: </label>
       <%= @group_of_line.comment %>
     </p>

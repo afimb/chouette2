@@ -4,6 +4,10 @@
   <%= @map.to_html %>
   <div class="summary">
     <p>
+      <label><%= @network.human_attribute_name(:name) %>: </label>
+      <%= @network.name %>
+    </p>
+    <p>
       <label><%= Chouette::Network.human_attribute_name("registration_number") %>: </label>
       <%= @network.registration_number %>
     </p>
