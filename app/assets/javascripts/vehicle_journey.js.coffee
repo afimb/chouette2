@@ -52,11 +52,12 @@ jQuery ->
 
   slide = (event) ->
     event.preventDefault()
-    hour = parseInt( $(".vehicle_journeys .date select#date_hour").val())
-    minute = parseInt( $(".vehicle_journeys .date select#date_minute").val())
+    hour = parseInt( $(".vehicle_journey_at_stops select#date_hour").val())
+    minute = parseInt( $(".vehicle_journey_at_stops select#date_minute").val())
+    departure_or_arrival = $(".departure_or_arrival").val()
 
     selector_prefix = ".vehicle_journey_at_stops .journey_pattern_dependent_list"
-    if $(this).hasClass("departure")
+    if (departure_or_arrival == "departure")
       vjas_hour_selector = selector_prefix + " .departure_time select.hour"
       vjas_minute_selector = selector_prefix + " .departure_time select.minute"
     else

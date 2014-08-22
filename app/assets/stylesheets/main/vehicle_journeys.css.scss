@@ -18,7 +18,22 @@
     
     .vehicle_journey_at_stops {
         margin-left: 25%;
-    }
+
+        .title{
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        span{
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .slide{
+            margin-left: 30px;
+            
+        }
+    }    
 }
 
 #workspace.vehicle_journeys.index
