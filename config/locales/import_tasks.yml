@@ -6,6 +6,7 @@ en:
       destroy_confirm: "Are you sure you want destroy this import?"
     new:
       title: "New import"
+      flash: "Import task on queue, refresh page to see progression"
     index:
       title: "Imports"
       warning: ""
@@ -37,6 +38,7 @@ en:
           journey_patterns_stats: "Journey Patterns"
     statuses:
       pending: "Pending"
+      processing: "Processing"
       completed: "Completed"
       failed: "Failed"
     compliance_check_task: "Validate Report"
@@ -96,6 +98,7 @@ fr:
       destroy_confirm: "Etes vous sûr de supprimer cet import ?"
     new:
       title: "Nouvel import"
+      flash: "La demande d'import est mise en file d'attente, veuillez rafraichir régulièrement la page pour le suivre"
     index:
       title: "Imports"
       warning: ""
@@ -140,7 +143,8 @@ fr:
           saved: "Sauvé"
           save_error: "Sauvegarde en erreur"
     statuses:
-      pending: "En cours"
+      pending: "En attente ..."
+      processing: "En cours ..."
       completed: "Achevé"
       failed: "Echoué"
     compliance_check_task: "Validation"

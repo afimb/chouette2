@@ -7,6 +7,9 @@
       <li class="title"><% if import_task.save_requested? %><i class="fa fa-save"></i><% end %> <%= link_to(import_task.name, referential_import_task_path(@referential, import_task)) %></li>
       <li class="remove"><%= link_to "<i class='fa fa-trash-o'></i>".html_safe, referential_import_task_path(@referential, import_task), :method => :delete, :class => "delete", :data => {:confirm =>  t('import_tasks.actions.destroy_confirm')} %></li>
     </ul>
+    <div class="history">
+      <%= t("import_tasks.statuses.#{import_task.status}") %>
+    </div>
     <div class="links">
       <p><%= link_to image_tag("icons/file_#{import_task.file_path_extension}.png") + t("import_tasks.show.imported_file"), file_to_import_referential_import_task_path(@referential, import_task) %></p>
       <% if import_task.compliance_check_task.present? %>

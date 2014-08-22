@@ -7,6 +7,9 @@
       <li class="title"><%= link_to(compliance_check_task.name, referential_compliance_check_task_path(@referential, compliance_check_task)) %></li>
       <li class="remove"><%= link_to "<i class='fa fa-trash-o'></i>".html_safe, referential_compliance_check_task_path(@referential, compliance_check_task), :method => :delete, :class => "delete", :data => {:confirm =>  t('compliance_check_tasks.actions.destroy_confirm')} %></li>
     </ul>
+    <div class="history">
+      <%= t("compliance_check_tasks.statuses.#{compliance_check_task.status}") %>
+    </div>
     <div class="links">
       <% if compliance_check_task.import_task.present? %>
       <p><%= link_to( image_tag('icons/link_page.png') + t("compliance_check_tasks.import_task"), referential_import_task_path(@referential, compliance_check_task.import_task)) %></p>

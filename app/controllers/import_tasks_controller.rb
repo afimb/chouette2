@@ -25,9 +25,9 @@ class ImportTasksController < ChouetteController
   end
 
   def create
-    create! do |success, failure|
+    create!  do |success, failure|
       available_imports
-      success.html { redirect_to referential_import_tasks_path(@referential) }
+      success.html { flash[:notice] = I18n.t('import_tasks.new.flash'); redirect_to referential_import_tasks_path(@referential) }
     end
   end
 

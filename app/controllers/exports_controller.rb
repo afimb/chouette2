@@ -14,7 +14,7 @@ class ExportsController < ChouetteController
   def create
     create! do |success, failure|
       available_exports
-      success.html { redirect_to referential_exports_path(@referential) }
+      success.html { flash[:notice] = I18n.t('exports.new.flash'); redirect_to referential_exports_path(@referential) }
     end
   end
 
