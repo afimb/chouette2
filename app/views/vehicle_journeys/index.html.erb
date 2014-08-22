@@ -59,7 +59,19 @@
     <li>
       <%= link_to t('.timeless'), timeless_referential_line_route_vehicle_journeys_path(@referential, @line, @route), :class => "link" %>
     </li>
+	<li>
+	  <%= link_to t('vehicle_journey_imports.new.title'), new_referential_line_route_vehicle_journey_import_path( @referential, @line, @route ), :class => "import" %>
+	</li>
   </ul>
+  <div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+       <%= t('vehicle_journey_imports.new.export_vehicle_journeys') %><span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <li><%= link_to image_tag("icons/file_csv.png") + " Csv" , referential_line_route_vehicle_journey_exports_path(@referential, @line, @route, :format => :csv) %></li>
+      <li><%= link_to image_tag("icons/file_excel.png") + " Excel", referential_line_route_vehicle_journey_exports_path(@referential, @line, @route, :format => :xls) %></li>
+    </ul>
+  </div>
   <h4><%= t(".selection") %></h4>
 
   <h5><%= Chouette::JourneyPattern.model_name.human.pluralize %></h5>
