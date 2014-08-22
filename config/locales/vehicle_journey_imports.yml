@@ -19,7 +19,7 @@ en:
 fr:
   vehicle_journey_imports:
     new:
-      title: "Import des horaires à l'arrêt"
+      title: "Import des horaires aux arrêts"
       export_vehicle_journeys: "Exporter les horaires existants"
       succcess: "L'import des données est un succès"
       tooltip:

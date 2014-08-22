@@ -8,13 +8,15 @@ en:
     new:
       title: "New export"
       all: "All"
+      flash: "Export task on queue, refresh page to see progression"
     index:
       title: "Exports"
       warning: ""
     show:
       report: "Report"
     statuses:
-      pending: "Pending"
+      pending: "Pending ..."
+      processing: "Processing ..."
       completed: "Completed"
       failed: "Failed"
   export_log_messages:
@@ -118,13 +120,15 @@ fr:
     new:
       title: "Nouvel export"
       all: "Toutes"
+      flash: "La demande d'export est mise en file d'attente, veuillez rafraichir régulièrement la page pour le suivre"
     index:
       title: "Exports"
       warning: ""
     show:
       report: "Rapport"
     statuses:
-      pending: "En cours"
+      pending: "En attente ou en cours ..."
+      processing: "En cours ..."
       completed: "Achevé"
       failed: "Echoué"
   export_log_messages:

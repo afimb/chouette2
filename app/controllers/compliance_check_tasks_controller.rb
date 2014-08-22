@@ -16,6 +16,12 @@ class ComplianceCheckTasksController < ChouetteController
     render "rule_parameter_sets/show"
   end
 
+  def create
+    create!  do |success, failure|
+      success.html { flash[:notice] = I18n.t('compliance_check_tasks.new.flash'); redirect_to referential_compliance_check_tasks_path(@referential) }
+    end
+  end
+
   protected
 
   alias_method :compliance_check_task, :resource

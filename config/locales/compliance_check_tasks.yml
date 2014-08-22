@@ -16,6 +16,7 @@ en:
       title: "Create a new validation"
       submit: "Create a validation"
       all: "All"
+      flash: "Validation task on queue, refresh page to see progression"
     actions:
       new: "Add a validation"
       destroy_confirm: "Do you confirm to destroy this validation ?"
@@ -24,6 +25,7 @@ en:
       rule_parameter_set: "Rule parameter set"
     statuses:
       pending: "Pending"
+      processing: "Processing"
       completed: "Completed"
       failed: "Failed"
   file_validation_log_messages:
@@ -80,6 +82,7 @@ fr:
       title: "Démarrer une nouvelle validation"
       submit: "Lancer la validation"
       all: "Toutes"
+      flash: "La demande de validation est mise en file d'attente, veuillez rafraichir régulièrement la page pour le suivre"
     actions:
       new: "Ajouter une validation"
       destroy_confirm: "Voulez-vous supprimer ce résultat de validation ?"
@@ -87,7 +90,8 @@ fr:
       edit: "Editer cette validation"
       rule_parameter_set: "Jeu de paramètres"
     statuses:
-      pending: "En cours"
+      pending: "En attente ..."
+      processing: "En cours ..."
       completed: "Achevé"
       failed: "Echoué"
     uncheck_count:
