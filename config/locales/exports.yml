@@ -98,10 +98,11 @@ en:
         position: "N."
         full_message: "Message"
   formtastic:
-    hints:
-      time_zone: "according to TZ  encoding (see http://en.wikipedia.org/wiki/Tz_database)"
-      start_date: "reduce import to vehicle journeys running from this date"
-      end_date: "reduce import to vehicle journeys running until this date"
+    titles:
+      export:
+        time_zone: "according to TZ  encoding (see http://en.wikipedia.org/wiki/Tz_database)"
+        start_date: "reduce import to vehicle journeys running from this date"
+        end_date: "reduce import to vehicle journeys running until this date"
   area_types:
     quay: "Quays and Boarding Positions"
     commercial_stop_point: "Commercial Stop Points"
@@ -207,10 +208,11 @@ fr:
         position: "No"
         full_message: "Message"
   formtastic:
-    hints:
-      time_zone: "selon le codage TZ  (http://fr.wikipedia.org/wiki/Tz_database)"
-      start_date: "limite l'export aux courses circulant à partir de cette date"
-      end_date: "limite l'export aux courses circulant jusqu'à cette date"
+    titles:
+      export:
+        time_zone: "selon le codage TZ  (http://fr.wikipedia.org/wiki/Tz_database)"
+        start_date: "limite l'export aux courses circulant à partir de cette date"
+        end_date: "limite l'export aux courses circulant jusqu'à cette date"
   area_types:
     quay: "Arrêts"
     commercial_stop_point: "Arrêts commerciaux"

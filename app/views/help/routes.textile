@@ -17,7 +17,7 @@ h3. Attributs
 - Direction := orientation principale (points cardinaux, circulaire ou aller/retour)
 - Indice := numéro de la séquence d'arrêts
 - Sens := aller ou retour
-- Itinéraire associé en sens opposé := référence de l'itinéraire de sens opposé associé
+- Séquence d'arrêts associée en sens opposé := référence de la séquence d'arrêts de sens opposé associée
 
 p(attr_data). Données de gestion :
 
@@ -35,8 +35,4 @@ il est possible aussi de ne renseigner que l'identifiant technique, auquel cas l
 - Date de création := date à laquelle l'objet a été créé ou modifié pour la dernière fois
 - Version := version de l'objet (auto incrémenté à chaque modification)
 - Créé par := compte utilisateur ayant procédé à la dernière modification
-
-h3. Implémentation
-
-p. TODO
 

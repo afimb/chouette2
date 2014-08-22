@@ -60,6 +60,7 @@ en:
         time_tables: "Calendars"
         time_slot: "Time Slot"
         company: "Company"
+        number: "Number"
         comment: "Comments"
         status_value: "Status Value"
         transport_mode_name: "Transport Mode"
@@ -86,7 +87,7 @@ en:
         vehicle_journey:
           invalid_times: "Invalid times"
   formtastic:
-    hints:
+    titles:
       vehicle_journey:
         objectid: "[prefix]:VehicleJourney:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
 
@@ -151,6 +152,7 @@ fr:
         time_tables: "Calendriers"
         time_slot: "Fréquence"
         company: "Transporteur"
+        number: "Numéro"
         comment: "Commentaires"
         status_value: "Etat de trafic"
         transport_mode_name: "Mode de transport"
@@ -177,7 +179,7 @@ fr:
         vehicle_journey:
           invalid_times: "Horaires invalides"
   formtastic:
-    hints:
+    titles:
       vehicle_journey:
         objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
 

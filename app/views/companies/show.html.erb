@@ -1,10 +1,10 @@
 <%= title_tag t('companies.show.title', :company => @company.name) %>
 
-<div class="line_show">
+<div class="company_show">
 
   <div class="summary">
     <p>
-      <label><%= Chouette::Company.human_attribute_name("name") %>: </label>
+      <label><%= @company.human_attribute_name(:name) %>: </label>
       <%= @company.name %>
     </p>
     <p>
@@ -39,15 +39,12 @@
       <label><%= Chouette::Company.human_attribute_name("registration_number") %>: </label>
       <%= @company.registration_number %>
     </p>
-    <p>
-      <label><%= Chouette::Company.human_attribute_name("objectid") %>: </label>
-      <%= @company.objectid %>
-    </p>
   </div>
 </div>
 
 <% content_for :sidebar do %>
 <ul class="actions">
+  <li><%= link_to t('companies.actions.new'), new_referential_company_path(@referential), :class => "add" %></li>
   <li><%= link_to t('companies.actions.edit'), edit_referential_company_path(@referential, @company), :class => "edit" %></li>
   <li><%= link_to  t('companies.actions.destroy'), referential_company_path(@referential, @company), :method => :delete,  :data => {:confirm =>  t('companies.actions.destroy_confirm')}, :class => "remove" %></li>
   <br>

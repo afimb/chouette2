@@ -13,7 +13,7 @@
         <%= link_to @access_link.stop_area.name, [@referential, @access_link.stop_area] %>
     </p>
     <p>
-      <label><%= @access_link.human_attribute_name("name") %>: </label>
+      <label><%= @access_link.human_attribute_name(:name) %>: </label>
       <%= @access_link.name %>
     </p>
     <p>
@@ -66,10 +66,6 @@
     <p>
       <label><%= @access_link.human_attribute_name("lift_availability") %>: </label>
       <%= t((@access_link.lift_availability == true).to_s) %>
-    </p>
-    <p>
-      <label><%= @access_link.human_attribute_name("objectid") %>: </label>
-      <%= @access_link.objectid %>
     </p>
   </div>
 </div>

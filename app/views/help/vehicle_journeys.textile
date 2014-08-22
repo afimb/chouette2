@@ -10,11 +10,16 @@ De plus, la course est rattachée à un nombre variable de "calendriers d'applic
 
 h3. Attributs
 
-- Nom := nom de la course 
+- Numéro := numéro de la course 
 - Nom public := nom public pour les voyageurs
+- Identifiant public := identifiant public
 - Commentaire := zone de texte libre
 - Mode de transport := mode de transport pour la course; par défaut, c'est le mode de transport de la ligne qui est appliqué
-- Particularité := champs libre pouvant préciser des modes de fonctionnement (TAD par exemple)
+- Accessibilité PMR	:= précise si la course est équipée PMR
+- Transport à la demande := précise si la course est en exploitation à la demande ou pas
+- Etat de trafic := état de trafic
+- Equipement := équipement
+- Type d'identifiant du véhicule := type d'identifiant du véhicule
 
 p(attr_data). Données de gestion :
 

@@ -1,6 +1,7 @@
 <%= semantic_form_for [@referential, @line, @route, @vehicle_journey] do |form| %>
   <%= form.inputs do %>
     <%= form.input :journey_pattern, :as => :select, :collection => @route.journey_patterns, :member_label => Proc.new { |jp| journey_name(jp) }  %>
+    <%= form.input :number %>
     <%= form.input :published_journey_name %>
     <%= form.input :published_journey_identifier %>
     <%= form.input :comment %>
@@ -10,7 +11,7 @@
     <%= form.input :status_value %>
     <%= form.input :facility %>
     <%= form.input :vehicle_type_identifier%>
-    <%= form.input :objectid, :required => !@vehicle_journey.new_record? %>
+    <%= form.input :objectid, :required => !@vehicle_journey.new_record?, :input_html => { :title => t("formtastic.titles.vehicle_journey.objectid")} %>
     <%= form.input :time_table_tokens, :label => t('.time_tables'), :as => :text,  :input_html => { :"data-pre" => ( @vehicle_journey.time_tables.map { |time_table| { :id => time_table.id, :name => time_table_description(time_table) } } ).to_json }  %>
     <li class="input">
 	    <%= form.label @vehicle_journey.human_attribute_name(:vehicle_journey_at_stop_ids), :class => "label" %>

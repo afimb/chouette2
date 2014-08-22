@@ -82,7 +82,7 @@ en:
         ignore_last_word: "ignore last word"
         ignore_end_chars: "ignore last chars"
   formtastic:
-    hints:
+    titles:
       import_task:
         max_distance_for_commercial: "Maximal distance to merge homonymous stops in commercial stop in meter"
         max_distance_for_connection_link: "Maximal distance to link stops by connection link stop in meter"
@@ -186,7 +186,7 @@ fr:
         ignore_last_word: "ignorer le dernier mot"
         ignore_end_chars: "ignorer les n derniers caractères"
   formtastic:
-    hints:
+    titles:
       import_task:
         max_distance_for_commercial: "Distance maximale entre deux arrêts homonymes pour créer les zones d'arrêt (en mètre)"
         max_distance_for_connection_link: "Distance maximale entre deux arrêts pour créer les correspondances (en mètre)"
