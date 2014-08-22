@@ -1,6 +1,6 @@
 <%= title_tag t('lines.index.title') %>
 
-<%= search_form_for @q, :url => referential_lines_path(@referential), :html => {:method => :get, class: "form-inline", :id => "search", role: "form"} do |f| %>
+<%= search_form_for @q, :url => referential_lines_path(@referential), remote: true, :html => {:method => :get, class: "form-inline", :id => "search", role: "form"} do |f| %>
 <div class="panel panel-default">
   <div class="panel-heading">
     <div class="input-group col-md-9">
@@ -24,15 +24,7 @@
 </div>
 <% end %>
 
-<div class="page_info">
-  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @lines %>
-</div>
-<div class="lines paginated_content">
-    <%= paginated_content(@lines) %>
-</div>
-<div class="pagination">
-  <%= will_paginate @lines, :container => false, renderer: BootstrapPagination::Rails %>
-</div>
+<div id="lines"><%= render 'lines' %></div>
 
 <% content_for :sidebar do %>
 <ul class="actions">
