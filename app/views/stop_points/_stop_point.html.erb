@@ -13,7 +13,12 @@
       <%= t('.lines') %> <% stop_point.stop_area.lines.reject { |l| l.id==@line.id}.each do |line| %>
         <span class="line"><%= line.number %></span>
       <% end %> -
+      <% if stop_point.stop_area.zip_code.blank? %>
       <%= stop_point.stop_area.human_attribute_name('country_code') %> <%= stop_point.stop_area.country_code %>
+      <% else %>
+      <%= stop_point.stop_area.zip_code %>
+      <% end %> 
+      <%= stop_point.stop_area.city_name %>
     </p>
   </div>
 <% end %>

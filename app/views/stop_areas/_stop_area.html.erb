@@ -10,6 +10,15 @@
       <% unless stop_area.area_type == 'ITL' || stop_area.geometry %>
       <span class="warning"><%= t('.no_position') %></span> -
       <% end %>
+      <span class="warning">
+      	<% if stop_area.zip_code.blank? %>
+      	   <%=  stop_area.human_attribute_name('country_code')+' '+stop_area.country_code unless stop_area.country_code.blank? %>
+      	<% else %>
+      	   <%=  stop_area.zip_code %>
+      	<% end %>
+      	<%=  stop_area.city_name %>
+      	&nbsp;
+      </span>	
     </p>
     <p> 
       <% if stop_area.area_type == 'ITL' %>

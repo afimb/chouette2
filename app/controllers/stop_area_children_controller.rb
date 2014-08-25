@@ -11,8 +11,14 @@ class StopAreaChildrenController < ChouetteController
   protected
 
   def children_maps
-    children.collect do |child|
-      { :id => child.id.to_s, :name => "#{child.name} #{child.country_code}" }
+    children.collect do |area|
+      { :id => area.id.to_s, 
+        :name => area.name,
+        :country_code =>  area.country_code,
+        :zip_code => area.zip_code || "",
+        :city_name => area.city_name || "",
+        :area_type => t("area_types.label.#{area.area_type.underscore}")
+      }
     end
   end
 

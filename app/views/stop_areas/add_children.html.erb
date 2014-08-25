@@ -3,7 +3,7 @@
 <%= semantic_form_for [@referential, @stop_area] do |form| %>
 <div>
   <%= form.inputs do %>
-    <%= form.input :children_ids, :as => :text, :input_html => { :"data-pre" => ( @children.map { |child| { :id => child.id.to_s, :name => "#{child.name} #{child.country_code}" } } ).to_json }  %>
+    <%= form.input :children_ids, :as => :text, :input_html => { :"data-pre" => ( @children.map { |child| { :id => child.id.to_s, :name => "#{child.name}" } } ).to_json }  %>
   <% end %>
 
    <%= form.actions do %>
@@ -21,8 +21,10 @@
        minChars: 3,
        hintText: '<%= t('search_hint') %>',
        noResultsText: '<%= t('no_result_text') %>',
-       searchingText: '<%= t('searching_term') %>'
-    });
+       searchingText: '<%= t('searching_term') %>',
+             resultsFormatter: function(item){ return '<li><div class=\"name\">' + item.name + '</div><div class=\"info\">' + item.area_type + '</div><div class=\"info\">' +  item.zip_code + ' ' + item.city_name + '</div></li>' },
+             tokenFormatter: function(item) { return '<li><p>' + item.name + '</p></li>' }
+           });
 	});
 </script>
 
