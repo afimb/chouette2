@@ -18,3 +18,4 @@
 //= require_directory ./plugins
 //= require_directory .
 //= require_directory ./stop_areas
+//= require_directory ./vehicle_journeys
