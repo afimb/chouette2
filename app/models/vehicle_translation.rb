@@ -61,7 +61,6 @@ class VehicleTranslation
   end
 
   def translate
-    vehicle = vehicle_journey
     copied_attributes = vehicle_journey.attributes
     copied_attributes.delete( "id")
     copied_attributes.delete( "objectid")
@@ -69,18 +68,20 @@ class VehicleTranslation
     # time shift for current duplicated vehicle
     delta = first_delta
 
-    1.upto( count.to_i) do |index|
-      translated = Chouette::VehicleJourney.create( copied_attributes)
-      translated.time_tables = vehicle.time_tables
+    vehicle_journey.transaction do
+      1.upto( count.to_i) do |index|
+        translated = Chouette::VehicleJourney.create( copied_attributes)
+        translated.time_tables = vehicle_journey.time_tables
 
-      vehicle.vehicle_journey_at_stops.each do |vjas|
-        vjas_attributes = vjas.attributes.merge( "vehicle_journey_id" => translated.id)
-        vjas_attributes.merge! "departure_time" => ( vjas_attributes[ "departure_time"] + delta),
-                               "arrival_time" => ( vjas_attributes[ "arrival_time"] + delta)
+        vehicle_journey.vehicle_journey_at_stops.each do |vjas|
+          vjas_attributes = vjas.attributes.merge( "vehicle_journey_id" => translated.id)
+          vjas_attributes.merge! "departure_time" => ( vjas_attributes[ "departure_time"] + delta),
+                                 "arrival_time" => ( vjas_attributes[ "arrival_time"] + delta)
 
-        Chouette::VehicleJourneyAtStop.create( vjas_attributes)
+          Chouette::VehicleJourneyAtStop.create( vjas_attributes)
+        end
+        delta += duration.to_i.minutes
       end
-      delta += duration.to_i.minutes
     end
   end
 
