@@ -12,7 +12,7 @@
 //= require raphael
 //= require morris
 //= require bootstrap
-//= require twitter/typeahead.min
+//= require typeahead.min
 //= require bootstrap-timepicker
 //= require tagmanager
 //= require_directory ./plugins

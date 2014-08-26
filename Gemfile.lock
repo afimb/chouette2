@@ -12,15 +12,6 @@ GIT
       foreigner (= 1.6.0)
       georuby-ext (= 0.0.5)
 
-GIT
-  remote: https://github.com/ldonnet/twitter-typeahead-rails
-  revision: 97466061dc7999ba1c7d153fba7ced8df846431a
-  specs:
-    twitter-typeahead-rails (0.10.2)
-      actionpack (>= 3.1)
-      jquery-rails
-      railties (>= 3.1)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -351,6 +342,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
+    typeahead-rails (0.10.5)
     tzinfo (0.3.40)
     uglifier (1.2.7)
       execjs (>= 0.3.0)
@@ -439,7 +431,7 @@ DEPENDENCIES
   tagmanager-rails (~> 3.0.1.0)
   therubyracer (~> 0.10.2)
   therubyrhino
-  twitter-typeahead-rails!
+  typeahead-rails (~> 0.10.5)
   uglifier (>= 1.0.3)
   warbler
   will_paginate (~> 3.0)

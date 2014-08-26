@@ -6,16 +6,10 @@
     <%= form.input :tag_search, :input_html => { class: "tm-input typeahead", :placeholder => t("formtastic.placeholders.time_table.tag_search") } %>
     <%= form.input :tag_list, :as => :hidden, :input_html => { :id => "tag_list" } %>
     
-    <%= form.input :objectid, :required => !@time_table.new_record?, :input_html => { :title => t("formtastic.titles.time_table.objectid")} %>  
+    <%= form.input :objectid, :required => !@time_table.new_record?, :input_html => { :title => t("formtastic.titles.time_table.objectid")} %>
   <% end %>
   
-  <h3 class="time_table_periods">
-	<a class="periods"><%= @time_table.human_attribute_name("periods") %>
-      <%= image_tag("icons/plus.png"  , :class => "switcher", :style => "display: none;") %>
-      <%= image_tag("icons/minus.png"  , :class => "switcher" ) %>
-    </a>
-  	
-  </h3>
+  <h3 class="time_table_periods"><%= @time_table.human_attribute_name("periods") %></h3>
   <div id="periods_content">
 	  <%= form.inputs :class => 'day_type' do %> 
 	    <label class="day_type_label"><%= @time_table.human_attribute_name("day_types") %></label>
@@ -37,12 +31,7 @@
 	  :"data-association-insertion-node" => "div#periods"%>
   </div>
   
-  <h3 class="time_table_dates">
-	  <a class="dates"><%= @time_table.human_attribute_name("dates") %>
-      <%= image_tag("icons/plus.png"  , :class => "switcher", :style => "display: none;") %>
-      <%= image_tag("icons/minus.png"  , :class => "switcher" ) %>
-    </a>
-  </h3>
+  <h3 class="time_table_dates"><%= @time_table.human_attribute_name("dates") %></h3>
   <div id="dates_content">
     <div id="dates">
 		  <%= form.semantic_fields_for :dates, @time_table.dates.where("in_out = true").to_a do |p| %>
@@ -55,12 +44,7 @@
 	  :"data-association-insertion-node" => "div#dates" %>
   </div>
 
-  <h3 class="time_table_dates">
-	<a class="excluded_dates"><%= @time_table.human_attribute_name("excluded_dates") %>
-      <%= image_tag("icons/plus.png"  , :class => "switcher", :style => "display: none;") %>
-      <%= image_tag("icons/minus.png"  , :class => "switcher" ) %>
-    </a>
-  </h3>
+  <h3 class="time_table_dates"><%= @time_table.human_attribute_name("excluded_dates") %></h3>
   <div id="excluded_dates_content">
 	  <div id="excluded_dates">
 		  <%= form.semantic_fields_for :dates, @time_table.dates.where("in_out = false").to_a do |p| %>

@@ -22,6 +22,7 @@ en:
       to_departures: "Copy arrivals to departures"
       time_tables: "Associated calendars to vehicle journey"
       slide: "Slide"
+      slide_title: "Shift all hours of the vehicle journey based on existing ones"
       slide_departure: "Shift 1° departure time"
       slide_arrival: "Shift 1° arrival time"
     timeless:
@@ -114,6 +115,7 @@ fr:
       to_arrivals: "Copie départs vers arrivées"
       to_departures: "Copie arrivées vers départs"
       time_tables: "Calendriers associés à la course"
+      slide_title: "Décaler tous les horaires de la course en fonction de ceux existants"
       slide_departure: "Fixer 1° horaire départ à"
       slide_arrival: "Fixer 1° horaire arrivée à"
     timeless:
