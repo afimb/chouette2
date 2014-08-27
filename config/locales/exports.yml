@@ -9,6 +9,7 @@ en:
       title: "New export"
       all: "All"
       flash: "Export task on queue, refresh page to see progression"
+      flash2: "On success, a link for download will be displayed"
     index:
       title: "Exports"
       warning: ""
@@ -121,6 +122,7 @@ fr:
       title: "Nouvel export"
       all: "Toutes"
       flash: "La demande d'export est mise en file d'attente, veuillez rafraichir régulièrement la page pour le suivre"
+      flash2: "Une fois l'export terminé, un lien sera disponible pour télécharger le résultat"
     index:
       title: "Exports"
       warning: ""

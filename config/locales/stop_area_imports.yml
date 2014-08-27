@@ -3,7 +3,7 @@ en:
     new:
       title: "Import stop areas"
       export_stop_areas: "Export existing stop_areas"
-      succcess: "Import is a success"
+      success: "Import is a success"
       tooltip:
         file: "Select a CSV or Excel file"
     errors:
@@ -19,11 +19,11 @@ fr:
     new:
       title: "Import des arrêts"
       export_stop_areas: "Exporter les arrêts existants"
-      succcess: "L'import des données est un succès"
+      success: "L'import des données est un succès"
       tooltip:
         file: "Sélectionner un fichier CSV ou Excel"  
     errors:
-      import_aborted: "Des erreurs ont empéchées le bon déroulement de l'import: "        
+      import_aborted: "Des erreurs ont empéché le bon déroulement de l'import: "        
       invalid_stop_area: "Erreur colonne %{column}, l'arrêt est invalide : %{message}"
       exception: "Le fichier est invalide, vous devez fournir un fichier csv, xls ou xlsx valide"
   activemodel:        

@@ -46,6 +46,7 @@ ChouetteIhm::Application.routes.draw do
     resources :group_of_lines do
       resources :stop_areas do
         resources :access_points
+        resources :stop_area_copies
         resources :stop_area_parents
         resources :stop_area_children
         resources :stop_area_routing_lines
@@ -72,6 +73,7 @@ ChouetteIhm::Application.routes.draw do
     resources :lines, :networks, :group_of_lines do
       resources :stop_areas do
         resources :access_points
+        resources :stop_area_copies
         resources :stop_area_parents
         resources :stop_area_children
         resources :stop_area_routing_lines
@@ -142,6 +144,7 @@ ChouetteIhm::Application.routes.draw do
 
     resources :stop_areas do
       resources :access_points
+      resources :stop_area_copies
       resources :stop_area_parents
       resources :stop_area_children
       resources :stop_area_routing_lines

@@ -10,11 +10,13 @@
       <li class="remove"><%= link_to "<i class='fa fa-trash-o'></i>".html_safe, referential_export_path(@referential, export), :method => :delete,  :data => {:confirm =>  t('exports.actions.destroy_confirm')}, :class => "remove" %></li>
     </ul>    
     <div class="history">
-      <%= t("exports.statuses.#export.status}") %>
+      <%= t("exports.statuses.#{export.status}") %>
     </div>
     <div class="links">  
       <% if export.status == 'completed' %>
       <%= link_to t("exports.actions.download"), referential_export_path(@referential, export, :format => :zip), :class => "download" %>
+      <% else %>
+      &nbsp;
       <% end %>
     </div>
     <div class="history">
