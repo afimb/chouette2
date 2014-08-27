@@ -2,9 +2,11 @@ en:
   vehicle_translations:
     success: "%{count} vehicle journeys created by translation"
     failure: "Fail when creating vehicle journeys by translation"
-    first_stop_arrival_time: "Arrival time at first stop (%{stop_name})"
-    first_stop_departure_time: "Arrival time at first stop (%{stop_name})"
     translate_form:
+      set: "Set"
+      to: "at (hh:mm)"
+      first_stop_arrival_time: "Arrival time at first stop '%{stop_name}'"
+      first_stop_departure_time: "Arrival time at first stop '%{stop_name}'"
       multiple_cloning_form: "Repeat cloning based on a time interval"
   activemodel:
     attributes:
@@ -21,9 +23,11 @@ fr:
   vehicle_translations:
     success: "%{count} course(s) crée(s) par translation"
     failure: "Echec de la création de courses par tanslation"
-    first_stop_arrival_time: "Horaire d'arrivée au premier arrêt (%{stop_name})"
-    first_stop_departure_time: "Horaire de départ au premier arrêt (%{stop_name})"
     translate_form:
+      set: "Fixer"
+      to: "à (hh:mm)"
+      first_stop_arrival_time: "Horaire d'arrivée au premier arrêt '%{stop_name}'"
+      first_stop_departure_time: "Horaire de départ au premier arrêt '%{stop_name}'"
       multiple_cloning_form: "Répéter le clonage à intervalle régulier"
 
   activemodel:

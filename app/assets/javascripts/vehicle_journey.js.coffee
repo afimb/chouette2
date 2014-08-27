@@ -54,7 +54,7 @@ jQuery ->
     event.preventDefault()
     hour = parseInt( $(".vehicle_journey_at_stops select#date_hour").val())
     minute = parseInt( $(".vehicle_journey_at_stops select#date_minute").val())
-    departure_or_arrival = $(".departure_or_arrival").val()
+    departure_or_arrival = $(".departure_or_arrival option:selected").val()
 
     selector_prefix = ".vehicle_journey_at_stops .journey_pattern_dependent_list"
     if (departure_or_arrival == "departure")
