@@ -18,7 +18,7 @@ class VehicleJourneyImportsController < ChouetteController
     if @vehicle_journey_import.save
       redirect_to referential_line_route_path( @referential, @line, @route ), notice: I18n.t("vehicle_journey_imports.new.success")
     else
-      flash[:error] = I18n.t("stop_area_imports.errors.import_aborted") + "<br>" + @vehicle_journey_import.errors.full_messages.join("<br>")
+      flash[:error] = I18n.t("vehicle_journey_imports.errors.import_aborted") + "<br>" + @vehicle_journey_import.errors.full_messages.join("<br>")
       render :new 
     end
   end

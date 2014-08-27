@@ -5,9 +5,12 @@ class StopAreaCopy
   include ActiveModel::Conversion
   extend  ActiveModel::Naming
 
-  attr_accessor :source_id, :hierarchy, :area_type
+  attr_accessor :source_id, :hierarchy, :area_type, :source
   
   validates_presence_of :source_id, :hierarchy, :area_type
+  
+  validates :hierarchy, inclusion: { in: %w(child parent) }
+    
 
   def initialize(attributes = {})    
     attributes.each { |name, value| send("#{name}=", value) } if attributes
@@ -20,11 +23,10 @@ class StopAreaCopy
   def save
     begin
       if self.valid?
-        source = Chouette::StopArea.find self.source_id
+        self.source ||= Chouette::StopArea.find self.source_id
         copy = source.duplicate
         copy.name = source.name
         copy.area_type = self.area_type.camelcase
-        # TODO: check area_type validity 
         Chouette::StopArea.transaction do
           if self.hierarchy == "child"
             copy.parent_id = source.id
