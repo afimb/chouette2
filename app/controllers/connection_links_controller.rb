@@ -8,6 +8,7 @@ class ConnectionLinksController < ChouetteController
 
   respond_to :html, :xml, :json
   respond_to :kml, :only => :show
+  respond_to :js, :only => :index
 
   def index    
     index! do |format|

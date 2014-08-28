@@ -1,6 +1,6 @@
 <%= title_tag t('group_of_lines.index.title') %> 
 
-<%= search_form_for @q, :url => referential_group_of_lines_path(@referential), :html => {:method => :get, class: "form-inline", :id => "search", role: "form"} do |f| %>
+<%= search_form_for @q, :url => referential_group_of_lines_path(@referential), remote: true, :html => {:method => :get, class: "form-inline", :id => "search", role: "form"} do |f| %>
 <div class="panel panel-default">
   <div class="panel-heading">   
     <div class="input-group col-md-12">   
@@ -16,15 +16,7 @@
 </div>
 <% end %>
 
-<div class="page_info">
-  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @group_of_lines %>
-</div>
-<div class="group_of_lines paginated_content">
-  <%= paginated_content(@group_of_lines) %>
-</div>
-<div class="pagination">
-  <%= will_paginate @group_of_lines, :container => false, renderer: BootstrapPagination::Rails %>
-</div>
+<div id="group_of_lines"><%= render 'group_of_lines' %></div>
 
 <% content_for :sidebar do %>
 <ul class="actions">

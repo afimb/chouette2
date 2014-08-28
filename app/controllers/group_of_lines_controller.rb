@@ -4,6 +4,7 @@ class GroupOfLinesController < ChouetteController
   respond_to :xml
   respond_to :json
   respond_to :kml, :only => :show
+  respond_to :js, :only => :index
 
   belongs_to :referential
 

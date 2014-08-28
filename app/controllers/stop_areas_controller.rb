@@ -9,6 +9,7 @@ class StopAreasController < ChouetteController
   end
 
   respond_to :html, :kml, :xml, :json
+  respond_to :js, :only => :index
 
   # def complete
   #   @stop_areas = line.stop_areas

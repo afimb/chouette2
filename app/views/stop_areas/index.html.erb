@@ -4,7 +4,7 @@
   <%= @country_codes.to_json %>
 </div>
 
-<%= search_form_for @q, :url => referential_stop_areas_path(@referential), :html => {:method => :get, class: "form-inline", :id => "search", role: "form"} do |f| %>
+<%= search_form_for @q, :url => referential_stop_areas_path(@referential), remote: true, :html => {:method => :get, class: "form-inline", :id => "search", role: "form"} do |f| %>
 <div class="panel panel-default">
   <div class="panel-heading">   
     <div class="input-group col-md-9">   
@@ -27,15 +27,7 @@
 </div>
 <% end %>
 
-<div class="page_info">
-  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @stop_areas %>
-</div>
-<div class="stop_areas paginated_content">
-    <%= paginated_content(@stop_areas) %>
-</div>
-<div class="pagination">
-  <%= will_paginate @stop_areas, :container => false, renderer: BootstrapPagination::Rails %>
-</div>
+<div id="stop_areas"><%= render 'stop_areas' %></div>
 
 <% content_for :sidebar do %>
 <ul class="actions">

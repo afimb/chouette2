@@ -1,0 +1,9 @@
+<div class="page_info">
+  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @group_of_lines %>
+</div>
+<div class="group_of_lines paginated_content">
+  <%= paginated_content(@group_of_lines) %>
+</div>
+<div class="pagination">
+  <%= will_paginate @group_of_lines, :container => false, renderer: BootstrapPagination::Rails %>
+</div>

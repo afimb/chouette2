@@ -1,6 +1,6 @@
 <%= title_tag t('networks.index.title') %> 
 
-<%= search_form_for @q, :url => referential_networks_path(@referential), :html => {:method => :get, class: "form-inline", :id => "search", role: "form"} do |f| %>
+<%= search_form_for @q, :url => referential_networks_path(@referential), remote: true, :html => {:method => :get, class: "form-inline", :id => "search", role: "form"} do |f| %>
 <div class="panel panel-default">
   <div class="panel-heading">   
     <div class="input-group col-md-12">   
@@ -16,15 +16,7 @@
 </div>
 <% end %>
 
-<div class="page_info">
-  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @networks %>
-</div>
-<div class="networks paginated_content">
-  <%= paginated_content(@networks) %>
-</div>
-<div class="pagination">
-  <%= will_paginate @networks, :container => false, renderer: BootstrapPagination::Rails %>
-</div>
+<div id="networks"><%= render 'networks' %></div>
 
 <% content_for :sidebar do %>
 <ul class="actions">
