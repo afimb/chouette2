@@ -1,6 +1,6 @@
 class ImportTasksController < ChouetteController
   respond_to :html, :xml, :json
-  respond_to :js, :only => :show
+  respond_to :js, :only => [:show, :index]
   belongs_to :referential
 
   def new

@@ -5,5 +5,5 @@
     <%= paginated_content(@stop_areas) %>
 </div>
 <div class="pagination">
-  <%= will_paginate @stop_areas, :container => false, renderer: BootstrapPagination::Rails %>
+  <%= will_paginate @stop_areas, :container => false, renderer: RemoteBootstrapPaginationLinkRenderer %>
 </div>

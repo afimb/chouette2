@@ -1,22 +1,7 @@
 <%= title_tag t('.title') %> 
 <div class="warning"><%= t('.warning') %> </div> 
-<div class="page_info">
-  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @exports %>
-</div>
-<div class="exports paginated_content">
-  <% @exports.each_slice(3) do |row_exports| %>
-  <div class="row">
-    <% row_exports.each do |export| %>
-    <div  class="col-md-4">
-      <%= render :partial => "export",  locals: { export: export } %>
-    </div>
-    <% end %>
-  </div>
-  <% end %>
-</div>
-<div class="pagination">  
-  <%= will_paginate @exports, :container => false, renderer: BootstrapPagination::Rails %>
-</div>
+<div id="exports"><%= render 'exports' %></div>
+
 
 <% content_for :sidebar do %>
 <ul class="actions">

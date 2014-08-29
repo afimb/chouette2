@@ -5,5 +5,5 @@
   <%= paginated_content(@group_of_lines) %>
 </div>
 <div class="pagination">
-  <%= will_paginate @group_of_lines, :container => false, renderer: BootstrapPagination::Rails %>
+  <%= will_paginate @group_of_lines, :container => false, renderer: RemoteBootstrapPaginationLinkRenderer %>
 </div>

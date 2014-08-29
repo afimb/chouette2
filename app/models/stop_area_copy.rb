@@ -14,6 +14,22 @@ class StopAreaCopy
 
   def initialize(attributes = {})    
     attributes.each { |name, value| send("#{name}=", value) } if attributes
+    if self.area_type.blank? && self.source != nil
+      self.source_id = self.source.id
+      if self.hierarchy == "child"
+        if self.source.area_type.underscore == "stop_place"
+          self.area_type="commercial_stop_point"
+        else
+          self.area_type="boarding_position"
+        end
+      else
+        if self.source.area_type.underscore == "stop_place" || self.source.area_type.underscore == "commercial_stop_point"
+          self.area_type="stop_place"
+        else
+          self.area_type="commercial_stop_point"
+        end
+      end
+    end
   end
   
   def persisted?

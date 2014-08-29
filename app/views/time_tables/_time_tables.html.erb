@@ -5,5 +5,5 @@
   <%= paginated_content(@time_tables) %>
 </div>
 <div class="pagination">
-  <%= will_paginate @time_tables, :container => false, renderer: BootstrapPagination::Rails %>
+  <%= will_paginate @time_tables, :container => false, renderer: RemoteBootstrapPaginationLinkRenderer %>
 </div>

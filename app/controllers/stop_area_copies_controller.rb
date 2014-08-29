@@ -7,25 +7,13 @@ class StopAreaCopiesController < ChouetteController
   respond_to :html, :only => :new
   
   def new    
-    @stop_area_copy = StopAreaCopy.new(:source_id => parent.id, :hierarchy => params[:hierarchy])
-    if @stop_area_copy.hierarchy == "child"
-      if parent.area_type.underscore == "stop_place"
-        @stop_area_copy.area_type="commercial_stop_point"
-      else
-        @stop_area_copy.area_type="boarding_position"
-      end
-    else
-      if parent.area_type.underscore == "stop_place" || parent.area_type.underscore == "commercial_stop_point"
-        @stop_area_copy.area_type="stop_place"
-      else
-        @stop_area_copy.area_type="commercial_stop_point"
-      end
-    end
+    @stop_area_copy = StopAreaCopy.new(:hierarchy => params[:hierarchy], :source => parent)
     new!
   end
-# TODO
+
   def create
     @stop_area_copy = StopAreaCopy.new(params[:stop_area_copy])
+    @stop_area = parent
     if @stop_area_copy.save
       redirect_to referential_stop_area_path( @referential,parent ), notice: I18n.t("stop_area_copies.new.success")
     else
