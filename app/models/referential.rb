@@ -41,6 +41,10 @@ class Referential < ActiveRecord::Base
     end
   end
 
+  def viewbox_left_top_right_bottom
+    [  lower_corner.lng, upper_corner.lat, upper_corner.lng, lower_corner.lat ].join(',')
+  end
+
   def human_attribute_name(*args)
     self.class.human_attribute_name(*args)
   end

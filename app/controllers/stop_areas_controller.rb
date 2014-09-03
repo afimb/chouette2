@@ -42,7 +42,7 @@ class StopAreasController < ChouetteController
     @detail_access_links = stop_area.detail_access_link_matrix
   end
 
-  def index    
+  def index
     request.format.kml? ? @per_page = nil : @per_page = 12
     @country_codes = referential.stop_areas.collect(&:country_code).compact.uniq
     index! do |format|
@@ -51,22 +51,28 @@ class StopAreasController < ChouetteController
           redirect_to params.merge(:page => 1)
         end
       }
-    end       
+    end
+  end
+
+  def new
+    @map = StopAreaMap.new( Chouette::StopArea.new).with_helpers(self)
+    @map.editable = true
+    new!
   end
 
   def show
     map.editable = false
     @access_points = @stop_area.access_points
     show! do |format|
-      unless stop_area.position or params[:default] or params[:routing] 
+      unless stop_area.position or params[:default] or params[:routing]
         format.kml {
-          render :nothing => true, :status => :not_found 
+          render :nothing => true, :status => :not_found
         }
-        
+
       end
     end
   end
-  
+
   def edit
     stop_area.position ||= stop_area.default_position
 
@@ -85,9 +91,9 @@ class StopAreasController < ChouetteController
       format.json { render :json => referential.stop_areas.collect(&:country_code).compact.uniq.to_json }
     end
   end
-  
+
   protected
-  
+
   alias_method :stop_area, :resource
 
   def map
@@ -96,7 +102,7 @@ class StopAreasController < ChouetteController
 
   def collection
     @q = parent.present? ? parent.stop_areas.search(params[:q]) : referential.stop_areas.search(params[:q])
-    @stop_areas ||= 
+    @stop_areas ||=
       begin
         stop_areas = @q.result(:distinct => true).order(:name)
         stop_areas = stop_areas.paginate(:page => params[:page], :per_page => @per_page) if @per_page.present?
