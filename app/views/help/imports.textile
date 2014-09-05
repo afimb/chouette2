@@ -41,6 +41,8 @@ format originaire de ["Google Transit":https://support.google.com/transitpartner
 
 p(olnext). - les données exportées en GTFS sont explicités ["ICI":http://www.normes-donnees-tc.org/format-dechange/autres-normes/] 
 
+p(olnext). - l'import limité au sous ensemble des arrêts permet de n'importer que les arrêts et les correspondances
+
 h3(#com). Paramètres communs
 
 - Pas de sauvegarde := permet d'effectuer une simulation de l'import sans enregistrer les données
@@ -79,6 +81,9 @@ distance maximale entre deux arrêts pour les lier par une correspondance,
 ces correspondances sont hors zone d'arrêt;
 elles viennent en supplément de celles définies dans GTFS (ce mécanisme tient compte des correspondances exclues), 
 une distance de 0 ne génère aucune correspondance =:
+- Sous-ensemble := 
+choix permetant de limiter l'import aux seuls fichiers stops.txt et transfers.txt
+lors de l'import, les attributs d'adresse, localité et code postal ajoutés à l'export associé sont exploités =:
 
 * *CSV* : 
 
@@ -90,7 +95,7 @@ h3(#imp). l'onglet IMPORTS
 
 p. L'onglet IMPORTS contient les objets Import de l'espace de données courant.
 
-p. Chaque objet Import est représenté par une vignette comprenant : sa date, l'utilisateur qui l'a créé, son état (bleu : en cours ; vert : terminé correctement ; rouge : terminé en échec), un lien pour télécharger le fichier importé, un lien vers le détail de l'objet, un lien vers l'objet Validation associé).
+p. Chaque objet Import est représenté par une vignette comprenant : sa date, l'utilisateur qui l'a créé, son état (blanc: en attente, bleu : en cours ; vert : terminé correctement ; rouge : terminé en échec), un lien pour télécharger le fichier importé, un lien vers le détail de l'objet, un lien vers l'objet Validation associé).
 
 p=. !import.png!
 

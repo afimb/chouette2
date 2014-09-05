@@ -8,6 +8,8 @@ en:
       title: "New import"
       all: "All"
       flash: "Import task on queue, refresh page to see progression"
+      fields_gtfs_import:
+        warning: "Filter on stop areas import only GTFS stops and transfers files, these may contain extra attributes"
     index:
       title: "Imports"
       warning: ""
@@ -102,6 +104,8 @@ fr:
       title: "Nouvel import"
       all: "Tout"
       flash: "La demande d'import est mise en file d'attente, veuillez rafraichir régulièrement la page pour le suivre"
+      fields_gtfs_import:
+        warning: "Le filtre sur arrêts importe uniquement les fichiers GTFS stops et transfers gtfs, ceux-ci pouvant contenir des attributs supplémentaires"
     index:
       title: "Imports"
       warning: ""

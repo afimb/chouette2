@@ -21,6 +21,7 @@
       <%= form.input :resources, :as => :file %>
       
       <% unless import_task.references_types.empty? %>
+          <p class="warning"><%= t('.'+import_partial_name(form)+'.warning')%></p>
           <%= form.input :references_type, :as => :select, :collection => import_task.references_types.map { |c| [ c.model_name.human.capitalize.pluralize, c.name ] }, :include_blank => t(".all") %>
       <% end %>
       

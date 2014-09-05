@@ -14,6 +14,7 @@
   <%= form.inputs do %>
     <%= form.input :type, :as => :hidden %>
 
+    <p class="warning"><%= t('.'+export_partial_name(form)+'.warning',:default => "")%></p>
     <%= form.input :references_type, :as => :select, :collection => export.references_types.map { |c| [ c.model_name.human.capitalize.pluralize, c.name ] }, :include_blank => t(".all") %>
 
     <% export.references_types.each do |type| %>

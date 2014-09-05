@@ -10,6 +10,8 @@ en:
       all: "All"
       flash: "Export task on queue, refresh page to see progression"
       flash2: "On success, a link for download will be displayed"
+      fields_gtfs_export:
+        warning: "Stop areas choice provide only stops and transfers gtfs files, with extra data"
     index:
       title: "Exports"
       warning: ""
@@ -123,6 +125,8 @@ fr:
       all: "Toutes"
       flash: "La demande d'export est mise en file d'attente, veuillez rafraichir régulièrement la page pour le suivre"
       flash2: "Une fois l'export terminé, un lien sera disponible pour télécharger le résultat"
+      fields_gtfs_export:
+        warning: "Le filtre sur arrêts produit uniquement les fichiers GTFS stops et transfers gtfs, ceux-ci contenant alors des attributs supplémentaires"
     index:
       title: "Exports"
       warning: ""
