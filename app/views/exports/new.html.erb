@@ -14,9 +14,9 @@
   <%= form.inputs do %>
     <%= form.input :type, :as => :hidden %>
 
-    <%= form.input :references_type, :as => :select, :collection => Export.references_types.map { |c| [ c.model_name.human.capitalize.pluralize, c.name ] }, :include_blank => t(".all") %>
+    <%= form.input :references_type, :as => :select, :collection => export.references_types.map { |c| [ c.model_name.human.capitalize.pluralize, c.name ] }, :include_blank => t(".all") %>
 
-    <% Export.references_types.each do |type| %>
+    <% export.references_types.each do |type| %>
       <%= type_ids_model_references_input(form, @export, Export, type).input %>
     <% end %>
   <% end %>

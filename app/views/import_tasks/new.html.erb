@@ -19,6 +19,11 @@
       <%= form.input :rule_parameter_set_id, :as => :select,
           :collection =>  @referential.rule_parameter_sets.map { |rps| [ rps.name, rps.id ] }, :include_blank => true %>
       <%= form.input :resources, :as => :file %>
+      
+      <% unless import_task.references_types.empty? %>
+          <%= form.input :references_type, :as => :select, :collection => import_task.references_types.map { |c| [ c.model_name.human.capitalize.pluralize, c.name ] }, :include_blank => t(".all") %>
+      <% end %>
+      
     <% end %>
 
     <%= form.actions do %>

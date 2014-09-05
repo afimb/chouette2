@@ -50,6 +50,7 @@ class StopAreaImport
       row = Hash[[header, spreadsheet.row(i)].transpose]
       stop_area = Chouette::StopArea.find_by_id(row["id"]) || Chouette::StopArea.new
        stop_area.attributes = row.to_hash.slice(*Chouette::StopArea.accessible_attributes)
+      Rails.logger.info(stop_area.inspect)
       stop_area
     end
   end

@@ -129,7 +129,7 @@ fr:
     show:
       report: "Rapport"
     statuses:
-      pending: "En attente ou en cours ..."
+      pending: "En attente ..."
       processing: "En cours ..."
       completed: "Achevé"
       failed: "Echoué"

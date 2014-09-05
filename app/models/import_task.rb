@@ -15,6 +15,10 @@ class ImportTask < ActiveRecord::Base
   validates_presence_of :user_name
   validates_inclusion_of :status, :in => %w{ pending processing completed failed }
 
+  def references_types
+    []
+  end
+
   protected
 
   def self.option(name, type=nil)
@@ -54,6 +58,7 @@ class ImportTask < ActiveRecord::Base
   option :no_save, :boolean
   option :format
   option :file_path
+  option :references_type
 
   validates_inclusion_of :no_save, :in => [ true, false]
   validates_inclusion_of :format, :in => self.formats

@@ -7,4 +7,8 @@ class GtfsImport < ImportTask
   option :ignore_end_chars
   option :max_distance_for_connection_link
 
+  def references_types
+    [ Chouette::StopArea ]
+  end
+
 end
