@@ -4,89 +4,40 @@
 </ol>
 
 <%= title_tag t('vehicle_journeys.index.title', :route => @route.name ) %>
-<div class="page_info">
-  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @vehicle_journeys %>
-</div>
-<div class="pagination">
-  <%= will_paginate @vehicle_journeys, :container => false, renderer: BootstrapPagination::Rails %>
-</div>
-<div class="vehicle_journeys paginated_content">
-  <table class="table table-hover table-striped">
-  <thead>
-    <tr>
-      <th class="title"><%= Chouette::JourneyPattern.model_name.human.pluralize %> :</th>
-      <% @vehicle_journeys.map(&:journey_pattern).each do |jp| %>
-        <th><%= link_to journey_name( jp), [@referential, @line, @route, jp] %></th>
-    <% end %>
-    </tr>
-    <tr>
-      <th class="title"><%= Chouette::TimeTable.model_name.human.pluralize %> :</th>
-      <% @vehicle_journeys.each do |vj| %>
-        <th title="<%= time_tables_info( vj) %>" class="calendars"> 
-          <%= time_tables_shortest_info( vj) %>
-        </th>
-      <% end %>
-    </tr>
-    <tr>
-      <th class="title"><%= Chouette::VehicleJourney.model_name.human.pluralize %> :</th>
-      <% @vehicle_journeys.each do |vj| %>
-      <th> <%= link_to vehicle_name(vj), [@referential, @line, @route, vj]%></th>
-      <% end %>
-    </tr>
-  </thead>
-  <tbody>
-  <% @route.stop_points.each_with_index do |sp, index| %>
-  <tr class="<%= cycle('odd', 'even') %>">
-    <td class="stop_area"><%= sp.stop_area.name %></td>
-    <% @vehicle_journeys.each do |vj| %>
-      <td class="hours <%= missing_time_check(@matrix["#{vj.id}-#{sp.id}"]) %>">
-        <%= (@matrix["#{vj.id}-#{sp.id}"] && @matrix["#{vj.id}-#{sp.id}"].departure_time) ? l( @matrix["#{vj.id}-#{sp.id}"].departure_time, :format => :hour) : "" %>
-      </td>
-    <% end %>
-  </tr>
-  <% end %>
-  </tbody>
-  </table>
-</div>
-<div class="pagination">
-  <%= will_paginate @vehicle_journeys, :container => false, renderer: BootstrapPagination::Rails %>
-</div>
-<% content_for :sidebar do %>
-  <ul class="actions">
-    <li><%= link_to t('vehicle_journeys.actions.new'), new_referential_line_route_vehicle_journey_path(@referential, @line, @route), :class => "add" %></li>
-    <li><%= link_to t('.timeless'), timeless_referential_line_route_vehicle_journeys_path(@referential, @line, @route), :class => "link" %></li>
-	<li><%= link_to t('vehicle_journey_imports.new.title'), new_referential_line_route_vehicle_journey_import_path( @referential, @line, @route ), :class => "import" %></li>
-  </ul>
-  <div class="btn-group">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-       <%= t('vehicle_journey_imports.new.export_vehicle_journeys') %><span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" role="menu">
-      <li><%= link_to image_tag("icons/file_csv.png") + " Csv" , referential_line_route_vehicle_journey_exports_path(@referential, @line, @route, :format => :csv) %></li>
-      <li><%= link_to image_tag("icons/file_excel.png") + " Excel", referential_line_route_vehicle_journey_exports_path(@referential, @line, @route, :format => :xls) %></li>
-    </ul>
+
+<%= search_form_for @q, :url => referential_line_route_vehicle_journeys_path(@referential,@line,@route), remote: true, :html => {:method => :get, class: "form-inline", :id => "search", role: "form"} do |f| %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="input-group col-md-9">
+      <%= f.collection_select :journey_pattern_id_eq, @route.journey_patterns.map{|j| j.name = journey_name(j); j}, :id, :name, :include_blank => "All"  %>
+      <%= f.label :time_tables_id_eq, "TM" %>
+      <%= f.text_field :time_tables_id_eq %>
+      <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(3i)]" %> type="hidden" value="1">
+      <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(2i)]" %> type="hidden" value="1">
+      <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(1i)]" %> type="hidden" value="2000">
+      <%= f.label :vehicle_journey_at_stops_departure_time_gt, t('.time_range') %>
+      <%= select_hour(@q.send( "vehicle_journey_at_stops_departure_time_gt") ? @q.send( "vehicle_journey_at_stops_departure_time_gt").hour : 0,
+                       :prefix => "q", :field_name => "vehicle_journey_at_stops_departure_time_gt(4i)") %>
+      <%= select_minute(@q.send( "vehicle_journey_at_stops_departure_time_gt") ? @q.send( "vehicle_journey_at_stops_departure_time_gt").min : 0,
+                         :prefix => "q", :field_name => "vehicle_journey_at_stops_departure_time_gt(5i)") %>
+      <div class="input-group-btn">
+        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+      </div>
+    </div><!-- /input-group -->
+    <a data-toggle="collapse" data-parent="#search" href="#advanced_search">
+      <i class="fa fa-plus"></i> <%= "#{t('.advanced_search')}" %>
+    </a>
   </div>
-  <h4><%= t(".selection") %></h4>
 
-  <h5><%= Chouette::JourneyPattern.model_name.human.pluralize %></h5>
-
-  <ul class="selection">
-  <% @route.journey_patterns.each do |journey_pattern| %>
-  <li><%= link_with_search journey_name(journey_pattern), "journey_pattern_id_eq" => journey_pattern.id %></li>
-  <% end %>
-  <li><%= link_with_search t(".selection_all"), {"journey_pattern_id_eq" => nil}, :class => "all" %></li>
-  </ul>
-
-  <h5><%= Chouette::TimeTable.model_name.human.pluralize %></h5>
-
-  <ul class="selection">
-  <% @route.time_tables.each do |time_table| %>
-  <li><%= link_with_search time_table.comment, "time_tables_comment_eq" => time_table.comment %></li>
-  <% end %>
-  <li><%= link_with_search t(".selection_all"), {"time_tables_comment_eq" => nil}, :class => "all" %></li>
-  </ul>
-
-  <h4><%= t('.time_range') %></h4>
-  <%= render :partial => "time_filter", :locals => { :time_field => "departure_time"} %>
+  <div id="advanced_search" class="panel-collapse collapse">
+    <div class="panel-body">
+      <p>other fields</p>
+    </div>
+  </div>
+</div>
 <% end %>
+<div id="vehicle_journeys" ><%= render "vehicle_journeys" %></div>
 
+<% content_for :sidebar do %>
+  <%= render "sidebar" %>
+<% end %>
