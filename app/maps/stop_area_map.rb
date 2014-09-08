@@ -13,6 +13,7 @@ class StopAreaMap < ApplicationMap
       if stop_area.children.present?
         page.assign "children_layer", kml_layer(stop_area, { :children => true }, :style_map => Design::StopAreasStyleMap.new(helpers).style_map)
         page << map.add_layer(:children_layer)
+        page << map.add_control( hover_control_display_name(:children_layer) )
       end
       if stop_area.routing_stops.present?
         page.assign "routing_layer", kml_layer(stop_area, { :routing => true }, :style_map => Design::StopAreasStyleMap.new(helpers).style_map)
@@ -37,34 +38,34 @@ EOF
           page.assign "edit_stop_area_layer", kml_layer(stop_area, { :default => editable? }, :style_map => Design::EditStopAreaStyleMap.new(helpers).style_map)
         end
 
-          page << <<EOF
-          var createAddressStyleMap = function() {
-            var defProp = {strokeColor: "black", strokeOpacity: 1, strokeWidth: 2, fillColor: "#86b41d", fillOpacity: 1};
-            var defStyle = OpenLayers.Util.applyDefaults(defProp, OpenLayers.Feature.Vector.style["default"]);
-            return new OpenLayers.StyleMap({'default': defStyle, });
-          };
-          var address_layer = new OpenLayers.Layer.Vector( "address_layer", {styleMap: createAddressStyleMap()});
+        page << <<EOF
+        var createAddressStyleMap = function() {
+          var defProp = {strokeColor: "black", strokeOpacity: 1, strokeWidth: 2, fillColor: "#86b41d", fillOpacity: 1};
+          var defStyle = OpenLayers.Util.applyDefaults(defProp, OpenLayers.Feature.Vector.style["default"]);
+          return new OpenLayers.StyleMap({'default': defStyle, });
+        };
+        var address_layer = new OpenLayers.Layer.Vector( "address_layer", {styleMap: createAddressStyleMap()});
 
-          var removeAddress = function() {
-            address_layer.destroyFeatures();
-          };
+        var removeAddress = function() {
+          address_layer.destroyFeatures();
+        };
 
-          var addAddress = function( lat, lng, name ) {
-            var wgs84point = new OpenLayers.Geometry.Point( lat, lng);
-            var point = transformedGeometry( wgs84point, "EPSG:4326", "EPSG:900913" )
-            var feature = new OpenLayers.Feature.Vector( point, { name: name});
-            address_layer.addFeatures( [feature]);
+        var addAddress = function( lat, lng, name ) {
+          var wgs84point = new OpenLayers.Geometry.Point( lat, lng);
+          var point = transformedGeometry( wgs84point, "EPSG:4326", "EPSG:900913" )
+          var feature = new OpenLayers.Feature.Vector( point, { name: name});
+          address_layer.addFeatures( [feature]);
 
-            var bounds = new OpenLayers.Bounds();
-            bounds.extend( feature.geometry.getBounds());
-            for (var x in edit_stop_area_layer.features) {
-                bounds.extend( edit_stop_area_layer.features[x].geometry.getBounds());
-            }
-            map.zoomToExtent(bounds,true);
-          };
-          var transformedGeometry = function( geometry, origin, target ) {
-            return geometry.clone().transform( new OpenLayers.Projection( origin ), new OpenLayers.Projection( target ));
+          var bounds = new OpenLayers.Bounds();
+          bounds.extend( feature.geometry.getBounds());
+          for (var x in edit_stop_area_layer.features) {
+              bounds.extend( edit_stop_area_layer.features[x].geometry.getBounds());
           }
+          map.zoomToExtent(bounds,true);
+        };
+        var transformedGeometry = function( geometry, origin, target ) {
+          return geometry.clone().transform( new OpenLayers.Projection( origin ), new OpenLayers.Projection( target ));
+        }
 EOF
         page << map.add_layer(:address_layer)
         page << map.add_layer(:edit_stop_area_layer)
@@ -119,10 +120,6 @@ EOF
             drawControl.activate();
 EOF
           end
-          #page << map.add_control(OpenLayers::Control::ModifyFeature.new(:edit_stop_area_layer, :mode => 8, :autoActivate => true))
-        elsif stop_area.children.present?
-          page << map.add_control( hover_control_display_name(:children_layer) )
-
         end
 
       page << map.set_center(center.to_google.to_openlayers, 16, false, true)
