@@ -1,0 +1,30 @@
+en:
+  vehicle_journey_exports:
+    new:
+      title: "Export existing vehicle journey at stops"
+      basename: "vehicle_journeys"
+    label:
+      vehicle_journey_id: "vj id"
+      number: "number"
+      time_table_ids: "timetables"
+      flexible_service: "on demand (Y(es)|N(o)|empty for unknown)"
+      mobility: "wheel_chairs (Y(es)|N(o)|empty for unknown)"
+      stop_id: "stop id"
+      stop_name: "stop name"
+      b_true: "Yes"
+      b_false: "No"
+fr:
+  vehicle_journey_exports:
+    new:
+      title: "Exporter les horaires existants"
+      basename: "courses"
+    label:
+      vehicle_journey_id: "id course"
+      number: "numéro"
+      time_table_ids: "calendriers"
+      flexible_service: "TAD (O(ui)|N(on)|vide si inconnu)"
+      mobility: "PMR (O(ui)|N(on)|vide si inconnu)"
+      stop_id: "id arrêt"
+      stop_name: "nom arrêt"
+      b_true: "Oui"
+      b_false: "Non"

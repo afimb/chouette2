@@ -17,13 +17,13 @@ describe "VehicleJourneyImports" do
   }
 
   def update_csv_file_with_factory_data(filename)
-    csv_file = CSV.open("/tmp/#{filename}", "wb") do |csv|
+    csv_file = CSV.open("/tmp/#{filename}", "wb",{ :col_sep => ";"}) do |csv|
       counter = 0
-      CSV.foreach( Rails.root.join("spec", "fixtures", "#{filename}").to_s ) do |row|
-        if counter == 0
+      CSV.foreach( Rails.root.join("spec", "fixtures", "#{filename}").to_s , {:col_sep => ";"}) do |row|
+        if counter < 6
           csv << row
         else
-          csv << ( row[0] = route.stop_points[counter - 1].id; row)          
+          csv << ( row[0] = route.stop_points[counter - 6].id; row)          
         end
         counter += 1
       end

@@ -6,21 +6,17 @@ class VehicleJourneyExportsController < ChouetteController
   end
   
   respond_to :csv, :only => [:index]
-  respond_to :xls, :only => [:index]
+  #respond_to :xls, :only => [:index]
 
   def index
-    @column_names = column_names 
     index! do |format|      
-      format.csv { send_data VehicleJourneyExport.new(:route => route, :vehicle_journeys => vehicle_journeys, :column_names => column_names).to_csv }
-      format.xls
+      format.csv { send_data VehicleJourneyExport.new(:route => route, :vehicle_journeys => vehicle_journeys).to_csv(:col_sep => ";") , :filename => t("vehicle_journey_exports.new.basename")+"_#{route.id}.csv" }
+      #format.xls
     end
   end
   
   protected
   
-  def column_names
-    ["stop_point_id", "stop_area_name"] + vehicle_journeys.collect(&:objectid)
-  end
     
   alias_method :route, :parent
  

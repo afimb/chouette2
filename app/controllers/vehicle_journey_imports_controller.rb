@@ -16,7 +16,12 @@ class VehicleJourneyImportsController < ChouetteController
   def create
     @vehicle_journey_import = VehicleJourneyImport.new( params[:vehicle_journey_import].present? ? params[:vehicle_journey_import].merge({:route => route}) : {:route => route} )
     if @vehicle_journey_import.save
-      redirect_to referential_line_route_path( @referential, @line, @route ), notice: I18n.t("vehicle_journey_imports.new.success")
+      notice = I18n.t("vehicle_journey_imports.new.success") + 
+      "<br>" + I18n.t("vehicle_journey_imports.success.created_jp_count",:count => @vehicle_journey_import.created_journey_pattern_count) +
+      "<br>" + I18n.t("vehicle_journey_imports.success.created_vj_count",:count => @vehicle_journey_import.created_vehicle_journey_count) +
+      "<br>" + I18n.t("vehicle_journey_imports.success.updated_vj_count",:count => @vehicle_journey_import.updated_vehicle_journey_count) +     
+      "<br>" + I18n.t("vehicle_journey_imports.success.deleted_vj_count",:count => @vehicle_journey_import.deleted_vehicle_journey_count)       
+      redirect_to referential_line_route_path( @referential, @line, @route ), notice: notice 
     else
       flash[:error] = I18n.t("vehicle_journey_imports.errors.import_aborted") + "<br>" + @vehicle_journey_import.errors.full_messages.join("<br>")
       render :new 
