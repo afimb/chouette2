@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 require "csv"
+require "zip/zip"
 
 class VehicleJourneyExport   
   include ActiveModel::Validations
@@ -87,6 +88,75 @@ class VehicleJourneyExport
         csv << [stop_point.id, stop_point.stop_area.name] + times
       end
     end
+  end
+
+  def tt_day_types(tt)
+    type = tt.monday ? label("monday") : ".."
+    type += tt.tuesday ? label("tuesday") : ".."
+    type += tt.wednesday ? label("wednesday") : ".."
+    type += tt.thursday ? label("thursday") : ".."
+    type += tt.friday ? label("friday") : ".."
+    type += tt.saturday ? label("saturday") : ".."
+    type += tt.sunday ? label("sunday") : ".."
+    type
+  end
+  
+  def tt_periods(tt)
+    periods = ""
+    tt.periods.each do |p|
+      periods += "["+p.period_start.to_s+" -> "+p.period_end.to_s+"] "
+    end
+    periods
+  end
+  
+  def tt_peculiar_days(tt)
+    days = ""
+    tt.included_days.each do |d|
+      days += d.to_s+" "
+    end
+    days
+  end 
+     
+  def tt_excluded_days(tt)
+    days = ""
+    tt.excluded_days.each do |d|
+      days += d.to_s+" "
+    end
+    days
+  end    
+  
+  def tt_data(tt)
+    [].tap do |array|
+      # code;name;tags;start;end;day types;periods;peculiar days;excluded days
+      array << tt.id.to_s
+      array << tt.comment
+      array << tt.tag_list
+      array << tt.start_date.to_s
+      array << tt.end_date.to_s
+      array << tt_day_types(tt)
+      array << tt_day_types(tt)
+      array << tt_periods(tt)
+      array << tt_peculiar_days(tt)
+      array << tt_excluded_days(tt)
+    end  
+  end
+  
+  def time_tables_to_csv (options = {})
+    tts = Chouette::TimeTable.all
+    CSV.generate(options) do |csv|            
+      csv << label("tt_columns").split(";")
+      tts.each do |tt|        
+        csv << tt_data(tt)
+      end
+    end
+  end
+  
+  def to_zip(temp_file,options = {})
+    ::Zip::ZipOutputStream.open(temp_file) { |zos| }
+    ::Zip::ZipFile.open(temp_file.path, ::Zip::ZipFile::CREATE) do |zipfile|
+      zipfile.get_output_stream(label("vj_filename")+route.id.to_s+".csv") { |f| f.puts to_csv(options) }
+      zipfile.get_output_stream(label("tt_filename")+".csv") { |f| f.puts time_tables_to_csv(options) }
+    end    
   end
 
 end

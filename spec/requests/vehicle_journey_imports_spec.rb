@@ -34,7 +34,7 @@ describe "VehicleJourneyImports" do
   end
   
   describe "new" do      
-    it "should create stop areas and return to stop areas index page" do
+    it "should create vehicle journey file and return to route show page" do
       visit new_referential_line_route_vehicle_journey_import_path(referential, route.line, route)
       attach_file('Fichier', valid_file_path)
       click_button "Lancer l'import"

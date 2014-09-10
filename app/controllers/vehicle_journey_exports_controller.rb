@@ -6,11 +6,22 @@ class VehicleJourneyExportsController < ChouetteController
   end
   
   respond_to :csv, :only => [:index]
+  respond_to :zip, :only => [:index]
   #respond_to :xls, :only => [:index]
 
   def index
     index! do |format|      
       format.csv { send_data VehicleJourneyExport.new(:route => route, :vehicle_journeys => vehicle_journeys).to_csv(:col_sep => ";") , :filename => t("vehicle_journey_exports.new.basename")+"_#{route.id}.csv" }
+      format.zip do
+        begin
+          temp_file = Tempfile.new("vehicle_journey_export")
+          VehicleJourneyExport.new(:route => route, :vehicle_journeys => vehicle_journeys).to_zip(temp_file,:col_sep => ";")
+          send_data  File.read(temp_file.path), :filename => t("vehicle_journey_exports.new.basename")+"_#{route.id}.zip" 
+        ensure
+          temp_file.close
+          temp_file.unlink
+        end
+      end
       #format.xls
     end
   end
