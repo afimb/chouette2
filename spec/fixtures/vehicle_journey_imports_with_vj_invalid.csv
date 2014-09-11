@@ -1,5 +1,6 @@
-;id course;invalid vj;import:VehicleJourney:2;import:VehicleJourney:3
+;id course;9999;import:VehicleJourney:2;import:VehicleJourney:3
 ;numéro;1;2;3
+;identifiant véhicule;11;12;13
 ;PMR (O(ui)|N(on)|vide si inconnu);Oui;;
 ;TAD (O(ui)|N(on)|vide si inconnu);Oui;;
 ;calendriers;;;

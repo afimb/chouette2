@@ -1,4 +1,5 @@
 class Chouette::Hub::Exporter
+  require "zip"
   
   attr_reader :referential
   attr_reader :hub_export, :lines, :routes, :journey_patterns

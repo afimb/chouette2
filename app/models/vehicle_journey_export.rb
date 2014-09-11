@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 require "csv"
+require "zip"
 
 class VehicleJourneyExport   
   include ActiveModel::Validations
@@ -21,7 +22,7 @@ class VehicleJourneyExport
   end
 
   def column_names
-    ["", label("vehicle_journey_id")] + vehicle_journeys.collect(&:objectid)
+    ["", label("vehicle_journey_id")] + vehicle_journeys.collect(&:id)
   end
 
   # produce a map stop_id => departure time for a vehicle_journey
@@ -53,6 +54,10 @@ class VehicleJourneyExport
     (vehicle_journeys.collect{ |vj| vj.number ?  vj.number.to_s : "" } )
   end
 
+  def vehicle_identifier_array
+    (vehicle_journeys.collect{ |vj| vj.vehicle_type_identifier ?  vj.vehicle_type_identifier : "" } )
+  end
+
   def flexible_service_array
     (vehicle_journeys.collect{ |vj| boolean_code vj.flexible_service  } )
   end
@@ -77,6 +82,7 @@ class VehicleJourneyExport
     CSV.generate(options) do |csv|            
       csv << column_names
       csv << ["", label("number")] + number_array
+      csv << ["", label("vehicle_identifier")] + vehicle_identifier_array
       csv << ["", label("mobility")] + mobility_restricted_suitability_array
       csv << ["", label("flexible_service")] + flexible_service_array
       csv << ["", label("time_table_ids")] + time_tables_array

@@ -96,12 +96,13 @@ class VehicleJourneyImport
     
     # fixed rows (first = 1)
     number_row = 2
-    mobility_row = 3
-    flexible_service_row = 4
-    time_tables_row = 5
+    vehicle_type_identifier_row = 3
+    mobility_row = 4
+    flexible_service_row = 5
+    time_tables_row = 6
 
     # rows in column (first = 0)
-    first_stop_row_index = 6
+    first_stop_row_index = 7
     
     stop_point_ids = first_column[first_stop_row_index..spreadsheet.last_row].map(&:to_i)
     same_stop_points = route.stop_points.collect(&:id) == stop_point_ids
@@ -112,12 +113,12 @@ class VehicleJourneyImport
     end    
            
     (3..spreadsheet.last_column).each do |i|
-      vehicle_journey_objectid = spreadsheet.column(i)[0]
+      vehicle_journey_id = spreadsheet.column(i)[0]
       hours_by_stop_point_ids = Hash[[stop_point_ids, spreadsheet.column(i)[first_stop_row_index..spreadsheet.last_row]].transpose]
       
       journey_pattern = find_journey_pattern_schedule(i,hours_by_stop_point_ids)
       
-      vehicle_journey = route.vehicle_journeys.where(:objectid => vehicle_journey_objectid, :route_id => route.id).first_or_initialize
+      vehicle_journey = route.vehicle_journeys.where(:id => vehicle_journey_id, :route_id => route.id).first_or_initialize
 
       if journey_pattern.nil?
         if vehicle_journey.id.present? 
@@ -134,6 +135,9 @@ class VehicleJourneyImport
       
       # number
       vehicle_journey.number = as_integer(spreadsheet.row(number_row)[i-1])
+      
+      # vehicle_type_identifier
+      vehicle_journey.vehicle_type_identifier = spreadsheet.row(vehicle_type_identifier_row)[i-1]
       
       # flexible_service
       vehicle_journey.flexible_service = as_boolean(spreadsheet.row(flexible_service_row)[i-1])

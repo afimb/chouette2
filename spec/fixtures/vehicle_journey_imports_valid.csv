@@ -1,5 +1,6 @@
 ;id course;import:VehicleJourney:1;import:VehicleJourney:2;import:VehicleJourney:3;
 ;numéro;1;2;3;4
+;identifiant véhicule;11;12;13;14
 ;PMR (O(ui)|N(on)|vide si inconnu);Oui;;;
 ;TAD (O(ui)|N(on)|vide si inconnu);Oui;;;
 ;calendriers;;;;

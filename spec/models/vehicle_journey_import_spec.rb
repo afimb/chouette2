@@ -7,10 +7,19 @@ describe VehicleJourneyImport do
     csv_file = CSV.open("/tmp/#{filename}", "wb",{ :col_sep => ";"}) do |csv|
       counter = 0
       CSV.foreach( Rails.root.join("spec", "fixtures", "#{filename}").to_s , {:col_sep => ";"}) do |row|
-        if counter < 6
+        if counter == 0
+          row2 = []
+          row.each do |cell|
+            cell = vehicle_journey1.id.to_s if cell == "import:VehicleJourney:1" 
+            cell = vehicle_journey2.id.to_s if cell == "import:VehicleJourney:2" 
+            cell = vehicle_journey3.id.to_s if cell == "import:VehicleJourney:3" 
+            row2 << cell
+          end
+          csv << row2
+        elsif  counter < 7
           csv << row
         else
-          csv << ( row[0] = route.stop_points[counter - 6].id; row)          
+          csv << ( row[0] = route.stop_points[counter - 7].id; row)          
         end
         counter += 1
       end
