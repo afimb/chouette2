@@ -45,6 +45,10 @@ class ImportTask < ActiveRecord::Base
     %w{Neptune Csv Gtfs Netex}
   end
 
+  def self.format_label(format)
+    I18n.t 'exchange.format.'+format.downcase
+  end
+
   def delayed_import
     delay.import
   end

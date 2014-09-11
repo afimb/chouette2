@@ -111,6 +111,10 @@ class Export < ActiveRecord::Base
     }
     name_by_format[format]
   end
+  
+  def self.format_label(format)
+    I18n.t 'exchange.format.'+format.sub("Export",'').downcase
+  end
 
   def self.types
     unless Rails.env.development?

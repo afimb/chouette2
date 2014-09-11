@@ -2,7 +2,7 @@
 
 <%= semantic_form_for([@referential, @import_task], :as => :import_task, :url => new_referential_import_task_path(@referential), :method => :get) do |form| %>
   <%= form.inputs do %>
-    <%= form.input :format, :as => :radio, :collection => ImportTask.formats, :required => true, :include_blank => false %>
+    <%= form.input :format, :as => :radio, :collection => ImportTask.formats.map { |format| [ ImportTask.format_label(format), format]}, :required => true, :include_blank => false %>
   <% end %>
 <% end %>
 
