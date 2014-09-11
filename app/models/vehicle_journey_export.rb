@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 require "csv"
-require "zip/zip"
 
 class VehicleJourneyExport   
   include ActiveModel::Validations
@@ -152,8 +151,8 @@ class VehicleJourneyExport
   end
   
   def to_zip(temp_file,options = {})
-    ::Zip::ZipOutputStream.open(temp_file) { |zos| }
-    ::Zip::ZipFile.open(temp_file.path, ::Zip::ZipFile::CREATE) do |zipfile|
+    ::Zip::OutputStream.open(temp_file) { |zos| }
+    ::Zip::File.open(temp_file.path, ::Zip::File::CREATE) do |zipfile|
       zipfile.get_output_stream(label("vj_filename")+route.id.to_s+".csv") { |f| f.puts to_csv(options) }
       zipfile.get_output_stream(label("tt_filename")+".csv") { |f| f.puts time_tables_to_csv(options) }
     end    

@@ -5,12 +5,14 @@ class ImportTasksController < ChouetteController
 
   def new
     new! do
+      add_breadcrumb Referential.human_attribute_name("import_tasks"), referential_import_tasks_path(@referential)
       available_imports
     end
   end
 
   def show
     show! do
+      add_breadcrumb Referential.human_attribute_name("import_tasks"), referential_import_tasks_path(@referential)
       if import_task.completed?
         @files_stats = import_task.result["files"]["stats"]
         @files_list = import_task.result["files"]["list"]

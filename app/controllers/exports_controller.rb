@@ -7,6 +7,7 @@ class ExportsController < ChouetteController
 
   def new
     new! do
+      add_breadcrumb Referential.human_attribute_name("exports"), referential_exports_path(@referential)
       available_exports
     end
   end
@@ -19,6 +20,7 @@ class ExportsController < ChouetteController
   end
 
   def show
+    add_breadcrumb Referential.human_attribute_name("exports"), referential_exports_path(@referential)
     show! do |format|
       format.zip { send_file @export.file, :type => :zip }
     end

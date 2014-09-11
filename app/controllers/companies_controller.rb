@@ -14,8 +14,29 @@ class CompaniesController < ChouetteController
         if collection.out_of_bounds?
           redirect_to params.merge(:page => 1)
         end
+      add_breadcrumb Referential.model_name.human(:count => 2), referentials_path()
+      add_breadcrumb @referential.name, referential_path(@referential)
       }
     end       
+  end
+  
+  def show
+    show! do
+      add_breadcrumb Referential.human_attribute_name("companies"), referential_companies_path(@referential)
+    end
+  end
+
+  def new
+    new! do
+      add_breadcrumb Referential.human_attribute_name("companies"), referential_companies_path(@referential)
+    end
+  end
+  
+  def edit
+    edit! do
+      add_breadcrumb Referential.human_attribute_name("companies"), referential_companies_path(@referential)
+      add_breadcrumb @company.name, referential_line_path(@referential, @company)
+    end
   end
 
   protected
