@@ -57,15 +57,17 @@ sudo apt-get install make
 Installation
 ------------
 
+On debian, chouette can also be installed as package : see [debian packages](http://packages.chouette.cityway.fr/debian/chouette)
+
 Install chouette-gui-command to import, export and validate transport offer,
 Assume Linux user is myuser and its group mygroup (that user is the one who starts Rails server)
 ```sh
 sudo mkdir -p /usr/local/opt/chouette-command/
 sudo chown -R myuser:mygroup /usr/local/opt/chouette-command/
 cd /usr/local/opt/chouette-command/
-wget http://maven.chouette.cityway.fr/fr/certu/chouette/chouette-gui-command/2.4.1/chouette-gui-command-2.4.1.zip
-unzip chouette-gui-command-2.4.1.zip
-cd chouette-cmd_2.4.1
+wget http://maven.chouette.cityway.fr/fr/certu/chouette/chouette-gui-command/2.5.0/chouette-gui-command-2.5.0.zip
+unzip chouette-gui-command-2.5.0.zip
+cd chouette-cmd_2.5.0
 sudo chmod a+w .
 ```
 
@@ -74,7 +76,7 @@ Install web application
 Get git source code :
 ```sh
 cd
-git clone -b V2_4 git://github.com/afimb/chouette2
+git clone -b V2_5 git://github.com/afimb/chouette2
 cd chouette2
 ```
 Download gem librairies

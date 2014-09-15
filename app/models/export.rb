@@ -3,7 +3,7 @@ class Export < ActiveRecord::Base
   belongs_to :referential
   validates_presence_of :referential_id
 
-  validates_inclusion_of :status, :in => %w{ pending completed failed }
+  validates_inclusion_of :status, :in => %w{ pending processing completed failed }
 
   has_many :log_messages, :class_name => "ExportLogMessage", :order => :position, :dependent => :delete_all
 
@@ -51,12 +51,7 @@ class Export < ActiveRecord::Base
   end
 
   def export_object_type
-#    case references_type
-#    when "Chouette::Network"
-#      "ptnetwork"
-#    else
       references_relation ? references_relation.singularize : "line"
-#    end
   end
 
   before_validation :define_default_attributes, :on => :create
@@ -91,10 +86,19 @@ class Export < ActiveRecord::Base
     log_messages.create :severity => result_severity, :key => status
   end
 
-  @@references_types = [ Chouette::Line, Chouette::Network, Chouette::Company ]
-  cattr_reader :references_types
 
-  validates_inclusion_of :references_type, :in => references_types.map(&:to_s), :allow_blank => true, :allow_nil => true
+  def self.all_references_types
+    [ Chouette::Line, Chouette::Network, Chouette::Company , Chouette::StopArea]
+  end
+
+  def references_types
+    [ Chouette::Line, Chouette::Network, Chouette::Company ]
+  end
+
+  # @@references_types = [ Chouette::Line, Chouette::Network, Chouette::Company ]
+  # cattr_reader :references_types
+
+  # validates_inclusion_of :references_type, :in => references_types.map(&:to_s), :allow_blank => true, :allow_nil => true
 
   def self.format_name(format)
     name_by_format = {
@@ -106,6 +110,10 @@ class Export < ActiveRecord::Base
       "HubExport" => "HUB"
     }
     name_by_format[format]
+  end
+  
+  def self.format_label(format)
+    I18n.t 'exchange.format.'+format.sub("Export",'').downcase
   end
 
   def self.types

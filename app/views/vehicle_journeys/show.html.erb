@@ -115,4 +115,5 @@
     <li><font color="#D98F3B"><i class="fa fa-cubes fa-fw"></i></font><%= link_to t('.translation_form'), new_referential_line_route_vehicle_journey_vehicle_translation_path(@referential, @line, @route, @vehicle_journey), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal_translation', :class => "with_fa" } %></li>
   <% end %>
   </ul>
+  <%= creation_tag(@vehicle_journey) %>
 <% end %>

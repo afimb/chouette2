@@ -10,7 +10,9 @@ class NetworksController < ChouetteController
 
   def show
     @map = NetworkMap.new(resource).with_helpers(self)
-    show!
+    show! do
+      add_breadcrumb Referential.human_attribute_name("networks"), referential_networks_path(@referential)
+    end
   end
 
   def index    
@@ -21,6 +23,19 @@ class NetworksController < ChouetteController
         end
       }
     end       
+  end
+
+  def new
+    new! do
+      add_breadcrumb Referential.human_attribute_name("networks"), referential_networks_path(@referential)
+    end
+  end
+  
+  def edit
+    edit! do
+      add_breadcrumb Referential.human_attribute_name("networks"), referential_networks_path(@referential)
+      add_breadcrumb @network.name, referential_line_path(@referential, @network)
+    end
   end
 
   protected

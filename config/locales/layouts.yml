@@ -7,8 +7,8 @@ en:
       profile: "My Profile"
       sign_out: "Sign out"
     navbar:
-      return_to_referentials: "Return to referentials"
-      select_referential: "Select referential"
+      return_to_referentials: "Return to data spaces"
+      select_referential: "Select data space"
       select_referential_datas: "Select datas"
       return_to_dashboard: "Return to Dashboard"
       referential_datas: "Datas"
@@ -49,8 +49,8 @@ fr:
       profile: "Mon Profil"      
       sign_out: "Déconnexion"
     navbar:
-      return_to_referentials: "Retour à la liste des référentiels"
-      select_referential: "Sélection du référentiel"
+      return_to_referentials: "Retour à la liste des espaces de données"
+      select_referential: "Sélection de l'espace de données"
       select_referential_datas: "Sélection des données"
       return_to_dashboard: "Retour au Tableau de Bord"
       referential_datas: "Données"

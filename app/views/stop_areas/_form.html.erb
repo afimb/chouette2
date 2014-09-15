@@ -1,54 +1,52 @@
 <%= semantic_form_for [@referential, @stop_area] do |form| %>
   <div class="row">
-    <div class="col-md-6">      
+    <div class="col-md-6">
       <%= form.inputs do %>
       <%= form.input :id, :as => :hidden %>
       <%= form.input :name %>
       <%= form.input :stop_area_type, :as => :select, :input_html => { :disabled => !@stop_area.new_record? }, :collection => Chouette::StopArea.stop_area_types, :include_blank => false, :member_label => Proc.new { |stop_area_type| t("area_types.label.#{stop_area_type}") }  %>
       <div class="location_info">
       <h3><%= t("stop_areas.stop_area.localisation") %></h3>
-      <% if @stop_area.new_record? %>  
       <div id="prefetch">
         <label><%= t('.geolocalize') %></label>
-	      <input class="typeahead form-control input-lg" maxlength="255" type="text" placeholder="<%= t('.address') %>" />       
+	      <input class="typeahead form-control input-lg" maxlength="255" type="text" placeholder="<%= t('.address') %>" />
       </div>
-      <% end %>
       <% unless @referential.projection_type_label.empty? %>
-  	    <%= form.input :projection_xy, :label => t("projection_xy", :projection => @referential.projection_type_label), :input_html => { :title => t("formtastic.titles.stop_area.projection_xy")} %>   
+  	    <%= form.input :projection_xy, :label => t("projection_xy", :projection => @referential.projection_type_label), :input_html => { :title => t("formtastic.titles.stop_area.projection_xy")} %>
 	    <% end %>
 	    <%= form.input :coordinates, :input_html => { :title => t("formtastic.titles.stop_area.coordinates")} %>
-      <%= form.input :street_name %>              
-      <%= form.input :country_code %>              
-      <%= form.input :zip_code %>              
+      <%= form.input :street_name %>
+      <%= form.input :country_code %>
+      <%= form.input :zip_code %>
       <%= form.input :city_name %>
-    <% end %>  
+    <% end %>
     </div>
     <div class="col-md-6">
       <% if !manage_itl && @map %>
-      <%= @map.to_html %>
+        <%= @map.to_html %>
       <% end %>
     </div>
   </div>
   <div class="stop_areas.stop_area.general_info">
-    <h3><%= t("stop_area.general") %></h3> 
+    <h3><%= t("stop_area.general") %></h3>
     <%= form.inputs do %>
-      <%= form.input :objectid, :required => !@stop_area.new_record?, :input_html => { :title => t("formtastic.titles.stop_area.objectid")} %> 
-      <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles.stop_area.registration_number")} %>         
-      <%= form.input :fare_code, :as => :number %>              
-      <%= form.input :nearest_topic_name %>              
+      <%= form.input :objectid, :required => !@stop_area.new_record?, :input_html => { :title => t("formtastic.titles.stop_area.objectid")} %>
+      <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles.stop_area.registration_number")} %>
+      <%= form.input :fare_code, :as => :number %>
+      <%= form.input :nearest_topic_name %>
       <%= form.input :comment, :as => :text, :input_html => { :rows => 5 } %>
     <% end %>
-  </div>    
+  </div>
   <div class="pmr_info">
-    <h3><%= t("stop_areas.stop_area.accessibility") %></h3> 
+    <h3><%= t("stop_areas.stop_area.accessibility") %></h3>
     <%= form.inputs do %>
       <% if !manage_itl %>
 	      <%= form.input :mobility_restricted_suitability,:as => :boolean %>
 	      <%= form.input :stairs_availability,:as => :boolean %>
-	      <%= form.input :lift_availability,:as => :boolean %>	     
-      <% end %>        
+	      <%= form.input :lift_availability,:as => :boolean %>
+      <% end %>
     <% end %>
-  </div>    
+  </div>
 
   <%= form.actions do %>
     <%= form.action :submit, :as => :button %>
@@ -57,77 +55,92 @@
 <% end %>
 
 <script>
-  var address_display = function( address ) {
-    var name = "";
-    if ( address.house_number) {
-      name += address.house_number+" ";
-    }
-    name += address.road+", ";
-    if ( address.postalcode) {
-      name += address.postalcode+" ";
-    }
-    if ( address.city) {
-      name += address.city;
-    } else if ( address.county ) {
-      name += address.county;
-    } else if ( address.country ) {
-      name += address.country;
-    }
+  $(document).ready(function() {
+    var address_display = function( address ) {
+      var name = "";
+      if ( address.house_number) {
+        name += address.house_number+" ";
+      }
+      name += address.road+", ";
+      if ( address.suburb) {
+        name += address.suburb+", ";
+      }
+      if ( address.postcode) {
+        name += address.postcode+" ";
+      }
+      if ( address.city) {
+        name += address.city;
+      } else if ( address.county ) {
+        name += address.county;
+      } else if ( address.country ) {
+        name += address.country;
+      }
 
-    return name;
-  };
-  var filtering = function(list) {
-    var selection = $.grep( list, function(item) {
-        return (item.type == "house" || item.type == "residential") && item.address.road ;
-        });
-    return $.map( selection, function( d) {
-        return { postcode: d.address.postcode,
-                 road: d.address.road,
-                 lon: d.lon, lat: d.lat,
-                 city: d.address.city,
-                 postcode: d.address.postcode,
-                 the_key: address_display( d.address)};
+      return name;
+    };
+    var filtering = function(list) {
+      // update map view
+      removeAddress();
+
+      var selection = $.grep( list, function(item) {
+          return (item.type == "house" || item.type == "residential" ||
+            item.type == "tertiary" || item.type == "primary" ||
+            item.type == "secondary") && item.address.road ;
+          });
+      return $.map( selection, function( d) {
+          return { postcode: d.address.postcode,
+                   road: d.address.road,
+                   lon: d.lon, lat: d.lat,
+                   suburb: d.address.suburb,
+                   city: d.address.city,
+                   postcode: d.address.postcode,
+                   the_key: address_display( d.address)};
+      });
+    };
+
+    var addressesEngine = new Bloodhound({
+      datumTokenizer: function(d) {
+        return Bloodhound.tokenizers.whitespace(d.id+" : "+d.road);
+      },
+      queryTokenizer: function(d) {
+        return Bloodhound.tokenizers.whitespace(d.id+" :: "+d.road);
+      },
+      limit: 10,
+      remote: {
+        url: 'http://nominatim.openstreetmap.org/search?q=%QUERY&format=json&addressdetails=1&bounded=1&viewbox='+
+          '<%= @referential.viewbox_left_top_right_bottom %>',
+        filter: filtering,
+      }
     });
-  };
 
-  var addressesEngine = new Bloodhound({
-    datumTokenizer: function(d) {
-      return Bloodhound.tokenizers.whitespace(d.id+" : "+d.road);
-    },
-    queryTokenizer: function(d) {
-      return Bloodhound.tokenizers.whitespace(d.id+" :: "+d.road);
-    },
-    limit: 10,
-    remote: {
-      url: 'http://nominatim.openstreetmap.org/search?q=%QUERY&format=json&addressdetails=1',
-      filter: filtering,
-    }
+    // kicks off the loading/processing of `local` and `prefetch`
+    var promise = addressesEngine.initialize();
+
+    // passing in `null` for the `options` arguments will result in the default
+    // options being used
+    $('#prefetch .typeahead').typeahead(
+      {
+        hint: true,
+        highlight: true,
+        minLength: 1
+      },
+      {
+        name: 'addresses',
+        displayKey: 'the_key',
+        source: addressesEngine.ttAdapter(),
+      }
+    );
+
+    $('.typeahead').on('typeahead:selected', function($e, datum) {
+      // update map view
+      addAddress( datum.lon, datum.lat, datum.road);
+      // update form fields
+      <% if @stop_area.new_record? %>
+      $('input[name="stop_area[street_name]"]').val(datum.road);
+      $('input[name="stop_area[zip_code]"]').val(datum.postcode);
+      $('input[name="stop_area[city_name]"]').val(datum.city);
+      <% end %>
+    })
   });
-
-  // kicks off the loading/processing of `local` and `prefetch`
-  var promise = addressesEngine.initialize();
-
-  // passing in `null` for the `options` arguments will result in the default
-  // options being used
-  $('#prefetch .typeahead').typeahead(
-    {
-      hint: true,
-      highlight: true,
-      minLength: 1
-    },
-    {
-      name: 'addresses',
-      displayKey: 'the_key',
-      source: addressesEngine.ttAdapter(),
-    }
-  );
-
-  $('.typeahead').on('typeahead:selected', function($e, datum) {
-    $('input[name="stop_area[coordinates]"]').val(datum.lat+","+datum.lon);
-    $('input[name="stop_area[coordinates]"]').change();
-    $('input[name="stop_area[street_name]"]').val(datum.road);
-    $('input[name="stop_area[zip_code]"]').val(datum.postcode);
-    $('input[name="stop_area[city_name]"]').val(datum.city);
-  })
 </script>
 

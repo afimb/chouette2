@@ -1,4 +1,5 @@
 class Chouette::Hub::Exporter
+  require "zip"
   
   attr_reader :referential
   attr_reader :hub_export, :lines, :routes, :journey_patterns
@@ -174,7 +175,7 @@ class Chouette::Hub::Exporter
 
         end
 
-        ::Zip::ZipFile.open(zip_file_path, ::Zip::ZipFile::CREATE) do |zipfile|
+        ::Zip::File.open(zip_file_path, ::Zip::File::CREATE) do |zipfile|
           Dir[File.join(temp_dir, '*.TXT')].each do |f|
             #Rails.logger.error("Adding File #{File.basename(f)}")
             zipfile.add(File.basename(f), f)

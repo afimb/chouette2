@@ -1,5 +1,7 @@
 class Chouette::Kml::Exporter
 
+  require 'zip'
+  
   attr_reader :referential
   attr_reader :kml_export, :lines, :routes, :journey_patterns
 
@@ -103,7 +105,7 @@ class Chouette::Kml::Exporter
 
         end
 
-        ::Zip::ZipFile.open(zip_file_path, ::Zip::ZipFile::CREATE) do |zipfile|
+        ::Zip::File.open(zip_file_path, ::Zip::File::CREATE) do |zipfile|
           Dir[File.join(temp_dir, '*.kml')].each do |f|
             zipfile.add(File.basename(f), f)
           end

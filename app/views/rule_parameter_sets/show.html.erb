@@ -97,13 +97,12 @@
 
 <% content_for :sidebar do %>
 <ul class="actions">
+  <li><%= link_to t('rule_parameter_sets.actions.new'), new_referential_rule_parameter_set_path(@referential), :class => "add" %></li>
   <% if @rule_parameter_set.persisted? %>
-  <li><%= link_to t('rule_parameter_sets.actions.index'), referential_rule_parameter_sets_path(@referential), :class => "link" %></li>
   <li><%= link_to t('rule_parameter_sets.actions.edit'), edit_referential_rule_parameter_set_path(@referential, @rule_parameter_set), :class => "edit" %></li>
   <% if @referential.rule_parameter_sets.size > 1 %>
   <li><%= link_to  t('rule_parameter_sets.actions.destroy'), referential_rule_parameter_set_path(@referential, @rule_parameter_set), :method => :delete, :data => {:confirm =>  t('rule_parameter_sets.actions.destroy_confirm')}, :class => "remove" %></li>
   <% end %>
-  <li><%= link_to t('rule_parameter_sets.actions.new'), new_referential_rule_parameter_set_path(@referential), :class => "add" %></li>
   <% end %>
 </ul>
 <% end %>

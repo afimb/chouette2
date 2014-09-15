@@ -8,7 +8,10 @@ class StopAreaCopiesController < ChouetteController
   
   def new    
     @stop_area_copy = StopAreaCopy.new(:hierarchy => params[:hierarchy], :source => parent)
-    new!
+    new! do
+      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
+      add_breadcrumb @stop_area.name, referential_stop_area_path(@referential, @stop_area)
+    end
   end
 
   def create

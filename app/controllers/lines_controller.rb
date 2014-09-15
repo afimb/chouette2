@@ -22,9 +22,23 @@ class LinesController < ChouetteController
     @map = LineMap.new(resource).with_helpers(self)
     @routes = @line.routes
     @group_of_lines = @line.group_of_lines
-    show!
+    show! do
+      add_breadcrumb Referential.human_attribute_name("lines"), referential_lines_path(@referential)
+    end
   end
 
+  def new
+    new! do
+      add_breadcrumb Referential.human_attribute_name("lines"), referential_lines_path(@referential)
+    end
+  end
+  
+  def edit
+    edit! do
+      add_breadcrumb Referential.human_attribute_name("lines"), referential_lines_path(@referential)
+      add_breadcrumb @line.name, referential_line_path(@referential, @line)
+    end
+  end
   # overwrite inherited resources to use delete instead of destroy 
   # foreign keys will propagate deletion)
   def destroy_resource(object)

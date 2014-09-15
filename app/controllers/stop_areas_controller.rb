@@ -19,30 +19,40 @@ class StopAreasController < ChouetteController
   def select_parent
     @stop_area = stop_area
     @parent = stop_area.parent
+      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
+      add_breadcrumb @stop_area.name, referential_stop_area_path(@referential, @stop_area)
   end
 
   def add_children
     @stop_area = stop_area
     @children = stop_area.children
+      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
+      add_breadcrumb @stop_area.name, referential_stop_area_path(@referential, @stop_area)
   end
 
   def add_routing_lines
     @stop_area = stop_area
     @lines = stop_area.routing_lines
+      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
+      add_breadcrumb @stop_area.name, referential_stop_area_path(@referential, @stop_area)
   end
 
   def add_routing_stops
     @stop_area = stop_area
     @stops = stop_area.routing_stops
+      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
+      add_breadcrumb @stop_area.name, referential_stop_area_path(@referential, @stop_area)
   end
 
   def access_links
     @stop_area = stop_area
     @generic_access_links = stop_area.generic_access_link_matrix
     @detail_access_links = stop_area.detail_access_link_matrix
+      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
+      add_breadcrumb @stop_area.name, referential_stop_area_path(@referential, @stop_area)
   end
 
-  def index    
+  def index
     request.format.kml? ? @per_page = nil : @per_page = 12
     @country_codes = referential.stop_areas.collect(&:country_code).compact.uniq
     index! do |format|
@@ -51,27 +61,39 @@ class StopAreasController < ChouetteController
           redirect_to params.merge(:page => 1)
         end
       }
-    end       
+    end
+  end
+
+  def new
+    @map = StopAreaMap.new( Chouette::StopArea.new).with_helpers(self)
+    @map.editable = true
+    new! do
+      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
+    end
   end
 
   def show
     map.editable = false
     @access_points = @stop_area.access_points
     show! do |format|
-      unless stop_area.position or params[:default] or params[:routing] 
+      unless stop_area.position or params[:default] or params[:routing]
         format.kml {
-          render :nothing => true, :status => :not_found 
+          render :nothing => true, :status => :not_found
         }
-        
+
       end
+      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
     end
   end
-  
+
   def edit
     stop_area.position ||= stop_area.default_position
 
     map.editable = true
-    edit!
+    edit! do
+      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
+      add_breadcrumb @stop_area.name, referential_stop_area_path(@referential, @stop_area)
+    end
   end
 
   def default_geometry
@@ -85,9 +107,9 @@ class StopAreasController < ChouetteController
       format.json { render :json => referential.stop_areas.collect(&:country_code).compact.uniq.to_json }
     end
   end
-  
+
   protected
-  
+
   alias_method :stop_area, :resource
 
   def map
@@ -96,7 +118,7 @@ class StopAreasController < ChouetteController
 
   def collection
     @q = parent.present? ? parent.stop_areas.search(params[:q]) : referential.stop_areas.search(params[:q])
-    @stop_areas ||= 
+    @stop_areas ||=
       begin
         stop_areas = @q.result(:distinct => true).order(:name)
         stop_areas = stop_areas.paginate(:page => params[:page], :per_page => @per_page) if @per_page.present?

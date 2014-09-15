@@ -1,6 +1,12 @@
-"stop area id","stop area name","import:VehicleJourney:1","import:VehicleJourney:2",""
-1,"Arrêt 1","9:05:00","10:05:00","11:10:00"
-2,"Arrêt 2","11:05:00",,"11:15:00"
-3,"Arrêt 3","9:10:00","10:20:00","11:20:00"
-4,"Arrêt 4","9:15:00","10:25:00","11:25:00"
-5,"Arrêt 5","9:20:00","10:30:00","11:30:00"
+;id course;import:VehicleJourney:1;import:VehicleJourney:2;
+;numéro;1;2;3
+;identifiant véhicule;11;12;13
+;PMR (O(ui)|N(on)|vide si inconnu);Oui;;
+;TAD (O(ui)|N(on)|vide si inconnu);Oui;;
+;calendriers;;;
+id arrêt;nom arrêt;;;
+1;Arrêt 1;9:05:00;10:05:00;11:10:00
+2;Arrêt 2;11:05:00;;11:15:00
+3;Arrêt 3;9:10:00;10:20:00;11:20:00
+4;Arrêt 4;9:15:00;10:25:00;11:25:00
+5;Arrêt 5;9:20:00;10:30:00;11:30:00

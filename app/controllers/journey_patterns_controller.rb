@@ -27,7 +27,28 @@ class JourneyPatternsController < ChouetteController
   def show
     @map = JourneyPatternMap.new(journey_pattern).with_helpers(self)
     @stop_points = journey_pattern.stop_points.paginate(:page => params[:page])
-    show!
+    show! do
+      add_breadcrumb Referential.human_attribute_name("lines"), referential_lines_path(@referential)
+      add_breadcrumb @line.name, referential_line_path(@referential, @line)
+      add_breadcrumb @route.name, referential_line_route_path(@referential, @line, @route)
+    end
+  end
+
+  def new
+    new! do
+      add_breadcrumb Referential.human_attribute_name("lines"), referential_lines_path(@referential)
+      add_breadcrumb @line.name, referential_line_path(@referential, @line)
+      add_breadcrumb @route.name, referential_line_route_path(@referential, @line, @route)
+    end
+  end
+
+  def edit
+    edit! do
+      add_breadcrumb Referential.human_attribute_name("lines"), referential_lines_path(@referential)
+      add_breadcrumb @line.name, referential_line_path(@referential, @line)
+      add_breadcrumb @route.name, referential_line_route_path(@referential, @line, @route)
+      add_breadcrumb @journey_pattern.name, referential_line_route_journey_pattern_path(@referential, @line, @route, @journey_pattern)
+    end
   end
 
   def new_vehicle_journey

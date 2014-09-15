@@ -97,6 +97,7 @@
   <li><%= link_to t('journey_patterns.actions.new'), new_referential_line_route_journey_pattern_path(@referential, @line, @route), :class => "add" %></li>
 <% end %>
   <li><%= link_to t('vehicle_journey_imports.new.title'), new_referential_line_route_vehicle_journey_import_path( @referential, @line, @route ), :class => "import" %></li>
+  <li><%= link_to image_tag("icons/file_csv.png") + t('vehicle_journey_exports.new.title'), referential_line_route_vehicle_journey_exports_path(@referential, @line, @route, :format => :zip), :class => "with_fa" %></li>
   <% if @route.journey_patterns.size > 0 %>
   <li>
     <i class="fa fa-clock-o fa-fw"></i><%= link_to t('vehicle_journeys.actions.index'), [@referential, @line, @route, :vehicle_journeys], :class => "with_fa" %>

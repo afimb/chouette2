@@ -4,13 +4,22 @@ require 'spec_helper'
 describe VehicleJourneyImport do
 
   def update_csv_file_with_factory_data(filename)
-    csv_file = CSV.open("/tmp/#{filename}", "wb") do |csv|
+    csv_file = CSV.open("/tmp/#{filename}", "wb",{ :col_sep => ";"}) do |csv|
       counter = 0
-      CSV.foreach( Rails.root.join("spec", "fixtures", "#{filename}").to_s ) do |row|
+      CSV.foreach( Rails.root.join("spec", "fixtures", "#{filename}").to_s , {:col_sep => ";"}) do |row|
         if counter == 0
+          row2 = []
+          row.each do |cell|
+            cell = vehicle_journey1.id.to_s if cell == "import:VehicleJourney:1" 
+            cell = vehicle_journey2.id.to_s if cell == "import:VehicleJourney:2" 
+            cell = vehicle_journey3.id.to_s if cell == "import:VehicleJourney:3" 
+            row2 << cell
+          end
+          csv << row2
+        elsif  counter < 7
           csv << row
         else
-          csv << ( row[0] = route.stop_points[counter - 1].id; row)          
+          csv << ( row[0] = route.stop_points[counter - 7].id; row)          
         end
         counter += 1
       end
@@ -93,14 +102,14 @@ describe VehicleJourneyImport do
   describe ".find_journey_pattern_schedule" do   
 
     it "should return journey pattern with same stop points" do          
-      expect(subject.find_journey_pattern_schedule( { stop_point0.id => "9:00", stop_point1.id => "9:05", stop_point2.id => "9:10", stop_point3.id => "9:15", stop_point4.id => "9:20"} )).to eq(journey_pattern)
-      expect(subject.find_journey_pattern_schedule( { stop_point1.id => "9:00", stop_point3.id => "9:10" } )).to eq(other_journey_pattern)
+      expect(subject.find_journey_pattern_schedule( 1, { stop_point0.id => "9:00", stop_point1.id => "9:05", stop_point2.id => "9:10", stop_point3.id => "9:15", stop_point4.id => "9:20"} )).to eq(journey_pattern)
+      expect(subject.find_journey_pattern_schedule( 1, { stop_point1.id => "9:00", stop_point3.id => "9:10" } )).to eq(other_journey_pattern)
     end
 
     it "should return new journey_pattern if no journey pattern with same stop points is founded" do      
-      expect(subject.find_journey_pattern_schedule( { stop_point0.id => "9:00", stop_point1.id => "9:05", stop_point2.id => nil, stop_point3.id => "9:15", stop_point4.id => "9:20"} )).to be_true
-      expect(subject.find_journey_pattern_schedule( { stop_point0.id => "9:00", stop_point1.id => "9:05", stop_point2.id => nil, stop_point3.id => "9:15", stop_point4.id => "9:20"} ).id).not_to eq(journey_pattern.id)
-      expect(subject.find_journey_pattern_schedule( { stop_point0.id => "9:00", stop_point1.id => "9:05", stop_point2.id => nil, stop_point3.id => "9:15", stop_point4.id => "9:20"} ).id).not_to eq(other_journey_pattern.id)
+      expect(subject.find_journey_pattern_schedule( 1, { stop_point0.id => "9:00", stop_point1.id => "9:05", stop_point2.id => nil, stop_point3.id => "9:15", stop_point4.id => "9:20"} )).to be_true
+      expect(subject.find_journey_pattern_schedule( 1, { stop_point0.id => "9:00", stop_point1.id => "9:05", stop_point2.id => nil, stop_point3.id => "9:15", stop_point4.id => "9:20"} ).id).not_to eq(journey_pattern.id)
+      expect(subject.find_journey_pattern_schedule( 1, { stop_point0.id => "9:00", stop_point1.id => "9:05", stop_point2.id => nil, stop_point3.id => "9:15", stop_point4.id => "9:20"} ).id).not_to eq(other_journey_pattern.id)
     end
     
   end

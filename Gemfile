@@ -54,7 +54,7 @@ gem 'bootstrap-timepicker-rails'
 
 # Format Output
 gem 'json'
-gem 'rubyzip', :require => 'zip/zip'
+gem 'rubyzip', '~> 1.1.6' 
 gem 'roo'
 
 # Controller
