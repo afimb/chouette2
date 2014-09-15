@@ -84,6 +84,7 @@ class Chouette::Hub::Exporter
         @journey_patterns = Chouette::JourneyPattern.where( :route_id => routes.map(&:id) ).order(:name) if routes_exportable?
         
         @vehicle_journeys = Chouette::VehicleJourney.where( :route_id => routes.map(&:id) ).order(:id) if routes_exportable?
+        @vehicle_journeys = Chouette::VehicleJourney.where( :route_id => routes.map(&:id) ).order(:id) if routes_exportable?
         
         vjs = []
         tts = []
@@ -107,6 +108,7 @@ class Chouette::Hub::Exporter
         if vehicle_journeys_exportable?
           Chouette::Hub::VehicleJourneyExporter.save(@vehicle_journeys, temp_dir, hub_export)
           Chouette::Hub::VehicleJourneyAtStopExporter.save(vehicle_journey_at_stops, temp_dir, hub_export)
+          Chouette::Hub::VehicleJourneyOperationExporter.save(@vehicle_journeys, temp_dir, hub_export)
         else
           log_overflow_warning(Chouette::VehicleJourney)
         end
