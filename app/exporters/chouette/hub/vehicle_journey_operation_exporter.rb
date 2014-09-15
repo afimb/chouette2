@@ -1,4 +1,4 @@
-class Chouette::Hub::VehicleJourneyExporter
+class Chouette::Hub::VehicleJourneyOperationExporter
   include ERB::Util
   attr_accessor :vehicle_journey, :directory, :template
   
@@ -22,7 +22,7 @@ class Chouette::Hub::VehicleJourneyExporter
         specific_exporter.save
       end
     end
-    hub_export.log_messages.create( :severity => "ok", :key => "EXPORT|VEHICLE_JOURNEY_OPERATION_COUNT", :arguments => {"0" => vehicle_journeys.size})
+    hub_export.log_messages.create( :severity => "ok", :key => "EXPORT|VEHICLE_JOURNEY_COUNT", :arguments => {"0" => vehicle_journeys.size})
   end
   
   def save
