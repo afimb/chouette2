@@ -1,4 +1,4 @@
-<%= title_tag Referential.model_name.human.pluralize %> 
+<%= title_tag Referential.model_name.human(:count => 2) %> 
 
 <div class="referentials paginated_content">
   <%= paginated_content @referentials %>

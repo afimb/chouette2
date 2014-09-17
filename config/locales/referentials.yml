@@ -65,6 +65,7 @@ en:
         import_tasks: "Imports"
         export_tasks: "Exports"
         compliance_check_tasks: "Validations"
+        rule_parameter_sets: "Rule parameters sets"
   formtastic:
     titles:
       referential:
@@ -140,6 +141,7 @@ fr:
         import_tasks: "Imports"
         export_tasks: "Exports"
         compliance_check_tasks: "Validations"
+        rule_parameter_sets: "Jeux de paramètres"
   formtastic:
     titles:
       referential:

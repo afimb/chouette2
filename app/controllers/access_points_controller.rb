@@ -30,13 +30,26 @@ class AccessPointsController < ChouetteController
         }
         
       end
+      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
+      add_breadcrumb @stop_area.name, referential_stop_area_path(@referential, @stop_area)
     end
   end
   
+  def new
+    new! do
+      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
+      add_breadcrumb @stop_area.name, referential_stop_area_path(@referential, @stop_area)
+    end
+  end
+
   def edit
     access_point.position ||= access_point.default_position
     map.editable = true
-    edit!
+    edit! do
+      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
+      add_breadcrumb @stop_area.name, referential_stop_area_path(@referential, @stop_area)
+      add_breadcrumb @access_point.name, referential_stop_area_access_point_path(@referential, @stop_area,@access_point)
+    end
   end
 
 

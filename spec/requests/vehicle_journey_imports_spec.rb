@@ -17,13 +17,22 @@ describe "VehicleJourneyImports" do
   }
 
   def update_csv_file_with_factory_data(filename)
-    csv_file = CSV.open("/tmp/#{filename}", "wb") do |csv|
+    csv_file = CSV.open("/tmp/#{filename}", "wb",{ :col_sep => ";"}) do |csv|
       counter = 0
-      CSV.foreach( Rails.root.join("spec", "fixtures", "#{filename}").to_s ) do |row|
+      CSV.foreach( Rails.root.join("spec", "fixtures", "#{filename}").to_s , {:col_sep => ";"}) do |row|
         if counter == 0
+          row2 = []
+          row.each do |cell|
+            cell = "" if cell == "import:VehicleJourney:1" 
+            cell = "" if cell == "import:VehicleJourney:2" 
+            cell = "" if cell == "import:VehicleJourney:3" 
+            row2 << cell
+          end
+          csv << row2
+        elsif  counter < 7
           csv << row
         else
-          csv << ( row[0] = route.stop_points[counter - 1].id; row)          
+          csv << ( row[0] = route.stop_points[counter - 7].id; row)          
         end
         counter += 1
       end
@@ -34,7 +43,7 @@ describe "VehicleJourneyImports" do
   end
   
   describe "new" do      
-    it "should create stop areas and return to stop areas index page" do
+    it "should create vehicle journey file and return to route show page" do
       visit new_referential_line_route_vehicle_journey_import_path(referential, route.line, route)
       attach_file('Fichier', valid_file_path)
       click_button "Lancer l'import"

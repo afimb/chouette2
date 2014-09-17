@@ -5,6 +5,10 @@ class GtfsExport < Export
   
   after_initialize :init_time_zone
   
+  def references_types
+    [ Chouette::Line, Chouette::Network, Chouette::Company, Chouette::StopArea ]
+  end
+
   def init_time_zone
     if time_zone.nil?
       self.time_zone = "Paris"

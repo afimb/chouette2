@@ -11,7 +11,9 @@ class GroupOfLinesController < ChouetteController
   def show
     @map = GroupOfLineMap.new(resource).with_helpers(self)
     @lines = resource.lines.order(:name).paginate(:page => params[:page])
-    show!
+    show! do
+      add_breadcrumb Referential.human_attribute_name("group_of_lines"), referential_group_of_lines_path(@referential)
+    end
   end
 
   def index    
@@ -23,12 +25,24 @@ class GroupOfLinesController < ChouetteController
       }
     end       
   end
+  
+  def new
+    new! do
+      add_breadcrumb Referential.human_attribute_name("group_of_lines"), referential_group_of_lines_path(@referential)
+    end
+  end
+  
+  def edit
+    edit! do
+      add_breadcrumb Referential.human_attribute_name("group_of_lines"), referential_group_of_lines_path(@referential)
+      add_breadcrumb @group_of_line.name, referential_group_of_line_path(@referential, @group_of_line)
+    end
+  end
 
   def name_filter
     respond_to do |format|  
       format.json { render :json => filtered_group_of_lines_maps}  
     end  
-    
   end
 
   protected

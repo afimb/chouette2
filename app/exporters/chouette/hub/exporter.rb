@@ -1,4 +1,5 @@
 class Chouette::Hub::Exporter
+  require "zip"
   
   attr_reader :referential
   attr_reader :hub_export, :lines, :routes, :journey_patterns
@@ -84,6 +85,7 @@ class Chouette::Hub::Exporter
         @journey_patterns = Chouette::JourneyPattern.where( :route_id => routes.map(&:id) ).order(:name) if routes_exportable?
         
         @vehicle_journeys = Chouette::VehicleJourney.where( :route_id => routes.map(&:id) ).order(:id) if routes_exportable?
+        @vehicle_journeys = Chouette::VehicleJourney.where( :route_id => routes.map(&:id) ).order(:id) if routes_exportable?
         
         vjs = []
         tts = []
@@ -107,6 +109,7 @@ class Chouette::Hub::Exporter
         if vehicle_journeys_exportable?
           Chouette::Hub::VehicleJourneyExporter.save(@vehicle_journeys, temp_dir, hub_export)
           Chouette::Hub::VehicleJourneyAtStopExporter.save(vehicle_journey_at_stops, temp_dir, hub_export)
+          Chouette::Hub::VehicleJourneyOperationExporter.save(@vehicle_journeys, temp_dir, hub_export)
         else
           log_overflow_warning(Chouette::VehicleJourney)
         end
@@ -172,7 +175,7 @@ class Chouette::Hub::Exporter
 
         end
 
-        ::Zip::ZipFile.open(zip_file_path, ::Zip::ZipFile::CREATE) do |zipfile|
+        ::Zip::File.open(zip_file_path, ::Zip::File::CREATE) do |zipfile|
           Dir[File.join(temp_dir, '*.TXT')].each do |f|
             #Rails.logger.error("Adding File #{File.basename(f)}")
             zipfile.add(File.basename(f), f)
