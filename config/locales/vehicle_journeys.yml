@@ -43,10 +43,12 @@ en:
     index:
       title: "Vehicle journeys on route %{route}"
       vehicle_journeys: "Departure's times"
-      title: "Timeless vehicle journeys"
       selection: "Filter on"
       selection_all: "All"
       time_range: "Departure time threshold"
+      advanced_search: "Advanced Search"
+    sidebar:
+      timeless: "Timeless vehicle journeys"
     time_filter:
       time_range_filter: "Filter"
   activerecord:
@@ -138,13 +140,15 @@ fr:
       translation_form: "Cloner la course"
     index:
       title: "Courses de la séquence d'arrêts %{route}"
-      timeless: "Courses sans horaire"
       vehicle_journeys: "Horaires de départ aux arrêts"
       selection: "Filtrer sur"
       selection_all: "Tous"
       time_range: "Seuil horaire au départ"
+      advanced_search: "Recherche avancée"
     time_filter:
       time_range_filter: "Filtrer"
+    sidebar:
+      timeless: "Courses sans horaire"
   activerecord:
     models:
       vehicle_journey:

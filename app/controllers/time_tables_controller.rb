@@ -10,36 +10,36 @@ class TimeTablesController < ChouetteController
 
   def show
     add_breadcrumb Referential.human_attribute_name("time_tables"), referential_time_tables_path(@referential)
-    
+
     @year = params[:year] ? params[:year].to_i : Date.today.cwyear
-    @time_table_combination = TimeTableCombination.new 
+    @time_table_combination = TimeTableCombination.new
     show!
   end
-  
+
   def new
     add_breadcrumb Referential.human_attribute_name("time_tables"), referential_time_tables_path(@referential)
-    
+
     @autocomplete_items = ActsAsTaggableOn::Tag.all
     new!
   end
 
   def edit
-    edit! do 
+    edit! do
       add_breadcrumb Referential.human_attribute_name("time_tables"), referential_time_tables_path(@referential)
       add_breadcrumb @time_table.comment, referential_time_table_path(@referential, @time_table)
-    
+
       @autocomplete_items = ActsAsTaggableOn::Tag.all
     end
   end
 
   def comment_filter
-    respond_to do |format|  
-      format.json { render :json => filtered_time_tables_maps}  
-    end  
-    
+    respond_to do |format|
+      format.json { render :json => filtered_time_tables_maps}
+    end
+
   end
 
-  def index    
+  def index
     request.format.kml? ? @per_page = nil : @per_page = 12
 
     index! do |format|
@@ -48,7 +48,7 @@ class TimeTablesController < ChouetteController
           redirect_to params.merge(:page => 1)
         end
       }
-    end       
+    end
   end
 
   def duplicate
@@ -60,7 +60,7 @@ class TimeTablesController < ChouetteController
   end
 
   def tags
-    @tags = ActsAsTaggableOn::Tag.where("tags.name LIKE ?", "%#{params[:tag]}%") 
+    @tags = ActsAsTaggableOn::Tag.where("tags.name LIKE ?", "%#{params[:tag]}%")
     respond_to do |format|
       format.json { render :json => @tags.map{|t| {:id => t.id, :name => t.name }} }
     end
@@ -83,9 +83,17 @@ class TimeTablesController < ChouetteController
     tag_search = ransack_params["tag_search"].split(",").collect(&:strip) if ransack_params.present? && ransack_params["tag_search"].present?
     ransack_params.delete("tag_search") if ransack_params.present?
 
-    select_time_tables = tag_search ? referential.time_tables.tagged_with(tag_search) : referential.time_tables
-    @q = select_time_tables.search(ransack_params)
+    selected_time_tables = tag_search ? select_time_tables.tagged_with(tag_search) : select_time_tables
+    @q = selected_time_tables.search(ransack_params)
     @time_tables ||= @q.result(:distinct => true).order(:comment).paginate(:page => params[:page])
+  end
+
+  def select_time_tables
+    if params[:route_id]
+      referential.time_tables.joins( vehicle_journeys: :route).where( "routes.id IN (#{params[:route_id]})")
+   else
+      referential.time_tables
+   end
   end
 
   def resource_url(time_table = nil)
