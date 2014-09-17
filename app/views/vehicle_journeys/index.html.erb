@@ -11,7 +11,7 @@
     <div class="input-group col-md-9">
       <%= f.collection_select :journey_pattern_id_eq, @route.journey_patterns.map{|j| j.name = journey_name(j); j}, :id, :name, :include_blank => "All"  %>
       <%= f.label :time_tables_id_eq, "TM" %>
-      <%= f.text_field :time_tables_id_eq %>
+      <%= f.text_field :time_tables_id_eq, :input_html => { :"data-pre" => [].to_json} %>
       <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(3i)]" %> type="hidden" value="1">
       <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(2i)]" %> type="hidden" value="1">
       <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(1i)]" %> type="hidden" value="2000">
@@ -41,3 +41,21 @@
 <% content_for :sidebar do %>
   <%= render "sidebar" %>
 <% end %>
+<script>
+	$(function() {
+        var time_tables_url = function(){
+          return '<%= referential_time_tables_path(@referential, :format => :json) %>?route_id=<%= @route.id %>';
+        };
+		$( "#q_time_tables_id_eq" ).tokenInput( time_tables_url, {
+          crossDomain: false,
+          prePopulate: $('#q_time_tables_id_eq').data('pre'),
+          minChars: 3,
+          queryParam: 'q[comment_cont]',
+          propertyToSearch: 'comment',
+          hintText: '<%= t('search_hint') %>',
+          noResultsText: '<%= t('no_result_text') %>',
+          searchingText: '<%= t('searching_term') %>',
+          resultsFormatter: function(item){ return '<li><div class=\"name\">' + item.comment + '</div><div class=\"info\">' + item.start_date + ' ' + item.end_date + '</div></li>' },
+        });
+	});
+</script>
