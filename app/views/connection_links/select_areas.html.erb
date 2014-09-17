@@ -3,8 +3,8 @@
 <%= semantic_form_for [@referential, @connection_link] do |form| %>
 <div>
   <%= form.inputs do %>
-    <%= form.input :departure_id, :as => :search_stop_area, :json => referential_connection_link_connection_link_areas_path(@referential, @connection_link, :format => :json), :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'), :input_html => { :"data-pre" => ( @departure.present? ? [ { :id => @departure.id.to_s, :name => "#{@departure.name}" } ]: [] ).to_json } %>
-    <%= form.input :arrival_id, :as => :search_stop_area, :json => referential_connection_link_connection_link_areas_path(@referential, @connection_link, :format => :json), :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'), :input_html => { :"data-pre" => ( @arrival.present? ? [ { :id => @arrival.id.to_s, :name => "#{@arrival.name}" } ]: [] ).to_json }  %>
+    <%= form.input :departure_id, :as => :search_stop_area, :json => referential_connection_link_connection_link_areas_path(@referential, @connection_link, :format => :json), :tokenLimit => 1, :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'), :input_html => { :"data-pre" => ( @departure.present? ? [ { :id => @departure.id.to_s, :name => "#{@departure.name}" } ]: [] ).to_json } %>
+    <%= form.input :arrival_id, :as => :search_stop_area, :json => referential_connection_link_connection_link_areas_path(@referential, @connection_link, :format => :json), :tokenLimit => 1, :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'), :input_html => { :"data-pre" => ( @arrival.present? ? [ { :id => @arrival.id.to_s, :name => "#{@arrival.name}" } ]: [] ).to_json }  %>
   <% end %>
 
    <%= form.actions do %>

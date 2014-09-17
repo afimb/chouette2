@@ -2,12 +2,13 @@ class SearchStopAreaInput < Formtastic::Inputs::SearchInput
 
   def search
     if options[:json]
-    template.content_tag( :script,
+      tokenLimit = options[:tokenLimit].present? ? options[:tokenLimit] : "null" 
+      template.content_tag( :script,
        ("$(document).ready(function() {
            $('##{dom_id}').tokenInput('#{options[:json]}', {
              crossDomain: false,
-             tokenLimit: 1,
-             minChars: 3,
+             tokenLimit: #{tokenLimit},
+             minChars: 2,
              hintText: '#{options[:hint_text]}',
              noResultsText: '#{options[:no_result_text]}',
              searchingText: '#{options[:searching_text]}',
