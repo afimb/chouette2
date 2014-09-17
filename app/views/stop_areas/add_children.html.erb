@@ -3,7 +3,7 @@
 <%= semantic_form_for [@referential, @stop_area] do |form| %>
 <div>
   <%= form.inputs do %>
-    <%= form.input :children_ids, :as => :text, :input_html => { :"data-pre" => ( @children.map { |child| { :id => child.id.to_s, :name => "#{child.name}" } } ).to_json }  %>
+    <%= form.input :children_ids, :as => :search_stop_area, :json => referential_stop_area_stop_area_children_path(@referential, @stop_area, :format => :json), :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'), :input_html => { :"data-pre" => ( @children.map { |child| { :id => child.id.to_s, :name => "#{child.name}" } } ).to_json }  %>
   <% end %>
 
    <%= form.actions do %>
@@ -12,21 +12,6 @@
    <% end %>
 </div>
 <% end %>
-
-<script>
-	$(function() {
-		$( "#stop_area_children_ids" ).tokenInput('<%= referential_stop_area_stop_area_children_path(@referential, @stop_area, :format => :json) %>', {
-       crossDomain: false,
-       prePopulate: $('#stop_area_children_id').data('pre'),
-       minChars: 3,
-       hintText: '<%= t('search_hint') %>',
-       noResultsText: '<%= t('no_result_text') %>',
-       searchingText: '<%= t('searching_term') %>',
-             resultsFormatter: function(item){ return '<li><div class=\"name\">' + item.name + '</div><div class=\"info\">' + item.area_type + '</div><div class=\"info\">' +  item.zip_code + ' ' + item.city_name + '</div></li>' },
-             tokenFormatter: function(item) { return '<li><p>' + item.name + '</p></li>' }
-           });
-	});
-</script>
 
 <% content_for :sidebar do %>
 <ul class="actions">
