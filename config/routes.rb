@@ -125,7 +125,6 @@ ChouetteIhm::Application.routes.draw do
 
     resources :time_tables do
       collection do
-        get :comment_filter
         get :tags
       end
       member do

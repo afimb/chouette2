@@ -20,7 +20,7 @@
         queryTokenizer: Bloodhound.tokenizers.whitespace,
         limit: 12,
         remote: {
-          url: '<%= comment_filter_referential_time_tables_path(@referential, :format => :json) %>',
+          url: '<%= referential_time_tables_path(@referential, :format => :json) %>?q[comment_cont]=%QUERY',
           },
         });
 
@@ -38,12 +38,12 @@
           source: timeTableSuggestion.ttAdapter()
         }
       );
-      
-  $('#time_table_combination_combined_name').on('typeahead:selected', function($e, datum) 
+
+  $('#time_table_combination_combined_name').on('typeahead:selected', function($e, datum)
   {
     $('input[name="time_table_combination[combined_id]"]').val(datum.id);
-  })      
-      
+  })
+
 	});
 </script>
 <% end %>
