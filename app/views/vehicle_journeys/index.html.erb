@@ -23,14 +23,21 @@
 
   <div id="advanced_search" class="panel-collapse collapse">
     <div class="panel-body">
+      <div>
       <%= f.label :time_tables_id_not_eq, "Sans calendrier" %>
       <%= f.check_box :time_tables_id_not_eq %>
 
-      <%= f.label :vehicle_journey_at_stops_departure_time_gt, "Sélectionner calendriers" %>
-      <%= f.text_field :time_tables_id_eq, :input_html => { :"data-pre" => [].to_json} %>
+      <span class="time_tables_id_eq">
+        <%= f.label :time_tables_id_eq, "Sélectionner calendriers" %>
+        <%= f.text_field :time_tables_id_eq, :input_html => { :"data-pre" => [].to_json} %>
+      </span>
+      </div>
 
+      <div>
       <%= f.label :vehicle_journey_at_stops_departure_time_not_eq, "Sans horaire" %>
       <%= f.check_box :vehicle_journey_at_stops_departure_time_not_eq %>
+
+      <span class="vehicle_journey_at_stops_departure_time_gt">
       <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(3i)]" %> type="hidden" value="1">
       <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(2i)]" %> type="hidden" value="1">
       <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(1i)]" %> type="hidden" value="2000">
@@ -39,6 +46,8 @@
                        :prefix => "q", :field_name => "vehicle_journey_at_stops_departure_time_gt(4i)") %>
       <%= select_minute(@q.send( "vehicle_journey_at_stops_departure_time_gt") ? @q.send( "vehicle_journey_at_stops_departure_time_gt").min : 0,
                          :prefix => "q", :field_name => "vehicle_journey_at_stops_departure_time_gt(5i)") %>
+      </span>
+      </div>
     </div>
   </div>
 </div>
@@ -74,6 +83,12 @@
           noResultsText: '<%= t('no_result_text') %>',
           searchingText: '<%= t('searching_term') %>',
           resultsFormatter: function(item){ return '<li><div class=\"name\">' + item.name + ', (' + item.id + ') </div></li>' },
+        });
+        $( 'input[name="q[time_tables_id_not_eq]"]').change( function(){
+            $('span.time_tables_id_eq').toggle( $(this).filter(":checked").val()==undefined);
+        });
+        $( 'input[name="q[vehicle_journey_at_stops_departure_time_not_eq]"]').change( function(){
+            $('span.vehicle_journey_at_stops_departure_time_gt').toggle( $(this).filter(":checked").val()==undefined);
         });
 	});
 </script>
