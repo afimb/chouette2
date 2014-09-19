@@ -7,11 +7,21 @@
 
 <%= search_form_for @q, :url => referential_line_route_vehicle_journeys_path(@referential,@line,@route), remote: true, :html => {:method => :get, class: "form-inline", :id => "search", role: "form"} do |f| %>
 <div class="panel panel-default">
-  <div class="panel-heading">
-    <div class="input-group col-md-9">
-      <%= f.collection_select :journey_pattern_id_eq, @route.journey_patterns.map{|j| j.name = journey_name(j); j}, :id, :name, :include_blank => "All"  %>
-      <%= f.label :time_tables_id_eq, "TM" %>
-      <%= f.text_field :time_tables_id_eq, :input_html => { :"data-pre" => [].to_json} %>
+  <div class="panel-heading clearfix">
+    <div class="col-md-9">
+      <%= f.collection_select :journey_pattern_id_eq, @route.journey_patterns.map{|j| j.name = journey_name(j); j}, :id, :name, :include_blank => t(".select_journey_patterns") %>
+      <%= f.text_field :time_tables_id_eq, :placeholder => t(".select_time_tables"), :input_html => { :"data-pre" => [].to_json } %>      
+      <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+    </div>
+    <div class="col-md-3">
+      <a data-toggle="collapse" data-parent="#search" href="#advanced_search" class="advanced_search_link">
+        <i class="fa fa-plus"></i> <%= "#{t('.advanced_search')}" %>
+      </a>
+    </div>
+  </div>
+
+  <div id="advanced_search" class="panel-collapse collapse">
+    <div class="panel-body">
       <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(3i)]" %> type="hidden" value="1">
       <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(2i)]" %> type="hidden" value="1">
       <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(1i)]" %> type="hidden" value="2000">
@@ -20,18 +30,6 @@
                        :prefix => "q", :field_name => "vehicle_journey_at_stops_departure_time_gt(4i)") %>
       <%= select_minute(@q.send( "vehicle_journey_at_stops_departure_time_gt") ? @q.send( "vehicle_journey_at_stops_departure_time_gt").min : 0,
                          :prefix => "q", :field_name => "vehicle_journey_at_stops_departure_time_gt(5i)") %>
-      <div class="input-group-btn">
-        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-      </div>
-    </div><!-- /input-group -->
-    <a data-toggle="collapse" data-parent="#search" href="#advanced_search">
-      <i class="fa fa-plus"></i> <%= "#{t('.advanced_search')}" %>
-    </a>
-  </div>
-
-  <div id="advanced_search" class="panel-collapse collapse">
-    <div class="panel-body">
-      <p>other fields</p>
     </div>
   </div>
 </div>
