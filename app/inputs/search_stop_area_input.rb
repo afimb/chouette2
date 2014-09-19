@@ -9,6 +9,7 @@ class SearchStopAreaInput < Formtastic::Inputs::SearchInput
              crossDomain: false,
              tokenLimit: #{tokenLimit},
              minChars: 2,
+             preventDuplicates: true,
              hintText: '#{options[:hint_text]}',
              noResultsText: '#{options[:no_result_text]}',
              searchingText: '#{options[:searching_text]}',
