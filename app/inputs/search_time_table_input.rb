@@ -9,6 +9,7 @@ class SearchTimeTableInput < Formtastic::Inputs::SearchInput
              crossDomain: false,
              tokenLimit: #{tokenLimit},
              minChars: 2,
+             propertyToSearch: 'comment',
              preventDuplicates: true,
              queryParam: 'q[comment_cont]',
              hintText: '#{options[:hint_text]}',
