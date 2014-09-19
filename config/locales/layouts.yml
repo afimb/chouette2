@@ -12,10 +12,8 @@ en:
       select_referential_datas: "Select datas"
       return_to_dashboard: "Return to Dashboard"
       referential_datas: "Datas"
-    creation_tag:
-      title: "Create"
     history_tag:
-      title: "History"  
+      title: "Metadatas"  
       created_at: "Created at"
       updated_at: "Updated at"
       user_name: "User"
@@ -54,10 +52,8 @@ fr:
       select_referential_datas: "Sélection des données"
       return_to_dashboard: "Retour au Tableau de Bord"
       referential_datas: "Données"
-    creation_tag:
-      title: "Création"
     history_tag:
-      title: "Historique"    
+      title: "Métadonnées"    
       created_at: "Créé le"
       updated_at: "Mise à jour le"
       user_name: "Auteur"
