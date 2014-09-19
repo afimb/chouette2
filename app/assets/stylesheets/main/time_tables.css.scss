@@ -8,8 +8,14 @@
     .time_tables {
         margin-top: 20px;
     }
-    
+
     .time_table {
+        span.included_day_type {
+            font-weight: bolder;
+            color: black;
+        }
+        span.excluded_day_type {
+        }
 
         .state-code {
             width: 25px;
@@ -28,7 +34,7 @@
                 width: 25px;
                 height: 25px;
             }
-            
+
             .validity_regular {
                 background-color: #86B41D;
                 width: 25px;
@@ -42,12 +48,12 @@
 #workspace.time_tables.show
 {
     .modal-body{overflow-y: visible;}
-    
+
     .typeahead.dropdown-menu {
     z-index: 100001;
-    }    
+    }
 
-    .day_type { 
+    .day_type {
       border-style:solid;
       border-width:1px;
       }
@@ -91,7 +97,7 @@
             background-color: #86B41D;
         }
     }
-}        
+}
 
 #workspace.time_tables.edit,#workspace.time_tables.new,#workspace.time_tables.create,#workspace.time_tables.update
 {
@@ -110,17 +116,17 @@
     #dates,#excluded_dates,#periods{
         .nested-fields {
             margin: 5px;
-            
-            ol {            
+
+            ol {
                 li {
                     display: inline;
                 }
             }
         }
-        
+
         margin-left: 25%;
     }
-    
+
     .day_type ol {
         float: left;
         margin: 0;
@@ -145,14 +151,14 @@
         padding-left: 10%;
         margin-top: 0;
     }
-        
+
     a.add_fields {
         margin-left: 25%;
         margin-top: 20px;
         padding-left: 18px;
         background: url(image-path('icons/add.png')) no-repeat 0% 50%;
     }
-    
+
     a.remove_fields {
         margin-left: 10px;
         padding-left: 18px;
@@ -162,5 +168,5 @@
     .actions{
         margin-top: 20px;
     }
-    
+
 }
