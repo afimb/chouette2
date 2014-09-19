@@ -16,6 +16,7 @@ class ConnectionLinksController < ChouetteController
         if collection.out_of_bounds?
           redirect_to params.merge(:page => 1)
         end
+        build_breadcrumb :index
       }
     end       
   end
@@ -23,30 +24,15 @@ class ConnectionLinksController < ChouetteController
   def show
     @map = ConnectionLinkMap.new(resource).with_helpers(self)
     show! do
-      add_breadcrumb Referential.human_attribute_name("connection_links"), referential_connection_links_path(@referential)
+        build_breadcrumb :show
     end
   end
-
-  def new
-    new! do
-      add_breadcrumb Referential.human_attribute_name("connection_links"), referential_connection_links_path(@referential)
-    end
-  end
-  
-  def edit
-    edit! do
-      add_breadcrumb Referential.human_attribute_name("connection_links"), referential_connection_links_path(@referential)
-      add_breadcrumb @connection_link.name, referential_connection_link_path(@referential, @connection_link)
-    end
-  end
-
 
   def select_areas
     @connection_link = connection_link
     @departure = connection_link.departure
     @arrival = connection_link.arrival
-    add_breadcrumb Referential.human_attribute_name("connection_links"), referential_connection_links_path(@referential)
-    add_breadcrumb @connection_link.name, referential_connection_link_path(@referential, @connection_link)
+    build_breadcrumb :show
   end
 
   protected

@@ -36,6 +36,7 @@ class VehicleJourneysController < ChouetteController
       if collection.out_of_bounds?
         redirect_to params.merge(:page => 1)
       end
+      build_breadcrumb :index
     end
   end
 

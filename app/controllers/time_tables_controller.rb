@@ -9,25 +9,24 @@ class TimeTablesController < ChouetteController
   belongs_to :referential
 
   def show
-    add_breadcrumb Referential.human_attribute_name("time_tables"), referential_time_tables_path(@referential)
 
     @year = params[:year] ? params[:year].to_i : Date.today.cwyear
     @time_table_combination = TimeTableCombination.new
-    show!
+    show! do
+      build_breadcrumb :show
+    end
   end
 
   def new
-    add_breadcrumb Referential.human_attribute_name("time_tables"), referential_time_tables_path(@referential)
-
     @autocomplete_items = ActsAsTaggableOn::Tag.all
-    new!
+    new! do
+      build_breadcrumb :show      
+    end
   end
 
   def edit
     edit! do
-      add_breadcrumb Referential.human_attribute_name("time_tables"), referential_time_tables_path(@referential)
-      add_breadcrumb @time_table.comment, referential_time_table_path(@referential, @time_table)
-
+      build_breadcrumb :edit      
       @autocomplete_items = ActsAsTaggableOn::Tag.all
     end
   end
@@ -47,6 +46,7 @@ class TimeTablesController < ChouetteController
         if collection.out_of_bounds?
           redirect_to params.merge(:page => 1)
         end
+        build_breadcrumb :index      
       }
     end
   end

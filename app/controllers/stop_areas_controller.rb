@@ -19,37 +19,32 @@ class StopAreasController < ChouetteController
   def select_parent
     @stop_area = stop_area
     @parent = stop_area.parent
-      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
-      add_breadcrumb @stop_area.name, referential_stop_area_path(@referential, @stop_area)
+    build_breadcrumb :edit
   end
 
   def add_children
     @stop_area = stop_area
     @children = stop_area.children
-      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
-      add_breadcrumb @stop_area.name, referential_stop_area_path(@referential, @stop_area)
+    build_breadcrumb :edit
   end
 
   def add_routing_lines
     @stop_area = stop_area
     @lines = stop_area.routing_lines
-      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
-      add_breadcrumb @stop_area.name, referential_stop_area_path(@referential, @stop_area)
+    build_breadcrumb :edit
   end
 
   def add_routing_stops
     @stop_area = stop_area
     @stops = stop_area.routing_stops
-      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
-      add_breadcrumb @stop_area.name, referential_stop_area_path(@referential, @stop_area)
+    build_breadcrumb :edit
   end
 
   def access_links
     @stop_area = stop_area
     @generic_access_links = stop_area.generic_access_link_matrix
     @detail_access_links = stop_area.detail_access_link_matrix
-      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
-      add_breadcrumb @stop_area.name, referential_stop_area_path(@referential, @stop_area)
+    build_breadcrumb :edit
   end
 
   def index
@@ -60,6 +55,7 @@ class StopAreasController < ChouetteController
         if collection.out_of_bounds?
           redirect_to params.merge(:page => 1)
         end
+        build_breadcrumb :index
       }
     end
   end
@@ -68,7 +64,7 @@ class StopAreasController < ChouetteController
     @map = StopAreaMap.new( Chouette::StopArea.new).with_helpers(self)
     @map.editable = true
     new! do
-      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
+      build_breadcrumb :show
     end
   end
 
@@ -82,7 +78,7 @@ class StopAreasController < ChouetteController
         }
 
       end
-      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
+      build_breadcrumb :show
     end
   end
 
@@ -91,9 +87,8 @@ class StopAreasController < ChouetteController
 
     map.editable = true
     edit! do
-      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
-      add_breadcrumb @stop_area.name, referential_stop_area_path(@referential, @stop_area)
-    end
+      build_breadcrumb :edit
+   end
   end
 
   def default_geometry

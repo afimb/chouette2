@@ -12,7 +12,7 @@ class GroupOfLinesController < ChouetteController
     @map = GroupOfLineMap.new(resource).with_helpers(self)
     @lines = resource.lines.order(:name).paginate(:page => params[:page])
     show! do
-      add_breadcrumb Referential.human_attribute_name("group_of_lines"), referential_group_of_lines_path(@referential)
+      build_breadcrumb :show
     end
   end
 
@@ -22,22 +22,11 @@ class GroupOfLinesController < ChouetteController
         if collection.out_of_bounds?
           redirect_to params.merge(:page => 1)
         end
+        build_breadcrumb :index
       }
     end       
   end
   
-  def new
-    new! do
-      add_breadcrumb Referential.human_attribute_name("group_of_lines"), referential_group_of_lines_path(@referential)
-    end
-  end
-  
-  def edit
-    edit! do
-      add_breadcrumb Referential.human_attribute_name("group_of_lines"), referential_group_of_lines_path(@referential)
-      add_breadcrumb @group_of_line.name, referential_group_of_line_path(@referential, @group_of_line)
-    end
-  end
 
   def name_filter
     respond_to do |format|  

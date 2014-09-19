@@ -1,18 +1,19 @@
 class ImportTasksController < ChouetteController
+  defaults :resource_class => ImportTask
   respond_to :html, :xml, :json
   respond_to :js, :only => [:show, :index]
   belongs_to :referential
 
   def new
     new! do
-      add_breadcrumb Referential.human_attribute_name("import_tasks"), referential_import_tasks_path(@referential)
+      build_breadcrumb :show
       available_imports
     end
   end
 
   def show
     show! do
-      add_breadcrumb Referential.human_attribute_name("import_tasks"), referential_import_tasks_path(@referential)
+      build_breadcrumb :show
       if import_task.completed?
         @files_stats = import_task.result["files"]["stats"]
         @files_list = import_task.result["files"]["list"]

@@ -20,10 +20,7 @@ class AccessLinksController < ChouetteController
     @access_link = Chouette::AccessLink.find(params[:id])
     @stop_area = @access_link.stop_area
     show! do
-      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
-      add_breadcrumb @stop_area.name, referential_stop_area_path(@referential, @stop_area)
-      add_breadcrumb @access_point.name, referential_stop_area_access_point_path(@referential, @stop_area,@access_point)
-      add_breadcrumb Chouette::AccessLink.model_name.human(:count => 2), access_links_referential_stop_area_path(@referential, @stop_area)
+      build_breadcrumb :show
     end
   end
   
@@ -43,9 +40,7 @@ class AccessLinksController < ChouetteController
     end
     @access_link = Chouette::AccessLink.new(data)
     new! do
-      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
-      add_breadcrumb @stop_area.name, referential_stop_area_path(@referential, @stop_area)
-      add_breadcrumb @access_point.name, referential_stop_area_access_point_path(@referential, @stop_area,@access_point)
+      build_breadcrumb :new
     end
   end
   
@@ -63,10 +58,7 @@ class AccessLinksController < ChouetteController
     @stop_area = @access_link.stop_area
     @orientation = @access_link.link_orientation_type
     edit! do
-      add_breadcrumb Referential.human_attribute_name("stop_areas"), referential_stop_areas_path(@referential)
-      add_breadcrumb @stop_area.name, referential_stop_area_path(@referential, @stop_area)
-      add_breadcrumb @access_point.name, referential_stop_area_access_point_path(@referential, @stop_area,@access_point)
-      add_breadcrumb @access_link.name, referential_access_point_access_link_path(@referential, @access_point, @access_link)
+      build_breadcrumb :edit
     end
   end
   protected

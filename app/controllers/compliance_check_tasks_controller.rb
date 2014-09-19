@@ -1,18 +1,10 @@
 class ComplianceCheckTasksController < ChouetteController
+  defaults :resource_class => ComplianceCheckTask
+
   respond_to :html, :js
   belongs_to :referential
 
-  def new
-    new! do
-      add_breadcrumb Referential.human_attribute_name("compliance_check_tasks"), referential_compliance_check_tasks_path(@referential)
-    end
-  end
 
-  def show
-    show! do
-      add_breadcrumb Referential.human_attribute_name("compliance_check_tasks"), referential_compliance_check_tasks_path(@referential)
-    end
-  end
   def references
     @references = referential.send(params[:type]).where("name ilike ?", "%#{params[:q]}%")
     respond_to do |format|
@@ -24,6 +16,7 @@ class ComplianceCheckTasksController < ChouetteController
 
   def rule_parameter_set
     @rule_parameter_set = compliance_check_task.rule_parameter_set_archived
+    build_breadcrumb :edit
     render "rule_parameter_sets/show"
   end
 

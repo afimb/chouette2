@@ -1,4 +1,6 @@
 class VehicleJourneyImportsController < ChouetteController
+  defaults :resource_class => VehicleJourneyImport
+  
   belongs_to :referential do
     belongs_to :line, :parent_class => Chouette::Line do
       belongs_to :route, :parent_class => Chouette::Route
@@ -10,7 +12,9 @@ class VehicleJourneyImportsController < ChouetteController
   
   def new    
     @vehicle_journey_import = VehicleJourneyImport.new(:route => route)
-    new!
+    new! do
+      build_breadcrumb :show
+    end
   end
 
   def create

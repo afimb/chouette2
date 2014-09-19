@@ -14,6 +14,7 @@ class LinesController < ChouetteController
         if collection.out_of_bounds?
           redirect_to params.merge(:page => 1)
         end
+        build_breadcrumb :index
       }
     end       
   end
@@ -23,22 +24,10 @@ class LinesController < ChouetteController
     @routes = @line.routes
     @group_of_lines = @line.group_of_lines
     show! do
-      add_breadcrumb Referential.human_attribute_name("lines"), referential_lines_path(@referential)
+      build_breadcrumb :show
     end
   end
 
-  def new
-    new! do
-      add_breadcrumb Referential.human_attribute_name("lines"), referential_lines_path(@referential)
-    end
-  end
-  
-  def edit
-    edit! do
-      add_breadcrumb Referential.human_attribute_name("lines"), referential_lines_path(@referential)
-      add_breadcrumb @line.name, referential_line_path(@referential, @line)
-    end
-  end
   # overwrite inherited resources to use delete instead of destroy 
   # foreign keys will propagate deletion)
   def destroy_resource(object)

@@ -19,25 +19,10 @@ class RoutesController < ChouetteController
     @map = RouteMap.new(route).with_helpers(self)
     @stop_points = route.stop_points.paginate(:page => params[:page])
     show! do
-      add_breadcrumb Referential.human_attribute_name("lines"), referential_lines_path(@referential)
-      add_breadcrumb @line.name, referential_line_path(@referential, @line)
+      build_breadcrumb :show
     end
   end
 
-  def new
-    new! do
-      add_breadcrumb Referential.human_attribute_name("lines"), referential_lines_path(@referential)
-      add_breadcrumb @line.name, referential_line_path(@referential, @line)
-    end
-  end
-  
-  def edit
-    edit! do
-      add_breadcrumb Referential.human_attribute_name("lines"), referential_lines_path(@referential)
-      add_breadcrumb @line.name, referential_line_path(@referential, @line)
-      add_breadcrumb @route.name, referential_line_route_path(@referential, @line, @route)
-    end
-  end
   # overwrite inherited resources to use delete instead of destroy 
   # foreign keys will propagate deletion)
   def destroy_resource(object)
