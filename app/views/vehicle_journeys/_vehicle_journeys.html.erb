@@ -34,7 +34,7 @@
     <td class="stop_area"><%= sp.stop_area.name %></td>
     <% @vehicle_journeys.each do |vj| %>
       <td class="hours <%= missing_time_check(@matrix["#{vj.id}-#{sp.id}"]) %>">
-        <%= (@matrix["#{vj.id}-#{sp.id}"] && @matrix["#{vj.id}-#{sp.id}"].departure_time) ? l( @matrix["#{vj.id}-#{sp.id}"].departure_time, :format => :hour) : "" %>
+        <%= (@matrix["#{vj.id}-#{sp.id}"] && @matrix["#{vj.id}-#{sp.id}"].departure_time) ? l( @matrix["#{vj.id}-#{sp.id}"].departure_time, :format => :hour) : "--" %>
       </td>
     <% end %>
   </tr>

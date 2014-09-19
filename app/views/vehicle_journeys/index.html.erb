@@ -7,21 +7,30 @@
 
 <%= search_form_for @q, :url => referential_line_route_vehicle_journeys_path(@referential,@line,@route), remote: true, :html => {:method => :get, class: "form-inline", :id => "search", role: "form"} do |f| %>
 <div class="panel panel-default">
-  <div class="panel-heading clearfix">
-    <div class="col-md-9">
-      <%= f.collection_select :journey_pattern_id_eq, @route.journey_patterns.map{|j| j.name = journey_name(j); j}, :id, :name, :include_blank => t(".select_journey_patterns") %>
-      <%= f.text_field :time_tables_id_eq, :placeholder => t(".select_time_tables"), :input_html => { :"data-pre" => [].to_json } %>      
-      <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-    </div>
-    <div class="col-md-3">
-      <a data-toggle="collapse" data-parent="#search" href="#advanced_search" class="advanced_search_link">
-        <i class="fa fa-plus"></i> <%= "#{t('.advanced_search')}" %>
-      </a>
-    </div>
+  <div class="panel-heading">
+    <div class="input-group col-md-9">
+      <%= f.label :journey_pattern_id_eq, "Missions" %>
+      <%= f.text_field :journey_pattern_id_eq %>
+
+      <div class="input-group-btn">
+        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+      </div>
+    </div><!-- /input-group -->
+    <a data-toggle="collapse" data-parent="#search" href="#advanced_search">
+      <i class="fa fa-plus"></i> <%= "#{t('.advanced_search')}" %>
+    </a>
   </div>
 
   <div id="advanced_search" class="panel-collapse collapse">
     <div class="panel-body">
+      <%= f.label :time_tables_id_not_eq, "Sans calendrier" %>
+      <%= f.check_box :time_tables_id_not_eq %>
+
+      <%= f.label :vehicle_journey_at_stops_departure_time_gt, "Sélectionner calendriers" %>
+      <%= f.text_field :time_tables_id_eq, :input_html => { :"data-pre" => [].to_json} %>
+
+      <%= f.label :vehicle_journey_at_stops_departure_time_not_eq, "Sans horaire" %>
+      <%= f.check_box :vehicle_journey_at_stops_departure_time_not_eq %>
       <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(3i)]" %> type="hidden" value="1">
       <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(2i)]" %> type="hidden" value="1">
       <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(1i)]" %> type="hidden" value="2000">
@@ -54,6 +63,17 @@
           noResultsText: '<%= t('no_result_text') %>',
           searchingText: '<%= t('searching_term') %>',
           resultsFormatter: function(item){ return '<li><div class=\"name\">' + item.comment + '</div><div class=\"info\">' + item.start_date + ' ' + item.end_date + '</div></li>' },
+        });
+		$( "#q_journey_pattern_id_eq" ).tokenInput( '<%= referential_line_route_journey_patterns_path(@referential, @line, @route, :format => :json) %>', {
+          crossDomain: false,
+          prePopulate: $('#q_journey_pattern_id_eq').data('pre'),
+          minChars: 1,
+          queryParam: 'q[name_cont]',
+          propertyToSearch: 'name',
+          hintText: '<%= t('search_hint') %>',
+          noResultsText: '<%= t('no_result_text') %>',
+          searchingText: '<%= t('searching_term') %>',
+          resultsFormatter: function(item){ return '<li><div class=\"name\">' + item.name + ', (' + item.id + ') </div></li>' },
         });
 	});
 </script>
