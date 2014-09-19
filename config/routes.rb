@@ -90,7 +90,6 @@ ChouetteIhm::Application.routes.draw do
           end
         end
         resources :vehicle_journeys do
-          get 'timeless', :on => :collection
           get 'select_journey_pattern', :on => :member
           resources :vehicle_translations
         end

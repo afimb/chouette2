@@ -9,10 +9,6 @@ class VehicleJourneysController < ChouetteController
     end
   end
 
-  def timeless
-    @vehicle_journeys = parent.vehicle_journeys.timeless
-  end
-
   def select_journey_pattern
     if params[:journey_pattern_id]
       selected_journey_pattern = Chouette::JourneyPattern.find( params[:journey_pattern_id])
@@ -51,28 +47,24 @@ class VehicleJourneysController < ChouetteController
   alias_method :vehicle_journey, :resource
 
   def collection
-    adapt_time_params
-    @q = select_vehicles.search(params[:q])
-    @vehicle_journeys ||= @q.result.order( "vehicle_journey_at_stops.departure_time").paginate(:page => params[:page], :per_page => 8)
+    @vehicle_filter = VehicleFilter.new( adapted_params)
+    @q = @vehicle_filter.vehicle_journeys.search( @vehicle_filter.filtered_params)
+    @vehicle_journeys ||= @q.result( :distinct => true ).order( "vehicle_journey_at_stops.departure_time").paginate(:page => params[:page], :per_page => 8)
   end
 
-  def adapt_time_params
-    hour_entry = "vehicle_journey_at_stops_departure_time_gt(4i)".to_sym
-    if params[:q] && params[:q][ hour_entry]
-      params[:q].merge! hour_entry => (params[:q][ hour_entry].to_i - utc_offset)
+  def adapted_params
+    params.tap do |adapted_params|
+      adapted_params.merge!( :route => parent)
+      hour_entry = "vehicle_journey_at_stops_departure_time_gt(4i)".to_sym
+      if params[:q] && params[:q][ hour_entry]
+        adapted_params[:q].merge! hour_entry => (params[:q][ hour_entry].to_i - utc_offset)
+      end
     end
   end
   def utc_offset
     # Ransack Time eval - utc eval
     sample = [2001,1,1,10,0]
     Time.zone.local(*sample).utc.hour - Time.utc(*sample).hour
-  end
-  def select_vehicles
-    if params[:q] && params[:q][ :time_tables_id_eq ]
-      parent.sorted_vehicle_journeys.joins( :time_tables).where( "time_tables_vehicle_journeys.time_table_id" => params[:q][ :time_tables_id_eq ].split(','))
-    else
-      parent.sorted_vehicle_journeys
-    end
   end
 
   def matrix
