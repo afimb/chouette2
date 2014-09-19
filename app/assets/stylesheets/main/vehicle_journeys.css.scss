@@ -38,6 +38,24 @@
 
 #workspace.vehicle_journeys.index
 {
+    #search{
+        .panel-heading .btn{
+            margin-left: 20px;
+        }
+        
+        ul.token-input-list{
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 20px;
+            width: 250px;
+        }
+
+        .advanced_search_link{
+            vertical-align: -webkit-baseline-middle;
+        }
+        
+    }
+    
     table{
 
         margin: 20px 0 0 0;

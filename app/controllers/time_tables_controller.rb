@@ -32,10 +32,7 @@ class TimeTablesController < ChouetteController
   end
 
   def comment_filter
-    respond_to do |format|
-      format.json { render :json => filtered_time_tables_maps}
-    end
-
+    @time_tables = filtered_time_tables    
   end
 
   def index
@@ -68,11 +65,6 @@ class TimeTablesController < ChouetteController
 
   protected
 
-  def filtered_time_tables_maps
-    filtered_time_tables.collect do |time_table|
-      { :id => time_table.id, :name => time_table_description(time_table) }
-    end
-  end
   def filtered_time_tables
     referential.time_tables.select{ |t| t.comment =~ /#{params[:q]}/i  }
   end

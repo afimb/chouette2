@@ -1,4 +1,4 @@
-class SearchStopAreaInput < Formtastic::Inputs::SearchInput
+class SearchTimeTableInput < Formtastic::Inputs::SearchInput
 
   def search
     if options[:json]
@@ -9,11 +9,12 @@ class SearchStopAreaInput < Formtastic::Inputs::SearchInput
              crossDomain: false,
              tokenLimit: #{tokenLimit},
              minChars: 2,
+             preventDuplicates: true,
              hintText: '#{options[:hint_text]}',
              noResultsText: '#{options[:no_result_text]}',
              searchingText: '#{options[:searching_text]}',
-             resultsFormatter: function(item){ return '<li><div class=\"name\">' + item.name + '</div><div class=\"info\">' + item.area_type + '</div><div class=\"info\">' +  item.zip_code + ' ' + item.city_name + '</div></li>' },
-             tokenFormatter: function(item){ return '<li><div class=\"name\">' + item.name + '</div><div class=\"info\">' + item.area_type + '</div><div class=\"info\">' +  item.zip_code + ' ' + item.city_name + '</div></li>' },
+             resultsFormatter: function(item){ return '<li><div class=\"comment\">' + item.comment + '</div><div class=\"info\">' + item.time_table_bounding + '</div><div class=\"info\">' +  item.composition_info + '</div></li>' },
+             tokenFormatter: function(item){ return '<li><div class=\"comment\">' + item.comment + '</div><div class=\"info\">' + item.time_table_bounding + '</div><div class=\"info\">' +  item.composition_info + '</div></li>' },
            });
         });").html_safe)
     end

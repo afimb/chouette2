@@ -2,6 +2,7 @@ class JourneyPatternsController < ChouetteController
   defaults :resource_class => Chouette::JourneyPattern
 
   respond_to :html
+  respond_to :json, :only => :index
   respond_to :js, :only => [:new_vehicle_journey, :show]
   respond_to :kml, :only => :show
 
@@ -14,7 +15,7 @@ class JourneyPatternsController < ChouetteController
   alias_method :route, :parent
   alias_method :journey_pattern, :resource
 
-  def index     
+  def index
     index! do |format|
       format.html { redirect_to referential_line_route_path(@referential,@line,@route) }
     end
@@ -37,10 +38,16 @@ class JourneyPatternsController < ChouetteController
     @vehicle_journey.update_journey_pattern(resource)
     render "vehicle_journeys/select_journey_pattern"
   end
-  # overwrite inherited resources to use delete instead of destroy 
+  # overwrite inherited resources to use delete instead of destroy
   # foreign keys will propagate deletion)
   def destroy_resource(object)
         object.delete
+  end
+
+
+  def collection
+    @q = route.journey_patterns.search( params[:q])
+    @journey_patterns ||= @q.result(:distinct => true).order(:name)
   end
 
 end

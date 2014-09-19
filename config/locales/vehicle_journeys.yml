@@ -45,6 +45,8 @@ en:
       vehicle_journeys: "Departure's times"
       selection: "Filter on"
       selection_all: "All"
+      select_journey_patterns: "Select journey pattern"
+      select_time_tables: "Enter a timetable"
       time_range: "Departure time threshold"
       advanced_search: "Advanced Search"
     sidebar:
@@ -143,6 +145,8 @@ fr:
       vehicle_journeys: "Horaires de départ aux arrêts"
       selection: "Filtrer sur"
       selection_all: "Tous"
+      select_journey_patterns: "Sélectionner une mission"
+      select_time_tables: "Saisir un calendrier"
       time_range: "Seuil horaire au départ"
       advanced_search: "Recherche avancée"
     time_filter:
