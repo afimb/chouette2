@@ -20,19 +20,15 @@ class TimeTablesController < ChouetteController
   def new
     @autocomplete_items = ActsAsTaggableOn::Tag.all
     new! do
-      build_breadcrumb :show      
+      build_breadcrumb :show
     end
   end
 
   def edit
     edit! do
-      build_breadcrumb :edit      
+      build_breadcrumb :edit
       @autocomplete_items = ActsAsTaggableOn::Tag.all
     end
-  end
-
-  def comment_filter
-    @time_tables = filtered_time_tables    
   end
 
   def index
@@ -43,7 +39,7 @@ class TimeTablesController < ChouetteController
         if collection.out_of_bounds?
           redirect_to params.merge(:page => 1)
         end
-        build_breadcrumb :index      
+        build_breadcrumb :index
       }
     end
   end
@@ -64,10 +60,6 @@ class TimeTablesController < ChouetteController
   end
 
   protected
-
-  def filtered_time_tables
-    referential.time_tables.select{ |t| t.comment =~ /#{params[:q]}/i  }
-  end
 
   def collection
     ransack_params = params[:q]

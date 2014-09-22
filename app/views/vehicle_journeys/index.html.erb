@@ -33,14 +33,14 @@
       <%= f.check_box :vehicle_journey_at_stops_departure_time_not_eq %>
 
       <span class="vehicle_journey_at_stops_departure_time_gt">
-      <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(3i)]" %> type="hidden" value="1">
-      <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(2i)]" %> type="hidden" value="1">
-      <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(1i)]" %> type="hidden" value="2000">
-      <%= f.label :vehicle_journey_at_stops_departure_time_gt, t('.time_range') %>
-      <%= select_hour(@q.send( "vehicle_journey_at_stops_departure_time_gt") ? @q.send( "vehicle_journey_at_stops_departure_time_gt").hour : 0,
-                       :prefix => "q", :field_name => "vehicle_journey_at_stops_departure_time_gt(4i)") %>
-      <%= select_minute(@q.send( "vehicle_journey_at_stops_departure_time_gt") ? @q.send( "vehicle_journey_at_stops_departure_time_gt").min : 0,
-                         :prefix => "q", :field_name => "vehicle_journey_at_stops_departure_time_gt(5i)") %>
+        <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(3i)]" %> type="hidden" value="1">
+        <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(2i)]" %> type="hidden" value="1">
+        <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(1i)]" %> type="hidden" value="2000">
+        <%= f.label :vehicle_journey_at_stops_departure_time_gt, t('.time_range') %>
+        <%= select_hour(@q.send( "vehicle_journey_at_stops_departure_time_gt") ? @q.send( "vehicle_journey_at_stops_departure_time_gt").hour : 0,
+                         :prefix => "q", :field_name => "vehicle_journey_at_stops_departure_time_gt(4i)") %>
+        <%= select_minute(@q.send( "vehicle_journey_at_stops_departure_time_gt") ? @q.send( "vehicle_journey_at_stops_departure_time_gt").min : 0,
+                           :prefix => "q", :field_name => "vehicle_journey_at_stops_departure_time_gt(5i)") %>
       </span>
       </div>
     </div>
@@ -57,6 +57,11 @@
         var time_tables_url = function(){
           return '<%= referential_time_tables_path(@referential, :format => :json) %>?route_id=<%= @route.id %>';
         };
+        var time_table_to_html = function( item ){
+          return '<li><div class=\"comment\">' + item.comment +
+              '</div><div class=\"info\">' + item.time_table_bounding +
+              '</div><div class=\"info\">' +  item.composition_info + '</div></li>';
+        };
 		$( "#q_time_tables_id_eq" ).tokenInput( time_tables_url, {
           crossDomain: false,
           prePopulate: $('#q_time_tables_id_eq').data('pre'),
@@ -66,7 +71,8 @@
           hintText: '<%= t('search_hint') %>',
           noResultsText: '<%= t('no_result_text') %>',
           searchingText: '<%= t('searching_term') %>',
-          resultsFormatter: function(item){ return '<li><div class=\"name\">' + item.comment + '</div><div class=\"info\">' + item.start_date + ' ' + item.end_date + '</div></li>' },
+          resultsFormatter: time_table_to_html,
+          tokenFormatter: time_table_to_html,
         });
 		$( "#q_journey_pattern_id_eq" ).tokenInput( '<%= referential_line_route_journey_patterns_path(@referential, @line, @route, :format => :json) %>', {
           crossDomain: false,

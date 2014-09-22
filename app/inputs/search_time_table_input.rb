@@ -2,7 +2,7 @@ class SearchTimeTableInput < Formtastic::Inputs::SearchInput
 
   def search
     if options[:json]
-      tokenLimit = options[:tokenLimit].present? ? options[:tokenLimit] : "null" 
+      tokenLimit = options[:tokenLimit].present? ? options[:tokenLimit] : "null"
       template.content_tag( :script,
        ("$(document).ready(function() {
            $('##{dom_id}').tokenInput('#{options[:json]}', {
@@ -11,6 +11,7 @@ class SearchTimeTableInput < Formtastic::Inputs::SearchInput
              minChars: 2,
              propertyToSearch: 'comment',
              preventDuplicates: true,
+             queryParam: 'q[comment_cont]',
              hintText: '#{options[:hint_text]}',
              noResultsText: '#{options[:no_result_text]}',
              searchingText: '#{options[:searching_text]}',
@@ -20,15 +21,15 @@ class SearchTimeTableInput < Formtastic::Inputs::SearchInput
         });").html_safe)
     end
   end
-  
+
   def to_html
-    input_wrapping do      
+    input_wrapping do
       label_html <<
         builder.search_field(method, input_html_options) <<
           search
     end
   end
-  
+
   def input_html_options
     super.merge({
                   :required          => nil,
@@ -36,6 +37,6 @@ class SearchTimeTableInput < Formtastic::Inputs::SearchInput
                   :class             => 'token-input',
                   'data-model-name' => object.class.model_name.human
                 })
-  end 
-  
+  end
+
 end
