@@ -1,4 +1,7 @@
-class ReferentialsController < InheritedResources::Base
+class ReferentialsController < BreadcrumbController
+
+  defaults :resource_class => Referential
+  
   respond_to :html
   respond_to :json, :only => :show
   respond_to :js, :only => :show
@@ -13,6 +16,8 @@ class ReferentialsController < InheritedResources::Base
                 :time_tables_count => resource.time_tables.count,
                 :referential_id => resource.id}
        }
+       format.html { build_breadcrumb :show}
+       
      end
   end
 

@@ -1,4 +1,6 @@
-class OrganisationsController < InheritedResources::Base
+class OrganisationsController < BreadcrumbController
+
+  defaults :resource_class => Organisation
   respond_to :html
 
   def update

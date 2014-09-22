@@ -1,4 +1,6 @@
-class UsersController < InheritedResources::Base
+class UsersController < BreadcrumbController
+
+  defaults :resource_class => User
 
   def create
     @user = current_organisation.users.build(params[:user])
