@@ -6,7 +6,7 @@ class ImportTasksController < ChouetteController
 
   def new
     new! do
-      build_breadcrumb :show
+      build_breadcrumb :new
       available_imports
     end
   end

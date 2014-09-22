@@ -28,13 +28,13 @@ class BreadcrumbController < InheritedResources::Base
 
   def new
     new! do 
-      build_breadcrumb :show
+      build_breadcrumb :new
     end
   end
   
   def create
     create! do |success, failure|
-      build_breadcrumb :show
+      build_breadcrumb :new
     end
   end
 

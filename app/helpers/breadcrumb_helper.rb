@@ -28,6 +28,8 @@ module BreadcrumbHelper
       connection_link_breadcrumb action
     when "Chouette::TimeTable"
       time_table_breadcrumb action
+    when "StopAreaCopy"
+      stop_area_copy_breadcrumb action
     when "ImportTask"
       import_breadcrumb action
     when "Export"
@@ -38,6 +40,8 @@ module BreadcrumbHelper
       rule_parameter_breadcrumb action
     when "User"
       user_breadcrumb action
+    when "Organisation"
+      organisation_breadcrumb action
     else
       Rails.logger.info "---------"
       Rails.logger.info ">>>>>>> "+resource_class.to_s+" unmapped"
@@ -63,6 +67,10 @@ module BreadcrumbHelper
     referential_breadcrumb
     add_breadcrumb Chouette::StopArea.model_name.human(:count => 2), referential_stop_areas_path(@referential) unless action == :index
     add_breadcrumb breadcrumb_label(@stop_area), referential_stop_area_path(@referential, @stop_area),:title => breadcrumb_tooltip(@stop_area) if action == :edit
+  end
+
+  def stop_area_copy_breadcrumb(action)
+    stop_area_breadcrumb :edit
   end
 
   def access_point_breadcrumb(action)
@@ -144,12 +152,16 @@ module BreadcrumbHelper
   end
 
   def referential_breadcrumb (action = :edit)
-    add_breadcrumb I18n.t("breadcrumbs.referentials"), referentials_path 
-    add_breadcrumb breadcrumb_label(@referential), referential_path(@referential),:title => breadcrumb_tooltip(@referential) if action != :index && @referential.present?
+    organisation_breadcrumb
+    add_breadcrumb breadcrumb_label(@referential), referential_path(@referential),:title => breadcrumb_tooltip(@referential) if action == :edit
   end
   
+  def organisation_breadcrumb (action = :edit)
+    add_breadcrumb I18n.t("breadcrumbs.referentials"), referentials_path 
+  end
+
   def user_breadcrumb (action)
-    referential_breadcrumb 
+    organisation_breadcrumb 
     add_breadcrumb I18n.t("breadcrumbs.users"), organisation_path unless action == :index
     add_breadcrumb breadcrumb_label(@user), organisation_user_path(@user),:title => breadcrumb_tooltip(@user) unless action == :index
   end

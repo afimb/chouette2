@@ -8,7 +8,7 @@ class ExportsController < ChouetteController
 
   def new
     new! do
-      build_breadcrumb :show
+      build_breadcrumb :new
       available_exports
     end
   end

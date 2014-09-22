@@ -13,7 +13,7 @@ class VehicleJourneyImportsController < ChouetteController
   def new    
     @vehicle_journey_import = VehicleJourneyImport.new(:route => route)
     new! do
-      build_breadcrumb :show
+      build_breadcrumb :new
     end
   end
 
