@@ -82,11 +82,9 @@ class Chouette::Hub::Exporter
         
         @lines = select_lines( options[:o], options[:id] )
         @routes = lines.map(&:routes).flatten.sort {|a,b| (a.name && b.name) ? a.name <=> b.name : a.id <=> b.id} if lines_exportable?
-        @journey_patterns = Chouette::JourneyPattern.where( :route_id => routes.map(&:id) ).order(:name) if routes_exportable?
-        
-        @vehicle_journeys = Chouette::VehicleJourney.where( :route_id => routes.map(&:id) ).order(:id) if routes_exportable?
-        @vehicle_journeys = Chouette::VehicleJourney.where( :route_id => routes.map(&:id) ).order(:id) if routes_exportable?
-        
+        @journey_patterns = Chouette::JourneyPattern.where(:route_id => routes.map(&:id)).order(:name) if routes_exportable?
+        @vehicle_journeys = Chouette::VehicleJourney.where(:route_id => routes.map(&:id)).order(:objectid) if routes_exportable?
+                
         vjs = []
         tts = []
         @vehicle_journeys.each do |vj|
@@ -116,7 +114,7 @@ class Chouette::Hub::Exporter
         
         stop_points = Chouette::StopPoint.where( :id => vehicle_journey_at_stops.map(&:stop_point_id)).order(:id)
         physical_stop_areas =  Chouette::StopArea.where( :id => stop_points.map(&:stop_area_id)).order(:parent_id)
-        commercial_stop_areas = Chouette::StopArea.where( :id => physical_stop_areas.map(&:parent_id)).order(:id)
+        commercial_stop_areas = Chouette::StopArea.where( :id => physical_stop_areas.map(&:parent_id)).order(:objectid)
         
         Chouette::Hub::CommercialStopAreaExporter.save(commercial_stop_areas, temp_dir, hub_export)
         Chouette::Hub::PhysicalStopAreaExporter.save(physical_stop_areas, temp_dir, hub_export)
