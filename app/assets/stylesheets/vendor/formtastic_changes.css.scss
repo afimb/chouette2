@@ -1,17 +1,16 @@
-input.typeahead{
-    & .formtastic .input {
+.formtastic{
+     
+    .input.typeahead_wrapper{
         overflow: inherit !important;
     }
-}    
-
-.formtastic{
 
     .label{
         white-space: normal;
+        text-align: right;
     }
 
-    .input{
-        overflow: visible;
+    .stringish input{
+        width: auto;
     }
     
     fieldset.inputs {
