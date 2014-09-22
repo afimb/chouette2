@@ -1,1 +1,1 @@
-<%= @time_table.id %>;<%= @time_table.comment %>;<%= @time_table.start_date %>;<%= @time_table.end_date %>;<%= @calendar %>
+<%= Chouette::TimeTable.find(@time_table.id).objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2') %>;<%= @time_table.comment %>;<%= @time_table.start_date %>;<%= @time_table.end_date %>;<%= @calendar %>

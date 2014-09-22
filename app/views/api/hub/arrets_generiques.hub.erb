@@ -1,1 +1,1 @@
-<%= @stop_area.id %>;<%= @stop_area.name %>;;<%= @type %>;;;;<%= @stop_area.country_code %>;<%= @stop_area.country_code %>;<%= @stop_area.comment %>;<%= @stop_area.registration_number %>
+<%= @stop_area.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2') %>;<%= @stop_area.name %>;<%= @stop_area.nearest_topic_name %>;<%= @type %>;;;;;;<%= @stop_area.comment %>;<%= @stop_area.id %>

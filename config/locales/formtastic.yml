@@ -12,6 +12,7 @@ en:
     export: "Launch export"
     validate: "Launch validation"
     duplicate: "Duplicate"
+    clone: "Clone"
 
 fr:
   formtastic:
@@ -27,3 +28,4 @@ fr:
     export: "Lancer l'export"
     validate: "Lancer la validation"
     duplicate: "Dupliquer"
+    clone: "Cloner"

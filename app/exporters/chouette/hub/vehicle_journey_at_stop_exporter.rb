@@ -6,6 +6,7 @@ class Chouette::Hub::VehicleJourneyAtStopExporter
     @vehicle_journey_at_stop = vehicle_journey_at_stop
     @directory = directory
     @template = File.open('app/views/api/hub/horaires.hub.erb' ) { |f| f.read }
+    @stop_area_code = Chouette::StopArea.find(@vehicle_journey_at_stop.stop_point.stop_area_id).objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2')
     @arrival_time = @vehicle_journey_at_stop.arrival_time.sec + 60 * @vehicle_journey_at_stop.arrival_time.min + 60 * 60 * @vehicle_journey_at_stop.arrival_time.hour
     @arrival_type = "A"
     @departure_time = @vehicle_journey_at_stop.departure_time.sec + 60 *  @vehicle_journey_at_stop.departure_time.min + 60 * 60 *  @vehicle_journey_at_stop.departure_time.hour
