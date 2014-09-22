@@ -6,7 +6,7 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title" id="myModalLabel"><%= t('.translation_form') %></h4>
-        <p id="translate_form"></p>
+        <div id="translate_form"></div>
       </div>
     </div>
   </div>
@@ -14,14 +14,6 @@
 
 <div class="vehicle_journey">
   <div class="summary">
-    <p>
-      <label><%= @route.human_attribute_name(:line) %>: </label>
-      <%= link_to line_formatted_name( @line), [@referential, @line] %>
-    </p>
-    <p>
-      <label><%= @vehicle_journey.human_attribute_name(:route) %>: </label>
-      <%= link_to @route.name, [@referential, @line, @route] %>
-    </p>
     <p>
       <label><%= @vehicle_journey.human_attribute_name(:journey_pattern) %>: </label>
       <%= link_to journey_name(@vehicle_journey.journey_pattern), [@referential, @line, @route, @vehicle_journey.journey_pattern] %>

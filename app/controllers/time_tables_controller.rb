@@ -20,7 +20,7 @@ class TimeTablesController < ChouetteController
   def new
     @autocomplete_items = ActsAsTaggableOn::Tag.all
     new! do
-      build_breadcrumb :show
+      build_breadcrumb :new
     end
   end
 

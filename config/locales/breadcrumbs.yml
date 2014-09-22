@@ -1,0 +1,10 @@
+en:
+  breadcrumbs:
+    vehicle_journeys: "Passing times"
+    referentials: "Home"
+    users: "Users"
+fr:
+  breadcrumbs:
+    vehicle_journeys: "Horaires"
+    referentials: "Accueil"
+    users: "Utilisateurs"

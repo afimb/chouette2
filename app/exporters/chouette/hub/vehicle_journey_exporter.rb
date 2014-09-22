@@ -2,10 +2,34 @@ class Chouette::Hub::VehicleJourneyExporter
   include ERB::Util
   attr_accessor :vehicle_journey, :directory, :template
   
-  def initialize(vehicle_journey, directory)
+  def initialize(vehicle_journey, directory, index)
     @vehicle_journey = vehicle_journey
     @directory = directory
     @template = File.open('app/views/api/hub/courses.hub.erb' ) { |f| f.read }
+    @numero = index
+    @journey_pattern = Chouette::JourneyPattern.find(@vehicle_journey.journey_pattern_id)
+    @route = Chouette::Route.find(@vehicle_journey.route_id)
+    @line = Chouette::Line.find(@route.line_id)
+    @departure_stop_point = Chouette::StopPoint.find(@journey_pattern.departure_stop_point_id)
+    @departure_stop_area =  Chouette::StopArea.find(@departure_stop_point.stop_area_id)
+    @arrival_stop_point = Chouette::StopPoint.find(@journey_pattern.arrival_stop_point_id)
+    @arrival_stop_area = Chouette::StopArea.find(@arrival_stop_point.stop_area_id)
+    departure_time = Chouette::VehicleJourneyAtStop.where( :vehicle_journey_id => @vehicle_journey.id ).where( :stop_point_id => @departure_stop_point.id )[0].departure_time
+    arrival_time = Chouette::VehicleJourneyAtStop.where( :vehicle_journey_id => @vehicle_journey.id ).where( :stop_point_id => @arrival_stop_point.id )[0].arrival_time
+    @departure_time_sec = departure_time.sec + ( departure_time.min + departure_time.hour * 60 ) * 60
+    @arrival_time_sec = arrival_time.sec + ( arrival_time.min + arrival_time.hour * 60 ) * 60
+    @validity = 0
+    @vehicle_journey.time_tables.map(&:int_day_types).each { |v| @validity += v }
+    
+    periods = Chouette::TimeTablePeriod.where( :time_table_id => @vehicle_journey.time_tables.map(&:id) ).map(&:id)
+    @periods = ""
+    unless periods.empty? 
+      @periods += periods[0].to_s
+      periods.shift
+    end
+    unless periods.empty?
+      periods.each { |p| @periods += "|" + p.to_s }
+    end
   end
   
   def render()
@@ -17,9 +41,8 @@ class Chouette::Hub::VehicleJourneyExporter
   end
   
   def self.save( vehicle_journeys, directory, hub_export)
-    vehicle_journeys.each do |vehicle_journey|
-      #Chouette::Hub::VehicleJourneyAtStopExporter.save(vehicle_journey.vehicle_journey_at_stops, directory, hub_export)
-      self.new( vehicle_journey, directory).tap do |specific_exporter|
+    vehicle_journeys.each_index do |index|
+      self.new( vehicle_journeys[index], directory, index).tap do |specific_exporter|
         specific_exporter.save
       end
     end

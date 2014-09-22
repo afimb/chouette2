@@ -1,1 +1,1 @@
-<%= @line.id %>;<%= @line.objectid %>;<%= @line.name %>;;;<%= @line.company_id %>;<%= @line.network_id %>;;<%= @line.registration_number %>
+<%= @line.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2') %>;<%= @line.number %>;<%= @line.name %>;;;<%= Chouette::Company.find(@line.company_id).objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2') %>;<%= Chouette::Network.find(@line.network_id).objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2') %>;;<%= @line.id %>

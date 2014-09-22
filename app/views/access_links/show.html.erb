@@ -5,18 +5,6 @@
   
   <div class="summary">
     <p>
-      <label><%= @access_link.human_attribute_name(:access_point) %>: </label>
-        <%= link_to @access_link.access_point.name, [@referential, @access_link.access_point.stop_area, @access_link.access_point] %>
-    </p>
-    <p>
-      <label><%= @access_link.human_attribute_name(:stop_area) %>: </label>
-        <%= link_to @access_link.stop_area.name, [@referential, @access_link.stop_area] %>
-    </p>
-    <p>
-      <label><%= @access_link.human_attribute_name(:name) %>: </label>
-      <%= @access_link.name %>
-    </p>
-    <p>
       <label><%= @access_link.human_attribute_name("access_link_type") %>: </label>
       <%= t("connection_link_types.label.#{@access_link.access_link_type}") %>
     </p>

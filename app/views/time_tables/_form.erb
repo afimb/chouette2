@@ -1,9 +1,8 @@
 <%= semantic_form_for [@referential, @time_table] do |form| %>
   <%= form.inputs do %> 
     <%= form.input :comment %>
-    <%= form.input :version %>
-
-    <%= form.input :tag_search, :input_html => { class: "tm-input typeahead", :placeholder => t("formtastic.placeholders.time_table.tag_search") } %>
+    <%= form.input :version %>    
+    <%= form.input :tag_search, :as => :tags, :input_html => { :id => "tag_search",:placeholder => t("formtastic.placeholders.time_table.tag_search") } %>
     <%= form.input :tag_list, :as => :hidden, :input_html => { :id => "tag_list" } %>
     
     <%= form.input :objectid, :required => !@time_table.new_record?, :input_html => { :title => t("formtastic.titles.time_table.objectid")} %>
@@ -66,10 +65,11 @@
 <%= javascript_tag "var items = #{ @time_table.tag_list.to_a };" %>
 
 <script>
-  $(".tm-input").tagsManager(
+  $("#tag_search").tagsManager(
   {
     prefilled: items,
-    output: '#tag_list'
+    output: '#tag_list',
+    tagsContainer: '#tagsContainer' 
   });
   
   var time_tables_tag_list = new Bloodhound({
@@ -80,7 +80,7 @@
 
   time_tables_tag_list.initialize();
 
-  $(".typeahead").typeahead(null, {
+  $("#tag_search").typeahead(null, {
     name: 'time_tables_tag_list',
     displayKey: 'name',
     source: time_tables_tag_list.ttAdapter()

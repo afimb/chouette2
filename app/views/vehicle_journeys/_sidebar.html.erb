@@ -1,14 +1,6 @@
   <ul class="actions">
     <li><%= link_to t('vehicle_journeys.actions.new'), new_referential_line_route_vehicle_journey_path(@referential, @line, @route), :class => "add" %></li>
 	<li><%= link_to t('vehicle_journey_imports.new.title'), new_referential_line_route_vehicle_journey_import_path( @referential, @line, @route ), :class => "import" %></li>
+    <li><%= link_to image_tag("icons/file_csv.png") + t('vehicle_journey_exports.new.title'), referential_line_route_vehicle_journey_exports_path(@referential, @line, @route, :format => :zip), :class => "with_fa" %></li>
   </ul>
-  <div class="btn-group">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-       <%= t('vehicle_journey_imports.new.export_vehicle_journeys') %><span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" role="menu">
-      <li><%= link_to image_tag("icons/file_csv.png") + " Csv" , referential_line_route_vehicle_journey_exports_path(@referential, @line, @route, :format => :csv) %></li>
-      <li><%= link_to image_tag("icons/file_excel.png") + " Excel", referential_line_route_vehicle_journey_exports_path(@referential, @line, @route, :format => :xls) %></li>
-    </ul>
-  </div>
 
