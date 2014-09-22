@@ -4,10 +4,6 @@
 
   <div class="summary">
     <p>
-      <label><%= @company.human_attribute_name(:name) %>: </label>
-      <%= @company.name %>
-    </p>
-    <p>
       <label><%= Chouette::Company.human_attribute_name("short_name") %>: </label>
       <%= @company.short_name %>
     </p>

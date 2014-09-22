@@ -139,7 +139,7 @@ fr:
       bounding: "De %{start} à %{end}"
       translation_form: "Cloner la course"
     index:
-      title: "Courses de la séquence d'arrêts %{route}"
+      title: "Horaires de la séquence d'arrêts %{route}"
       vehicle_journeys: "Horaires de départ aux arrêts"
       selection: "Filtrer sur"
       selection_all: "Tous"

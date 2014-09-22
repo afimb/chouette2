@@ -8,7 +8,7 @@ class RuleParameterSetsController < ChouetteController
   def new
     @rule_parameter_set = RuleParameterSet.default( @referential)
     new! do
-      build_breadcrumb :show     
+      build_breadcrumb :new    
     end
   end
 

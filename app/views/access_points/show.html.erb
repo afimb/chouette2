@@ -5,14 +5,6 @@
   <% end %>  
   <div class="summary">
     <p>
-      <label><%= @access_point.human_attribute_name(:stop_area) %>: </label>
-       <%= link_to @stop_area.name, [@referential, @stop_area] %>
-    </p>
-    <p>
-      <label><%= @access_point.human_attribute_name("name") %>: </label>
-      <%= @access_point.name %>
-    </p>
-    <p>
       <label><%= @access_point.human_attribute_name("comment") %>: </label>
       <%= @access_point.comment %>
     </p>
