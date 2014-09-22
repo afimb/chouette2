@@ -5,14 +5,6 @@
 
   <div class="summary">
     <p>
-      <label><%= @route.human_attribute_name(:line) %>: </label>
-      <%= link_to line_formatted_name( @line), [@referential, @line] %>
-    </p>
-    <p>
-      <label><%= @journey_pattern.human_attribute_name(:route) %>: </label>
-      <%= link_to @route.name, [@referential, @line, @route] %>
-    </p>
-    <p>
       <label><%= @journey_pattern.human_attribute_name(:name) %>: </label>
       <%= @journey_pattern.name %>
     </p>
