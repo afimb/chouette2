@@ -8,9 +8,12 @@ module TimeTablesHelper
       "validity_regular"
     end
   end
+  def tag_list_shortened(time_table)
+    time_table.tags.join(', ').truncate(30, separator: ',')
+  end
   def bounding_info(time_table)
     return t('time_tables.time_table.empty') if time_table.bounding_dates.empty?
-    t('time_tables.time_table.bounding', 
+    t('time_tables.time_table.bounding',
         :start => l(time_table.bounding_dates.min),
         :end => l(time_table.bounding_dates.max))
   end
@@ -37,17 +40,17 @@ module TimeTablesHelper
     elsif time_table.periods.empty?
       t('time_tables.time_table.dates_count', :count => time_table.dates.count)
     else
-      t('time_tables.time_table.periods_dates_count', 
+      t('time_tables.time_table.periods_dates_count',
         :dates_count => time_table.dates.count,
         :periods_count => time_table.periods.count)
     end
   end
-  
+
   def time_table_description(time_table)
     if time_table.bounding_dates.empty?
       "#{time_table.comment} (vide)"
     else
-      "#{time_table.comment} : #{time_table_bounding( time_table)} - #{composition_info(time_table)}"  
+      "#{time_table.comment} : #{time_table_bounding( time_table)} - #{composition_info(time_table)}"
     end
   end
 end

@@ -12,7 +12,7 @@
     <%= form.input :facility %>
     <%= form.input :vehicle_type_identifier%>
     <%= form.input :objectid, :required => !@vehicle_journey.new_record?, :input_html => { :title => t("formtastic.titles.vehicle_journey.objectid")} %>
-    <%= form.input :time_table_tokens, :label => t('.time_tables'), :as => :search_time_table, :json => referential_time_tables_path(@referential, :format => :json), :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'),  :input_html => { :"data-pre" => ( @vehicle_journey.time_tables.map{ |time_table| { :id => time_table.id, :comment => time_table.comment, :time_table_bounding => time_table_bounding( time_table), :composition_info => composition_info(time_table) } } ).to_json }  %>
+    <%= form.input :time_table_tokens, :label => t('.time_tables'), :as => :search_time_table, :json => referential_time_tables_path(@referential, :format => :json), :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'),  :input_html => { :"data-pre" => ( @vehicle_journey.time_tables.map{ |time_table| { :id => time_table.id, :tags => time_table.tags.join(','), :day_types => %w(monday tuesday wednesday thursday friday saturday sunday).select{ |d| time_table.send(d) }.map{ |d| time_table.human_attribute_name(d).first(2)}.join(''), :comment => time_table.comment, :time_table_bounding => time_table_bounding( time_table), :composition_info => composition_info(time_table) } } ).to_json }  %>
     <li class="input">
 	    <%= form.label @vehicle_journey.human_attribute_name(:vehicle_journey_at_stop_ids), :class => "label" %>
     </li>
