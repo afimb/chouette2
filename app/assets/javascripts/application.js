@@ -11,8 +11,8 @@
 //= require cocoon
 //= require raphael
 //= require morris
-//= require bootstrap
-//= require typeahead.min
+//= require bootstrap-sass-official
+//= require typeahead.js
 //= require bootstrap-timepicker
 //= require tagmanager
 //= require_directory ./plugins

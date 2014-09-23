@@ -1,15 +1,11 @@
 // First import journal variables
-// @import "bootswatch/cerulean/variables";
 $brand-primary: <%= ChouetteIhm::Application.config.company_theme %>;
 $navbar-default-bg: $brand-primary;
 $navbar-default-link-color: white;
 $body-bg: #eee;
 
 // Then bootstrap itself
-@import "bootstrap";
-
-// And finally bootswatch style itself
-// @import "bootswatch/cerulean/bootswatch";
+@import "bootstrap-sass-official";
 
 // Whatever application styles you have go last
 // Modules and Variables
@@ -20,12 +16,11 @@ $body-bg: #eee;
 @import "partials/footer";
 
 // Third-party
-@import "tagmanager";
+@import "tagmanager/tagmanager.scss";
 @import "font-awesome";
 @import "jquery.ui.all";
 @import "morris";
 @import "formtastic";
-@import "typeahead-rails";
 @import "bootstrap-timepicker";
 
 @import "vendor/openlayers_style";
@@ -36,6 +31,7 @@ $body-bg: #eee;
 @import "vendor/pagination";
 @import "vendor/map_layers";
 @import "vendor/token-input.css";
+@import "vendor/typeahead";
 
 // Main css
 @import "main/*";

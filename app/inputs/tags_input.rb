@@ -14,6 +14,6 @@ class TagsInput < Formtastic::Inputs::StringInput
                   :autofocus         => nil,
                   :class             => 'tm-input',
                 })
-  end 
+  end
   
 end

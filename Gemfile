@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+source 'https://rails-assets.org'
 
 gem 'rails', '3.2.18'
 
@@ -34,6 +35,13 @@ gem 'cocoon', "1.1.2"
 gem 'formtastic'
 gem 'RedCloth'
 
+# some views use coffee script
+gem 'coffee-rails', '~> 3.2.1'
+gem 'coffee-script-source'
+
+gem 'sass-rails',   '~> 3.2.3'
+gem 'uglifier', '>= 1.0.3'
+
 # Javascript
 gem 'jquery-rails', '2.2.1'
 gem 'jquery-ui-sass-rails'
@@ -42,15 +50,15 @@ gem 'morrisjs-rails'
 gem 'raphael-rails'
 
 # Use twitter bootstrap resources
-gem 'bootstrap-sass', '~> 3.1.1'
-gem 'bootswatch-rails'
+gem 'rails-assets-bootstrap-sass-official', '~> 3.1.1'
 gem 'font-awesome-sass'
 gem 'will_paginate-bootstrap'
 gem 'simple_form'
-gem 'tagmanager-rails', '~> 3.0.1.0'
-gem 'typeahead-rails', '~> 0.10.5'
+gem 'rails-assets-tagmanager', '~> 3.0.1.0'
+gem 'rails-assets-typeahead.js', '~> 0.10.5'
 gem "breadcrumbs_on_rails"
 gem 'bootstrap-timepicker-rails'
+gem 'rails-assets-typeahead.js-bootstrap3.less'
 
 # Format Output
 gem 'json'
@@ -66,7 +74,6 @@ gem 'will_paginate', '~> 3.0'
 gem 'ransack'
 gem 'squeel'
 gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git', :branch => :sismo
-#gem 'ninoxe',:path => '~/projects/ninoxe'
 #gem 'ninoxe',:path => '~/workspace/chouette/ninoxe'
 #gem 'ninoxe', '~> 1.0.3'
 
@@ -78,13 +85,6 @@ gem 'rabl'
 
 gem 'delayed_job_active_record'
 gem 'dr-apartment', :require => "apartment"
-
-# some views use coffee script
-gem 'coffee-rails', '~> 3.2.1'
-gem 'coffee-script-source'
-
-gem 'sass-rails',   '~> 3.2.3'
-gem 'uglifier', '>= 1.0.3'
 
 group :development do
   gem 'capistrano'

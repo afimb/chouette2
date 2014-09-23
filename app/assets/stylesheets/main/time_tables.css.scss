@@ -95,6 +95,14 @@
 
 #workspace.time_tables.edit,#workspace.time_tables.new,#workspace.time_tables.create,#workspace.time_tables.update
 {
+    fieldset.inputs{
+        overflow: visible !important;
+
+        .tags{
+            overflow: visible !important;
+        }
+    }
+
     h3 {
         .dates {
             cursor: pointer;
