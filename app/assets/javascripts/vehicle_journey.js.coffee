@@ -72,4 +72,4 @@ jQuery ->
     slide_to( '.departure_time', duration)
     slide_to( '.arrival_time', duration)
 
-  $(document).on("click", '.vehicle_journeys a.slide', slide)
+  $(document).on("click", '.vehicle_journeys a.slide', slide)    

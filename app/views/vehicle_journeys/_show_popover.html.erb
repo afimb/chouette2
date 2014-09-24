@@ -1,0 +1,11 @@
+<p>
+  <%= Chouette::JourneyPattern.model_name.human.pluralize %> : <%= link_to journey_name( vehicle_journey.journey_pattern ), [@referential, @line, @route, vehicle_journey.journey_pattern] %>
+</p>
+<p>
+  <%= vehicle_journey.time_tables.size %> <%= Chouette::TimeTable.model_name.human.pluralize %> <small><%= time_tables_shortest_info( vehicle_journey ) %></small> :
+  <ul>
+    <% vehicle_journey.time_tables.limit(10).each do |time_table| %>
+    <li><%= link_to time_table.comment + " " + time_table_bounding( time_table), [@referential, time_table] %></li>
+    <% end %>
+  </ul>  
+</p>

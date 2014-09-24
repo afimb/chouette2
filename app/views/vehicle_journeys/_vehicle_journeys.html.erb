@@ -6,25 +6,12 @@
 </div>
 <div class="vehicle_journeys paginated_content">
   <table class="table table-hover table-striped">
-  <thead>
-    <tr>
-      <th class="title"><%= Chouette::JourneyPattern.model_name.human.pluralize %> :</th>
-      <% @vehicle_journeys.map(&:journey_pattern).each do |jp| %>
-        <th><%= link_to journey_name( jp), [@referential, @line, @route, jp] %></th>
-    <% end %>
-    </tr>
-    <tr>
-      <th class="title"><%= Chouette::TimeTable.model_name.human.pluralize %> :</th>
-      <% @vehicle_journeys.each do |vj| %>
-        <th title="<%= time_tables_info( vj) %>" class="calendars">
-          <%= time_tables_shortest_info( vj) %>
-        </th>
-      <% end %>
-    </tr>
+  <thead>    
     <tr>
       <th class="title"><%= Chouette::VehicleJourney.model_name.human.pluralize %> :</th>
       <% @vehicle_journeys.each do |vj| %>
-      <th> <%= link_to vehicle_name(vj), [@referential, @line, @route, vj]%></th>
+      <th class="vehicle_journey"> <%= link_to(vehicle_name(vj), '#', :'data-style' => "primary", :'data-container' => "body", :rel => "popover", :'data-toggle' => "popover", :title => vehicle_title(vj), :'data-placement' => "top", :'data-content' => "#{ render( partial: 'show_popover', :locals => { :vehicle_journey => vj })}", :class => "vehicle_journey_popover") %>
+      </th>
       <% end %>
     </tr>
   </thead>
@@ -45,4 +32,5 @@
 <div class="pagination">
   <%= will_paginate @vehicle_journeys, :container => false, renderer: RemoteBootstrapPaginationLinkRenderer %>
 </div>
+
 
