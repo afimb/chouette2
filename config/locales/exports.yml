@@ -1,5 +1,7 @@
 en:
   exports:
+    export:
+      exported_file: "Exported file"
     actions:
       new: "New export"
       destroy: "Destroy"
@@ -115,6 +117,8 @@ en:
     itl: "Restriction Constraints"
 fr:
   exports:
+    export:
+      exported_file: "Fichier exporté"
     actions:
       new: "Nouvel export"
       destroy: "Supprimer cet export"

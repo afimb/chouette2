@@ -18,7 +18,7 @@
   <div class="panel-body">
       <p>
         <% if export.status == 'completed' %>
-          <%= link_to t("exports.actions.download"), referential_export_path(@referential, export, :format => :zip), :class => "download" %>
+          <%= link_to image_tag("icons/file_zip.png") + t(".exported_file"), referential_export_path(@referential, export, :format => :zip), :class => "download" %>
         <% else %>
           &nbsp;
         <% end %>
