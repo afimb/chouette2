@@ -2,6 +2,7 @@
     
 
     .panel-heading{
+        @extend .clearfix;
 
         button {
             margin-left:3px;
@@ -15,6 +16,11 @@
 
         .label{
             margin-right: 5px;
+        }
+
+        h5{
+            margin: 0px;
+            padding-top: 4.5px;            
         }
         
     }
