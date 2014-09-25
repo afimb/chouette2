@@ -59,6 +59,7 @@ gem 'rails-assets-typeahead.js', '~> 0.10.5'
 gem "breadcrumbs_on_rails"
 gem 'bootstrap-timepicker-rails'
 gem 'rails-assets-typeahead.js-bootstrap3.less'
+gem 'rails-assets-respond'
 
 # Format Output
 gem 'json'
