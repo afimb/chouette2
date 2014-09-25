@@ -4,23 +4,11 @@
 
 #workspace.stop_areas.index
 {
-    #country_codes { display: none; }
-    
-    .stop_area {
-
-        .area_type {
-            width: 25px;
-            height: 64px;
-            float: left;
-            margin-right: 10px;
-            
-
-            a {
-                text-decoration: none;                   
-            }
-        }
-
+    .stop_areas {
+        margin-top: 20px;
     }
+
+    #country_codes { display: none; }
 }
 
 #workspace.stop_areas.edit, #workspace.stop_areas.new {

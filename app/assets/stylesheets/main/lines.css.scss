@@ -7,33 +7,7 @@
 
     .lines {
         margin-top: 20px;
-    }
-    
-    .line {
-
-        .color {
-            background-color: white;
-            width: 64px;
-            height: 64px;
-            float: left;
-            margin-right: 10px;
-            border: 1px solid #999;
-
-            a {
-                text-decoration: none;                   
-            }
-        }
-
-        .number {     
-            font-size: 16px;
-            text-align: center;
-            font-weight: bold;
-            padding-top: 21px;
-        }   
-        .name a {
-            display: inline;
-        }
-    }
+    }   
 }
 
 #workspace.lines.edit, #workspace.lines.new, #workspace.lines.create, #workspace.lines.update

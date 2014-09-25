@@ -1,0 +1,54 @@
+#index_item{
+    
+
+    .panel-heading{
+
+        button {
+            margin-left:3px;
+        }
+        
+        .date {
+            font-size:10px;
+            color: gray;
+            text-align: center;
+        }
+
+        .label{
+            margin-right: 5px;
+        }
+        
+    }
+
+    .panel-body{
+        p {
+            margin: 0 0 3px;
+            font-size: 12px;
+        }
+
+        img{
+            margin-right: 5px;
+        }
+        
+    }   
+   
+    .panel-footer{
+        text-align: center;
+
+            
+        .progress {
+            margin-bottom: 5px;
+
+            .progress-bar.failed { width: 100%;}
+            .progress-bar.pending { width: 10%;}
+            .progress-bar.processing { width: 50%;}
+            .progress-bar.completed { width: 100%;}   
+        }
+
+        .history{
+            color: $gray;
+            font-size: 10px;
+        }
+    }
+      
+}
+

@@ -9,37 +9,30 @@
         margin-top: 20px;
     }
 
-    .time_table {
+    #index_item{
+        
         span.included_day_type {
             font-weight: bolder;
             color: black;
         }
+        
         span.excluded_day_type {
         }
 
         .state-code {
-            width: 25px;
-            height: 64px;
-            float: left;
-            margin-right: 10px;
-
-            .validity_out {
-                background-color: #FC4903;
-                width: 25px;
-                height: 25px;
-            }
-
-            .validity_out_soon {
-                background-color: orange;
-                width: 25px;
-                height: 25px;
-            }
-
-            .validity_regular {
-                background-color: #86B41D;
-                width: 25px;
-                height: 25px;
-            }
+         
+        }
+        
+        .validity_out {
+            color: #FC4903 !important;
+        }
+        
+        .validity_out_soon {
+            color: orange !important;
+        }
+        
+        .validity_regular {
+            color: #86B41D !important;
         }
     }
 }

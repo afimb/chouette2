@@ -8,42 +8,6 @@
     .exports {
         margin-top: 20px;
     }
-
-    .export {
-
-        div.icon{
-            float: left;
-        }
-
-        div.resume{
-            float: right;
-            width: 70%;
-
-            ul.header{
-                font-size: 14px;
-                padding-left: 0px;  
-
-                .title{ float: left; }
-                .remove{
-                    float: right;
-                    padding-right: 10px;
-                    color: #494949;
-                }
-            }
-
-            .links {
-                font-size: 10px;
-                p { margin: 3px 0px 0px 0px !important; }                
-                img { margin-right: 10px;}
-            }
-
-            .history {
-                color: $gray-light;
-                margin-top: 5px;
-                font-size: 10px;
-            }
-        }
-    }   
 }
 
 #workspace.exports.show {

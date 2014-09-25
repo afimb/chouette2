@@ -1,12 +1,3 @@
-.status {
-    margin-left: 10px;
-}
-
-.status_failed { color: #a94442;}
-.status_pending { color: #31708f;}
-.status_processing { color: #31708f;}
-.status_completed { color: #3c763d;}
-
 #workspace.import_tasks.index
 {
 
@@ -14,40 +5,6 @@
         margin-top: 20px;
     }
 
-    .import_task {
-
-        div.icon{
-            float: left;
-        }
-
-        div.resume{
-            float: right;
-            width: 70%;
-
-            ul.header{
-                font-size: 14px;
-                padding-left: 0px;
-
-                .title{ float: left; }
-                .remove{
-                    float: right;
-                    padding-right: 10px;
-                }
-            }
-
-            .links {
-                font-size: 10px;
-                p { margin: 3px 0px 0px 0px !important; }                
-                img { margin-right: 10px;}
-            }
-
-            .history {
-                color: $gray-light;
-                margin-top: 5px;
-                font-size: 10px;
-            }
-        }
-    }
 }
 
 #workspace.import_tasks.show {

@@ -7,33 +7,6 @@
 
     .routes{
         margin-top: 20px;
-
-        .route{
-
-            .header{
-                font-weight: bold;
-                
-                .wayback{
-                    float: right;            
-                }
-            }
-            
-            .body {
-                margin: 10px;
-                font-size: 11px;
-
-                p{ margin: 0 0 5px;}
-
-                i{
-                    margin-right: 10px;
-                    font-size: 12px;
-                }
-
-                img{
-                    margin-right: 10px;
-                }
-            }            
-        }
     }
     
 }
