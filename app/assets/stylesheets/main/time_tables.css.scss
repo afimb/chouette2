@@ -18,10 +18,6 @@
         
         span.excluded_day_type {
         }
-
-        .state-code {
-         
-        }
         
         .validity_out {
             color: #FC4903 !important;
@@ -40,10 +36,26 @@
 
 #workspace.time_tables.show
 {
-    .modal-body{overflow-y: visible;}
+    .modal-body{overflow-y: visible;}    
 
+    .summary{
+        margin-top: 20px;
+    }
+    
     .typeahead.dropdown-menu {
-    z-index: 100001;
+        z-index: 100001;
+    }
+
+    .validity_out {
+        color: #FC4903 !important;
+    }
+    
+    .validity_out_soon {
+        color: orange !important;
+    }
+    
+    .validity_regular {
+        color: #86B41D !important;
     }
 
     .day_type {
@@ -71,24 +83,6 @@
 
     .summary p label {
         font-weight: bold;
-    }
-
-    .resume {
-        .validity {
-            float: left;
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-        }
-        .validity.validity_out {
-            background-color: #FC4903;
-        }
-        .validity.validity_out_soon {
-            background-color: orange;
-        }
-        .validity.validity_regular {
-            background-color: #86B41D;
-        }
     }
 }
 
