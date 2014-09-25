@@ -1,5 +1,5 @@
 <p>
-  <%= Chouette::JourneyPattern.model_name.human.pluralize %> : <%= link_to journey_name( vehicle_journey.journey_pattern ), [@referential, @line, @route, vehicle_journey.journey_pattern] %>
+  <%= Chouette::JourneyPattern.model_name.human %> : <%= link_to journey_name( vehicle_journey.journey_pattern ), [@referential, @line, @route, vehicle_journey.journey_pattern] %>
 </p>
 <p>
   <%= vehicle_journey.time_tables.size %> <%= Chouette::TimeTable.model_name.human.pluralize %> <small><%= time_tables_shortest_info( vehicle_journey ) %></small> :

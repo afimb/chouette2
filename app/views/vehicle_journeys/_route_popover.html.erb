@@ -1,9 +1,3 @@
-<p>
-  <%= t(".parent_route") %><br>
-  <%= link_to selected_route.name.truncate(30), [@referential, selected_route.line, selected_route] %>
-</p>
-<p>
-  <%= t(".line_routes") %>
 <ul>
 <% (selected_route.line.routes.limit(10).reject{ |route| route == selected_route}).each do |route| %>
   <li><%= link_to route.name.truncate(30), [@referential, route.line, route] %></li>

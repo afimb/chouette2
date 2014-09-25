@@ -1,7 +1,6 @@
 en:
   vehicle_journeys:
-    route_popover:
-      parent_route: "Parent route"
+    vehicle_journeys:  
       line_routes: "Line's routes"      
     vehicle_journey:
       title_stopless: "Vehicle journey %{name}"
@@ -102,8 +101,7 @@ en:
 
 fr:
   vehicle_journeys:
-    route_popover:
-      parent_route: "Séquence d'arrêt parent"
+    vehicle_journeys:  
       line_routes: "Séquences d'arrêts de la ligne"  
     vehicle_journey:
       title_stopless: "Course %{name}"

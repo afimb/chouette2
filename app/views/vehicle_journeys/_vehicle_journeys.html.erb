@@ -8,9 +8,9 @@
   <table class="table table-hover table-striped">
   <thead>    
     <tr>
-      <th class="title"><%= Chouette::VehicleJourney.model_name.human.pluralize %> :</th>
+      <th class="title"><%= link_to("<i class='fa fa-search'></i> #{Chouette::Route.model_name.human.capitalize}".html_safe, '#', :'data-style' => "primary", :'data-container' => "body", :rel => "popover", :'data-toggle' => "popover", :title => t(".line_routes"), :'data-placement' => "top", :'data-content' => "#{ render( partial: 'route_popover', :locals => { :selected_route => @route })}", :class => "route_popover btn btn-default btn-sm") %></th>
       <% @vehicle_journeys.each do |vj| %>
-      <th class="vehicle_journey"> <%= link_to(vehicle_name(vj), '#', :'data-style' => "primary", :'data-container' => "body", :rel => "popover", :'data-toggle' => "popover", :title => vehicle_title(vj), :'data-placement' => "top", :'data-content' => "#{ render( partial: 'show_popover', :locals => { :vehicle_journey => vj })}", :class => "vehicle_journey_popover") %>
+      <th class="vehicle_journey"> <%= link_to("<i class='fa fa-search'></i>".html_safe, '#', :'data-style' => "primary", :'data-container' => "body", :rel => "popover", :'data-toggle' => "popover", :title => "#{link_to(vehicle_title(vj), [@referential, @line, @route, vj] )}", :'data-placement' => "top", :'data-content' => "#{ render( partial: 'show_popover', :locals => { :vehicle_journey => vj })}", :class => "vehicle_journey_popover btn btn-default btn-sm") %>
       </th>
       <% end %>
     </tr>

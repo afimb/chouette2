@@ -92,14 +92,5 @@
             $('span.vehicle_journey_at_stops_departure_time_gt').toggle( $(this).filter(":checked").val()==undefined);
         });
 
-        /* TODO : Hack to delete popover on breadcrumb route */
-        $(".breadcrumb li a").last().click(false)
-        .popover({
-          html : true,
-          container: 'body',
-          placement: 'bottom',
-          content: '<%= escape_javascript( render( partial: 'route_popover', :locals => { :selected_route => @route} ) ) %>'
-         }).on("show.bs.popover", function(){
-           $(this).data("bs.popover").tip().css("maxWidth", "350px"); } )        
 	});
 </script>
