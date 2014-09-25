@@ -1,17 +1,4 @@
 <%= title_tag t('vehicle_journeys.new.title') %>
 
-<div class="vehicle_journey">
-  <div class="summary">
-    <p>
-      <label><%= @route.human_attribute_name(:line) %>: </label>
-      <%= link_to line_formatted_name( @line), [@referential, @line] %>
-    </p>
-    <p>
-      <label><%= @vehicle_journey.human_attribute_name(:route) %>: </label>
-      <%= link_to @route.name, [@referential, @line, @route] %>
-    </p>
-  <div>
-<div>
-
 <%= render "form" %>
 

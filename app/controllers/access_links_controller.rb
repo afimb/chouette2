@@ -19,8 +19,8 @@ class AccessLinksController < ChouetteController
     @access_point = Chouette::AccessPoint.find(params[:access_point_id])
     @access_link = Chouette::AccessLink.find(params[:id])
     @stop_area = @access_link.stop_area
-    show! do
-      build_breadcrumb :show
+    show! do |format|
+      format.html {build_breadcrumb :show}
     end
   end
   

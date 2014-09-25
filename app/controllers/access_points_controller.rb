@@ -30,7 +30,7 @@ class AccessPointsController < ChouetteController
         }
         
       end
-      build_breadcrumb :show
+      format.html {build_breadcrumb :show}
     end
   end
   

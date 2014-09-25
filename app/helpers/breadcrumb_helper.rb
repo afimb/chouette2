@@ -172,8 +172,8 @@ module BreadcrumbHelper
       label = obj.class.model_name.human+" "+obj.id.to_s
     end
     
-    if label.length > 12
-      label[0..8]+"..."
+    if label.length > 20
+      label[0..16]+"..."
     else
       label  
     end
