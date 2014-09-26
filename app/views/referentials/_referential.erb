@@ -1,14 +1,36 @@
-<%= div_for(referential) do %>
-  <%= link_to referential.name, referential %>
-  <div class="info">
-    <%= referential.human_attribute_name('lines') %>: <span class="lines_count"></span> -
-    <%= referential.human_attribute_name('networks') %>: <span class="networks_count"></span> -
-    <%= referential.human_attribute_name('vehicle_journeys') %>: <span class="vehicle_journeys_count"></span> -
-    <%= referential.human_attribute_name('time_tables') %>: <span class="time_tables_count"></span>
-    <div class="actions">  
-      <%= link_to t("actions.edit"), edit_referential_path(referential), :class => "edit" %> |
-      <%= link_to t("actions.destroy"), referential_path(referential), :method => :delete, :data => {:confirm =>  t('referentials.actions.destroy_confirm')}, :class => "remove" %>
-    </div>
+<div id="index_item" class="panel panel-default referential">
+  <div class="panel-heading">
+    <div class="panel-title clearfix">
+      <span class="pull-right">                
+        <%= link_to edit_referential_path(referential), :class => "btn btn-default btn-sm" do %>
+          <span class="fa fa-pencil"></span>
+        <% end %>
+        <%= link_to referential_path(referential), :method => :delete, :data => {:confirm =>  t('companies.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
+          <span class="fa fa-trash-o"></span>
+        <% end %>
+      </span>
+      <h5>
+        <%= link_to([@referential, referential], :class => "preview", :title => "#{Referential.model_name.human.capitalize} #{referential.name}") do %>        
+        <span class="name">
+          <%= truncate(referential.name, :length => 20) %>          
+        </span>
+        <% end %>
+      </h5>
+    </div>                          
   </div>
+  <div id="referential_<%= referential.id %>" class="panel-body">
+    <p>  
+      <%= referential.human_attribute_name('lines') %>: <span class="lines_count"></span>
+    </p>
+    <p>
+      <%= referential.human_attribute_name('networks') %>: <span class="networks_count"></span>
+    </p>
+    <p>      
+      <%= referential.human_attribute_name('vehicle_journeys') %>: <span class="vehicle_journeys_count"></span>
+    </p>
+    <p>
+      <%= referential.human_attribute_name('time_tables') %>: <span class="time_tables_count"></span>
+    </p>
+  </div>
+</div>
 <%= javascript_include_tag referential_path(referential,:format => :js) %>
-<% end %>
