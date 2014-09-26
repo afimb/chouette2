@@ -42,11 +42,12 @@
     </tr>
   </table>
 
-  <h3 class="api_keys"><%= t('.api_keys') %></h3>
-  
-  <div class="api_keys">
-    <%= render :partial => "api_keys/api_key", :collection => @referential.api_keys %>
+  <% if @referential.api_keys.present? %>
+  <h3 class="api_keys"><%= t('.api_keys') %></h3>  
+  <div class="api_keys paginated_content">
+    <%= paginated_content(@referential.api_keys, "api_keys/api_key") %>
   </div>
+  <% end %>
 </div>  
 
 <% content_for :sidebar do %>
