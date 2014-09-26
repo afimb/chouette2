@@ -5,14 +5,8 @@
   </p>
 </div>
 
-<div class="users">
-  <% @organisation.users.each do |user| %>
-    <%= div_for user do %>
-      <%= user_gravatar_image_tag user %>
-      <%= link_to user.name, organisation_user_path(user) %>
-      <div class="info"><%= user.email %></div>
-    <% end %>
-  <% end %>
+<div class="users paginated_content">
+  <%= paginated_content(@organisation.users, "users/user") %>
 </div>
 
 <% content_for :sidebar do %>
