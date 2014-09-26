@@ -40,13 +40,17 @@ module BreadcrumbHelper
       rule_parameter_breadcrumb action
     when "User"
       user_breadcrumb action
+    when "Referential"
+      referential_breadcrumb action
     when "Organisation"
       organisation_breadcrumb action
+    when "Api::V1::ApiKey"
+      referential_breadcrumb
     else
       Rails.logger.info "---------"
       Rails.logger.info ">>>>>>> "+resource_class.to_s+" unmapped"
       Rails.logger.info "---------"
-      referential_breadcrumb action
+      organisation_breadcrumb :index
     end
   end
   
@@ -153,17 +157,18 @@ module BreadcrumbHelper
 
   def referential_breadcrumb (action = :edit)
     organisation_breadcrumb
-    add_breadcrumb breadcrumb_label(@referential), referential_path(@referential),:title => breadcrumb_tooltip(@referential) if action == :edit
+    add_breadcrumb breadcrumb_label(@referential), referential_path(@referential),:title => breadcrumb_tooltip(@referential) if action == :edit || action == :show || action == :update
   end
   
-  def organisation_breadcrumb (action = :edit)
+  def organisation_breadcrumb (action = :index)
     add_breadcrumb I18n.t("breadcrumbs.referentials"), referentials_path 
+    add_breadcrumb breadcrumb_label(@organisation), organisation_path,:title => breadcrumb_tooltip(@organisation) unless action == :index
   end
 
   def user_breadcrumb (action)
     organisation_breadcrumb 
     add_breadcrumb I18n.t("breadcrumbs.users"), organisation_path unless action == :index
-    add_breadcrumb breadcrumb_label(@user), organisation_user_path(@user),:title => breadcrumb_tooltip(@user) unless action == :index
+    add_breadcrumb breadcrumb_label(@user), organisation_user_path(@user),:title => breadcrumb_tooltip(@user) if action == :edit
   end
 
   def breadcrumb_label(obj)
