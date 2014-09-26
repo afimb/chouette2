@@ -10,12 +10,15 @@
     white: ffffff
 */
 
-/* TODO */
+$selected_period_color: #ffbd2b;
+$selected_date_color: #8fc861;
+$excluded_date_color: #ff8f85;
+$overlap_date_color: #c082f4;
 
 .year_choice{
     font-size: 16px;
     font-weight: bold;
-    margin: 20px 0 0 0;
+    margin: 10px 0 0 0;
     text-align: center;
     
     .year{ 
@@ -25,8 +28,7 @@
 
 }
 
-.calendar_helper{ 
-    
+.calendar_helper{     
     padding: auto; 
 }
 
@@ -72,7 +74,7 @@ th.monthName {
     background-color: #333333;
 }
 
-.day, .specialDay, .selected_period, .selected_date, .overlap_date {
+.day, .specialDay {
     border-bottom: 1px solid #111111;
     padding: 0.7em;
     border-right: 1px solid #111111;
@@ -81,13 +83,13 @@ th.monthName {
 
 .specialDay { background-color: #a8a8a8 !important; }
 
-.selected_period  { background-color: #ffbd2b !important; }
+.selected_period  { background-color: $selected_period_color !important; }
 
-.selected_date  { background-color: #8fc861 !important; }
+.selected_date  { background-color: $selected_date_color !important; }
 
-.excluded_date  { background-color: #ff8f85 !important; }
+.excluded_date  { background-color: $excluded_date_color !important; }
 
-.overlap_date { background-color: #c082f4 !important; }
+.overlap_date { background-color: $overlap_date_color !important; }
 
 .specialDay, .selected_period, .selected_date, .overlap_date, .excluded_date {
     a, a:visited, a:hover {
@@ -96,9 +98,9 @@ th.monthName {
                   }
 }
 
-.specialDay a:hover, selected_period a:hover, selected_date a:hover, excluded_date a:hover, overlap_date a:hover {
-  color: black;
-}
+.specialDay a:hover, selected_period a:hover, selected_date a:hover, excluded_date a:hover, overlap_date a:hover{
+                                                                                                color: black;
+                                                                                            }
 
 .weekendDay {
     background-color: #787888;
@@ -107,3 +109,5 @@ th.monthName {
 	  background-color: white;
 	  color: black;
 }
+
+

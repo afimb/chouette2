@@ -34,7 +34,12 @@ en:
       combine: "Apply"
     show_time_table:
       resume: "From %{start_date} to %{end_date}"
-      resume_empty: "Empty timetable"      
+      resume_empty: "Empty timetable"
+      legend: "Legend : "
+      excluded_date: "Excluded date"
+      overlap_date: "Overlap date" 
+      selected_date: "Selected date"
+      selected_period: "Selected period"
     index:
       title: "Timetables"
       comment: "Search by name"
@@ -121,6 +126,11 @@ fr:
     show_time_table:
       resume: "Validité comprise du %{start_date} au %{end_date}"
       resume_empty: "Calendrier vide"
+      legend: "Légende : "
+      excluded_date: "Date exclue"
+      overlap_date: "Date en doublon" 
+      selected_date: "Date sélectionnée"
+      selected_period: "Période sélectionnée"
     index:
       comment: "Recherche par nom"
       tag_search: "Tags : vacances,jour fériés"

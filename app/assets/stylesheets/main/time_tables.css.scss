@@ -13,6 +13,21 @@
 
     .summary{
         margin-top: 20px;
+
+        p label {
+            font-weight: bold;
+        }
+    }
+
+    .legend{
+        margin-top: 20px;
+
+        .title{ font-weight: bold; }            
+        
+        .excluded_date, .overlap_date, .selected_date, .selected_period{
+            margin-left: 20px;
+            margin-right: 5px;
+        }
     }
     
     .typeahead.dropdown-menu {
@@ -61,10 +76,6 @@
 
     .actions {
         float: right;
-    }
-    
-    .summary p label {
-        font-weight: bold;
     }
 }
 
