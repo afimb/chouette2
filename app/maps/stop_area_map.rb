@@ -40,7 +40,7 @@ EOF
 
         page << <<EOF
         var createAddressStyleMap = function() {
-          var defProp = {strokeColor: "black", strokeOpacity: 1, strokeWidth: 2, fillColor: "#86b41d", fillOpacity: 1};
+          var defProp = {strokeColor: "black", strokeOpacity: 1, strokeWidth: 2, fillColor: "#428bca", fillOpacity: 1};
           var defStyle = OpenLayers.Util.applyDefaults(defProp, OpenLayers.Feature.Vector.style["default"]);
           return new OpenLayers.StyleMap({'default': defStyle, });
         };
