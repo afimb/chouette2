@@ -39,20 +39,18 @@
 #workspace.vehicle_journeys.index
 {
     #search{
-        .panel-heading .btn{
-            margin-left: 20px;
-        }
 
         ul.token-input-list{
             display: inline-block;
             vertical-align: middle;
-            margin-left: 20px;
-            width: 250px;
+            margin-left: 15px;
         }
 
-        .advanced_search_link{
-            vertical-align: -webkit-baseline-middle;
-        }
+        .advanced_search{ margin-left: 40px; }
+        
+        .time_tables_id_eq{ margin-left: 20px;  }
+
+        .vehicle_journey_at_stops_departure_time_gt{ margin-left: 20px; }
 
     }
 
