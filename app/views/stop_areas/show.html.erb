@@ -142,7 +142,7 @@
     <tr><td>	
 	<h4><%= t(".access_managment") %></h4>
 	<ul class="actions">
-        <li><font color="green"><i class="fa fa-caret-square-o-right fa-fw"></i></font><%= link_to t('access_points.actions.new'), new_referential_stop_area_access_point_path(@referential,@stop_area), :class => "with_fa" %></li>
+        <li><font color="green"><i class="fa fa-plus-circle"></i></font><%= link_to t('access_points.actions.new'), new_referential_stop_area_access_point_path(@referential,@stop_area), :class => "with_fa" %></li>
         <li><font color="#D98F3B"><i class="fa fa-arrows-alt fa-fw"></i></font><%= link_to t('stop_areas.actions.manage_access_links'), access_links_referential_stop_area_path(@referential,@stop_area), :class => "with_fa" %></li>
     </ul>
     </td></tr>
