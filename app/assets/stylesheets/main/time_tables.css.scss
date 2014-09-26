@@ -4,29 +4,6 @@
 
 #workspace.time_tables.index
 {
-    #index_item{
-        
-        span.included_day_type {
-            font-weight: bolder;
-            margin-right: 3px;
-        }
-        
-        span.excluded_day_type {
-            margin-right: 3px;
-        }
-        
-        .validity_out {
-            color: $brand-danger;
-        }
-        
-        .validity_out_soon {
-            color: $brand-warning;
-        }
-        
-        .validity_regular {
-            color: $brand-success;
-        }
-    }
 }
 
 
