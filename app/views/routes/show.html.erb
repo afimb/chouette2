@@ -61,7 +61,9 @@
     </div>
     <div id="stop_points" class="panel-collapse collapse">
       <div class="panel-body">
-        <%= render :partial => "stop_points_detail" %>
+        <div class="stop_points paginated_content">
+          <%= paginated_content( @stop_points, "stop_points/stop_point") %>
+        </div>
       </div>
     </div>
   </div>
@@ -78,7 +80,9 @@
     </div>
     <div id="journey_patterns" class="panel-collapse collapse">
       <div class="panel-body">
-        <%= render :partial => "journey_patterns/journey_pattern", :collection => @route.journey_patterns %>
+        <div class="journey_patterns paginated_content">
+          <%= paginated_content( @route.journey_patterns, "journey_patterns/journey_pattern") %>
+        </div>
       </div>
     </div>
   </div>

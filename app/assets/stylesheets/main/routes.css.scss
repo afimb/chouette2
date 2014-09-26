@@ -3,12 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #workspace.lines.show
-{
-
-    .routes{
-        margin-top: 20px;
-    }
-    
+{   
 }
 
 #workspace.routes.edit, #workspace.routes.new, #workspace.routes.create, #workspace.routes.update
@@ -41,75 +36,6 @@
 }
 
 #workspace.routes.show
-{
-    .page_info {
-        margin: 10px 0 10px 0;
-    }
-    
-    .route_color{ color: white;
-                  font-weight: bold;
-                  padding: 0 5px 0 5px;}
-
-    .summary p label {
-        font-weight: bold;
-    }
-
-    .stop_points_detail div.page_info {
-        margin-top: 0px;
-    }   
-
-    .stop_points {
-        margin-top: 10px;
-    }
-    
-    .route_journey_patterns {
-      a {
-        cursor: pointer;
-      }
-    }
-    
-    .route_stop_points {
-        clear: both;
-        margin: 0px;
-        padding: 0px;
-        a {
-          cursor: pointer;
-        }
-    }
-
-    .stop_point {
-        /* to create multi-column index */
-        width: 250px;
-        float: left;
-        padding-right: 10px;
-
-        .position {
-            width: 25px;
-            height: 20px;
-            float: left;
-            background-color: #61970B;
-            font-weight: bold;
-            color: white;
-            margin-right: 10px;
-            padding-left: 4px;
-        }
-    }
-    
-    .journey_patterns {
-        margin-top: 10px;
-    }
-    
-    .journey_pattern {
-        /* to create multi-column index */
-        width: 350px;
-        padding-right: 10px;
-        height: 80px;
-        float: left;
-
-        .name {
-            line-height: 16px;
-        }
-        
-    }
+{  
 }     
 

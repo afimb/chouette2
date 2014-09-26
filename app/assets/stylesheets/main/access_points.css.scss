@@ -3,26 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #workspace.access_points.index
-{   
-    .access_point {
-        /* to create multi-column index */
-        width: 250px;
-        float: left;
-        padding-right: 10px;
-
-        .access_type {
-            width: 25px;
-            height: 64px;
-            float: left;
-            margin-right: 10px;
-            
-
-            a {
-                text-decoration: none;                   
-            }
-        }
-
-    }
+{     
 }
 
 #workspace.access_points.edit,#workspace.access_points.new,#workspace.access_points.create,#workspace.access_points.update
