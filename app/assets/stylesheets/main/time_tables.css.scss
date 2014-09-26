@@ -13,22 +13,23 @@
         
         span.included_day_type {
             font-weight: bolder;
-            color: black;
+            margin-right: 3px;
         }
         
         span.excluded_day_type {
+            margin-right: 3px;
         }
         
         .validity_out {
-            color: #FC4903 !important;
+            color: $brand-danger;
         }
         
         .validity_out_soon {
-            color: orange !important;
+            color: $brand-warning;
         }
         
         .validity_regular {
-            color: #86B41D !important;
+            color: $brand-success;
         }
     }
 }
@@ -45,42 +46,51 @@
     .typeahead.dropdown-menu {
         z-index: 100001;
     }
-
+    
     .validity_out {
-        color: #FC4903 !important;
+        color: $brand-danger;
     }
     
     .validity_out_soon {
-        color: orange !important;
+        color: $brand-warning;
     }
     
     .validity_regular {
-        color: #86B41D !important;
+        color: $brand-success;
     }
 
-    .day_type {
-      border-style:solid;
-      border-width:1px;
-      }
-      .period {
-        padding-left:50px;
-        padding-right:450px;
-      }
-      .date {
-        padding-left:50px;
-      }
-      .odd {
-        padding-left:50px;
-        padding-right:450px;
-      }
-      .even {
-        padding-left:50px;
-        padding-right:450px;
-      }
-  .actions {
-      float: right;
+    span.included_day_type {
+        font-weight: bolder;
+        margin-right: 3px;
     }
 
+    span.excluded_day_type {
+        margin-right: 3px;
+    }
+    
+    .period {
+        padding-left:50px;
+        padding-right:450px;
+    }
+
+    .date {
+        padding-left:50px;
+    }
+    
+    .odd {
+        padding-left:50px;
+        padding-right:450px;
+    }
+    
+    .even {
+        padding-left:50px;
+        padding-right:450px;
+    }
+
+    .actions {
+        float: right;
+    }
+    
     .summary p label {
         font-weight: bold;
     }
