@@ -4,7 +4,7 @@ en:
       line_routes: "Line's routes"      
     vehicle_journey:
       title_stopless: "Vehicle journey %{name}"
-      title: "Vehicle journey %{name} leaving from %{stop} at %{time}"
+      title: "Vehicle journey leaving from %{stop} at %{time}"
     actions:
       index: "Vehicle time's board"
       new: "Add a new vehicle journey"
@@ -105,7 +105,7 @@ fr:
       line_routes: "Séquences d'arrêts de la ligne"  
     vehicle_journey:
       title_stopless: "Course %{name}"
-      title: "Course %{name} partant de %{stop} à %{time}"
+      title: "Course partant de %{stop} à %{time}"
     actions:
       index: "Horaires des courses"
       new: "Ajouter une course"

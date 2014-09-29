@@ -1,20 +1,29 @@
-<%= div_for(access_point) do %>
-  <%= link_to([@referential, @stop_area, access_point], :class => "preview") do %>
-    <div class="access_point_type">
-      <%= image_tag "map/access_" + access_point.access_point_type + ".png"   %>
-    </div>
-  <% end %>
-  <%= link_to access_point.name, [@referential, @stop_area, access_point] %>
-  <div class="info">
-    <p>      
-      <% unless access_point.geometry %>
-      <span class="warning"><%= t('.no_position') %></span> -
-      <% end %>
-    </p>
-    <p><%= t("access_types.label.#{access_point.access_point_type}") %></p>
-    <div class="actions">  
-      <%= link_to t("actions.edit"), edit_referential_stop_area_access_point_path(@referential, @stop_area, access_point), :class => "edit" %> |
-      <%= link_to t("actions.destroy"), referential_stop_area_access_point_path(@referential, @stop_area, access_point), :method => :delete, :data => {:confirm =>  t('access_points.actions.destroy_confirm')}, :class => "remove" %>
-    </div>
+<div id="index_item" class="panel panel-default access_point">
+  <div class="panel-heading">
+    <div class="panel-title clearfix">
+      <span class="pull-right">                
+        <%= link_to edit_referential_stop_area_access_point_path(@referential, @stop_area, access_point), :class => "btn btn-default btn-sm" do %>
+          <span class="fa fa-pencil"></span>
+        <% end %>
+        <%= link_to referential_stop_area_access_point_path(@referential, @stop_area, access_point), :method => :delete, :data => {:confirm =>  t('access_points.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
+          <span class="fa fa-trash-o"></span>
+        <% end %>
+      </span>
+      <h5>
+        <%= link_to([@referential, @stop_area, access_point], :class => "preview", :title => "#{Chouette::StopArea.model_name.human.capitalize} #{access_point.name}") do %>        
+        <span class="name">
+          <%= image_tag "map/access_" + access_point.access_point_type + ".png"   %> <%= truncate(access_point.name, :length => 20) %>          
+        </span>
+        <% end %>
+      </h5>
+    </div>                          
   </div>
-<% end %>
+  <div class="panel-body">
+     <% unless access_point.geometry %>
+     <p>           
+       <span class="warning"><%= t('.no_position') %></span> -
+     </p>
+     <% end %>
+     <p><%= t("access_types.label.#{access_point.access_point_type}") %></p>
+  </div>
+</div>

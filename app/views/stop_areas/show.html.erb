@@ -127,13 +127,13 @@
     <tr><td>	
 	<h4><%= t(".stop_managment") %></h4>
 	<ul class="actions">
-	   <li><font color="#D98F3B"><i class="fa fa-arrow-up fa-fw"></i></font><%= link_to t('stop_areas.actions.select_parent'), select_parent_referential_stop_area_path(@referential, @stop_area), :class => "with_fa" %></li>
+	   <li><%= link_to t('stop_areas.actions.select_parent'), select_parent_referential_stop_area_path(@referential, @stop_area), :class => "parent" %></li>
        <% if @stop_area.parent == nil %>
-	     <li><font color="green"><i class="fa fa-files-o fa-fw"></i></font><%= link_to t('stop_areas.actions.clone_as_parent'), new_referential_stop_area_stop_area_copy_path(@referential, @stop_area, :hierarchy => "parent"), :class => "with_fa" %></li>
+	     <li><%= link_to t('stop_areas.actions.clone_as_parent'), new_referential_stop_area_stop_area_copy_path(@referential, @stop_area, :hierarchy => "parent"), :class => "clone" %></li>
        <% end %>
        <% if manage_children %>
-		  <li><font color="#D98F3B"><i class="fa fa-sitemap fa-fw"></i></font><%= link_to t('stop_areas.actions.add_children'), add_children_referential_stop_area_path(@referential, @stop_area), :class => "with_fa" %></li>
-		  <li><font color="green"><i class="fa fa-files-o fa-fw"></i></font><%= link_to t('stop_areas.actions.clone_as_child'), new_referential_stop_area_stop_area_copy_path(@referential, @stop_area, :hierarchy => "child"), :class => "with_fa" %></li>
+		  <li></i></font><%= link_to t('stop_areas.actions.add_children'), add_children_referential_stop_area_path(@referential, @stop_area), :class => "children" %></li>
+		  <li><%= link_to t('stop_areas.actions.clone_as_child'), new_referential_stop_area_stop_area_copy_path(@referential, @stop_area, :hierarchy => "child"), :class => "clone" %></li>
        <% end %>
 	</ul>
     </td></tr>
@@ -142,8 +142,8 @@
     <tr><td>	
 	<h4><%= t(".access_managment") %></h4>
 	<ul class="actions">
-        <li><font color="green"><i class="fa fa-plus-circle"></i></font><%= link_to t('access_points.actions.new'), new_referential_stop_area_access_point_path(@referential,@stop_area), :class => "with_fa" %></li>
-        <li><font color="#D98F3B"><i class="fa fa-arrows-alt fa-fw"></i></font><%= link_to t('stop_areas.actions.manage_access_links'), access_links_referential_stop_area_path(@referential,@stop_area), :class => "with_fa" %></li>
+        <li><%= link_to t('access_points.actions.new'), new_referential_stop_area_access_point_path(@referential,@stop_area), :class => "add" %></li>
+        <li><%= link_to t('stop_areas.actions.manage_access_links'), access_links_referential_stop_area_path(@referential,@stop_area), :class => "access_link" %></li>
     </ul>
     </td></tr>
 	<% end %>

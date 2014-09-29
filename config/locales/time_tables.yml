@@ -12,6 +12,7 @@ en:
       edit: "Edit this timetable"
       destroy: "Remove this timetable"
       duplicate: "Duplicate this timetable"
+      combine: "Combine with another timetable"
       destroy_confirm: "Are you sure you want destroy this timetable ?"
       destroy_date_confirm: "Are you sure you want destroy this date ?"
       destroy_period_confirm: "Are you sure you want destroy this period ?"

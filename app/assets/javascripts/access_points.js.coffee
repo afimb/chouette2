@@ -29,17 +29,4 @@ jQuery ->
 
   $('input#access_point_projection_xy').change(lon_lat_change)  
   
-  # switch visibility of access_links
-  switch_generics = (event) -> 
-    event.preventDefault()
-    $('.access_points .generics.content').toggle('slow')
-    $('a.generics .switcher').toggle()
 
-  $('.access_points a.generics').click(switch_generics)
-
-  switch_details = (event) -> 
-    event.preventDefault()
-    $('.access_points .details.content').toggle('slow')
-    $('a.details .switcher').toggle()
-
-  $('.access_points a.details').click(switch_details)
