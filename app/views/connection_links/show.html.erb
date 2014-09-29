@@ -79,7 +79,7 @@
   <li><%= link_to t('connection_links.actions.new'), new_referential_connection_link_path(@referential), :class => "add" %></li> 
   <li><%= link_to t('connection_links.actions.edit'), edit_referential_connection_link_path(@referential, @connection_link), :class => "edit" %></li>
   <li><%= link_to t('connection_links.actions.destroy'), referential_connection_link_path(@referential, @connection_link), :method => :delete,  :data => {:confirm =>  t('connection_links.actions.destroy_confirm')}, :class => "remove" %></li>
-  <li><%= link_to t('connection_links.actions.select_areas'), select_areas_referential_connection_link_path(@referential, @connection_link), :class => "select_areas" %></li>
+  <li><%= link_to t('connection_links.actions.select_areas'), select_areas_referential_connection_link_path(@referential, @connection_link), :class => "select" %></li>
   <br>
 </ul>
   <%= creation_tag(@connection_link) %>

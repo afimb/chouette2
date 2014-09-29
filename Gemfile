@@ -51,7 +51,7 @@ gem 'raphael-rails'
 
 # Use twitter bootstrap resources
 gem 'rails-assets-bootstrap-sass-official', '~> 3.1.1'
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '~> 4.2.0'
 gem 'will_paginate-bootstrap'
 gem 'simple_form'
 gem 'rails-assets-tagmanager', '~> 3.0.1.0'
