@@ -38,8 +38,8 @@ en:
       legend: "Legend : "
       excluded_date: "Excluded date"
       overlap_date: "Overlap date" 
-      selected_date: "Selected date"
-      selected_period: "Selected period"
+      selected_date: "Date directly included"
+      selected_period: "Date included in period"
     index:
       title: "Timetables"
       comment: "Search by name"
@@ -129,8 +129,8 @@ fr:
       legend: "Légende : "
       excluded_date: "Date exclue"
       overlap_date: "Date en doublon" 
-      selected_date: "Date sélectionnée"
-      selected_period: "Période sélectionnée"
+      selected_date: "Date inclue directement"
+      selected_period: "Date inclue par période"
     index:
       comment: "Recherche par nom"
       tag_search: "Tags : vacances,jour fériés"
