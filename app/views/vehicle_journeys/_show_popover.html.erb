@@ -18,7 +18,8 @@
         <span class="<%= time_table.send( day_type) ? "included_day_type" : "excluded_day_type"%> time_table_info">
           <%= time_table.human_attribute_name(day_type).first(2) %>
         </span>
-      <% end %>
+        <% end %>
+        <span class="bounding"><%= time_table_bounding( time_table) %></span>
     </li>
     <% end %>
   </ul>  
