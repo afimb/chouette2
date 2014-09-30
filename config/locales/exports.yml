@@ -32,6 +32,7 @@ en:
       undefined: "%{key} undefined"
       overflow: "Can't export more than %{count} %{data} in a single KML export operation. You should proceed with some exports, each one based on less selected lines."
       LINE_COUNT: "Exported line count : %{0}"
+      GROUP_OF_LINES_COUNT: "Exported group of lines count : %{0}"
       ROUTE_COUNT: "Route count : %{0}"
       JOURNEY_PATTERN_COUNT: "Journey pattern count : %{0}"
       QUAY_AND_BOARDING_POSITION_COUNT: "Quays and Boarding positions count : %{0}"
@@ -127,7 +128,7 @@ fr:
     new:
       title: "Nouvel export"
       all: "Toutes"
-      flash: "La demande d'export est mise en file d'attente, veuillez rafraichir régulièrement la page pour le suivre"
+      flash: "La demande d'export est mise en file d'attente, veuillez rafraichir régulièrement la page pour en suivre la progression"
       flash2: "Une fois l'export terminé, un lien sera disponible pour télécharger le résultat"
       fields_gtfs_export:
         warning: "Le filtre sur arrêts produit uniquement les fichiers GTFS stops et transfers gtfs, ceux-ci contenant alors des attributs supplémentaires"
@@ -149,6 +150,7 @@ fr:
       undefined: "%{key} non défini"
       overflow: "Impossible d'exporter plus de %{count} %{data} en un seul export. Veuillez procéder par exports successifs en sélectionnant une moindre quantité de lignes."
       LINE_COUNT: "Nombre de lignes exportées : %{0}"
+      GROUP_OF_LINES_COUNT: "Nombre de groupe de lignes exportés : %{0}"
       ROUTE_COUNT: "Nombre de séquences d'arrêts exportées : %{0}"
       QUAY_AND_BOARDING_POSITION_COUNT: "Nombre d'arrêts physiques exportés : %{0}"
       COMMERCIAL_COUNT: "Nombre d'arrêts commerciaux exportés : %{0}"

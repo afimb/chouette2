@@ -26,7 +26,7 @@ class ReferentialsController < BreadcrumbController
     @referential ||= current_organisation.referentials.find_by_id(params[:id])
   end
   def collection
-    @referentials ||= current_organisation.referentials
+    @referentials ||= current_organisation.referentials.order(:name)
   end
   def build_resource
     super.tap do |referential|
