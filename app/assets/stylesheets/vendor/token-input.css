@@ -49,7 +49,7 @@ li.token-input-token {
     height: 1%;
     margin: 3px;
     padding: 3px 5px;
-    background-color: #d0efa0;
+    background-color: $gray-lighter;
     color: #000;
     font-weight: bold;
     cursor: default;
@@ -123,5 +123,10 @@ div.token-input-dropdown ul li em {
 }
 
 div.token-input-dropdown ul li.token-input-selected-dropdown-item {
-    background-color: #d0efa0;
+    background-color: $gray-lighter;
+}
+
+ul.token-input-list .info{
+    font-size: 0.8em;
+    color: $gray;
 }
