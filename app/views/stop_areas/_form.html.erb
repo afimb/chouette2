@@ -70,11 +70,16 @@
       }
       if ( address.city) {
         name += address.city;
+      } else if ( address.village) {
+        name += address.village;
+      } else if ( address.town) {
+        name += address.town;
       } else if ( address.county ) {
         name += address.county;
       } else if ( address.country ) {
         name += address.country;
       }
+
 
       return name;
     };
@@ -88,11 +93,19 @@
             item.type == "secondary") && item.address.road ;
           });
       return $.map( selection, function( d) {
+          var city = "";
+          if ( d.address.city) {
+            city = d.address.city;
+          } else if ( d.address.town) {
+            city = d.address.town;
+          } else if ( d.address.village) {
+            city = d.address.village;
+          }
           return { postcode: d.address.postcode,
                    road: d.address.road,
                    lon: d.lon, lat: d.lat,
                    suburb: d.address.suburb,
-                   city: d.address.city,
+                   city: city,
                    postcode: d.address.postcode,
                    the_key: address_display( d.address)};
       });
