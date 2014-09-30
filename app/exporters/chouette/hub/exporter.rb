@@ -133,6 +133,10 @@ class Chouette::Hub::Exporter
           Chouette::Hub::LineExporter.save(@lines, temp_dir, hub_export)
           networks = Chouette::Network.where( :id => @lines.map(&:network_id))
           companies = Chouette::Network.where( :id => @lines.map(&:company_id))
+          groups_of_lines = []
+          @lines.each { |l| groups_of_lines << l.group_of_lines }
+          groups_of_lines = groups_of_lines.flatten.uniq
+          Chouette::Hub::GroupOfLinesExporter.save(groups_of_lines, temp_dir, hub_export)
           Chouette::Hub::NetworkExporter.save(networks, temp_dir, hub_export)
           Chouette::Hub::CompanyExporter.save(companies, temp_dir, hub_export)
         else
