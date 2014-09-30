@@ -103,7 +103,7 @@ fr:
     new:
       title: "Nouvel import"
       all: "Tout"
-      flash: "La demande d'import est mise en file d'attente, veuillez rafraichir régulièrement la page pour le suivre"
+      flash: "La demande d'import est mise en file d'attente, veuillez rafraichir régulièrement la page pour en suivre la progression"
       fields_gtfs_import:
         warning: "Le filtre sur arrêts importe uniquement les fichiers GTFS stops et transfers gtfs, ceux-ci pouvant contenir des attributs supplémentaires"
     index:

@@ -82,7 +82,7 @@ fr:
       title: "Démarrer une nouvelle validation"
       submit: "Lancer la validation"
       all: "Toutes"
-      flash: "La demande de validation est mise en file d'attente, veuillez rafraichir régulièrement la page pour le suivre"
+      flash: "La demande de validation est mise en file d'attente, veuillez rafraichir régulièrement la page pour en suivre la progression"
     actions:
       new: "Ajouter une validation"
       destroy_confirm: "Voulez-vous supprimer ce résultat de validation ?"
