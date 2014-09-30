@@ -94,7 +94,7 @@
 
 <h3><%= t('.time_tables') %></h3>
 <div class="time_tables paginated_content">
-  <%= paginated_content @vehicle_journey.time_tables, "time_tables/time_table" %>
+  <%= paginated_content @vehicle_journey.time_tables, "time_tables/time_table", :delete => false %>
 </div>
 
 

@@ -5,9 +5,7 @@
         <%= link_to edit_referential_time_table_path(@referential, time_table), :class => "btn btn-default btn-sm" do %>
           <span class="fa fa-pencil"></span>
         <% end %>
-        <%= link_to referential_time_table_path(@referential, time_table), :method => :delete, :data => {:confirm =>  t('time_tables.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
-          <span class="fa fa-trash-o"></span>
-        <% end %>
+        <%= link_to('<span class="fa fa-trash-o"></span>'.html_safe, referential_time_table_path(@referential, time_table), :method => :delete, :data => {:confirm =>  t('time_tables.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm") if delete %>      
       </span>
       <h5>
         <%= link_to([@referential, time_table], :class => "preview", :title => "#{Chouette::TimeTable.model_name.human.capitalize} #{time_table.comment}") do %>

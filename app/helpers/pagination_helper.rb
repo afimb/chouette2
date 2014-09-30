@@ -1,5 +1,8 @@
 module PaginationHelper
-  def paginated_content(models, default_partial_name = nil)
+  def paginated_content(models, default_partial_name = nil, options = {})
+    default_options = {:delete => true, :edit => true}
+    options = default_options.merge(options)
+    
     return "" if models.blank?
     
     html = ""
@@ -7,7 +10,7 @@ module PaginationHelper
       html += '<div class="row">'
       row_models.each do |model|
         partial_name = default_partial_name || model.class.name.underscore.gsub("chouette/", "")
-        html += '<div  class="col-md-4">' + (render :partial => partial_name, :object => model).to_s + '</div>'
+        html += '<div  class="col-md-4">' + (render :partial => partial_name, :object => model, :locals => options).to_s + '</div>'
       end
       html += '</div>'
     end

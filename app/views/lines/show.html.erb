@@ -88,7 +88,7 @@
 <% if @line.group_of_lines.any? %>
   <h3 class="line_group_of_lines"><%= t('.group_of_lines') %></h3>
   <div class="group_of_lines paginated_content">
-     <%= paginated_content @group_of_lines, "group_of_lines/group_of_line" %>
+     <%= paginated_content @group_of_lines, "group_of_lines/group_of_line", :delete => false %>
   </div>
 <% end %>
 
