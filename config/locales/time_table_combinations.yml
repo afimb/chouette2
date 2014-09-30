@@ -6,10 +6,12 @@ en:
       union: "merge"
       intersection: "intersect"
       disjunction: "disjoin"
+    combine_form:
+      time_tables: "Time table to combine with"
   activemodel:
     attributes:
       time_table_combination:
-        combined_id: "Time table to combine with"
+        combined_id: "Time table id"
         operation: "operation"
 fr:
   time_table_combinations:
@@ -19,10 +21,11 @@ fr:
       union: "ajouter les dates"
       intersection: "conserver les dates communes"
       disjunction: "soustraire les dates"
+    combine_form:
+      time_tables: "Calendrier à combiner"
   activemodel:
     attributes:
       time_table_combination:
-        combined_name: "Calendrier à combiner"
         combined_id: "Id Calendrier"
         operation: "opération"
 

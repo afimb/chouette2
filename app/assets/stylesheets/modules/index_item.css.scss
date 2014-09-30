@@ -3,6 +3,18 @@
 
     .panel-heading{
         @extend .clearfix;
+        
+        .validity_out {
+            color: $brand-danger;
+        }
+        
+        .validity_out_soon {
+            color: $brand-warning;
+        }
+        
+        .validity_regular {
+            color: $brand-success;
+        }
 
         button {
             margin-left:3px;
@@ -33,6 +45,19 @@
 
         img{
             margin-right: 5px;
+        }
+
+        i{
+            margin-right: 5px;
+        }
+
+        span.included_day_type {
+            font-weight: bolder;
+            margin-right: 3px;
+        }
+        
+        span.excluded_day_type {
+            margin-right: 3px;
         }
         
     }   

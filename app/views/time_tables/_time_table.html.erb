@@ -5,7 +5,7 @@
         <%= link_to edit_referential_time_table_path(@referential, time_table), :class => "btn btn-default btn-sm" do %>
           <span class="fa fa-pencil"></span>
         <% end %>
-        <%= link_to referential_time_table_path(@referential, time_table), :method => :delete, :data => {:confirm =>  t('companies.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
+        <%= link_to referential_time_table_path(@referential, time_table), :method => :delete, :data => {:confirm =>  t('time_tables.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
           <span class="fa fa-trash-o"></span>
         <% end %>
       </span>
@@ -20,6 +20,18 @@
     </div>                          
   </div>
   <div class="panel-body">
-    <%= render "cell_info", time_table: time_table  %>
+    <%= time_tables_shortest_info(time_table) %>
+    <% unless time_table.periods.empty? %>
+      <div>
+      <% %w(monday tuesday wednesday thursday friday saturday sunday).each do |day_type| %>
+        <span class="<%= time_table.send( day_type) ? "included_day_type" : "excluded_day_type" %>">
+          <%= time_table.human_attribute_name(day_type).first(2) %>
+        </span>
+      <% end %>
+      </div>
+    <% end %>
+    <% unless time_table.tags.empty? %>
+      <div><%= tag_list_shortened(time_table) %></div>
+    <% end %>
   </div>
 </div>

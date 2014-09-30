@@ -1,22 +1,10 @@
-jQuery ->
-  switch_journey_patterns = (event) -> 
-    event.preventDefault()
-    $('.routes.show .journey_patterns.content').toggle('slow')
-    $('a.journey_patterns .switcher').toggle()
-
-  $('.routes.show a.journey_patterns').click(switch_journey_patterns)
-
-  switch_stop_points = (event) -> 
-    event.preventDefault()
-    $('.routes.show .stop_points_detail').toggle('slow')
-    $('a.stop_points .switcher').toggle()
-
-  $('.routes.show a.stop_points').click(switch_stop_points)
-
+jQuery -> 
   select_stop_on_map = (event) ->
     if (event.type == 'mouseenter') 
       if event.target.id.match(/^stop_point_(\w+)$/)
+        console.log(event.target.id)
         stopAreaId = $("#"+event.target.id+" a").attr('href').match(/\d+$/)[0]
+        console.log(stopAreaId) 
         placeMark = selectFeature.layer.getFeatureByFid( stopAreaId)
         selectFeature.unselectAll()
         selectFeature.select( placeMark)
@@ -24,9 +12,3 @@ jQuery ->
       selectFeature.unselectAll()
 
   $(document).on("hover", '.routes.show div.stop_points .stop_point', select_stop_on_map)
-
-  make_ajax_pagination = () ->
-    $.get(this.href, null, null, 'script')
-    false
-
-  $(document).on("click", '.routes.show .stop_points_detail .pagination a', make_ajax_pagination)

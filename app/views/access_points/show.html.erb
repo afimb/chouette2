@@ -85,45 +85,23 @@
 	    </p>
 	    <% end %>
     <% end %>
-  </div>
-                           
+  </div>  
 </div>
-                
-<p class="after_map" />
+
 <div>
-  <h3 class="access_point_generics">
-	<a class="generics"><%= t('.generic_access_links') %>
-      <%= image_tag("icons/plus.png"  , :class => "switcher", :style => "display: none;") %>
-      <%= image_tag("icons/minus.png"  , :class => "switcher" ) %>
-    </a>
-  	
-  </h3>
-  <div class="generics content">
-
+  <h3 class="access_point_generics"><%= t('.generic_access_links') %></h3> 
 	<div class="access_link_pairs">
-      <table>
-	  <%= render :partial => "access_link_pairs/access_link_pair", :collection => access_links_pairs(@generic_access_links) %>
-      </table>
-	</div>
-  	
+    <table>
+	    <%= render :partial => "access_link_pairs/access_link_pair", :collection => access_links_pairs(@generic_access_links) %>
+    </table>
   </div>
 
-  <h3 class="access_point_details">
-	<a class="details"><%= t('.detail_access_links') %>
-      <%= image_tag("icons/plus.png"  , :class => "switcher") %>
-      <%= image_tag("icons/minus.png"  , :class => "switcher", :style => "display: none;" ) %>
-    </a>
-  	
-  </h3>
-  <div class="details content" style="display: none;">
-
+  <h3 class="access_point_details"><%= t('.detail_access_links') %></h3>
 	<div class="access_link_pairs">
-      <table>
-	  <%= render :partial => "access_link_pairs/access_link_pair", :collection => access_links_pairs(@detail_access_links) %>
-      </table>
-	</div>
-  	
-  </div>
+    <table>
+	    <%= render :partial => "access_link_pairs/access_link_pair", :collection => access_links_pairs(@detail_access_links) %>
+    </table>
+	</div>  
 </div>
 
                          

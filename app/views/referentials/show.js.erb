@@ -1,25 +1,25 @@
-$(document).ready(function() {
+$(function (){
+    var ref, update_infos, update_referential_details, _i, _len, _ref, _results;
 
- jQuery(function() {
-var ref, update_infos, update_referential_details, _i, _len, _ref, _results;
-update_infos = function(json) {
-var info, update_info;
-info = $('#referential_' + json.referential_id + ' .info');
-update_info = function(key, value) {
-if (key.match(/_count$/)) {
-return $(info.find('.' + key)[0]).text(value);
-}
-};
-return $.each(json, update_info);
-};
-update_referential_details = function() {
-return $.getJSON("<%= referential_path(@referential, :format => :json) %>", update_infos);
-};
+    update_infos = function(json) {
+        var info, update_info;
+        info = $('#referential_' + json.referential_id);
+        console.log(info)
+        update_info = function(key, value) {
+            if (key.match(/_count$/)) {
+                return $(info.find('.' + key)[0]).text(value);
+            }
+        };
+        return $.each(json, update_info);
+    };
+    
+    update_referential_details = function() {
+        return $.getJSON("<%= referential_path(@referential, :format => :json) %>", update_infos);
+    };
 
-_results = [];
-_results.push(update_referential_details());
+    _results = [];
+    _results.push(update_referential_details());
 
-return _results; 
-});
+    return _results; 
 });
 

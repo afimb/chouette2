@@ -1,12 +1,30 @@
-<%= div_for(api_key) do %>
-    <%= api_key.token %>
-  <div class="info">
-    <%= api_key.class.human_attribute_name('name') %> <%= api_key.name %> -
-    <%= api_key.class.human_attribute_name('updated_at') %> <%= l(api_key.updated_at) %>
-    <div class="actions">  
-      <%= link_to t("actions.edit"), edit_referential_api_key_path(@referential, api_key), :class => "edit" %> |
-      <%= link_to t("actions.destroy"), referential_api_key_path(@referential, api_key), :method => :delete, :data => {:confirm =>  t('api_keys.actions.destroy_confirm')}, :class => "remove" %>
-    </div>
+<div id="index_item" class="panel panel-default api_key">
+  <div class="panel-heading">
+    <div class="panel-title clearfix">
+      <span class="pull-right">                
+        <%= link_to edit_referential_api_key_path(@referential, api_key), :class => "btn btn-default btn-sm" do %>
+          <span class="fa fa-pencil"></span>
+        <% end %>
+        <%= link_to referential_api_key_path(@referential, api_key), :method => :delete, :data => {:confirm =>  t('api_keys.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
+          <span class="fa fa-trash-o"></span>
+        <% end %>
+      </span>
+      <h5>
+        <%= link_to([@referential, api_key], :class => "preview", :title => "#{Chouette::StopArea.model_name.human.capitalize} #{api_key.name}") do %>        
+        <span class="name">
+          <%= truncate(api_key.name, :length => 20) %>          
+        </span>
+        <% end %>
+      </h5>
+    </div>                          
   </div>
-<% end %>
+  <div class="panel-body">
+    <p>      
+      <%= api_key.class.human_attribute_name('token') %> <%= truncate(api_key.token, :length => 20) %>
+    </p>
+    <p>
+      <%= api_key.class.human_attribute_name('updated_at') %> <%= l(api_key.updated_at) %>
+    </p>
+  </div>
+</div>
 

@@ -39,20 +39,18 @@
 #workspace.vehicle_journeys.index
 {
     #search{
-        .panel-heading .btn{
-            margin-left: 20px;
-        }
 
         ul.token-input-list{
             display: inline-block;
             vertical-align: middle;
-            margin-left: 20px;
-            width: 250px;
+            margin-left: 15px;
         }
 
-        .advanced_search_link{
-            vertical-align: -webkit-baseline-middle;
-        }
+        .advanced_search{ margin-left: 40px; }
+        
+        .time_tables_id_eq{ margin-left: 20px;  }
+
+        .vehicle_journey_at_stops_departure_time_gt{ margin-left: 20px; }
 
     }
 
@@ -97,44 +95,6 @@
     .summary p label {
         font-weight: bold;
     }
-
-    .time_tables {
-        margin-top: 20px;
-    }
-
-    .time_table {
-        span.included_day_type {
-            font-weight: bolder;
-            color: black;
-        }
-        span.excluded_day_type {
-        }
-
-        .state-code {
-            width: 25px;
-            height: 64px;
-            float: left;
-            margin-right: 10px;
-
-            .validity_out {
-                background-color: #FC4903;
-                width: 25px;
-                height: 25px;
-            }
-
-            .validity_out_soon {
-                background-color: orange;
-                width: 25px;
-                height: 25px;
-            }
-
-            .validity_regular {
-                background-color: #86B41D;
-                width: 25px;
-                height: 25px;
-            }
-        }
-    }
 }
 
 #workspace.vehicle_journeys.timeless
@@ -151,7 +111,6 @@
 
         span.included_day_type {
             font-weight: bolder;
-            color: black;
         }
         span.excluded_day_type {
         }

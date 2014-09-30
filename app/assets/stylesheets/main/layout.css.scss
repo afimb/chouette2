@@ -112,6 +112,10 @@ ol.breadcrumb{
         
         .actions {
             margin-bottom: 20px;
+
+            li{
+                margin-bottom: 5px;
+            }
         }
         
         p {
@@ -196,116 +200,4 @@ ol.breadcrumb{
             }
         }
     }   
-}
-
-.info {
-    font-size: 10px;
-    color: #777;
-    font-weight: normal;
-    line-height: 14px;
-    margin-top: 5px;
-    
-    a {
-        display:inline;
-        color: #777;
-    }
-    
-    .actions {
-        margin-top: 10px;
-        a {
-            color: #666;
-            padding-left: 12px;
-        }
-        
-        a.link {
-            background: url(image-path('icons/link-small.png')) no-repeat 0% 50%;
-        }
-        a.edit {
-            background: url(image-path('icons/edit-small.png')) no-repeat 0% 50%;
-        }
-        a.remove {
-            background: url(image-path('icons/remove-small.png')) no-repeat 0% 50%;
-        }
-        a.download {
-            background: url(image-path('download-small.png')) no-repeat 0% 50%;
-        }
-    }   
-}
-
-.actions {
-    a {
-        padding-left: 20px;
-    }
-    
-    /* Hack with font icon */
-    a.vehicle_journeys{
-        padding-left: 4px;
-    }
-    
-    /* to use with font awesome icon */
-    a.with_fa { 
-      padding-left: 2px;
-    }
-
-    a.visit_site{
-        background: url(image-path('icons/site.png')) no-repeat;
-    }
-
-    a.visit_event{
-        background: url(image-path('icons/event.png')) no-repeat;
-    }
-
-    a.visit_page{
-        background: url(image-path('icons/page.png')) no-repeat;
-    }
-    
-    a.add {
-        background: url(image-path('icons/add.png')) no-repeat;
-    }
-    a.edit {
-        background: url(image-path('icons/edit.png')) no-repeat;
-    }
-    a.remove {
-        background: url(image-path('icons/remove.png')) no-repeat;
-    }
-    a.export {
-        background: url(image-path('icons/export.png')) no-repeat;
-    }
-    li {
-        margin: 10px 0;
-    }
-    
-    a.add_children {
-        background: url(image-path('icons/add.png')) no-repeat;
-    }
-
-    a.add_fields {
-        background: url(image-path('icons/add.png')) no-repeat;
-    }
-
-    a.link {
-        background: url(image-path('icons/link.png')) no-repeat;
-    }
-
-    a.select_parent {
-        background: url(image-path('icons/select_parent.png')) no-repeat;
-    }
-    
-    a.select_areas {
-        background: url(image-path('icons/select_parent.png')) no-repeat;
-    }
-
-    a.calculator_edit {
-        background: url(image-path('icons/calculator_edit.png')) no-repeat;
-    }
-    a.import {
-        background: url(image-path('icons/import-small.png')) no-repeat;
-    }
-    a.export {
-        background: url(image-path('icons/export-small.png')) no-repeat;
-    }
-    a.kml {
-        background: url(image-path('icons/kml.png')) no-repeat;
-    }
-    
 }

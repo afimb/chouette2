@@ -51,7 +51,7 @@ gem 'raphael-rails'
 
 # Use twitter bootstrap resources
 gem 'rails-assets-bootstrap-sass-official', '~> 3.1.1'
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '~> 4.2.0'
 gem 'will_paginate-bootstrap'
 gem 'simple_form'
 gem 'rails-assets-tagmanager', '~> 3.0.1.0'
@@ -59,6 +59,7 @@ gem 'rails-assets-typeahead.js', '~> 0.10.5'
 gem "breadcrumbs_on_rails"
 gem 'bootstrap-timepicker-rails'
 gem 'rails-assets-typeahead.js-bootstrap3.less'
+gem 'rails-assets-respond'
 
 # Format Output
 gem 'json'
