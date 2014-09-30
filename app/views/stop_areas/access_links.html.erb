@@ -1,33 +1,46 @@
 <%= title_tag t('stop_areas.access_links.title', :stop_area => @stop_area.name ) %>
 
 <div class="stop_area_show">
-  <h3 class="stop_area_generics">
-	<a class="generics"><%= t('.generic_access_links') %>
-      <%= image_tag("icons/plus.png"  , :class => "switcher", :style => "display: none;") %>
-      <%= image_tag("icons/minus.png"  , :class => "switcher" ) %>
-    </a>
-  	
-  </h3>
-  <div class="generics content">
-	<div class="access_link_pairs">
-      <table>
-	  <%= render :partial => "access_link_pairs/access_link_pair", :collection => access_links_pairs(@generic_access_links) %>
-      </table>
-	</div>
+
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#generic_access_links">
+          <%= t('.generic_access_links') %>
+        </a>
+      </h4>
+    </div>
+    <div id="generic_access_links" class="panel-collapse collapse in">
+      <div class="panel-body">
+		<div class="access_link_pairs">
+	      <table>
+		  <%= render :partial => "access_link_pairs/access_link_pair", :collection => access_links_pairs(@generic_access_links) %>
+	      </table>
+		</div>
+      </div>
+    </div>
   </div>
-  <h3 class="stop_area_generics">
-	<a class="details"><%= t('.detail_access_links') %>
-      <%= image_tag("icons/plus.png"  , :class => "switcher") %>
-      <%= image_tag("icons/minus.png"  , :class => "switcher", :style => "display: none;" ) %>
-    </a>
-  	
-  </h3>
-  <div class="details content"  style="display: none;">
-	<div class="access_link_pairs">
-      <table>
-	  <%= render :partial => "access_link_pairs/access_link_pair", :collection => access_links_pairs(@detail_access_links) %>
-      </table>
-	</div>
+</div>
+
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#detail_access_links">
+          <%= t('.detail_access_links') %>
+        </a>
+      </h4>
+    </div>
+    <div id="detail_access_links" class="panel-collapse collapse">
+      <div class="panel-body">
+		<div class="access_link_pairs">
+	      <table>
+		  <%= render :partial => "access_link_pairs/access_link_pair", :collection => access_links_pairs(@detail_access_links) %>
+	      </table>
+		</div>
+      </div>
+    </div>
   </div>
 </div>
 
