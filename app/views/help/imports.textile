@@ -33,8 +33,8 @@ p(note). Les tests de niveau 1 et 2 ne sont actuellement implémentés que pour 
 
 h3(#fmt). Formats disponibles
 
-- Neptune := format normalisé des échanges de données de transport en commun pour la France (cf "Normalisation":normalisation)
-- NeTEx := format d'échange de données de transport en commun expérimental sur la norme européenne ["NeTEx":http://www.normes-donnees-tc.org/format-dechange/donnees-theoriques/] mais limité au sous-ensemble des données définies dans la norme Neptune
+- Neptune := format d'échange de données de transport en commun pour la France (cf "Normalisation":normalisation)
+- NeTEx := format d'échange de données de transport en commun expérimental sur la future norme européenne ["NeTEx":http://www.normes-donnees-tc.org/format-dechange/donnees-theoriques/] mais limité au sous-ensemble des données définies dans le format Neptune
 - CSV := format tabulaire spécifique à Chouette  (cf "CSV":csv)
 - GTFS := 
 format originaire de ["Google Transit":https://support.google.com/transitpartners/], à condition que le fichier soit préalablement validé avec l'outil Feed Validator =:

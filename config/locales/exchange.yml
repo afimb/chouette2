@@ -1,18 +1,18 @@
 en:
   exchange:
     format:
-      neptune: "Neptune (French normalized format based on European Trident Standard)"
+      neptune: "Neptune"
       gtfs: "GTFS (General Transit Feed Specification)"
       csv: "CSV (Chouette format)"
-      netex: "NeTEx (experimental Neptune local agreement for Network Exchange CEN standard)"
-      hub: "HUB (Specific Cityway Format)"
-      kml: "KML (line and route drawings on Keyhole Markup Language format)"
+      netex: "NeTEx (experimental)"
+      hub: "HUB 1.4 (Specific Transdev Format)"
+      kml: "KML (line, route, ... drawings on Keyhole Markup Language format)"
 fr:
   exchange:
     format:
-      neptune: "Neptune (Format normalisé français basé sur le standard européen Trident)"
-      gtfs: "GTFS (General Transit Feed Specification définit par Google)"
-      csv: "CSV (format spéficique à Chouette)"
-      netex: "NeTEx (Profil expérimental de Neptune sur le standard européen 'Network Exchange' )"
-      hub: "HUB (format spécifique Cityway)"
-      kml: "KML (tracés de lignes et de séquences d'arrêts en 'Keyhole Markup Language')"
+      neptune: "profil Neptune"
+      gtfs: "GTFS (General Transit Feed Specification défini par Google)"
+      csv: "CSV (format spécifique à Chouette)"
+      netex: "profil NeTEx expérimental"
+      hub: "HUB 1.4 (format spécifique Transdev)"
+      kml: "KML (tracés de lignes, séquences d'arrêts, ...  en 'Keyhole Markup Language')"

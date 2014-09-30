@@ -79,7 +79,7 @@ module BreadcrumbHelper
 
   def access_point_breadcrumb(action)
     stop_area_breadcrumb :edit
-    add_breadcrumb breadcrumb_label(@access_point), referential_stop_area_access_point_path(@referential, @stop_area,@access_point),:title => breadcrumb_tooltip(@access_point) if action == :edit
+    add_breadcrumb breadcrumb_label(@access_point), referential_stop_area_access_point_path(@referential, @access_point.stop_area,@access_point),:title => breadcrumb_tooltip(@access_point) if action == :edit
   end
 
   def access_link_breadcrumb(action)

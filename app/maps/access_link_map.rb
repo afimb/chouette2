@@ -23,7 +23,7 @@ class AccessLinkMap < ApplicationMap
   end
 
   def bounds
-    @bounds ||= GeoRuby::SimpleFeatures::Point.bounds([access_link.stop_area.geometry,access_link.access_point.geometry])
+    @bounds ||= GeoRuby::SimpleFeatures::Point.bounds([access_link.stop_area.geometry,access_link.access_point.geometry].compact)
   end
 
 end
