@@ -3,29 +3,18 @@ class TimeTableCombination
   include ActiveModel::Conversion  
   extend ActiveModel::Naming
   
-  attr_accessor :source_id, :combined_id, :combined_name, :operation
+  attr_accessor :source_id, :combined_id, :operation 
   
-  validates_presence_of :source_id, :combined_id, :operation, :combined_name
+  validates_presence_of :source_id, :combined_id, :operation 
   validates_inclusion_of :operation, :in =>  %w( union intersection disjunction)
     
   def clean
     self.source_id = nil
     self.combined_id = nil
-    self.combined_name = nil
     self.operation = nil
     self.errors.clear
   end  
-    
-  def valid?(context = nil) 
-      self.combined_name = nil if self.combined_id.blank? 
-      super context
-  end
-  
-  def invalid?(context = nil) 
-      self.combined_name = nil if self.combined_id.blank? 
-      super context
-  end
-
+   
   def self.operations
     %w( union intersection disjunction)
   end
