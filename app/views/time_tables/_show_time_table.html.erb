@@ -73,20 +73,27 @@
         
       </div>
 
+      <% if @time_table.periods.present? %>
       <h3 class="time_table_periods"><%= @time_table.human_attribute_name("periods") %></h3>
       <div class="periods content">
   	    <%= render "time_tables/periods" %>
       </div>
+      <% end %>
 
+      <% if @time_table.dates.where("in_out = true").present? %>
       <h3 class="time_table_dates"><%= @time_table.human_attribute_name("dates") %></h3>
       <div class="dates content">
   	    <%= render "time_tables/dates" %>
       </div>
+      <% end %>
 
+      <% if @time_table.dates.where("in_out = false").present? %>
       <h3 class="time_table_dates"><%= @time_table.human_attribute_name("excluded_dates") %></h3>
       <div class="excluded_dates content">
   	    <%= render "time_tables/excluded_dates" %>
       </div>
+      <% end %>
+      
     </div>
   </div>
 
