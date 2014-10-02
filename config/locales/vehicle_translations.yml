@@ -6,7 +6,7 @@ en:
       set: "Set"
       to: "at (hh:mm)"
       first_stop_arrival_time: "Arrival time at first stop '%{stop_name}'"
-      first_stop_departure_time: "Arrival time at first stop '%{stop_name}'"
+      first_stop_departure_time: "Departure time at first stop '%{stop_name}'"
       multiple_cloning_form: "Repeat cloning based on a time interval"
   activemodel:
     attributes:
