@@ -105,16 +105,21 @@ class VehicleJourneyImport
     first_stop_row_index = 7
     
     stop_point_ids = first_column[first_stop_row_index..spreadsheet.last_row].map(&:to_i)
-    same_stop_points = route.stop_points.collect(&:id) == stop_point_ids
+    # blank lines at end of file will produce id = 0 ; ignore them
+    last_stop_row_index = stop_point_ids.length + 6
+    while stop_point_ids.last == 0
+      stop_point_ids = stop_point_ids[0..-2]
+      last_stop_row_index -= 1
+    end
     
-    unless same_stop_points
+    unless route.stop_points.collect(&:id) == stop_point_ids
       errors.add :base, I18n.t("vehicle_journey_imports.errors.not_same_stop_points", :route => route.id)
       raise
     end    
            
     (3..spreadsheet.last_column).each do |i|
       vehicle_journey_id = spreadsheet.column(i)[0]
-      hours_by_stop_point_ids = Hash[[stop_point_ids, spreadsheet.column(i)[first_stop_row_index..spreadsheet.last_row]].transpose]
+      hours_by_stop_point_ids = Hash[[stop_point_ids, spreadsheet.column(i)[first_stop_row_index..last_stop_row_index]].transpose]
       
       journey_pattern = find_journey_pattern_schedule(i,hours_by_stop_point_ids)
       
