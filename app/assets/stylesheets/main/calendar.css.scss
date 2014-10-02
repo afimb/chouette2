@@ -89,16 +89,16 @@ th.monthName {
 
 .excluded_date  { background-color: $excluded_date_color !important; }
 
-.overlap_date { background-color: $overlap_date_color !important; }
+.overlaped_date { background-color: $overlap_date_color !important; }
 
-.specialDay, .selected_period, .selected_date, .overlap_date, .excluded_date {
+.specialDay, .selected_period, .selected_date, .overlaped_date, .excluded_date {
     a, a:visited, a:hover {
                       color: white;
                       text-decoration: none;
                   }
 }
 
-.specialDay a:hover, selected_period a:hover, selected_date a:hover, excluded_date a:hover, overlap_date a:hover{
+.specialDay a:hover, selected_period a:hover, selected_date a:hover, excluded_date a:hover, overlaped_date a:hover{
                                                                                                 color: black;
                                                                                             }
 
