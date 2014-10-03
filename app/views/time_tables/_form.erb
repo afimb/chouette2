@@ -33,7 +33,7 @@
   <h3 class="time_table_dates"><%= @time_table.human_attribute_name("dates") %></h3>
   <div id="dates_content">
     <div id="dates">
-		  <%= form.semantic_fields_for :dates, @time_table.dates.where("in_out = true").to_a do |p| %>
+		  <%= form.semantic_fields_for :dates, @time_table.dates.to_a.select {|d| d.in_out == true}  do |p| %>
 	  	<%= render "date_fields",  :f => p %> 
 		  <% end %>
 	  </div>
@@ -46,7 +46,7 @@
   <h3 class="time_table_dates"><%= @time_table.human_attribute_name("excluded_dates") %></h3>
   <div id="excluded_dates_content">
 	  <div id="excluded_dates">
-		  <%= form.semantic_fields_for :dates, @time_table.dates.where("in_out = false").to_a do |p| %>
+		  <%= form.semantic_fields_for :dates, @time_table.dates.to_a.select {|d| d.in_out == false}  do |p| %>
 		  <%= render "excluded_date_fields",  :f => p %> 
 		  <% end %>
 	  </div>
