@@ -7,6 +7,9 @@ class Chouette::Hub::PhysicalStopAreaExporter
     @directory = directory
     @template = File.open('app/views/api/hub/arrets_physiques.hub.erb' ){ |f| f.read }
     @type = "NNNNNNNNNNNNNNNNNN"
+    if @stop_area.parent_id
+      @parent = Chouette::StopArea.find(@stop_area.parent_id)
+    end
     @stop_area.referential.projection_type = "27562"
 
     wgs84 = '+proj=lonlat +datum=WGS84 +ellps=WGS84'

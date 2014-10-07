@@ -12,7 +12,7 @@ set :group_writable, true
 set :rake, "bundle exec rake"
 set :keep_releases, 4
 set :rails_env, "production" #added for delayed job
-set :user, "metienne"
+set :user, "zbouziane"
 set :deploy_via, :copy
 set :copy_via, :scp
 set :copy_exclude, ".git/*"

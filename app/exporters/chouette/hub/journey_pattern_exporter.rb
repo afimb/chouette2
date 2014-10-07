@@ -7,6 +7,19 @@ class Chouette::Hub::JourneyPatternExporter
     @directory = directory
     @template = File.open('app/views/api/hub/chemins.hub.erb' ){ |f| f.read }
     @type = "COM"
+    if @journey_pattern.route
+      if @journey_pattern.route.line_id
+        @line = Chouette::Line.find(@journey_pattern.route.line_id)
+      end
+    end
+    @stop_areas = []
+    if @journey_pattern.stop_points
+      @stop_points = @journey_pattern.stop_points.order(:position)
+      if @stop_points
+        @stop_points.each { |sp| @stop_areas << Chouette::StopArea.find(sp.stop_area_id) }
+      end
+    end
+    @stop_areas = @stop_areas.flatten
   end
   
   def render()

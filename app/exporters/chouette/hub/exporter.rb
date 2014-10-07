@@ -30,15 +30,15 @@ class Chouette::Hub::Exporter
   
   def select_lines(object, ids)
     if object == "network"
-      ids.present? ? Chouette::Line.includes(:routes).where( :network_id => ids.split(",")).order(:name) :
-        Chouette::Line.joins(:network).includes(:routes).order(:name)
+      ids.present? ? Chouette::Line.includes(:routes).where( :network_id => ids.split(",")).order(:objectid) :
+        Chouette::Line.joins(:network).includes(:routes).order(:objectid)
     elsif object == "company"
-      ids.present? ? Chouette::Line.includes(:routes).where( :company_id => ids.split(",")).order(:name) :
-        Chouette::Line.joins(:company).includes(:routes).order(:name)
+      ids.present? ? Chouette::Line.includes(:routes).where( :company_id => ids.split(",")).order(:objectid) :
+        Chouette::Line.joins(:company).includes(:routes).order(:objectid)
     elsif object == "line" && ids.present?
-      Chouette::Line.includes(:routes).where( :id => ids.split(",")).order(:name)
+      Chouette::Line.includes(:routes).where( :id => ids.split(",")).order(:objectid)
     else
-      Chouette::Line.includes(:routes).order(:name)
+      Chouette::Line.includes(:routes).order(:objectid)
     end
   end
   
@@ -81,9 +81,23 @@ class Chouette::Hub::Exporter
         @time_tables = select_time_tables(options[:start_date], options[:end_date])
         
         @lines = select_lines( options[:o], options[:id] )
-        @routes = lines.map(&:routes).flatten.sort {|a,b| (a.name && b.name) ? a.name <=> b.name : a.id <=> b.id} if lines_exportable?
-        @journey_patterns = Chouette::JourneyPattern.where(:route_id => routes.map(&:id)).order(:name) if routes_exportable?
-        @vehicle_journeys = Chouette::VehicleJourney.where(:route_id => routes.map(&:id)).order(:objectid) if routes_exportable?
+        
+        #@routes = @lines.map(&:routes).flatten.sort {|a,b| (a.name && b.name) ? a.name <=> b.name : a.id <=> b.id} if lines_exportable?
+        @routes = []
+        if @lines
+          @lines.each { |line| @routes << Chouette::Route.where( "line_id = ?", line.id ) }
+        end
+        #@routes = @routes.flatten
+
+        #@journey_patterns = Chouette::JourneyPattern.where(:route_id => @routes.map(&:id)).order(:objectid) if routes_exportable?
+        @journey_patterns = []
+        if @routes
+          @routes.each { |subroutes| @journey_patterns << Chouette::JourneyPattern.where( :route_id => subroutes.map(&:id) ).order(:objectid) }
+        end
+        @journey_patterns = @journey_patterns.flatten
+
+        @routes = @routes.flatten
+        @vehicle_journeys = Chouette::VehicleJourney.where(:route_id => @routes.map(&:id)).order(:objectid) if routes_exportable?
                 
         vjs = []
         tts = []
@@ -96,7 +110,7 @@ class Chouette::Hub::Exporter
         @time_tables = tts.flatten.uniq
         @vehicle_journeys = vjs.uniq
         
-        vehicle_journey_at_stops = Chouette::VehicleJourneyAtStop.where( :vehicle_journey_id => @vehicle_journeys.map(&:id) ).order(:id) if vehicle_journeys_exportable?
+        vehicle_journey_at_stops = Chouette::VehicleJourneyAtStop.where( :vehicle_journey_id => @vehicle_journeys.map(&:id) ) #.order(:id) if vehicle_journeys_exportable?
         
         if time_tables_exportable?
           Chouette::Hub::TimeTableExporter.save(@time_tables, temp_dir, hub_export)
@@ -104,10 +118,19 @@ class Chouette::Hub::Exporter
           log_overflow_warning(Chouette::TimeTable)
         end
         
+        if journey_patterns_exportable?
+          Chouette::Hub::RouteExporter.save(@routes, temp_dir, hub_export)
+          Chouette::Hub::JourneyPatternExporter.save(@journey_patterns, temp_dir, hub_export)
+          Chouette::Hub::DirectionExporter.save(@journey_patterns, temp_dir, hub_export)
+        else
+          log_overflow_warning(Chouette::JourneyPattern) if routes_exportable?
+        end
+        
         if vehicle_journeys_exportable?
           Chouette::Hub::VehicleJourneyExporter.save(@vehicle_journeys, temp_dir, hub_export)
-          Chouette::Hub::VehicleJourneyAtStopExporter.save(vehicle_journey_at_stops, temp_dir, hub_export)
           Chouette::Hub::VehicleJourneyOperationExporter.save(@vehicle_journeys, temp_dir, hub_export)
+          #Chouette::Hub::VehicleJourneyAtStopExporter.save(vehicle_journey_at_stops, temp_dir, hub_export)
+          Chouette::Hub::VehicleJourneyAtStopExporter.save(@vehicle_journeys, temp_dir, hub_export, vehicle_journey_at_stops.count)
         else
           log_overflow_warning(Chouette::VehicleJourney)
         end
@@ -119,15 +142,9 @@ class Chouette::Hub::Exporter
         Chouette::Hub::CommercialStopAreaExporter.save(commercial_stop_areas, temp_dir, hub_export)
         Chouette::Hub::PhysicalStopAreaExporter.save(physical_stop_areas, temp_dir, hub_export)
 
-        connection_links = Chouette::ConnectionLink.where( "departure_id IN (?) AND arrival_id IN (?)", (physical_stop_areas.map(&:id) + commercial_stop_areas.map(&:id)), (physical_stop_areas.map(&:id) + commercial_stop_areas.map(&:id)) )
+        connection_links = Chouette::ConnectionLink.where( "departure_id IN (?) AND arrival_id IN (?)", (physical_stop_areas.map(&:id) + commercial_stop_areas.map(&:id)), (physical_stop_areas.map(&:id) + commercial_stop_areas.map(&:id)) ).order(:id)
         
         Chouette::Hub::ConnectionLinkExporter.save(connection_links, temp_dir, hub_export)
-        
-        if journey_patterns_exportable?
-          Chouette::Hub::JourneyPatternExporter.save(@journey_patterns, temp_dir, hub_export)
-        else
-          log_overflow_warning(Chouette::JourneyPattern) if routes_exportable?
-        end
         
         if lines_exportable?
           Chouette::Hub::LineExporter.save(@lines, temp_dir, hub_export)
