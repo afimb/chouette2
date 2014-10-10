@@ -47,10 +47,10 @@ class StopAreaCopy
           if self.hierarchy == "child"
             copy.parent_id = source.id
           end
-          copy.save
+          copy.save!
           if self.hierarchy == "parent"
             source.parent_id = copy.id
-            source.save
+            source.save!
           end
         end
         true
@@ -59,7 +59,7 @@ class StopAreaCopy
       end
     rescue Exception => exception
       Rails.logger.error(exception.message)
-      errors.add :base, I18n.t("stop_area_copy.errors.exception")
+      errors.add :base, I18n.t("stop_area_copies.errors.exception")
       false
     end
   end   

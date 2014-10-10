@@ -7,6 +7,7 @@ en:
         parent: "Clone as parent"
     errors:
       copy_aborted: "Errors prohibited this copy from completing: "
+      exception: "internal error"   
   activemodel:        
     attributes:
       stop_area_copy:
@@ -19,7 +20,8 @@ fr:
         child: "Cloner pour créer un fils"
         parent: "Cloner pour créer un père"
     errors:
-      copy_aborted: "Des erreurs ont empéchées le bon déroulement de la copie: "        
+      copy_aborted: "Des erreurs ont empéchées le bon déroulement de la copie: "
+      exception: "erreur interne"   
   activemodel:        
     attributes:
       stop_area_copy:
