@@ -22,14 +22,14 @@
     </div>
     <div id="middle" class="container">
       <div class="row">
-        <div class="col-md-9">
+        <div class="<%= content_for?(:sidebar) ? 'col-md-9' : 'col-md-12' %>">
           <div id="workspace" class="<%= controller_name %> <%= action_name %>">
             <%= render partial: "shared/flash_messages", flash: flash %>
             <%= render partial: "shared/breadcrumb" %>
             <%= yield %>
           </div>
         </div>
-        <div id="sidebar" class="col-md-3">
+        <div id="sidebar" class="<%= content_for?(:sidebar) ? 'col-md-3' : '' %>">
           <%= yield :sidebar %>
         </div>
       </div>

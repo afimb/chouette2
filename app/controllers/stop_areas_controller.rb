@@ -68,6 +68,13 @@ class StopAreasController < ChouetteController
     end
   end
 
+  def create
+    @map = StopAreaMap.new( Chouette::StopArea.new).with_helpers(self)
+    @map.editable = true
+
+    create!
+  end
+
   def show
     map.editable = false
     @access_points = @stop_area.access_points
@@ -83,12 +90,18 @@ class StopAreasController < ChouetteController
   end
 
   def edit
-    stop_area.position ||= stop_area.default_position
-
-    map.editable = true
     edit! do
+      stop_area.position ||= stop_area.default_position
+      map.editable = true
       build_breadcrumb :edit
    end
+  end
+
+  def update
+    stop_area.position ||= stop_area.default_position
+    map.editable = true
+    
+    update!
   end
 
   def default_geometry
