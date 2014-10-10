@@ -1,0 +1,1 @@
+<%= @line.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2') if @line %>;<%= @route.wayback == 'A' ? 1 : 2 %><% @stop_areas.each do |s| %>;<%= s.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2') if s.objectid %>;<%= s.id %><% end %>

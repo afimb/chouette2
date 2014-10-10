@@ -46,10 +46,10 @@ class TimeTablesController < ChouetteController
 
   def duplicate
     @time_table = Chouette::TimeTable.find params[:id]
+    # prepare breadcrumb before prepare data for new timetable
+    build_breadcrumb :edit
     @time_table = @time_table.duplicate
-    @time_table.save
-    flash[:notice] = I18n.translate("time_tables.duplicate_success")
-    redirect_to edit_referential_time_table_path(@referential, @time_table)
+    render :new
   end
 
   def tags

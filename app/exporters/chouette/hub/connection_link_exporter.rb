@@ -6,6 +6,8 @@ class Chouette::Hub::ConnectionLinkExporter
     @connection_link = connection_link
     @directory = directory
     @template = File.open('app/views/api/hub/correspondances.hub.erb' ){ |f| f.read }
+    @departure = Chouette::StopArea.find(@connection_link.departure_id) if @connection_link.departure_id
+    @arrival = Chouette::StopArea.find(@connection_link.arrival_id) if @connection_link.arrival_id
   end
   
   def render()

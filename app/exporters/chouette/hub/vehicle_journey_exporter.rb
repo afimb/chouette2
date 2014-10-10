@@ -19,16 +19,27 @@ class Chouette::Hub::VehicleJourneyExporter
     @departure_time_sec = departure_time.sec + ( departure_time.min + departure_time.hour * 60 ) * 60
     @arrival_time_sec = arrival_time.sec + ( arrival_time.min + arrival_time.hour * 60 ) * 60
     @validity = 0
-    @vehicle_journey.time_tables.map(&:int_day_types).each { |v| @validity += v }
+    @vehicle_journey.time_tables.map(&:int_day_types).each { |v| @validity |= v }
     
-    periods = Chouette::TimeTablePeriod.where( :time_table_id => @vehicle_journey.time_tables.map(&:id) ).map(&:id)
+    periods = Chouette::TimeTable.where( :id => @vehicle_journey.time_tables.map(&:id) ).map(&:objectid)
     @periods = ""
     unless periods.empty? 
-      @periods += periods[0].to_s
+      @periods += periods[0].sub(/(\w*\:\w*\:)(\w*)/, '\2')
       periods.shift
     end
     unless periods.empty?
-      periods.each { |p| @periods += "|" + p.to_s }
+      periods.each { |p| @periods += "|" + p.sub(/(\w*\:\w*\:)(\w*)/, '\2') }
+    end
+    # USE @renvoi for PMR and TAD and create RENVOI.TXT File
+    @renvoi = ""
+    if @vehicle_journey.mobility_restricted_suitability
+      @renvoi = "1"
+    end
+    File.open(directory + "/RENVOI.TXT" , "a") do |f|
+      if f.size == 0
+        f.write("RENVOI\n") 
+        f.write("a:PMR:1\n")
+      end
     end
   end
   

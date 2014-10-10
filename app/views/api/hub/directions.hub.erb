@@ -1,0 +1,1 @@
+<%= @direction.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2') if @direction %>;<%= @line.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2') if @line %>;<%= (@journey_pattern.route.wayback == 'A' ? 1 : 2) if @journey_pattern.route %>;<%= @journey_pattern.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2') if @journey_pattern.objectid %>

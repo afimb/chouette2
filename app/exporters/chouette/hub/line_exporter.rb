@@ -6,6 +6,8 @@ class Chouette::Hub::LineExporter
     @line = line
     @directory = directory
     @template = File.open('app/views/api/hub/lignes.hub.erb' ){ |f| f.read }
+    @company = @line.company
+    @network = @line.network
     if (line.group_of_lines.count > 0)
       @group_of_line = line.group_of_lines[0].objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2')
     end

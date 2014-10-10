@@ -2,11 +2,16 @@ class Chouette::Hub::VehicleJourneyAtStopExporter
   include ERB::Util
   attr_accessor :vehicle_journey_at_stop, :directory, :template
   
-  def initialize(vehicle_journey_at_stop, directory)
+  def initialize(vehicle_journey_at_stop, directory, index, id)
     @vehicle_journey_at_stop = vehicle_journey_at_stop
     @directory = directory
+    @vehicle_journey_num = index
+    @vehicle_journey_id = id
     @template = File.open('app/views/api/hub/horaires.hub.erb' ) { |f| f.read }
-    @stop_area_code = Chouette::StopArea.find(@vehicle_journey_at_stop.stop_point.stop_area_id).objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2')
+    stop_point = @vehicle_journey_at_stop.stop_point
+    stop_area = stop_point.stop_area
+    @stop_area_code = stop_area.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2') if stop_area
+    @stop_area_id = stop_area.id if stop_area
     @arrival_time = @vehicle_journey_at_stop.arrival_time.sec + 60 * @vehicle_journey_at_stop.arrival_time.min + 60 * 60 * @vehicle_journey_at_stop.arrival_time.hour
     @arrival_type = "A"
     @departure_time = @vehicle_journey_at_stop.departure_time.sec + 60 *  @vehicle_journey_at_stop.departure_time.min + 60 * 60 *  @vehicle_journey_at_stop.departure_time.hour
@@ -21,13 +26,23 @@ class Chouette::Hub::VehicleJourneyAtStopExporter
     "/HORAIRE.TXT"
   end
   
-  def self.save( vehicle_journey_at_stops, directory, hub_export)
-    vehicle_journey_at_stops.each do |vehicle_journey_at_stop|
-      self.new( vehicle_journey_at_stop, directory).tap do |specific_exporter|
-        specific_exporter.save
+  def self.save( vehicle_journeys, directory, hub_export, vehicle_journey_at_stops_count)
+    id = 1
+    vehicle_journeys.each_index do |index|
+      vehicle_journey_at_stops = Chouette::VehicleJourneyAtStop.where( :vehicle_journey_id => vehicle_journeys[index].id ).order(:arrival_time)
+      vehicle_journey_at_stops.each do |vehicle_journey_at_stop|
+        self.new( vehicle_journey_at_stop, directory, index, id).tap do |specific_exporter|
+          specific_exporter.save
+          id += 1
+        end
       end
     end
-    hub_export.log_messages.create( :severity => "ok", :key => "EXPORT|VEHICLE_JOURNEY_AT_STOP_COUNT", :arguments => {"0" => vehicle_journey_at_stops.size})
+    #vehicle_journey_at_stops.each do |vehicle_journey_at_stop|
+    #  self.new( vehicle_journey_at_stop, directory).tap do |specific_exporter|
+    #    specific_exporter.save
+    #  end
+    #end
+    hub_export.log_messages.create( :severity => "ok", :key => "EXPORT|VEHICLE_JOURNEY_AT_STOP_COUNT", :arguments => {"0" => vehicle_journey_at_stops_count})
   end
   
   def save
