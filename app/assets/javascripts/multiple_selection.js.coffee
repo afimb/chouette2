@@ -3,7 +3,8 @@ jQuery ->
     event.preventDefault()
     $('#multiple_selection_menu div.enabled').show()
     $('#multiple_selection_menu div.disabled').hide()
-    $('input[type=checkbox].multiple_selection').fadeIn()
+    $('input[type=checkbox].multiple_selection').show()
+    $('.line_number').hide()
 
   $('#multiple_selection_menu a.enable').click(enable_multiple_selection)
 
@@ -11,7 +12,8 @@ jQuery ->
     event.preventDefault()
     $('#multiple_selection_menu div.enabled').hide()
     $('#multiple_selection_menu div.disabled').show()
-    $('input[type=checkbox].multiple_selection').fadeOut()
+    $('input[type=checkbox].multiple_selection').hide()
+    $('.line_number').show()
 
   $('#multiple_selection_menu a.disable').click(disable_multiple_selection)
 

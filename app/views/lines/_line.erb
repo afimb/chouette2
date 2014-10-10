@@ -10,12 +10,12 @@
         <% end %>
       </span>
       <h5>
-        <%= link_to([@referential, line], :class => "preview", :title => "#{Chouette::Line.model_name.human.capitalize} #{line.name}") do %>        
+        <%= check_box_tag "ids[]", line.id, false, :class => "multiple_selection", :style => "display: none;" %>
         <% if line.number and line.number.length <= 3 %>
-           <span class="label label-default"><%= line.number %></span>
-        <% end %>        
-        <span class="name">
-          <%= check_box_tag "ids[]", line.id, false, :class => "multiple_selection", :style => "display: none;" %>
+           <span class="label label-default line_number"><%= line.number %></span>
+        <% end %>      
+        <%= link_to([@referential, line], :class => "preview", :title => "#{Chouette::Line.model_name.human.capitalize} #{line.name}") do %>          
+        <span class="name">          
           <%= truncate(line.name, :length => 20) %>          
         </span>
         <% end %>

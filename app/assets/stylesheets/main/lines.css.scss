@@ -3,7 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #workspace.lines.index
-{   
+{
+  input[type="checkbox"].multiple_selection{
+      vertical-align: middle;    
+  }
 }
 
 #workspace.lines.edit, #workspace.lines.new, #workspace.lines.create, #workspace.lines.update
