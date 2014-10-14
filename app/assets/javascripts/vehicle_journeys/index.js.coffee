@@ -1,12 +1,7 @@
 $(".vehicle_journeys.index").ready ->
-  $('.vehicle_journey_popover')
-    .click(-> false) # cancel click on <a> tag
-    .popover({ html : true })
-    .on("show.bs.popover", ->
-       $(this).data("bs.popover").tip().css(maxWidth: "350px"))
 
-  $(".route_popover")
-    .click(-> false) # cancel click on <a> tag
-    .popover({ html : true })
-    .on("show.bs.popover", ->
-       $(this).data("bs.popover").tip().css(maxWidth: "350px"))
+  $( 'body' ).popover({html: true, trigger: "focus", selector: 'thead th button'})
+  .on("show.bs.popover", (event)->
+    $(event.target).data("bs.popover").tip().css("maxWidth", "350px"))
+
+       

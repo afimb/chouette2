@@ -1,7 +1,5 @@
 jQuery ->
-  $(".notice")
-    .click(-> false) # cancel click on <a> tag
-    .popover({ container: "body", html: false, placement: "bottom" })
+  $(".notice").popover({ container: "body", html: false, trigger: "focus", placement: "bottom" })
 
   # Hide and show error details
   $(".title_error").each ->     
