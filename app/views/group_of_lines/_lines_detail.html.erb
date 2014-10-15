@@ -1,10 +1,3 @@
-  <div class="page_info">
-    <span class="search"> <%= t("will_paginate.page_entries_info.list") %></span> <%= page_entries_info @lines %>
-  </div>
-  <div class="lines paginated_content">
-    <%= render :partial => "lines/line", :collection => @lines %>
-  </div>
-  <div class="pagination">
-    <%= will_paginate @lines, :container => false %>
-  </div>
-
+<div class="lines paginated_content">
+  <%= paginated_content @lines, "lines/line" %>
+</div>

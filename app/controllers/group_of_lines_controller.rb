@@ -10,7 +10,7 @@ class GroupOfLinesController < ChouetteController
 
   def show
     @map = GroupOfLineMap.new(resource).with_helpers(self)
-    @lines = resource.lines.order(:name).paginate(:page => params[:page])
+    @lines = resource.lines.order(:name)
     show! do
       build_breadcrumb :show
     end

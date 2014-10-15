@@ -10,14 +10,9 @@
   </div>
   
   <p class="after_map" />
-  <h3 class="group_of_line_lines">
-    <a class="lines"><%= t('.lines') %>
-      <%= image_tag("icons/plus.png"  , :class => "switcher") %>
-      <%= image_tag("icons/minus.png"  , :class => "switcher" , :style => "display: none;") %>
-    </a>
-  </h3>
-  <div class="lines_detail" style="display: none;">
-     <%= render :partial => "lines_detail" %>
+  <h3 class="group_of_line_lines"><%= t('.lines') %></h3>
+  <div class="lines_detail">
+     <%= render :partial => "lines_detail"  %>
   </div>
 </div>
 
