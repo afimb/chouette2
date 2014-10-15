@@ -139,7 +139,7 @@ class ApplicationMap
           var popup = new OpenLayers.Popup.Anchored('chicken',
                                                  new OpenLayers.LonLat(feature.geometry.x, feature.geometry.y),
                                                  null,
-                                                 \"<div class='popup_hover'><b>\" + feature.attributes.name +\"</b></div> \", null, false, null);
+                                                 \"<div class='popup_hover'><p><b>\" + feature.attributes.name +\"</b><p>\" + feature.attributes.stop_area_type_label + \"</div> \", null, false, null);
           popup.autoSize = true;
           popup.displayClass = 'popup_hover';
 

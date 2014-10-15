@@ -5,6 +5,7 @@
       <Placemark id="<%= stop_area.id %>" >
         <name><%= stop_area.name %></name>
         <stop_area_type><%= stop_area.stop_area_type %></stop_area_type>
+        <stop_area_type_label><%= t("area_types.label.#{stop_area.stop_area_type}") %></stop_area_type_label>
         <%= stop_area.geometry.kml_representation.html_safe %>
       </Placemark>
     <% end %>
