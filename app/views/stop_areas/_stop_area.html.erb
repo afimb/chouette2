@@ -10,7 +10,7 @@
         <% end %>
       </span>
       <h5>
-        <%= link_to([@referential, stop_area], :class => "preview", :title => "#{Chouette::StopArea.model_name.human.capitalize} #{stop_area.name}") do %>        
+        <%= link_to([@referential, stop_area], :class => "preview", :title => t("area_types.label.#{stop_area.stop_area_type}") + " #{stop_area.name}") do %>        
         <span class="name">
           <%= image_tag "map/" + stop_area.stop_area_type + ".png"   %> <%= truncate(stop_area.name, :length => 20) %>          
         </span>

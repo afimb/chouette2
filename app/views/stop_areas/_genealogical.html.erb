@@ -2,7 +2,7 @@
 
     <% if @stop_area.parent.present? %> 
     <div class="parent">
-      <%= link_to([@referential, @stop_area.parent]) do %> 
+      <%= link_to([@referential, @stop_area.parent], :title => t("area_types.label.#{ @stop_area.parent.stop_area_type}") + " #{ @stop_area.parent.name}") do %> 
         <%= image_tag "map/" + @stop_area.parent.stop_area_type + ".png"   %><span><%= @stop_area.parent.name %></span>        
       <% end %>
     </div> 
@@ -31,7 +31,7 @@
     <div class="children">
       <% @stop_area.children.each do |child| %>
       <div class="child">
-        <%= link_to([@referential, child]) do %> 
+        <%= link_to([@referential, child], :title => t("area_types.label.#{ child.stop_area_type}") + " #{ child.name}") do %> 
           <%= image_tag "map/" + child.stop_area_type + ".png"   %><span><%= child.name %></span>         
         <% end %>  
       </div>
@@ -42,7 +42,7 @@
     <div class="children">
       <% @stop_area.routing_stops.each do |stop| %>
       <div class="child">
-        <%= link_to([@referential, stop]) do %> 
+        <%= link_to([@referential, stop], :title => t("area_types.label.#{ @stop.stop_area_type}") + " #{ @stop.name}") do %> 
           <%= image_tag "map/" + stop.stop_area_type + ".png"   %><span><%= stop.name %></span>         
         <% end %>  
       </div>
