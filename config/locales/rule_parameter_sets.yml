@@ -14,20 +14,25 @@ en:
       add_mode_parameter_set: "Add mode specific parameter set"
     show:
       title: "Parameter Set %{rule_parameter_set}"
-      max_distance: "Maximum distance"
-      min_distance: "Minimum distance"
-      walk_speed: "Maximum walk speed for"
-      inter_stop_area_distance_min: "between 2 stop areas having different parent"
-      parent_stop_area_distance_max: "between a stop area and its own parent"
-      inter_access_point_distance_min: "between 2 access having different name for a commun stop area"
-      inter_connection_link_distance_max: "between stop area departure and stop area arrival in a connection link"
-      walk_default_speed_max: "a regular traveller"
-      walk_occasional_traveller_speed_max: "an occasional traveller"
-      walk_frequent_traveller_speed_max: "a frequent traveller"
-      walk_mobility_restricted_traveller_speed_max: "for a mobility restricted traveller"
-      inter_access_link_distance_max: "Access link maximum distance"
+      max_distance: "Maximum distance between "
+      min_distance: "Minimum distance between "
+      walk_speed: "Maximum walk speed for travellers"
+      inter_stop_area_distance_min: "2 stop areas having different parent"
+      parent_stop_area_distance_max: "a stop area and its own parent"
+      inter_access_point_distance_min: "2 access with different names on a same stop area"
+      inter_connection_link_distance_max: "stop areas in a connection link"
+      walk_default_speed_max: "a regular one"
+      walk_occasional_traveller_speed_max: "an occasional one"
+      walk_frequent_traveller_speed_max: "a frequent one"
+      walk_mobility_restricted_traveller_speed_max: "a mobility restricted one"
+      inter_access_link_distance_max: "an access point and a linked stop area"
       inter_stop_duration_max: "Maximum duration between the moment when a vehicle is arriving at a stop and the moment when the vehicle is leaving"
-      facility_stop_area_distance_max: "between a stop area and a facility"
+      facility_stop_area_distance_max: "a stop area and a facility"
+      rule_parameter_by_mode: "Parameters by mode"
+      modes_allowed: " (only for allowed ones)"
+      vehicle_journey_number_bounds: "Vehicle journey number limits (0,0 to disable check-point))"
+      min_value: "minimal value"
+      max_value: "maximal value"
     index:
       title: "Parameter sets"
   activerecord:
@@ -48,11 +53,15 @@ en:
         inter_access_link_distance_max: "Access link maximum distance"
         inter_stop_duration_max: "Maximum duration for a stopping time"
         facility_stop_area_distance_max: "Maximum distance between a stop area and a facility"
-        inter_stop_area_distance_min: "Maximum distance between a stop areas"
-        inter_stop_area_distance_max: "Maximum distance between a stop areas"
+        inter_stop_area_distance_min: "Maximum distance between 2 stop areas"
+        inter_stop_area_distance_max: "Maximum distance between 2 stop areas"
         speed_min: "Minimum speed"
         speed_max: "Maximum speed"
-        inter_stop_duration_variation_max: "Maximum duration gap between 2 vehicle journeys and between 2 folowing stops"
+        inter_stop_duration_variation_max: "Maximum duration gap between 2 vehicle journeys and between 2 following stops"
+        vehicle_journey_number_min: "Minimal value for vehicle journey numbers (empty to disable check-point)"
+        vehicle_journey_number_min: "Maximal value for vehicle journey numbers (empty to disable check-point)"
+        check_allowed_transport_modes: "Check transport modes"
+        allowed_transport: "Allowed"
 
 fr:
   rule_parameter_sets:
@@ -85,6 +94,10 @@ fr:
       facility_stop_area_distance_max: "un arrêt et un équipement"
       inter_stop_duration_max: "Durée maximum de stationnement à un arrêt"
       rule_parameter_by_mode: "Jeu de paramètres pour un mode de transport"
+      modes_allowed: " (uniquement pour les modes autorisés)"
+      vehicle_journey_number_bounds: "Fouchette de valeurs pour le numéro de courses"
+      min_value: "valeur minimale"
+      max_value: "valeur maximale"
     index:
       title: "Jeux de paramètres"
   activerecord:
@@ -93,21 +106,25 @@ fr:
     attributes:
       rule_parameter_set:
         name: "Nom"
-        inter_stop_area_distance_min: Distance minimum entre 2 arrêts n'ayant pas le même parent
-        parent_stop_area_distance_max: Distance maximum entre un arrêt et son parent
-        stop_areas_area: Délimitation géographique des arrêts
-        inter_access_point_distance_min: Distance minimum entre 2 accès de noms différents pour un même arrêt
-        inter_connection_link_distance_max: Distance maximum entre les arrêts en correspondance
-        walk_default_speed_max: Vitesse de marche maximum pour un voyageur ordinaire
-        walk_occasional_traveller_speed_max: Vitesse de marche maximum pour un voyageur occasionnel
-        walk_frequent_traveller_speed_max: Vitesse de marche maximum pour un voyageur habituel
-        walk_mobility_restricted_traveller_speed_max: Vitesse de marche maximum pour un voyageur à mobilité réduite
-        inter_access_link_distance_max: Distance maximum d'un liaison accès - arrêt
-        inter_stop_duration_max: Durée maximum entre les horaires d'arrivée et de départ à un arrêt
-        facility_stop_area_distance_max: Distance maximum entre un arrêt et un équipement
-        inter_stop_area_distance_min: Distance minimum entre 2 arrêts
-        inter_stop_area_distance_max: Distance maximum entre 2 arrêts
-        speed_min: Vitesse minimum
-        speed_max: Vitesse maximum
-        inter_stop_duration_variation_max: Ecart maximum de durée de trajet entre 2 arrêts successifs pour les différentes courses
+        inter_stop_area_distance_min: "Distance minimum entre 2 arrêts n'ayant pas le même parent"
+        parent_stop_area_distance_max: "Distance maximum entre un arrêt et son parent"
+        stop_areas_area: "Délimitation géographique des arrêts"
+        inter_access_point_distance_min: "Distance minimum entre 2 accès de noms différents pour un même arrêt"
+        inter_connection_link_distance_max: "Distance maximum entre les arrêts en correspondance"
+        walk_default_speed_max: "Vitesse de marche maximum pour un voyageur ordinaire"
+        walk_occasional_traveller_speed_max: "Vitesse de marche maximum pour un voyageur occasionnel"
+        walk_frequent_traveller_speed_max: "Vitesse de marche maximum pour un voyageur habituel"
+        walk_mobility_restricted_traveller_speed_max: "Vitesse de marche maximum pour un voyageur à mobilité réduite"
+        inter_access_link_distance_max: "Distance maximum d'un liaison accès - arrêt"
+        inter_stop_duration_max: "Durée maximum entre les horaires d'arrivée et de départ à un arrêt"
+        facility_stop_area_distance_max: "Distance maximum entre un arrêt et un équipement"
+        inter_stop_area_distance_min: "Distance minimum entre 2 arrêts"
+        inter_stop_area_distance_max: "Distance maximum entre 2 arrêts"
+        speed_min: "Vitesse minimum"
+        speed_max: "Vitesse maximum"
+        inter_stop_duration_variation_max: "Ecart maximum de durée entre 2 arrêts successifs pour les différentes courses"
+        vehicle_journey_number_min: "Borne inférieur pour les numéros de course (vide pour désactiver le contrôle)"
+        vehicle_journey_number_min: "Borne supérieure pour les numéros de course (vide pour désactiver le contrôle)"
+        check_allowed_transport_modes: "Contrôler les modes de transport"
+        allowed_transport: "Autorisé"
 

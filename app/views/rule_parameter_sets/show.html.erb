@@ -4,10 +4,6 @@
 
   <div class="summary">
     <p>
-      <label><%= RuleParameterSet.human_attribute_name("name") %>: </label>
-      <%= @rule_parameter_set.name %>
-    </p>
-    <p>
       <label><%= RuleParameterSet.human_attribute_name("stop_areas_area") %>: </label>
       <%= @rule_parameter_set.stop_areas_area %>
     </p>
@@ -72,25 +68,53 @@
       <label><%= t(".inter_stop_duration_max") %>: </label>
       <%= @rule_parameter_set.inter_stop_duration_max %>
     </p>
-    <div class="rule_parameter_by_mode">
-      <label><%= t(".rule_parameter_by_mode") %>: </label>
-      <select id="mode" >
-        <%= options_for_select( Chouette::Line.transport_modes.map(&:to_s).map { |s| [ I18n.t("transport_modes.label.#{s}"), s]}, 1) %>
-      </select>
-      <% Chouette::Line.transport_modes.map(&:to_s).each_with_index do |mode, index| %>
-        <% selected_class = (index==0) ? 'selected' : '' %>
-        <% style = (index==0) ? "style='display: block;'" : '' %>
-        <div class='<%= "#{mode} mode_specific #{selected_class}" %>' <%= style %> >
-        <% RuleParameterSet.mode_attribute_prefixes.each do |prefix| %>
-          <% unless @rule_parameter_set.send("#{prefix}_mode_#{mode}" ).blank? %>
-            <p>
-              <label><%= RuleParameterSet.human_attribute_name( prefix) %>: </label>
-              <%= @rule_parameter_set.send  "#{prefix}_mode_#{mode}" %>
-            </p>
-          <% end %>
-        <% end %>
+    <% if @rule_parameter_set.vehicle_journey_number_min.present? && @rule_parameter_set.vehicle_journey_number_max.present? %>
+    <div class="attributes_group" >
+      <span class="title"><%= t(".vehicle_journey_number_bounds") %></span>
+      <div class="columns">
+        <div class="two_columns">
+          <label><%= t(".min_value") %> : </label>
+          <span class="value"><%= @rule_parameter_set.vehicle_journey_number_min %></span>
+        </div>
+        <div class="two_columns">
+          <label><%= t(".max_value") %> : </label>
+          <span class="value"><%= @rule_parameter_set.vehicle_journey_number_max %></span>
+        </div>
       </div>
-      <% end %>
+    </div>
+    <% end %>
+    <p>
+      <label><%= RuleParameterSet.human_attribute_name("check_allowed_transport_modes") %>: </label>
+      <%= @rule_parameter_set.check_allowed_transport_modes ? t("true") : t("false") %>
+    </p>
+
+    <div class="rule_parameter_by_mode">
+    <label><%= t(".rule_parameter_by_mode") %>
+    	<%= t(".modes_allowed") if @rule_parameter_set.check_allowed_transport_modes %>
+    </label>
+    <table class="table table-striped table-condensed">
+    	<tr>
+    		<th><%= t("transport_modes.name") %></th>
+			<% RuleParameterSet.mode_attribute_prefixes.each do |prefix| %>
+			    <% unless prefix == "allowed_transport" %>
+            		<th><%= RuleParameterSet.human_attribute_name(prefix) %></th>
+                <% end %>
+			<% end %>
+        </tr>
+    	<% Chouette::Line.transport_modes.map(&:to_s).each do |mode| %>
+	    	<% if @rule_parameter_set.allowed(mode) %>
+      	<tr>
+  			<td><%= t("transport_modes.label.#{mode}") %></td>
+  			<% RuleParameterSet.mode_attribute_prefixes.each do |prefix| %>
+	    
+    			<% unless prefix == "allowed_transport" %>
+    		<td><%= @rule_parameter_set.send  "#{prefix}_mode_#{mode}" %></td>
+    			<% end %>
+  			<% end %>
+      	</tr>
+    		<% end %>
+    	<% end %>
+    </table>
     </div>
   </div>
 </div>

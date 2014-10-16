@@ -54,8 +54,8 @@ class VehicleJourneyExport
     (vehicle_journeys.collect{ |vj| vj.number ?  vj.number.to_s : "" } )
   end
 
-  def vehicle_identifier_array
-    (vehicle_journeys.collect{ |vj| vj.vehicle_type_identifier ?  vj.vehicle_type_identifier : "" } )
+  def published_journey_name_array
+    (vehicle_journeys.collect{ |vj| vj.published_journey_name ?  vj.published_journey_name : "" } )
   end
 
   def flexible_service_array
@@ -82,7 +82,7 @@ class VehicleJourneyExport
     CSV.generate(options) do |csv|            
       csv << column_names
       csv << ["", label("number")] + number_array
-      csv << ["", label("vehicle_identifier")] + vehicle_identifier_array
+      csv << ["", label("published_journey_name")] + published_journey_name_array
       csv << ["", label("mobility")] + mobility_restricted_suitability_array
       csv << ["", label("flexible_service")] + flexible_service_array
       csv << ["", label("time_table_ids")] + time_tables_array

@@ -96,7 +96,7 @@ class VehicleJourneyImport
     
     # fixed rows (first = 1)
     number_row = 2
-    vehicle_type_identifier_row = 3
+    published_journey_name_row = 3
     mobility_row = 4
     flexible_service_row = 5
     time_tables_row = 6
@@ -141,8 +141,8 @@ class VehicleJourneyImport
       # number
       vehicle_journey.number = as_integer(spreadsheet.row(number_row)[i-1])
       
-      # vehicle_type_identifier
-      vehicle_journey.vehicle_type_identifier = spreadsheet.row(vehicle_type_identifier_row)[i-1]
+      # published_name
+      vehicle_journey.published_journey_name = spreadsheet.row(published_journey_name_row)[i-1]
       
       # flexible_service
       vehicle_journey.flexible_service = as_boolean(spreadsheet.row(flexible_service_row)[i-1])
