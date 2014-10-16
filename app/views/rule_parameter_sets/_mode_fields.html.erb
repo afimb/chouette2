@@ -1,5 +1,12 @@
-<%= f.inputs t("transport_modes.label.#{mode}"), :id => "specific_parameters_#{mode}" do %>
+  <td><%= t("transport_modes.label.#{mode}") %></td>
   <% RuleParameterSet.mode_attribute_prefixes.each do |prefix| %>
-    <%= f.input "#{prefix}_mode_#{mode}".to_sym, :as => :number, :label => RuleParameterSet.human_attribute_name(prefix), :wrapper_html => { :class => "special"} %>
+    <% if prefix == "allowed_transport" %>
+    <% hidden = (@rule_parameter_set.check_allowed_transport_modes == "1") ? "" : 'display: none;'%>
+    <td class="allowed" style="<%= hidden %>" >
+      <%= f.check_box "#{prefix}_mode_#{mode}".to_sym, :class => "special" %>
+    <% else%>
+    <td>
+      <%= f.number_field "#{prefix}_mode_#{mode}".to_sym,  :class => "special" %>
+    <% end %>
+    </td>
   <% end %>
-<% end %>

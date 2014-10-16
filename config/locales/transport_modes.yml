@@ -1,5 +1,6 @@
 en:
   transport_modes:
+    name: "Transport mode"
     label:
       unknown: "unknown"
       air: "Air"
@@ -24,6 +25,7 @@ en:
 
 fr:
   transport_modes:
+    name: "Mode de transport"
     label:
       unknown: "Inconnu"
       air: "Air"
