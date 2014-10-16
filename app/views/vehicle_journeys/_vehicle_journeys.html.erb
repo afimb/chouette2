@@ -13,7 +13,7 @@
       </th>
       <% @vehicle_journeys.each do |vj| %>
       <th class="vehicle_journey">
-        <button data-style="primary" data-container="body" rel="popover" data-toggle="popover" title='<%= link_to(vehicle_title(vj), [@referential, @line, @route, vj] ) %>' data-placement= "top" data-content='<%= render( partial: "show_popover", :locals => { :vehicle_journey => vj }) %>' class="vehicle_journey_popover btn btn-default btn-sm"><i class='fa fa-search'></i></button>
+        <button data-style="primary" data-container="body" rel="popover" data-toggle="popover" title='<%= link_to(vehicle_title(vj), [@referential, @line, @route, vj] ) %> <%= link_to('<span class="fa fa-pencil"></span>'.html_safe, ["edit", @referential, @line, @route, vj], :class => "btn btn-default btn-sm" ) %>' data-placement= "top" data-content='<%= render( partial: "show_popover", :locals => { :vehicle_journey => vj }) %>' class="vehicle_journey_popover btn btn-default btn-sm"><i class='fa fa-search'></i></button>
       </th>
       <% end %>
     </tr>
