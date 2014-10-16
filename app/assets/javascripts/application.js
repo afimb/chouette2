@@ -22,3 +22,4 @@
 //= require_directory ./import_tasks
 //= require_directory ./compliance_check_tasks
 //= require_directory ./exports
+//= require_directory ./lines

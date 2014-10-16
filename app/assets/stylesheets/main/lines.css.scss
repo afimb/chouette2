@@ -7,6 +7,18 @@
   input[type="checkbox"].multiple_selection{
       vertical-align: middle;    
   }
+
+  #search {
+
+      label{
+          margin-bottom: 0px;
+      }
+
+      input[type="checkbox"]{
+          margin-left: 3px;
+      }
+      
+  }
 }
 
 #workspace.lines.edit, #workspace.lines.new, #workspace.lines.create, #workspace.lines.update

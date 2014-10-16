@@ -62,6 +62,21 @@ class LinesController < ChouetteController
   end
 
   def collection
+    if params[:q] && params[:q]["network_id_eq"] == "-1"
+      params[:q]["network_id_eq"] = ""
+      params[:q]["network_id_blank"] = "1"
+    end
+
+    if params[:q] && params[:q]["company_id_eq"] == "-1"
+      params[:q]["company_id_eq"] = ""
+      params[:q]["company_id_blank"] = "1"
+    end
+
+    if params[:q] && params[:q]["group_of_lines_id_eq"] == "-1"
+      params[:q]["group_of_lines_id_eq"] = ""
+      params[:q]["group_of_lines_id_blank"] = "1"
+    end
+      
     @q = referential.lines.search(params[:q])
     @lines ||= @q.result(:distinct => true).order(:number).paginate(:page => params[:page]).includes([:network, :company])
   end

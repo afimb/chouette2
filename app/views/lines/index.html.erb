@@ -16,9 +16,9 @@
 
   <div id="advanced_search" class="panel-collapse collapse">
     <div class="panel-body">
-      <%= f.select(:network_id_eq, @referential.networks.collect {|n| [ n.name, n.id ] }, {include_blank: "#{t('.all_networks')}"}, { :class => 'form-control' }) %>
-      <%= f.select(:company_id_eq, @referential.companies.collect {|c| [ c.name, c.id ] }, {include_blank: "#{t('.all_companies')}"}, { :class => 'form-control' }) %>
-      <%= f.select(:group_of_lines_id_eq, @referential.group_of_lines.collect {|c| [ c.name, c.id ] }, {include_blank: "#{t('.all_group_of_lines')}"}, { :class => 'form-control' }) %>
+      <%= f.select(:network_id_eq, @referential.networks.collect {|n| [ n.name, n.id ] }.unshift([t('.no_networks'), -1]), {include_blank: t('.all_networks')}, { :class => 'form-control' }) %>
+      <%= f.select(:company_id_eq, @referential.companies.collect {|c| [ c.name, c.id ] }.unshift([t('.no_companies'), -1]), { include_blank: t('.all_companies')}, { :class => 'form-control' }) %>
+      <%= f.select(:group_of_lines_id_eq, @referential.group_of_lines.collect {|c| [ c.name, c.id ] }.unshift([t('.no_group_of_lines'), -1]), {include_blank: t('.all_group_of_lines')}, { :class => 'form-control' }) %>
     </div>
   </div>
 </div>
@@ -49,3 +49,5 @@
 </div>
 
 <% end %>
+
+

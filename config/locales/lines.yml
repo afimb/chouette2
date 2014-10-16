@@ -22,6 +22,9 @@ en:
     index:
       title: "Lines"
       name_or_number: "Search by name or number"
+      no_networks: "No networks"
+      no_companies: "No companies"
+      no_group_of_lines: "No group of lines"
       all_networks: "All networks"
       all_companies: "All companies"
       all_group_of_lines: "All group of lines"
@@ -105,6 +108,9 @@ fr:
     index:
       name_or_number: "Recherche par nom ou indice"
       title: "Lignes"
+      no_networks: "Aucun réseaux"
+      no_companies: "Aucun transporteurs"
+      no_group_of_lines: "Aucun groupes de ligne"
       all_networks: "Tous les réseaux"
       all_companies: "Tous les transporteurs"
       all_group_of_lines: "Tous les groupes de ligne"
