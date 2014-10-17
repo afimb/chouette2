@@ -1,2 +1,2 @@
 server "chouette-p.aix.cityway.fr", :app, :web, :db, :primary => true
-set :branch, "sismo"
+set :branch, "V2_5"
