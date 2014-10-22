@@ -38,7 +38,7 @@ class Chouette::Hub::VehicleJourneyExporter
     File.open(directory + "/RENVOI.TXT" , "a") do |f|
       if f.size == 0
         f.write("RENVOI\u000D\u000A") 
-        f.write("a:PMR:1\u000D\u000A")
+        f.write("a;PMR;1\u000D\u000A")
       end
     end
   end
