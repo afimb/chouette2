@@ -27,7 +27,7 @@ class Chouette::Hub::CompanyExporter
   
   def save
     File.open(directory + hub_name , "a") do |f|
-      f.write("TRANSPORTEUR\n") if f.size == 0
+      f.write("TRANSPORTEUR\u000D\u000A") if f.size == 0
       f.write(render)
     end if company.present?
   end

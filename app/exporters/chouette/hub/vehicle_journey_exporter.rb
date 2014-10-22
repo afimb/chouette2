@@ -37,8 +37,8 @@ class Chouette::Hub::VehicleJourneyExporter
     end
     File.open(directory + "/RENVOI.TXT" , "a") do |f|
       if f.size == 0
-        f.write("RENVOI\n") 
-        f.write("a:PMR:1\n")
+        f.write("RENVOI\u000D\u000A") 
+        f.write("a:PMR:1\u000D\u000A")
       end
     end
   end
@@ -62,7 +62,7 @@ class Chouette::Hub::VehicleJourneyExporter
   
   def save
     File.open(directory + hub_name , "a") do |f|
-      f.write("COURSE\n") if f.size == 0
+      f.write("COURSE\u000D\u000A") if f.size == 0
       f.write(render)
     end if vehicle_journey.present?
   end

@@ -41,7 +41,7 @@ class Chouette::Hub::JourneyPatternExporter
   
   def save
     File.open(directory + hub_name , "a") do |f|
-      f.write("CHEMIN\n") if f.size == 0
+      f.write("CHEMIN\u000D\u000A") if f.size == 0
       f.write(render)
     end if journey_pattern.present?
   end

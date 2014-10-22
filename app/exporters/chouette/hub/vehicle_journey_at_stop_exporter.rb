@@ -11,7 +11,7 @@ class Chouette::Hub::VehicleJourneyAtStopExporter
     stop_point = @vehicle_journey_at_stop.stop_point
     stop_area = stop_point.stop_area
     @stop_area_code = stop_area.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2') if stop_area
-    @stop_area_id = stop_area.id if stop_area
+    @stop_area_id = stop_area.registration_number if stop_area
     @arrival_time = @vehicle_journey_at_stop.arrival_time.sec + 60 * @vehicle_journey_at_stop.arrival_time.min + 60 * 60 * @vehicle_journey_at_stop.arrival_time.hour
     @arrival_type = "A"
     @departure_time = @vehicle_journey_at_stop.departure_time.sec + 60 *  @vehicle_journey_at_stop.departure_time.min + 60 * 60 *  @vehicle_journey_at_stop.departure_time.hour
@@ -47,7 +47,7 @@ class Chouette::Hub::VehicleJourneyAtStopExporter
   
   def save
     File.open(directory + hub_name , "a") do |f|
-      f.write("HORAIRE\n") if f.size == 0
+      f.write("HORAIRE\u000D\u000A") if f.size == 0
       f.write(render)
     end if vehicle_journey_at_stop.present?
   end
