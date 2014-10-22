@@ -14,7 +14,7 @@ class Chouette::Hub::CityCodeExporter
   end
   
   def hub_name
-    "/COMMUNE.TXT"
+    "/COMMUNES.TXT"
   end
   
   def self.save( city_codes, directory, hub_export)
@@ -28,7 +28,7 @@ class Chouette::Hub::CityCodeExporter
   
   def save
     File.open(directory + hub_name , "a") do |f|
-      f.write("COMMUNE\u000D\u000A") if f.size == 0
+      f.write("COMMUNES\u000D\u000A") if f.size == 0
       f.write(render)
     end
   end
