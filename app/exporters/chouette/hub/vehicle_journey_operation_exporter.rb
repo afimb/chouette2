@@ -92,7 +92,7 @@ class Chouette::Hub::VehicleJourneyOperationExporter
   
   def save
     File.open(directory + hub_name , "a") do |f|
-      f.write("COURSE_OPERATION\n") if f.size == 0
+      f.write("COURSE_OPERATION\u000D\u000A") if f.size == 0
       f.write(render)
     end if vehicle_journey.present?
   end

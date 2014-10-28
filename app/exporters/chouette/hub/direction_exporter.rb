@@ -31,7 +31,7 @@ class Chouette::Hub::DirectionExporter
   
   def save
     File.open(directory + hub_name , "a") do |f|
-      f.write("DIRECTION\n") if f.size == 0
+      f.write("DIRECTION\u000D\u000A") if f.size == 0
       f.write(render)
     end if journey_pattern.present?
   end

@@ -27,7 +27,7 @@ class Chouette::Hub::NetworkExporter
   
   def save
     File.open(directory + hub_name , "a") do |f|
-      f.write("RESEAU\n") if f.size == 0
+      f.write("RESEAU\u000D\u000A") if f.size == 0
       f.write(render)
     end if network.present?
   end

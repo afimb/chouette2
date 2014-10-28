@@ -28,7 +28,7 @@ class Chouette::Hub::CommercialStopAreaExporter
   
   def save
     File.open(directory + hub_name , "a") do |f|
-      f.write("ARRET\n") if f.size == 0
+      f.write("ARRET\u000D\u000A") if f.size == 0
       f.write(render)
     end if stop_area.present?
   end

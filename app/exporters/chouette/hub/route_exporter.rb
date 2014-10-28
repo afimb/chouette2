@@ -36,7 +36,7 @@ class Chouette::Hub::RouteExporter
   
   def save
     File.open(directory + hub_name , "a") do |f|
-      f.write("SCHEMA\n") if f.size == 0
+      f.write("SCHEMA\u000D\u000A") if f.size == 0
       f.write(render)
     end if route.present?
   end
