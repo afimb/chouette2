@@ -75,11 +75,11 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown languages">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <%= image_tag("language_engine/#{selected_language}_flag.png") %><b class='caret'></b>
+            <%= image_tag("language_engine/#{selected_language}_flag.png", { :'data-locale' => "#{selected_language}" } ) %><b class='caret'></b>
           </a>
           <ul class="dropdown-menu">
-            <li><%= link_to_language :fr %></li>
-            <li><%= link_to_language :en %></li>
+            <li><%= link_to_language :fr, { :class => language_class( :fr ) } %></li>
+            <li><%= link_to_language :en, { :class => language_class( :en  ) } %></li>
           </ul>
         </li>        
         <li><%= link_to t('layouts.help'), help_path, :class =>("current" if help_page?), :target => "chouette_help" %></li>
