@@ -10,7 +10,7 @@
         <span class="icon-bar version"><%= APP_VERSION %></span>
       </button>
       <%= link_to referentials_path, :class =>"navbar-brand" do %>
-      <%= image_tag("logo_chouette.png") %> <span class="version"><%= APP_VERSION %></span>
+       <%= image_tag("logo_chouette.png") %><span class="brand_name">CHOUETTE</span></i><span class="version"><%= APP_VERSION %></span>
       <% end %>
     </div>
 
@@ -75,17 +75,17 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown languages">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <%= image_tag("language_engine/#{selected_language}_flag.png") %><b class='caret'></b>
+            <%= image_tag("language_engine/#{selected_language}_flag.png", { :'data-locale' => "#{selected_language}" } ) %><b class='caret'></b>
           </a>
           <ul class="dropdown-menu">
-            <li><%= link_to_language :fr %></li>
-            <li><%= link_to_language :en %></li>
+            <li><%= link_to_language :fr, { :class => language_class( :fr ) } %></li>
+            <li><%= link_to_language :en, { :class => language_class( :en  ) } %></li>
           </ul>
         </li>        
         <li><%= link_to t('layouts.help'), help_path, :class =>("current" if help_page?), :target => "chouette_help" %></li>
         <% if user_signed_in?  %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="gravatar"><%= user_gravatar_image_tag(current_user, 16) %></span><%= current_user.name %> <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="gravatar"><%= user_gravatar_image_tag(current_user, 16) %></span><%= truncate(current_user.name, :length => 20) %> <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><%= link_to t('layouts.user.profile'), edit_user_registration_path %></li>
             <li><%= link_to t('layouts.user.sign_out'), destroy_user_session_path, :method => :delete %></li>
