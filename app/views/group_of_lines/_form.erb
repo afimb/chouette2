@@ -6,7 +6,7 @@
   <% end %>
 
   <%= form.inputs do %>
-    <%= form.input :line_tokens, :label => t('.lines'), :as => :text,  :input_html => { :"data-pre" => ( @group_of_line.lines.map { |line| { :id => line.id, :name => line.published_name } } ).to_json }  %>
+    <%= form.input :line_tokens, :label => t('.lines'), :as => :text,  :input_html => { :"data-pre" => ( @group_of_line.lines.map { |line| { :id => line.id, :name => line.name } } ).to_json }  %>
   <% end %>
 
    <%= form.actions do %>
