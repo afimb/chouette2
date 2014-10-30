@@ -14,8 +14,13 @@ class Chouette::Hub::VehicleJourneyExporter
     @departure_stop_area =  Chouette::StopArea.find(@departure_stop_point.stop_area_id)
     @arrival_stop_point = Chouette::StopPoint.find(@journey_pattern.arrival_stop_point_id)
     @arrival_stop_area = Chouette::StopArea.find(@arrival_stop_point.stop_area_id)
-    departure_time = Chouette::VehicleJourneyAtStop.where( :vehicle_journey_id => @vehicle_journey.id ).where( :stop_point_id => @departure_stop_point.id )[0].departure_time
+
+    #Time.zone = ActiveSupport::TimeZone.new('Atlantic/Azores')
+    departure_time = Chouette::VehicleJourneyAtStop.where( :vehicle_journey_id => @vehicle_journey.id ).where( :stop_point_id => @departure_stop_point.id )[0].departure_time 
+    # Time.zone.parse(Chouette::VehicleJourneyAtStop.where( :vehicle_journey_id => @vehicle_journey.id ).where( :stop_point_id => @departure_stop_point.id )[0].departure_time.to_s)
     arrival_time = Chouette::VehicleJourneyAtStop.where( :vehicle_journey_id => @vehicle_journey.id ).where( :stop_point_id => @arrival_stop_point.id )[0].arrival_time
+    #Time.zone.parse(Chouette::VehicleJourneyAtStop.where( :vehicle_journey_id => @vehicle_journey.id ).where( :stop_point_id => @arrival_stop_point.id )[0].arrival_time.to_s)
+    
     @departure_time_sec = departure_time.sec + ( departure_time.min + departure_time.hour * 60 ) * 60
     @arrival_time_sec = arrival_time.sec + ( arrival_time.min + arrival_time.hour * 60 ) * 60
     @validity = 0
@@ -35,7 +40,7 @@ class Chouette::Hub::VehicleJourneyExporter
     if @vehicle_journey.mobility_restricted_suitability
       @renvoi = "1"
     end
-    File.open(directory + "/RENVOI.TXT" , "a") do |f|
+    File.open(directory + "/RENVOI.TXT" , "a:ISO_8859_1") do |f|
       if f.size == 0
         f.write("RENVOI\u000D\u000A") 
         f.write("a;PMR;1\u000D\u000A")
@@ -61,7 +66,7 @@ class Chouette::Hub::VehicleJourneyExporter
   end
   
   def save
-    File.open(directory + hub_name , "a") do |f|
+    File.open(directory + hub_name , "a:ISO_8859_1") do |f|
       f.write("COURSE\u000D\u000A") if f.size == 0
       f.write(render)
     end if vehicle_journey.present?
