@@ -40,7 +40,7 @@ class Chouette::Hub::TimeTableExporter
   end
 
   def save
-    File.open(directory + hub_name , "a") do |f|
+    File.open(directory + hub_name , "a:ISO_8859_1") do |f|
       f.write("PERIODE\u000D\u000A") if f.size == 0
       f.write(render)
     end if time_table.present?

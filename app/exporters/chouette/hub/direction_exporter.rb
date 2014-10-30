@@ -6,8 +6,8 @@ class Chouette::Hub::DirectionExporter
     @journey_pattern = journey_pattern
     @directory = directory
     @template = File.open('app/views/api/hub/directions.hub.erb' ){ |f| f.read }
-    @arrival_stop_point = Chouette::StopPoint.find(@journey_pattern.arrival_stop_point_id) if @journey_pattern.arrival_stop_point_id
-    @direction = Chouette::StopArea.find(@arrival_stop_point.stop_area_id) if @arrival_stop_point
+    #@arrival_stop_point = Chouette::StopPoint.find(@journey_pattern.arrival_stop_point_id) if @journey_pattern.arrival_stop_point_id
+    #@direction = Chouette::StopArea.find(@arrival_stop_point.stop_area_id) if @arrival_stop_point
     route = Chouette::Route.find(@journey_pattern.route_id) if @journey_pattern.route_id
     @line = Chouette::Line.find(route.line_id) if route
   end
@@ -30,7 +30,7 @@ class Chouette::Hub::DirectionExporter
   end
   
   def save
-    File.open(directory + hub_name , "a") do |f|
+    File.open(directory + hub_name , "a:ISO_8859_1") do |f|
       f.write("DIRECTION\u000D\u000A") if f.size == 0
       f.write(render)
     end if journey_pattern.present?
