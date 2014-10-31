@@ -1,10 +1,13 @@
 <%= title_tag t('.title') %>
 
 <%= semantic_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |form| %>
-  <%= form.inputs do %> 
+  <%= form.inputs do %>
+    <%= form.semantic_fields_for :organisation, Organisation.new do |organisation| %>
+      <%= organisation.input :name, :label => t("helpers.label.user.organisation_name") %>
+    <% end %>
     <% if resource.respond_to?( :name) %>
       <%= form.input :name %> 
-    <% end %>
+      <% end %>    
     <%= form.input :email %> 
     <%= form.input :password, :as => :password %> 
     <%= form.input :password_confirmation, :as => :password %> 
