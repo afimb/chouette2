@@ -1,0 +1,39 @@
+---
+layout: default
+title: Métadonnées
+---
+
+Tous les éléments définis dans CHOUETTE sont identifiés par des métadonnées Neptune spécifiques. Ces métadonnées peuvent être générées automatiquement à la création de l'objet de telle sorte qu'il n'est pas nécessaire de les renseigner. Il reste toutefois possible de leur attribuer une valeur manuellement si nécessaire. 
+
+Chaque type est identifié par une clé qui permet de déterminer quel est sa nature (arrêt, ligne, transporteur etc...). La norme suggère des clés types qui sont résumées dans le tableau ci-dessous.
+
+h3. Métadonnées d'un transporteur
+
+* Identifiant Neptune : Il s'agit d'un clé unique pérenne identifiant le transporteur pour les échanges Neptune. Cet identifiant est composé de 3 parties : 
+** préfixe : clé identifiant un producteur de données unique
+** type = Company : clé identifiant le type d'objet (valeur imposée)
+** id_technique : valeur identifiant un seul objet d'un type donné pour un même producteur. Ce champ obligatoire est automatiquement généré s'il n'est pas renseigné. Il est possible aussi de ne renseigner que l'identifiant technique, auquel cas la valeur sera complétée automatiquement.
+* Date de création : date à laquelle l'objet a été créé ou modifié pour la dernière fois
+* Version : version de l'objet (auto incrémenté à chaque modification)
+* Créé par : compte utilisateur ayant procédé à la dernière modification
+
+!2014-10-30_175715.png! Exemple d'identifiant Neptune
+
+h3. Clés
+
+table(meta).
+|_. Donnée|_. Clé|
+|Réseau|GroupOfLine|
+|Transporteur|Company|
+|Groupe de lignes|GroupOfLine|
+|Arrêt|StopArea|
+|Accès|AccessPoint|
+|Lien d'accès|AccessLink|
+|Correspondance|ConnectionLink|
+|Ligne|Line|
+|Séquence d'arrêts|Route|
+|Mission|JourneyPattern|
+|Course|VehicleJourney|
+|Calendrier|Timetable|
+
+

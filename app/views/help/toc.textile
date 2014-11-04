@@ -5,34 +5,41 @@ title: Sommaire
 
 h3. Sommaire
 
-# "Généralités":introduction
-## "Normalisation":normalisation
-## "Documentation":documentation
-## "Vue d'ensemble":schema
-## "Pré-requis":prerequisite
-# "Utilisateurs et Organisations":users
-# "Espaces de données":dataspaces
-# "Réseaux":networks
-# "Groupes de lignes":group_of_lines
-# "Transporteurs":companies
-# "Lignes":lines
+# Introduction
+## "Présentation":introduction
+# Accès à Chouette
+## "Choix et paramètres du navigateur":browser
+## "Accéder à l'application":connection
+# Principes de l'interface
+## "Navigation":navigation
+## "Recherche et filtrage":search_filter
+## "Édition et suppression d'un élément":edit
+## "Métadonnées":metadata
+# Données
+## "Espace de données":dataspaces
+## "Réseaux":networks
+## "Transporteurs":companies
+## "Arrêts":stop_areas
+## "Relation de parenté entre arrêts":relationship
+## "Gestion des accès et liens associés":access_points_links
+## "Groupes de lignes":group_of_lines
+## "Lignes":lines
 ## "Séquences d'arrêts":routes
 ## "Missions":journey_patterns
-## "Courses/Horaires":vehicle_journeys
-# "Arrêts":stop_areas
+## "Courses et horaires":vehicle_journeys
 ## "Correspondances":connection_links
-## "Accès":access_points
-## "Liens Arrêts-Accès":access_links
-# "Calendriers d'application":time_tables
-# Outils
+## "Calendrier":time_tables
+# Imports
 ## "Imports":imports
-## "Exports":exports
-## "Validation":validations
-## "Jeux de paramètres":parametersets
-# Divers
-## "Tutoriel/Démonstrateur":tutorial
-## "API Rest":restapis
-## "Export KML":kml_exports
-## "format d'échange CSV":csv
-## "FAQ":faq
-
+## "Formats d'import":import_formats
+# Exports
+## "Formats d'export normalisé":export_format
+## "Export de données":exports
+# Validations
+## "Paramètres de validation":parametersets
+## "Valider des données":validations
+# Annexes
+## "Créer un réseau à partir de zéro":startingfromscratch
+## "Modification des arrêts d'une ligne":stopsmanagement
+## "Itinéraire valables le temps d'une saison":temporaryline
+## "glossaire":terms

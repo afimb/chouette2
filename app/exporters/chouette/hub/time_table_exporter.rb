@@ -1,10 +1,11 @@
 class Chouette::Hub::TimeTableExporter
   include ERB::Util
-  attr_accessor :time_table, :directory, :template, :start_date, :end_date
+  attr_accessor :time_table, :directory, :template, :start_date, :end_date, :identifier
   
-  def initialize(time_table, directory)
+  def initialize(time_table, directory, identifier)
     @time_table = time_table
     @directory = directory
+    @identifier = identifier
     @template = File.open('app/views/api/hub/periodes.hub.erb' ){ |f| f.read }
     @calendar = ""
     s_date = @time_table.start_date
@@ -28,17 +29,19 @@ class Chouette::Hub::TimeTableExporter
   end
   
   def self.save(time_tables, directory, hub_export)
+    identifier = 1
     time_tables.each do |time_table|
-      self.new(time_table, directory).tap do |specific_exporter|
+      self.new(time_table, directory, identifier).tap do |specific_exporter|
         specific_exporter.save
+        identifier += 1
       end
     end
     hub_export.log_messages.create( :severity => "ok", :key => "EXPORT|TIME_TABLE_COUNT", :arguments => {"0" => time_tables.size})
   end
 
   def save
-    File.open(directory + hub_name , "a") do |f|
-      f.write("PERIODE\n") if f.size == 0
+    File.open(directory + hub_name , "a:ISO_8859_1") do |f|
+      f.write("PERIODE\u000D\u000A") if f.size == 0
       f.write(render)
     end if time_table.present?
   end

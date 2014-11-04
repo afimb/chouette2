@@ -5,39 +5,17 @@ title: Réseaux
 
 h3. Définition
 
-Un *réseau* est constitué par les "lignes":lines, les "séquences d'arrêts":routes, les "Interdictions de Trafic Local":stop_areas (ITL), les "horaires":vehicle_journeys, et les "courses":vehicle_journeys qui le définissent.
+Un _"réseau"_ est défini dans la page correspondante. A chaque réseau s'associent des "lignes":lines, des "séquences d'arrêts":routes, des "Interdictions de Trafic Local":stop_areas (ITL), des "horaires":vehicle_journeys, et des "courses":vehicle_journeys. Il convient donc de définir un réseau avant de créer ces éléments. 
 
 Chaque réseau dispose d'un identifiant fonctionnel (<< numéro d'enregistrement >>) qui est utilisé dans les échanges XML pour identifier le réseau et le mettre à jour. Il est très important que le gestionnaire le renseigne d'une manière bien définie et pérenne.
 
-
 h3. Attributs
 
-- Nom := nom du réseau 
-- Numéro d'enregistrement := code référençant un réseau au sein d'une autorité supérieure
-- Commentaire := zone de texte libre sur le réseau
-- Date de version := date de mise en référence de l'ensemble des constituants du réseau
-- Description := description du réseau
-- Nom du système origine := nom du système ayant produit les données du réseau
-- Identifiant du système origine := identifiant du système ayant produit les données du réseau
-
-p(attr_data). Données de gestion :
-
-- Identifiant Neptune := 
-clé unique pérenne identifiant le réseau pour les échanges Neptune
-cet identifiant est composé de 3 parties : préfixe:type:id_technique
-
-* préfixe : clé identifiant un producteur de données unique
-* type = GroupOfLine : clé identifiant le type d'objet (valeur imposée)
-* id_technique : valeur identifiant un seul objet d'un type donné pour un même producteur
-
-ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
-il est possible aussi de ne renseigner que l'identifiant technique, auquel cas la valeur sera complétée automatiquement.
-=:
-- Date de création := date à laquelle l'objet a été créé ou modifié pour la dernière fois
-- Version := version de l'objet (auto incrémenté à chaque modification)
-- Créé par := compte utilisateur ayant procédé à la dernière modification
-
-h3. Implémentation
-
-p. TODO
+* Nom :nom du réseau 
+* Numéro d'enregistrement : code référençant un réseau au sein d'une autorité supérieure
+* Commentaire : zone de texte libre sur le réseau
+* Date de version : date de mise en référence de l'ensemble des constituants du réseau
+* Description : description du réseau
+* Nom du système origine : nom du système ayant produit les données du réseau
+* Identifiant du système origine : identifiant du système ayant produit les données du réseau
 

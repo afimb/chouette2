@@ -27,13 +27,20 @@ ol.breadcrumb{
         img {
             height: 40px;       
         }
+        
+        .brand_name{
+            margin-left: 3px;              
+            margin-right: 3px;            
+            font-size: 20px;
+            font-family: monospace;
+            font-weight: bold;
+        }
 
         .version
-        {       
-            margin-left: 3px;
+        {                   
             vertical-align: text-top;
             color: white;
-            font-size: 13px;
+            font-size: 12px;
         }
     }
     

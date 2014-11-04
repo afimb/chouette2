@@ -7,7 +7,7 @@
   </li>
 
   <li>
-  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <%- if devise_mapping.registerable? && controller_name != 'registrations' && Rails.application.config.accept_user_creation %>
   <%= link_to t(".sign_up"), new_registration_path(resource_name) %><br />
   <% end -%>
   </li>

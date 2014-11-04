@@ -1,8 +1,0 @@
----
-layout: default
-title: Vue d'ensemble
----
-
-L'IHM  ne reflète pas l'intégralité des données existant en base.
-
-Par ailleurs lorsque l'application est utilisée par un administrateur central traitant de plusieurs réseaux, il sera utile d'établir lors d'une discussion initiale des accords locaux entre les partenaires pour une dénomination et des processus de saisie homogènes.
