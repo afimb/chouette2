@@ -126,9 +126,7 @@ ChouetteIhm::Application.configure do
   end  
 
   # api key to geoportail IGN (production key link to application url root referer)
-  if ENV['CHOUETTE_GEOPORTAIL_KEY'].nil?
-     config.geoportail_api_key = "aaaaaaaaaaaaaa"
-  else
+  if !ENV['CHOUETTE_GEOPORTAIL_KEY'].nil?
      config.geoportail_api_key = ENV['CHOUETTE_GEOPORTAIL_KEY']
   end  
 
