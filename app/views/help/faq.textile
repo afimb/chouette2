@@ -1,8 +1,0 @@
----
-layout: default
-title: Foire aux questions
----
-
-N'hésitez pas à nous solliciter pour toute question, nous compléterons la FAQ progressivement !
-
-"Forum de chouette.mobi":http://forum.chouette.mobi

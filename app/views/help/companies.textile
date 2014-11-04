@@ -5,42 +5,47 @@ title: Transporteurs
 
 h3. Définition
 
-Dans la réalité, le *transporteur* est l'entité en charge de l'exploitation d'une ou plusieurs lignes de transport. 
+Dans la réalité, le _"transporteur"_ est l'entité en charge de l'exploitation d'une ou plusieurs lignes de transport. 
 Ce principe se retrouve dans le logiciel CHOUETTE. 
 
 * Il s'agit de l'exploitant de la ligne; chaque ligne est rattachée à un seul transporteur, un transporteur pouvant évidemment gérer plusieurs lignes. 
-* Chaque transporteur dispose d'un identifiant fonctionnel (<< numéro d'enregistrement >>) qui est utilisé dans les échanges XML pour identifier le transporteur et le mettre à jour. Cet identifiant est unique pour toute la base CHOUETTE, quel que soit le réseau ; il est donc important que le gestionnaire de la base CHOUETTE le renseigne d'une manière bien définie et pérenne.
+* Chaque transporteur dispose d'un identifiant fonctionnel, une sorte de _"numéro d'enregistrement"_, qui est utilisé dans les échanges XML pour l'identifier et le mettre à jour. Cet identifiant est unique pour toute la base CHOUETTE, quel que soit le réseau ; il est donc important que le gestionnaire de la base CHOUETTE le renseigne d'une manière bien définie et pérenne sans quoi des erreurs risquent fort de survenir lors de l'export des données vers des systèmes tiers les exploitants..
 
-h3. Attributs
+h4. Liste des transporteurs
 
-- Nom := nom du transporteur
-- Nom court := nom abrégé du transporteur
-- Nom d'unité := nom de l'unité de gestion dans la société de transport
-- Nom du département := nom du département dans la société de transport
-- Code postal := code postal de l'adresse de la société de transport
-- Numéro de téléphone := Numéro de téléphone de l'unité de gestion
-- Numéro de fax := Numéro de fax de l'unité de gestion
-- Email := adresse électronique de l'unité de gestion de l'unité de gestion
-- Numéro d'enregistrement := code référençant un transporteur au sein d'une autorité supérieure
+Sélectionner _"Transporteurs"_ dans le menu _"Données"_ affiche la liste des Transporteurs existants dans l'espace de données. 
 
-p(attr_data). Données de gestion : 
+!2014-10-30_175216.png! Liste des transporteurs
 
-- Identifiant Neptune := 
-clé unique pérenne identifiant le transporteur pour les échanges Neptune
-cet identifiant est composé de 3 parties : préfixe:type:id_technique
+h4. Ajouter un transporteur
 
-* préfixe : clé identifiant un producteur de données unique
-* type = Company : clé identifiant le type d'objet (valeur imposée)
-* id_technique : valeur identifiant un seul objet d'un type donné pour un même producteur
+Depuis la liste des transporteurs, cliquer sur  _"Ajouter un transporteur"_ dans la partie droite de l'écran. Il est également possible de créer un nouveau transporteur depuis la page de n'importe quel transporteur.
 
-ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
-il est possible aussi de ne renseigner que l'identifiant technique, auquel cas la valeur sera complétée automatiquement.
-=:
-- Date de création := date à laquelle l'objet a été créé ou modifié pour la dernière fois
-- Version := version de l'objet (auto incrémenté à chaque modification)
-- Créé par := compte utilisateur ayant procédé à la dernière modification
+Un formulaire s'affiche. Les champs obligatoires sont signalés par des astérisques. 
 
-h3. Implémentation
+h4. Afficher un transporteur existant
 
-p. TODO
+Pour afficher un transporteur existant il suffit de cliquer sur le nom du transporteur depuis la liste des transporteurs existants.
+
+h4. Modifier un transporteur
+
+On peut modifier un transporteur en cliquant sur le bouton de modification directement depuis la liste des transporteurs ou depuis la page d'un transporteur particulier. 
+
+h4. Supprimer un transporteur
+
+On peut modifier un transporteur en cliquant sur le bouton de modification directement depuis la liste des transporteurs ou depuis la page d'un transporteur particulier. A noter que les éléments rattachés à ce transporteur (lignes notamment) ne seront pas supprimés. Il sera toujours possible de les rattacher à un autre transporteur par la suite en les modifiant. 
+
+h3. Attributs d'un transporteur
+
+* Nom : nom du transporteur
+* Nom court : nom abrégé du transporteur
+* Nom d'unité : nom de l'unité de gestion dans la société de transport
+* Nom du département : nom du département dans la société de transport
+* Code postal : code postal de l'adresse de la société de transport
+* Numéro de téléphone : Numéro de téléphone de l'unité de gestion
+* Numéro de fax : Numéro de fax de l'unité de gestion
+* Email : adresse électronique de l'unité de gestion de l'unité de gestion
+* Numéro d'enregistrement : code référençant un transporteur au sein d'une autorité supérieure
+
+
 

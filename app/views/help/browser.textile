@@ -1,0 +1,17 @@
+---
+layout: default
+title: Navigateur
+---
+
+h3. Navigateur prérequis
+
+L’utilisation de l’application nécessite de disposer d’un navigateur ayant les caractéristiques suivantes :
+
+* Internet Explorer (Version 8 et +)
+* Mozilla FireFox (Version 12 et +)
+* Chrome (Version 8 et +)
+
+h3. Paramétrage du navigateur
+Le navigateur doit autoriser l’exécution de Javascript.
+
+L'application s'affiche de façon lisible sur toutes les tailles d'écran, même si le confort d'utilisation est supérieur avec un poste de travail ayant une résolution d'au moins 1280x1024.

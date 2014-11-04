@@ -1,0 +1,88 @@
+---
+layout: default
+title: Gestion des accès et liens associés
+---
+
+Au sein d'un arrêt commercial ou d'un pôle d'échange, il est possible de décrire en détail des accès à ces lieux. 
+
+Des liens _"ajouter un accès"_ et _"gérer les liens arrêt-accès"_ sont accessibles dans le menu latéral à droite de l'écran. 
+
+h3. Créer un accès
+
+Depuis la page d'un arrêt auquel l'accès se rapporte, cliquer sur _"ajouter un accès"_. Un formulaire de création permet de décrire l'accès. 
+
+!2014-10-30_181251.png! Création d'un accès
+
+Le champ de localisation par coordonnées est disponible dès la création et permet de localiser un accès avec des données chiffrées. A noter que les données doivent être saisies dans un champ unique, séparée par une virgule. Cette configuration permet de faire des copier coller directs depuis googlemaps notamment. 
+
+La carte n'est pas disponible au moment de la création. Elle apparaît lors de la modification. Il faut donc créer un accès puis le modifier si l'on souhaite localiser l'accès sur la cartographie plutôt que par les coordonnées. 
+
+Si l'accès n'a pas été positionné, il est positionné par défaut à l'emplacement de la zone d'arrêt associée ou par défaut au centre géographique de l'emprise de l'espace de données.
+
+h4. Attributs de l'accès
+
+* Zone d'arrêt : nom de la zone d'arrêt contenant l'accès 
+* Nom : nom de l'accès 
+* Commentaire : zone de texte libre
+* Nom de la rue : nom de la rue de l'accès
+* Code INSEE : code INSEE de la commune de l'accès
+* Type d'accès : sens de circulation de l'accès
+** !access_in.png! entrée
+** !access_out.png! sortie
+** !access_in_out.png! entrée-sortie
+* Horaire d'ouverture : horaire d'ouverture de l'accès (hh:mm)
+* Horaire de fermeture : horaire d'ouverture de l'accès (hh:mm)
+* Ascenseur : indicateur (Oui ou Non)
+* Accès pour personne à mobilité réduite : indicateur (Oui ou Non)
+* Escalator disponible : indicateur (Oui ou Non)
+
+h4. Données géographiques :
+
+* Position X : coordonnée horizontale de l'accès dans le référentiel de projection de l'espace de données
+* Position Y : coordonnée verticale de l'accès dans le référentiel de projection de l'espace de données
+* Longitude : longitude de l'accès dans le référentiel WGS84
+* latitude : latitude de l'accès dans le référentiel WGS84
+
+h3. Modifier un accès
+
+Cliquer sur le pictogramme de modification de l'accès ou sur _"Modifier l'accès"_ dans le menu de droite permet d'afficher en modification le formulaire de création. La cartographie apparaît et il est possible d'y déplacer l'accès.
+
+h3. Consulter les accès existants
+
+Les accès existants sont listés en bas de la page de l'arrêt sous forme d'éléments de liste. Cliquer sur le nom de l'accès ou sur le lien _"Gérer les liens arrêt-accès"_ affiche la vue détaillée de l'accès qui permet notamment son paramétrage complet. 
+
+Les liens entre l'accès et l'arrêt global est présenté en premier, suivi d'une liste entre l'accès et les arrêts fils. Chacune de ses relations est figurée par une double flèche qui permet de savoir si les accès sont valables et si oui, dans quel sens exactement. 
+
+!2014-10-30_181326.png! Liste des accès d'un arrêt, située en bas de la page de l'arrêt
+
+h3. Paramétrer les accès
+
+Cliquer sur l'une des flèches affiche le formulaire de paramétrage détaillé de l'accès pour le sens de circulation correspondant à la flèche. 
+
+!2014-10-30_181422.png! Définition des sens d'accès
+
+h4. Attributs du lien Accès / Arrêt
+
+* Nom : Le nom est généré automatiquement à partir du nom de l'accès et de l'arrêt. Il est descriptif du lien mais peut être modifié.
+* Type : Il n'est pas possible de modifier un type une fois qu'il a été défini. Le type est une liste à choix fermés :
+** Souterrain
+** Mixte
+** Aérien
+* Commentaire : zone de texte libre
+* Distance : la distance de l'accès en mètres
+* Accès pour voyageurs à mobilité réduite : indicateur (oui ou non)
+* Présence d'un escalator : indicateur (oui ou non)
+* Présence d'un ascenseur : indicateur (oui ou non)
+
+h4. Attributs de durées
+
+Ces attributs permettent de définir le temps qu'il faut pour emprunter l'accès (en heures/minutes/secondes). Les champs sont :
+
+* moyenne : le temps moyen tous cas confondus
+* pour un habitué : le temps moyen pour un voyageur régulier connaissant les lieux
+* pour un voyageur occasionnel : le temps moyen pour un voyageur régulier ne connaissant pas les lieux
+* pour un voyageur à mobilité réduite : le temps moyen pour un voyageur à mobilité réduite
+
+h3. Supprimer un accès
+
+Un accès peut-être supprimé en cliquant sur le pictogramme de suppression dans la liste des accès d'un arrêt ou bien en cliquant sur _"Supprimer cet accès"_ dans le menu latéral de droite dans la page de l'accès à supprimer. 

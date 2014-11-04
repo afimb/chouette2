@@ -1,0 +1,46 @@
+---
+layout: default
+title: Relation de parenté entre arrêts
+---
+
+h3. Regroupements des différents niveaux d'arrêts
+
+Les arrêts de différents niveaux hiérarchiques peuvent être liés ensemble. 
+
+Ainsi on obtient les possibilités de regroupements suivants:
+
+* un arrêt physique regroupe plusieurs arrêts sur itinéraire (ou séquence d'arrêts).
+* un arrêt commercial regroupe plusieurs arrêts physiques (quai, embarquement).
+* un pôle d'échange regroupe plusieurs arrêts commerciaux. 
+
+Pour ne pas aboutir à un système trop complexe, les règles suivantes sont posées:
+
+* un pôle d'échange peut contenir des arrêts commerciaux et/ou des pôles d'échanges (qui ne peuvent pas en contenir d'autres).
+* un arrêt commercial ne peut contenir que des arrêts physiques.
+
+!2014-10-30_180536.png! Exemple d'arrêt commercial contenant un arrêt physique
+
+h3. Création et modification des relations de parenté
+
+Les liens de parentalité entre les arrêts se créent depuis un arrêt déjà existant, qu'il soit parent ou fils. Il peut s'agir de mettre en relation deux arrêts déjà existants ou bien de créer un nouvel arrêt en relation à partir de l'arrêt courant. 
+
+* Gérer le parent : Cette fonction affiche soit un champ de recherche pour rechercher et définir le parent si le lien n'existe pas encore, soit le nom du parent pour consultation avec une petite croix pour supprimer le lien de parenté si le lien est déjà établi. Supprimer le lien de parenté ne supprime pas l'arrêt proprement dit. 
+* Cloner pour créer un père : Cette fonction crée un arrêt identique de niveau hiérarchique supérieur. 
+* Gérer les fils : Cette fonction affiche un champ de recherche pour rechercher et définir le ou les arrêts fils si le lien et le cas échéant le nom du ou des arrêts fils déjà définis. Cette liste permet de consulter les arrêts fils, chacun est accompagné d'une petite croix permettant de supprimer le lien de parenté. Supprimer le lien de filiation ne supprime pas l'arrêt proprement dit. 
+* Cloner pour créer un fils : cette fonction crée un arrêt identique de niveau hiérarchique inférieur.
+
+h4. Depuis les niveaux _"point d'embarquement"_ ou _"quai"_
+
+!boardingposition.png! ou !quay.png!
+
+Les niveaux _"point d'embarquement"_ et _"quai"_ étant les plus bas, ils ne peuvent pas être reliés à des arrêts fils. En conséquence seul un bouton _"Gérer le parent"_ est systématiquement disponible. Le bouton _"cloner pour créer un père"_ apparaît s'il existe déjà un arrêt parent. 
+
+!2014-10-30_180955.png! Gestion d'un arrêt parent
+
+h4. Depuis le niveau _"arrêt commercial"_ ou _"Pôle d'échange"_
+
+!commercialstoppoint.png! ou !stopplace.png!
+
+Ces deux niveaux permettent à la fois de définir de nouveaux fils et de rattacher l'arrêt commercial à un parent de type "pôle d'échange". Ils disposent donc à la fois des fonctions de gestion et de clonage de parents et de fils. A noter que les arrêts de niveaux pôle d'échange qui sont hiérarchiquement les plus élevés peuvent avoir un et un seul autre pôle d'échange comme parent. Deux pôles d'échange peuvent être parents l'un de l'autre. 
+
+!2014-10-30_181044.png! Gestion de relation père-fils depuis un arrêt commercial

@@ -5,33 +5,37 @@ title: Missions
 
 h3. Définition
 
-Une *mission* se définit comme une suite extraite de la suite ordonnée des arrêts d’une "séquence d’arrêts":routes. Autrement dit, toutes les courses d'une séquence d'arrêts qui desservent les mêmes arrêts et dans le même ordre, à des horaires différents éventuellement, référencent la même mission. La mission correspond donc à une suite ordonnée d'arrêts de la séquence d'arrêts. 
+Une _"Mission"_ est une sélection ordonnée d'arrêts issue d'une séquence d'arrêts de à partir de laquelle il sera possible de créer des courses, c'est à dire d'associer différents horaires à la mission. Les arrêts de la mission sont toute ou partie des arrêts de la séquence d'arrêts.
+
+Une mission est spécifique à une _"séquence d'arrêts"_. Une même séquence d'arrêts peut contenir plusieurs missions différentes. 
+
+Les différentes missions peuvent regrouper des arrêts communs et comporter des doublons d'arrêts.
+
+h3. Créer une mission
+
+La création d'une mission se fait depuis la page d'une séquence d'arrêt. Pour créer une mission il convient de cliquer sur _"Ajouter une mission"_ dans le menu latéral à droite. Un formulaire de création s'affiche alors.
+
+En bas du formulaire les arrêts sélectionnés dans la séquence d'arrêts sont sélectionnables par des cases à cocher.
+
+!2014-10-31_113803.png! Sélection des arrêts d'une mission
+
+h3. Modifier une mission
+
+On peut modifier une mission en cliquant sur le bouton de modification directement depuis la liste des lignes ou depuis la page de la séquence d'arrêts que l'on souhaite modifier. Dans le premier cas, on clique sur le pictogramme de modification dans la liste, dans le second cas, le lien _"Modifier cette mission"_ est situé dans le menu latéral de droite.
+
+h3. Supprimer une séquence d'arrêts
+
+Il est possible de supprimer une mission depuis la page de la séquence d'arrêt. Chaque élément de la liste des missions en bas de la page est dotée d'un pictogramme de suppression. Il est à noter que la suppression de la mission ne supprime par les arrêts qu'elle contient. 
+
+La suppression de la mission est également possible depuis la page de la séquence elle-même. Le lien _"Supprimer cette mission"_ efface la mission courante. 
 
 h3. Attributs
 
-- Nom := nom de la mission
-- Nom public := nom public pour les voyageurs
-- Numéro d'enregistrement := Le numéro d'enregistrement est unique. Aucune règle de nommage ne s'applique sur ce numéro. Celui-ci doit être unique sur l'ensemble des missions de la ligne.
-- Commentaire := zone de texte libre 
+* Nom := nom de la mission
+* Nom public := nom public pour les voyageurs
+* Numéro d'enregistrement := Le numéro d'enregistrement est unique. Aucune règle de nommage ne s'applique sur ce numéro. Celui-ci doit être unique sur l'ensemble des missions de la ligne.
+* Commentaire := zone de texte libre 
 
-p(attr_data). Données de gestion :
 
-- Identifiant Neptune := 
-clé unique pérenne identifiant la mission pour les échanges Neptune
-cet identifiant est composé de 3 parties : préfixe:type:id_technique
 
-* préfixe : clé identifiant un producteur de données unique
-* type = JourneyPattern : clé identifiant le type d'objet (valeur imposée)
-* id_technique : valeur identifiant un seul objet d'un type donné pour un même producteur
-
-ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
-il est possible aussi de ne renseigner que l'identifiant technique, auquel cas la valeur sera complétée automatiquement.
-=:
-- Date de création := date à laquelle l'objet a été créé ou modifié pour la dernière fois
-- Version := version de l'objet (auto incrémenté à chaque modification)
-- Créé par := compte utilisateur ayant procédé à la dernière modification
-
-h3. Implémentation
-
-p. TODO
 

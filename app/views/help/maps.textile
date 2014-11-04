@@ -1,0 +1,14 @@
+---
+layout: default
+title: Cartographie
+---
+
+h3. Cartographie
+
+Les éléments géolocalisés sont affichés sur une cartographie. Il est possible de naviguer dans la cartographie à l'aide de la souris avec un cliquer-glisser pour faire défiler la cartographie et avec la molette pour zoomer ou dé-zoomer. Ces fonctions sont également disponibles par les boutons affichés sur la cartographie.
+
+Le fond cartographique par défaut est la vue aérienne du géoportail mais il est possible de sélectionner un autre fond cartographique de son choix en cliquant sur le petit "_+_" situé à droite de la cartographie. 
+
+Sur la vue des lignes, le nom de l'arrêt s'affiche lorsque l'on place le curseur au-dessus de celui-ci. 
+
+Lorsque l'on modifie un arrêt, il est possible de le déplacer directement sur la cartographie à l'aide de la souris. Sa géolocalisation est alors remise à jour automatiquement.
