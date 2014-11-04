@@ -1,9 +1,31 @@
 ChouetteIhm::Application.routes.draw do
 
   devise_scope :users do
-    match "/users/sign_up" => "subscriptions#new"
+    #match "/users/sign_up" => "subscriptions#new",
   end
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
+
+  devise_scope :user do
+    authenticated :user do
+      root :to => 'referentials#index'
+    end
+    
+    unauthenticated do
+      root :to => 'devise/sessions#new'
+    end
+  end
+
+  # Rails 4 syntax
+  # devise_for :users
+  # devise_scope :user do
+  #   authenticated :user do
+  #     root :to => 'referentials#index', as: :authenticated_root
+  #   end
+  # unauthenticated :user do
+  #     root :to => 'devise/registrations#new', as: :unauthenticated_root
+  #   end
+  # end
+
 
   namespace :api do
     namespace :v1 do
@@ -188,5 +210,4 @@ ChouetteIhm::Application.routes.draw do
   match '/422', :to => 'errors#server_error'
   match '/500', :to => 'errors#server_error'
 
-  root :to => 'referentials#index'
 end
