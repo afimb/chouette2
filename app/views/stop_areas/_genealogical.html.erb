@@ -42,7 +42,7 @@
     <div class="children">
       <% @stop_area.routing_stops.each do |stop| %>
       <div class="child">
-        <%= link_to([@referential, stop], :title => t("area_types.label.#{ @stop.stop_area_type}") + " #{ @stop.name}") do %> 
+        <%= link_to([@referential, stop], :title => t("area_types.label.#{ stop.stop_area_type}") + " #{ stop.name}") do %> 
           <%= image_tag "map/" + stop.stop_area_type + ".png"   %><span><%= stop.name %></span>         
         <% end %>  
       </div>

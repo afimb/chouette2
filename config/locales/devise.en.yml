@@ -36,6 +36,7 @@ en:
   helpers:
     label:
       user:
+        organisation_name: "Organisation name"
         name: Full name
         password: Password
         password_confirmation: Password confirmation

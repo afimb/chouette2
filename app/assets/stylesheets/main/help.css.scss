@@ -1,18 +1,4 @@
 #workspace.help {
-h2 {
-    font-size: 17px;
-}
-
-h3 {
-    font-size: 15px;
-}
-
-h4 {
-    text-decoration: underline;
-    font-weight: bold;
-    padding: 7px 0;
-    font-size: 14px;
-}
 
 ul li {
     list-style: circle;
@@ -98,6 +84,22 @@ dt {
 dd {
     padding-left: 10px;
 }
+
+ 
+  table.meta {
+ width:50%;
+ }
+  table.meta th { 
+ border-width:1px;
+ border-style:solid; 
+ border-color:black;
+ }
+  table.meta td { 
+ border-width:1px;
+ border-style:solid; 
+ border-color:black;
+ }
+
 }
 #sidebarhelp.help {
 h2 {

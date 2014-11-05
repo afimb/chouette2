@@ -1,16 +1,11 @@
 jQuery ->
   if(!(Modernizr.inputtypes && Modernizr.inputtypes.time))    
-    $('.timepicker_basic').timepicker(
-      template: false,
-      showInputs: false,
-      minuteStep: 1,
-      showMeridian: false,
-      )
-    $('.timepicker_seconds').timepicker(
-      template: false,
-      showInputs: false,
-      minuteStep: 1,
-      secondStep: 1,
-      showMeridian: false,
-      showSeconds: true
-      ) 
+    $('.timepicker_basic').datetimepicker({
+       pickDate: false,
+       language: $(".dropdown.languages > a > img").attr("data-locale") || 'en',
+      })
+    $('.timepicker_seconds').datetimepicker({
+       pickDate: false,
+       language: $(".dropdown.languages > a > img").attr("data-locale") || 'en',  
+       useSeconds: true,
+      }) 

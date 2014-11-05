@@ -10,11 +10,13 @@ describe "/vehicle_journeys/_vehicle_journey_at_stop_fields" do
   let!(:vehicle_journey_at_stop_counter) { assign :vehicle_journey_at_stop_counter, 0 }
 
   def render_collection
-    render( :partial => "vehicle_journeys/vehicle_journey_at_stop_fields", :collection => vehicle_journey.vehicle_journey_at_stops, :as => :vehicle_journey_at_stop)
+    render( :partial => "vehicle_journeys/vehicle_journey_at_stop_fields", :collection => vehicle_journey.vehicle_journey_at_stops, :as => :vehicle_journey_at_stop, :locals => { :vehicle_journey_at_stops_size => 1 } )
   end
+  
   def field_name
     "vehicle_journey[vehicle_journey_at_stops_attributes][0]"
   end
+  
   it "should render vehicle_journey_at_stop's departure time" do
     render_collection
     rendered.should have_selector("td select", :name => "#{field_name}[departure_time(5i)]")

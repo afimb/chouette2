@@ -11,55 +11,37 @@ Les calendriers d'application sont donc définis indépendamment des lignes, à 
 La manière de définir un calendrier d'application est restreinte. 
 Les calendriers sont caractérisés par : 
 
-* une liste de quantièmes (jours calendaires dans l'année)
+* une liste de jours calendaires dans l'année
 * une liste de jours d'application (lundis, mardis, etc.)
-* une liste de périodes sur lesquelles s'appliquent les jours d'application
+* une liste de plages de dates sur lesquelles s'appliquent les jours d'application
 * une liste de dates à exclure des périodes.
 
-L'utilisateur doit donc faire attention au nommage de ses différents calendriers d'application.
+L'utilisateur doit faire attention au nommage de ses différents calendriers d'application, car il doit gérer un calendrier pour chaque cas de courses. Ainsi, si au sein d'une même ligne, il existe des courses fonctionnant du lundi au vendredi et d'autres les samedis, dimanche et fêtes sur la même période de temps, il faudra deux calendriers pour couvrir les deux cas.
 
 Plusieurs courses peuvent référencer le même calendrier.
 
 Ainsi, il est possible de construire des calendriers d'application qui sont ensuite référencés par des courses de lignes différentes. 
 
+Une même course peut également posséder plusieurs calendriers. Ainsi, si une ligne possède des courses fonctionnant du lundi au vendredi, d'autres fonctionnant les samedis dimanches et fêtes et d'autre fonctionnant tous les jours, le troisième type de course ne nécessitera pas une période spécifique, lui associer les deux calendriers permettra de définir son fonctionnement. 
+
+!2014-10-31_120428.png! Définition d'un calendrier
+
+h3. Étiquettes
+
+Afin de faciliter la gestion des calendriers qui peuvent être nombreux, CHOUETTE permet d'identifier les calendriers par une ou plusieurs étiquettes. L'auto-complétion permet de choisir des étiquettes déjà existantes pour les associer au calendrier. Une nouvelle étiquette peut être créée à tout moment en saisissant un nouveau texte et en tapant sur _"entrée"_. Les étiquettes permettent ensuite de faire des recherches au sein des calendriers sur ces étiquettes.
+
+!2014-10-31_120905.png! Exemple d'étiquette
+
 h3. Attributs
 
-- Nom := Description du calendrier
-- Abréviation := Code abrégé 
-- Etiquettes := 
-Marqueurs caractérisant le calendrier (pour simplifier la recherche)
-Afin d'être enregistrées, les étiquettes doivent être saisiées séparées par une ',' (virgule) et la touche 'tab' permet d'activer la dernière.
-Un assistant propose les étiquettes déjà saisies sur d'autres calendriers.
-=:
-- Périodes d'application := périodes calendaires durant lesquelles le calendrier est applicable
-- Jours d'application := jours de la semaine effectivement applicables dans le cas où des périodes sont définies dans le calendrier
-- Dates particulières := 
-dates spécifiques pour lesquelles le calendrier est applicable;
-ces dates peuvent être ajoutées dans ou en dehors des périodes calendaires.
-Un calendrier peut n'avoir que des dates calendaires, auquel cas les jours d'applications n'ont pas de signification
-=:
-- Dates exclues := 
-dates spécifiques à retirer des dates définies par les périodes et les jours d'application;
-une même date calendaire ne peut pas être à la fois particulière et exclue;
+* Nom : Description du calendrier
+* Abréviation : Code abrégé 
+* Étiquettes : Marqueurs caractérisant le calendrier (pour simplifier la recherche). Afin d'être enregistrées, les étiquettes doivent être saisies séparées par une ',' (virgule) et la touche 'tab' permet d'activer la dernière. Un assistant propose les étiquettes déjà saisies sur d'autres calendriers.
+* Périodes d'application : périodes calendaires durant lesquelles le calendrier est applicable
+* Jours d'application : jours de la semaine effectivement applicables dans le cas où des périodes sont définies dans le calendrier
+* Dates particulières : dates spécifiques pour lesquelles le calendrier est applicable ; ces dates peuvent être ajoutées dans ou en dehors des périodes calendaires. Un calendrier peut n'avoir que des dates calendaires, auquel cas les jours d'applications n'ont pas de signification.
+* Dates exclues : dates spécifiques à retirer des dates définies par les périodes et les jours d'application ; une même date calendaire ne peut pas être à la fois particulière et exclue;
 une date exclue hors périodes et jours d'application n'a aucun effet.
-=:
-
-p(attr_data). Données de gestion :
-
-- Identifiant Neptune := 
-clé unique pérenne identifiant le réseau pour les échanges Neptune
-cet identifiant est composé de 3 parties : préfixe:type:id_technique
-
-* préfixe : clé identifiant un producteur de données unique
-* type = Timetable : clé identifiant le type d'objet (valeur imposée)
-* id_technique : valeur identifiant un seul objet d'un type donné pour un même producteur
-
-ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
-il est possible aussi de ne renseigner que l'identifiant technique, auquel cas la valeur sera complétée automatiquement.
-=:
-- Date de création := date à laquelle l'objet a été créé ou modifié pour la dernière fois
-- Version := version de l'objet (auto incrémenté à chaque modification)
-- Créé par := compte utilisateur ayant procédé à la dernière modification
 
 h3. Opérations particulières
 
@@ -78,8 +60,8 @@ h4. Combinaisons
 
 La combinaison de calendriers consiste à modifier le calendrier consulté à l'aide d'un autre; les opérations sont : 
 
-- ajouter les dates := les dates et périodes du second calendrier sont ajoutées au premier
-- conserver les dates commune := seules les dates et périodes communes aux 2 calendriers sont conservées
-- soustraire les dates := les dates communes aux 2 calendriers sont retirées du premier
+* ajouter les dates : les dates et périodes du second calendrier sont ajoutées au premier
+* conserver les dates commune : seules les dates et périodes communes aux 2 calendriers sont conservées
+* soustraire les dates : les dates communes aux 2 calendriers sont retirées du premier
 
 L'opération est effectuée en base et ne nécessite pas d'action de sauvegarde. 

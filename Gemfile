@@ -57,9 +57,9 @@ gem 'simple_form'
 gem 'rails-assets-tagmanager', '~> 3.0.1.0'
 gem 'rails-assets-typeahead.js', '~> 0.10.5'
 gem "breadcrumbs_on_rails"
-gem 'bootstrap-timepicker-rails'
 gem 'rails-assets-typeahead.js-bootstrap3.less'
 gem 'rails-assets-respond'
+gem 'rails-assets-eonasdan-bootstrap-datetimepicker', '~> 3.1.3'
 
 # Format Output
 gem 'json'

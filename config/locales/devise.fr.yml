@@ -40,6 +40,7 @@ fr:
   helpers:
     label:
       user:
+        organisation_name: "Nom de l'organisation"
         name: Nom complet
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe

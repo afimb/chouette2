@@ -82,33 +82,40 @@ class Chouette::Hub::Exporter
         
         @lines = select_lines( options[:o], options[:id] )
         
-        #@routes = @lines.map(&:routes).flatten.sort {|a,b| (a.name && b.name) ? a.name <=> b.name : a.id <=> b.id} if lines_exportable?
         @routes = []
         if @lines
-          @lines.each { |line| @routes << Chouette::Route.where( "line_id = ?", line.id ) }
+          @lines.each { |line| @routes << Chouette::Route.where( "line_id = ?", line.id ).order(:wayback) }
         end
-        #@routes = @routes.flatten
-
-        #@journey_patterns = Chouette::JourneyPattern.where(:route_id => @routes.map(&:id)).order(:objectid) if routes_exportable?
+        
         @journey_patterns = []
         if @routes
           @routes.each { |subroutes| @journey_patterns << Chouette::JourneyPattern.where( :route_id => subroutes.map(&:id) ).order(:objectid) }
         end
         @journey_patterns = @journey_patterns.flatten
-
+        
         @routes = @routes.flatten
         @vehicle_journeys = Chouette::VehicleJourney.where(:route_id => @routes.map(&:id)).order(:objectid) if routes_exportable?
-                
+        
+        rts = []
+        jps = []
         vjs = []
         tts = []
         @vehicle_journeys.each do |vj|
           unless (vj.time_tables & @time_tables).empty?
             vjs << vj
             tts << (vj.time_tables & @time_tables)
+            rts << vj.route_id
+            jps << vj.journey_pattern_id
           end
         end
         @time_tables = tts.flatten.uniq
         @vehicle_journeys = vjs.uniq
+        rts = rts.flatten.uniq
+        jps = jps.flatten.uniq
+        
+        @routes.delete_if {|r| !(rts.include?(r.id)) }
+        @journey_patterns.delete_if {|jp| !(jps.include?(jp.id)) }
+        
         
         vehicle_journey_at_stops = Chouette::VehicleJourneyAtStop.where( :vehicle_journey_id => @vehicle_journeys.map(&:id) ) #.order(:id) if vehicle_journeys_exportable?
         
@@ -135,10 +142,19 @@ class Chouette::Hub::Exporter
           log_overflow_warning(Chouette::VehicleJourney)
         end
         
-        stop_points = Chouette::StopPoint.where( :id => vehicle_journey_at_stops.map(&:stop_point_id)).order(:id)
-        physical_stop_areas =  Chouette::StopArea.where( :id => stop_points.map(&:stop_area_id)).order(:parent_id)
+        stop_points = Chouette::StopPoint.where( :id => vehicle_journey_at_stops.map(&:stop_point_id)) #.order(:id)
+        physical_stop_areas =  Chouette::StopArea.where( :id => stop_points.map(&:stop_area_id)) #.order(:parent_id)
         commercial_stop_areas = Chouette::StopArea.where( :id => physical_stop_areas.map(&:parent_id)).order(:objectid)
         
+        physical_stop_areas = []
+        commercial_stop_areas.each { |commercial_stop_area| physical_stop_areas << Chouette::StopArea.where( :parent_id => [commercial_stop_area.id] ).order(:objectid) }
+        physical_stop_areas = physical_stop_areas.flatten
+
+        city_codes = Hash.new
+        commercial_stop_areas.each { |commercial_stop_area| city_codes[commercial_stop_area.zip_code] =  commercial_stop_area.city_name if commercial_stop_area.zip_code }
+        physical_stop_areas.each { |physical_stop_area| city_codes[physical_stop_area.zip_code] =  physical_stop_area.city_name if physical_stop_area.zip_code }
+        
+        Chouette::Hub::CityCodeExporter.save(city_codes, temp_dir, hub_export)
         Chouette::Hub::CommercialStopAreaExporter.save(commercial_stop_areas, temp_dir, hub_export)
         Chouette::Hub::PhysicalStopAreaExporter.save(physical_stop_areas, temp_dir, hub_export)
 
@@ -146,10 +162,32 @@ class Chouette::Hub::Exporter
         
         Chouette::Hub::ConnectionLinkExporter.save(connection_links, temp_dir, hub_export)
         
+        
         if lines_exportable?
           Chouette::Hub::LineExporter.save(@lines, temp_dir, hub_export)
+          
+          transport_modes = Hash.new
+          @lines.each do |l|
+            if l.transport_mode_name
+              case l.transport_mode_name
+              when "Coach"
+                if transport_modes["CAR"]
+                  transport_modes["CAR"] += "|"+l.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2')
+                else
+                  transport_modes["CAR"] = l.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2')
+                end
+              when "Bus"
+                if transport_modes["BUS"]
+                  transport_modes["BUS"] += "|"+l.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2')
+                else
+                  transport_modes["BUS"] = l.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2')
+                end
+              end
+            end
+          end
+          Chouette::Hub::TransportModeExporter.save(transport_modes, temp_dir, hub_export)
           networks = Chouette::Network.where( :id => @lines.map(&:network_id))
-          companies = Chouette::Network.where( :id => @lines.map(&:company_id))
+          companies = Chouette::Company.where( :id => @lines.map(&:company_id))
           groups_of_lines = []
           @lines.each { |l| groups_of_lines << l.group_of_lines }
           groups_of_lines = groups_of_lines.flatten.uniq

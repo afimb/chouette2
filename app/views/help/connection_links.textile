@@ -6,43 +6,48 @@ title: Correspondances
 h3. Définition
 
 Une *correspondance* ou un changement est, dans un voyage en transports en commun, une étape nécessitant de changer de ligne. Le changement peut se faire soit au sein du même réseau, soit de manière intermodale, c'est-à-dire en changeant également de mode de transport.
-La correspondance permet d'établir une liaison entre un arrêt physique (ou une zone d'arrêt de type << arrêt commercial >> ou de type << pôle d'échange >>) et un autre arrêt physique (ou une autre zone d'arrêt de type << arrêt commercial >> ou de type << pôle d'échange >>).
-Cette liaison définit aussi une durée de parcours entre les arrêts (ou zones) reliés.
+
+La correspondance permet d'établir une liaison entre un arrêt physique (ou une zone d'arrêt de type << arrêt commercial >> ou de type << pôle d'échange >>) et un autre arrêt physique (ou une autre zone d'arrêt de type << arrêt commercial >> ou de type << pôle d'échange >>). Elle permet notamment de préciser la distance et le temps de parcours de la correspondance.
+
+!2014-10-31_115014.png! Correspondance entre deux arrêts
+
+h3. Créer une correspondance
+
+La page des correspondance est accessible depuis le menu _"Données"_. Elle présente la liste des correspondances avec un champ de recherche par le nom. Dans le menu latéral, cliquer sur _"Ajouter une correspondance"_ permet d'afficher le formulaire  de création d'une nouvelle correspondance.
+
+Seul le nom de la correspondance est obligatoire. 
+
+Il est également possible de créer une nouvelle correspondance depuis la page de n'importe quelle correspondance existante. Il s'agira bien d'une nouvelle correspondance telle qu'elel pourrait être créée depuis la page des correspondances. Elle n'a aucun rapport avec la correspondance depuis laquelle elle a été créee. 
+
+Une fois le formulaire enregistré, la page de la correspondance permet de définir les arrêts reliés par celle-ci. Les correspondances sont définies entre deux arrêts uniquement. Ils doivent être sélectionnés parmi les arrêts existants en base. La saisie d'éléments correspondant au nom de l'arrêt fera remonter des propositions correspondantes par l'auto-complétion. 
+
+h3. Modifier une correspondance
+
+La modification d'une correspondance peut se faire soit depuis un élément de la liste des correspondances en cliquant sur le pictogramme de modification, soit par la page de la correspondance en cliquant sur _"Modifier cette correspondance"_. 
+
+La modification de la correspondance permet de modifier le formulaire décrivant la correspondance. 
+
+La modification des arrêts de départ et d'arrivée se fait uniquement depuis la page de la correspondance en cliquant sur _"Modifier les départs/arrivées"_. Une petite croix dans le coin de chaque arrêt en correspondance permet de les supprimer pour en re-paramétrer d'autres à la place.
+
+h3. Supprimer une correspondance
+
+La suppression d'une correspondance peut se faire soit depuis un élément de la liste des correspondances en cliquant sur le pictogramme de suppression, soit par la page de la correspondance en cliquant sur _"Supprimer cette correspondance"_. La suppression de la correspondance supprime également les départs/arrivées paramétrés. 
+
+Il est possible de ne supprimer que les départs/arrivées en cliquant sur _"Modifier les départs/arrivées"_. Une petite croix dans le coin de chaque arrêt en correspondance permet de les supprimer. 
 
 h3. Attributs
 
-- Nom := nom de la correspondances
-- Commentaire := zone de texte libre
-- Distance := distance en mètres
-- Type := liste de choix parmi << Aérien >>, << Souterrain>> ou mixte << Aérien et souterrain >>
-- Départ := arrêt de départ de la correspondance
-- Arrivée := arrêt d'arrivée de la correspondance
-- Durée moyenne := champ de type horaire hh:mm
-- Durée pour un voyageur à mobilité réduite := champ de type horaire hh:mm
-- Durée pour un voyageur occasionnel := champ de type horaire hh:mm
-- Durée pour un habitué := champ de type horaire hh:mm
-- Ascenseur := indicateur (Oui ou Non)
-- Accès pour personne à mobilité réduite := indicateur (Oui ou Non)
-- Escalator disponible := indicateur (Oui ou Non)
-
-p(attr_data). Données de gestion :
-
-- Identifiant Neptune := 
-clé unique pérenne identifiant la correspondance pour les échanges Neptune
-cet identifiant est composé de 3 parties : préfixe:type:id_technique
-
-* préfixe : clé identifiant un producteur de données unique
-* type = ConnectionLink : clé identifiant le type d'objet (valeur imposée)
-* id_technique : valeur identifiant un seul objet d'un type donné pour un même producteur
-
-ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
-il est possible aussi de ne renseigner que l'identifiant technique, auquel cas la valeur sera complétée automatiquement.
-=:
-- Date de création := date à laquelle l'objet a été créé ou modifié pour la dernière fois
-- Version := version de l'objet (auto incrémenté à chaque modification)
-- Créé par := compte utilisateur ayant procédé à la dernière modification
-
-h3. Implémentation
-
-p. TODO
+* Nom : nom de la correspondances
+* Commentaire : zone de texte libre
+* Distance : distance en mètres
+* Type : liste de choix parmi << Aérien >>, << Souterrain>> ou mixte << Aérien et souterrain >>
+* Départ : arrêt de départ de la correspondance
+* Arrivée : arrêt d'arrivée de la correspondance
+* Durée moyenne : champ de type horaire hh:mm
+* Durée pour un voyageur à mobilité réduite : champ de type horaire hh:mm
+* Durée pour un voyageur occasionnel : champ de type horaire hh:mm
+* Durée pour un habitué : champ de type horaire hh:mm
+* Ascenseur : indicateur (Oui ou Non)
+* Accès pour personne à mobilité réduite : indicateur (Oui ou Non)
+* Escalator disponible : indicateur (Oui ou Non)
 

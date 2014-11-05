@@ -1,8 +1,0 @@
----
-layout: default
-title: Documentation
----
-
-La documentation de Chouette (y compris le présent manuel utilisateur)  est disponible sur le site "Chouette.mobi":http://www.chouette.mobi/docs
-
-Le présent manuel Utilisateur est par ailleurs livré sous forme d'aide en ligne avec l'application web.

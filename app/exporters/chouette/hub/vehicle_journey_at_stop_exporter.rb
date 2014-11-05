@@ -11,10 +11,13 @@ class Chouette::Hub::VehicleJourneyAtStopExporter
     stop_point = @vehicle_journey_at_stop.stop_point
     stop_area = stop_point.stop_area
     @stop_area_code = stop_area.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2') if stop_area
-    @stop_area_id = stop_area.id if stop_area
-    @arrival_time = @vehicle_journey_at_stop.arrival_time.sec + 60 * @vehicle_journey_at_stop.arrival_time.min + 60 * 60 * @vehicle_journey_at_stop.arrival_time.hour
+    @stop_area_id = stop_area.registration_number if stop_area
+    #Time.zone = ActiveSupport::TimeZone.new('Atlantic/Azores')
+    arrival_time = @vehicle_journey_at_stop.arrival_time
+    @arrival_time = arrival_time.sec + 60 * arrival_time.min + 60 * 60 * arrival_time.hour if arrival_time
     @arrival_type = "A"
-    @departure_time = @vehicle_journey_at_stop.departure_time.sec + 60 *  @vehicle_journey_at_stop.departure_time.min + 60 * 60 *  @vehicle_journey_at_stop.departure_time.hour
+    departure_time = @vehicle_journey_at_stop.departure_time
+    @departure_time = departure_time.sec + 60 *  departure_time.min + 60 * 60 *  departure_time.hour if departure_time
     @departure_type = "D"
   end
   
@@ -46,8 +49,8 @@ class Chouette::Hub::VehicleJourneyAtStopExporter
   end
   
   def save
-    File.open(directory + hub_name , "a") do |f|
-      f.write("HORAIRE\n") if f.size == 0
+    File.open(directory + hub_name , "a:ISO_8859_1") do |f|
+      f.write("HORAIRE\u000D\u000A") if f.size == 0
       f.write(render)
     end if vehicle_journey_at_stop.present?
   end

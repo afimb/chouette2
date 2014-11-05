@@ -1,4 +1,11 @@
-class HelpController < ApplicationController
+class HelpController < ActionController::Base
+  layout "application"
+  protect_from_forgery
+  before_filter :set_locale
+
+  def set_locale
+    I18n.locale = session[:language] || I18n.default_locale
+  end
 
   def show
     @page = HelpPage.find(slug)

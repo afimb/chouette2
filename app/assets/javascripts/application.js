@@ -13,7 +13,9 @@
 //= require morris
 //= require bootstrap-sass-official
 //= require typeahead.js
-//= require bootstrap-timepicker
+//= require moment
+//= require moment/locale/fr
+//= require eonasdan-bootstrap-datetimepicker
 //= require tagmanager
 //= require_directory ./plugins
 //= require_directory .
