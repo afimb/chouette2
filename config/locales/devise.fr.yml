@@ -15,7 +15,7 @@ fr:
         title: Renvoyer le mail de confirmation
     registrations:
       new:
-        title: "S'inscrire"
+        title: "Inscrivez vous"
         commit: Créer un compte
       edit:
         title: "Votre Profil"
@@ -35,11 +35,12 @@ fr:
     links:
       sign_in: "Se connecter"
       sign_up: "S'inscrire"
-      new_password: Mot de passe oublié
+      new_password: "Mot de passe oublié?"
       new_confirmation: "Vous n'avez pas reçu les instructions de confirmation ?"
   helpers:
     label:
       user:
+        email: "Email"
         organisation_name: "Nom de l'organisation"
         name: Nom complet
         password: Mot de passe

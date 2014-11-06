@@ -11,11 +11,11 @@ class User < ActiveRecord::Base
   belongs_to :organisation
 
   accepts_nested_attributes_for :organisation
-  
-  validates_presence_of :email
-  validates_presence_of :name
-  validates_presence_of :password
-  validates_presence_of :password_confirmation
+
+  validates :organisation, :presence => true
+  validates :email, :presence => true, :uniqueness => true
+  validates :name, :presence => true
+  validates :password, :presence => true, :confirmation => true
 
   before_validation(:on => :create) do
     self.password ||= Devise.friendly_token.first(6)
