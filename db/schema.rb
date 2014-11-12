@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140820074844) do
+ActiveRecord::Schema.define(:version => 20141105123538) do
 
   create_table "access_links", :force => true do |t|
     t.integer  "access_point_id",                        :limit => 8
@@ -85,6 +85,8 @@ ActiveRecord::Schema.define(:version => 20140820074844) do
     t.string   "fax"
     t.string   "email"
     t.string   "registration_number"
+    t.string   "url"
+    t.string   "time_zone"
   end
 
   add_index "companies", ["objectid"], :name => "companies_objectid_key", :unique => true
@@ -282,6 +284,9 @@ ActiveRecord::Schema.define(:version => 20140820074844) do
     t.boolean  "mobility_restricted_suitability"
     t.integer  "int_user_needs"
     t.boolean  "flexible_service"
+    t.string   "url"
+    t.string   "color",                           :limit => 6
+    t.string   "text_color",                      :limit => 6
   end
 
   add_index "lines", ["objectid"], :name => "lines_objectid_key", :unique => true
@@ -394,6 +399,8 @@ ActiveRecord::Schema.define(:version => 20140820074844) do
     t.integer  "int_user_needs"
     t.string   "zip_code"
     t.string   "city_name"
+    t.string   "url"
+    t.string   "time_zone"
   end
 
   add_index "stop_areas", ["objectid"], :name => "stop_areas_objectid_key", :unique => true

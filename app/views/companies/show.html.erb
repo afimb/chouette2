@@ -32,6 +32,14 @@
       <%= @company.email %>
     </p>
     <p>
+      <label><%= Chouette::Company.human_attribute_name("time_zone") %>: </label>
+      <%= @company.time_zone %>
+    </p>
+    <p>
+      <label><%= Chouette::Company.human_attribute_name("url") %>: </label>
+      <%= @company.url %>
+    </p>
+    <p>
       <label><%= Chouette::Company.human_attribute_name("registration_number") %>: </label>
       <%= @company.registration_number %>
     </p>
