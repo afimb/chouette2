@@ -54,7 +54,7 @@
         <%= form.input :password, :as => :password, :label => false, :placeholder => t("helpers.label.user.password"), input_html: { :class => "form-control" } %> 
         <%= form.input :password_confirmation, :as => :password, :label => false, :placeholder => t("helpers.label.user.password_confirmation"), input_html: { :class => "form-control" } %> 
         
-        <%= form.button :submit, :class => "btn-default" %>
+        <%= form.button :submit, t("devise.registrations.new.commit"), :class => "btn-info" %>
         <% end %>
       </div>
     </div>

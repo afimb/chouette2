@@ -16,7 +16,7 @@ fr:
     registrations:
       new:
         title: "Inscrivez vous"
-        commit: Créer un compte
+        commit: "S'inscrire"
       edit:
         title: "Votre Profil"
         commit: Modifier
