@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/afimb/ninoxe.git
-  revision: 9a9563cc869e0353d6b073ce5aacc3d07a7217c0
-  branch: sismo
+  revision: 209c87f1a41a6cd475575b4915eabe0b9c00da0b
+  branch: gtfs_v2
   specs:
-    ninoxe (1.1.0)
+    ninoxe (1.1.1)
       activerecord (~> 3.2.13)
       acts-as-taggable-on (>= 3)
       acts_as_list (>= 0.1.6)
@@ -353,7 +353,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.41)
+    tzinfo (0.3.42)
     uglifier (1.2.7)
       execjs (>= 0.3.0)
       multi_json (~> 1.3)

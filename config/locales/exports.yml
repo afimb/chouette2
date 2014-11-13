@@ -106,6 +106,7 @@ en:
         time_zone: "Time Zone"
         start_date: "Start of period"
         end_date: "End of period"
+        object_id_prefix: "objectId prefix to be ignored"
       export_log_message:
         created_at: "Date"
         position: "N."
@@ -114,6 +115,7 @@ en:
     titles:
       export:
         time_zone: "according to TZ  encoding (see http://en.wikipedia.org/wiki/Tz_database)"
+        object_id_prefix: "when prefix has this value, it will be removed to build GTFS id"
         start_date: "reduce import to vehicle journeys running from this date"
         end_date: "reduce import to vehicle journeys running until this date"
   area_types:
@@ -229,6 +231,7 @@ fr:
         time_zone: "Fuseau horaire"
         start_date: "Début de période"
         end_date: "Fin de période"
+        object_id_prefix: "Préfixe d'identifiant Neptune à ignorer"
       export_log_message:
         created_at: "Date"
         position: "No"
@@ -237,6 +240,7 @@ fr:
     titles:
       export:
         time_zone: "selon le codage TZ  (http://fr.wikipedia.org/wiki/Tz_database)"
+        object_id_prefix: "lorsque le préfixe d'identifiant Netpune prend cette valeur, il n'est pas utilisé pour composer l'identifiant GTFS"
         start_date: "limite l'export aux courses circulant à partir de cette date"
         end_date: "limite l'export aux courses circulant jusqu'à cette date"
   area_types:
