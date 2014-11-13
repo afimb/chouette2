@@ -7,14 +7,25 @@
 
         img {
             height: 40px;       
-        }
+        }        
+    }
 
+    .navbar-text{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 0px;
+        
+        .brand_name{
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
         .version
         {       
-            margin-left: 3px;
-            vertical-align: text-top;
+            margin-left: 5px;
             color: white;
-            font-size: 13px;
+            font-size: 12px;
         }
     }
     
@@ -34,12 +45,4 @@
         }
     }
 
-    .dropdown.datas{
-        .dropdown-menu{ 
-
-            .badge{
-                background-color: #333
-            }
-        }
-    }   
 }

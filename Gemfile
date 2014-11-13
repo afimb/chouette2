@@ -32,7 +32,7 @@ gem 'language_engine', '0.0.5'
 gem 'gravatar_image_tag'
 gem 'calendar_helper', "0.2.5"
 gem 'cocoon', "1.1.2"
-gem 'formtastic'
+gem 'formtastic', "2.3.1"
 gem 'RedCloth'
 
 # some views use coffee script
@@ -50,10 +50,10 @@ gem 'morrisjs-rails'
 gem 'raphael-rails'
 
 # Use twitter bootstrap resources
-gem 'rails-assets-bootstrap-sass-official', '~> 3.1.1'
+gem 'rails-assets-bootstrap-sass-official', '~> 3.3.0'
 gem 'font-awesome-sass', '~> 4.2.0'
 gem 'will_paginate-bootstrap'
-gem 'simple_form'
+gem 'simple_form', "2.1.1"
 gem 'rails-assets-tagmanager', '~> 3.0.1.0'
 gem 'rails-assets-typeahead.js', '~> 0.10.5'
 gem "breadcrumbs_on_rails"

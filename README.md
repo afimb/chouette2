@@ -187,3 +187,8 @@ Support
 -------
 
 Users looking for support should file an issue on the GitHub [issue tracking page](../../issues), or file a [pull request](../../pulls) if you have a fix available.
+
+Credits
+-------
+
+Thanks to Ingolf for his [photo](https://www.flickr.com/photos/ingolfbln/7663851694) under CC BY-SA 2.0 license
