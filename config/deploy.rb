@@ -5,6 +5,7 @@ set :stages, %w(sandbox unstable staging production sismo)
 set :application, "chouette2"
 set :scm, :git
 set :repository,  "https://github.com/afimb/chouette2.git"
+set :maven_repo, "http://maven.chouette.cityway.fr"
 set :deploy_to, "/var/www/chouette2"
 set :use_sudo, false
 default_run_options[:pty] = true
@@ -12,7 +13,7 @@ set :group_writable, true
 set :rake, "bundle exec rake"
 set :keep_releases, 4
 set :rails_env, "production" #added for delayed job
-set :user, "ldonnet"
+set :user, "metienne"
 set :deploy_via, :copy
 set :copy_via, :scp
 set :copy_exclude, ".git/*"
@@ -67,6 +68,10 @@ namespace :deploy do
     run "mkdir -p /var/lib/chouette/exports"
     run "mkdir -p /var/lib/chouette/validations"
     run "mkdir -p /usr/local/opt/chouette-command/"
+    run "cd /usr/local/opt/chouette-command && wget #{maven_repo}/fr/certu/chouette/chouette-gui-command/#{gui_cmd}/chouette-gui-command-#{gui_cmd}.zip"
+    run "cd /usr/local/opt/chouette-command && rm -rf chouette-cmd-#{gui_cmd}"
+    run "cd /usr/local/opt/chouette-command && unzip chouette-gui-command-#{gui_cmd}.zip"
+    run "cd /usr/local/opt/chouette-command/chouette-cmd-#{gui_cmd} && chmod a+w ."
   end
 
   desc "Make group writable all deployed files"
