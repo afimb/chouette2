@@ -1,0 +1,85 @@
+#index_item{
+    
+
+    .panel-heading{
+        @extend .clearfix;
+        
+        .validity_out {
+            color: $brand-danger;
+        }
+        
+        .validity_out_soon {
+            color: $brand-warning;
+        }
+        
+        .validity_regular {
+            color: $brand-success;
+        }
+
+        button {
+            margin-left:3px;
+        }
+        
+        .date {
+            font-size:10px;
+            color: gray;
+            text-align: center;
+        }
+
+        .label{
+            margin-right: 5px;
+        }
+
+        h5{
+            margin: 0px;
+            padding-top: 4.5px;            
+        }
+        
+    }
+
+    .panel-body{
+        p {
+            margin: 0 0 3px;
+            font-size: 12px;
+        }
+
+        img{
+            margin-right: 5px;
+        }
+
+        i{
+            margin-right: 5px;
+        }
+
+        span.included_day_type {
+            font-weight: bolder;
+            margin-right: 3px;
+        }
+        
+        span.excluded_day_type {
+            margin-right: 3px;
+        }
+        
+    }   
+   
+    .panel-footer{
+        text-align: center;
+
+            
+        .progress {
+            margin-bottom: 5px;
+
+            .progress-bar.failed { width: 100%;}
+            .progress-bar.pending { width: 10%;}
+            .progress-bar.processing { width: 50%;}
+            .progress-bar.completed { width: 100%;}   
+        }
+
+        .history{
+            color: $gray;
+            font-size: 10px;
+        }
+    }
+      
+}
+

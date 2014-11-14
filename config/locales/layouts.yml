@@ -7,13 +7,13 @@ en:
       profile: "My Profile"
       sign_out: "Sign out"
     navbar:
-      return_to_referentials: "Return to referentials"
-      select_referential: "Sélect referential"
-      referential_datas: "Referential datas"
-    creation_tag:
-      title: "Create"
+      return_to_referentials: "Return to data spaces"
+      select_referential: "Select data space"
+      select_referential_datas: "Select datas"
+      return_to_dashboard: "Return to Dashboard"
+      referential_datas: "Datas"
     history_tag:
-      title: "History"  
+      title: "Metadatas"  
       created_at: "Created at"
       updated_at: "Updated at"
       user_name: "User"
@@ -41,19 +41,19 @@ en:
 fr:
   layouts:
     back_to_dashboard: "Retour au Tableau de Bord"
-    help: "Besoin d'aide?"
+    help: "Aide"
     home: "Accueil"
     user:
       profile: "Mon Profil"      
       sign_out: "Déconnexion"
     navbar:
-      return_to_referentials: "Retour à la liste des référentiels"
-      select_referential: "Sélection du référentiel"
-      referential_datas: "Données du référentiel"
-    creation_tag:
-      title: "Création"
+      return_to_referentials: "Retour à la liste des espaces de données"
+      select_referential: "Sélection de l'espace de données"
+      select_referential_datas: "Sélection des données"
+      return_to_dashboard: "Retour au Tableau de Bord"
+      referential_datas: "Données"
     history_tag:
-      title: "Historique"    
+      title: "Métadonnées"    
       created_at: "Créé le"
       updated_at: "Mise à jour le"
       user_name: "Auteur"

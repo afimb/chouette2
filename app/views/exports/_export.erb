@@ -1,21 +1,33 @@
-<%= div_for(export, :class => "export clearfix") do %>
-  <div class="icon">   
-    <%= link_to image_tag("export-#{export.status}.png"), referential_export_path(@referential, export) %>
+<div id="index_item" class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title clearfix">
+      <span class="pull-right">                
+        <%= link_to referential_export_path(@referential, export), :method => :delete, :data => {:confirm =>  t('exports.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
+          <span class="fa fa-trash-o"></span>
+        <% end %>
+      </span>
+      <h5>
+        <%= link_to( referential_export_path(@referential, export), :class => "preview", :title => "#{Export.model_name.human.capitalize} #{export.name}") do %>        
+        <span class="name">
+          <%= truncate(export.name, :length => 20) %>          
+        </span>
+        <% end %>
+      </h5>
+    </div>                          
   </div>
-  <div class="resume">
-    <ul class="header clearfix">
-      <li class="title">
-        <%= link_to(export.name, referential_export_path(@referential, export)) %>
-      </li>
-      <li class="remove"><%= link_to "<i class='fa fa-trash-o'></i>".html_safe, referential_export_path(@referential, export), :method => :delete,  :data => {:confirm =>  t('exports.actions.destroy_confirm')}, :class => "remove" %></li>
-    </ul>    
-    <div class="links">  
-      <% if export.status == 'completed' %>
-      <%= link_to t("exports.actions.download"), referential_export_path(@referential, export, :format => :zip), :class => "download" %>
-      <% end %>
-    </div>
+  <div class="panel-body">
+      <p>
+        <% if export.status == 'completed' %>
+          <%= link_to image_tag("icons/file_zip.png") + t(".exported_file"), referential_export_path(@referential, export, :format => :zip), :class => "download" %>
+        <% else %>
+          &nbsp;
+        <% end %>
+      </p>      
+  </div>
+  <div class="panel-footer">
+    <%= export_progress_bar_tag(export) %>    
     <div class="history">
-      <%= l  export.created_at, :format => "%d/%m/%Y %H:%M" %> 
+      <%= l export.created_at, :format => "%d/%m/%Y %H:%M" %>
     </div>
   </div>
-<% end %>
+</div>

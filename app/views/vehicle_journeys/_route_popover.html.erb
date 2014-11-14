@@ -1,0 +1,6 @@
+<ul>
+<% (selected_route.line.routes.limit(10).reject{ |route| route == selected_route}).each do |route| %>
+  <li><%= link_to route.name.truncate(30), [@referential, route.line, route, 'vehicle_journeys'] %></li>
+<% end %>
+</ul>
+</p>

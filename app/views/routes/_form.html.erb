@@ -7,15 +7,17 @@
     <%= form.input :opposite_route, :as => :select, :collection => @line.routes.select { |r| r.id != @route.id } %>
     <%= form.input :direction_code, :as => :select, :collection => Chouette::Route.directions, :include_blank => false, :member_label => Proc.new { |mode| t("directions.label.#{mode}") } %>
     <%= form.input :wayback_code, :as => :select, :collection => Chouette::Route.waybacks, :include_blank => false, :member_label => Proc.new { |mode| t("waybacks.label.#{mode}") } %>
-    <%= form.input :objectid, :required => !@route.new_record?%>
+    <%= form.input :objectid, :required => !@route.new_record?, :input_html => { :title => t("formtastic.titles.route.objectid")}%>
   <% end %>
 	<div id="stop_points">
 		<%= form.semantic_fields_for :stop_points, :include_id => false, :label => "TOTO" do |p| %>
           <%= render "stop_point_fields",  :f => p, :test1 => "oiuoiu" %>
 		<% end %>
-    <div class="links">
+      <div class="links">
 	    <%= link_to_add_association t("routes.actions.add_stop_point"), form, :stop_points, :class => 'add_stop_point' %>
-    </div>
+      <br/>
+        <%= link_to t('routes.actions.new_stop_point'), new_referential_stop_area_path(@referential), {:class => "add", :target => "_blank"} %>
+      </div>
 	</div>
 
    <%= form.actions do %>
@@ -63,8 +65,10 @@ var stop_area_selection_token_input = function( element ) {
            minChars: 3,
            hintText: '<%= t('search_hint') %>',
            noResultsText: '<%= t('no_result_text') %>',
-           searchingText: '<%= t('searching_term') %>' }
-        );
+           searchingText: '<%= t('searching_term') %>',
+             resultsFormatter: function(item){ return '<li><div class=\"name\">' + item.name + '</div><div class=\"info\">' + item.area_type + '</div><div class=\"info\">' +  item.zip_code + ' ' + item.city_name + '</div></li>' },
+             tokenFormatter: function(item) { return '<li><p>' + item.name + '</p></li>' }
+        });
 };
 
 $(document).ready( function() {

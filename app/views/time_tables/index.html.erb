@@ -1,22 +1,37 @@
 <%= title_tag t('time_tables.index.title') %> 
 
-<%= search_form_for @q, :url => referential_time_tables_path(@referential), :html => {:method => :get} do |f| %>
-  <%= f.label :comment_cont, "#{t('.comment')} :" %>
-  <%= f.text_field :comment_cont %>
-
-  <%= f.submit t('actions.search') %> <%= t("or") %>
-  <%= link_to t("cancel"), referential_time_tables_path(@referential) %>
+<%= search_form_for @q, :url => referential_time_tables_path(@referential), remote: true, :html => {:method => :get, class: "form-inline", :id => "search", role: "form"} do |f| %>
+<div class="panel panel-default">
+  <div class="panel-heading">   
+    <div class="input-group col-md-9">   
+      <%= f.text_field :comment_cont, :placeholder => "#{t('.comment')}", :class => 'form-control' %>
+      
+      <div class="input-group-btn">
+        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+      </div>
+    </div><!-- /input-group -->
+    <a data-toggle="collapse" data-parent="#search" href="#advanced_search">
+      <i class="fa fa-plus"></i> <%= "#{t('.advanced_search')}" %>
+    </a>
+  </div>
+  
+  <div id="advanced_search" class="panel-collapse collapse">          
+    <div class="panel-body">
+      <div>
+        <label><%= "#{t('.from')}" %></label>
+        <%= f.text_field :start_date_gteq, :placeholder => "#{t('.start_date')}", :class => 'form-control date_picker', :type => "date" %>
+        <label><%= "#{t('.to')}" %></label>
+        <%= f.text_field :end_date_lteq, :placeholder => "#{t('.end_date')}", :class => 'form-control date_picker', :type => "date" %>
+      </div>
+      <div>
+        <%= f.text_field :tag_search, :placeholder => "#{t('.tag_search')}", :class => 'form-control' %>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>
 
-<div class="page_info">
-  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @time_tables %>
-</div>
-<div class="time_tables paginated_content">
-  <%= paginated_content(@time_tables) %>
-</div>
-<div class="pagination">
-  <%= will_paginate @time_tables, :container => false, renderer: BootstrapPagination::Rails %>
-</div>
+<div id="time_tables"><%= render 'time_tables' %></div>
 
 
 <% content_for :sidebar do %>

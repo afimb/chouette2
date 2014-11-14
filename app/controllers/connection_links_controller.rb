@@ -8,6 +8,7 @@ class ConnectionLinksController < ChouetteController
 
   respond_to :html, :xml, :json
   respond_to :kml, :only => :show
+  respond_to :js, :only => :index
 
   def index    
     index! do |format|
@@ -15,19 +16,23 @@ class ConnectionLinksController < ChouetteController
         if collection.out_of_bounds?
           redirect_to params.merge(:page => 1)
         end
+        build_breadcrumb :index
       }
     end       
   end
 
   def show
     @map = ConnectionLinkMap.new(resource).with_helpers(self)
-    show!
+    show! do
+        build_breadcrumb :show
+    end
   end
 
   def select_areas
     @connection_link = connection_link
     @departure = connection_link.departure
     @arrival = connection_link.arrival
+    build_breadcrumb :show
   end
 
   protected

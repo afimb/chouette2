@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+  <head>
+    <title>Chouette V2 - <%= title %></title>
+    <%= stylesheet_link_tag :application %>
+    <%= javascript_include_tag :application %>
+    <% if defined?( @map) %>
+      <script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
+      <script src="http://openlayers.org/api/OpenLayers.js"></script>
+      <script type="text/JavaScript">
+        OpenLayers.ImgPath = "<%= polymorphic_path_patch("/assets/openlayers/") %>";
+      </script>
+    <% end %>
+    <%= analytics_init if Rails.env.production? %>
+    <%= csrf_meta_tag %>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+  </head>
+  <body id="devise">
+    <div id="header">
+      <%= render partial: "shared/header" %>
+    </div>
+    <div class="front_bg">      
+      <div id="devise_middle" class="container">
+        <div class="row">
+        <div class="<%= content_for?(:sidebar) ? 'col-md-9' : 'col-md-12' %>">
+          <div id="workspace" class="<%= controller_name %> <%= action_name %>">
+            <%= render partial: "shared/flash_messages", flash: flash %>
+            <%= render partial: "shared/breadcrumb" %>
+            <%= yield %>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div id="footer">
+        <%= render partial: "shared/footer" %>
+      </div>
+    </div>    
+  </body>
+</html>

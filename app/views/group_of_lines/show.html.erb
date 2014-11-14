@@ -4,33 +4,21 @@
   <%= @map.to_html %>
   <div class="summary">
     <p>
-      <label><%= @group_of_line.human_attribute_name("name") %>: </label>
-      <%= @group_of_line.name %>
-    </p>
-    <p>
       <label><%= @group_of_line.human_attribute_name("comment") %>: </label>
       <%= @group_of_line.comment %>
-    </p>
-    <p>
-      <label><%= @group_of_line.human_attribute_name("objectid") %>: </label>
-      <%= @group_of_line.objectid %>
     </p>
   </div>
   
   <p class="after_map" />
-  <h3 class="group_of_line_lines">
-    <a class="lines"><%= t('.lines') %>
-      <%= image_tag("icons/plus.png"  , :class => "switcher") %>
-      <%= image_tag("icons/minus.png"  , :class => "switcher" , :style => "display: none;") %>
-    </a>
-  </h3>
-  <div class="lines_detail" style="display: none;">
-     <%= render :partial => "lines_detail" %>
+  <h3 class="group_of_line_lines"><%= t('.lines') %></h3>
+  <div class="lines_detail">
+     <%= render :partial => "lines_detail"  %>
   </div>
 </div>
 
 <% content_for :sidebar do %>
 <ul class="actions">
+  <li><%= link_to t('group_of_lines.actions.new'), new_referential_group_of_line_path(@referential), :class => "add" %></li>
   <li><%= link_to t('group_of_lines.actions.edit'), edit_referential_group_of_line_path(@referential, @group_of_line), :class => "edit" %></li>
   <li><%= link_to  t('group_of_lines.actions.destroy'), referential_group_of_line_path(@referential, @group_of_line), :method => :delete, :data => {:confirm =>  t('group_of_lines.actions.destroy_confirm')} , :class => "remove" %></li>
   <br>

@@ -1,5 +1,7 @@
 en:
   exports:
+    export:
+      exported_file: "Exported file"
     actions:
       new: "New export"
       destroy: "Destroy"
@@ -8,13 +10,18 @@ en:
     new:
       title: "New export"
       all: "All"
+      flash: "Export task on queue, refresh page to see progression"
+      flash2: "On success, a link for download will be displayed"
+      fields_gtfs_export:
+        warning: "Stop areas choice provide only stops and transfers gtfs files, with extra data"
     index:
       title: "Exports"
       warning: ""
     show:
       report: "Report"
     statuses:
-      pending: "Pending"
+      pending: "Pending ..."
+      processing: "Processing ..."
       completed: "Completed"
       failed: "Failed"
   export_log_messages:
@@ -25,6 +32,9 @@ en:
       undefined: "%{key} undefined"
       overflow: "Can't export more than %{count} %{data} in a single KML export operation. You should proceed with some exports, each one based on less selected lines."
       LINE_COUNT: "Exported line count : %{0}"
+      GROUP_OF_LINES_COUNT: "Exported group of lines count : %{0}"
+      COMMUNE_COUNT: "City count : %{0}"
+      TRANSPORT_MODE_COUNT: "Transport Mode count : %{0}"
       ROUTE_COUNT: "Route count : %{0}"
       JOURNEY_PATTERN_COUNT: "Journey pattern count : %{0}"
       QUAY_AND_BOARDING_POSITION_COUNT: "Quays and Boarding positions count : %{0}"
@@ -34,6 +44,16 @@ en:
       CONNECTION_LINK_COUNT: "Connection link count : %{0}"
       ACCES_LINK_COUNT: "Access Link count : %{0}"
       ACCES_POINT_COUNT: "Access Point count : %{0}"
+      TIME_TABLE_COUNT: "Time Table count : %{0}"
+      DIRECTION_COUNT: "Direction count : %{0}"
+      SCHEMA_COUNT: "Schema count : %{0}"
+      VEHICLE_JOURNEY_COUNT: "Vehicle journey count : %{0}"
+      VEHICLE_JOURNEY_OPERATION_COUNT: "Vehicle journey operation count : %{0}"
+      VEHICLE_JOURNEY_AT_STOP_COUNT: "Vehicle journey At Stop count : %{0}"
+      PHYSICAL_STOP_AREA_COUNT: "Physical Stop Areas count : %{0}"
+      COMMERCIAL_STOP_AREA_COUNT: "Logical Stop Areas count : %{0}"
+      NETWORK_COUNT: "Networks count : %{0}"
+      COMPANY_COUNT: "Companies count : %{0}"
       EXPORT: "%{0} Export"
       EXPORTED_LINE: "Line %{0} (%{1}) exported"
       EMPTY_LINE: "Line without valid vehicle journey : not exported"
@@ -72,6 +92,7 @@ en:
         one: "export"
         other: "exports"
       kml_export: "KML export"
+      hub_export: "HUB export"
       neptune_export: "Neptune export"
       csv_export: "CSV export"
       gtfs_export: "GTFS export"
@@ -90,10 +111,11 @@ en:
         position: "N."
         full_message: "Message"
   formtastic:
-    hints:
-      time_zone: "according to TZ  encoding (see http://en.wikipedia.org/wiki/Tz_database)"
-      start_date: "reduce import to vehicle journeys running from this date"
-      end_date: "reduce import to vehicle journeys running until this date"
+    titles:
+      export:
+        time_zone: "according to TZ  encoding (see http://en.wikipedia.org/wiki/Tz_database)"
+        start_date: "reduce import to vehicle journeys running from this date"
+        end_date: "reduce import to vehicle journeys running until this date"
   area_types:
     quay: "Quays and Boarding Positions"
     commercial_stop_point: "Commercial Stop Points"
@@ -101,6 +123,8 @@ en:
     itl: "Restriction Constraints"
 fr:
   exports:
+    export:
+      exported_file: "Fichier exporté"
     actions:
       new: "Nouvel export"
       destroy: "Supprimer cet export"
@@ -109,13 +133,18 @@ fr:
     new:
       title: "Nouvel export"
       all: "Toutes"
+      flash: "La demande d'export est mise en file d'attente, veuillez rafraichir régulièrement la page pour en suivre la progression"
+      flash2: "Une fois l'export terminé, un lien sera disponible pour télécharger le résultat"
+      fields_gtfs_export:
+        warning: "Le filtre sur arrêts produit uniquement les fichiers GTFS stops et transfers gtfs, ceux-ci contenant alors des attributs supplémentaires"
     index:
       title: "Exports"
       warning: ""
     show:
       report: "Rapport"
     statuses:
-      pending: "En cours"
+      pending: "En attente ..."
+      processing: "En cours ..."
       completed: "Achevé"
       failed: "Echoué"
   export_log_messages:
@@ -126,6 +155,9 @@ fr:
       undefined: "%{key} non défini"
       overflow: "Impossible d'exporter plus de %{count} %{data} en un seul export. Veuillez procéder par exports successifs en sélectionnant une moindre quantité de lignes."
       LINE_COUNT: "Nombre de lignes exportées : %{0}"
+      GROUP_OF_LINES_COUNT: "Nombre de groupe de lignes exportés : %{0}"
+      COMMUNE_COUNT: "Nombre de communes : %{0}"
+      TRANSPORT_MODE_COUNT: "Nombre de modes de transport : %{0}"
       ROUTE_COUNT: "Nombre de séquences d'arrêts exportées : %{0}"
       QUAY_AND_BOARDING_POSITION_COUNT: "Nombre d'arrêts physiques exportés : %{0}"
       COMMERCIAL_COUNT: "Nombre d'arrêts commerciaux exportés : %{0}"
@@ -135,6 +167,16 @@ fr:
       CONNECTION_LINK_COUNT: "Nombre de correspondances exportées : %{0}"
       ACCES_LINK_COUNT: "Nombre de liaison d'accès exportées : %{0}"
       ACCES_POINT_COUNT: "Nombre de points d'accès exportés : %{0}"
+      TIME_TABLE_COUNT: "Nombre de tableaux de marche : %{0}"
+      DIRECTION_COUNT: "Nombre de directions  : %{0}"
+      SCHEMA_COUNT: "Nombre de schémas : %{0}"
+      VEHICLE_JOURNEY_COUNT: "Nombre de courses : %{0}"
+      VEHICLE_JOURNEY_OPERATION_COUNT: "Nombre de courses opérations : %{0}"
+      VEHICLE_JOURNEY_AT_STOP_COUNT: "Nombre d'horaires : %{0}"
+      PHYSICAL_STOP_AREA_COUNT: "Nombre d'arrêts physiques : %{0}"
+      COMMERCIAL_STOP_AREA_COUNT: "Nombre d'arrêts logiques : %{0}"
+      NETWORK_COUNT: "Nombre de réseaux : %{0}"
+      COMPANY_COUNT: "Nombre de transporteurs : %{0}"
       EXPORT: "Export %{0}"
       EXPORTED_LINE: "Ligne %{0} (%{1}) exportée"
       EMPTY_LINE: "Ligne sans course valide : non exportée"
@@ -173,6 +215,7 @@ fr:
         one: "export"
         other: "exports"
       kml_export: "export KML"
+      hub_export: "export HUB"
       neptune_export: "export Neptune "
       csv_export: "export CSV"
       gtfs_export: "export GTFS "
@@ -191,10 +234,11 @@ fr:
         position: "No"
         full_message: "Message"
   formtastic:
-    hints:
-      time_zone: "selon le codage TZ  (http://fr.wikipedia.org/wiki/Tz_database)"
-      start_date: "limite l'export aux courses circulant à partir de cette date"
-      end_date: "limite l'export aux courses circulant jusqu'à cette date"
+    titles:
+      export:
+        time_zone: "selon le codage TZ  (http://fr.wikipedia.org/wiki/Tz_database)"
+        start_date: "limite l'export aux courses circulant à partir de cette date"
+        end_date: "limite l'export aux courses circulant jusqu'à cette date"
   area_types:
     quay: "Arrêts"
     commercial_stop_point: "Arrêts commerciaux"

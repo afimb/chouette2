@@ -1,0 +1,22 @@
+<%= title_tag t("stop_area_copies.new.title."+@stop_area_copy.hierarchy) %>
+
+<%= semantic_form_for [@referential, @stop_area, @stop_area_copy] do |form| %>
+  <br>
+  <%= form.inputs do %> 
+    <%= form.input :source_id, :as => :hidden %>
+    <%= form.input :hierarchy, :as => :hidden %>
+    <% if @stop_area_copy.hierarchy == "child"%>
+      <% if @stop_area.area_type.underscore == "stop_place"%>
+        <%= form.input :area_type, :as => :select, :collection => ["stop_place","commercial_stop_point"], :include_blank => false, :member_label => Proc.new { |stop_area_type| t("area_types.label.#{stop_area_type}") }  %>
+      <% else%>
+        <%= form.input :area_type, :as => :select, :collection => ["boarding_position","quay"], :include_blank => false, :member_label => Proc.new { |stop_area_type| t("area_types.label.#{stop_area_type}") }  %>
+      <% end %>
+    <% else %>
+      <%= form.input :area_type, :as => :select, :collection => [@stop_area_copy.area_type], :include_blank => false, :member_label => Proc.new { |stop_area_type| t("area_types.label.#{stop_area_type}") }  %>
+    <% end %>
+  <% end %>
+  <%= form.actions do %>
+    <%= form.action :submit, :as => :button , :label => t( 'formtastic.duplicate' ) %> 
+    <%= form.action :cancel, :as => :link %>
+  <% end %>
+<% end %>

@@ -45,13 +45,21 @@ ChouetteIhm::Application.configure do
   GA.tracker = "UA-AAAAAAAA"
 
   # api key to geoportail IGN (production key link to application url root referer)
-  config.geoportail_api_key = "aaaaaaaaaaaaaa" 
+  #config.geoportail_api_key = "aaaaaaaaaaaaaa"
 
-  # Specific for each company
-  config.company_name = "afimb"
-  config.company_theme = "#61970b"
+  # Specific theme for each company
+  # AFIMB
+  config.company_name = "afimb"  
+  config.company_theme = "#61970b" # AFIMB color
   config.company_contact = "http://www.chouette.mobi/contact-support/"
+  config.accept_user_creation = true
   
+  # CITYWAY
+  # config.company_name = "cityway"
+  # config.company_theme = "#32adb0"
+  # config.company_contact = "http://www.cityway.fr/contact/?rub_code=14"
+  # config.accept_user_creation = false
+
   # file to data for demo
   config.demo_data = "tmp/demo.zip"
 

@@ -1,25 +1,22 @@
 <%= title_tag t('networks.index.title') %> 
-<div class="container-fluid">
-  <form class="navbar-form navbar-left" role="search">
-    <%= search_form_for @q, :url => referential_networks_path(@referential), :html => {:method => :get} do |f| %>
-    <div class="form-group">
-      <%= f.text_field :name_cont, :class => "form-control", :placeholder => "#{t('.name')}" %>
-    </div>
-    <%= f.submit t('actions.search'), :class => "btn btn-default" %> <%= t("or") %>
-    <%= link_to t("cancel"), referential_networks_path(@referential) %>
-    <% end %>
-  </form>
-</div>
 
-<div class="page_info">
-  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @networks %>
+<%= search_form_for @q, :url => referential_networks_path(@referential), remote: true, :html => {:method => :get, class: "form-inline", :id => "search", role: "form"} do |f| %>
+<div class="panel panel-default">
+  <div class="panel-heading">   
+    <div class="input-group col-md-12">   
+      <%= f.text_field :name_cont, :placeholder => "#{t('.name')}", :class => "form-control" %>
+      <div class="input-group-btn">
+        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+      </div>
+    </div><!-- /input-group -->
+    <!-- <a data-toggle="collapse" data-parent="#search" href="#advanced_search"> -->
+    <!--   <i class="fa fa-plus"></i> <%= "#{t('.advanced_search')}" %> -->
+    <!-- </a> -->
+  </div>
 </div>
-<div class="networks paginated_content">
-  <%= paginated_content(@networks) %>
-</div>
-<div class="pagination">
-  <%= will_paginate @networks, :container => false, renderer: BootstrapPagination::Rails %>
-</div>
+<% end %>
+
+<div id="networks"><%= render 'networks' %></div>
 
 <% content_for :sidebar do %>
 <ul class="actions">

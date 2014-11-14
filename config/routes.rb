@@ -1,9 +1,31 @@
 ChouetteIhm::Application.routes.draw do
 
   devise_scope :users do
-    match "/users/sign_up" => "subscriptions#new"
+    #match "/users/sign_up" => "subscriptions#new",
   end
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
+
+  devise_scope :user do
+    authenticated :user do
+      root :to => 'referentials#index'
+    end
+    
+    unauthenticated do
+      root :to => 'devise/sessions#new'
+    end
+  end
+
+  # Rails 4 syntax
+  # devise_for :users
+  # devise_scope :user do
+  #   authenticated :user do
+  #     root :to => 'referentials#index', as: :authenticated_root
+  #   end
+  # unauthenticated :user do
+  #     root :to => 'devise/registrations#new', as: :unauthenticated_root
+  #   end
+  # end
+
 
   namespace :api do
     namespace :v1 do
@@ -44,6 +66,7 @@ ChouetteIhm::Application.routes.draw do
     resources :group_of_lines do
       resources :stop_areas do
         resources :access_points
+        resources :stop_area_copies
         resources :stop_area_parents
         resources :stop_area_children
         resources :stop_area_routing_lines
@@ -70,6 +93,7 @@ ChouetteIhm::Application.routes.draw do
     resources :lines, :networks, :group_of_lines do
       resources :stop_areas do
         resources :access_points
+        resources :stop_area_copies
         resources :stop_area_parents
         resources :stop_area_children
         resources :stop_area_routing_lines
@@ -88,9 +112,9 @@ ChouetteIhm::Application.routes.draw do
           end
         end
         resources :vehicle_journeys do
-          get 'timeless', :on => :collection
           get 'select_journey_pattern', :on => :member
           resources :vehicle_translations
+          resources :time_tables
         end
         resources :vehicle_journey_imports
         resources :vehicle_journey_exports
@@ -123,10 +147,14 @@ ChouetteIhm::Application.routes.draw do
 
     resources :time_tables do
       collection do
-        get :comment_filter
+        get :tags
+      end
+      member do
+        get 'duplicate'
       end
       resources :time_table_dates
       resources :time_table_periods
+      resources :time_table_combinations
     end
 
     resources :access_points do
@@ -135,6 +163,7 @@ ChouetteIhm::Application.routes.draw do
 
     resources :stop_areas do
       resources :access_points
+      resources :stop_area_copies
       resources :stop_area_parents
       resources :stop_area_children
       resources :stop_area_routing_lines
@@ -181,5 +210,4 @@ ChouetteIhm::Application.routes.draw do
   match '/422', :to => 'errors#server_error'
   match '/500', :to => 'errors#server_error'
 
-  root :to => 'referentials#index'
 end

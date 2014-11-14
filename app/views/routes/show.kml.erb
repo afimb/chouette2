@@ -9,6 +9,7 @@
     <% @route.stop_areas.where("latitude is not null and longitude is not null").each_with_index do |stop_area, index| %>
       <Placemark id="<%= stop_area.id %>" >
         <name><%= "#{stop_area.name} (#{index+1})" %></name>
+        <stop_area_type_label><%= t("area_types.label.#{stop_area.stop_area_type}") %></stop_area_type_label>
         <% if stop_area.id==@route.stop_areas.first.id %>
         <departure>true</departure>
         <% elsif stop_area.id==@route.stop_areas.last.id %>

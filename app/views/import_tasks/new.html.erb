@@ -2,7 +2,7 @@
 
 <%= semantic_form_for([@referential, @import_task], :as => :import_task, :url => new_referential_import_task_path(@referential), :method => :get) do |form| %>
   <%= form.inputs do %>
-    <%= form.input :format, :as => :radio, :collection => ImportTask.formats, :required => true, :include_blank => false %>
+    <%= form.input :format, :as => :radio, :collection => ImportTask.formats.map { |format| [ ImportTask.format_label(format), format]}, :required => true, :include_blank => false %>
   <% end %>
 <% end %>
 
@@ -19,6 +19,12 @@
       <%= form.input :rule_parameter_set_id, :as => :select,
           :collection =>  @referential.rule_parameter_sets.map { |rps| [ rps.name, rps.id ] }, :include_blank => true %>
       <%= form.input :resources, :as => :file %>
+      
+      <% unless import_task.references_types.empty? %>
+          <p class="warning"><%= t('.'+import_partial_name(form)+'.warning')%></p>
+          <%= form.input :references_type, :as => :select, :collection => import_task.references_types.map { |c| [ c.model_name.human.capitalize.pluralize, c.name ] }, :include_blank => t(".all") %>
+      <% end %>
+      
     <% end %>
 
     <%= form.actions do %>

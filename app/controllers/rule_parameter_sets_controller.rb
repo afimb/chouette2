@@ -1,4 +1,5 @@
 class RuleParameterSetsController < ChouetteController
+  defaults :resource_class => RuleParameterSet
   respond_to :html
   respond_to :js, :only => [ :mode ]
 
@@ -6,8 +7,11 @@ class RuleParameterSetsController < ChouetteController
 
   def new
     @rule_parameter_set = RuleParameterSet.default( @referential)
-    new!
+    new! do
+      build_breadcrumb :new    
+    end
   end
+
 
   def destroy
     if @referential.rule_parameter_sets.count == 1

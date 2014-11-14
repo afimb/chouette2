@@ -3,6 +3,7 @@ class CompaniesController < ChouetteController
   respond_to :html
   respond_to :xml
   respond_to :json
+  respond_to :js, :only => :index
 
   belongs_to :referential, :parent_class => Referential
 
@@ -14,8 +15,10 @@ class CompaniesController < ChouetteController
           redirect_to params.merge(:page => 1)
         end
       }
+      build_breadcrumb :index
     end       
   end
+  
 
   protected
   def collection    

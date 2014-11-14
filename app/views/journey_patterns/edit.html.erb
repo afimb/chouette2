@@ -1,17 +1,4 @@
 <%= title_tag t('journey_patterns.edit.title', :journey_pattern => @journey_pattern.name ) %>
 
-<div class="journey_pattern">
-  <div class="summary">
-    <p>
-      <label><%= @route.human_attribute_name(:line) %>: </label>
-      <%= link_to line_formatted_name( @line), [@referential, @line] %>
-    </p>
-    <p>
-      <label><%= Chouette::Route.model_name.human %>: </label>
-      <%= link_to @route.name, [@referential, @line, @route] %>
-    </p>
-  <div>
-<div>
-
 <%= render "form" %>
 

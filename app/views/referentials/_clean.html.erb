@@ -1,7 +1,7 @@
   <div id="clean_up" >
   <%= semantic_form_for [@referential, CleanUp.new] do |form| %>
   <%= form.inputs do %> 
-    <%= form.input :expected_date, :as => :date_picker , :wrapper_html => { :class => 'date' }%>
+    <%= form.input :expected_date, :as => :date_picker , :wrapper_html => { :class => 'date', :title => t('titles.clean_up.expected_date') } %>
     <%= form.input :keep_lines, :as => :boolean %>
     <%= form.input :keep_stops, :as => :boolean %>
     <%= form.input :keep_companies, :as => :boolean %>

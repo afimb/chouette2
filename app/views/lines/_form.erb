@@ -5,11 +5,13 @@
     <%= form.input :company, :as => :select, :collection => Chouette::Company.all, :include_blank => false%>
     <%= form.input :name %>
     <%= form.input :published_name %>
-    <%= form.input :registration_number %>  
+    <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles.line.registration_number")} %>  
     <%= form.input :number %>
     <%= form.input :transport_mode, :as => :select, :collection => Chouette::Line.transport_modes, :include_blank => false, :member_label => Proc.new { |mode| t("transport_modes.label.#{mode}") }  %>
+    <%= form.input :mobility_restricted_suitability, :as => :select, :collection => [[@line.human_attribute_name("accessible"), true], [@line.human_attribute_name("not_accessible"), false]], :include_blank => true %>
+    <%= form.input :flexible_service, :as => :select, :collection => [[@line.human_attribute_name("on_demaond_fs"), true], [@line.human_attribute_name("regular_fs"), false]], :include_blank => true %>
     <%= form.input :comment %>              
-    <%= form.input :objectid, :required => !@line.new_record? %>  
+    <%= form.input :objectid, :required => !@line.new_record?, :input_html => { :title => t("formtastic.titles.line.objectid")} %>  
   <% end %>
 
   <%= form.inputs do %> 

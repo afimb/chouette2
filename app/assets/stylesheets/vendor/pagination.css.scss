@@ -7,20 +7,6 @@
     margin: 20px 0 0 0;
 }
 
-.paginated_content > .row {
-    margin-top: 10px;
-    
-    .col-md-4 > div{
-        padding: 5px;
-        background-color: $gray-lighter;
-        border: 1px solid $brand-primary;
-        @include border-top-radius(5px);
-        @include border-right-radius(5px);
-        @include border-left-radius(5px);
-        @include border-bottom-radius(5px);
-    }
-}
-
 .page_info {
     margin: 20px 0 0 0;
     height: 30px;
@@ -37,5 +23,12 @@
     
     b {
         padding: 0.1em 0.25em; 
+    }
+}
+
+.paginated_content{
+  
+    .row{
+       margin-top: 15px; 
     }
 }

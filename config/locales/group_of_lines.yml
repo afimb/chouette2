@@ -14,7 +14,7 @@ en:
       lines: "Lines list"
     index:
       title: "Group of Lines"
-      name: "Name"
+      name: "Search by name"
     form:
       lines: "Associated lines" 
   activerecord:
@@ -33,7 +33,7 @@ en:
         creation_time: "Created on"
         creator_id: "Created by" 
   formtastic:
-    hints:
+    titles:
       group_of_line:
         objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
 
@@ -53,7 +53,7 @@ fr:
       lines: "Liste des lignes"
     index:
       title: "Groupes de lignes"
-      name: "Nom"
+      name: "Recherche par nom"
     form:
       lines: "Lignes associées"  
   activerecord:
@@ -72,7 +72,7 @@ fr:
         creation_time: "Créé le"
         creator_id: "Créé par"
   formtastic:
-    hints:
+    titles:
       group_of_line:
         objectid: "[prefixe]:GroupOfLine:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
 

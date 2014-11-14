@@ -1,16 +1,19 @@
 class ImportTasksController < ChouetteController
+  defaults :resource_class => ImportTask
   respond_to :html, :xml, :json
-  respond_to :js, :only => :show
+  respond_to :js, :only => [:show, :index]
   belongs_to :referential
 
   def new
     new! do
+      build_breadcrumb :new
       available_imports
     end
   end
 
   def show
     show! do
+      build_breadcrumb :show
       if import_task.completed?
         @files_stats = import_task.result["files"]["stats"]
         @files_list = import_task.result["files"]["list"]
@@ -25,9 +28,9 @@ class ImportTasksController < ChouetteController
   end
 
   def create
-    create! do |success, failure|
+    create!  do |success, failure|
       available_imports
-      success.html { redirect_to referential_import_tasks_path(@referential) }
+      success.html { flash[:notice] = I18n.t('import_tasks.new.flash'); redirect_to referential_import_tasks_path(@referential) }
     end
   end
 

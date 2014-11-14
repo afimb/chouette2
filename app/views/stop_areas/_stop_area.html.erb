@@ -1,15 +1,37 @@
-<%= div_for(stop_area) do %>
-  <%= link_to([@referential, stop_area], :class => "preview") do %>
-    <div class="area_type">
-      <%= image_tag "map/" + stop_area.stop_area_type + ".png"   %>
-    </div>
-  <% end %>
-  <%= link_to stop_area.name, [@referential, stop_area] %>
-  <div class="info">
+<div id="index_item" class="panel panel-default stop_area">
+  <div class="panel-heading">
+    <div class="panel-title clearfix">
+      <span class="pull-right">                
+        <%= link_to edit_referential_stop_area_path(@referential, stop_area), :class => "btn btn-default btn-sm" do %>
+          <span class="fa fa-pencil"></span>
+        <% end %>
+        <%= link_to referential_stop_area_path(@referential, stop_area), :method => :delete, :data => {:confirm =>  t('stop_areas.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
+          <span class="fa fa-trash-o"></span>
+        <% end %>
+      </span>
+      <h5>
+        <%= link_to([@referential, stop_area], :class => "preview", :title => t("area_types.label.#{stop_area.stop_area_type}") + " #{stop_area.name}") do %>        
+        <span class="name">
+          <%= image_tag "map/" + stop_area.stop_area_type + ".png"   %> <%= truncate(stop_area.name, :length => 20) %>          
+        </span>
+        <% end %>
+      </h5>
+    </div>                          
+  </div>
+  <div class="panel-body">
     <p>      
       <% unless stop_area.area_type == 'ITL' || stop_area.geometry %>
       <span class="warning"><%= t('.no_position') %></span> -
       <% end %>
+      <span class="warning">
+      	<% if stop_area.zip_code.blank? %>
+      	   <%=  stop_area.human_attribute_name('country_code')+' '+stop_area.country_code unless stop_area.country_code.blank? %>
+      	<% else %>
+      	   <%=  stop_area.zip_code %>
+      	<% end %>
+      	<%=  stop_area.city_name %>
+      	&nbsp;
+      </span>	
     </p>
     <p> 
       <% if stop_area.area_type == 'ITL' %>
@@ -22,9 +44,5 @@
         <% end %>
       <% end %>
     </p>
-    <div class="actions">  
-      <%= link_to t("actions.edit"), edit_referential_stop_area_path(@referential, stop_area), :class => "edit" %> |
-      <%= link_to t("actions.destroy"), referential_stop_area_path(@referential, stop_area), :method => :delete, :data => {:confirm =>  t('stop_areas.actions.destroy_confirm')}, :class => "remove" %>
-    </div>
   </div>
-<% end %>
+</div>

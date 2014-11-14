@@ -1,17 +1,3 @@
-fr:
-  formtastic:
-    yes: 'Oui'
-    no: 'Non'
-    create: "Créer %{model}"  
-    update: "Modifier %{model}"
-    submit: 'Valider %{model}'
-    cancel: 'Annuler'
-    reset: 'Réinitialiser %{model}'
-    required: 'requis'
-    import: "Lancer l'import"
-    export: "Lancer l'export"
-    validate: "Lancer la validation"
-
 en:
   formtastic:
     yes: 'Yes'
@@ -25,3 +11,21 @@ en:
     import: "Launch import"
     export: "Launch export"
     validate: "Launch validation"
+    duplicate: "Duplicate"
+    clone: "Clone"
+
+fr:
+  formtastic:
+    yes: 'Oui'
+    no: 'Non'
+    create: "Créer %{model}"  
+    update: "Modifier %{model}"
+    submit: 'Valider %{model}'
+    cancel: 'Annuler'
+    reset: 'Réinitialiser %{model}'
+    required: 'requis'
+    import: "Lancer l'import"
+    export: "Lancer l'export"
+    validate: "Lancer la validation"
+    duplicate: "Dupliquer"
+    clone: "Cloner"

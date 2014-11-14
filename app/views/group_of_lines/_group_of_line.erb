@@ -1,12 +1,24 @@
-<%= div_for(group_of_line) do %>
-  <%= link_to group_of_line.name, [@referential, group_of_line] %>
-  <div class="info">
-  	<%= group_of_line.human_attribute_name('line_count') %>:<%=  group_of_line.lines.count %> 
-    <% if @line.nil? %>
-    <div class="actions">  
-      <%= link_to t("actions.edit"), edit_referential_group_of_line_path(@referential, group_of_line), :class => "edit" %> |
-      <%= link_to t("actions.destroy"), referential_group_of_line_path(@referential, group_of_line), :method => :delete, :data => {:confirm =>  t('group_of_lines.actions.destroy_confirm')}, :class => "remove" %>
-    </div>
-    <% end %>
+<div id="index_item" class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title clearfix">
+      <span class="pull-right">                
+        <%= link_to edit_referential_group_of_line_path(@referential, group_of_line), :class => "btn btn-default btn-sm" do %>
+          <span class="fa fa-pencil"></span>
+        <% end %>
+        <%= link_to('<span class="fa fa-trash-o"></span>'.html_safe, referential_group_of_line_path(@referential, group_of_line), :method => :delete, :data => {:confirm =>  t('group_of_lines.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm") if delete %>         
+      </span>
+      <h5>
+        <%= link_to([@referential, group_of_line], :class => "preview", :title => "#{Chouette::GroupOfLine.model_name.human.capitalize} #{group_of_line.name}") do %>        
+        <span class="name">
+          <%= truncate(group_of_line.name, :length => 20) %>          
+        </span>
+        <% end %>
+      </h5>
+    </div>                          
   </div>
-<% end %>
+  <div class="panel-body">
+    <p>
+    <%= group_of_line.human_attribute_name('line_count') %> <%=  group_of_line.lines.count %>   
+    </p>
+  </div>
+</div>

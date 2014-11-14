@@ -1,5 +1,6 @@
 class ExportsController < ChouetteController
-
+  defaults :resource_class => Export
+  
   respond_to :html, :xml, :json, :js
   respond_to :zip, :only => :show
 
@@ -7,6 +8,7 @@ class ExportsController < ChouetteController
 
   def new
     new! do
+      build_breadcrumb :new
       available_exports
     end
   end
@@ -14,13 +16,14 @@ class ExportsController < ChouetteController
   def create
     create! do |success, failure|
       available_exports
-      success.html { redirect_to referential_exports_path(@referential) }
+      success.html { flash[:notice] = I18n.t('exports.new.flash')+"<br/>"+I18n.t('exports.new.flash2'); redirect_to referential_exports_path(@referential) }
     end
   end
 
   def show
     show! do |format|
       format.zip { send_file @export.file, :type => :zip }
+      build_breadcrumb :show
     end
   end
 

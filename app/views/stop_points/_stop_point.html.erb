@@ -1,9 +1,16 @@
-<%= div_for(stop_point) do %>
-  <span class="position">
-    <%= stop_point.position + 1 %>
-  </span>
-  <%= link_to stop_point.stop_area.name, [@referential, stop_point.stop_area] %>
-  <div class="info">
+<div id="index_item" class="panel panel-default stop_point">
+  <div class="panel-heading">
+    <div class="panel-title clearfix">
+      <h5>
+        <%= link_to([@referential, stop_point.stop_area], :class => "preview", :title => "#{Chouette::StopArea.model_name.human.capitalize} #{stop_point.stop_area.name}") do %>        
+        <span class="name">
+          <span class="label label-default"><%= stop_point.position + 1 %></span><%= truncate(stop_point.stop_area.name, :length => 20) %>          
+        </span>
+        <% end %>
+      </h5>
+    </div>                          
+  </div>
+  <div class="panel-body">
     <p>      
       <% unless stop_point.stop_area.geometry %>
       <span class="warning"><%= t('.no_position') %></span> -
@@ -12,9 +19,16 @@
     <p> 
       <%= t('.lines') %> <% stop_point.stop_area.lines.reject { |l| l.id==@line.id}.each do |line| %>
         <span class="line"><%= line.number %></span>
-      <% end %> -
-      <%= stop_point.stop_area.human_attribute_name('country_code') %> <%= stop_point.stop_area.country_code %>
+      <% end %>
+    </p>    
+    <p>      
+      <% if stop_point.stop_area.zip_code.blank? %>
+        <%= stop_point.stop_area.human_attribute_name('country_code') %> <%= stop_point.stop_area.country_code %>
+      <% else %>
+        <%= stop_point.stop_area.zip_code %>
+      <% end %> 
+      <%= stop_point.stop_area.city_name %>
     </p>
   </div>
-<% end %>
+</div>
 

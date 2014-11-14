@@ -9,8 +9,7 @@ class StopAreasController < ChouetteController
   end
 
   respond_to :html, :kml, :xml, :json
-
-  layout "without_sidebar", :only => [:edit, :update]
+  respond_to :js, :only => :index
 
   # def complete
   #   @stop_areas = line.stop_areas
@@ -20,59 +19,89 @@ class StopAreasController < ChouetteController
   def select_parent
     @stop_area = stop_area
     @parent = stop_area.parent
+    build_breadcrumb :edit
   end
 
   def add_children
     @stop_area = stop_area
     @children = stop_area.children
+    build_breadcrumb :edit
   end
 
   def add_routing_lines
     @stop_area = stop_area
     @lines = stop_area.routing_lines
+    build_breadcrumb :edit
   end
 
   def add_routing_stops
     @stop_area = stop_area
     @stops = stop_area.routing_stops
+    build_breadcrumb :edit
   end
 
   def access_links
     @stop_area = stop_area
     @generic_access_links = stop_area.generic_access_link_matrix
     @detail_access_links = stop_area.detail_access_link_matrix
+    build_breadcrumb :edit
   end
 
-  def index    
+  def index
     request.format.kml? ? @per_page = nil : @per_page = 12
-
+    @country_codes = referential.stop_areas.collect(&:country_code).compact.uniq
     index! do |format|
       format.html {
         if collection.out_of_bounds?
           redirect_to params.merge(:page => 1)
         end
+        build_breadcrumb :index
       }
-    end       
+    end
+  end
+
+  def new
+    @map = StopAreaMap.new( Chouette::StopArea.new).with_helpers(self)
+    @map.editable = true
+    new! do
+      build_breadcrumb :show
+    end
+  end
+
+  def create
+    @map = StopAreaMap.new( Chouette::StopArea.new).with_helpers(self)
+    @map.editable = true
+
+    create!
   end
 
   def show
     map.editable = false
     @access_points = @stop_area.access_points
     show! do |format|
-      unless stop_area.position or params[:default] or params[:routing] 
+      unless stop_area.position or params[:default] or params[:routing]
         format.kml {
-          render :nothing => true, :status => :not_found 
+          render :nothing => true, :status => :not_found
         }
-        
+
       end
+      build_breadcrumb :show
     end
   end
-  
-  def edit
-    stop_area.position ||= stop_area.default_position
 
+  def edit
+    edit! do
+      stop_area.position ||= stop_area.default_position
+      map.editable = true
+      build_breadcrumb :edit
+   end
+  end
+
+  def update
+    stop_area.position ||= stop_area.default_position
     map.editable = true
-    edit!
+    
+    update!
   end
 
   def default_geometry
@@ -81,8 +110,14 @@ class StopAreasController < ChouetteController
     redirect_to referential_stop_areas_path(@referential)
   end
 
+  def country_codes
+    respond_to do |format|
+      format.json { render :json => referential.stop_areas.collect(&:country_code).compact.uniq.to_json }
+    end
+  end
+
   protected
-  
+
   alias_method :stop_area, :resource
 
   def map
@@ -91,7 +126,7 @@ class StopAreasController < ChouetteController
 
   def collection
     @q = parent.present? ? parent.stop_areas.search(params[:q]) : referential.stop_areas.search(params[:q])
-    @stop_areas ||= 
+    @stop_areas ||=
       begin
         stop_areas = @q.result(:distinct => true).order(:name)
         stop_areas = stop_areas.paginate(:page => params[:page], :per_page => @per_page) if @per_page.present?

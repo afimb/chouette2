@@ -56,11 +56,11 @@ class ApplicationMap
       end
 
       page << map.add_layer(MapLayers::OSM_MAPNIK)
-      #page << map.add_layers([geoportail_scans, geoportail_ortho]) 
-      page << map.add_layer(google_physical) 
-      page << map.add_layer(google_streets) 
-      page << map.add_layer(google_hybrid) 
-      page << map.add_layer(google_satellite) 
+      #page << map.add_layers([geoportail_scans, geoportail_ortho])
+      page << map.add_layer(google_physical)
+      page << map.add_layer(google_streets)
+      page << map.add_layer(google_hybrid)
+      page << map.add_layer(google_satellite)
 
       customize_map(map,page) if respond_to?( :customize_map)
     end
@@ -121,13 +121,13 @@ class ApplicationMap
   def google_hybrid
     OpenLayers::Layer::Google.new I18n.t("maps.google_hybrid"), :type => :"google.maps.MapTypeId.HYBRID", :numZoomLevels => 20
   end
-  
+
   def google_satellite
     OpenLayers::Layer::Google.new I18n.t("maps.google_satellite"), :type => :"google.maps.MapTypeId.SATELLITE", :numZoomLevels => 22
   end
 
   def hover_control_display_name(layer)
-    OpenLayers::Control::SelectFeature.new( layer, { 
+    OpenLayers::Control::SelectFeature.new( layer, {
                                               :autoActivate => true,
                                               :hover => true,
                                               :renderIntent => "temporary",
@@ -136,10 +136,10 @@ class ApplicationMap
           var feature = e.feature ;
           if (feature.attributes.inactive != undefined)
             return;
-          var popup = new OpenLayers.Popup.AnchoredBubble('chicken', 
+          var popup = new OpenLayers.Popup.Anchored('chicken',
                                                  new OpenLayers.LonLat(feature.geometry.x, feature.geometry.y),
                                                  null,
-                                                 \"<div class='popup_hover'><b>\" + feature.attributes.name +\"</b></div> \", null, false, null);
+                                                 \"<div class='popup_hover'><p><b>\" + feature.attributes.name +\"</b><p>\" + feature.attributes.stop_area_type_label + \"</div> \", null, false, null);
           popup.autoSize = true;
           popup.displayClass = 'popup_hover';
 
@@ -152,12 +152,12 @@ class ApplicationMap
             return;
           map.removePopup(feature.popup);
           feature.popup.destroy();
-          feature.popup = null;  
+          feature.popup = null;
         }")
                                               } } )
   end
 
-  def kml_layer(url_or_object, options_or_url_options = {}, options = nil)   
+  def kml_layer(url_or_object, options_or_url_options = {}, options = nil)
     unless options
       url_options = {}
       options = options_or_url_options
@@ -176,7 +176,7 @@ class ApplicationMap
       else
         helpers.polymorphic_path_patch( helpers.polymorphic_path([url_or_object.referential, url_or_object], url_options))
       end
-    
+
     protocol = OpenLayers::Protocol::HTTP.new :url => url, :format => kml
     OpenLayers::Layer::Vector.new name, {:projection => projection("EPSG:4326"), :strategies => [strategy_fixed], :protocol => protocol, :displayInLayerSwitcher => false}.merge(options)
   end

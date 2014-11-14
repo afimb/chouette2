@@ -13,7 +13,7 @@ en:
       title: "Company  %{company}"
     index:
       title: "Companies"
-      name: "Name"
+      name: "Search by name"
 
   activerecord:
     models:
@@ -28,7 +28,7 @@ en:
         short_name: "Short name"
         organizational_unit: "Unit"
         operating_department_name: "Department"
-        code: "Postcode"
+        code: "Code"
         phone: "Phone number"
         fax: "Fax number"
         email: "Email"
@@ -37,7 +37,7 @@ en:
         creation_time: "Created on"
         creator_id: "Created by "
   formtastic:
-    hints:
+    titles:
       company:
         registration_number: "only alphanumerical or underscore characters "
         objectid: "[prefix]:Company:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
@@ -57,7 +57,7 @@ fr:
       title: "Transporteur %{company}"
     index:
       title: "Transporteurs"
-      name: "Nom"
+      name: "Recherche par nom"
 
   activerecord:
     models:
@@ -72,7 +72,7 @@ fr:
         short_name: "Nom court"
         organizational_unit: "Nom d'unité dans la société"
         operating_department_name: "Nom du département dans la société"
-        code: "Code postal"
+        code: "Code"
         phone: "Numéro de téléphone"
         fax: "Numéro de fax"
         email: "Email"
@@ -81,7 +81,7 @@ fr:
         creation_time: "Créé le"
         creator_id: "Créé par"
   formtastic:
-    hints:
+    titles:
       company:
         registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
         objectid: "[prefixe]:Company:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"

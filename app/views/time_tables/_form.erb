@@ -1,25 +1,15 @@
 <%= semantic_form_for [@referential, @time_table] do |form| %>
   <%= form.inputs do %> 
     <%= form.input :comment %>
-    <%= form.input :version %> 
-  <% end %>
-  <%= form.inputs :class => 'day_type' do %> 
-    <label class="day_type_label"><%= @time_table.human_attribute_name("peculiarities") %></label>
-    <%= form.input :school_holliday, :as => :boolean, :class => "others" %> 
-    <%= form.input :public_holliday, :as => :boolean %> 
-  <% end %>
-  <%= form.inputs do %> 
-    <%= form.input :objectid, :required => !@time_table.new_record? %>  
+    <%= form.input :version %>    
+    <%= form.input :tag_search, :as => :tags, :input_html => { :id => "tag_search",:placeholder => t("formtastic.placeholders.time_table.tag_search") } %>
+    <%= form.input :tag_list, :as => :hidden, :input_html => { :id => "tag_list" } %>
+    
+    <%= form.input :objectid, :required => !@time_table.new_record?, :input_html => { :title => t("formtastic.titles.time_table.objectid")} %>
   <% end %>
   
-  <h3 class="time_table_periods">
-	<a class="periods"><%= @time_table.human_attribute_name("periods") %>
-      <%= image_tag("icons/plus.png"  , :class => "switcher", :style => "display: none;") %>
-      <%= image_tag("icons/minus.png"  , :class => "switcher" ) %>
-    </a>
-  	
-  </h3>
-  <div class="periods content"  id="periods_content">
+  <h3 class="time_table_periods"><%= @time_table.human_attribute_name("periods") %></h3>
+  <div id="periods_content">
 	  <%= form.inputs :class => 'day_type' do %> 
 	    <label class="day_type_label"><%= @time_table.human_attribute_name("day_types") %></label>
 	    <%= form.input :monday, :as => :boolean, :class => "others" %> 
@@ -40,30 +30,62 @@
 	  :"data-association-insertion-node" => "div#periods"%>
   </div>
   
-  <h3 class="time_table_dates">
-	<a class="dates"><%= @time_table.human_attribute_name("dates") %>
-      <%= image_tag("icons/plus.png"  , :class => "switcher", :style => "display: none;") %>
-      <%= image_tag("icons/minus.png"  , :class => "switcher" ) %>
-    </a>
-  </h3>
-
-  <div class="dates content"  id="dates_content">
-	  <div id="dates">
-		  <%= form.semantic_fields_for :dates do |p| %>
-		     <%= render "date_fields",  :f => p %> 
+  <h3 class="time_table_dates"><%= @time_table.human_attribute_name("dates") %></h3>
+  <div id="dates_content">
+    <div id="dates">
+		  <%= form.semantic_fields_for :dates, @time_table.dates.to_a.select {|d| d.in_out == true}  do |p| %>
+	  	<%= render "date_fields",  :f => p %> 
 		  <% end %>
 	  </div>
 	  <%= link_to_add_association t("time_tables.actions.add_date"), form, :dates ,
-	  :"data-association-insertion-method" => "append",
+	      :"data-association-insertion-method" => "append",
+	  :"partial" => "date_fields",
 	  :"data-association-insertion-node" => "div#dates" %>
   </div>
+
+  <h3 class="time_table_dates"><%= @time_table.human_attribute_name("excluded_dates") %></h3>
+  <div id="excluded_dates_content">
+	  <div id="excluded_dates">
+		  <%= form.semantic_fields_for :dates, @time_table.dates.to_a.select {|d| d.in_out == false}  do |p| %>
+		  <%= render "excluded_date_fields",  :f => p %> 
+		  <% end %>
+	  </div>
+	  <%= link_to_add_association t("time_tables.actions.add_excluded_date"), form, :dates ,
+	  :"data-association-insertion-method" => "append",
+	  :"partial" => "excluded_date_fields",
+	  :"data-association-insertion-node" => "div#excluded_dates" %>
+  </div>
   
-  <p/>
-   <%= form.actions do %>
-     <%= form.action :submit, :as => :button %>
-     <%= form.action :cancel, :as => :link %>
-   <% end %>
+  <%= form.actions do %>
+    <%= form.action :submit, :as => :button %>
+    <%= form.action :cancel, :as => :link %>
+  <% end %>
 <% end %>
 
+<%= javascript_tag "var items = #{ @time_table.tag_list.to_a };" %>
+
+<script>
+  $("#tag_search").tagsManager(
+  {
+    prefilled: items,
+    output: '#tag_list',
+    tagsContainer: '#tagsContainer' 
+  });
+  
+  var time_tables_tag_list = new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    remote: '<%= tags_referential_time_tables_path(@referential, :format => 'json') %>?tag=%QUERY',
+  });
+
+  time_tables_tag_list.initialize();
+
+  $("#tag_search").typeahead(null, {
+    name: 'time_tables_tag_list',
+    displayKey: 'name',
+    source: time_tables_tag_list.ttAdapter()
+  });
+
+</script>
 
 

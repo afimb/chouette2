@@ -19,6 +19,8 @@ en:
       subtitle: "Stops on route ordered"
       move: "Move"
       no_stop_point: "No stop point on route"
+    stop_point:
+      lines: "lines"
   activerecord:        
     models:        
       stop_point: 
@@ -49,6 +51,8 @@ fr:
       subtitle: "Arrêts dans l'ordre de parcours"
       move: "Déplacer"
       no_stop_point: "Aucun arrêt dans la séquence"
+    stop_point:
+      lines: "lignes"
   activerecord:        
     models:        
       stop_point: 

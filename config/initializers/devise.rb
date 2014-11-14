@@ -1,6 +1,7 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
@@ -243,24 +244,10 @@ Devise.setup do |config|
   # end
 end
 
-# class Devise::FailureApp
-#     def return_to_root_path?
-#       root_path == session["#{scope}_return_to"]
-#     end
-#     def redirect
-#       store_location!
-#       if flash[:timedout] && flash[:alert]
-#         flash.keep(:timedout)
-#         flash.keep(:alert)
-#       else
-#         Rails.logger.debug "A" * 30
-#         Rails.logger.debug i18n_message
-#         Rails.logger.debug redirect_url
-#         Rails.logger.debug scope
-#         Rails.logger.debug root_path
-#         Rails.logger.debug session["#{scope}_return_to"]
-#         flash[:alert] = i18n_message unless return_to_root_path?
-#       end
-#       redirect_to redirect_url
-#     end
-# end
+Rails.application.config.to_prepare do
+  Devise::SessionsController.layout "devise"
+  Devise::RegistrationsController.layout proc{ |controller| ( action_name == "edit") ? "application" : "devise" }
+  Devise::ConfirmationsController.layout "devise"
+  Devise::UnlocksController.layout "devise"            
+  Devise::PasswordsController.layout "devise"        
+end

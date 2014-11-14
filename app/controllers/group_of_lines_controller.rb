@@ -4,13 +4,16 @@ class GroupOfLinesController < ChouetteController
   respond_to :xml
   respond_to :json
   respond_to :kml, :only => :show
+  respond_to :js, :only => :index
 
   belongs_to :referential
 
   def show
     @map = GroupOfLineMap.new(resource).with_helpers(self)
-    @lines = resource.lines.order(:name).paginate(:page => params[:page])
-    show!
+    @lines = resource.lines.order(:name)
+    show! do
+      build_breadcrumb :show
+    end
   end
 
   def index    
@@ -19,15 +22,16 @@ class GroupOfLinesController < ChouetteController
         if collection.out_of_bounds?
           redirect_to params.merge(:page => 1)
         end
+        build_breadcrumb :index
       }
     end       
   end
+  
 
   def name_filter
     respond_to do |format|  
       format.json { render :json => filtered_group_of_lines_maps}  
     end  
-    
   end
 
   protected

@@ -5,32 +5,35 @@ class VehicleJourneyExportsController < ChouetteController
     end
   end
   
-  respond_to :csv, :only => [:new, :index]
-  respond_to :xls, :only => [:new, :index]
-  
-  def new
-    new! do |format|
-      @vehicle_journey_export = VehicleJourneyExport.new(:route => @route)
-      
-      format.csv { render text: @vehicle_journey_export.to_csv }
-      format.xls { render text: @vehicle_journey_export.to_csv(col_sep: "\t") }
-    end
-  end
+  respond_to :csv, :only => [:index]
+  respond_to :zip, :only => [:index]
+  #respond_to :xls, :only => [:index]
 
-   def index
-    index! do |format|
-      @vehicle_journey_export = VehicleJourneyExport.new(:route => @route)
-      
-      format.csv { render text: @vehicle_journey_export.to_csv }
-      format.xls { render text: @vehicle_journey_export.to_csv(col_sep: "\t") }
+  def index
+    index! do |format|      
+      format.csv { send_data VehicleJourneyExport.new(:route => route, :vehicle_journeys => vehicle_journeys).to_csv(:col_sep => ";") , :filename => t("vehicle_journey_exports.new.basename")+"_#{route.id}.csv" }
+      format.zip do
+        begin
+          temp_file = Tempfile.new("vehicle_journey_export")
+          VehicleJourneyExport.new(:route => route, :vehicle_journeys => vehicle_journeys).to_zip(temp_file,:col_sep => ";")
+          send_data  File.read(temp_file.path), :filename => t("vehicle_journey_exports.new.basename")+"_#{route.id}.zip" 
+        ensure
+          temp_file.close
+          temp_file.unlink
+        end
+      end
+      #format.xls
     end
   end
   
-  protected 
+  protected
+  
+    
   alias_method :route, :parent
-
+ 
   def collection
-    @vehicle_journey_exports = []
+    @vehicle_journeys ||= route.vehicle_journeys.includes(:vehicle_journey_at_stops).order("vehicle_journey_at_stops.departure_time")
   end
+  alias_method :vehicle_journeys, :collection
   
 end

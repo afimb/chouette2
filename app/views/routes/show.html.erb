@@ -5,10 +5,6 @@
 
   <div class="summary">
     <p>
-      <label><%= @route.human_attribute_name(:line) %>: </label>
-      <%= link_to line_formatted_name( @line), [@referential, @line] %>
-    </p>
-    <p>
       <label><%= @route.human_attribute_name(:name) %>: </label>
       <%= @route.name %>
     </p>
@@ -48,10 +44,6 @@
         <%= t(".no_opposite_route") %>
       <% end %>
     </p>
-    <p>
-      <label><%= @route.human_attribute_name("objectid") %>: </label>
-      <%= @route.objectid %>
-    </p>
   </div>
 
 </div>
@@ -69,7 +61,9 @@
     </div>
     <div id="stop_points" class="panel-collapse collapse">
       <div class="panel-body">
-        <%= render :partial => "stop_points_detail" %>
+        <div class="stop_points paginated_content">
+          <%= paginated_content( @stop_points, "stop_points/stop_point") %>
+        </div>
       </div>
     </div>
   </div>
@@ -86,7 +80,9 @@
     </div>
     <div id="journey_patterns" class="panel-collapse collapse">
       <div class="panel-body">
-        <%= render :partial => "journey_patterns/journey_pattern", :collection => @route.journey_patterns %>
+        <div class="journey_patterns paginated_content">
+          <%= paginated_content( @route.journey_patterns, "journey_patterns/journey_pattern") %>
+        </div>
       </div>
     </div>
   </div>
@@ -94,21 +90,19 @@
 
 <% content_for :sidebar do %>
 <ul class="actions">
+  <li><%= link_to t('routes.actions.new'), new_referential_line_route_path(@referential, @line), :class => "add" %></li> 
   <li><%= link_to t('routes.actions.edit'), edit_referential_line_route_path(@referential, @line, @route), :class => "edit" %></li>
   <li><%= link_to t('routes.actions.destroy'), referential_line_route_path(@referential, @line, @route), :method => :delete, :data => {:confirm =>  t('routes.actions.destroy_confirm')}, :class => "remove" %></li>
 <% if @route.stop_points.size >= 2 %>
-  <li>
-    <%= link_to t('journey_patterns.actions.new'), new_referential_line_route_journey_pattern_path(@referential, @line, @route), :class => "add" %>
-  </li>
-<% end %>
-  <!-- <li> -->
-  <!--   <%= link_to t('vehicle_journey_imports.new.title'), new_referential_line_route_vehicle_journey_import_path( @referential, @line, @route ), :class => "import" %> -->
-  <!-- </li> -->
+  <li><%= link_to t('journey_patterns.actions.new'), new_referential_line_route_journey_pattern_path(@referential, @line, @route), :class => "add" %></li>
+  <% end %>
   <% if @route.journey_patterns.size > 0 %>
   <li>
-    <i class="fa fa-clock-o"></i><%= link_to t('vehicle_journeys.actions.index'), [@referential, @line, @route, :vehicle_journeys], :class => "vehicle_journeys" %>
+    <%= link_to t('vehicle_journeys.actions.index'), [@referential, @line, @route, :vehicle_journeys], :class => "clock" %>
   </li>
-<% end %>
+  <% end %>
+  <li><%= link_to t('vehicle_journey_imports.new.title'), new_referential_line_route_vehicle_journey_import_path( @referential, @line, @route ), :class => "import" %></li>
+  <li><%= link_to t('vehicle_journey_exports.new.title'), referential_line_route_vehicle_journey_exports_path(@referential, @line, @route, :format => :zip), :class => "export" %></li>
 </ul>
 
   <%= creation_tag(@route) %>

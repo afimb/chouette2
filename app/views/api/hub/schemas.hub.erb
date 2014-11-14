@@ -1,0 +1,1 @@
+<%= @line.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2') if @line %>;<%= @route.wayback == 'A' ? 1 : 2 %>;<%= @route.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2') %><% @stop_areas.each do |s| %>;<%= s.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2') if s.objectid %>;<%= s.registration_number if s.registration_number %><% end %><%= "\u000D\u000A" %>

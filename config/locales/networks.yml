@@ -13,7 +13,7 @@ en:
       title: "Network"
     index:
       title: "Networks"
-      name: "Name"
+      name: "Search by name"
 
   activerecord:
     models:
@@ -36,7 +36,7 @@ en:
         creation_time: "Created on"
         creator_id: "Created by "
   formtastic:
-    hints:
+    titles:
       network:
         registration_number: "only alphanumerical or underscore characters"
         objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
@@ -56,7 +56,7 @@ fr:
       title: "Réseau %{network}"
     index:
       title: "Réseaux"
-      name: "Nom"
+      name: "Recherche par nom"
   activerecord:
     models:
       network: 
@@ -78,7 +78,7 @@ fr:
         creation_time: "Créé le"
         creator_id: "Créé par"
   formtastic:
-    hints:
+    titles:
       network:
         registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
         objectid: "[prefixe]:GroupOfLine:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"

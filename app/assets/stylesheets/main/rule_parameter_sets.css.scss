@@ -4,41 +4,6 @@
 
 #workspace.rule_parameter_sets.index
 {
-    .rule_parameter_sets {
-        margin-top: 20px;
-    }
-
-    .rule_parameter_set {
-
-        /* to create multi-column index */
-        width: 350px;
-        float: left;
-        padding-right: 10px;
-        position: relative;
-
-        .color {
-            background-color: white;
-            width: 64px;
-            height: 64px;
-            float: left;
-            margin-right: 10px;
-            border: 1px solid #999;
-
-            a {
-                text-decoration: none;
-            }
-        }
-
-        .number {
-            font-size: 16px;
-            text-align: center;
-            font-weight: bold;
-            padding-top: 21px;
-        }
-        .name a {
-            display: inline;
-        }
-    }
 }
 
 #workspace.rule_parameter_sets.show, #workspace.compliance_check_tasks.rule_parameter_set

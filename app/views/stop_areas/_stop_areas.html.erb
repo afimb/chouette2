@@ -1,0 +1,9 @@
+<div class="page_info">
+  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @stop_areas %>
+</div>
+<div class="stop_areas paginated_content">
+    <%= paginated_content(@stop_areas) %>
+</div>
+<div class="pagination">
+  <%= will_paginate @stop_areas, :container => false, renderer: RemoteBootstrapPaginationLinkRenderer %>
+</div>

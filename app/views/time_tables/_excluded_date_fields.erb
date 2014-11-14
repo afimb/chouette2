@@ -1,0 +1,6 @@
+<%= f.inputs :class => 'nested-fields date' do %>
+  <%= f.label @time_table.human_attribute_name("date"), :class => 'col-md-1' %>  
+  <%= f.input :date, :as => :date_picker, :label => false, :input_html => { :class => 'form-control col-md-3' } %>
+  <%= f.input :in_out, :as => :hidden, :input_html => {:value => false} %>
+  <%= link_to_remove_association t('actions.destroy'), f, :class => "col-md-3" %>
+<% end %>

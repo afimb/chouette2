@@ -1,27 +1,43 @@
-<%= div_for(line) do %>
-  <div><%= link_to([@referential, line], :class => "preview", :title => "#{Chouette::Line.model_name.human.capitalize} #{line.number}") do %></div>
-    <div class="color">
-      <% if line.number and line.number.length <= 3 %>
-        <div class="number"><%= line.number %></div>
-      <% end %>
-    </div>
-  <% end %>
-  <div class="name">
-  <%= check_box_tag "ids[]", line.id, false, :class => "multiple_selection", :style => "display: none;" %>
-  <%= link_to truncate(line.name, :length => 30), [@referential, line], :title => "#{Chouette::Line.model_name.human.capitalize} #{line.name}"%>
+<div id="index_item" class="panel panel-default line">
+  <div class="panel-heading">
+    <div class="panel-title clearfix">
+      <span class="pull-right">                
+        <%= link_to edit_referential_line_path(@referential, line), :class => "btn btn-default btn-sm" do %>
+          <span class="fa fa-pencil"></span>
+        <% end %>
+        <%= link_to referential_line_path(@referential, line), :method => :delete, :data => {:confirm =>  t('lines.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
+          <span class="fa fa-trash-o"></span>
+        <% end %>
+      </span>
+      <h5>
+        <%= check_box_tag "ids[]", line.id, false, :class => "multiple_selection", :style => "display: none;" %>
+        <% if line.number and line.number.length <= 3 %>
+           <span class="label label-default line_number"><%= line.number %></span>
+        <% end %>      
+        <%= link_to([@referential, line], :class => "preview", :title => "#{Chouette::Line.model_name.human.capitalize} #{line.name}") do %>          
+        <span class="name">          
+          <%= truncate(line.name, :length => 20) %>          
+        </span>
+        <% end %>
+      </h5>
+    </div>                          
   </div>
-  <div class="info">
-  	<% if line.network.nil? %>
-  	   <%= line.human_attribute_name('network') %> <%=  t('lines.index.unset') %> 
+  <div class="panel-body">
+    <p>
+    <% if line.network.nil? %>
+    	<%= line.human_attribute_name('network') %> <%=  t('lines.index.unset') %> 
   	<% else %>
-       <%= line.human_attribute_name('network') %> <%= link_to_if line.network, line.network.name, referential_network_path(@referential, line.network), :title => "#{line.human_attribute_name('network')} #{line.network.name}" %><br>
+       <%= line.human_attribute_name('network') %> <%= link_to_if line.network, line.network.name, referential_network_path(@referential, line.network), :title => "#{line.human_attribute_name('network')} #{line.network.name}" %>
     <% end %>
+    </p>
+    <p>
   	<% if line.company.nil? %>
   	   <%= line.human_attribute_name('company') %> <%=  t('lines.index.unset') %> 
   	<% else %>
        <%= line.human_attribute_name('company') %> <%= link_to_if( line.company, line.company.name, referential_company_path(@referential, line.company), :title => "#{line.human_attribute_name('company')} #{line.company.name}" )  %>
     <% end %>
-    <br/>
+    </p>   
+    <p>
     <% if line.group_of_lines.count == 0 %> 
         <%= t('lines.form.no_group_of_line') %>
     <% elsif line.group_of_lines.count == 1 %>
@@ -30,11 +46,6 @@
     <% else %>
        <%= t('lines.form.several_group_of_lines', :count => line.group_of_lines.count) %>
     <% end %>
-    <% if @group_of_line.nil? %>
-    <div class="actions">  
-      <%= link_to t("actions.edit"), edit_referential_line_path(@referential, line), :class => "edit" %> |
-      <%= link_to t("actions.destroy"), referential_line_path(@referential, line), :method => :delete, :data => {:confirm =>  t('lines.actions.destroy_confirm')}, :class => "remove" %>
-    </div>
-    <% end %>
+    </p>
   </div>
-<% end %>
+</div>

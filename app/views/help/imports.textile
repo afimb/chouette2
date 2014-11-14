@@ -5,9 +5,6 @@ title: Imports
 
 * "Rôle":#rol
 * "Validation":#val
-* "Formats disponibles":#fmt
-* "Paramètres communs":#com
-* "Options des formats":#opt
 * "l’onglet IMPORTS":#imp
 * "Nouvel Import":#new
 * "Paramètres de validation":pvl
@@ -18,6 +15,8 @@ title: Imports
 h3(#rol). Rôle
 
 p. L’import permet d’enregistrer dans la base un jeu de données d'offre TC, selon un format au choix. Des tests de validation des données sont exécutés avant l'import en base de données (plus détaillées dans le cas du format Neptune). Il est possible d'importer sans sauver en base, uniquement pour jouer les tests de vérification de conformité. Dans ce cas les tests en base de données (auxquels sont associés les jeux de paramètres) ne seront pas exécutés (et donc aucun test ne sera exécuté, pour des données CSV, GTFS, ou Netex).
+
+!2014-10-31_151613.png! Page des imports
 
 h3(#val). Validation
 
@@ -31,66 +30,12 @@ p(olnext). - nécessite la fourniture d'un jeu de paramètres définissant les s
 
 p(note). Les tests de niveau 1 et 2 ne sont actuellement implémentés que pour le format Neptune
 
-h3(#fmt). Formats disponibles
-
-- Neptune := format normalisé des échanges de données de transport en commun pour la France (cf "Normalisation":normalisation)
-- NeTEx := format d'échange de données de transport en commun expérimental sur la norme européenne ["NeTEx":http://www.normes-donnees-tc.org/format-dechange/donnees-theoriques/] mais limité au sous-ensemble des données définies dans la norme Neptune
-- CSV := format tabulaire spécifique à Chouette  (cf "CSV":csv)
-- GTFS := 
-format originaire de ["Google Transit":https://support.google.com/transitpartners/], à condition que le fichier soit préalablement validé avec l'outil Feed Validator =:
-
-p(olnext). - les données exportées en GTFS sont explicités ["ICI":http://www.normes-donnees-tc.org/format-dechange/autres-normes/] 
-
-h3(#com). Paramètres communs
-
-- Pas de sauvegarde := permet d'effectuer une simulation de l'import sans enregistrer les données
-
-p(ddnext). - active donc les tests de validation de niveau 1 et 2
-
-- Jeu de paramètres pour validation := paramètres définissant les seuils des tests de niveau 3 (indisponible si l'option 'pas de sauvegarde' est cochée)
-
-p(ddnext). - les jeux de paramètres sont créés via le lien ["Jeux de paramètres":parametersets] disponible sur les vues des listes d'imports et de validations
-
-- Fichier à importer := fichier (plat ou zip selon format)
-
-h3(#opt). Options des formats
-
-Les options des différents formats apparaissent en fonction de celui qui a été choisi.
-
-* *Neptune* : pas d'option particulière
-
-* *NeTex* : pas d'option particulière
-
-* *GTFS* :
-
-- Préfixe d'identifiants := 
-préfixe à utiliser pour générer les identifiants Neptune des objets importés,
-initialisé à la valeur définie pour l'espace de données =:
-- Distance max pour créer les zones := 
-distance maximale entre deux arrêts homonymes pour les regrouper au sein d'un arrêt commercial de même nom,
-ces zones viennent en supplément de celles définies dans GTFS, 
-une distance de 0 ne génère aucune zone =:
-- ignorer le dernier mot := 
-lors de la comparaison des noms d'arrêts, cette option permet de ne pas prendre en compte le dernier mot du nom de l'arrêt (sauf si celui-ci n'est composé que d'un seul mot) =:
-- ignorer les n derniers caractères := 
-lors de la comparaison des noms d'arrêts, cette option permet de ne pas prendre en compte les derniers caractères du nom de l'arrêt (sauf si celui-ci n'a pas assez de caractères pour cela) =:
-- Distance max pour créer les correspondances := 
-distance maximale entre deux arrêts pour les lier par une correspondance,
-ces correspondances sont hors zone d'arrêt;
-elles viennent en supplément de celles définies dans GTFS (ce mécanisme tient compte des correspondances exclues), 
-une distance de 0 ne génère aucune correspondance =:
-
-* *CSV* : 
-
-- Préfixe d'identifiants := 
-préfixe à utiliser pour générer les identifiants Neptune des objets importés,
-initialisé à la valeur définie pour l'espace de données =:
 
 h3(#imp). l'onglet IMPORTS
 
 p. L'onglet IMPORTS contient les objets Import de l'espace de données courant.
 
-p. Chaque objet Import est représenté par une vignette comprenant : sa date, l'utilisateur qui l'a créé, son état (bleu : en cours ; vert : terminé correctement ; rouge : terminé en échec), un lien pour télécharger le fichier importé, un lien vers le détail de l'objet, un lien vers l'objet Validation associé).
+p. Chaque objet Import est représenté par une vignette comprenant : sa date, l'utilisateur qui l'a créé, son état (blanc: en attente, bleu : en cours ; vert : terminé correctement ; rouge : terminé en échec), un lien pour télécharger le fichier importé, un lien vers le détail de l'objet, un lien vers l'objet Validation associé).
 
 p=. !import.png!
 

@@ -14,10 +14,29 @@
     <%= form.input :inter_access_link_distance_max, :as => :number %>
     <%= form.input :inter_stop_duration_max, :as => :number %>
     <%= form.input :facility_stop_area_distance_max, :as => :number %>
-
+    
+    <%= form.input :vehicle_journey_number_min, :as => :number %>
+    <%= form.input :vehicle_journey_number_max, :as => :number %>
+    <%= form.input :check_allowed_transport_modes, :as => :boolean %>
+    
+    <table class="table table-striped table-condensed">
+    	<tr>
+    		<th><%= t("transport_modes.name") %></th>
+			<% RuleParameterSet.mode_attribute_prefixes.each do |prefix| %>
+			    <% if prefix == "allowed_transport" %>
+                  <% hidden = (@rule_parameter_set.check_allowed_transport_modes == "1") ? "" : 'display:none;'%>
+            <th class="allowed" style="<%= hidden %>" ><%= RuleParameterSet.human_attribute_name(prefix) %></th>
+                <% else %>
+            <th><%= RuleParameterSet.human_attribute_name(prefix) %></th>
+                <% end %>
+			<% end %>
+        </tr>
     <% Chouette::Line.transport_modes.map(&:to_s).each do |mode| %>
+      <tr>
       <%= render :partial => "mode_fields", :locals => { :f => form, :mode => mode} %>
+      </tr>
     <% end %>
+    </table>
   <% end %>
 
    <%= form.actions do %>
@@ -25,3 +44,11 @@
      <%= form.action :cancel, :as => :link %>
    <% end %>
 <% end %>
+
+<script>
+	$(function() {
+        $( "#rule_parameter_set_check_allowed_transport_modes").change( function(){
+            $(".allowed").toggle();
+        });
+    });
+</script>

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <% @column_names.each do |column_name| %>
+          <Cell><Data ss:Type="String"><%= column_name %></Data></Cell>
+        <% end %>
+      </Row>
+    <% vehicle_journey_at_stops_matrix = (@vehicle_journeys.collect{ |vj| vj.vehicle_journey_at_stops.collect(&:departure_time).collect{|time| time.strftime("%H:%M")} }).transpose %>    
+    <% @route.stop_points.each_with_index do |stop_point, index| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= stop_point.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= stop_point.stop_area.name %></Data></Cell>
+        <% vehicle_journey_at_stops_matrix[index].each do |vehicle_journey_at_stop| %>
+        <Cell><Data ss:Type="String"><%= vehicle_journey_at_stop %></Data></Cell>
+        <% end %>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

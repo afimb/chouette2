@@ -8,7 +8,7 @@ describe "Referentials" do
 
     it "should support no referential" do
       visit referentials_path
-      page.should have_content("Espace de Données")
+      page.should have_content("Espaces de Données")
     end
 
     context "when several referentials exist" do

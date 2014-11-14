@@ -1,0 +1,34 @@
+.popover{
+    
+    li{
+        list-style: inherit !important;
+    }
+
+    .time_table_info{
+        color: $gray;
+        font-size: 11px;
+    }
+
+    span.included_day_type {
+        color: black;
+    }
+    span.excluded_day_type {
+    }
+
+    span.bounding{
+        font-size: 11px;
+        margin-left: 5px;
+    }    
+
+    .validity_out {
+        color: $brand-danger;
+    }
+    
+    .validity_out_soon {
+        color: $brand-warning;
+    }
+    
+    .validity_regular {
+        color: $brand-success;
+    }
+}

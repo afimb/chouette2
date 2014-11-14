@@ -4,12 +4,15 @@ class NetworksController < ChouetteController
   respond_to :xml
   respond_to :json
   respond_to :kml, :only => :show
+  respond_to :js, :only => :index
 
   belongs_to :referential
 
   def show
     @map = NetworkMap.new(resource).with_helpers(self)
-    show!
+    show! do
+      build_breadcrumb :show
+    end
   end
 
   def index    
@@ -19,6 +22,7 @@ class NetworksController < ChouetteController
           redirect_to params.merge(:page => 1)
         end
       }
+      build_breadcrumb :index
     end       
   end
 

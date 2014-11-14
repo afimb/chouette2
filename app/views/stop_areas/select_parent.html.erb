@@ -2,8 +2,8 @@
 
 <%= semantic_form_for [@referential, @stop_area] do |form| %>
 <div>
-  <%= form.inputs do %>
-    <%= form.input :parent_id, :as => :text, :input_html => { :"data-pre" => ( @parent.present? ? [ { :id => @parent.id.to_s, :name => "#{@parent.name} #{@parent.country_code}" } ]: [] ).to_json }  %>
+  <%= form.inputs do %>    
+    <%= form.input :parent_id, :as => :search_stop_area, :json => referential_stop_area_stop_area_parents_path(@referential, @stop_area, :format => :json), :hint_text => t('search_hint'), :no_result_text => t('no_result_text'), :searching_text => t('searching_term'), :tokenLimit => 1, :input_html => { :"data-pre" => Rabl::Renderer.new('stop_areas/show', [@parent].compact, :view_path => 'app/views', :format => :json).render }  %>
   <% end %>
 
    <%= form.actions do %>
@@ -12,20 +12,6 @@
    <% end %>
 </div>
 <% end %>
-
-<script>
-	$(function() {
-		$( "#stop_area_parent_id" ).tokenInput('<%= referential_stop_area_stop_area_parents_path(@referential, @stop_area, :format => :json) %>', {
-       crossDomain: false,
-       prePopulate: $('#stop_area_parent_id').data('pre'),
-       tokenLimit: 1,
-       minChars: 3,
-       hintText: '<%= t('search_hint') %>',
-       noResultsText: '<%= t('no_result_text') %>',
-       searchingText: '<%= t('searching_term') %>'
-    });
-	});
-</script>
 
 <% content_for :sidebar do %>
 <ul class="actions">

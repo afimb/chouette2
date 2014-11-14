@@ -20,7 +20,47 @@ module ApplicationHelper
   end
 
   def help_path
-    url_for(:controller => "/help", :action => "show") + '/'
+    path = request.env['PATH_INFO']
+    target = case
+    when path.include?("/help")
+      ""
+    when path.include?("/networks")
+      "networks"
+    when path.include?("/companies")
+      "companies"
+    when path.include?("/group_of_lines")
+      "group_of_lines"
+    when path.include?("/vehicle_journeys")
+      "vehicle_journeys"
+    when path.include?("/journey_patterns")
+      "journey_patterns"
+    when path.include?("/routes")
+      "routes"
+    when path.include?("/lines")
+      "lines"
+    when path.include?("/access_points")
+      "access_points"
+    when path.include?("/access_links")
+      "access_links"
+    when path.include?("/stop_areas")
+      "stop_areas"
+    when path.include?("/connection_links")
+      "connection_links"
+    when path.include?("/time_tables")
+      "time_tables"
+    when path.include?("/rule_parameter_set")
+      "parametersets"
+    when path.include?("/import_tasks")
+      "imports"
+    when path.include?("/exports")
+      "exports"
+    when path.include?("/compliance_check_tasks")
+      "validations"
+    else
+      ""
+    end
+    
+    url_for(:controller => "/help", :action => "show") + '/' + target
   end
   
   

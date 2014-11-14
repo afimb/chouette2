@@ -1,20 +1,30 @@
-<%= div_for import_task, :class => "clearfix" do %>
-  <div class="icon">
-    <%= link_to image_tag("import_task-#{import_task.status}.png"), referential_import_task_path(@referential, import_task) %>
+<div id="index_item" class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title clearfix">
+      <span class="pull-right">                
+        <%= link_to referential_import_task_path(@referential, import_task), :method => :delete, :data => {:confirm =>  t('import_tasks.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
+          <span class="fa fa-trash-o"></span>
+        <% end %>
+      </span>
+      <h5>
+        <%= link_to( referential_import_task_path(@referential, import_task), :class => "preview", :title => "#{ImportTask.model_name.human.capitalize} #{import_task.name}") do %>        
+        <span class="name">
+          <% if import_task.save_requested? %><i class="fa fa-save"></i><% end %> <%= truncate(import_task.name, :length => 20) %>          
+        </span>
+        <% end %>
+      </h5>
+    </div>                          
   </div>
-  <div class="resume">
-    <ul class="header clearfix">
-      <li class="title"><% if import_task.save_requested? %><i class="fa fa-save"></i><% end %> <%= link_to(import_task.name, referential_import_task_path(@referential, import_task)) %></li>
-      <li class="remove"><%= link_to "<i class='fa fa-trash-o'></i>".html_safe, referential_import_task_path(@referential, import_task), :method => :delete, :class => "delete", :data => {:confirm =>  t('import_tasks.actions.destroy_confirm')} %></li>
-    </ul>
-    <div class="links">
+  <div class="panel-body">
       <p><%= link_to image_tag("icons/file_#{import_task.file_path_extension}.png") + t("import_tasks.show.imported_file"), file_to_import_referential_import_task_path(@referential, import_task) %></p>
       <% if import_task.compliance_check_task.present? %>
         <p><%= link_to image_tag( compliance_icon( import_task)) + t("import_tasks.compliance_check_task"), referential_compliance_check_task_path(@referential, import_task.compliance_check_task) %></p>
       <% end %>
-    </div>
+  </div>
+  <div class="panel-footer">
+    <%= import_progress_bar_tag(import_task) %>    
     <div class="history">
       <%= l import_task.created_at, :format => "%d/%m/%Y %H:%M" %> | <%= import_task.user_name %>
     </div>
   </div>
-<% end %>
+</div>

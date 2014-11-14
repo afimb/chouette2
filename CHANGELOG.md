@@ -1,3 +1,27 @@
+# Version 2.5.0 (en cours)
+* Nouvelles foctionnalités
+  * Ajout d'un lien de création d'objet dans la page de consultation (Mantis 26415)
+  * Ajout d'un lien vers l'accueil dans le bandeau (Mantis 26820)
+  * Fournir plus de détails pour identifier un arrêt dans les listes de choix (Mantis 26821)
+  * Possibilité de créer un arrêt en édition d'une séquence d'arrêts (Mantis 26824)
+  * Localisation d'un arrêt par résolution d'adresse (Mantis 26825)
+  * Saisie des coordonnées sur un seul champ (Mantis 26827)
+  * Filtres de recherche des arrêts enrichi (Mantis 26829) 
+  * Cloner un arrêt pour en faire un parent ou un fils (Mantis 26830)
+  * Import d'arrêts en CSV/Excel (Mantis 26832)
+  * Ajout d'étiquettes sur les calendriers (Mantis 26833)
+  * Filtres de recherche des calendriers enrichi (Mantis 26834)
+  * Attributs vacances et jours fériés : comme étiquette (Mantis 26835)
+  * Affichage du format lors de la saisie d'une date (Mantis 26836)
+  * Gestion de dates exclues dans les calendriers (Mantis 26837)
+  * Fonctions de combinaisons de calendriers : inclusion, exclusions, duplication (Mantis 26838)
+  * Clonage de course avec heure de départ (Mantis 26839)
+  * Décaler les horaires d'une course (Mantis 26840)
+  * Import CSV d'horaires pour une séquence d'arrêts (Mantis 26843)
+  * Améliorations affichage de l'état des exports (Mantis 26845)
+  * Attributs TAD et PMR sur les lignes et les courses (Mantis 26846
+  * Export au format HUB (Mantis 27173)
+
 # Version 2.4.1 (13/08/14)
 * Corrections d'anomalies
   * L'export GTFS exige que l'indice de ligne soit renseigné (Mantis 26726)

@@ -1,0 +1,1 @@
+<%= @departure.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2') if @departure %>;<%= @departure.registration_number if @departure %>;<%= @arrival.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2') if @arrival %>;<%= @arrival.registration_number if @arrival %>;<%= @connection_link.link_distance %>;<%= @connection_link.default_duration %>;<%= @count %><%= "\u000D\u000A" %>

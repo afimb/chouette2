@@ -1,0 +1,39 @@
+<div class="page_info">
+  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @vehicle_journeys %>
+</div>
+<div class="pagination">
+  <%= will_paginate @vehicle_journeys, :container => false, renderer: RemoteBootstrapPaginationLinkRenderer %>
+</div>
+<div class="vehicle_journeys paginated_content">
+  <table class="table table-hover table-striped">
+  <thead>    
+    <tr>
+      <th class="title">
+        <button data-style="primary" data-container="body" rel="popover" data-toggle="popover" title='<%= t(".line_routes") %>' data-placement="top" data-content='<%= render( partial: "route_popover", :locals => { :selected_route => @route }) %>' class="route_popover btn btn-default btn-sm"><i class='fa fa-search'></i><%= Chouette::Route.model_name.human.capitalize %></button>
+      </th>
+      <% @vehicle_journeys.each do |vj| %>
+      <th class="vehicle_journey">
+        <button data-style="primary" data-container="body" rel="popover" data-toggle="popover" data-title='<%= link_to(vehicle_title(vj), [@referential, @line, @route, vj] ) %> <%= link_to('<span class="fa fa-pencil"></span>'.html_safe, ["edit", @referential, @line, @route, vj], :class => "btn btn-default btn-sm" ) %>' data-placement= "top" data-content='<%= render( partial: "show_popover", :locals => { :vehicle_journey => vj }) %>' class="vehicle_journey_popover btn btn-default btn-sm"><i class='fa fa-search'></i></button>
+      </th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+  <% @route.stop_points.each_with_index do |sp, index| %>
+  <tr class="<%= cycle('odd', 'even') %>">
+    <td class="stop_area"><%= sp.stop_area.name %></td>
+    <% @vehicle_journeys.each do |vj| %>
+      <td class="hours <%= missing_time_check(@matrix["#{vj.id}-#{sp.id}"]) %>">
+        <%= (@matrix["#{vj.id}-#{sp.id}"] && @matrix["#{vj.id}-#{sp.id}"].departure_time) ? l( @matrix["#{vj.id}-#{sp.id}"].departure_time, :format => :hour) : "--" %>
+      </td>
+    <% end %>
+  </tr>
+  <% end %>
+  </tbody>
+  </table>
+</div>
+<div class="pagination">
+  <%= will_paginate @vehicle_journeys, :container => false, renderer: RemoteBootstrapPaginationLinkRenderer %>
+</div> 
+
+

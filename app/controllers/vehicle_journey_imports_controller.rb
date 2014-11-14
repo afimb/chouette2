@@ -1,4 +1,6 @@
 class VehicleJourneyImportsController < ChouetteController
+  defaults :resource_class => VehicleJourneyImport
+  
   belongs_to :referential do
     belongs_to :line, :parent_class => Chouette::Line do
       belongs_to :route, :parent_class => Chouette::Route
@@ -10,36 +12,22 @@ class VehicleJourneyImportsController < ChouetteController
   
   def new    
     @vehicle_journey_import = VehicleJourneyImport.new(:route => route)
-    flash[:notice] =  "A CSV or Excel file can be used to import records. The first row should be the column name. 
-<p>
-The following columns are allowed :
-<ul>
-  <li>
-    <strong>stop_point_id</strong> -
-    Integer type
-  </li>
-  <li>
-    <strong>stop_area_name</strong> -
-    String type
-  </li>
-  <li>
-    <strong>published_journey_name </strong> -
-    String type
-  </li>
-  <li>
-    <strong>published_journey_name </strong> -
-    String type ....
-  </li>
-</ul>
-</p>"
-    new!
+    new! do
+      build_breadcrumb :new
+    end
   end
 
   def create
-    @vehicle_journey_import = VehicleJourneyImport.new(params[:vehicle_journey_import].merge({:route => route}))
+    @vehicle_journey_import = VehicleJourneyImport.new( params[:vehicle_journey_import].present? ? params[:vehicle_journey_import].merge({:route => route}) : {:route => route} )
     if @vehicle_journey_import.save
-      redirect_to referential_line_route_path( @referential, @line, @route ), notice: "Import successful" 
+      notice = I18n.t("vehicle_journey_imports.new.success") + 
+      "<br>" + I18n.t("vehicle_journey_imports.success.created_jp_count",:count => @vehicle_journey_import.created_journey_pattern_count) +
+      "<br>" + I18n.t("vehicle_journey_imports.success.created_vj_count",:count => @vehicle_journey_import.created_vehicle_journey_count) +
+      "<br>" + I18n.t("vehicle_journey_imports.success.updated_vj_count",:count => @vehicle_journey_import.updated_vehicle_journey_count) +     
+      "<br>" + I18n.t("vehicle_journey_imports.success.deleted_vj_count",:count => @vehicle_journey_import.deleted_vehicle_journey_count)       
+      redirect_to referential_line_route_path( @referential, @line, @route ), notice: notice 
     else
+      flash[:error] = I18n.t("vehicle_journey_imports.errors.import_aborted") + "<br>" + @vehicle_journey_import.errors.full_messages.join("<br>")
       render :new 
     end
   end

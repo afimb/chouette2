@@ -6,10 +6,22 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui
+//= require jquery.ui.all
 //= require modernizr
 //= require cocoon
 //= require raphael
 //= require morris
-//= require bootstrap
+//= require bootstrap-sass-official
+//= require typeahead.js
+//= require moment
+//= require moment/locale/fr
+//= require eonasdan-bootstrap-datetimepicker
+//= require tagmanager
+//= require_directory ./plugins
 //= require_directory .
+//= require_directory ./stop_areas
+//= require_directory ./vehicle_journeys
+//= require_directory ./import_tasks
+//= require_directory ./compliance_check_tasks
+//= require_directory ./exports
+//= require_directory ./lines

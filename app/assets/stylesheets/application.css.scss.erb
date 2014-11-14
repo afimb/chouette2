@@ -1,38 +1,44 @@
 // First import journal variables
-// @import "bootswatch/cerulean/variables";
 $brand-primary: <%= ChouetteIhm::Application.config.company_theme %>;
 $navbar-default-bg: $brand-primary;
 $navbar-default-link-color: white;
 $body-bg: #eee;
 
 // Then bootstrap itself
-@import "bootstrap";
-
-// And finally bootswatch style itself
-// @import "bootswatch/cerulean/bootswatch";
+@import "bootstrap-sass-official/_bootstrap-sprockets.scss";
+@import "bootstrap-sass-official";
 
 // Whatever application styles you have go last
 // Modules and Variables
-// @import "modules/base";
+@import "modules/search";
+@import "modules/index_item";
+@import "modules/icons";
+@import "modules/devise";
 
 // Partials
-// @import "partials/reset";
+@import "partials/header";
+@import "partials/footer";
 
 // Third-party
+@import "tagmanager/tagmanager.scss";
+@import "font-awesome-sprockets";
 @import "font-awesome";
 @import "jquery.ui.all";
 @import "morris";
 @import "formtastic";
+@import 'eonasdan-bootstrap-datetimepicker';
 
 @import "vendor/openlayers_style";
 @import "vendor/openlayers_ie6-style";
 @import "vendor/openlayers_google";
 @import "vendor/openlayers_framedCloud";
-@import "vendor/formtastic";
-@import "vendor/jquery.qtip.min";
-@import "vendor/tipsy";
+@import "vendor/formtastic_changes";
 @import "vendor/pagination";
 @import "vendor/map_layers";
+@import "vendor/token-input";
+@import "vendor/typeahead";
+@import "vendor/bootstrap_changes";
+@import "vendor/simple_form";
 
 // Main css
 @import "main/*";

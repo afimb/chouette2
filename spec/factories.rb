@@ -70,10 +70,6 @@ FactoryGirl.define do
     f.referential { Referential.find_by_slug("first") }
   end
 
-  factory :file_validation_log_message do |f|
-    f.association :file_validation
-    f.sequence(:key) { "key_#{n}" }
-  end
-
+  factory :time_table_combination 
 
 end

@@ -5,14 +5,6 @@
 
   <div class="summary">
     <p>
-      <label><%= @route.human_attribute_name(:line) %>: </label>
-      <%= link_to line_formatted_name( @line), [@referential, @line] %>
-    </p>
-    <p>
-      <label><%= @journey_pattern.human_attribute_name(:route) %>: </label>
-      <%= link_to @route.name, [@referential, @line, @route] %>
-    </p>
-    <p>
       <label><%= @journey_pattern.human_attribute_name(:name) %>: </label>
       <%= @journey_pattern.name %>
     </p>
@@ -28,10 +20,6 @@
       <label><%= @journey_pattern.human_attribute_name(:comment) %>: </label>
       <%= @journey_pattern.comment %>
     </p>
-    <p>
-      <label><%= @journey_pattern.human_attribute_name("objectid") %>: </label>
-      <%= @journey_pattern.objectid %>
-    </p>
   </div>
 
 </div>
@@ -44,9 +32,10 @@
 
 <% content_for :sidebar do %>
 <ul class="actions">
+  <li><%= link_to t('journey_patterns.actions.new'), new_referential_line_route_journey_pattern_path(@referential, @line, @route), :class => "add" %></li>
   <li><%= link_to t('journey_patterns.actions.edit'), edit_referential_line_route_journey_pattern_path(@referential, @line, @route, @journey_pattern), :class => "edit" %></li>
   <li><%= link_to  t('journey_patterns.actions.destroy'), referential_line_route_journey_pattern_path(@referential, @line, @route, @journey_pattern), :method => :delete, :data => {:confirm => t('journey_patterns.actions.destroy_confirm')}, :class => "remove" %></li>
-  <li><%= link_to t('journey_patterns.journey_pattern.vehicle_journey_at_stops'), referential_line_route_vehicle_journeys_path(@referential, @line, @route, :q => {:journey_pattern_id_eq => @journey_pattern.id}), :class => "link" %></li>
+  <li><%= link_to t('journey_patterns.journey_pattern.vehicle_journey_at_stops'), referential_line_route_vehicle_journeys_path(@referential, @line, @route, :q => {:journey_pattern_id_eq => @journey_pattern.id}), :class => "clock" %></li>
 </ul>
   <%= creation_tag(@journey_pattern) %>
 <% end %>

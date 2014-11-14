@@ -65,9 +65,9 @@ Assume Linux user is myuser and its group mygroup (that user is the one who star
 sudo mkdir -p /usr/local/opt/chouette-command/
 sudo chown -R myuser:mygroup /usr/local/opt/chouette-command/
 cd /usr/local/opt/chouette-command/
-wget http://maven.chouette.cityway.fr/fr/certu/chouette/chouette-gui-command/2.4.1/chouette-gui-command-2.4.1.zip
-unzip chouette-gui-command-2.4.1.zip
-cd chouette-cmd_2.4.1
+wget http://maven.chouette.cityway.fr/fr/certu/chouette/chouette-gui-command/2.5.0/chouette-gui-command-2.5.0.zip
+unzip chouette-gui-command-2.5.0.zip
+cd chouette-cmd_2.5.0
 sudo chmod a+w .
 ```
 
@@ -76,7 +76,7 @@ Install web application
 Get git source code :
 ```sh
 cd
-git clone -b V2_4 git://github.com/afimb/chouette2
+git clone -b V2_5 git://github.com/afimb/chouette2
 cd chouette2
 ```
 Download gem librairies
@@ -187,3 +187,8 @@ Support
 -------
 
 Users looking for support should file an issue on the GitHub [issue tracking page](../../issues), or file a [pull request](../../pulls) if you have a fix available.
+
+Credits
+-------
+
+Thanks to Ingolf for his [photo](https://www.flickr.com/photos/ingolfbln/7663851694) under CC BY-SA 2.0 license

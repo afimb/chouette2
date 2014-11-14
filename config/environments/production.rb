@@ -126,16 +126,22 @@ ChouetteIhm::Application.configure do
   end  
 
   # api key to geoportail IGN (production key link to application url root referer)
-  if ENV['CHOUETTE_GEOPORTAIL_KEY'].nil?
-     config.geoportail_api_key = "aaaaaaaaaaaaaa"
-  else
+  if !ENV['CHOUETTE_GEOPORTAIL_KEY'].nil?
      config.geoportail_api_key = ENV['CHOUETTE_GEOPORTAIL_KEY']
   end  
 
-  # Specific for each company
-  config.company_name = "afimb"
-  config.company_theme = "#61970b"
+  # Specific theme for each company
+  # AFIMB
+  config.company_name = "afimb"  
+  config.company_theme = "#61970b" # AFIMB color
   config.company_contact = "http://www.chouette.mobi/contact-support/"
+  config.accept_user_creation = true  
+
+  # CITYWAY
+  # config.company_name = "cityway"
+  # config.company_theme = "#32adb0"
+  # config.company_contact = "http://www.cityway.fr/contact/?rub_code=14"
+  # config.accept_user_creation = false  
 
   # file to data for demo
   config.demo_data = ENV['CHOUETTE_DEMO_DATA'].nil? ? "/path/to/demo.zip" : ENV['CHOUETTE_DEMO_DATA']
@@ -146,7 +152,7 @@ ChouetteIhm::Application.configure do
   # paths for external resources
   config.to_prepare do
     Devise::Mailer.layout "mailer"
-    Chouette::Command.command = ENV['CHOUETTE_GUI_COMMAND'].nil? ? "/usr/local/opt/chouette-command/chouette-cmd_2.4.1/chouette" : ENV['CHOUETTE_GUI_COMMAND']
+    Chouette::Command.command = ENV['CHOUETTE_GUI_COMMAND'].nil? ? "/usr/local/opt/chouette-command/chouette-cmd_2.5.0/chouette" : ENV['CHOUETTE_GUI_COMMAND']
     ImportTask.root = "/var/lib/chouette/imports"
     Export.root = "/var/lib/chouette/exports"
   end

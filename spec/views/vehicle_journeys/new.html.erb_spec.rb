@@ -11,12 +11,6 @@ describe "/vehicle_journeys/new" do
     render
     view.should render_template(:partial => "_form")
   end
-  context "summary part" do
-    it "should render route name" do
-      render
-      rendered.should have_selector( ".summary a", :text => route.name)
-    end
-  end
 
 end
 

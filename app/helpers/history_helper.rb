@@ -1,7 +1,7 @@
 module HistoryHelper
 
   def creation_tag(object)
-    field_set_tag t("layouts.creation_tag.title"), :class => "history_tag" do
+    field_set_tag t("layouts.history_tag.title"), :class => "history_tag" do
       content_tag :ul do
         [(content_tag :li do
           if object.has_attribute?(:creation_time)  
@@ -12,7 +12,17 @@ module HistoryHelper
         end), 
         (content_tag :li do
            if object.has_attribute?(:creator_id)
-             object.human_attribute_name('creator_id') + ' : ' + object.creator_id if  object.creator_id
+             object.human_attribute_name('creator_id') + ' : ' + object.creator_id if object.creator_id
+           end
+        end), 
+        (content_tag :li do
+           if object.has_attribute?(:objectid)
+             object.human_attribute_name('objectid') + ' : ' + object.objectid if object.objectid
+           end
+        end), 
+        (content_tag :li do
+           if object.has_attribute?(:object_version)
+             object.human_attribute_name('object_version') + ' : ' + object.object_version.to_s if object.object_version
            end
         end)].join.html_safe
       end

@@ -5,14 +5,6 @@
   <% end %>  
   <div class="summary">
     <p>
-      <label><%= @access_point.human_attribute_name(:stop_area) %>: </label>
-       <%= link_to @stop_area.name, [@referential, @stop_area] %>
-    </p>
-    <p>
-      <label><%= @access_point.human_attribute_name("name") %>: </label>
-      <%= @access_point.name %>
-    </p>
-    <p>
       <label><%= @access_point.human_attribute_name("comment") %>: </label>
       <%= @access_point.comment %>
     </p>
@@ -23,6 +15,14 @@
     <p>
       <label><%= @access_point.human_attribute_name("country_code") %>: </label>
       <%= @access_point.country_code %>
+    </p>
+    <p>
+      <label><%= @access_point.human_attribute_name("zip_code") %>: </label>
+      <%= @access_point.zip_code %>
+    </p>
+    <p>
+      <label><%= @access_point.human_attribute_name("city_name") %>: </label>
+      <%= @access_point.city_name %>
     </p>
     <p>
       <label><%= @access_point.human_attribute_name("access_point_type") %>: </label>
@@ -85,54 +85,29 @@
 	    </p>
 	    <% end %>
     <% end %>
-    <p>
-      <label><%= @access_point.human_attribute_name("objectid") %>: </label>
-      <%= @access_point.objectid %>
-    </p>
-  </div>
-                           
+  </div>  
 </div>
-                
-<p class="after_map" />
+
 <div>
-  <h3 class="access_point_generics">
-	<a class="generics"><%= t('.generic_access_links') %>
-      <%= image_tag("icons/plus.png"  , :class => "switcher", :style => "display: none;") %>
-      <%= image_tag("icons/minus.png"  , :class => "switcher" ) %>
-    </a>
-  	
-  </h3>
-  <div class="generics content">
-
+  <h3 class="access_point_generics"><%= t('.generic_access_links') %></h3> 
 	<div class="access_link_pairs">
-      <table>
-	  <%= render :partial => "access_link_pairs/access_link_pair", :collection => access_links_pairs(@generic_access_links) %>
-      </table>
-	</div>
-  	
+    <table>
+	    <%= render :partial => "access_link_pairs/access_link_pair", :collection => access_links_pairs(@generic_access_links) %>
+    </table>
   </div>
 
-  <h3 class="access_point_details">
-	<a class="details"><%= t('.detail_access_links') %>
-      <%= image_tag("icons/plus.png"  , :class => "switcher") %>
-      <%= image_tag("icons/minus.png"  , :class => "switcher", :style => "display: none;" ) %>
-    </a>
-  	
-  </h3>
-  <div class="details content" style="display: none;">
-
+  <h3 class="access_point_details"><%= t('.detail_access_links') %></h3>
 	<div class="access_link_pairs">
-      <table>
-	  <%= render :partial => "access_link_pairs/access_link_pair", :collection => access_links_pairs(@detail_access_links) %>
-      </table>
-	</div>
-  	
-  </div>
+    <table>
+	    <%= render :partial => "access_link_pairs/access_link_pair", :collection => access_links_pairs(@detail_access_links) %>
+    </table>
+	</div>  
 </div>
 
                          
 <% content_for :sidebar do %>
 <ul class="actions">
+  <li><%= link_to t('access_points.actions.new'), new_referential_stop_area_access_point_path(@referential,@stop_area), :class => "add" %></li>
   <li><%= link_to t('access_points.actions.edit'), edit_referential_stop_area_access_point_path(@referential, @stop_area, @access_point), :class => "edit" %></li>
   <li><%= link_to  t('access_points.actions.destroy'), referential_stop_area_access_point_path(@referential, @stop_area, @access_point), :method => :delete, :data => {:confirm =>  t('access_points.actions.destroy_confirm')}, :class => "remove" %></li>
 </ul>

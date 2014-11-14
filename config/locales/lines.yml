@@ -9,6 +9,8 @@ en:
       import: "Import lines"
       export_kml: "Export KML line"
       export__kml_all: "Export KML lines"
+      export_hub: "Export HUB line"
+      export__hub_all: "Export HUB lines"
     new:
       title: "Add a new line"
     edit:
@@ -19,9 +21,13 @@ en:
       group_of_lines: "Groups of lines"
     index:
       title: "Lines"
-      name_or_number: "Name or number"
-      selection: "Filter on"
-      selection_all: "All"
+      name_or_number: "Search by name or number"
+      no_networks: "No networks"
+      no_companies: "No companies"
+      no_group_of_lines: "No group of lines"
+      all_networks: "All networks"
+      all_companies: "All companies"
+      all_group_of_lines: "All group of lines"
       multi_selection: "Multiple selection"
       multi_selection_enable: "Enable multiple selection"
       multi_selection_disable: "Disable multiple selection"
@@ -30,6 +36,7 @@ en:
       select_all: "Select all"
       deselect_all: "Deselect all"
       unset: "undefined"
+      advanced_search: "Advanced Search"
     form:
       group_of_lines: "Associated groups of lines"
       no_group_of_line: "No group of line"
@@ -49,6 +56,22 @@ en:
         published_name: "Published name"
         number: "Number"
         transport_mode: "Transport mode"
+        mobility_restricted_suitability: "PRM accessibility"
+        flexible_service: "On demond transportation"
+        unspecified_mrs: "Not specified"
+        accessible: "Accessible"
+        not_accessible: "Not accessible"
+        unspecified_fs: "Not specified"
+        on_demaond_fs: "On demond service"
+        regular_fs: "Regular service"
+        number_of_vj: "Total number of vehicle journeys"
+        number_of_fs_vj: "Number of on demond vehicle journeys"
+        number_of_mrs_vj: "Number of accessible vehicle journeys"
+        number_of_non_fs_vj: "Number of non on demond vehicle journeys"
+        number_of_non_mrs_vj: "Number of non accessible vehicle journeys"
+        number_of_null_fs_vj: "Number of unspecified on demond vehicle journeys"
+        number_of_null_mrs_vj: "Number of unspecified accessible vehicle journeys"
+        default_fs_msg: "These vehicle journeys are considered as regular"
         group_of_line: "Group of lines"
         comment: "Comments"
         objectid: "Neptune identifier"
@@ -56,7 +79,7 @@ en:
         creation_time: "Created on"
         creator_id: "Created by"
   formtastic:
-    hints:
+    titles:
       line:
         registration_number: "only alphanumerical or underscore characters"
         objectid: "[prefix]:Line:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
@@ -72,6 +95,8 @@ fr:
       import: "Importer des lignes"
       export_kml: "Export KML de la ligne"
       export_kml_all: "Export KML des lignes"
+      export_hub: "Export HUB de la ligne"
+      export_hub_all: "Export HUB des lignes"
     new:
       title: "Ajouter une ligne"
     edit:
@@ -81,10 +106,14 @@ fr:
       itineraries: "Liste des séquences d'arrêts de la ligne"
       group_of_lines: "Groupes de lignes"
     index:
-      name_or_number: "Nom ou indice"
+      name_or_number: "Recherche par nom ou indice"
       title: "Lignes"
-      selection: "Filtrer sur"
-      selection_all: "Tous"
+      no_networks: "Aucun réseaux"
+      no_companies: "Aucun transporteurs"
+      no_group_of_lines: "Aucun groupes de ligne"
+      all_networks: "Tous les réseaux"
+      all_companies: "Tous les transporteurs"
+      all_group_of_lines: "Tous les groupes de ligne"
       multi_selection: "Sélection multiple"
       multi_selection_enable: "Activer la sélection multiple"
       multi_selection_disable: "Désactiver la sélection multiple"
@@ -93,6 +122,7 @@ fr:
       select_all: "Tout sélectionner"
       deselect_all: "Tout désélectionner"
       unset: "non défini"
+      advanced_search: "Recherche avancée"
     form:
       group_of_lines: "Groupes de lignes associés"
       no_group_of_line: "Aucun groupe de lignes"
@@ -112,6 +142,22 @@ fr:
         published_name: "Nom public"
         number: "Indice"
         transport_mode: "Mode de transport"
+        mobility_restricted_suitability: "Accessibilité PMR"
+        flexible_service: "Transport à la demande"
+        unspecified_mrs: "Non spécifié"
+        accessible: "Accessible"
+        not_accessible: "Non accessible"
+        unspecified_fs: "Non spécifié"
+        on_demaond_fs: "Service à la demande"
+        regular_fs: "Service régulier"
+        number_of_vj: "Nombre total de courses"
+        number_of_fs_vj: "Nombre de courses à la demande"
+        number_of_mrs_vj: "Nombre de courses accessibles"
+        number_of_non_fs_vj: "Nombre de courses régulières"
+        number_of_non_mrs_vj: "Nombre de courses non accessibles"
+        number_of_null_fs_vj: "Nombre de courses sans spécification de type de service"
+        number_of_null_mrs_vj: "Nombre de courses sans spécification d'accessibilité"
+        default_fs_msg: "Ces courses sont considérées régulières"
         group_of_line: "Groupe de lignes"
         comment: "Commentaire"
         objectid: "Identifiant Neptune"
@@ -119,7 +165,7 @@ fr:
         creation_time: "Créé le"
         creator_id: "Créé par"
   formtastic:
-    hints:
+    titles:
       line:
         registration_number: "caractères autorisés : alphanumériques et 'souligné'"
         objectid: "[prefixe]:Line:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"

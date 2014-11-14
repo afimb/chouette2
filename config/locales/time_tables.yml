@@ -1,5 +1,6 @@
 en:
   time_tables:
+    duplicate_success: "duplication succeded"
     time_table:
       empty: "empty"
       bounding: "from %{start} to %{end}"
@@ -10,18 +11,19 @@ en:
       new: "Add a new timetable"
       edit: "Edit this timetable"
       destroy: "Remove this timetable"
+      duplicate: "Duplicate this timetable"
+      combine: "Combine with another timetable"
       destroy_confirm: "Are you sure you want destroy this timetable ?"
       destroy_date_confirm: "Are you sure you want destroy this date ?"
       destroy_period_confirm: "Are you sure you want destroy this period ?"
       add_period: "Add a period"
-      add_date: "Add a date"
+      add_date: "Add a peculiar date"
+      add_excluded_date: "Add an excluded date"
     new:
       title: "Add a new timetable"
     edit:
       title: "Update timetable %{time_table}"
     show:
-      resume: "From %{start_date} to %{end_date} (independently of any period day types)"
-      resume_empty: "Empty timetable"
       title: "Timetable %{time_table}"
       dates: "Application dates"
       periods: "Application periods"
@@ -29,11 +31,25 @@ en:
       to: "to"
       add_period: "Add a period"
       add_date: "Add a date"
+      combine_form: "Combinations"
+      combine: "Apply"
+    show_time_table:
+      resume: "From %{start_date} to %{end_date}"
+      resume_empty: "Empty timetable"
+      legend: "Legend : "
+      excluded_date: "Excluded date"
+      overlap_date: "Overlap date" 
+      selected_date: "Date directly included"
+      selected_period: "Date included in period"
     index:
       title: "Timetables"
-      comment: "Name"
+      comment: "Search by name"
+      tag_search: "Tags : hollidays,public holliday"
+      from: "From : "
+      to: " to : "
       selection: "Selection"
       selection_all: "All"
+      advanced_search: "Advanced Search"      
   activerecord:        
     models:        
       time_table: 
@@ -44,10 +60,7 @@ en:
       time_table:
         comment: "Name"
         version: "Short name"
-        peculiarities: "Peculiarities"
-        school_holliday: "School hollidays"
-        public_holliday: "Public hollidays"
-        day_types: "Day types"
+        day_types: "Period day types"
         none: "none"
         monday: "Monday"
         tuesday: "Tuesday"
@@ -61,19 +74,24 @@ en:
         creation_time: "Created on"
         creator_id: "Created by "
         calendars: "Calendar view"
-        dates: "Application dates"
+        dates: "Peculiar dates"
         date: "On"
+        excluded_dates: "Excluded dates"
         periods: "Application periods"
         period_start: "From"
         period_end: "to"
-        
+        tag_search: "Tags"         
   formtastic:
-    hints:
+    titles:
       time_table:
         objectid: "[prefix]:Timetable:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+    placeholders:
+      time_table:
+        tag_search: "ex: Public hollidays,School holidays"
 
 fr:
   time_tables:
+    duplicate_success: "duplication terminée"
     time_table:
       empty: "vide"
       bounding: "du %{start} au %{end}"
@@ -84,18 +102,19 @@ fr:
       new: "Ajouter un calendrier"
       edit: "Modifier ce calendrier"
       destroy: "Supprimer ce calendrier"
+      duplicate: "Dupliquer ce calendrier"
+      combine: "Combiner ce calendrier"
       destroy_confirm: "Etes vous sûr de supprimer ce calendrier ?"
       destroy_date_confirm: "Etes vous sûr de supprimer cette date ?"
       destroy_period_confirm: "Etes vous sûr de supprimer cette période ?"
       add_period: "Ajouter une période"
-      add_date: "Ajouter une date"
+      add_date: "Ajouter une date particulière"
+      add_excluded_date: "Ajouter une date exclue"
     new:
       title: "Ajouter un calendrier"
     edit:
       title: "Modifier le calendrier %{time_table}"
     show:
-      resume: "Validité comprise du %{start_date} au %{end_date} (sans tenir compte des jours d'application)"
-      resume_empty: "Calendrier vide"
       title: Calendrier %{time_table}
       dates: "Dates d'application"
       periods: "Périodes d'application"
@@ -103,11 +122,27 @@ fr:
       to: "au"
       add_period: "Ajouter une période"
       add_date: "Ajouter une date"
+      combine_form: "Combinaison de calendriers"
+      combine: "Appliquer"
+    show_time_table:
+      resume: "Validité comprise du %{start_date} au %{end_date}"
+      resume_empty: "Calendrier vide"
+      legend: "Légende : "
+      excluded_date: "Date exclue"
+      overlap_date: "Date en doublon" 
+      selected_date: "Date inclue directement"
+      selected_period: "Date inclue par période"
     index:
-      comment: "Nom"
+      comment: "Recherche par nom"
+      tag_search: "Tags : vacances,jour fériés"
+      from: "De : "
+      to: " à : "
+      start_date: "jj/mm/aaaa"
+      end_date: "jj/mm/aaaa"
       title: "calendriers"
       selection: "Sélection"
       selection_all: "Tous"
+      advanced_search: "Recherche avancée"      
   activerecord:        
     models:        
       time_table: 
@@ -118,10 +153,7 @@ fr:
       time_table:
         comment: "Nom"
         version: "Abréviation"
-        peculiarities: "Particularités"
-        school_holliday: "Vacances scolaires"
-        public_holliday: "Jours fériés"
-        day_types: "Jours d'application"
+        day_types: "Jours d'application des périodes"
         none: "aucun"
         monday: "Lundi"
         tuesday: "Mardi"
@@ -134,16 +166,23 @@ fr:
         object_version: "Version"
         creation_time: "Créé le"
         creator_id: "Créé par"
-        calendars: "Présentation calendaire"
-        dates: "Dates d'application"
-        date: "Date"
+        calendars: "Calendrier"
+        calendar_details: "Données du calendrier"
+        dates: "Dates particulières"
+        date: "Le"
+        excluded_dates: "Dates exclues"
         periods: "Périodes d'application"
         period_start: "Du" 
         period_end: "au"
-
+        tag_search: "Etiquettes" 
+        tag_list: "Etiquettes" 
   formtastic:
-    hints:
+    titles:
       time_table:
         objectid: "[prefixe]:Timetable:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+    placeholders:
+      time_table:
+        tag_search: "ex: Jours fériés,Vacances scolaires"
+          
 
 

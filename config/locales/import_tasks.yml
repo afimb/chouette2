@@ -6,6 +6,10 @@ en:
       destroy_confirm: "Are you sure you want destroy this import?"
     new:
       title: "New import"
+      all: "All"
+      flash: "Import task on queue, refresh page to see progression"
+      fields_gtfs_import:
+        warning: "Filter on stop areas import only GTFS stops and transfers files, these may contain extra attributes"
     index:
       title: "Imports"
       warning: ""
@@ -37,6 +41,7 @@ en:
           journey_patterns_stats: "Journey Patterns"
     statuses:
       pending: "Pending"
+      processing: "Processing"
       completed: "Completed"
       failed: "Failed"
     compliance_check_task: "Validate Report"
@@ -74,6 +79,7 @@ en:
         resources: "File to import"
         created_at: "Created on"
         status: "Status"
+        references_type: "subset"
         no_save: "No save"
         rule_parameter_set_id: "Rule parameter set for compliance check"
         object_id_prefix: "Neptune Id prefix"
@@ -81,8 +87,8 @@ en:
         max_distance_for_connection_link: "Max distance for connection link"
         ignore_last_word: "ignore last word"
         ignore_end_chars: "ignore last chars"
-  tipsy:
-    hints:
+  formtastic:
+    titles:
       import_task:
         max_distance_for_commercial: "Maximal distance to merge homonymous stops in commercial stop in meter"
         max_distance_for_connection_link: "Maximal distance to link stops by connection link stop in meter"
@@ -96,6 +102,10 @@ fr:
       destroy_confirm: "Etes vous sûr de supprimer cet import ?"
     new:
       title: "Nouvel import"
+      all: "Tout"
+      flash: "La demande d'import est mise en file d'attente, veuillez rafraichir régulièrement la page pour en suivre la progression"
+      fields_gtfs_import:
+        warning: "Le filtre sur arrêts importe uniquement les fichiers GTFS stops et transfers gtfs, ceux-ci pouvant contenir des attributs supplémentaires"
     index:
       title: "Imports"
       warning: ""
@@ -140,7 +150,8 @@ fr:
           saved: "Sauvé"
           save_error: "Sauvegarde en erreur"
     statuses:
-      pending: "En cours"
+      pending: "En attente ..."
+      processing: "En cours ..."
       completed: "Achevé"
       failed: "Echoué"
     compliance_check_task: "Validation"
@@ -179,14 +190,15 @@ fr:
         created_at: "Créé le"
         status: "Status"
         no_save: "Pas de sauvegarde"
+        references_type: "Sous ensemble"
         rule_parameter_set_id: "Jeu de paramètres pour validation"
         object_id_prefix: "Préfixe d'identifiants"
         max_distance_for_commercial: "Distance max pour créer les zones"
         max_distance_for_connection_link: "Distance max pour créer les correspondances"
         ignore_last_word: "ignorer le dernier mot"
         ignore_end_chars: "ignorer les n derniers caractères"
-  tipsy:
-    hints:
+  formtastic:
+    titles:
       import_task:
         max_distance_for_commercial: "Distance maximale entre deux arrêts homonymes pour créer les zones d'arrêt (en mètre)"
         max_distance_for_connection_link: "Distance maximale entre deux arrêts pour créer les correspondances (en mètre)"

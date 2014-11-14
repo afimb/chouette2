@@ -1,6 +1,9 @@
 class ComplianceCheckTasksController < ChouetteController
+  defaults :resource_class => ComplianceCheckTask
+
   respond_to :html, :js
   belongs_to :referential
+
 
   def references
     @references = referential.send(params[:type]).where("name ilike ?", "%#{params[:q]}%")
@@ -13,7 +16,14 @@ class ComplianceCheckTasksController < ChouetteController
 
   def rule_parameter_set
     @rule_parameter_set = compliance_check_task.rule_parameter_set_archived
+    build_breadcrumb :edit
     render "rule_parameter_sets/show"
+  end
+
+  def create
+    create!  do |success, failure|
+      success.html { flash[:notice] = I18n.t('compliance_check_tasks.new.flash'); redirect_to referential_compliance_check_tasks_path(@referential) }
+    end
   end
 
   protected

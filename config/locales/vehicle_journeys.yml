@@ -1,8 +1,10 @@
 en:
   vehicle_journeys:
+    vehicle_journeys:  
+      line_routes: "Line's routes"      
     vehicle_journey:
       title_stopless: "Vehicle journey %{name}"
-      title: "Vehicle journey %{name} leaving from %{stop} at %{time}"
+      title: "Vehicle journey leaving from %{stop} at %{time}"
     actions:
       index: "Vehicle time's board"
       new: "Add a new vehicle journey"
@@ -21,6 +23,12 @@ en:
       to_arrivals: "Copy departures to arrivals"
       to_departures: "Copy arrivals to departures"
       time_tables: "Associated calendars to vehicle journey"
+      slide: "Shift"
+      slide_title: "Shift all vehicle passing times"
+      set: "Set"
+      to: "at"
+      slide_departure: "departure time at first stop"
+      slide_arrival: "arrival time at first stop"
     timeless:
       title: "Timeless vehicle journeys"
       vehicle_journeys: "Vehicle journeys with times at stop"
@@ -32,20 +40,23 @@ en:
       arrival: "Arrival"
       time_tables: "Calendars list"
       bounding: "From %{start} to %{end}"
-      validation: "Clone"
       translation_form: "Vehicle journey translations"
     index:
       title: "Vehicle journeys on route %{route}"
       vehicle_journeys: "Departure's times"
-      title: "Timeless vehicle journeys"
       selection: "Filter on"
       selection_all: "All"
+      select_journey_patterns: "Select journey pattern"
+      select_time_tables: "Enter a timetable"
       time_range: "Departure time threshold"
+      advanced_search: "Advanced Search"
+    sidebar:
+      timeless: "Timeless vehicle journeys"
     time_filter:
-      time_range_filter: "Filter" 
-  activerecord:        
-    models:        
-      vehicle_journey: 
+      time_range_filter: "Filter"
+  activerecord:
+    models:
+      vehicle_journey:
         zero:  "vehicle journey"
         one:   "vehicle journey"
         other: "vehicle journeys"
@@ -57,9 +68,18 @@ en:
         time_tables: "Calendars"
         time_slot: "Time Slot"
         company: "Company"
+        number: "Number"
         comment: "Comments"
         status_value: "Status Value"
         transport_mode_name: "Transport Mode"
+        mobility_restricted_suitability: "PRM accessibility"
+        flexible_service: "On demond transportation"
+        unspecified_mrs: "Not specified"
+        accessible: "Accessible"
+        not_accessible: "Not accessible"
+        unspecified_fs: "Not specified"
+        on_demaond_fs: "On demond service"
+        regular_fs: "Regular service"
         published_journey_name: "Published Name"
         published_journey_identifier: "Published Identifier"
         facility: "Facility"
@@ -75,15 +95,17 @@ en:
         vehicle_journey:
           invalid_times: "Invalid times"
   formtastic:
-    hints:
+    titles:
       vehicle_journey:
         objectid: "[prefix]:VehicleJourney:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
 
 fr:
   vehicle_journeys:
+    vehicle_journeys:  
+      line_routes: "Séquences d'arrêts de la ligne"  
     vehicle_journey:
       title_stopless: "Course %{name}"
-      title: "Course %{name} partant de %{stop} à %{time}"
+      title: "Course partant de %{stop} à %{time}"
     actions:
       index: "Horaires des courses"
       new: "Ajouter une course"
@@ -102,6 +124,12 @@ fr:
       to_arrivals: "Copie départs vers arrivées"
       to_departures: "Copie arrivées vers départs"
       time_tables: "Calendriers associés à la course"
+      slide: "Décaler"
+      slide_title: "Décaler l'ensemble des horaires de course"
+      set: "Fixer"
+      to: "à"
+      slide_departure: "horaire de départ au 1° arrêt à"
+      slide_arrival: "horaire d'arrivée au 1° arrêt à"
     timeless:
       title: "Courses sans horaire"
       vehicle_journeys: "Courses ayant des horaires"
@@ -113,20 +141,23 @@ fr:
       arrival: "Arrivée"
       time_tables: "Liste des calendriers"
       bounding: "De %{start} à %{end}"
-      validation: "Cloner"
       translation_form: "Cloner la course"
     index:
-      title: "Courses de la séquence d'arrêts %{route}"
-      timeless: "Courses sans horaire"
+      title: "Horaires de la séquence d'arrêts %{route}"
       vehicle_journeys: "Horaires de départ aux arrêts"
       selection: "Filtrer sur"
       selection_all: "Tous"
+      select_journey_patterns: "Sélectionner une mission"
+      select_time_tables: "Saisir un calendrier"
       time_range: "Seuil horaire au départ"
+      advanced_search: "Recherche avancée"
     time_filter:
-      time_range_filter: "Filtrer" 
-  activerecord:        
-    models:        
-      vehicle_journey: 
+      time_range_filter: "Filtrer"
+    sidebar:
+      timeless: "Courses sans horaire"
+  activerecord:
+    models:
+      vehicle_journey:
         zero:  "Course"
         one:   "Course"
         other: "Courses"
@@ -138,9 +169,18 @@ fr:
         time_tables: "Calendriers"
         time_slot: "Fréquence"
         company: "Transporteur"
+        number: "Numéro"
         comment: "Commentaires"
         status_value: "Etat de trafic"
         transport_mode_name: "Mode de transport"
+        mobility_restricted_suitability: "Accessibilité PMR"
+        flexible_service: "Transport à la demande"
+        unspecified_mrs: "Non spécifié"
+        accessible: "Accessible"
+        not_accessible: "Non accessible"
+        unspecified_fs: "Non spécifié"
+        on_demaond_fs: "Service à la demande"
+        regular_fs: "Service régulier"
         published_journey_name: "Nom public"
         published_journey_identifier: "Identifiant public"
         facility: "Equipement"
@@ -156,7 +196,7 @@ fr:
         vehicle_journey:
           invalid_times: "Horaires invalides"
   formtastic:
-    hints:
+    titles:
       vehicle_journey:
         objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
 

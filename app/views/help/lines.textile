@@ -5,45 +5,62 @@ title: Lignes
 
 h3. Définition
 
-Une *ligne* référence un réseau et un transporteur; par ailleurs la ligne se compose d'un ou plusieurs itinéraires. 
-La ligne dispose aussi d'un identifiant fonctionnel (<< numéro d'enregistrement >>) qui est utilisé dans les échanges XML pour identifier la ligne et la mettre à jour; il est donc important que le gestionnaire de la base CHOUETTE le renseigne d'une manière bien définie et pérenne.
+Une _"ligne"_  se compose d'un ou plusieurs itinéraires et est associée avec un réseau et un transporteur.
+ 
+La ligne dispose d'un identifiant fonctionnel, une sorte de _"numéro d'enregistrement"_ qui est utilisé dans les échanges XML pour identifier la ligne et la mettre à jour; il est donc important que le gestionnaire de la base CHOUETTE le renseigne d'une manière bien définie et pérenne.
 
-h3. Attributs
+h4. Liste des groupes de lignes
 
-- Réseau := réseau d'appartenance de la ligne
-- Transporteur := 
-transporteur principal exploitant la ligne
-les autres transporteurs de la lignes peuvent être référencés au niveau de chaque course
-=:
-- Nom := nom de la ligne 
-- Nom public := nom de la ligne connu des usagers
-- Numéro d'enregistrement := code référençant une ligne au sein d'une autorité supérieure
-- Indice := indice de la ligne
-- Mode de transport := 
-mode de transport principal de la ligne
-d'autres modes de transports particuliers peuvent être indiqués au niveau de chaque course 
-=:
-- Commentaire := zone de texte libre sur la ligne
-- Groupes de lignes := "groupes de lignes":group_of_lines auxquels appartient la ligne
+Sélectionner _"Lignes"_ dans le menu _"Données"_ affiche la liste des lignes existants dans l'espace de données. 
 
-p(attr_data). Données de gestion : 
+h4. Ajouter une ligne
 
-- Identifiant Neptune := 
-clé unique pérenne identifiant la ligne pour les échanges Neptune
-cet identifiant est composé de 3 parties : préfixe:type:id_technique
+Depuis la liste des groupe de lignes, cliquer sur  _"Ajouter une ligne"_ dans la partie droite de l'écran. Il est également possible de créer une nouvelle ligne depuis la page de n'importe quelle ligne.
 
-* préfixe : clé identifiant un producteur de données unique
-* type = Line : clé identifiant le type d'objet (valeur imposée)
-* id_technique : valeur identifiant un seul objet d'un type donné pour un même producteur
+Un formulaire s'affiche. Les champs obligatoires sont signalés par des astérisques. 
 
-ce champ obligatoire est automatiquement généré s'il n'est pas renseigné 
-il est possible aussi de ne renseigner que l'identifiant technique, auquel cas la valeur sera complétée automatiquement.
-=:
-- Date de création := date à laquelle l'objet a été créé ou modifié pour la dernière fois
-- Version := version de l'objet (auto incrémenté à chaque modification)
-- Créé par := compte utilisateur ayant procédé à la dernière modification
+Dans le champs, _"Groupes de lignes associés"_, saisir les premiers caractères d'une ligne. L'auto-complétion présentera les groupes de lignes correspondant à la saisie. Taper sur _"Entrée"_ valide la proposition. Il est à noter que ces associations fonctionne dans les deux sens et qu'il est également possible de rajouter une ligne dans un groupe de ligne depuis la page d'un groupe de lignes. 
 
-h3. Implémentation
+h4. Afficher une ligne existante
 
-p. TODO
+Le nombre de lignes pouvant être assez important, il est probable que toutes les lignes ne puissent pas s'afficher sur la page des lignes. Des fonctions de recherche situées en haut de la page permettent de faire une recherche par le nom ou le numéro d'indice. Cliquer sur _"recherche avancée"_ permet de sélectionner des critères de recherche :
+
+* Réseau
+* Transporteur
+* Groupe de lignes
+
+Pour afficher une ligne existante, il suffit de cliquer sur le nom de la ligne depuis la liste des lignes existantes.
+
+Sur la page d'une ligne, les arrêts des lignes du groupe sont affichés sur la cartographie. Au survol des arrêts avec le curseur le nom de l'arrêt s'affiche dans une infobulle. 
+
+En bas de la page, un lien _"Liste des arrêts de la ligne"_ affiche la liste des séquences d'arrêts de la ligne, d'y accéder, de les éditer et d'en créer de nouvelles.
+
+Les arrêts des différentes séquences d'arrêts apparaissent sur la cartographie. Une infobulle permet de connaître le nom de l'arrêt et rappelle le type d'arrêt.
+
+!2014-10-31_112140.png! Vue d'une ligne.
+
+h4. Modifier une lignes
+
+On peut modifier une ligne en cliquant sur le bouton de modification directement depuis la liste des lignes ou depuis la page d'une ligne particulière. 
+
+h4. Supprimer une ligne
+
+On peut supprimer une ligne en cliquant sur le bouton de suppression directement depuis la liste des lignes ou depuis la page d'une ligne particulière. Il est à noter que les itinéraires rattachés à ce groupe de lignes ne seront pas supprimés [à vérifier]. Il sera toujours possible de les rattacher à une autre ligne par la suite. 
+
+Dans le menu latéral situé à droite, un lien _"activer la sélection multiple"_ permet d'afficher des cases à cocher sur chacun des éléments de la liste. Ces cases permettent de définir les lignes qui pourront être supprimées en même temps. Une fois la sélection multiple activiée, deux raccourcis permettent de tout sélectionner et de tout déselectionner. 
+
+h3. Attributs d'une ligne
+
+* Réseau : réseau d'appartenance de la ligne
+*  Transporteur : transporteur principal exploitant la ligne. Dans le cas où plusieurs transporteurs assurent le service d'une même ligne, les autres transporteurs peuvent être référencés au niveau de chaque course
+* Nom : nom de la ligne 
+* Nom public : nom de la ligne connu des usagers
+* Numéro d'enregistrement : code référençant une ligne au sein d'une autorité supérieure
+* Indice : indice de la ligne [préciser]
+* Mode de transport : mode de transport principal de la ligne. Le cas échéant, d'autres modes de transports particuliers peuvent être indiqués au niveau de chaque course. 
+* Accessibilité PMR	: précise si la ligne est équipée PMR
+* Transport à la demande : précise si la ligne est en exploitation à la demande ou pas [préciser si c'est également définissable au niveau de la course]
+* Commentaire : zone de texte libre sur la ligne
+* Groupes de lignes : _"groupes de lignes"_ auxquels appartient la ligne
+
 

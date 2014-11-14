@@ -8,11 +8,13 @@ jdk:
 matrix:
   exclude:
     - rvm:  1.9.3
-      jdk: openjdk7
+    - jdk: openjdk7
 notifications:
+  email:        
     - mflorisson@cityway.fr
     - ldonnet@cityway.fr
     - metienne@cityway.fr
+    - zbouziane@cityway.fr
 before_install:
   - sudo apt-get update
   - sudo apt-get install build-essential ruby-dev libproj-dev libgeos-dev libffi-dev libsparsehash-dev zlib1g-dev libxslt1-dev libxml2-dev libbz2-dev

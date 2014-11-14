@@ -16,7 +16,12 @@ class AccessLinksController < ChouetteController
 
   def show
     @map = AccessLinkMap.new(resource).with_helpers(self)
-    show!
+    @access_point = Chouette::AccessPoint.find(params[:access_point_id])
+    @access_link = Chouette::AccessLink.find(params[:id])
+    @stop_area = @access_link.stop_area
+    show! do |format|
+      format.html {build_breadcrumb :show}
+    end
   end
   
   def new 
@@ -34,7 +39,9 @@ class AccessLinksController < ChouetteController
       data[:name] = name
     end
     @access_link = Chouette::AccessLink.new(data)
-    new!
+    new! do
+      build_breadcrumb :new
+    end
   end
   
   def create
@@ -50,7 +57,9 @@ class AccessLinksController < ChouetteController
     @access_link = Chouette::AccessLink.find(params[:id])
     @stop_area = @access_link.stop_area
     @orientation = @access_link.link_orientation_type
-    edit!
+    edit! do
+      build_breadcrumb :edit
+    end
   end
   protected
   

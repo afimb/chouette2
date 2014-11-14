@@ -1,0 +1,15 @@
+#footer{
+    padding: 20px;
+    background-color: $gray-darker;
+    color: $gray-light;
+    font-size: 12px;
+    min-height: 200px;
+    
+    a { color: $gray-light; }
+
+    h4 { color: $gray-lighter; }
+
+    .logo > img {
+        margin-left: 20px;
+    }
+}

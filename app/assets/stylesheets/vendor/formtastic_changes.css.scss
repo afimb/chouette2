@@ -1,0 +1,46 @@
+.formtastic{
+
+    .label{
+        white-space: normal;
+        text-align: right;
+    }
+
+    .stringish input{
+        width: auto;
+    }
+    
+    fieldset.inputs {
+        
+        a.action { float: right; }          
+    }
+    
+    .choices .label, .formtastic .fragments .label {
+        width: 25%;
+        border: 0px;
+        
+        label {
+            position: relative;
+            font-size: 14px;
+        }
+    }
+
+    .choices legend.label label{
+        @extend .label;
+        font-size: 14px !important;
+        width: 100% !important;
+    }    
+
+    .choice label input{
+        margin: 0px 0px 0px -20px !important;
+    }
+    
+    .token-input-list {
+        display: inline-block;
+    }
+
+    /* Hack to remove!!!! */ 
+    .inputs input[type="file"] {
+        display: initial;
+    }
+    /* Hack to remove!!!! */
+}

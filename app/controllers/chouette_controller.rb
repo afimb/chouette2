@@ -1,9 +1,10 @@
-class ChouetteController < InheritedResources::Base
+class ChouetteController < BreadcrumbController
 
   include ApplicationHelper
+  include BreadcrumbHelper
   
   before_filter :switch_referential
-
+  
   def switch_referential
     Apartment::Database.switch(referential.slug)
   end 
@@ -11,5 +12,5 @@ class ChouetteController < InheritedResources::Base
   def referential
     @referential ||= current_organisation.referentials.find params[:referential_id]  
   end 
-
+  
 end

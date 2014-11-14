@@ -6,7 +6,6 @@ class AccessPointsController < ChouetteController
   end
 
   respond_to :html, :kml, :xml, :json
-  layout "without_sidebar", :only => [:edit, :update]
 
   def index    
     request.format.kml? ? @per_page = nil : @per_page = 12
@@ -31,13 +30,17 @@ class AccessPointsController < ChouetteController
         }
         
       end
+      format.html {build_breadcrumb :show}
     end
   end
   
+
   def edit
     access_point.position ||= access_point.default_position
     map.editable = true
-    edit!
+    edit! do
+      build_breadcrumb :edit
+    end
   end
 
 

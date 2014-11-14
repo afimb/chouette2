@@ -2,18 +2,43 @@ en:
   vehicle_translations:
     success: "%{count} vehicle journeys created by translation"
     failure: "Fail when creating vehicle journeys by translation"
-  activemodel:        
+    translate_form:
+      set: "Set"
+      to: "at (hh:mm)"
+      first_stop_arrival_time: "Arrival time at first stop '%{stop_name}'"
+      first_stop_departure_time: "Departure time at first stop '%{stop_name}'"
+      multiple_cloning_form: "Repeat cloning based on a time interval"
+  activemodel:
     attributes:
       vehicle_translation:
         duration: "Duration"
         count: "Count"
+    errors:
+      models:
+        vehicle_translation:
+          missing_start_time: "Departure time or arrival time is required."
+          uncompiliant_vehicle: "Vehicle creation by copy requires that the selected vehicle counts at leat a stop and has departure and arrival times at each stops"
+          unreadable_time: "Expected time format is hh:mm"
 fr:
   vehicle_translations:
     success: "%{count} course(s) crée(s) par translation"
     failure: "Echec de la création de courses par tanslation"
-  activemodel:        
+    translate_form:
+      set: "Fixer"
+      to: "à (hh:mm)"
+      first_stop_arrival_time: "Horaire d'arrivée au premier arrêt '%{stop_name}'"
+      first_stop_departure_time: "Horaire de départ au premier arrêt '%{stop_name}'"
+      multiple_cloning_form: "Répéter le clonage à intervalle régulier"
+
+  activemodel:
     attributes:
       vehicle_translation:
         duration: "Durée de l'intervalle (en minutes)"
         count: "Quantité de courses à ajouter"
+    errors:
+      models:
+        vehicle_translation:
+          missing_start_time: "L'horaire de départ ou celui d'arrivée est requis"
+          uncompiliant_vehicle: "Pour cloner une course, celle-ci doit compter au moins un arrêt et avoir des horaires départ arrivée sur tous ses arrêts"
+          unreadable_time: "Le format d'horaire attendu est hh:mm"
 

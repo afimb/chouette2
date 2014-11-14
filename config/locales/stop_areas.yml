@@ -4,13 +4,18 @@ en:
     stop_area:
       no_position: "No Position" 
       lines: "Lines :"
+      general: "General"
+      localisation: "Localisation"
+      accessibility: "Accessibility"      
     actions:
       new: "Add a new stop"
       edit: "Edit this stop"
       destroy: "Remove this stop"
-      destroy_confirm: "Are you sure you want destroy this stop?"
+      destroy_confirm: "Are you sure you want destroy this stop and all of his children ?"
       select_parent: "Manage Parent"
       add_children: "Manage Children"
+      clone_as_parent: "Clone as parent"
+      clone_as_child: "Clone as child"
       manage_access_points: "Manage Access Points"
       manage_access_links: "Manage Access Links"
       add_routing_lines: "Manage constraint's lines"
@@ -19,8 +24,14 @@ en:
       export_kml_place: "Export KML places"
       export_kml_commercial: "Export KML commercial stop points"
       export_kml_physical: "Export KML physical"
+      export_hub_place: "Export HUB places"
+      export_hub_commercial: "Export HUB commercial stop points"
+      export_hub_physical: "Export HUB physical"
     new:
       title: "Add a new stop"
+    form:
+      address: "15 rue du Louvre, Paris"
+      geolocalize: "Pinpoint "
     edit:
       title: "Update stop %{stop_area}"
     show:
@@ -36,10 +47,12 @@ en:
       genealogical_routing: "Routing constraint's links"
     index:
       title: "Stop areas"
-      name_or_country_code: "Name or Country code"
+      name: "Search by name"
+      country_code: "Postal Code : 78000"
       selection: "Filter on"
       selection_all: "All"
       area_type: "Area Type"
+      advanced_search: "Advanced Search"
     access_links: 
       title: "Access links for %{stop_area}'s access"
       generic_access_links: "Glogal links"
@@ -76,6 +89,7 @@ en:
         projection: "Projection type"
         projection_x: "x-position"
         projection_y: "y-position"
+        projection_xy: "position (x,y) %{projection}"
         long_lat_type: "Projection type"
         longitude: "Longitude"
         latitude: "Latitude"
@@ -87,11 +101,16 @@ en:
         routing_stop_ids: "Attached stops"
         routing_line_ids: "Attached lines"
         parent: "Parent"
+        coordinates: "Coordinates (lat,lng) WGS84"
+        zip_code: "Zip code"
+        city_name: "City"
   formtastic:
-    hints:
+    titles:
       stop_area:
         registration_number: "only alphanumerical or underscore characters" 
         objectid: "[prefix]:StopArea:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+        coordinates: "latitude,longitude in WGS84 referential, dot for decimal separator"
+        projection_xy: "x,y in secondary referential, dot for decimal separator"
 
 fr:
   stop_areas:
@@ -99,13 +118,18 @@ fr:
     stop_area:
       no_position: "Pas de position" 
       lines: "Lignes :"
+      general: "General"
+      localisation: "Localisation"
+      accessibility: "Accessibilité"
     actions:
       new: "Ajouter un arrêt"
       edit: "Modifier cet arrêt"
       destroy: "Supprimer cet arrêt"
-      destroy_confirm: "Etes vous sûr de supprimer cet arrêt ?"
+      destroy_confirm: "Etes vous sûr de supprimer cet arrêt ainsi que tous ses fils?"
       select_parent: "Gérer le parent"
       add_children: "Gérer les fils"
+      clone_as_parent: "Cloner pour créer un père"
+      clone_as_child: "Cloner pour créer un fils"
       add_routing_lines: "Gérer les lignes de l'ITL"
       add_routing_stops: "Gérer les arrêts de l'ITL"
       manage_access_points: "Gérer les accès"
@@ -115,8 +139,14 @@ fr:
       export_kml_place: "Export KML des pôles d'échange"
       export_kml_commercial: "Export KML des arrêts commerciaux"
       export_kml_physical: "Export KML des arrêts physiques"
+      export_hub_place: "Export HUB des pôles d'échange"
+      export_hub_commercial: "Export HUB des arrêts commerciaux"
+      export_hub_physical: "Export HUB des arrêts physiques"
     new:
       title: "Ajouter un arrêt"
+    form:
+      address: "15 rue du Louvre, Paris"
+      geolocalize: "Géolocalisez "
     edit:
       title: "Modifier l'arrêt %{stop_area}"
     show:
@@ -137,11 +167,13 @@ fr:
       access_link_legend_1: "Les flêches grises représentent des liens non définis"
       access_link_legend_2: "cliquer sur les flêches pour créer/éditer un lien"
     index:
-      name_or_country_code: "Nom ou Code INSEE"
+      name: "Recherche par nom"
+      country_code: "Code Postal : 78000"
       title: "Arrêts"
       selection: "Filtrer sur"
       selection_all: "Tous"
       area_type: "Type d'arrêt"
+      advanced_search: "Recherche avancée"
     select_parent:
       title: "Gérer le parent de l'arrêt %{stop_area}"
     add_children:
@@ -173,6 +205,7 @@ fr:
         projection: "Projection"
         projection_x: "Position X"
         projection_y: "Position Y"
+        projection_xy: "Position (x,y) %{projection}"
         long_lat_type: "Projection"
         longitude: "Longitude"
         latitude: "Latitude"
@@ -184,10 +217,15 @@ fr:
         routing_stop_ids: "Arrêts concernés par l'ITL"
         routing_line_ids: "Lignes affectées par l'ITL"
         parent: "Parent"
+        coordinates: "Coordonnées (lat,lng) WGS84"
+        zip_code: "Code postal"
+        city_name: "Commune"
   formtastic:
-    hints:
+    titles:
       stop_area:
         registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
         objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+        coordinates: "latitude,longitude dans le référentiel WGS84, le séparateur de décimales est 'point'"
+        projection_xy: "x,y dans le référentiel secondaire, le séparateur de décimales est 'point'"
 
 

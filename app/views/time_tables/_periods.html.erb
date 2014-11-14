@@ -1,39 +1,4 @@
   <ul class='periods'>
-    <p>
-      <label><%= @time_table.human_attribute_name("day_types") %>:&nbsp;&nbsp;</label>
-      <% if @time_table.int_day_types & 508 == 0 %>
-        <label><%= @time_table.human_attribute_name("none") %></label>
-      <% else %>  
-	      <% if @time_table.monday %> 
-	      	<span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("monday") %>&nbsp;</span>
-	      <% end %>	
-	      
-	      <% if @time_table.tuesday %> 
-	      	<span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("tuesday") %>&nbsp;</span>
-	      <% end %>	
-	      
-	      <% if @time_table.wednesday %> 
-	        <span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("wednesday") %>&nbsp;</span>
-	      <% end %>	
-	      
-	      <% if @time_table.thursday %> 
-	      	<span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("thursday") %>&nbsp;</span>
-	      <% end %>	
-	      
-	      <% if @time_table.friday %> 
-	      	<span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("friday") %>&nbsp;</span>
-	      <% end %>	
-	      
-	      <% if @time_table.saturday %> 
-	      	<span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("saturday") %>&nbsp;</span>
-	      <% end %>	
-	      
-	      <% if @time_table.sunday %> 
-	      	<span class='day_type'>&nbsp;<%= @time_table.human_attribute_name("sunday") %>&nbsp;</span>
-	      <% end %>	
-      <% end %>	
-      
-    </p>
     <% @time_table.periods.each do |tmp| %>
     <li class='period'><%= t('time_tables.show.from')%> <%= l tmp.period_start %> <%= t('time_tables.show.to')%> <%= l tmp.period_end %>
     </li>

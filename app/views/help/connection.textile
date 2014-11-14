@@ -1,0 +1,28 @@
+---
+layout: default
+title: Accès
+---
+
+h3. Adresse d'accès
+
+L’utilisateur peut utiliser l’application CHOUETTE depuis le site www.chouette.mobi (recommandé) ou bien procéder à l’installation du logiciel directement sur son environnement personnel, en tant que serveur ou machine virtuelle. CHOUETTE est également disponible sans la web application, en ligne de commande (documentation séparée).
+
+CHOUETTE est une application web, elle peut donc être utilisée depuis n'importe quel poste relié à Internet.
+
+h3. Utilisateurs et organisations
+
+Lorsqu’un utilisateur s’enregistre dans l’application, il crée alors une organisation qui lui appartient.
+
+Il peut ensuite inviter des personnes à y accéder en créant leur compte dans l’onglet Organisation.
+
+!2014-10-30_173033.png! Accès au menu organisation
+
+Un utilisateur ne peut pas appartenir à plusieurs organisations.
+
+h3. Identification
+
+L'accès à CHOUETTE se fait par une identification par identifiant / mot de passe. 
+
+Une fois identifié, l’utilisateur accède à un écran organisé autour des données à gérer. Chacune d'entre-elle se présente sous la forme d'un espace de données. A l'intérieur de chaque espace de données, des menus permettent de gérer (créer, modifier, supprimer) chaque type de données. 
+
+L’application est disponible également en version anglaise et comprend le glossaire du présent manuel en ligne.

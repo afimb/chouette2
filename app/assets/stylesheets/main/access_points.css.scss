@@ -3,26 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #workspace.access_points.index
-{   
-    .access_point {
-        /* to create multi-column index */
-        width: 250px;
-        float: left;
-        padding-right: 10px;
-
-        .access_type {
-            width: 25px;
-            height: 64px;
-            float: left;
-            margin-right: 10px;
-            
-
-            a {
-                text-decoration: none;                   
-            }
-        }
-
-    }
+{     
 }
 
 #workspace.access_points.edit,#workspace.access_points.new,#workspace.access_points.create,#workspace.access_points.update
@@ -51,35 +32,41 @@
     }
     
     .access_link_pairs {
+
+        table{
+            border: 0px;
+            border-collapse: separate;
+            border-spacing: 3px;
+        }          
         
         .link {
-          border: 2px solid black;
+            border: 2px solid black;
         }
+        
         .access_point{
-            float: left;
             padding: 3px 15px 0px 3px;
             height: 25px;        
             * { vertical-align:middle; }
             span { margin-left: 7px; }
             img { margin: 0px 5px 0px 5px;}
         }
+        
         .stop_area{
-            float: left;
             padding: 3px 15px 0px 3px;
             height: 25px;        
             * { vertical-align:middle; }
             span { margin-left: 7px; }
             img { margin: 0px 5px 0px 5px;}
         }
-      
-      .info {
-          font-size: 10px;
-          color: #777;
-          font-weight: normal;
-          padding-top: 0px;
-          padding-left: 45px;
-          padding-right: 3px;
-          padding-bottom: 3px;
+        
+        .info {
+            font-size: 10px;
+            color: #777;
+            font-weight: normal;
+            padding-top: 10px;
+            padding-left: 45px;
+            padding-right: 3px;
+            padding-bottom: 3px;
         }
     }
 

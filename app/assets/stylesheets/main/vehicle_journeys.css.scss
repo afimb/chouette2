@@ -4,18 +4,56 @@
 
 #workspace.vehicle_journeys.edit, #workspace.vehicle_journeys.update, #workspace.vehicle_journeys.create, #workspace.vehicle_journeys.new
 {
-    #route_color{ width: 100px;
-                 color: white;
-                 font-weight: bold;}
+    #route_color{
+        width: 100px;
+        color: white;
+        font-weight: bold;
+    }
+
     .journey_pattern_dependent_list {
         tr.no_stop { display: none; }
     }
+
     .time_table_list { padding-left: 25%; }
-    .vehicle_journey_at_stops { margin-left: 25%; }
+
+    .vehicle_journey_at_stops {
+        margin-left: 25%;
+
+        .title{
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        span{
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .slide{
+            margin-left: 30px;
+
+        }
+    }
 }
 
 #workspace.vehicle_journeys.index
 {
+    #search{
+
+        ul.token-input-list{
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 15px;
+        }
+
+        .advanced_search{ margin-left: 40px; }
+        
+        .time_tables_id_eq{ margin-left: 20px;  }
+
+        .vehicle_journey_at_stops_departure_time_gt{ margin-left: 20px; }
+
+    }
+
     table{
 
         margin: 20px 0 0 0;
@@ -25,47 +63,46 @@
         }
 
         .stop_area{ width: 200px; }
-    }   
-    
+
+        td.hours{
+            text-align: center;
+        }
+
+        tr th.vehicle_journey{
+            text-align: center;
+        }
+    }
+
 }
 
-#workspace.vehicle_journeys.show, #workspace.vehicle_journeys.edit, #workspace.vehicle_journeys.update, #workspace.vehicle_journeys.create, #workspace.vehicle_journeys.new {                                 
-    
+#workspace.vehicle_journeys.show, #workspace.vehicle_journeys.edit, #workspace.vehicle_journeys.update, #workspace.vehicle_journeys.create, #workspace.vehicle_journeys.new {
+
     .to_departures {
         cursor: pointer;
     }
-    
+
     .to_arrivals {
         cursor: pointer;
-    }            
+    }
+
+    .slide {
+        cursor: pointer;
+    }
 }
 
 #workspace.vehicle_journeys.show
 {
     .summary p label {
         font-weight: bold;
-    }   
-
-    .time_tables {
-        margin-top: 20px;
-    }   
-
-    .time_table {
-        span.included_day_type {
-            font-weight: bolder;
-            color: black;
-        }
-        span.excluded_day_type {
-        }
     }
-}        
+}
 
 #workspace.vehicle_journeys.timeless
 {
     .summary p label {
         font-weight: bold;
     }
-   
+
     .vehicle_journeys {
         margin-top: 20px;
     }
@@ -74,12 +111,11 @@
 
         span.included_day_type {
             font-weight: bolder;
-            color: black;
         }
         span.excluded_day_type {
         }
     }
-}        
+}
 
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140207162334) do
+ActiveRecord::Schema.define(:version => 20140820074844) do
 
   create_table "access_links", :force => true do |t|
     t.integer  "access_point_id",                        :limit => 8
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(:version => 20140207162334) do
     t.boolean  "mobility_restricted_suitability"
     t.boolean  "stairs_availability"
     t.integer  "stop_area_id",                    :limit => 8
+    t.string   "zip_code"
+    t.string   "city_name"
   end
 
   add_index "access_points", ["objectid"], :name => "access_points_objectid_key", :unique => true
@@ -279,6 +281,7 @@ ActiveRecord::Schema.define(:version => 20140207162334) do
     t.string   "comment"
     t.boolean  "mobility_restricted_suitability"
     t.integer  "int_user_needs"
+    t.boolean  "flexible_service"
   end
 
   add_index "lines", ["objectid"], :name => "lines_objectid_key", :unique => true
@@ -389,6 +392,8 @@ ActiveRecord::Schema.define(:version => 20140207162334) do
     t.boolean  "stairs_availability"
     t.boolean  "lift_availability"
     t.integer  "int_user_needs"
+    t.string   "zip_code"
+    t.string   "city_name"
   end
 
   add_index "stop_areas", ["objectid"], :name => "stop_areas_objectid_key", :unique => true
@@ -411,6 +416,26 @@ ActiveRecord::Schema.define(:version => 20140207162334) do
 
   add_index "stop_points", ["objectid"], :name => "stop_points_objectid_key", :unique => true
 
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       :limit => 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], :name => "taggings_idx", :unique => true
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", :force => true do |t|
+    t.string  "name"
+    t.integer "taggings_count", :default => 0
+  end
+
+  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
+
   create_table "time_slots", :force => true do |t|
     t.string   "objectid",                     :null => false
     t.integer  "object_version"
@@ -429,6 +454,7 @@ ActiveRecord::Schema.define(:version => 20140207162334) do
     t.integer "time_table_id", :limit => 8, :null => false
     t.date    "date"
     t.integer "position",                   :null => false
+    t.boolean "in_out"
   end
 
   add_index "time_table_dates", ["time_table_id"], :name => "index_time_table_dates_on_time_table_id"
@@ -514,11 +540,11 @@ ActiveRecord::Schema.define(:version => 20140207162334) do
   add_index "vehicle_journey_at_stops", ["vehicle_journey_id"], :name => "index_vehicle_journey_at_stops_on_vehicle_journey_id"
 
   create_table "vehicle_journeys", :force => true do |t|
-    t.integer  "route_id",                     :limit => 8
-    t.integer  "journey_pattern_id",           :limit => 8
-    t.integer  "time_slot_id",                 :limit => 8
-    t.integer  "company_id",                   :limit => 8
-    t.string   "objectid",                                  :null => false
+    t.integer  "route_id",                        :limit => 8
+    t.integer  "journey_pattern_id",              :limit => 8
+    t.integer  "time_slot_id",                    :limit => 8
+    t.integer  "company_id",                      :limit => 8
+    t.string   "objectid",                                     :null => false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
@@ -529,7 +555,9 @@ ActiveRecord::Schema.define(:version => 20140207162334) do
     t.string   "published_journey_identifier"
     t.string   "facility"
     t.string   "vehicle_type_identifier"
-    t.integer  "number",                       :limit => 8
+    t.integer  "number",                          :limit => 8
+    t.boolean  "mobility_restricted_suitability"
+    t.boolean  "flexible_service"
   end
 
   add_index "vehicle_journeys", ["objectid"], :name => "vehicle_journeys_objectid_key", :unique => true

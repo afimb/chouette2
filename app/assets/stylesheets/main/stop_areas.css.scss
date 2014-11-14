@@ -4,30 +4,27 @@
 
 #workspace.stop_areas.index
 {
-    
-    .stop_area {
-
-        .area_type {
-            width: 25px;
-            height: 64px;
-            float: left;
-            margin-right: 10px;
-            
-
-            a {
-                text-decoration: none;                   
-            }
-        }
-
-    }
+    #country_codes { display: none; }
 }
 
-#workspace.stop_areas.edit {
+#workspace.stop_areas.edit, #workspace.stop_areas.new, #workspace.stop_areas.update, #workspace.stop_areas.create {
     legend { padding-bottom: 20px; }
 
+    #prefetch { 
+    	  padding: 10px 10px 20px 10px;
+        
+	      label{
+	          font-size: 16px;
+	          margin-right: 25px;
+	      }
+
+        input{ width: 330px; }
+    }
+    
     #map{
         float:none;
         width: 100%;
+        height: 450px;
     }
 }
 
@@ -104,21 +101,7 @@
             height: 25px;
         }
     }
-    .access_point {   
 
-        .access_type {
-            width: 25px;
-            height: 64px;
-            float: left;
-            margin-right: 10px;
-            
-
-            a {
-                text-decoration: none;                   
-            }
-        }
-
-    }
 }
 
 #workspace.stop_areas.select_parent
