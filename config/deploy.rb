@@ -69,9 +69,9 @@ namespace :deploy do
     run "mkdir -p /var/lib/chouette/validations"
     run "mkdir -p /usr/local/opt/chouette-command/"
     run "cd /usr/local/opt/chouette-command && wget #{maven_repo}/fr/certu/chouette/chouette-gui-command/#{gui_cmd}/chouette-gui-command-#{gui_cmd}.zip"
-    run "cd /usr/local/opt/chouette-command && rm -rf chouette-cmd-#{gui_cmd}"
+    run "cd /usr/local/opt/chouette-command && rm -rf chouette-cmd_#{gui_cmd}"
     run "cd /usr/local/opt/chouette-command && unzip chouette-gui-command-#{gui_cmd}.zip"
-    run "cd /usr/local/opt/chouette-command/chouette-cmd-#{gui_cmd} && chmod a+w ."
+    run "cd /usr/local/opt/chouette-command/chouette-cmd_#{gui_cmd} && chmod a+w . && sudo chgrp -R wheel ."
   end
 
   desc "Make group writable all deployed files"
