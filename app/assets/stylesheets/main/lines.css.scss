@@ -23,20 +23,24 @@
 
 #workspace.lines.edit, #workspace.lines.new, #workspace.lines.create, #workspace.lines.update
 {
-    #line_color{ width: 100px;
+    #line_color_old{ width: 100px;
                  color: white;
                  font-weight: bold;}
 }
 
 #workspace.lines.show
 {
-    .line_color{ color: white;
-                 font-weight: bold;
-                 padding: 0 5px 0 5px;}
-
-    .summary p label {
+    .summary p 
+    {
+      label {
         font-weight: bold;
+      }
+      .color
+      {
+        padding: 3px 15px 3px 15px;
+      }
     }
+
     .group_of_line {   
 
         .position {

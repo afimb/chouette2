@@ -35,6 +35,8 @@
       <%= form.input :fare_code, :as => :number %>
       <%= form.input :nearest_topic_name %>
       <%= form.input :comment, :as => :text, :input_html => { :rows => 5 } %>
+      <%= form.input :time_zone,  :include_blank => true  %>
+      <%= form.input :url %>
     <% end %>
   </div>
   <div class="pmr_info">

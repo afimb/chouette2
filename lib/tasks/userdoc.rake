@@ -27,16 +27,21 @@ namespace :doc do
     Dir.chdir "tmp/doc"
     system "pandoc -s -o ../../userdoc.docx temp.textile"
     
-    # clean working directory
-    puts "clean temp files"
-    Dir.chdir "../.."
-    FileUtils.rm_r("tmp/doc") if File.exist?("tmp/doc")
+    if !File.exists?("userdoc.docx")
+      puts "pandoc failed to produce document"
+    else  
+      # patch docx
+      patch_docx "userdoc.docx"
+      
+      # clean working directory
+      puts "clean temp files"
+      Dir.chdir "../.."
+      FileUtils.rm_r("tmp/doc") if File.exist?("tmp/doc")
+      
+      # end job
+      puts "User doc completed"
+    end
     
-    # patch docx
-    patch_docx "userdoc.docx"
-    
-    # end job
-    puts "User doc completed"
   end
   
   def merge_textiles

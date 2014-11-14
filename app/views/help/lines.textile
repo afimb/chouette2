@@ -52,12 +52,15 @@ Dans le menu latéral situé à droite, un lien _"activer la sélection multiple
 h3. Attributs d'une ligne
 
 * Réseau : réseau d'appartenance de la ligne
-*  Transporteur : transporteur principal exploitant la ligne. Dans le cas où plusieurs transporteurs assurent le service d'une même ligne, les autres transporteurs peuvent être référencés au niveau de chaque course
+* Transporteur : transporteur principal exploitant la ligne. Dans le cas où plusieurs transporteurs assurent le service d'une même ligne, les autres transporteurs peuvent être référencés au niveau de chaque course
 * Nom : nom de la ligne 
 * Nom public : nom de la ligne connu des usagers
 * Numéro d'enregistrement : code référençant une ligne au sein d'une autorité supérieure
-* Indice : indice de la ligne [préciser]
+* Indice : indice ou numéro de la ligne (ce champ n'est pas obligatoirement numérique)
 * Mode de transport : mode de transport principal de la ligne. Le cas échéant, d'autres modes de transports particuliers peuvent être indiqués au niveau de chaque course. 
+* Couleur du tracé	: couleur en rvb hexadécimal du tracé de ligne et du fond de texte
+* Couleur de texte	: couleur en rvb hexadécimal du texte du nom de la ligne
+* Page web associée	: adresse http ou https de la page du site public décrivant la ligne
 * Accessibilité PMR	: précise si la ligne est équipée PMR
 * Transport à la demande : précise si la ligne est en exploitation à la demande ou pas [préciser si c'est également définissable au niveau de la course]
 * Commentaire : zone de texte libre sur la ligne
