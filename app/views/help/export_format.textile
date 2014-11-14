@@ -27,6 +27,7 @@ Les options des différents formats apparaissent en fonction de celui qui a ét�
 ** Début de période : permet d'exporter uniquement les courses circulant à partir de cette date
 ** Fin de période : permet d'exporter uniquement les courses circulant jusqu'à cette date
 * *GTFS* :
+** Préfixe d'identifiant Neptune à ignorer : Lorsque ce préfixe est rencontré dans l'identifiant Neptune, celui-ci n'est pas utilisé pour générer l'identifiant GTFS . La valeur proposée par défaut est celle de l'espace de données.
 ** Fuseau horaire : fixe le fuseau horaire (paramètre obligatoire des données GTFS). La valeur proposée par défaut est celle de l'espace de données.
 ** Données incluses (complément) : le choix des arrêts permet de n'exporter que les fichiers d'arrêts (stops.txt) et de correspondances (transfers.txt). 3 champs sont alors ajoutés : l'adresse, la localité et le code postal; ceux-ci seront exploités en retour sur l'import GTFS d'arrêts.
 * *NeTex* : pas d'option particulière

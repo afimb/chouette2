@@ -41,10 +41,12 @@ h3. Attributs d'un transporteur
 * Nom court : nom abrégé du transporteur
 * Nom d'unité : nom de l'unité de gestion dans la société de transport
 * Nom du département : nom du département dans la société de transport
-* Code postal : code postal de l'adresse de la société de transport
+* Code : code de la société de transport
 * Numéro de téléphone : Numéro de téléphone de l'unité de gestion
 * Numéro de fax : Numéro de fax de l'unité de gestion
 * Email : adresse électronique de l'unité de gestion de l'unité de gestion
+* Fuseau horaire : fuseau horaire applicable aux courses de ce transporteur (si différent de celui de l'espace de données)  
+* Page web associée	: adresse http ou https de la page du site public décrivant le transporteur
 * Numéro d'enregistrement : code référençant un transporteur au sein d'une autorité supérieure
 
 

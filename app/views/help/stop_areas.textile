@@ -76,6 +76,9 @@ h3. Attributs d'un arrêt
 * Code INSEE : code INSEE de la commune de l'arrêt
 * Zone tarifaire : zone de tarification applicable à cet arrêt
 * Numéro d'enregistrement : code référençant un arrêt au sein d'une autorité supérieure
+* Fuseau horaire : fuseau horaire applicable à cet arrêt (si différent de celui de l'espace de données)  
+* Page web associée	: adresse http ou https de la page du site public décrivant l'arrêt
+
 
 * Position X : coordonnée horizontale de l'arrêt dans le référentiel de projection de l'espace de données
 * Position Y : coordonnée verticale de l'arrêt dans le référentiel de projection de l'espace de données
