@@ -1,13 +1,13 @@
-<%= title_tag t('.title') %>
+<div class="panel panel-default">
+  <div class="panel-heading"><%= t('.title') %></div>
+  <div class="panel-body">
+    <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name)) do |form| %>
+      <%= form.input :email %> 
 
-<%= semantic_form_for(resource, :as => resource_name, :url => password_path(resource_name)) do |form| %>
-  <%= form.inputs :email %> 
-  
-  <%= form.actions do %>
-    <%= form.action :submit, :as => :button, :label => t('.commit') %>
-    <%= form.action :cancel, :as => :link %>
-  <% end %>
+      <%= link_to t("cancel"), root_path, :class => "btn btn-default" %>    
+      <%= form.button :submit, :value => t("devise.passwords.new.commit") %>
+    <% end %>
+  </div>
+</div>
 
-<% end %>
 
-<%= render "links" %>

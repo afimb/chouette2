@@ -5,7 +5,6 @@
    private
 
    def accept_user_creation
-     puts "J'y passe"
      if !Rails.application.config.accept_user_creation
        redirect_to root_path
        return false

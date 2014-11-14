@@ -16,23 +16,25 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
   </head>
-  <body>
+  <body id="devise">
     <div id="header">
       <%= render partial: "shared/header" %>
     </div>
-    <div id="middle" class="container">
-      <div class="row">
-        <div class="col-md-12">
+    <div class="front_bg">      
+      <div id="devise_middle" class="container">
+        <div class="row">
+        <div class="<%= content_for?(:sidebar) ? 'col-md-9' : 'col-md-12' %>">
           <div id="workspace" class="<%= controller_name %> <%= action_name %>">
             <%= render partial: "shared/flash_messages", flash: flash %>
             <%= render partial: "shared/breadcrumb" %>
             <%= yield %>
           </div>
         </div>
+        </div>
       </div>
-    </div>
-    <div id="footer">
-      <%= render partial: "shared/footer" %>
-    </div>
+      <div id="footer">
+        <%= render partial: "shared/footer" %>
+      </div>
+    </div>    
   </body>
 </html>

@@ -11,7 +11,7 @@ en:
         title: Resend confirmation instructions
     registrations:
       new:
-        title: Sign up
+        title: "Sign up"
         commit: Sign up
       edit:
         title: "Your profile"
@@ -36,6 +36,7 @@ en:
   helpers:
     label:
       user:
+        email: "Email"
         organisation_name: "Organisation name"
         name: Full name
         password: Password

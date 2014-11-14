@@ -5,6 +5,7 @@ $navbar-default-link-color: white;
 $body-bg: #eee;
 
 // Then bootstrap itself
+@import "bootstrap-sass-official/_bootstrap-sprockets.scss";
 @import "bootstrap-sass-official";
 
 // Whatever application styles you have go last
@@ -12,6 +13,7 @@ $body-bg: #eee;
 @import "modules/search";
 @import "modules/index_item";
 @import "modules/icons";
+@import "modules/devise";
 
 // Partials
 @import "partials/header";
@@ -36,6 +38,7 @@ $body-bg: #eee;
 @import "vendor/token-input";
 @import "vendor/typeahead";
 @import "vendor/bootstrap_changes";
+@import "vendor/simple_form";
 
 // Main css
 @import "main/*";
