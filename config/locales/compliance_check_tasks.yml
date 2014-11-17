@@ -23,6 +23,7 @@ en:
       destroy: "Destroy this validation"
       edit: "Edit this validation"
       rule_parameter_set: "Rule parameter set"
+      download: "Download"
     statuses:
       pending: "Pending"
       processing: "Processing"
@@ -89,6 +90,7 @@ fr:
       destroy: "Supprimer cette validation"
       edit: "Editer cette validation"
       rule_parameter_set: "Jeu de paramètres"
+      download: "Télécharger"
     statuses:
       pending: "En attente ..."
       processing: "En cours ..."

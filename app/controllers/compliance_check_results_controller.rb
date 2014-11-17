@@ -1,11 +1,14 @@
 class ComplianceCheckResultsController < ChouetteController
+  
   respond_to :json
   respond_to :js, :only => :index
+  respond_to :csv, :only => :index
   belongs_to :compliance_check_task
 
-  def index    
+  def index
     index! do |format|
       format.html { render :layout => false }
+      format.csv { send_file collection[0].compliance_check_task.file, :type => "text/html; charset=utf-8" }
     end
   end
 

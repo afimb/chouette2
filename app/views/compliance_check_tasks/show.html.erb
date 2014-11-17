@@ -31,6 +31,7 @@
 </div>
 <% content_for :sidebar do %>
 <ul class="actions">
+  <li><%= link_to t('compliance_check_tasks.actions.download'), referential_compliance_check_task_compliance_check_results_path(@referential, @compliance_check_task)+".csv" %></il>
   <li><%= link_to  t('compliance_check_tasks.actions.destroy'), referential_compliance_check_task_path(@referential, @compliance_check_task), :method => :delete,  :data => {:confirm =>  t('compliance_check_tasks.actions.destroy_confirm')}, :class => "remove" %></li>
 </ul>
 

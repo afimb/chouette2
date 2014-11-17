@@ -262,7 +262,17 @@ en:
         rule_code: "Code"
         violation_count: "Violation(s)"
         detail: "Detail"
-
+        url: "URL"
+        one: "Violation n° 1"
+        two: "Violation n° 2"
+        three: "Violation n° 3"
+        four: "Violation n° 4"
+        five: "Violation n° 5"
+        six: "Violation n° 6"
+        seven: "Violation n° 7"
+        eight: "Violation n° 8"
+        nine: "Violation n° 9"
+        ten: "Violation n° 10"
 fr:
   compliance_check_results:
     index:
@@ -402,7 +412,6 @@ fr:
       detail_3_vehiclejourney_6: "La course %{objectId} a un mode de transport interdit %{transportMode}"
       detail_3_facility_1: "L'équipement %{name} (%{objectId}) n'est pas géolocalisé"
       detail_3_facility_2: "L'équipement %{name} (%{objectId}) est localisé trop loin de son parent %{areaName} (%{areaId}) : distance %{distance} > %{distanceLimit}"
-
   activerecord:
     models:
       compliance_check_result:
@@ -526,4 +535,15 @@ fr:
         rule_code: "Code"
         violation_count: "Violation(s)"
         detail: "Détail"
+        url: "URL"
+        one: "Violation n° 1"
+        two: "Violation n° 2"
+        three: "Violation n° 3"
+        four: "Violation n° 4"
+        five: "Violation n° 5"
+        six: "Violation n° 6"
+        seven: "Violation n° 7"
+        eight: "Violation n° 8"
+        nine: "Violation n° 9"
+        ten: "Violation n° 10"
 
