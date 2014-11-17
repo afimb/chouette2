@@ -12,7 +12,7 @@
     <% if colors?(@line) %>
 	    <p>
 	    	<label><%= t('lines.index.color') %>: </label>
-	    	<label class="color" style='<%="color: #{text_color(@line)}; background-color: #{background_color(@line)};"%>'><%= line_sticker(@line) %></label>
+	    	<label class="color" style='<%="#{number_style(@line)}"%>'><%= line_sticker(@line) %></label>
 	    </p>	
     <% end %>
     <p>

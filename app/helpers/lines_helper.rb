@@ -16,4 +16,13 @@ module LinesHelper
   def background_color(line)
     line.color.blank? ? "white" : "#"+line.color
   end
+  
+  def number_style(line)
+    if colors?(line)
+      number_style = "color: #{text_color(line)}; background-color: #{background_color(line)};"
+    else 
+      number_style = ""
+    end
+
+  end
 end
