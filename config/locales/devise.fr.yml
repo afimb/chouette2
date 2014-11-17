@@ -10,6 +10,11 @@ fr:
       new:
         title: Se connecter
         commit: Se connecter
+        welcome: "Bienvenue sur Chouette"
+        introduction1: "Chouette est un logiciel Open Source d'édition et d'échange d'offre de transport public planifiée."
+        introduction2: "Le logiciel est mis à disposition en mode Saas et se veut ouvert :"
+        introduction_item1: "visualisation cartographique des lignes, des arrêts, des parcours..."
+        introduction_item2: "échange de données selon différents formats (Neptune, GTFS)"
     confirmations:
       new:
         title: Renvoyer le mail de confirmation
