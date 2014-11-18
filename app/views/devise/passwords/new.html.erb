@@ -1,12 +1,16 @@
-<div class="panel panel-default">
-  <div class="panel-heading"><%= t('.title') %></div>
-  <div class="panel-body">
-    <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name)) do |form| %>
-      <%= form.input :email %> 
+<div class="col-md-offset-2 col-md-8">
+  <div class="panel panel-default">
+    <div class="panel-heading"><%= t('.title') %></div>
+    <div class="panel-body">
+      <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name)) do |form| %>
+      <%= form.input :email, :as => :email, placeholder: 'user@domain.com'  %> 
 
-      <%= link_to t("cancel"), root_path, :class => "btn btn-default" %>    
-      <%= form.button :submit, :value => t("devise.passwords.new.commit") %>
-    <% end %>
+      <div class="col-md-offset-2">
+        <%= link_to t("cancel"), root_path, :class => "btn btn-default" %>    
+        <%= form.button :submit, :value => t("devise.passwords.new.commit"), :class => "btn-info" %>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
 

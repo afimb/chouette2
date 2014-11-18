@@ -1,6 +1,12 @@
 #devise{
     background-color: $gray-light;
 
+    .passwords.new{
+        input{
+            width: initial !important;
+        }
+    }
+    
     .front_bg{        
         background: url(image-path('welcome.jpg')) no-repeat center center;
         background-size: cover;
