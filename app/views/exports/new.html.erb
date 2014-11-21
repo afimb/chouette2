@@ -7,26 +7,26 @@
 <% end %>
 
 <% @available_exports.each do |export| %>
-<%= semantic_form_for [@referential, export], :as => :export, :url => referential_exports_path(@referential), :html => { :id => "#{export.type}_new",  :style => ('display: none' unless @export == export)} do |form| %>
+  <%= semantic_form_for [@referential, export], :as => :export, :url => referential_exports_path(@referential), :namespace => export.type.underscore ,:html => { :id => "#{export.type}_new",  :style => ('display: none' unless @export == export)} do |form| %>
     <%= form.inputs do %>
       <%= fields_for_export_type form %>
     <% end %>
-  <%= form.inputs do %>
-    <%= form.input :type, :as => :hidden %>
+    <%= form.inputs do %>
+      <%= form.input :type, :as => :hidden %>
 
-    <p class="warning"><%= t('.'+export_partial_name(form)+'.warning',:default => "")%></p>
-    <%= form.input :references_type, :as => :select, :collection => export.references_types.map { |c| [ c.model_name.human.capitalize.pluralize, c.name ] }, :include_blank => t(".all") %>
+      <p class="warning"><%= t('.'+export_partial_name(form)+'.warning',:default => "")%></p>
+      <%= form.input :references_type, :as => :select, :collection => export.references_types.map { |c| [ c.model_name.human.capitalize.pluralize, c.name ] }, :include_blank => t(".all") %>
 
-    <% export.references_types.each do |type| %>
-      <%= type_ids_model_references_input(form, @export, Export, type).input %>
+      <% export.references_types.each do |type| %>
+        <%= type_ids_model_references_input(form, @export, Export, type).input %>
+      <% end %>
+    <% end %>
+
+    <%= form.actions do %>
+      <%= form.action :submit, :as => :button , :label => t( 'formtastic.export' ) %>
+      <%= form.action :cancel, :as => :link %>
     <% end %>
   <% end %>
-
-   <%= form.actions do %>
-     <%= form.action :submit, :as => :button , :label => t( 'formtastic.export' ) %>
-     <%= form.action :cancel, :as => :link %>
-   <% end %>
-<% end %>
 <% end %>
 
 <%= javascript_include_tag new_referential_export_path(@referential, :format => :js) %>
