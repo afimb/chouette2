@@ -6,7 +6,7 @@ class TimeTableCombination
   attr_accessor :source_id, :combined_id, :operation 
   
   validates_presence_of :source_id, :combined_id, :operation 
-  validates_inclusion_of :operation, :in =>  %w( union intersection disjunction)
+  validates_inclusion_of :operation, :in =>  %w( union intersection disjunction), :allow_nil => true
     
   def clean
     self.source_id = nil
