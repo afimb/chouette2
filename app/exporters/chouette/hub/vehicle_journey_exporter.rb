@@ -24,7 +24,8 @@ class Chouette::Hub::VehicleJourneyExporter
     @departure_time_sec = departure_time.sec + ( departure_time.min + departure_time.hour * 60 ) * 60
     @arrival_time_sec = arrival_time.sec + ( arrival_time.min + arrival_time.hour * 60 ) * 60
     @validity = 0
-    @vehicle_journey.time_tables.map(&:int_day_types).each { |v| @validity |= v }
+    #@vehicle_journey.time_tables.map(&:int_day_types).each { |v| @validity |= v }
+    @vehicle_journey.time_tables.each { |t| @validity |= t.int_day_types if t.int_day_types }
     
     periods = Chouette::TimeTable.where( :id => @vehicle_journey.time_tables.map(&:id) ).map(&:objectid)
     @periods = ""
