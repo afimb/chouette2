@@ -48,7 +48,7 @@ en:
     index:
       title: "Stop areas"
       name: "Search by name"
-      country_code: "Postal Code : 78000"
+      zip_code: "Zip Code"
       selection: "Filter on"
       selection_all: "All"
       area_type: "Area Type"
@@ -170,7 +170,7 @@ fr:
       access_link_legend_2: "cliquer sur les flêches pour créer/éditer un lien"
     index:
       name: "Recherche par nom"
-      country_code: "Code Postal : 78000"
+      zip_code: "Code Postal"
       title: "Arrêts"
       selection: "Filtrer sur"
       selection_all: "Tous"

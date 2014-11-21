@@ -49,7 +49,7 @@ class StopAreasController < ChouetteController
 
   def index
     request.format.kml? ? @per_page = nil : @per_page = 12
-    @country_codes = referential.stop_areas.collect(&:country_code).compact.uniq
+    @zip_codes = referential.stop_areas.collect(&:zip_code).compact.uniq
     index! do |format|
       format.html {
         if collection.out_of_bounds?
@@ -110,9 +110,9 @@ class StopAreasController < ChouetteController
     redirect_to referential_stop_areas_path(@referential)
   end
 
-  def country_codes
+  def zip_codes
     respond_to do |format|
-      format.json { render :json => referential.stop_areas.collect(&:country_code).compact.uniq.to_json }
+      format.json { render :json => referential.stop_areas.collect(&:zip_code).compact.uniq.to_json }
     end
   end
 
