@@ -11,7 +11,7 @@ class StopAreaChildrenController < ChouetteController
   protected
 
   def children_maps
-    children.map { |c| c.attributes}
+    children.map {|area| area.attributes.merge( :area_type => t("area_types.label.#{area.area_type.underscore}"))}
   end
 
   def children
