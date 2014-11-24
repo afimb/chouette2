@@ -43,4 +43,5 @@ h4. Depuis le niveau _"arrêt commercial"_ ou _"Pôle d'échange"_
 
 Ces deux niveaux permettent à la fois de définir de nouveaux fils et de rattacher l'arrêt commercial à un parent de type "pôle d'échange". Ils disposent donc à la fois des fonctions de gestion et de clonage de parents et de fils. A noter que les arrêts de niveaux pôle d'échange qui sont hiérarchiquement les plus élevés peuvent avoir un et un seul autre pôle d'échange comme parent. Deux pôles d'échange peuvent être parents l'un de l'autre. 
 
-!2014-10-30_181044.png! Gestion de relation père-fils depuis un arrêt commercial
+!2014-10-30_181044.png! 
+Gestion de relation père-fils depuis un arrêt commercial

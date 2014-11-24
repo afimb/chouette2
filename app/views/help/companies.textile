@@ -15,7 +15,8 @@ h4. Liste des transporteurs
 
 Sélectionner _"Transporteurs"_ dans le menu _"Données"_ affiche la liste des Transporteurs existants dans l'espace de données. 
 
-!2014-10-30_175216.png! Liste des transporteurs
+!2014-10-30_175216.png! 
+Liste des transporteurs
 
 h4. Ajouter un transporteur
 

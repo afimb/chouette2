@@ -11,13 +11,14 @@ h3. Métadonnées d'un transporteur
 
 * Identifiant Neptune : Il s'agit d'un clé unique pérenne identifiant le transporteur pour les échanges Neptune. Cet identifiant est composé de 3 parties : 
 ** préfixe : clé identifiant un producteur de données unique
-** type = Company : clé identifiant le type d'objet (valeur imposée)
+** type : Company : clé identifiant le type d'objet (valeur imposée)
 ** id_technique : valeur identifiant un seul objet d'un type donné pour un même producteur. Ce champ obligatoire est automatiquement généré s'il n'est pas renseigné. Il est possible aussi de ne renseigner que l'identifiant technique, auquel cas la valeur sera complétée automatiquement.
 * Date de création : date à laquelle l'objet a été créé ou modifié pour la dernière fois
 * Version : version de l'objet (auto incrémenté à chaque modification)
 * Créé par : compte utilisateur ayant procédé à la dernière modification
 
-!2014-10-30_175715.png! Exemple d'identifiant Neptune
+!2014-10-30_175715.png! 
+Exemple d'identifiant Neptune
 
 h3. Clés
 

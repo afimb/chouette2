@@ -16,7 +16,8 @@ h3(#rol). Rôle
 
 p. L’import permet d’enregistrer dans la base un jeu de données d'offre TC, selon un format au choix. Des tests de validation des données sont exécutés avant l'import en base de données (plus détaillées dans le cas du format Neptune). Il est possible d'importer sans sauver en base, uniquement pour jouer les tests de vérification de conformité. Dans ce cas les tests en base de données (auxquels sont associés les jeux de paramètres) ne seront pas exécutés (et donc aucun test ne sera exécuté, pour des données CSV, GTFS, ou Netex).
 
-!2014-10-31_151613.png! Page des imports
+p=. !2014-10-31_151613.png! 
+Page des imports
 
 h3(#val). Validation
 

@@ -17,7 +17,8 @@ La création d'une mission se fait depuis la page d'une séquence d'arrêt. Pour
 
 En bas du formulaire les arrêts sélectionnés dans la séquence d'arrêts sont sélectionnables par des cases à cocher.
 
-!2014-10-31_113803.png! Sélection des arrêts d'une mission
+!2014-10-31_113803.png! 
+Sélection des arrêts d'une mission
 
 h3. Modifier une mission
 
@@ -31,10 +32,10 @@ La suppression de la mission est également possible depuis la page de la séque
 
 h3. Attributs
 
-* Nom := nom de la mission
-* Nom public := nom public pour les voyageurs
-* Numéro d'enregistrement := Le numéro d'enregistrement est unique. Aucune règle de nommage ne s'applique sur ce numéro. Celui-ci doit être unique sur l'ensemble des missions de la ligne.
-* Commentaire := zone de texte libre 
+* Nom : nom de la mission
+* Nom public : nom public pour les voyageurs
+* Numéro d'enregistrement : Le numéro d'enregistrement est unique. Aucune règle de nommage ne s'applique sur ce numéro. Celui-ci doit être unique sur l'ensemble des missions de la ligne.
+* Commentaire : zone de texte libre 
 
 
 

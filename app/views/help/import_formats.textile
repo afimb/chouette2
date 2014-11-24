@@ -5,7 +5,7 @@ title: Formats d'imports
 
 h3(#fmt). Formats disponibles
 
-* Neptune : format d'échange de données de transport en commun pour la France (cf "Normalisation":normalisation)
+* Neptune : format d'échange de données de transport en commun pour la France (cf "Normalisation":http://www.normes-donnees-tc.org/format-dechange/donnees-theoriques/)
 * NeTEx : format d'échange de données de transport en commun expérimental sur la future norme européenne ["NeTEx":http://www.normes-donnees-tc.org/format-dechange/donnees-theoriques/] mais limité au sous-ensemble des données définies dans le format Neptune
 * CSV : format tabulaire spécifique à Chouette  (cf "CSV":csv)
 * GTFS : format originaire de ["Google Transit":https://support.google.com/transitpartners/], à condition que le fichier soit préalablement validé avec l'outil Feed Validator =:

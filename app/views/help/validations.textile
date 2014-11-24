@@ -22,7 +22,7 @@ p. Les tests (« points de contrôle ») de validation Neptune sont décrits sur
 
 h3(#fmt). Formats disponibles 
 
-- Neptune := format normalisé des échanges de données de transport en commun pour la France (cf "Normalisation":normalisation)
+- Neptune := format normalisé des échanges de données de transport en commun pour la France
 - Données internes Chouette := tests sur les objets déjà importés ou créés/modifiés en base (Phase 3 uniquement)
 
 h3(#val). Onglet VALIDATIONS

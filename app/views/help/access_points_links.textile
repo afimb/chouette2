@@ -59,7 +59,8 @@ h3. Paramétrer les accès
 
 Cliquer sur l'une des flèches affiche le formulaire de paramétrage détaillé de l'accès pour le sens de circulation correspondant à la flèche. 
 
-!2014-10-30_181422.png! Définition des sens d'accès
+!2014-10-30_181422.png!
+Définition des sens d'accès
 
 h4. Attributs du lien Accès / Arrêt
 

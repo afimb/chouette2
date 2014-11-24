@@ -16,7 +16,8 @@ La première étape passe par la création dans un premier temps des attributs g
 
 Chacun des ces éléments est indépendant de l'autre. On peut définir plusieurs réseaux et plusieurs transporteurs. 
 
-!navigation.png! Navigation au sein de l'application CHOUETTE
+!navigation.png! 
+Navigation au sein de l'application CHOUETTE
 
 h3. Création des calendriers
 
@@ -30,7 +31,7 @@ Les correspondances étant des liens entre deux arrêts il est possible de les d
 
 h3. Création des lignes 
 
-La création des lignes en elle même n'est pas conditionnée à l'existence d'arrêts. La ligne permet de nommer la ligne et de définir un ensemble de paramètres de la ligne. 
+La création des lignes permet de définir les grands paramétres généraux de la ligne, notamment son nom. Les arrêts proprement dits sont définis dans les séquences d'arrêts. 
 
 h4. Séquences d'arrêts
 
@@ -42,7 +43,7 @@ h4. Missions
 
 Les missions définissent des trajets effectifs réalisés par les véhicules. Elles se définissent à l'intérieur de l'interface de gestion des séquences d'arrêts, elle-même étant un sous-élément de l'interface des lignes.
 
-On peut créer autant de mission que nécessaire au sein d'une séquence d'arrêts. Chaque mission est néanmoins contrainte par les arrêts composant la séquence d'arrêts. On peut ne pas en retenir certains mais pas en rajouter qui ne serait pas dans la séquence. Par ailleurs, l'ordre des arrêts est contraint par celui défini dans la séquence d'arrêts. 
+On peut créer autant de mission que nécessaire au sein d'une séquence d'arrêts. Chaque mission est néanmoins contrainte par les arrêts composant la séquence d'arrêts, à la fois en ce qui concerne les arrêts eux-mêmes que l'ordre dans lequel ils sont agencés. 
 
 h3. Horaires
 
@@ -52,7 +53,7 @@ Les horaires des courses peuvent être saisis directement dans l'interface Choue
 
 A noter que l'édition directement dans CHOUETTE peut se faire au clavier. Le curseur placé dans le premier champ, la saisie sur le pavé numérique permet de saisir la valeur voulue. La touche tabulation permet passer du champ heure au champ minute puis de renseigner la suite de la fiche en colonne. Les liens _"Copier  arrivées vers départs"_ ou inversement permettent de dupliquer les données saisies dans le cas le plus fréquent où les horaires de départ et d'arrivé à l'arrêt sont confondus. 
 
-L'export se fait au format .zip et comporte des fichier .csv des calendriers et des courses. Les versions modifiées doivent être uploadées en retour individuellement au format .csv. Il convient de ne surtout pas changer la structure des fichiers et de s'assurer que le format .csv n'ait pas été modifié par le tableur. Les saisies manuelles augmentant le risque d'erreur de saisie, il est fortement recommander de valider les données après un import .csv dans le menu _"Validations"_. 
+L'export se fait au format .zip et comporte des fichier .csv des calendriers et des courses. Les versions modifiées doivent être uploadées en retour individuellement au format .csv. Il convient de ne surtout pas changer la structure des fichiers et de s'assurer que le format .csv n'ait pas été modifié par le tableur. Les saisies manuelles augmentant le risque d'erreur de saisie, il est fortement recommandé de valider les données après un import .csv dans le menu _"Validations"_. 
 
 h3. Groupe de lignes
 

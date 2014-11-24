@@ -5,7 +5,7 @@ title: Correspondances
 
 h3. Définition
 
-Une *correspondance* ou un changement est, dans un voyage en transports en commun, une étape nécessitant de changer de ligne. Le changement peut se faire soit au sein du même réseau, soit de manière intermodale, c'est-à-dire en changeant également de mode de transport.
+Une *correspondance* ou un changement est, dans un voyage en transport en commun, une étape nécessitant de changer de ligne. Le changement peut se faire soit au sein du même réseau, soit de manière intermodale, c'est-à-dire en changeant également de mode de transport.
 
 La correspondance permet d'établir une liaison entre un arrêt physique (ou une zone d'arrêt de type << arrêt commercial >> ou de type << pôle d'échange >>) et un autre arrêt physique (ou une autre zone d'arrêt de type << arrêt commercial >> ou de type << pôle d'échange >>). Elle permet notamment de préciser la distance et le temps de parcours de la correspondance.
 
@@ -17,7 +17,7 @@ La page des correspondance est accessible depuis le menu _"Données"_. Elle pré
 
 Seul le nom de la correspondance est obligatoire. 
 
-Il est également possible de créer une nouvelle correspondance depuis la page de n'importe quelle correspondance existante. Il s'agira bien d'une nouvelle correspondance telle qu'elel pourrait être créée depuis la page des correspondances. Elle n'a aucun rapport avec la correspondance depuis laquelle elle a été créee. 
+Il est également possible de créer une nouvelle correspondance depuis la page de n'importe quelle correspondance existante. Il s'agira bien d'une nouvelle correspondance telle qu’elle pourrait être créée depuis la page des correspondances. Elle n'a aucun rapport avec la correspondance depuis laquelle elle a été créée. 
 
 Une fois le formulaire enregistré, la page de la correspondance permet de définir les arrêts reliés par celle-ci. Les correspondances sont définies entre deux arrêts uniquement. Ils doivent être sélectionnés parmi les arrêts existants en base. La saisie d'éléments correspondant au nom de l'arrêt fera remonter des propositions correspondantes par l'auto-complétion. 
 

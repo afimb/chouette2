@@ -12,7 +12,7 @@ Chaque réseau dispose d'un identifiant fonctionnel (<< numéro d'enregistrement
 h3. Attributs
 
 * Nom :nom du réseau 
-* Numéro d'enregistrement : code référençant un réseau au sein d'une autorité supérieure
+* Numéro d'enregistrement : code référençant un réseau au sein d'une autorité organisatrice
 * Commentaire : zone de texte libre sur le réseau
 * Date de version : date de mise en référence de l'ensemble des constituants du réseau
 * Description : description du réseau

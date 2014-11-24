@@ -19,7 +19,8 @@ h4. Ajouter un groupe de lignes
 
 Depuis la liste des groupe de lignes, cliquer sur  _"Ajouter un groupe de lignes"_ dans la partie droite de l'écran. Il est également possible de créer un nouveau groupe de lignes depuis la page de n'importe quel groupe de lignes.
 
-!2014-10-30_182229.png! Création d'un nouveau groupe de lignes depuis la liste des lignes
+!2014-10-30_182229.png! 
+Création d'un nouveau groupe de lignes depuis la liste des lignes
 
 Un formulaire s'affiche. Les champs obligatoires sont signalés par des astérisques. 
 

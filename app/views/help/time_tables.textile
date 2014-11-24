@@ -24,13 +24,15 @@ Ainsi, il est possible de construire des calendriers d'application qui sont ensu
 
 Une même course peut également posséder plusieurs calendriers. Ainsi, si une ligne possède des courses fonctionnant du lundi au vendredi, d'autres fonctionnant les samedis dimanches et fêtes et d'autre fonctionnant tous les jours, le troisième type de course ne nécessitera pas une période spécifique, lui associer les deux calendriers permettra de définir son fonctionnement. 
 
-!2014-10-31_120428.png! Définition d'un calendrier
+!2014-10-31_120428.png! 
+Définition d'un calendrier
 
 h3. Étiquettes
 
 Afin de faciliter la gestion des calendriers qui peuvent être nombreux, CHOUETTE permet d'identifier les calendriers par une ou plusieurs étiquettes. L'auto-complétion permet de choisir des étiquettes déjà existantes pour les associer au calendrier. Une nouvelle étiquette peut être créée à tout moment en saisissant un nouveau texte et en tapant sur _"entrée"_. Les étiquettes permettent ensuite de faire des recherches au sein des calendriers sur ces étiquettes.
 
-!2014-10-31_120905.png! Exemple d'étiquette
+!2014-10-31_120905.png! 
+Exemple d'étiquette
 
 h3. Attributs
 

@@ -20,7 +20,7 @@ Un filtre de recherche permet de sélectionner les courses en fonction de diffé
 * Les courses sans horaires
 * Sur l'heure de départ de la course
 
-Dans le tableau des courses, le lien en en-tête de colonne permet de sélectionner un autre séquence d'arrêt de la ligne ce qui permet de passer d'une séquence à l'autre directement sans avoir besoin de revenir à la page de la séquence d'arrêt. Cela permet par exemple d'accéder directement à la séquence d'arrêt retour de la séquence d'arrêt courante.
+Dans le tableau des courses, le lien en en-tête de colonne permet de sélectionner une autre séquence d'arrêt de la ligne ce qui permet de passer d'une séquence à l'autre directement sans avoir besoin de revenir à la page de la séquence d'arrêt. Cela permet par exemple d'accéder directement à la séquence d'arrêt retour.
 
 L'en-tête de chaque course propose un bouton qui permet d'accéder à des fonctions relative à la course :
 
@@ -29,7 +29,8 @@ L'en-tête de chaque course propose un bouton qui permet d'accéder à des fonct
 * Consulter la mission assurée par la course et accéder directement à sa page.
 * Consulter les calendriers associés à la course et accéder directement à leur page.
 
-!2014-10-31_113958.png! Affichage des raccourcis de modification d'une course
+!2014-10-31_113958.png! 
+Affichage des raccourcis de modification d'une course
 
 h3. Créer une course
 
@@ -45,13 +46,15 @@ Dans le champ calendrier, saisir quelques lettres du nom d'un calendrier à affe
 
 Dès lors que la mission est sélectionnée, la liste des arrêts à desservir s'affiche en bas de la page. Elle comprend deux rangées d'horaires, l'un pour le départ, l'autre pour l'arrivée. Pour faciliter la saisie, il est possible de passer d'un champ de saisie horaire avec la touche tabulation et de saisir les données horaires avec le pavé numérique du clavier. Dans le cas où les horaires de départ et d'arrivée à l'arrêt sont confondus, les liens _"Copier vers départs"_ et _"Copier vers arrivée"_ permettent de ne saisir les horaires qu'une seule fois. 
 
-!2014-10-31_114336.png! Edition des horaires dans CHOUETTE
+!2014-10-31_114336.png! 
+Édition des horaires dans CHOUETTE
 
 h4. Ajouter une course par import .csv
 
 L'import d'une ou plusieurs courses par un fichier .csv permet d'ajouter des courses éditées dans un tableur. La forme du tableau étant très spécifique, il convient de récupérer le modèle en cliquant sur _"Export des horaires aux arrêts"_ puis de compléter les horaires dans le tableur. Le séparateur retenu pour le fichier .csv est le point-virgule. L'export fournit un fichier .zip comprenant le fichier des horaires et les calendrier.
 
-!2014-10-31_114422.png! Import des horaires au format .csv
+!2014-10-31_114422.png! 
+Import des horaires au format .csv
 
 Les données horaires peuvent être rajoutées dans le fichier .csv, en revanche, il convient de laisser le champ _"id course"- vide. CHOUETTE se chargera de lui attribuer un numéro valide lors de l'import. 
 
@@ -73,9 +76,10 @@ h4. Modification d'une course par import .csv
 
 L'import d'un fichier .csv permet de modifier des courses éditées dans un tableur. Cliquer sur _"export des horaires aux arrêts"_  permet de récupérer le fichier des courses. Les modifications ou même les ajouts de courses seront pris en compte après import dans la base. Le séparateur retenu pour le fichier .csv est le point-virgule. Il ne faut pas saisir _"d'id de course"_ lorsque l'on saisit au travers d'un fichier .csv. CHOUETTE génèrera un numéro valide à l'import. Saisir un numéro fera échouer l'import.
 
-!2014-10-31_114639.png! Saisie d'horaire dans un tableur. 
+!2014-10-31_114639.png! 
+Saisie d'horaire dans un tableur. 
 
-L'export fournit un fichier .zip comprenant le fichier des horaires et les calendrier.
+L'export fournit un fichier .zip comprenant le fichier des horaires et les calendriers.
 
 L'import en retour ne concerne que le fichier .csv proprement dit. Importer un fichier .zip identique au fichier exporté, génèrera une erreur. 
 
@@ -101,8 +105,8 @@ h3. Attributs
 * Mode de transport : mode de transport pour la course; par défaut, c'est le mode de transport de la ligne qui est appliqué
 * Accessibilité PMR	: précise si la course est équipée PMR
 * Transport à la demande : précise si la course est en exploitation à la demande ou pas
-* État de trafic : état de trafic [?]
-* Équipement : équipement [?]
+* État de trafic : état de trafic
+* Équipement : équipement
 * Type d'identifiant du véhicule : type d'identifiant du véhicule
 
 

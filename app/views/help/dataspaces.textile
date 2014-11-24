@@ -9,7 +9,8 @@ Un espace de données est le lieu de stockage d’un ensemble de données de tra
 
 Plusieurs attributs sont définis au niveau d’un espace de données.
 
-!2014-10-30_174529.png! Espace de données
+!2014-10-30_174529.png! 
+Espace de données
 
 h3. Créer un nouvel espace de données
 
@@ -24,7 +25,7 @@ Il est également possible de le modifier depuis la page d'accueil de l'espace d
 Sur la page d'un espace de données, deux fonctions spécifiques sont disponibles :
 
 * Ajouter une clé d'accès API : La clé API permet à une application tierce de récupérer des données directement dans l'application pour les exploiter pour son propre fonctionnement. La clé, fournie par le prestataire chargé de la maintenance du système, permet au système tiers de s'identifier auprès de CHOUETTE.
-* Purge des données obsolètes : Cette fonction permet de supprimer tous les calendriers échus avant la date renseignée. Une fois les calendriers supprimés, CHOUETTE supprimera toutes les courses dépourvues de calendrier, puis les missions dépourvues de courses etc... Cela permet de nettoyer la base de toutes ses informations obsolètes. Il est possible de ne pas supprimer certaines catégories d'objets en cliquant les options correspondantes, notamment dans les cas où la modification est saisonnière et où les objets conservés seront utilisés ultérieurement. Purger les données permet de conserver une base de taille raisonnable. Autrement, toutes les données obsolètes resteront dans la base sans pour autant servir à quoi que ce soit. 
+* Purge des données obsolètes : Cette fonction permet de supprimer tous les calendriers échus avant la date renseignée. Une fois les calendriers supprimés, CHOUETTE supprimera toutes les courses dépourvues de calendrier, puis les missions dépourvues de courses etc... Cela permet de nettoyer la base de toutes ses informations obsolètes. Il est possible de ne pas supprimer certaines catégories d'objets en cliquant les options correspondantes, notamment dans les cas où la modification est saisonnière et où les objets conservés seront utilisés ultérieurement. Purger les données permet de conserver une base de taille raisonnable. Autrement, toutes les données obsolètes resteront dans la base sans pour autant être utile. 
 
 h3. Supprimer un espace de données
 
@@ -37,9 +38,9 @@ h3. Attributs d'un espace de données
 Tous les champs sont obligatoires. 
 
 * Nom : nom de l’espace de données
-* Code : code de l’espace de données (voir implémentation)
+* Code : code de l’espace de données
 * Préfixe Neptune : préfixe utilisé par défaut lors la génération de nouveaux identifiants Neptune
 * Projection géographique : référentiel de projection des coordonnées cartographiques en complément du WGS84
-* Fuseau horaire : fuseau horaire applicable pour les horaires des courses. (cf Tz_database)
+* Fuseau horaire : fuseau horaire applicable pour les horaires des courses.
 * Emprise par défaut : emprise (en WGS84) utilisée pour positionner les cartes lorsqu’il n’y a pas d’élément à afficher. Lors de la création, chacun des points défini un carré pour l'affichage par défaut de la cartographie.
 

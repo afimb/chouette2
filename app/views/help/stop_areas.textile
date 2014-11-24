@@ -13,15 +13,13 @@ Du fait de l'existence de deux concepts dans le schéma TRIDENT, cet arrêt phys
 
 L'application gère ensuite les points d'arrêts sur itinéraire à partir de ces arrêts physiques, en assurant le regroupement des points d'arrêt sur itinéraire dans un arrêt physique. Cela permet notamment de prendre en compte les cas de plusieurs lignes passant par le même arrêt physique.
 
-Par la suite, on peut regrouper deux (ou plus) arrêts physiques au sein d'un _"arrêt commercial"_. Cela permet par exemple de regrouper les points d'arrêt physiques correspondant à deux poteaux d'arrêt de la même ligne situés de part et d'autre d'une chaussée mais aussi de regrouper l'ensemble des points d'arrêt physiques d'un quai de gare routière pour lesquels on considère que le temps de correspondance est nul. Un tel cas correspond à une _"zone d'arrêt"_, avec qualification _"arrêt commercial"_, de deuxième niveau.
+Par la suite, on peut regrouper deux (ou plus) arrêts physiques au sein d'un _"arrêt commercial"_. Cela permet par exemple de regrouper les points d'arrêt physiques correspondant à deux poteaux d'arrêt de la même ligne situés de part et d'autre d'une chaussée mais aussi de regrouper l'ensemble des points d'arrêt physiques d'une gare routière pour lesquels on considère que le temps de correspondance est nul. Un tel cas correspond à une _"zone d'arrêt"_, avec qualification _"arrêt commercial"_, de deuxième niveau.
 
 CHOUETTE offre la possibilité de regrouper les lieux d'arrêt agglomérés ainsi créés au sein d'une _"zone d'arrêt de troisième niveau_" pour constituer des _"Pôles d'échange"_.
 
 Un dernier regroupement est *l'ITL*. L'interdiction de trafic local* est l'interdiction faite à un service routier de prendre et de laisser un même voyageur à l'intérieur du périmètre des transports urbains (cf. Décret n°49-1473 du 14 novembre 1949) .
 
-Ainsi dans CHOUETTE une ITL est un regroupement d'arrêts représentant le périmètre d'interdiction. Une ITL est associée à une ou plusieurs lignes. Il ne s'agit pas à proprement parler d'un type d'arrêt mais bien d'un regroupement d'arrêts. [pourquoi ne pas le traiter dans les groupes d'arrêts du coup ?]
-
-[Créer diagramme hiérarchique des arrêts]
+Ainsi dans CHOUETTE une ITL est un regroupement d'arrêts représentant le périmètre d'interdiction. Une ITL est associée à une ou plusieurs lignes. Il ne s'agit pas à proprement parler d'un type d'arrêt mais bien d'un regroupement d'arrêts.
 
 Des pictogrammes permettent d'identifier les différents types de d'arrêts.
 
@@ -51,13 +49,15 @@ Le nombre d'arrêts étant la plus part du temps assez important, il est probabl
 
 Pour afficher un arrêt existant, il suffit de cliquer sur le nom de l'arrêt depuis la liste des lignes existantes.
 
-!2014-10-30_180447.png! Sélection d'un arrêt dans la liste des arrêts
+!2014-10-30_180447.png!
+Sélection d'un arrêt dans la liste des arrêts
 
 Une fois sur la page d'un arrêt, les arrêts de niveau hiérarchique différent et liés à l'arrêt consulté sont affichés sur la cartographie. Au survol des arrêts avec le curseur le nom de l'arrêt s'affiche dans une infobulle. 
 
-!2014-10-30_180536.png! Hiérarchie des arrêts
+!2014-10-30_180536.png! 
+Hiérarchie des arrêts
 
-On retrouve également en bas de la page, un lien _"Liens entre arrêts"_ qui affiche les liens hiérarchiques entre l'arrêt consulté et les autres arrêts auquel il est lié. Cet affichage permet d'accéder aux autres arrêts liés en cliquant les arrêts. Dans le cas d'un arrêt physique, il affiche également la séquence d'arrêt à laquelle il est rattaché. Autant les liens de parentalité sont définis dans les pages arrêts, autant la séquence d'arrêt est définie dans les pages _"lignes"_.
+On retrouve également en bas de la page, un lien _"Liens entre arrêts"_ qui affiche les liens hiérarchiques entre l'arrêt consulté et les autres arrêts auquel il est lié. Cet affichage permet d'accéder aux autres arrêts liés en cliquant les arrêts. Dans le cas d'un arrêt physique, il affiche également la séquence d'arrêt à laquelle il est rattaché. 
 
 h4. Modifier un arrêt
 
@@ -65,7 +65,7 @@ On peut modifier un arrêt en cliquant sur le bouton de modification directement
 
 h4. Supprimer un arrêt
 
-On peut supprimer une ligne en cliquant sur le bouton de suppression directement depuis la liste des lignes ou depuis la page d'une ligne particulière. Il est à noter que les itinéraires rattachés à ce groupe de lignes ne seront pas supprimés [à vérifier]. Il sera toujours possible de les rattacher à une autre ligne par la suite. 
+On peut supprimer une ligne en cliquant sur le bouton de suppression directement depuis la liste des lignes ou depuis la page d'une ligne particulière. 
 
 h3. Attributs d'un arrêt
 
