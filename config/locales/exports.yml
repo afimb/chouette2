@@ -118,6 +118,10 @@ en:
         object_id_prefix: "when prefix has this value, it will be removed to build GTFS id"
         start_date: "reduce import to vehicle journeys running from this date"
         end_date: "reduce import to vehicle journeys running until this date"
+        vjas:
+          size: "HUB export not allowed. The number of vehicle journeys at stops (%{size}) is greater than 50000."
+        dates:
+          not_nul: "HUB Export interrupted. Start date and end date must be provided."
   area_types:
     quay: "Quays and Boarding Positions"
     commercial_stop_point: "Commercial Stop Points"
@@ -243,6 +247,10 @@ fr:
         object_id_prefix: "lorsque le préfixe d'identifiant Netpune prend cette valeur, il n'est pas utilisé pour composer l'identifiant GTFS"
         start_date: "limite l'export aux courses circulant à partir de cette date"
         end_date: "limite l'export aux courses circulant jusqu'à cette date"
+        vjas:
+          size: "L'Export HUB est impossible. Le nombre d'horaires (%{size}) est supérieure à 50000."
+        dates:
+          not_nul: "Export HUB interrompu. Les dates de début et de fin doivent êtres renseignées."
   area_types:
     quay: "Arrêts"
     commercial_stop_point: "Arrêts commerciaux"

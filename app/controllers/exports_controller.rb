@@ -14,9 +14,16 @@ class ExportsController < ChouetteController
   end
 
   def create
-    create! do |success, failure|
-      available_exports
-      success.html { flash[:notice] = I18n.t('exports.new.flash')+"<br/>"+I18n.t('exports.new.flash2'); redirect_to referential_exports_path(@referential) }
+    if (params[:export][:type] == "HubExport") && Chouette::VehicleJourneyAtStop.all.count > 50000
+      flash[:notice] = I18n.t("formtastic.titles.export.vjas.size", size: Chouette::VehicleJourneyAtStop.all.count)
+      redirect_to new_referential_export_path(@referential)
+    elsif (params[:export][:type] == "HubExport") && (params[:export][:start_date].empty? || params[:export][:end_date].empty?)
+      flash[:notice] = I18n.t("formtastic.titles.export.dates.not_nul", size: Chouette::VehicleJourneyAtStop.all.count)
+      redirect_to new_referential_export_path(@referential)
+    else
+      create! do |success, failure|
+        success.html { flash[:notice] = I18n.t('exports.new.flash')+"<br/>"+I18n.t('exports.new.flash2'); redirect_to referential_exports_path(@referential) }
+      end
     end
   end
 
