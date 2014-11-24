@@ -18,7 +18,7 @@ class ExportsController < ChouetteController
       flash[:notice] = I18n.t("formtastic.titles.export.vjas.size", size: Chouette::VehicleJourneyAtStop.all.count)
       redirect_to new_referential_export_path(@referential)
     elsif (params[:export][:type] == "HubExport") && (params[:export][:start_date].empty? || params[:export][:end_date].empty?)
-      flash[:notice] = I18n.t("formtastic.titles.export.dates.not_nul", size: Chouette::VehicleJourneyAtStop.all.count)
+      flash[:notice] = I18n.t("formtastic.titles.export.dates.not_nul")
       redirect_to new_referential_export_path(@referential)
     else
       create! do |success, failure|
