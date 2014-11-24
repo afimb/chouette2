@@ -1,21 +1,17 @@
 <div id="sessions_new" class="row">
   <div class="col-md-8 product_summary">
-    <h2>Bienvenue sur Chouette</h2>
-    <p>
-     Chouette est un logiciel Open Source de saisie, de visualisation et d'échange d'offre de transport public planifiée.
-    </p>
-    <p>
-      Ce logiciel est déployé en mode Saas et se veut ouvert :      
-    </p>
+    <h2><%= t(".welcome") %></h2>
+    <p><%= t(".introduction1") %></p>
+    <p><%= t(".introduction2") %></p>
     <ul>
-      <li>- choix de plusieurs fonds cartographiques</li>
-      <li>- échange de données en différents normes (Neptune, ...) et standard (GTFS, ...)</li>
+      <li>- <%= t(".introduction_item1") %></li>
+      <li>- <%= t(".introduction_item2") %></li>
     </ul>
   </div>
   <div class="col-md-4 login">
     <div class="panel panel-default">
       <div class="panel-body">
-        <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :wrapper => "form_without_label" ) do |form| %>    
+        <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :wrapper => "form_without_label" ) do |form| %>
           <%= form.input :email, :label => false, :placeholder => t("helpers.label.user.email"), input_html: { :class => "form-control" } %>
           <div class="row">
             <div class="col-md-6">
@@ -42,24 +38,24 @@
     <% if Rails.application.config.accept_user_creation %>
     <div class="panel panel-default">
       <div class="panel-heading"><%= t("devise.registrations.new.title") %></div>
-      <div class="panel-body">        
+      <div class="panel-body">
         <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :wrapper => "form_without_label" ) do |form| %>
         <%= form.simple_fields_for :organisation, Organisation.new do |organisation| %>
           <%= organisation.input :name, :label => false, :placeholder => t("helpers.label.user.organisation_name"), input_html: { :class => "form-control" } %>
         <% end %>
         <% if resource.respond_to?( :name) %>
-          <%= form.input :name, :label => false, :placeholder => t("helpers.label.user.name"), input_html: { :class => "form-control" }  %> 
-        <% end %>    
-        <%= form.input :email, :label => false, :placeholder => t("helpers.label.user.email"), input_html: { :class => "form-control" } %> 
-        <%= form.input :password, :as => :password, :label => false, :placeholder => t("helpers.label.user.password"), input_html: { :class => "form-control" } %> 
-        <%= form.input :password_confirmation, :as => :password, :label => false, :placeholder => t("helpers.label.user.password_confirmation"), input_html: { :class => "form-control" } %> 
-        
+          <%= form.input :name, :label => false, :placeholder => t("helpers.label.user.name"), input_html: { :class => "form-control" }  %>
+        <% end %>
+        <%= form.input :email, :label => false, :placeholder => t("helpers.label.user.email"), input_html: { :class => "form-control" } %>
+        <%= form.input :password, :as => :password, :label => false, :placeholder => t("helpers.label.user.password"), input_html: { :class => "form-control" } %>
+        <%= form.input :password_confirmation, :as => :password, :label => false, :placeholder => t("helpers.label.user.password_confirmation"), input_html: { :class => "form-control" } %>
+
         <%= form.button :submit, t("devise.registrations.new.commit"), :class => "btn-info" %>
         <% end %>
       </div>
     </div>
     <% end %>
-    
+
   </div>
 </div>
 

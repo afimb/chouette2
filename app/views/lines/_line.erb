@@ -12,14 +12,7 @@
       <h5>
         <%= check_box_tag "ids[]", line.id, false, :class => "multiple_selection", :style => "display: none;" %>
         <% if line.number and line.number.length <= 3 %>
-           <% if !line.text_color.blank? || !line.color.blank? %>
-             <% text_color = line.text_color.blank? ? "black" : "##{line.text_color}" %>
-             <% bg_color = line.color.blank? ? "white" : "##{line.color}" %>
-             <% number_style = "color: #{text_color}; background-color: #{bg_color};" %>
-           <% else %>
-             <% number_style = "" %>
-           <% end %>
-           <span class="label label-default line_number" style="<%= number_style %>"><%= line.number %></span>
+           <span class="label label-default line_number" style="<%= number_style(line) %>"><%= line.number %></span>
         <% end %>      
         <%= link_to([@referential, line], :class => "preview", :title => "#{Chouette::Line.model_name.human.capitalize} #{line.name}") do %>          
         <span class="name">          

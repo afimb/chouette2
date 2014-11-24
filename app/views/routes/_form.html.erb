@@ -26,55 +26,73 @@
    <% end %>
 <% end %>
 <script>
-var stop_point_ids = [];
-
-var order_position = function() {
-  $('#stop_points input[type="hidden"][id$="position"]').each(function(index) {
-    $(this).val(index);
-  });
-};
-
-var write_stop_point_ids = function(){
-  $('#stop_points input[type="hidden"][class~="stop_point_id"]').each(function(index,element) {
-
-
-    // soit le parent a la classe added_stop_point
-      if ( $(element).hasClass("added_stop_point") ){
-        $(this).attr("value", "");
-      } else {
-        $(this).attr("value", stop_point_ids.shift());
-      }
-  });
-}
-
-var empty_stop_point_ids = function() {
-  while(stop_point_ids.length > 0) {
-    stop_point_ids.pop();
-  }
-  $('#stop_points input[type="hidden"][class="stop_point_id"]').map(function() {
-    stop_point_ids.push( $(this).val());
-  });
-  // console.log(  "before-remove");
-  // console.log(  stop_point_ids);
-};
-var stop_area_selection_token_input = function( element ) {
-  element.tokenInput('<%= referential_stop_point_areas_path(@referential, :format => :json) %>',
-        {  crossDomain: false,
-           prePopulate: $(element).data('pre'),
-           tokenLimit: 1,
-           minChars: 3,
-           hintText: '<%= t('search_hint') %>',
-           noResultsText: '<%= t('no_result_text') %>',
-           searchingText: '<%= t('searching_term') %>',
-             resultsFormatter: function(item){ return '<li><div class=\"name\">' + item.name + '</div><div class=\"info\">' + item.area_type + '</div><div class=\"info\">' +  item.zip_code + ' ' + item.city_name + '</div></li>' },
-             tokenFormatter: function(item) { return '<li><p>' + item.name + '</p></li>' }
-        });
-};
 
 $(document).ready( function() {
+  var stop_point_ids = [];
+
+  var order_position = function() {
+    $('#stop_points input[type="hidden"][id$="position"]').each(function(index) {
+      $(this).val(index);
+    });
+  };
+
+  var write_stop_point_ids = function(){
+    $('#stop_points input[type="hidden"][class~="stop_point_id"]').each(function(index,element) {
+
+
+      // soit le parent a la classe added_stop_point
+        if ( $(element).hasClass("added_stop_point") ){
+          $(this).attr("value", "");
+        } else {
+          $(this).attr("value", stop_point_ids.shift());
+        }
+    });
+  }
+
+  var empty_stop_point_ids = function() {
+    while(stop_point_ids.length > 0) {
+      stop_point_ids.pop();
+    }
+    $('#stop_points input[type="hidden"][class="stop_point_id"]').map(function() {
+      stop_point_ids.push( $(this).val());
+    });
+    // console.log(  "before-remove");
+    // console.log(  stop_point_ids);
+  };
+  var stop_area_selection_token_input = function( element ) {
+     var item_name = function( item){
+        var result = item.name;
+        if ( item.registration_number !=null && item.registration_number.length > 0) {
+           result += '  (' + item.registration_number + ')';
+        }
+        return result;
+     };
+     var item_format = function( item ){
+        var info = '';
+        if ( item.zip_code != null ) {
+           info += item.zip_code + ' ';
+        }
+        if ( item.city_name != null ) {
+           info += item.city_name;
+        }
+        return '<li><div class=\"name\">' + item_name( item) + '</div><div class=\"info\">' + item.area_type + '</div><div class=\"info\">' +  info + '</div></li>'
+     };
+    element.tokenInput('<%= referential_stop_point_areas_path(@referential, :format => :json) %>',
+          {  crossDomain: false,
+             tokenLimit: 1,
+             minChars: 3,
+             hintText: '<%= t('search_hint') %>',
+             noResultsText: '<%= t('no_result_text') %>',
+             searchingText: '<%= t('searching_term') %>',
+             resultsFormatter: item_format ,
+             tokenFormatter: item_format
+          });
+  };
+
   $( ".new_stop_point" ).each( function(index, element){
     stop_area_selection_token_input( $(element))
   });
+
   $('#stop_points').sortable({
       axis: 'y',
       dropOnEmpty: false,

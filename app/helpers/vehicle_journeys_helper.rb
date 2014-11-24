@@ -1,13 +1,4 @@
 module VehicleJourneysHelper
-  def journey_name( journey_pattern)
-    if !journey_pattern.published_name.blank?
-      journey_pattern.published_name.first(8)
-    elsif !journey_pattern.name.blank?
-      journey_pattern.name.first(8)
-    else
-      journey_pattern.id
-    end
-  end
   
   def vehicle_name( vehicle)
     if !vehicle.published_journey_name.blank?

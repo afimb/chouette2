@@ -6,6 +6,11 @@ en:
       new:
         title: Sign in
         commit: Sign in
+        welcome: "Welcome on Chouette"
+        introduction1: "Chouette is an Open Source software that can read and edit whole public transport service for passengers."
+        introduction2: "The software is delivered in Saas way and gives you :"
+        introduction_item1: "map view of lines, routes, journeys, stops, connections..."
+        introduction_item2: "data exchange functions in different formats like NEPTUNE, GTFS"
     confirmations:
       new:
         title: Resend confirmation instructions

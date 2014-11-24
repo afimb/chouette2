@@ -20,7 +20,7 @@
   
   <div id="advanced_search" class="panel-collapse collapse">          
     <div class="panel-body">
-      <%= f.text_field :country_code_cont, :placeholder => "#{t('.country_code')}", :class => 'form-control typeahead' %>
+      <%= f.text_field :zip_code_cont, :placeholder => "#{t('.zip_code')}", :class => 'form-control typeahead' %>
       <%= f.select(:area_type_cont, options_from_collection_for_select(Chouette::StopArea.stop_area_types, 'name', Proc.new { |stop_area_type| t("area_types.label.#{stop_area_type}") } ), { :include_blank => "#{t('.area_type')}" }, { :class => 'form-control' }) %>
     </div>
   </div>
