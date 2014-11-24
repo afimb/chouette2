@@ -42,6 +42,10 @@ class Chouette::Hub::Exporter
     end
   end
   
+  def referential_exportable?
+    Chouette::VehicleJourneyAtStop.all.count < 50000
+  end
+  
   def time_tables_exportable?
     time_tables
   end
@@ -72,10 +76,12 @@ class Chouette::Hub::Exporter
     begin
       referential.switch
       
-      FileUtils.rm(zip_file_path) if File.exists? zip_file_path
-      
-      hub_export.log_messages.create( :severity => "ok", :key => "EXPORT", :arguments => {"0" => "HUB"})
-      
+      if referential_exportable? && options[:start_date] && options[:end_date]
+        
+        FileUtils.rm(zip_file_path) if File.exists? zip_file_path
+        
+        hub_export.log_messages.create( :severity => "ok", :key => "EXPORT", :arguments => {"0" => "HUB"})
+        
       Dir.mktmpdir(nil, "/tmp"){ |temp_dir|
         
         @time_tables = select_time_tables(options[:start_date], options[:end_date])
@@ -239,6 +245,7 @@ class Chouette::Hub::Exporter
           end
         end
       }
+      end
     ensure
       # Always cleanup files
       #FileUtils.remove_entry(temp_directory)
