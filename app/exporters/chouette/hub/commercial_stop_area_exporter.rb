@@ -7,7 +7,9 @@ class Chouette::Hub::CommercialStopAreaExporter
     @directory = directory
     @template = File.open('app/views/api/hub/arrets_generiques.hub.erb' ){ |f| f.read }
     @type = "ONNNNNNNNNNNNNNNNN"
-    
+    if @stop_area.mobility_restricted_suitability
+      @type = "ONNNNNNNNNNNNONNNN"
+    end
     @stop_area.referential.projection_type = "27562"
 
     wgs84 = '+proj=lonlat +datum=WGS84 +ellps=WGS84'

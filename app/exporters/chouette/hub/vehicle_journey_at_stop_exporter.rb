@@ -6,7 +6,7 @@ class Chouette::Hub::VehicleJourneyAtStopExporter
     @vehicle_journey_at_stop = vehicle_journey_at_stop
     @directory = directory
     @vehicle_journey_num = index
-    @vehicle_journey_id = id
+    @id = id
     @template = File.open('app/views/api/hub/horaires.hub.erb' ) { |f| f.read }
     stop_point = @vehicle_journey_at_stop.stop_point
     stop_area = stop_point.stop_area

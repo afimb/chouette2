@@ -38,13 +38,13 @@ class Chouette::Hub::VehicleJourneyExporter
     end
     # USE @renvoi for PMR and TAD and create RENVOI.TXT File
     @renvoi = ""
-    if @vehicle_journey.mobility_restricted_suitability
+    if @vehicle_journey.mobility_restricted_suitability || @line.mobility_restricted_suitability
       @renvoi = "1"
-    end
-    File.open(directory + "/RENVOI.TXT" , "a:ISO_8859_1") do |f|
-      if f.size == 0
-        f.write("RENVOI\u000D\u000A") 
-        f.write("a;PMR;1\u000D\u000A")
+      File.open(directory + "/RENVOI.TXT" , "a:ISO_8859_1") do |f|
+        if f.size == 0
+          f.write("RENVOI\u000D\u000A") 
+          f.write("a;PMR;1\u000D\u000A")
+        end
       end
     end
   end

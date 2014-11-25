@@ -7,6 +7,9 @@ class Chouette::Hub::PhysicalStopAreaExporter
     @directory = directory
     @template = File.open('app/views/api/hub/arrets_physiques.hub.erb' ){ |f| f.read }
     @type = "NNNNNNNNNNNNNNNNNN"
+    if @stop_area.mobility_restricted_suitability
+      @type = "NNNNNNNNNNNNNONNNN"
+    end
     if @stop_area.parent_id
       @parent = Chouette::StopArea.find(@stop_area.parent_id)
     end
