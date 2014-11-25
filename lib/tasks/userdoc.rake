@@ -26,6 +26,7 @@ namespace :doc do
     puts "build docx"
     Dir.chdir "tmp/doc"
     system "pandoc -s -o ../../userdoc.docx temp.textile"
+    Dir.chdir "../.."
     
     if !File.exists?("userdoc.docx")
       puts "pandoc failed to produce document"
@@ -35,7 +36,6 @@ namespace :doc do
       
       # clean working directory
       puts "clean temp files"
-      Dir.chdir "../.."
       FileUtils.rm_r("tmp/doc") if File.exist?("tmp/doc")
       
       # end job
