@@ -56,6 +56,8 @@ module ApplicationHelper
       "exports"
     when path.include?("/compliance_check_tasks")
       "validations"
+    when path.include?("/referentials")
+      "dataspaces"
     else
       ""
     end
