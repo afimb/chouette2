@@ -11,10 +11,13 @@ fr:
         title: Se connecter
         commit: Se connecter
         welcome: "Bienvenue sur Chouette"
-        introduction1: "Chouette est un logiciel Open Source d'édition et d'échange d'offre de transport public planifiée."
-        introduction2: "Le logiciel est mis à disposition en mode Saas et se veut ouvert :"
-        introduction_item1: "visualisation cartographique des lignes, des arrêts, des parcours..."
-        introduction_item2: "échange de données selon différents formats (Neptune, GTFS)"
+        introduction1: "Chouette est un logiciel Open Source de saisie, de visualisation et
+d'échange d'offre de transport public planifiée, conçu pour être
+l'implémentation de référence pour valider la conformité de données à la
+norme Neptune (NFP 99 506)"
+        introduction2: "Déployé en mode Saas, ce logiciel est ouvert et peut gérer"
+        introduction_item1: "plusieurs formats (Neptune, GTFS, CSV, prochainement Netex)"
+        introduction_item2: "plusieurs fonds cartographiques, notamment IGN, OSM et Google."
     confirmations:
       new:
         title: Renvoyer le mail de confirmation

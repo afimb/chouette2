@@ -6,11 +6,13 @@ en:
       new:
         title: Sign in
         commit: Sign in
-        welcome: "Welcome on Chouette"
-        introduction1: "Chouette is an Open Source software that can read and edit whole public transport service for passengers."
-        introduction2: "The software is delivered in Saas way and gives you :"
-        introduction_item1: "map view of lines, routes, journeys, stops, connections..."
-        introduction_item2: "data exchange functions in different formats like NEPTUNE, GTFS"
+        welcome: "Welcome to Chouette"
+        introduction1: "Chouette is an open source Software for editing, viewing and exchanging
+public transport reference data, and is the reference implementation for
+validating conformance of data wrt Neptune (French standard NFP 99 506)."
+        introduction2: "The application is deployed in Saas mode and supports :"
+        introduction_item1: "several data exchange formats (Neptune, GTFS, CSV ... Netex coming soon)"
+        introduction_item2: "and also several base map backgrounds (Google, OSM, IGN)."
     confirmations:
       new:
         title: Resend confirmation instructions
