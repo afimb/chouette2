@@ -3,8 +3,8 @@
 <%= semantic_form_for [@referential, @connection_link] do |form| %>
 <div>
   <%= form.inputs do %>
-    <%= form.input :departure_id, :as => :search_stop_area, :json => referential_connection_link_connection_link_areas_path(@referential, @connection_link, :format => :json), :tokenLimit => 1, :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'), :input_html => { :"data-pre" => Rabl::Renderer.new('stop_areas/show', [@departure].compact, :view_path => 'app/views', :format => :json).render  } %>
-    <%= form.input :arrival_id, :as => :search_stop_area, :json => referential_connection_link_connection_link_areas_path(@referential, @connection_link, :format => :json), :tokenLimit => 1, :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'), :input_html => { :"data-pre" => Rabl::Renderer.new('stop_areas/show', [@arrival].compact, :view_path => 'app/views', :format => :json).render }  %>
+    <%= form.input :departure_id, :as => :search_stop_area, :json => referential_autocomplete_stop_areas_path(@referential, :format => :json)+"?filter=itl_excluded", :tokenLimit => 1, :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'), :input_html => { :"data-pre" => Rabl::Renderer.new('autocomplete_stop_areas/show', [@departure].compact, :view_path => 'app/views', :format => :json).render  } %>
+    <%= form.input :arrival_id, :as => :search_stop_area, :json =>  referential_autocomplete_stop_areas_path(@referential, :format => :json)+"?filter=itl_excluded", :tokenLimit => 1, :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'), :input_html => { :"data-pre" => Rabl::Renderer.new('autocomplete_stop_areas/show', [@arrival].compact, :view_path => 'app/views', :format => :json).render }  %>
   <% end %>
 
    <%= form.actions do %>

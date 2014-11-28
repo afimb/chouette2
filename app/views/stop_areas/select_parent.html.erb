@@ -2,8 +2,8 @@
 
 <%= semantic_form_for [@referential, @stop_area] do |form| %>
 <div>
-  <%= form.inputs do %>    
-    <%= form.input :parent_id, :as => :search_stop_area, :json => referential_stop_area_stop_area_parents_path(@referential, @stop_area, :format => :json), :hint_text => t('search_hint'), :no_result_text => t('no_result_text'), :searching_text => t('searching_term'), :tokenLimit => 1, :input_html => { :"data-pre" => Rabl::Renderer.new('stop_areas/show', [@parent].compact, :view_path => 'app/views', :format => :json).render }  %>
+  <%= form.inputs do %>
+    <%= form.input :parent_id, :as => :search_stop_area, :json => referential_autocomplete_stop_areas_path(@referential, :format => :json)+"?relation=parent&target_type=#{@stop_area.area_type}", :hint_text => t('search_hint'), :no_result_text => t('no_result_text'), :searching_text => t('searching_term'), :tokenLimit => 1, :input_html => { :"data-pre" => Rabl::Renderer.new('autocomplete_stop_areas/index', [@parent].compact, :stop_area_path => root_url, :view_path => 'app/views', :format => :json).render }  %>
   <% end %>
 
    <%= form.actions do %>

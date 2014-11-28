@@ -36,7 +36,6 @@ class StopAreasController < ChouetteController
 
   def add_routing_stops
     @stop_area = stop_area
-    @stops = stop_area.routing_stops
     build_breadcrumb :edit
   end
 
@@ -100,7 +99,7 @@ class StopAreasController < ChouetteController
   def update
     stop_area.position ||= stop_area.default_position
     map.editable = true
-    
+
     update!
   end
 

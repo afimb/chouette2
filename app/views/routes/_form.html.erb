@@ -77,7 +77,7 @@ $(document).ready( function() {
         }
         return '<li><div class=\"name\">' + item_name( item) + '</div><div class=\"info\">' + item.area_type + '</div><div class=\"info\">' +  info + '</div></li>'
      };
-    element.tokenInput('<%= referential_stop_point_areas_path(@referential, :format => :json) %>',
+    element.tokenInput('<%= referential_autocomplete_stop_areas_path(@referential, :format => :json)+"?filter=physical" %>',
           {  crossDomain: false,
              tokenLimit: 1,
              minChars: 3,
