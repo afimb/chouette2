@@ -3,7 +3,7 @@
 <%= semantic_form_for [@referential, @stop_area] do |form| %>
 <div>
   <%= form.inputs do %>
-    <%= form.input :routing_stop_ids, :as => :search_stop_area, :json =>  referential_autocomplete_stop_areas_path(@referential, :format => :json)+"?filter=itl_excluded", :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'), :input_html => { :"data-pre" => Rabl::Renderer.new('autocomplete_stop_areas/index', @stop_area.routing_stops, :view_path => 'app/views', :format => :json).render  }  %>
+    <%= form.input :routing_stop_ids, :as => :search_stop_area, :json =>  referential_autocomplete_stop_areas_path(@referential, :format => :json)+"?filter=itl_excluded", :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'), :input_html => { :"data-pre" => Rabl::Renderer.new('autocomplete_stop_areas/index', @stop_area.routing_stops, :view_path => 'app/views', :format => :json, :scope => self).render  }  %>
   <% end %>
 
    <%= form.actions do %>

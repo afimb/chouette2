@@ -1,25 +1,19 @@
-class AutocompleteStopAreasController < ApplicationController
-  include ApplicationHelper
+class AutocompleteStopAreasController < InheritedResources::Base
+  respond_to :json, :only => [:index, :children, :parent, :physicals]
+  
   before_filter :switch_referential
-
+  
   def switch_referential
     Apartment::Database.switch(referential.slug)
   end
 
-  respond_to :json, :only => [:index, :children, :parent, :physicals]
-
-  def index
-      @options = { :stop_area_path => root_url }
-      Rabl::Renderer.new('autocomplete_stop_areas/index', stop_areas_by_name, :view_path => 'app/views', :format => :json).render
-  end
+  def referential
+    @referential ||= current_organisation.referentials.find params[:referential_id]  
+  end 
 
   protected
 
-  def referential
-    @referential ||= current_organisation.referentials.find params[:referential_id]
-  end
-
-  def stop_areas_by_name
+  def collection
     result = []
     if physical_filter?
      result = referential.stop_areas.physical

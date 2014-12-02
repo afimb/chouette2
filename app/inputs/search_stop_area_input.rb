@@ -1,29 +1,42 @@
 class SearchStopAreaInput < Formtastic::Inputs::SearchInput
-
+  
   def search
     if options[:json]
       tokenLimit = options[:tokenLimit].present? ? options[:tokenLimit] : "null"
       template.content_tag( :script,
        ("$(document).ready(function() {
+
            var item_name = function( item){
-              var result = item.name;
-              console.log( item );
-              console.log( item.registration_number );
-              if ( item.registration_number !=null && item.registration_number.length > 0) {
-                 result += '  (' + item.registration_number + ')';
+              var result = item.short_name;
+              if ( item.short_registration_number != '' ) {
+                 result += ' <small>[' + item.short_registration_number + ']</small>';
               }
               return result;
            };
-           var item_format = function( item ){
-              var info = '';
-              if ( item.zip_code != null ) {
-                 info += item.zip_code + ' ';
-              }
-              if ( item.city_name != null ) {
-                 info += item.city_name;
-              }
-              return '<li><div class=\"name\">' + item_name( item) + '</div><div class=\"info\">' + item.area_type + '</div><div class=\"info\">' +  info + '</div></li>'
+
+           var item_localization = function( item){
+              var localization = item.zip_code + ' ' + item.short_city_name;
+              return localization;         
            };
+
+           var item_format = function( item ){                       
+              var name = item_name( item );  
+              var localization = item_localization( item );
+              
+              html_result = '<li>';
+              html_result += '<span><image src=\"' + item.stop_area_path + '\" height=\"25px\" width=\"25px\"></span>'
+              if(name != '')
+              {
+                html_result += '<span style=\"height:25px; line-height:25px; margin-left: 5px; \">' + name + '</span>' ;    
+              }              
+              if(localization != '')
+              {
+                html_result += '<small style=\"height:25px; line-height:25px; margin-left: 10px; color: #555; \">' + localization + '</small>';
+              }
+              html_result += '</li>';
+              return html_result;
+           };
+
            $('##{dom_id}').tokenInput('#{options[:json]}', {
              crossDomain: false,
              tokenLimit: #{tokenLimit},
