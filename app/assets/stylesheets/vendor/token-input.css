@@ -30,17 +30,20 @@ ul.token-input-list li input {
 
 ul.token-input-disabled,
 ul.token-input-disabled li input {
-  background-color: #E8E8E8;
+    background-color: #E8E8E8;
 }
 
 ul.token-input-disabled li.token-input-token {
-  background-color: #D9E3CA;
-  color: #7D7D7D
+    background-color: #D9E3CA;
 }
 
 ul.token-input-disabled li.token-input-token span {
-  color: #CFCFCF;
-  cursor: default;
+    color: $gray;
+    cursor: default;
+}
+
+ul.token-input-disabled li.token-input-token span.token-input-delete-token{
+    display: none;
 }
 
 li.token-input-token {
@@ -64,17 +67,16 @@ li.token-input-token p {
 
 li.token-input-token span.token-input-delete-token {
     float: right;
-    color: #777;
     cursor: pointer;
 }
 
 li.token-input-selected-token {
-    background-color: #08844e;
-    color: #fff;
+    background-color: $brand-primary;
+    //color: $gray;
 }
 
 li.token-input-selected-token span {
-    color: #bbb;
+    //color: #bbb;
 }
 
 div.token-input-dropdown {

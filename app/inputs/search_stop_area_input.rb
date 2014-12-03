@@ -38,6 +38,7 @@ class SearchStopAreaInput < Formtastic::Inputs::SearchInput
            };
 
            $('##{dom_id}').tokenInput('#{options[:json]}', {
+             disabled: #{options[:disabled] || false},
              crossDomain: false,
              tokenLimit: #{tokenLimit},
              minChars: 2,
@@ -46,7 +47,7 @@ class SearchStopAreaInput < Formtastic::Inputs::SearchInput
              noResultsText: '#{options[:no_result_text]}',
              searchingText: '#{options[:searching_text]}',
              resultsFormatter: item_format,
-             tokenFormatter: item_format
+             tokenFormatter: item_format,             
            });
         });").html_safe)
     end
@@ -60,11 +61,12 @@ class SearchStopAreaInput < Formtastic::Inputs::SearchInput
     end
   end
 
-  def input_html_options
+  def input_html_options    
+    css_class =  super[:class]
     super.merge({
                   :required          => nil,
                   :autofocus         => nil,
-                  :class             => 'token-input',
+                  :class             => "#{css_class} token-input",
                   'data-model-name' => object.class.model_name.human
                 })
   end
