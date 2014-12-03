@@ -20,7 +20,10 @@ en:
       move: "Move"
       no_stop_point: "No stop point on route"
     stop_point:
-      lines: "lines"
+      no_position: "No position"
+      no_object: "Nothing"
+      lines: "Lines"
+      address: "Address"
   activerecord:        
     models:        
       stop_point: 
@@ -52,7 +55,10 @@ fr:
       move: "Déplacer"
       no_stop_point: "Aucun arrêt dans la séquence"
     stop_point:
-      lines: "lignes"
+      no_position: "Pas de position"
+      no_object: "Aucun(e)"
+      lines: "Lignes"
+      address: "Adresse"
   activerecord:        
     models:        
       stop_point: 
@@ -61,4 +67,4 @@ fr:
         other: "arrêts sur séquence d'arrêts"
     attributes:
       stop_point:
-        lines: "lignes"
+        lines: "Lignes"

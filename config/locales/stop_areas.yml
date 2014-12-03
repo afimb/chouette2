@@ -3,7 +3,9 @@ en:
     default_geometry_success: "%{count} modified stop areas"
     stop_area:
       no_position: "No Position" 
-      lines: "Lines :"
+      no_object: "Nothing"
+      lines: "Lines"
+      address: "Address"
       general: "General"
       localisation: "Localisation"
       accessibility: "Accessibility"      
@@ -118,8 +120,10 @@ fr:
   stop_areas:
     default_geometry_success: "%{count} arrêts modifiés"
     stop_area:
-      no_position: "Pas de position" 
-      lines: "Lignes :"
+      no_position: "Pas de position"
+      no_object: "Aucun(e)"
+      lines: "Lignes"
+      address: "Adresse"
       general: "General"
       localisation: "Localisation"
       accessibility: "Accessibilité"

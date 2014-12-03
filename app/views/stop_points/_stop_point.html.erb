@@ -4,7 +4,7 @@
       <h5>
         <%= link_to([@referential, stop_point.stop_area], :class => "preview", :title => "#{Chouette::StopArea.model_name.human.capitalize} #{stop_point.stop_area.name}") do %>        
         <span class="name">
-          <span class="label label-default"><%= stop_point.position + 1 %></span><%= truncate(stop_point.stop_area.name, :length => 20) %>          
+          <span class="label label-primary"><%= stop_point.position + 1 %></span><%= image_tag "map/" + stop_point.stop_area.stop_area_type + ".png"   %> <%= truncate(stop_point.stop_area.name, :length => 20) %>          
         </span>
         <% end %>
       </h5>
@@ -13,22 +13,24 @@
   <div class="panel-body">
     <p>      
       <% unless stop_point.stop_area.geometry %>
-      <span class="warning"><%= t('.no_position') %></span> -
+        <span class="warning"><%= t('.no_position') %></span> -
       <% end %>
     </p>
-    <p> 
-      <%= t('.lines') %> <% stop_point.stop_area.lines.reject { |l| l.id==@line.id}.each do |line| %>
-        <span class="line"><%= line.number %></span>
-      <% end %>
+    <p>     
+      <%= stop_point.stop_area.human_attribute_name('registration_number') %> : <%= stop_point.stop_area.registration_number.present? ? stop_point.stop_area.registration_number : t(".no_object") %>
+    </p>
+    <p>
+      <%=  t('.address') %> : <%= (stop_point.stop_area.zip_code.present? || stop_point.stop_area.city_name.present?) ? "#{stop_point.stop_area.zip_code} #{stop_point.stop_area.city_name}"  : t(".no_object") %> 
+    </p>
+    <p>
+      <%= t('.lines') %> <% if stop_point.stop_area.lines.blank? %>
+          <%= t(".no_object") %>
+        <% else %>
+          <% stop_point.stop_area.lines.each do |line| %>
+            <span class="label label-default line"><%= line.number || truncate( line.name, :length => 4 ) %></span>
+          <% end %>
+        <% end %> 
     </p>    
-    <p>      
-      <% if stop_point.stop_area.zip_code.blank? %>
-        <%= stop_point.stop_area.human_attribute_name('country_code') %> <%= stop_point.stop_area.country_code %>
-      <% else %>
-        <%= stop_point.stop_area.zip_code %>
-      <% end %> 
-      <%= stop_point.stop_area.city_name %>
-    </p>
   </div>
 </div>
 
