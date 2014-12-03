@@ -1,17 +1,18 @@
-<%= title_tag t('.title') %>
+<div class="col-md-offset-2 col-md-8">
+  <div class="panel panel-default">
+    <div class="panel-heading"><%= t('.title') %></div>
+    <div class="panel-body">
+      <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
 
-<%= semantic_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-
-  <%= f.inputs do %> 
-    <%= f.input :reset_password_token, :as => :hidden %>
-    <%= f.input :password, :as => :password %>
-    <%= f.input :password_confirmation, :as => :password %>
-  <% end %>
-
-   <%= f.actions do %>
-     <%= f.action :submit, :as => :button, :label => t('.commit') %> 
-     <%= f.action :cancel, :as => :link %>
-   <% end %>
-<% end %>
-
-<%= render "links" %>
+      <%= f.input :reset_password_token, :as => :hidden %>
+      <%= f.input :password, :as => :password %>
+      <%= f.input :password_confirmation, :as => :password %>
+      
+      <div class="col-md-offset-2">
+        <%= link_to t("cancel"), root_path, :class => "btn btn-default" %>    
+        <%= f.button :submit, :value => t("devise.passwords.edit.commit"), :class => "btn-info" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

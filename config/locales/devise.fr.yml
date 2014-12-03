@@ -5,6 +5,7 @@ fr:
     attributes:
       user:
         password: Mot de passe
+        password_confirmation:  Confirmation du mot de passe
   devise:
     sessions:
       new:
