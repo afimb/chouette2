@@ -22,7 +22,7 @@ h3. Listes d'éléments
 
 Les listes prennent la forme de "_boites_" rangées côte à côte. Dans le cas où le titre de l'élément est trop long pour être affiché entièrement, une infobulle complète apparaît au survol du titre. 
 
-Les éléments de l'application qui apparaissent sous la forme de liens sont ceux qui peuvent faire l'objet d'un paramétrage détaillés. Il s'accompagnent dans les listes de pictogrammes de modification et de suppression. 
+Les éléments de l'application qui apparaissent sous la forme de liens sont ceux qui peuvent faire l'objet d'un paramétrage détaillé. Ils s'accompagnent dans les listes de pictogrammes de modification et de suppression. 
 
 Le pictogramme de modification ne concerne que les propriétés générales de l'élément et non pas les informations spécifiques qu'il regroupe. Il faut cliquer sur le lien proprement dit pour pouvoir consulter et éditer les informations correspondantes. Le pictogramme de suppression permet de supprimer effectivement toutes les informations correspondant à l'élément.
 
@@ -52,14 +52,14 @@ Déplacement d'un arrêt sur la cartographie
 
 h3. Auto-complétion
 
-De nombreux champs de CHOUETTE font appel à des fonctions d'auto-complétion de telle sorte que des éléments saisis dans le champs font automatiquement remonter des éléments pertinents déjà connus du système. 
+De nombreux champs de CHOUETTE font appel à des fonctions d'auto-complétion de telle sorte que des caractères saisis dans le champ font automatiquement remonter des éléments pertinents déjà connus du système. 
 
 !2014-10-30_173913.png! 
 Auto-complétion sur la sélection d'un arrêt.
 
 h3. Architecture de l'interface de CHOUETTE
 
-Un certain nombre d'éléments constitutifs de la base de données sont accessibles en tant que sous éléments de menus accessibles depuis une page. Il en va ainsi par exemple des horaires qui sont accessibles au travers des lignes puis des séquences d'arrêts. Il est conseillé à l'utilisateur débutant de se reporter au chapitre _"Créer un réseau à partir de zéro"_ situé en annexe pour un rappel de l'ordre dans lequel il faut créer les éléments du réseau.
+Un certain nombre d'éléments constitutifs de la base de données sont accessibles en tant que sous éléments de menus accessibles depuis une page. Il en va ainsi par exemple des horaires, qui sont accessibles au travers des lignes puis des séquences d'arrêts. Il est conseillé à l'utilisateur débutant de se reporter au chapitre _"Créer un réseau à partir de zéro"_ situé en annexe pour un rappel de l'ordre dans lequel il faut créer les éléments du réseau.
 
 !navigation.png! 
 Navigation au sein de l'application CHOUETTE

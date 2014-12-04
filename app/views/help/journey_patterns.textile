@@ -5,7 +5,7 @@ title: Missions
 
 h3. Définition
 
-Une _"Mission"_ est une sélection ordonnée d'arrêts issue d'une séquence d'arrêts de à partir de laquelle il sera possible de créer des courses, c'est à dire d'associer différents horaires à la mission. Les arrêts de la mission sont toute ou partie des arrêts de la séquence d'arrêts.
+Une _"Mission"_ est une sélection ordonnée d'arrêts issue d'une séquence d'arrêts de à partir de laquelle il sera possible de créer des courses, c'est à dire d'associer différents horaires à la mission. Les arrêts de la mission sont tout ou partie des arrêts de la séquence d'arrêts.
 
 Une mission est spécifique à une _"séquence d'arrêts"_. Une même séquence d'arrêts peut contenir plusieurs missions différentes. 
 

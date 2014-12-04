@@ -10,6 +10,8 @@ La course est rattachée à un nombre variable de "calendriers d'application" qu
 
 h3. Consulter les courses
 
+h4. Filtrer les courses
+
 L'accès à la page des courses se fait depuis la page de la séquence d'arrêts. Dans le menu latéral, cliquer sur _"horaire des courses"_ affiche la page des courses de la séquence d'arrêts courante. Un tableau présente les horaires de passage aux arrêts pour chacune des courses. 
 
 Un filtre de recherche permet de sélectionner les courses en fonction de différents critères :
@@ -20,7 +22,13 @@ Un filtre de recherche permet de sélectionner les courses en fonction de diffé
 * Les courses sans horaires
 * Sur l'heure de départ de la course
 
-Dans le tableau des courses, le lien en en-tête de colonne permet de sélectionner une autre séquence d'arrêt de la ligne ce qui permet de passer d'une séquence à l'autre directement sans avoir besoin de revenir à la page de la séquence d'arrêt. Cela permet par exemple d'accéder directement à la séquence d'arrêt retour.
+h4. Changer de séquence d'arrêts
+
+Un bouton _"séquence d'arrêts"_ est positionné au-dessus de la liste des arrêts. Il permet de naviguer vers une autre séquence d'arrêts de la ligne dans l'hypothèse où la séquence ouverte ne corresponde pas à la séquence voulue.
+
+h4. Consulter le détail d'une course
+
+Dans le tableau des courses, le lien en en-tête de colonne permet de sélectionner une autre séquence d'arrêt de la ligne ce qui permet de passer d'une séquence à l'autre directement sans avoir besoin de revenir à la page de la séquence d'arrêts. Cela permet par exemple d'accéder directement à la séquence d'arrêts retour.
 
 L'en-tête de chaque course propose un bouton qui permet d'accéder à des fonctions relative à la course :
 
@@ -51,7 +59,9 @@ Dès lors que la mission est sélectionnée, la liste des arrêts à desservir s
 
 h4. Ajouter une course par import .csv
 
-L'import d'une ou plusieurs courses par un fichier .csv permet d'ajouter des courses éditées dans un tableur. La forme du tableau étant très spécifique, il convient de récupérer le modèle en cliquant sur _"Export des horaires aux arrêts"_ puis de compléter les horaires dans le tableur. Le séparateur retenu pour le fichier .csv est le point-virgule. L'export fournit un fichier .zip comprenant le fichier des horaires et les calendrier.
+L'import d'une ou plusieurs courses par un fichier .csv permet d'ajouter des courses éditées dans un tableur. La forme du tableau étant très spécifique, il convient de récupérer le modèle en cliquant sur _"Export des horaires aux arrêts"_ puis de compléter les horaires dans le tableur. Le séparateur retenu pour le fichier .csv est le point-virgule. L'export fournit un fichier .zip comprenant le fichier des horaires et les calendriers.
+
+Le fichier calendrier permet de connaître le code de chaque calendrier et de le reporter dans le fichier des horaires dans la ligne _"calendriers"_. Dans le cas où plusieurs calendriers doivent être associés à une course, le code de chaque calendrier doit être séparé par une virgule. 
 
 !2014-10-31_114422.png! 
 Import des horaires au format .csv
@@ -81,13 +91,13 @@ Saisie d'horaire dans un tableur.
 
 L'export fournit un fichier .zip comprenant le fichier des horaires et les calendriers.
 
-L'import en retour ne concerne que le fichier .csv proprement dit. Importer un fichier .zip identique au fichier exporté, génèrera une erreur. 
+L'import, en retour, ne concerne que le fichier .csv proprement dit. Importer un fichier .zip identique au fichier exporté générera une erreur. 
 
 h4. Cloner une course
 
-Depuis la page d'une course, il est possible de cloner la course en cliquant dans le menu latéral sur _"Cloner la course"_. Une boite de dialogue s'affiche et permet de choisir les paramètres de clonage. Le clonage n'est pas une duplication à l'identique. Il ne permet pas de créer une deuxième course en tout point identique mais de créer une course ayant les mêmes paramètres, les mêmes temps de trajet inter-arrêts mais à un horaire différent comme le fait la fonction de décalage présente au-dessus des horaires de la course.
+Depuis la page d'une course, il est possible de cloner la course en cliquant dans le menu latéral sur _"Cloner la course"_. Une boite de dialogue s'affiche et permet de choisir les paramètres de clonage. Le clonage n'est pas une duplication à l'identique. Il ne permet pas de créer une deuxième course en tout point identique mais de créer une course ayant les mêmes paramètres, les mêmes temps de trajet inter-arrêts, *mais à un horaire différent*, comme le fait la fonction de décalage présente au-dessus des horaires de la course.
 
-Contrairement au décalage qui modifie les horaires de la course existante, le clonage crée une nouvelle course avec des horaires différents. Le premier paramètre permet de choisir si on clone la nouvelle course en fonction de l'horaire de départ ou de l'horaire d'arrivée puis de choisir l'horaire exact de clonage.
+Contrairement au décalage qui modifie les horaires de la course existante, le clonage crée une nouvelle course avec des horaires différents. Le premier paramètre permet de choisir si on clone la nouvelle course en fonction de l'horaire de départ ou de l'horaire d'arrivée, puis de choisir l'horaire exact de clonage.
 
 Deux autres paramètres facultatifs permettent de répéter l'opération "en rafale" sur des bases régulières en définissant l’intervalle entre deux courses et le nombre de copies à effectuer selon cette modalité.
 

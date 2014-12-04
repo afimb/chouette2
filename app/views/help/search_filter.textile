@@ -5,16 +5,16 @@ title: Recherche et filtrage
 
 h3. Étiquettes
 
-Afin d'organiser les calendriers dont le nombre peut être assez important, une fonction permet d'y adjoindre une ou plusieurs étiquettes. Pour créer une nouvelle étiquettes, il suffit de taper son nom dans le champ "_étiquettes_" puis d'appuyer sur entrée. Il est possible de les supprimer en cliquant sur la petite croix de l'étiquette déjà existante. 
+Afin d'organiser les calendriers (dont le nombre peut être assez important), une fonction permet d'y adjoindre une ou plusieurs étiquettes. Pour créer une nouvelle étiquette, il suffit de taper son nom dans le champ "_étiquettes_" puis d'appuyer sur entrée. Il est possible de les supprimer en cliquant sur la petite croix de l'étiquette déjà existante. 
 
 !2014-10-30_173913.png! 
 Sélection et création d'étiquettes
 
 h3. Recherche et filtrage
 
-Certaines listes sont trop longues, notamment pour les arrêts, pour être affichées sur une seule page. CHOUETTE propose alors des champs de recherche et de filtrage permettant de retrouver l'élément rechercher. Afin d'offrir une vue compacte, les fonctions avancées sont cachées et se révèlent lorsque l'on clique sur le lien de "_recherche avancée_".
+Certaines listes (notamment pour les arrêts) sont trop longues pour être affichées sur une seule page. CHOUETTE propose alors des champs de recherche et de filtrage permettant de retrouver l’élément recherché. Afin d’offrir une vue compacte, les fonctions avancées sont cachées et se révèlent lorsque l’on clique sur le lien de "_recherche avancée_".
 
-La recherche des périodes permet de rechercher par plage de dates de validité et par étiquette. Il suffit pour cela de sélectionner la ou les étiquette souhaitées en utilisant l'auto-complétion dans le champ correspondant.
+La recherche des périodes permet de rechercher par plage de dates de validité et par étiquette. Il suffit pour cela de sélectionner la ou les étiquettes souhaitées en utilisant l'auto-complétion dans le champ correspondant.
 
 !2014-10-30_174251.png! 
 Filtre de recherche des arrêts

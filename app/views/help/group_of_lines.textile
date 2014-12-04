@@ -9,7 +9,7 @@ Un groupe de lignes regroupe un ensemble de lignes assurant un type de service c
 
 Dans le format NeTex, le réseau est un groupe de lignes parmi les autres.
 
-Dans le format Neptune, une lignes ne peut appartenir qu'à un seul groupe de lignes ; donc dans l'export Neptune, un seul groupe sera exporté.
+Dans le format Neptune, une ligne ne peut appartenir qu'à un seul groupe de lignes ; donc dans l'export Neptune, un seul groupe sera exporté.
 
 h4. Liste des groupes de lignes
 
@@ -28,7 +28,7 @@ Dans le champs, _"Lignes associées"_, saisir les premiers caractères d'une lig
 
 h4. Afficher un groupe de lignes existant
 
-Pour afficher un groupe de lignes existant il suffit de cliquer sur le nom du groupe de lignes depuis la liste des groupes de lignes existants.
+Pour afficher un groupe de lignes existant, il suffit de cliquer sur le nom du groupe de lignes depuis la liste des groupes de lignes existants.
 
 Les arrêts des lignes du groupe sont affichés sur la cartographie. 
 

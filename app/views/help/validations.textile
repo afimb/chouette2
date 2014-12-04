@@ -35,7 +35,7 @@ p=. !validation.png!
 
 p. Dans la partie droite de l'écran :
 
-* ajouter une Validation
+* Ajouter une Validation
 * Jeu de paramètres
 
 h3(#new). Ajouter une Validation
@@ -47,7 +47,7 @@ p. A chaque objet Import est associé un objet Validation, mais l'inverse est fa
 
 h3(#res). Consultation des résultats : détail de l'objet Validation
 
-p. La validation est lancée en différé; son état d'avancement est affiché sous la forme d'une icône donc la couleur dépend de l'état:
+p. La validation est lancée en différé; son état d'avancement est affiché sous la forme d'une icône dont la couleur dépend de l'état:
 
 * bleu : en cours
 * vert : terminé correctement
@@ -97,11 +97,11 @@ Une bulle d'information s'affiche en sélectionnant une icône bleue !notice.png
 
 p(border_image). !validation_bulle.png!
 
-p. La spécification du test s'affiche par le lien sur le code 
+p. La spécification du test s'affiche par le lien sur le code.
 
 p. En cas d'erreur, la localisation est fournie dans la colonne 'Détail': 
 
 * pour les tests des phases 1 et 2, par l'emplacement (nom du fichier, ligne et colonne) de l'objet en erreur,
-* pour les tests de la phase 3, par un lien vers la page de consultation de l'objet en erreur.
+* pour les tests de la phase 3, par un lien vers la page de consultation de l'objet en base qui est en erreur.
 
 p(border_image). !validation_location.png!

@@ -41,6 +41,7 @@ h3. Sommaire
 # Annexes
 ## "Créer un réseau à partir de zéro":startingfromscratch
 ## "Modification des arrêts d'une ligne":stopsmanagement
-## "Itinéraire valables le temps d'une saison":temporaryline
+## "Itinéraires valables le temps d'une saison":temporaryline
+## "Contraintes de l'export HUB":hubexport
 ## "Format CSV chouette":csv
 ## "Glossaire":terms

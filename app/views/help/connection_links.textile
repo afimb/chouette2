@@ -13,7 +13,7 @@ La correspondance permet d'établir une liaison entre un arrêt physique (ou une
 
 h3. Créer une correspondance
 
-La page des correspondance est accessible depuis le menu _"Données"_. Elle présente la liste des correspondances avec un champ de recherche par le nom. Dans le menu latéral, cliquer sur _"Ajouter une correspondance"_ permet d'afficher le formulaire  de création d'une nouvelle correspondance.
+La page des correspondances est accessible depuis le menu _"Données"_. Elle présente la liste des correspondances avec un champ de recherche par le nom. Dans le menu latéral, cliquer sur _"Ajouter une correspondance"_ permet d'afficher le formulaire  de création d'une nouvelle correspondance.
 
 Seul le nom de la correspondance est obligatoire. 
 

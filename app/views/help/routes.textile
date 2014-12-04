@@ -24,11 +24,11 @@ h3. Créer une séquence d'arrêts
 
 La création d'une séquence d'arrêts se fait depuis la page d'une ligne. Pour créer une séquence d'arrêt il convient de cliquer sur _"Ajouter une séquence d'arrêts"_ dans le menu latéral à droite. Un formulaire de création s'affiche alors.
 
-En bas du formulaire deux liens permettent soit de rajouter des arrêts à la séquence, soit de créer un nouvel arrêt pour le rajouter à la séquence.
+En bas du formulaire, deux liens permettent soit de rajouter des arrêts à la séquence, soit de créer un nouvel arrêt pour le rajouter à la séquence.
 
 h4. Créer un nouvel arrêt pour l'ajouter
 
-Cliquer sur créer un nouvel arrêt renvoie l'utilisateur à la page de création d'arrêt. Il est à noter qu'il devra retourner par lui même dans sur l'interface de création de séquence d'arrêt pour reprendre son travail. 
+Cliquer sur créer un nouvel arrêt renvoie l'utilisateur à la page de création d'arrêt. Il est à noter qu'il devra retourner par lui même dans sur l'écran de création de séquence d'arrêt pour reprendre son travail. 
 
 h4. Ajouter un arrêt
 
@@ -38,7 +38,7 @@ Le pictogramme en forme de poubelle en début de ligne permet de supprimer l'ét
 
 Le pictogramme en forme de flèches (dans les 4 directions) permet de modifier l'ordre des arrêts dans la séquence. Il faut bien entendu au moins deux arrêts pour pouvoir modifier l'ordre des arrêts. 
 
-Une fois qu'un arrêt est sélectionné, une petite croix apparait au bout de la zone contenant le nom de l'arrêt. Cliquer sur cette croix efface l'arrêt sélectionné et permet d'en saisir un nouveau. 
+Une fois qu'un arrêt est sélectionné, une petite croix apparaît au bout de la zone contenant le nom de l'arrêt. Cliquer sur cette croix efface l'arrêt sélectionné et permet d'en saisir un nouveau. 
 
 h3. Modifier une séquence d'arrêts
 
@@ -49,7 +49,7 @@ Modification des arrêts d'une séquence
 
 h3. Supprimer une séquence d'arrêts
 
-Il est possible de supprimer une séquence d'arrêt depuis la page de la ligne. Chaque élément de la liste des séquences d'arrêt en bas de la page est dotée d'un pictogramme de suppression. Il est à noter que la suppression de la séquence d'arrêts ne supprime par les arrêts qu'elle contient. 
+Il est possible de supprimer une séquence d'arrêts depuis la page de la ligne. Chaque élément de la liste des séquences d'arrêts en bas de la page est dotée d'un pictogramme de suppression. Il est à noter que la suppression de la séquence d'arrêts ne supprime par les arrêts qu'elle contient. 
 
 La suppression de la séquence est également possible depuis la page de la séquence elle-même. Le lien _"Supprimer cette séquence d'arrêts"_ efface la séquence courante. 
 

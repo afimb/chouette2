@@ -9,7 +9,7 @@ Dans la réalité, le _"transporteur"_ est l'entité en charge de l'exploitation
 Ce principe se retrouve dans le logiciel CHOUETTE. 
 
 * Il s'agit de l'exploitant de la ligne; chaque ligne est rattachée à un seul transporteur, un transporteur pouvant évidemment gérer plusieurs lignes. 
-* Chaque transporteur dispose d'un identifiant fonctionnel, une sorte de _"numéro d'enregistrement"_, qui est utilisé dans les échanges XML pour l'identifier et le mettre à jour. Cet identifiant est unique pour toute la base CHOUETTE, quel que soit le réseau ; il est donc important que le gestionnaire de la base CHOUETTE le renseigne d'une manière bien définie et pérenne sans quoi des erreurs risquent fort de survenir lors de l'export des données vers des systèmes tiers les exploitants..
+* Chaque transporteur dispose d'un identifiant fonctionnel, une sorte de _"numéro d'enregistrement"_, qui est utilisé dans les échanges XML pour l'identifier et le mettre à jour. Cet identifiant est unique pour toute la base CHOUETTE, quel que soit le réseau ; il est donc important que le gestionnaire de la base CHOUETTE le renseigne d'une manière bien définie et pérenne, sans quoi des erreurs risquent fort de survenir lors de l'export des données vers des systèmes tiers les exploitants..
 
 h4. Liste des transporteurs
 
@@ -26,7 +26,7 @@ Un formulaire s'affiche. Les champs obligatoires sont signalés par des astéris
 
 h4. Afficher un transporteur existant
 
-Pour afficher un transporteur existant il suffit de cliquer sur le nom du transporteur depuis la liste des transporteurs existants.
+Pour afficher un transporteur existant, il suffit de cliquer sur le nom du transporteur depuis la liste des transporteurs existants.
 
 h4. Modifier un transporteur
 
@@ -34,7 +34,7 @@ On peut modifier un transporteur en cliquant sur le bouton de modification direc
 
 h4. Supprimer un transporteur
 
-On peut modifier un transporteur en cliquant sur le bouton de modification directement depuis la liste des transporteurs ou depuis la page d'un transporteur particulier. A noter que les éléments rattachés à ce transporteur (lignes notamment) ne seront pas supprimés. Il sera toujours possible de les rattacher à un autre transporteur par la suite en les modifiant. 
+On peut supprimer un transporteur en cliquant sur le bouton de suppression directement depuis la liste des transporteurs ou depuis la page d'un transporteur particulier. A noter que les éléments rattachés à ce transporteur (lignes notamment) ne seront pas supprimés. Il sera toujours possible de les rattacher à un autre transporteur par la suite en les modifiant. 
 
 h3. Attributs d'un transporteur
 
