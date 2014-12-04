@@ -38,6 +38,7 @@ class SearchStopAreaInput < Formtastic::Inputs::SearchInput
            };
 
            $('##{dom_id}').tokenInput('#{options[:json]}', {
+             zindex: 1061,
              disabled: #{options[:disabled] || false},
              crossDomain: false,
              tokenLimit: #{tokenLimit},
