@@ -38,7 +38,7 @@ en:
       resume_empty: "Empty timetable"
       legend: "Legend : "
       excluded_date: "Excluded date"
-      overlap_date: "Overlap date" 
+      overlap_date: "Overlap date"
       selected_date: "Date directly included"
       selected_period: "Date included in period"
     index:
@@ -49,10 +49,10 @@ en:
       to: " to : "
       selection: "Selection"
       selection_all: "All"
-      advanced_search: "Advanced Search"      
-  activerecord:        
-    models:        
-      time_table: 
+      advanced_search: "Advanced Search"
+  activerecord:
+    models:
+      time_table:
         zero:  "Timetable"
         one:   "Timetable"
         other: "Timetables"
@@ -80,7 +80,7 @@ en:
         periods: "Application periods"
         period_start: "From"
         period_end: "to"
-        tag_search: "Tags"         
+        tag_search: "Tags"
   formtastic:
     titles:
       time_table:
@@ -129,9 +129,9 @@ fr:
       resume_empty: "Calendrier vide"
       legend: "Légende : "
       excluded_date: "Date exclue"
-      overlap_date: "Date en doublon" 
-      selected_date: "Date inclue directement"
-      selected_period: "Date inclue par période"
+      overlap_date: "Date en doublon"
+      selected_date: "Date incluse directement"
+      selected_period: "Date incluse par période"
     index:
       comment: "Recherche par nom"
       tag_search: "Tags : vacances,jour fériés"
@@ -142,10 +142,10 @@ fr:
       title: "calendriers"
       selection: "Sélection"
       selection_all: "Tous"
-      advanced_search: "Recherche avancée"      
-  activerecord:        
-    models:        
-      time_table: 
+      advanced_search: "Recherche avancée"
+  activerecord:
+    models:
+      time_table:
         zero:  "Calendrier"
         one:   "Calendrier"
         other: "Calendriers"
@@ -172,10 +172,10 @@ fr:
         date: "Le"
         excluded_dates: "Dates exclues"
         periods: "Périodes d'application"
-        period_start: "Du" 
+        period_start: "Du"
         period_end: "au"
-        tag_search: "Etiquettes" 
-        tag_list: "Etiquettes" 
+        tag_search: "Etiquettes"
+        tag_list: "Etiquettes"
   formtastic:
     titles:
       time_table:
@@ -183,6 +183,6 @@ fr:
     placeholders:
       time_table:
         tag_search: "ex: Jours fériés,Vacances scolaires"
-          
+
 
 
