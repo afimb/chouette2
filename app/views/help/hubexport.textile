@@ -1,13 +1,13 @@
 ---
 layout: default
-title:Contraintes de l'export HUB
+title: Contraintes de l'export HUB
 ---
 
 CHOUETTE est en mesure d'exporter la base au format HUB qui est un format spécifique aux outils métiers Transdev. Le format HUB comprend des contraintes plus importantes que les formats Neptune, notamment sur la longueur de certains noms. Pour que la base puisse être exportée sans difficulté, il faut donc se conformer à ces contraintes de longueur de noms, ainsi que utiliser certaines fonctions comme les groupes de lignes qui sont facultatives pour leur seul format Neptune mais qui sont obligatoire dans le format HUB. 
 
 h3. Liste des champs contraints
 
-[à préciser une fois que Zakaria aura dressé la liste]
+[rédaction en cours ...]
 
 h3. Correspondances
 
