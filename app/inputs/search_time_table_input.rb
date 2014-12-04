@@ -15,7 +15,7 @@ class SearchTimeTableInput < Formtastic::Inputs::SearchInput
               tags = '<div class=\"info\">' +  item.tags + '</div>' ;
             }
             return '<li><div class=\"comment\">' + item.comment +
-                    '</div><div class=\"info\">' + item.time_table_bounding + day_types + '</div>' +
+                    '</div><div class=\"info\">' + item.time_table_bounding + '  ' + day_types + '</div>' +
                     tags + '</li>';
           };
            $('##{dom_id}').tokenInput('#{options[:json]}', {
