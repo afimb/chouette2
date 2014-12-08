@@ -1,1 +1,1 @@
-<%= @group_of_lines.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2') %>;<%= @group_of_lines.name.encode(Encoding::ISO_8859_1) if @group_of_lines.name %>;<%= @group_of_lines.id %><%= "\u000D\u000A" %>
+<%= @group_of_lines.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2') %>;<%= @group_of_lines.name.encode(Encoding::Windows_1252) if @group_of_lines.name %>;<%= @group_of_lines.id %><%= "\u000D\u000A" %>

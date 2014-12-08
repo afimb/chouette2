@@ -1,1 +1,1 @@
-<%= @network.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2') %>;<%= @network.name.encode(Encoding::ISO_8859_1) if @network.name %>;<%= @network.id %><%= "\u000D\u000A" %>
+<%= @network.objectid.sub(/(\w*\:\w*\:)(\w*)/, '\2') %>;<%= @network.name.encode(Encoding::Windows_1252) if @network.name %>;<%= @network.id %><%= "\u000D\u000A" %>

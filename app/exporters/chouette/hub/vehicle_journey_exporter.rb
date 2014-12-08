@@ -40,7 +40,7 @@ class Chouette::Hub::VehicleJourneyExporter
     @renvoi = ""
     if @vehicle_journey.mobility_restricted_suitability || @line.mobility_restricted_suitability
       @renvoi = "1"
-      File.open(directory + "/RENVOI.TXT" , "a:ISO_8859_1") do |f|
+      File.open(directory + "/RENVOI.TXT" , "a:Windows_1252") do |f|
         if f.size == 0
           f.write("RENVOI\u000D\u000A") 
           f.write("a;PMR;1\u000D\u000A")
@@ -67,7 +67,7 @@ class Chouette::Hub::VehicleJourneyExporter
   end
   
   def save
-    File.open(directory + hub_name , "a:ISO_8859_1") do |f|
+    File.open(directory + hub_name , "a:Windows_1252") do |f|
       f.write("COURSE\u000D\u000A") if f.size == 0
       f.write(render)
     end if vehicle_journey.present?
