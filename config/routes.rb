@@ -134,6 +134,9 @@ ChouetteIhm::Application.routes.draw do
     end
     resources :compliance_check_tasks do
       member do
+        get 'export', defaults: { format: 'zip' }
+      end
+      member do
         get 'rule_parameter_set'
       end
       collection do

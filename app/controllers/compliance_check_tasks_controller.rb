@@ -2,6 +2,7 @@ class ComplianceCheckTasksController < ChouetteController
   defaults :resource_class => ComplianceCheckTask
 
   respond_to :html, :js
+  respond_to :zip, :only => :export
   belongs_to :referential
 
 
@@ -23,6 +24,12 @@ class ComplianceCheckTasksController < ChouetteController
   def create
     create!  do |success, failure|
       success.html { flash[:notice] = I18n.t('compliance_check_tasks.new.flash'); redirect_to referential_compliance_check_tasks_path(@referential) }
+    end
+  end
+  
+  def export
+    respond_to do |format|
+      format.zip { send_file ComplianceCheckTaskExport.new(compliance_check_task).export, :type => :zip }
     end
   end
 

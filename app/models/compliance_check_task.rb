@@ -1,9 +1,6 @@
-require 'tempfile'
-
 class ComplianceCheckTask < ActiveRecord::Base
-  include ERB::Util
   
-  attr_accessor :rule_parameter_set_id, :template
+  attr_accessor :rule_parameter_set_id
 
   belongs_to :referential
   belongs_to :import_task
@@ -13,7 +10,7 @@ class ComplianceCheckTask < ActiveRecord::Base
   validates_presence_of :user_name
   validates_inclusion_of :status, :in => %w{ pending processing completed failed }
 
-  has_many :compliance_check_results, :order => :status
+  has_many :compliance_check_results, :order => [ :severity , :status ]
 
   serialize :parameter_set, JSON
 
@@ -103,24 +100,5 @@ class ComplianceCheckTask < ActiveRecord::Base
       Rails.logger.error "Validation #{id} failed : #{e}, #{e.backtrace}"
       update_attribute :status, "failed"
     end
-  end
-
-  after_destroy :destroy_file
-  def destroy_file
-    file.close if File.exists? file
-    file.unlink if File.exists? file
-    FileUtils.rm file if File.exists? file
-  end
-  
-  def file
-    @template = File.open('app/views/compliance_check_results/index.csv.erb' ){ |f| f.read }
-    file = Tempfile.new('compliance_check_results.csv')
-    file.write(render)
-    file.flush
-    return file
-  end
-  
-  def render()
-    ERB.new(@template).result(binding)
   end
 end
