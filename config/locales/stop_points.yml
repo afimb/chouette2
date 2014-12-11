@@ -33,6 +33,11 @@ en:
     attributes:
       stop_point:
         lines: "lines"
+  simple_form:
+    labels:
+      stop_point:
+        for_boarding: "Pickup"
+        for_alighting: "Drop off"        
 fr:
   stop_points:
     reorder_success: "La list des arrêts a été mise à jour"
@@ -68,3 +73,8 @@ fr:
     attributes:
       stop_point:
         lines: "Lignes"
+  simple_form:
+    labels:
+      stop_point:
+        for_boarding: "Montée"
+        for_alighting: "Descente"    

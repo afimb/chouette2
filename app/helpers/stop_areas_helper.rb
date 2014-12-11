@@ -1,4 +1,16 @@
 module StopAreasHelper
+  def explicit_name(stop_area)
+    name = localization = ""
+    
+    name += truncate(stop_area.name, :length => 30) || ""
+    name += (" <small>["+ ( truncate(stop_area.registration_number, :length => 10) || "") + "]</small>") if stop_area.registration_number
+    
+    localization += stop_area.zip_code || ""
+    localization += ( truncate(stop_area.city_name, :length => 15) ) if stop_area.city_name
+    
+    ( "#{image_tag( stop_area_picture_url(stop_area)) }" + " <span style='height:25px; line-height:25px; margin-left: 5px; '>" + name + " <small style='height:25px; line-height:25px; margin-left: 10px; color: #555;'>" + localization + "</small></span>").html_safe
+  end
+  
   def genealogical_title
     return t(".stop_areas.genealogical.genealogical_routing") if @stop_area.stop_area_type == 'itl'    
     t("stop_areas.genealogical.genealogical")

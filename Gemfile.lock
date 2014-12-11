@@ -1,3 +1,17 @@
+GIT
+  remote: https://github.com/afimb/ninoxe.git
+  revision: 37fdb46bfa9c089a231ea5e7e093a9b78cc11b5e
+  specs:
+    ninoxe (1.1.3)
+      activerecord (~> 3.2.13)
+      acts-as-taggable-on (>= 3)
+      acts_as_list (>= 0.1.6)
+      acts_as_tree (>= 1.1.0)
+      deep_cloneable (~> 2.0.0)
+      enumerize (~> 0.8.0)
+      foreigner (= 1.6.0)
+      georuby-ext (= 0.0.5)
+
 GEM
   remote: http://rubygems.org/
   remote: https://rails-assets.org/
@@ -56,6 +70,7 @@ GEM
     builder (3.0.4)
     calendar_helper (0.2.5)
       open4
+    callsite (0.0.11)
     capistrano (2.13.5)
       highline
       net-scp (>= 1.0.0)
@@ -108,6 +123,8 @@ GEM
     dr-apartment (0.14.1)
     dr-ffi-proj4 (0.0.3)
       ffi (>= 1.0.0)
+    enumerize (0.8.0)
+      activesupport (>= 3.2)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -186,6 +203,10 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     map_layers (0.0.4)
+    meta_request (0.3.4)
+      callsite (~> 0.0, >= 0.0.11)
+      rack-contrib (~> 1.1)
+      railties (>= 3.0.0, < 5.0.0)
     metaclass (0.0.1)
     mime-types (1.25.1)
     mocha (0.14.0)
@@ -201,14 +222,6 @@ GEM
     net-ssh (2.6.2)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
-    ninoxe (1.1.3)
-      activerecord (~> 3.2.13)
-      acts-as-taggable-on (>= 3)
-      acts_as_list (>= 0.1.6)
-      acts_as_tree (>= 1.1.0)
-      deep_cloneable (~> 2.0.0)
-      foreigner (= 1.6.0)
-      georuby-ext (= 0.0.5)
     nokogiri (1.5.10)
     nokogiri (1.5.10-java)
     open4 (1.3.0)
@@ -222,6 +235,8 @@ GEM
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-contrib (1.2.0)
+      rack (>= 0.9.1)
     rack-ssl (1.3.4)
       rack
     rack-test (0.6.2)
@@ -400,6 +415,7 @@ DEPENDENCIES
   factory_girl_rails (= 1.7)
   font-awesome-sass (~> 4.2.0)
   formtastic (= 2.3.1)
+  georuby (= 2.3.0)
   georuby-ext (= 0.0.5)
   google-analytics-rails
   gravatar_image_tag
@@ -414,9 +430,10 @@ DEPENDENCIES
   language_engine (= 0.0.5)
   launchy
   map_layers (= 0.0.4)
+  meta_request
   modernizr-rails (~> 2.0.6)
   morrisjs-rails
-  ninoxe (~> 1.1.3)
+  ninoxe!
   pg (~> 0.11.0)
   rabl
   rails (= 3.2.18)

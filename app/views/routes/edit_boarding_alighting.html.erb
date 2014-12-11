@@ -1,0 +1,27 @@
+<%= title_tag t('routes.edit_boarding_alighting.title', :route => @route.name ) %>
+
+<%= simple_form_for ["save_boarding_alighting", @referential, @line, @route] do |form| %>
+<table class="table table-hover">
+  <thead>
+    <th><%= t(".stop_area_name") %></th>
+    <th><%= t(".for_boarding") %></th>
+    <th><%= t(".for_alighting") %></th>
+  </thead>
+  <tbody>
+  <%= form.simple_fields_for :stop_points do |stop_points_form| %>
+    <tr>      
+      <td>
+        <%= explicit_name(stop_points_form.object.stop_area) %>
+      </td>
+      <td><%= stop_points_form.input :for_boarding, :label => false, include_blank: t("simple_form.include_blanks.defaults.for_boarding") %></td>
+      <td><%= stop_points_form.input :for_alighting, :label => false, include_blank: t("simple_form.include_blanks.defaults.for_alighting") %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table> 
+
+  <div class="submit">
+    <%= form.button :submit, :class => "" %>
+    <%= link_to t("cancel"), referential_line_route_path(@referential, @line, @route) %>
+  </div>  
+<% end %>

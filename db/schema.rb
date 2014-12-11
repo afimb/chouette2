@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141105123538) do
+ActiveRecord::Schema.define(:version => 20141210134214) do
 
   create_table "access_links", :force => true do |t|
     t.integer  "access_point_id",                        :limit => 8
@@ -419,6 +419,8 @@ ActiveRecord::Schema.define(:version => 20141105123538) do
     t.datetime "creation_time"
     t.string   "creator_id"
     t.integer  "position"
+    t.string   "for_boarding"
+    t.string   "for_alighting"
   end
 
   add_index "stop_points", ["objectid"], :name => "stop_points_objectid_key", :unique => true
@@ -541,6 +543,8 @@ ActiveRecord::Schema.define(:version => 20141105123538) do
     t.time    "waiting_time"
     t.time    "elapse_duration"
     t.time    "headway_frequency"
+    t.string  "for_boarding"
+    t.string  "for_alighting"
   end
 
   add_index "vehicle_journey_at_stops", ["stop_point_id"], :name => "index_vehicle_journey_at_stops_on_stop_pointid"
