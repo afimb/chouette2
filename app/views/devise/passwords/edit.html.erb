@@ -8,7 +8,7 @@
       <%= f.input :password, :as => :password %>
       <%= f.input :password_confirmation, :as => :password %>
       
-      <div class="col-md-offset-2">
+      <div class="submit">
         <%= link_to t("cancel"), root_path, :class => "btn btn-default" %>    
         <%= f.button :submit, :value => t("devise.passwords.edit.commit"), :class => "btn-info" %>
       </div>

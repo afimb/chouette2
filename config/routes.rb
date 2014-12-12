@@ -76,6 +76,10 @@ ChouetteIhm::Application.routes.draw do
 
     resources :lines, :networks, :group_of_lines do
       resources :routes do
+        member do
+          get 'edit_boarding_alighting'
+          put 'save_boarding_alighting'
+        end
         resources :journey_patterns do
           member do
             get 'new_vehicle_journey'

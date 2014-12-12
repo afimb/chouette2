@@ -1,0 +1,17 @@
+en:
+  simple_form:  
+    include_blanks:
+      defaults:
+        for_boarding: "Undefined"
+        for_alighting: "Undefined"
+  enumerize:
+    for_boarding:
+      normal: "Regularly scheduled pickup"
+      forbidden: "No pickup available"
+      request_stop: "Pickup if requested"
+      is_flexible: "Booking requested for pickup"        
+    for_alighting:
+      normal: "Regularly scheduled drop off"
+      forbidden: "No drop off available"
+      request_stop: "Drop off if requested"
+      is_flexible: "Booking requested for drop off"

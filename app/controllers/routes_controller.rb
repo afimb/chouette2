@@ -15,6 +15,21 @@ class RoutesController < ChouetteController
     end
   end
 
+  def edit_boarding_alighting
+    @route = route
+    build_breadcrumb :edit
+  end
+
+  def save_boarding_alighting
+    @route = route
+    
+    if @route.update_attributes(params[:route])
+      redirect_to referential_line_route_path(@referential, @line, @route)
+    else
+      render "edit_boarding_alighting"
+    end
+  end
+  
   def show
     @map = RouteMap.new(route).with_helpers(self)
     @stop_points = route.stop_points.paginate(:page => params[:page])
@@ -26,7 +41,7 @@ class RoutesController < ChouetteController
   # overwrite inherited resources to use delete instead of destroy 
   # foreign keys will propagate deletion)
   def destroy_resource(object)
-        object.delete
+    object.delete
   end
 
   def destroy
