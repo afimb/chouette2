@@ -5,7 +5,7 @@ title: Missions
 
 h3. Définition
 
-Une _"Mission"_ est une sélection ordonnée d'arrêts issue d'une séquence d'arrêts de à partir de laquelle il sera possible de créer des courses, c'est à dire d'associer différents horaires à la mission. Les arrêts de la mission sont toute ou partie des arrêts de la séquence d'arrêts.
+Une _"Mission"_ est une sélection ordonnée d'arrêts issue d'une séquence d'arrêts de à partir de laquelle il sera possible de créer des courses, c'est à dire d'associer différents horaires à la mission. Les arrêts de la mission sont tout ou partie des arrêts de la séquence d'arrêts.
 
 Une mission est spécifique à une _"séquence d'arrêts"_. Une même séquence d'arrêts peut contenir plusieurs missions différentes. 
 
@@ -17,7 +17,8 @@ La création d'une mission se fait depuis la page d'une séquence d'arrêt. Pour
 
 En bas du formulaire les arrêts sélectionnés dans la séquence d'arrêts sont sélectionnables par des cases à cocher.
 
-!2014-10-31_113803.png! Sélection des arrêts d'une mission
+!2014-10-31_113803.png! 
+Sélection des arrêts d'une mission
 
 h3. Modifier une mission
 
@@ -31,10 +32,10 @@ La suppression de la mission est également possible depuis la page de la séque
 
 h3. Attributs
 
-* Nom := nom de la mission
-* Nom public := nom public pour les voyageurs
-* Numéro d'enregistrement := Le numéro d'enregistrement est unique. Aucune règle de nommage ne s'applique sur ce numéro. Celui-ci doit être unique sur l'ensemble des missions de la ligne.
-* Commentaire := zone de texte libre 
+* Nom : nom de la mission
+* Nom public : nom public pour les voyageurs
+* Numéro d'enregistrement : Le numéro d'enregistrement est unique. Aucune règle de nommage ne s'applique sur ce numéro. Celui-ci doit être unique sur l'ensemble des missions de la ligne.
+* Commentaire : zone de texte libre 
 
 
 

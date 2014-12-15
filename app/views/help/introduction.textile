@@ -7,7 +7,7 @@ CHOUETTE est un logiciel libre développé à l'initiative du ministère frança
 
 !2014-10-30_172801.png!
 
-CHOUETTE est une application web. Elle permet de saisir, éditer, tester des données théoriques de transport public depuis un navigateur internet. Afin de faciliter la création de réseaux complets. Elle est dotée de fonctions d'import, soit depuis d'autres formats d'applications équivalentes, soit au travers d'un fichier CSV qui permet de mener des imports massifs plutôt que de saisir tous les éléments un a un dans les formulaires adhoc.
+CHOUETTE est une application web. Elle permet de saisir, éditer, tester des données théoriques de transport public depuis un navigateur internet. Afin de faciliter la création de réseaux complets, elle est dotée de fonctions d'import, soit depuis d'autres formats d'applications équivalentes, soit au travers d'un fichier CSV qui permet de mener des imports massifs plutôt que de saisir tous les éléments un à un dans les formulaires adhoc.
 
 h3. A qui s'adresse ce manuel ?
 

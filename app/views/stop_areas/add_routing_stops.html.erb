@@ -3,7 +3,7 @@
 <%= semantic_form_for [@referential, @stop_area] do |form| %>
 <div>
   <%= form.inputs do %>
-    <%= form.input :routing_stop_ids, :as => :text, :input_html => { :"data-pre" => ( @stops.map { |stop| { :id => stop.id.to_s, :name => "#{stop.name} #{stop.country_code}" } } ).to_json }  %>
+    <%= form.input :routing_stop_ids, :as => :search_stop_area, :json =>  referential_autocomplete_stop_areas_path(@referential, :format => :json)+"?filter=itl_excluded", :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'), :input_html => { :"data-pre" => Rabl::Renderer.new('autocomplete_stop_areas/index', @stop_area.routing_stops, :view_path => 'app/views', :format => :json, :scope => self).render  }  %>
   <% end %>
 
    <%= form.actions do %>
@@ -12,19 +12,6 @@
    <% end %>
 </div>
 <% end %>
-
-<script>
-	$(function() {
-		$( "#stop_area_routing_stop_ids" ).tokenInput('<%= referential_stop_area_stop_area_routing_stops_path(@referential, @stop_area, :format => :json) %>', {
-       crossDomain: false,
-       prePopulate: $('#stop_area_routing_stop_id').data('pre'),
-       minChars: 3,
-       hintText: '<%= t('search_hint') %>',
-       noResultsText: '<%= t('no_result_text') %>',
-       searchingText: '<%= t('searching_term') %>'
-    });
-	});
-</script>
 
 <% content_for :sidebar do %>
 <ul class="actions">

@@ -7,16 +7,17 @@ title: Imports
 * "Validation":#val
 * "l’onglet IMPORTS":#imp
 * "Nouvel Import":#new
-* "Paramètres de validation":pvl
+* "Paramètres de validation":#pvl
 * "Consultation des résultats":#res
 * "Résultats de validation":#rvl
 
 
 h3(#rol). Rôle
 
-p. L’import permet d’enregistrer dans la base un jeu de données d'offre TC, selon un format au choix. Des tests de validation des données sont exécutés avant l'import en base de données (plus détaillées dans le cas du format Neptune). Il est possible d'importer sans sauver en base, uniquement pour jouer les tests de vérification de conformité. Dans ce cas les tests en base de données (auxquels sont associés les jeux de paramètres) ne seront pas exécutés (et donc aucun test ne sera exécuté, pour des données CSV, GTFS, ou Netex).
+p. L’import permet d’enregistrer dans la base un jeu de données d'offre TC, selon un format au choix. Des tests de validation des données sont exécutés avant l'import en base de données (plus détaillées dans le cas du format Neptune). Il est possible d'importer sans sauver en base, uniquement pour jouer les tests de vérification de conformité. Dans ce cas, les tests en base de données (auxquels sont associés les jeux de paramètres) ne seront pas exécutés (et donc aucun test ne sera exécuté, pour des données CSV, GTFS, ou Netex).
 
-!2014-10-31_151613.png! Page des imports
+p=. !2014-10-31_151613.png! 
+Page des imports
 
 h3(#val). Validation
 
@@ -26,9 +27,9 @@ p. Lors de l'import, des tests sont effectués :
 # sur la complétude et la cohérence des relations exprimées dans le format d'échange
 # optionnellement sur la qualité des données en vue de son exploitation dans une centrale de mobilité
 
-p(olnext). - nécessite la fourniture d'un jeu de paramètres définissant les seuils (cf "Validation":validations) 
+p(olnext). - la validation nécessite la fourniture d'un jeu de paramètres définissant les seuils (cf "Validation":validations) 
 
-p(note). Les tests de niveau 1 et 2 ne sont actuellement implémentés que pour le format Neptune
+p(note). Les tests de niveau 1 et 2 ne sont actuellement implémentés que pour le format Neptune.
 
 
 h3(#imp). l'onglet IMPORTS
@@ -43,20 +44,20 @@ p. Comme les fichiers importés restent stockés en base, il est opportun que  l
 
 p. Dans la partie droite de l'écran, 
 
-* créer un nouvel Import
+* Créer un nouvel Import
 * Jeu de paramètres
 
 h3(#new). Nouvel Import
 
 p. Il est possible de modifier le jeu de paramètres par défaut ou de créer un nouveau Jeu de paramètres. Il est possible de ne choisir aucun jeu de paramètres.
 
-p. L’import est lancé en différé, son résultat n'est pas immédiat. Le résultat est conservé tant que l’import n’est pas supprimé. L'import lance également la validation (avec ou sans jeu de paramètres associés), ce qui crée un objet Validation associé. La suppression d’un import également l'objet Validation associé à cet import ; néanmoins si les données ont été sauvegardées en base, elles seront conservées.
+p. L’import est lancé en différé, son résultat n'est pas immédiat. Le résultat est conservé tant que l’import n’est pas supprimé. L'import lance également la validation (avec ou sans jeu de paramètres associés), ce qui crée un objet Validation associé. La suppression d’un import supprime également l'objet Validation associé à cet import ; néanmoins si les données ont été sauvegardées en base, elles seront conservées.
 
 p. Si les données ne sont pas sauvées en base, il faut relancer un import avec sauvegarde si on souhaite effectivement importer ces données en base après une première validation « à blanc ».
 
 h3(#pvl). Paramètres de validation
 
-p. Il est possible de modifier le jeu de paramètres par défaut ou de créer un nouveau Jeu de paramètres. Les paramètres de vitesses et durée entre arrêts successifs sont définis mode par mode.
+p. Il est possible de modifier le jeu de paramètres par défaut, ou de créer un nouveau Jeu de paramètres. Les paramètres de vitesses et durée entre arrêts successifs sont définis mode par mode.
 
 h3(#res). Consultation des résultats : détail de l'objet Import
 
@@ -98,13 +99,13 @@ p(border_image). !import_line_result.png!
 * courses
 * missions
 
-p. La sélection de l'histogramme affiche le détail des lignes lues :
+p. La sélection de l'histogramme (clic) affiche le détail des lignes lues :
 
 p(border_image). !import_line_detail.png!
 
-p. un survol affiche le nombre de données concernées par type.
+p. Un survol affiche le nombre de données concernées par type.
 
-p. la sélection du graphique affiche le détail par ligne
+p. La sélection du graphique affiche le détail par ligne.
 
 h3(#rvl). Résultats de validation
 

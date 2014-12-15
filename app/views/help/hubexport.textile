@@ -1,0 +1,27 @@
+---
+layout: default
+title: Contraintes de l'export HUB
+---
+
+CHOUETTE est en mesure d'exporter la base au format HUB qui est un format spécifique aux outils métiers Transdev. Le format HUB comprend des contraintes plus importantes que les formats Neptune, notamment sur la longueur de certains noms. Pour que la base puisse être exportée sans difficulté, il faut donc se conformer à ces contraintes de longueur de noms, ainsi que utiliser certaines fonctions comme les groupes de lignes qui sont facultatives pour leur seul format Neptune mais qui sont obligatoire dans le format HUB. 
+
+h3. Liste des champs contraints
+
+[rédaction en cours ...]
+
+h3. Correspondances
+
+CHOUETTE permet de faire des correspondances entre différents types d'arrêts. Dans le format HUB en revanche, seules les correspondances entre les arrêts physiques sont prises en compte. Il convient donc de vérifier que les correspondances sont bien paramétrées entre les arrêts de type _"point d'arrêt"_ et _"quai"_. 
+
+h3. Lignes et séquences d'arrêts
+
+Lors de la création de lignes et des séquences d'arrêts, il est nécessaire de respecter deux contraintes pour permettre la compatibilité de l'export HUB :
+
+* Ne pas créer plus de deux séquences d'arrêts pour une même ligne. 
+* Renseigner impérativement le sens de la ligne :
+**Dans le cas où il n'existe qu'une séquence d'arrêts, choisir le sens aller
+**Dans le cas où il existe deux séquences d'arrêts, définir un sens aller et un sens retour
+
+h3. Créer des groupes de lignes
+
+Les lignes à exporter doivent impérativement faire partie d'un groupe de lignes pour pouvoir être exportées en HUB.

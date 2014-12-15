@@ -7,9 +7,9 @@ h3. Navigateur prérequis
 
 L’utilisation de l’application nécessite de disposer d’un navigateur ayant les caractéristiques suivantes :
 
-* Internet Explorer (Version 8 et +)
-* Mozilla FireFox (Version 12 et +)
-* Chrome (Version 8 et +)
+* Internet Explorer (Version 11 et +)
+* Mozilla FireFox (Version 33 et +)
+* Chrome (Version 38 et +)
 
 h3. Paramétrage du navigateur
 Le navigateur doit autoriser l’exécution de Javascript.

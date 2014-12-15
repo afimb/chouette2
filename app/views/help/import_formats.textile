@@ -5,21 +5,25 @@ title: Formats d'imports
 
 h3(#fmt). Formats disponibles
 
-* Neptune : format d'échange de données de transport en commun pour la France (cf "Normalisation":normalisation)
+* Neptune : format d'échange de données de transport en commun pour la France (cf ["Normalisation":http://www.normes-donnees-tc.org/format-dechange/donnees-theoriques/])
 * NeTEx : format d'échange de données de transport en commun expérimental sur la future norme européenne ["NeTEx":http://www.normes-donnees-tc.org/format-dechange/donnees-theoriques/] mais limité au sous-ensemble des données définies dans le format Neptune
 * CSV : format tabulaire spécifique à Chouette  (cf "CSV":csv)
 * GTFS : format originaire de ["Google Transit":https://support.google.com/transitpartners/], à condition que le fichier soit préalablement validé avec l'outil Feed Validator =:
 
 p(olnext). - les données exportées en GTFS sont explicités ["ICI":http://www.normes-donnees-tc.org/format-dechange/autres-normes/] 
 
-p(olnext). - l'import limité au sous ensemble des arrêts permet de n'importer que les arrêts et les correspondances
+p(olnext). - l'import GTFS limité au sous ensemble des arrêts permet de n'importer que les arrêts et les correspondances
 
 h3(#com). Paramètres communs
 
 * Pas de sauvegarde : permet d'effectuer une simulation de l'import sans enregistrer les données
+
 p(ddnext). - active donc les tests de validation de niveau 1 et 2
+
 * Jeu de paramètres pour validation := paramètres définissant les seuils des tests de niveau 3 (indisponible si l'option 'pas de sauvegarde' est cochée)
+
 p(ddnext). - les jeux de paramètres sont créés via le lien ["Jeux de paramètres":parametersets] disponible sur les vues des listes d'imports et de validations
+
 * Fichier à importer := fichier (plat ou zip selon format)
 
 h3(#opt). Options des formats
@@ -30,10 +34,10 @@ Les options des différents formats apparaissent en fonction de celui qui a ét�
 * *NeTex* : pas d'option particulière
 * *GTFS* :  
 ** Préfixe d'identifiants : préfixe à utiliser pour générer les identifiants Neptune des objets importés, initialisé à la valeur définie pour l'espace de données.
-** Distance max pour créer les zones : distance maximale entre deux arrêts homonymes pour les regrouper au sein d'un arrêt commercial de même nom, ces zones viennent en supplément de celles définies dans GTFS, une distance de 0 ne génère aucune zone.
+** Distance max pour créer les zones : distance maximale entre deux arrêts homonymes pour les regrouper au sein d'un arrêt commercial de même nom, ces zones viennent en supplément de celles définies dans GTFS; une distance de 0 ne génère aucune zone.
 ** ignorer le dernier mot : lors de la comparaison des noms d'arrêts, cette option permet de ne pas prendre en compte le dernier mot du nom de l'arrêt (sauf si celui-ci n'est composé que d'un seul mot).
 ** ignorer les n derniers caractères : lors de la comparaison des noms d'arrêts, cette option permet de ne pas prendre en compte les derniers caractères du nom de l'arrêt (sauf si celui-ci n'a pas assez de caractères pour cela)
-** Distance max pour créer les correspondances : distance maximale entre deux arrêts pour les lier par une correspondance, ces correspondances sont hors zone d'arrêt. Elles viennent en supplément de celles définies dans GTFS (ce mécanisme tient compte des correspondances exclues), une distance de 0 ne génère aucune correspondance.
+** Distance max pour créer les correspondances : distance maximale entre deux arrêts pour les lier par une correspondance, ces correspondances sont hors zone d'arrêt: elles viennent en supplément de celles définies dans GTFS (ce mécanisme tient compte des correspondances exclues), une distance de 0 ne génère aucune correspondance.
 ** Sous-ensemble : choix permettant de limiter l'import aux seuls fichiers stops.txt et transfers.txt. Lors de l'import, les attributs d'adresse, localité et code postal ajoutés à l'export associé sont exploités :
 * *CSV* : 
 ** Préfixe d'identifiants : préfixe à utiliser pour générer les identifiants Neptune des objets importés, initialisé à la valeur définie pour l'espace de données.

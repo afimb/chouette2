@@ -15,10 +15,11 @@ class SearchTimeTableInput < Formtastic::Inputs::SearchInput
               tags = '<div class=\"info\">' +  item.tags + '</div>' ;
             }
             return '<li><div class=\"comment\">' + item.comment +
-                    '</div><div class=\"info\">' + item.time_table_bounding + day_types + '</div>' +
+                    '</div><div class=\"info\">' + item.time_table_bounding + '  ' + day_types + '</div>' +
                     tags + '</li>';
           };
            $('##{dom_id}').tokenInput('#{options[:json]}', {
+             zindex: 1061,
              crossDomain: false,
              tokenLimit: #{tokenLimit},
              minChars: 2,
@@ -29,7 +30,7 @@ class SearchTimeTableInput < Formtastic::Inputs::SearchInput
              noResultsText: '#{options[:no_result_text]}',
              searchingText: '#{options[:searching_text]}',
              resultsFormatter: time_table_formatter,
-             tokenFormatter: time_table_formatter,
+             tokenFormatter: time_table_formatter,             
            });
         });").html_safe)
     end
@@ -48,7 +49,7 @@ class SearchTimeTableInput < Formtastic::Inputs::SearchInput
                   :required          => nil,
                   :autofocus         => nil,
                   :class             => 'token-input',
-                  'data-model-name' => object.class.model_name.human
+                  'data-model-name' => object.class.model_name.human                  
                 })
   end
 

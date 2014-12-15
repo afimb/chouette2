@@ -11,9 +11,10 @@ h3. Créer un accès
 
 Depuis la page d'un arrêt auquel l'accès se rapporte, cliquer sur _"ajouter un accès"_. Un formulaire de création permet de décrire l'accès. 
 
-!2014-10-30_181251.png! Création d'un accès
+!2014-10-30_181251.png! 
+Création d'un accès
 
-Le champ de localisation par coordonnées est disponible dès la création et permet de localiser un accès avec des données chiffrées. A noter que les données doivent être saisies dans un champ unique, séparée par une virgule. Cette configuration permet de faire des copier coller directs depuis googlemaps notamment. 
+Le champ de localisation par coordonnées est disponible dès la création et permet de localiser un accès avec des données chiffrées. A noter que les données doivent être saisies dans un champ unique, séparée par une virgule. Cette configuration permet de faire des copier coller directs depuis Googlemaps notamment. 
 
 La carte n'est pas disponible au moment de la création. Elle apparaît lors de la modification. Il faut donc créer un accès puis le modifier si l'on souhaite localiser l'accès sur la cartographie plutôt que par les coordonnées. 
 
@@ -41,7 +42,7 @@ h4. Données géographiques :
 * Position X : coordonnée horizontale de l'accès dans le référentiel de projection de l'espace de données
 * Position Y : coordonnée verticale de l'accès dans le référentiel de projection de l'espace de données
 * Longitude : longitude de l'accès dans le référentiel WGS84
-* latitude : latitude de l'accès dans le référentiel WGS84
+* Latitude : latitude de l'accès dans le référentiel WGS84
 
 h3. Modifier un accès
 
@@ -51,15 +52,17 @@ h3. Consulter les accès existants
 
 Les accès existants sont listés en bas de la page de l'arrêt sous forme d'éléments de liste. Cliquer sur le nom de l'accès ou sur le lien _"Gérer les liens arrêt-accès"_ affiche la vue détaillée de l'accès qui permet notamment son paramétrage complet. 
 
-Les liens entre l'accès et l'arrêt global est présenté en premier, suivi d'une liste entre l'accès et les arrêts fils. Chacune de ses relations est figurée par une double flèche qui permet de savoir si les accès sont valables et si oui, dans quel sens exactement. 
+Les liens entre l'accès et l'arrêt global est présenté en premier, suivi d'une liste entre l'accès et les arrêts fils. Chacune de ces relations est figurée par une double flèche qui permet de savoir si les accès sont valables et si oui, dans quel sens exactement. 
 
-!2014-10-30_181326.png! Liste des accès d'un arrêt, située en bas de la page de l'arrêt
+!2014-10-30_181326.png! 
+Liste des accès d'un arrêt, située en bas de la page de l'arrêt
 
 h3. Paramétrer les accès
 
 Cliquer sur l'une des flèches affiche le formulaire de paramétrage détaillé de l'accès pour le sens de circulation correspondant à la flèche. 
 
-!2014-10-30_181422.png! Définition des sens d'accès
+!2014-10-30_181422.png!
+Définition des sens d'accès
 
 h4. Attributs du lien Accès / Arrêt
 

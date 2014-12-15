@@ -5,7 +5,7 @@ title: Séquence d'arrêts
 
 h3. Définition
 
-Une _"séquence d'arrêts"_ est une sélection ordonnée d'arrêts à partir de laquelle il sera possible de créer des missions comprenant tout ou partie des arrêts de la séquence. Sur ces missions, se rajouterons pour finir les horaires des différentes courses. 
+Une _"séquence d'arrêts"_ est une sélection ordonnée d'arrêts à partir de laquelle il sera possible de créer des missions comprenant tout ou partie des arrêts de la séquence. Sur ces missions, se rajouteront pour finir les horaires des différentes courses. 
 
 Une séquence d'arrêts est spécifique à une _"ligne"_. Une même ligne peut contenir plusieurs séquences d'arrêts différentes. On retrouve les séquences d'arrêts d'une ligne en bas de la page de la ligne en question. Les séquences d'arrêts n’apparaissent donc pas dans le menu de navigation de CHOUETTE. Il convient de se rendre sur la page de la ligne pour les consulter et les éditer. 
 
@@ -13,7 +13,8 @@ Une séquence d'arrêts est spécifique à une _"ligne"_. Une même ligne peut c
 
 Dans la page de la ligne, la séquence d'arrêts apparaît sur la cartographie. Le nom et le type de chaque arrêt est accessible par une infobulle. Le premier arrêt de la ligne est signalé par la couleur verte, le dernier par du rouge. 
 
-!2014-10-31_113648.png! Vue cartographique des séquences d'arrêts
+!2014-10-31_113648.png!
+Vue cartographique des séquences d'arrêts
 
 Les différentes séquences d'arrêts peuvent regrouper des arrêts communs et comporter des doublons d'arrêts.
 
@@ -21,13 +22,13 @@ Les différentes séquences d'arrêts peuvent regrouper des arrêts communs et c
 
 h3. Créer une séquence d'arrêts
 
-La création d'une séquence d'arrêt se fait depuis la page d'une ligne. Pour créer une séquence d'arrêt il convient de cliquer sur _"Ajouter une séquence d'arrêts"_ dans le menu latéral à droite. Un formulaire de création s'affiche alors.
+La création d'une séquence d'arrêts se fait depuis la page d'une ligne. Pour créer une séquence d'arrêt il convient de cliquer sur _"Ajouter une séquence d'arrêts"_ dans le menu latéral à droite. Un formulaire de création s'affiche alors.
 
-En bas du formulaire deux liens permettent soit de rajouter des arrêts à la séquence, soit de créer un nouvel arrêt pour le rajouter à la séquence.
+En bas du formulaire, deux liens permettent soit de rajouter des arrêts à la séquence, soit de créer un nouvel arrêt pour le rajouter à la séquence.
 
 h4. Créer un nouvel arrêt pour l'ajouter
 
-Cliquer sur créer un nouvel arrêt renvoie l'utilisateur à la page de création d'arrêt. Il est à noter qu'il devra retourner par lui même dans sur l'interface de création de séquence d'arrêt pour reprendre son travail. La création d'un arrêt depuis la page de création de séquence d'arrêt ne s'inscrit pas dans un workflow intégré. Il est donc préférable de s'assurer que tous les arrêts nécessaires à la création de la séquence sont déjà saisis avant de commencer à créer la séquence. 
+Cliquer sur créer un nouvel arrêt renvoie l'utilisateur à la page de création d'arrêt. Il est à noter qu'il devra retourner par lui même dans sur l'écran de création de séquence d'arrêt pour reprendre son travail. 
 
 h4. Ajouter un arrêt
 
@@ -37,17 +38,18 @@ Le pictogramme en forme de poubelle en début de ligne permet de supprimer l'ét
 
 Le pictogramme en forme de flèches (dans les 4 directions) permet de modifier l'ordre des arrêts dans la séquence. Il faut bien entendu au moins deux arrêts pour pouvoir modifier l'ordre des arrêts. 
 
-Une fois qu'un arrêt est sélectionné, une petite croix apparait au bout de la zone contenant le nom de l'arrêt. Cliquer sur cette croix efface l'arrêt sélectionné et permet d'en saisir un nouveau. 
+Une fois qu'un arrêt est sélectionné, une petite croix apparaît au bout de la zone contenant le nom de l'arrêt. Cliquer sur cette croix efface l'arrêt sélectionné et permet d'en saisir un nouveau. 
 
 h3. Modifier une séquence d'arrêts
 
 On peut modifier une séquence d'arrêts en cliquant sur le bouton de modification directement depuis la liste des lignes ou depuis la page de la séquence d'arrêts que l'on souhaite modifier. L'ordre des arrêts de la séquence peut être modifié par glisser-déposer.
 
-!2014-10-31_112543.png! Modification des arrêts d'une séquence
+!2014-10-31_112543.png! 
+Modification des arrêts d'une séquence
 
 h3. Supprimer une séquence d'arrêts
 
-Il est possible de supprimer une séquence d'arrêt depuis la page de la ligne. Chaque élément de la liste des séquences d'arrêt en bas de la page est dotée d'un pictogramme de suppression. Il est à noter que la suppression de la séquence d'arrêts ne supprime par les arrêts qu'elle contient. 
+Il est possible de supprimer une séquence d'arrêts depuis la page de la ligne. Chaque élément de la liste des séquences d'arrêts en bas de la page est dotée d'un pictogramme de suppression. Il est à noter que la suppression de la séquence d'arrêts ne supprime par les arrêts qu'elle contient. 
 
 La suppression de la séquence est également possible depuis la page de la séquence elle-même. Le lien _"Supprimer cette séquence d'arrêts"_ efface la séquence courante. 
 

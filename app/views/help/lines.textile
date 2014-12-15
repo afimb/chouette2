@@ -11,7 +11,7 @@ La ligne dispose d'un identifiant fonctionnel, une sorte de _"numéro d'enregist
 
 h4. Liste des groupes de lignes
 
-Sélectionner _"Lignes"_ dans le menu _"Données"_ affiche la liste des lignes existants dans l'espace de données. 
+Sélectionner _"Lignes"_ dans le menu _"Données"_ affiche la liste des lignes existantes dans l'espace de données. 
 
 h4. Ajouter une ligne
 
@@ -19,7 +19,7 @@ Depuis la liste des groupe de lignes, cliquer sur  _"Ajouter une ligne"_ dans la
 
 Un formulaire s'affiche. Les champs obligatoires sont signalés par des astérisques. 
 
-Dans le champs, _"Groupes de lignes associés"_, saisir les premiers caractères d'une ligne. L'auto-complétion présentera les groupes de lignes correspondant à la saisie. Taper sur _"Entrée"_ valide la proposition. Il est à noter que ces associations fonctionne dans les deux sens et qu'il est également possible de rajouter une ligne dans un groupe de ligne depuis la page d'un groupe de lignes. 
+Dans le champ, _"Groupes de lignes associés"_, saisir les premiers caractères d'une ligne. L'auto-complétion présentera les groupes de lignes correspondant à la saisie. Taper sur _"Entrée"_ valide la proposition. Il est à noter que ces associations fonctionnent dans les deux sens et qu'il est également possible de rajouter une ligne dans un groupe de lignes depuis la page d'un groupe de lignes. 
 
 h4. Afficher une ligne existante
 
@@ -37,17 +37,18 @@ En bas de la page, un lien _"Liste des arrêts de la ligne"_ affiche la liste de
 
 Les arrêts des différentes séquences d'arrêts apparaissent sur la cartographie. Une infobulle permet de connaître le nom de l'arrêt et rappelle le type d'arrêt.
 
-!2014-10-31_112140.png! Vue d'une ligne.
+!2014-10-31_112140.png! 
+Vue d'une ligne.
 
-h4. Modifier une lignes
+h4. Modifier une ligne
 
 On peut modifier une ligne en cliquant sur le bouton de modification directement depuis la liste des lignes ou depuis la page d'une ligne particulière. 
 
 h4. Supprimer une ligne
 
-On peut supprimer une ligne en cliquant sur le bouton de suppression directement depuis la liste des lignes ou depuis la page d'une ligne particulière. Il est à noter que les itinéraires rattachés à ce groupe de lignes ne seront pas supprimés [à vérifier]. Il sera toujours possible de les rattacher à une autre ligne par la suite. 
+On peut supprimer une ligne en cliquant sur le bouton de suppression directement depuis la liste des lignes ou depuis la page d'une ligne particulière. Il sera toujours possible de les rattacher à une autre ligne par la suite. 
 
-Dans le menu latéral situé à droite, un lien _"activer la sélection multiple"_ permet d'afficher des cases à cocher sur chacun des éléments de la liste. Ces cases permettent de définir les lignes qui pourront être supprimées en même temps. Une fois la sélection multiple activiée, deux raccourcis permettent de tout sélectionner et de tout déselectionner. 
+Dans le menu latéral situé à droite, un lien _"activer la sélection multiple"_ permet d'afficher des cases à cocher sur chacun des éléments de la liste. Ces cases permettent de définir les lignes qui pourront être supprimées en même temps. Une fois la sélection multiple activée, deux raccourcis permettent de tout sélectionner et de tout désélectionner. 
 
 h3. Attributs d'une ligne
 
@@ -56,13 +57,13 @@ h3. Attributs d'une ligne
 * Nom : nom de la ligne 
 * Nom public : nom de la ligne connu des usagers
 * Numéro d'enregistrement : code référençant une ligne au sein d'une autorité supérieure
-* Indice : indice ou numéro de la ligne (ce champ n'est pas obligatoirement numérique)
-* Mode de transport : mode de transport principal de la ligne. Le cas échéant, d'autres modes de transports particuliers peuvent être indiqués au niveau de chaque course. 
+* Indice : indice ou numéro de la ligne (ce champ n'est pas obligatoirement numérique). Il s'agit de la désignation simple de la ligne comme par exemple un numéro, une lettre etc...
+* Mode de transport : mode de transport principal de la ligne. Le cas échéant, d'autres modes de transport particuliers peuvent être indiqués au niveau de chaque course. 
 * Couleur du tracé	: couleur en rvb hexadécimal du tracé de ligne et du fond de texte
 * Couleur de texte	: couleur en rvb hexadécimal du texte du nom de la ligne
 * Page web associée	: adresse http ou https de la page du site public décrivant la ligne
 * Accessibilité PMR	: précise si la ligne est équipée PMR
-* Transport à la demande : précise si la ligne est en exploitation à la demande ou pas [préciser si c'est également définissable au niveau de la course]
+* Transport à la demande : précise si la ligne est en exploitation à la demande ou pas
 * Commentaire : zone de texte libre sur la ligne
 * Groupes de lignes : _"groupes de lignes"_ auxquels appartient la ligne
 

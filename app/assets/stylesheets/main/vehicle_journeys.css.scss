@@ -8,16 +8,33 @@
         width: 100px;
         color: white;
         font-weight: bold;
-    }
-
-    .journey_pattern_dependent_list {
-        tr.no_stop { display: none; }
-    }
+    }    
 
     .time_table_list { padding-left: 25%; }
 
     .vehicle_journey_at_stops {
         margin-left: 25%;
+
+        thead, tbody, tfoot{
+
+            th, td{
+                text-align: center;
+            }
+        }
+        
+        .journey_pattern_dependent_list {
+            tr.no_stop { display: none; }            
+
+            td.departure_time, td.arrival_time{
+                &.missing{
+                    background-color: $brand-warning;
+                }
+                
+                &.invalid_position{
+                    background-color: $brand-danger;
+                }
+            }
+        }        
 
         .title{
             font-weight: bold;

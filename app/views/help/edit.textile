@@ -3,18 +3,22 @@ layout: default
 title: Edition et suppression d'un élément
 ---
 
-L'un des principes de fonctionnement de l'application pour la création, la modification et la supression d'un élément est de pouvoir utiliser deux méthodes différentes. 
+L'un des principes de fonctionnement de l'application pour la création, la modification et la suppression d'un élément est de pouvoir utiliser deux méthodes différentes. 
 
 L'une consiste à passer par les listes d'éléments et d'utiliser les boutons de modification et de suppression directement sur l'élément de la liste. 
 
-!2014-10-30_174647.png! Modification d'un espace de données depuis un élément de liste. 
+!2014-10-30_174647.png! 
+Modification d'un espace de données depuis un élément de liste. 
 
-!2014-10-30_174728.png! Modification d'un espace de données depuis sa page.
+!2014-10-30_174728.png! 
+Modification d'un espace de données depuis sa page.
 
 L'autre méthode consiste à utiliser les fonctions du menu latéral directement dans la page de l'élément à éditer. 
 
-!2014-10-30_175041.png! Suppression d'un élément depuis la liste.
+!2014-10-30_175041.png! 
+Suppression d'un élément depuis la liste.
 
-!2014-10-30_175002.png! Suppression d'un élément depuis le menu latéral accessible dans sa page.
+!2014-10-30_175002.png! 
+Suppression d'un élément depuis le menu latéral accessible dans sa page.
 
 

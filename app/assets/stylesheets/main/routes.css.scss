@@ -15,24 +15,31 @@
      #stop_points .nested-fields {
         ol {
             margin-left: 25%;
-            i.fa { margin-right: 10px;}   
+            .handle { margin-left: 5px;}   
 
-            li {
-                display: inline;
-
-                .token-input-list {
-                    overflow: visible;
-                    .token-input-token {                        
-                        p { margin: 0px 0px !important; }                        
-                    }
-                }
+            .search_stop_area {            
+                margin-bottom: 0px !important;
             }
-        }                       
+
+            div.resize{
+                height: 40px;
+                line-height: 40px;
+                font-size: 16px;
+            }
+        }
      }
 
      #stop_points .links {
          margin: 10px 0 15px 25%;
      }       
+}
+
+#workspace.routes.edit_boarding_alighting{
+
+    .stop_area{
+        padding-top: 7px;
+    }
+    
 }
 
 #workspace.routes.show

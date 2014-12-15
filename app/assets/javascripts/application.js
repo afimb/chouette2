@@ -13,6 +13,7 @@
 //= require morris
 //= require bootstrap-sass-official
 //= require typeahead.js
+//= require jquery-tokeninput
 //= require moment
 //= require moment/locale/fr
 //= require eonasdan-bootstrap-datetimepicker

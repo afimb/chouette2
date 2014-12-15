@@ -9,7 +9,7 @@ ChouetteIhm::Application.routes.draw do
     authenticated :user do
       root :to => 'referentials#index'
     end
-    
+
     unauthenticated do
       root :to => 'devise/sessions#new'
     end
@@ -61,29 +61,13 @@ ChouetteIhm::Application.routes.draw do
   resources :referentials do
     resources :api_keys
     resources :rule_parameter_sets
-    resources :stop_point_areas
+    resources :autocomplete_stop_areas
     match 'lines' => 'lines#destroy_all', :via => :delete
     resources :group_of_lines do
-      resources :stop_areas do
-        resources :access_points
-        resources :stop_area_copies
-        resources :stop_area_parents
-        resources :stop_area_children
-        resources :stop_area_routing_lines
-        resources :stop_area_routing_stops
-        member do
-          get 'add_children'
-          get 'select_parent'
-          get 'add_routing_lines'
-          get 'add_routing_stops'
-        end
-      end
-      resources :lines
       collection do
         get :name_filter
       end
     end
-
     resources :lines do
       collection do
         get :name_filter
@@ -91,21 +75,11 @@ ChouetteIhm::Application.routes.draw do
     end
 
     resources :lines, :networks, :group_of_lines do
-      resources :stop_areas do
-        resources :access_points
-        resources :stop_area_copies
-        resources :stop_area_parents
-        resources :stop_area_children
-        resources :stop_area_routing_lines
-        resources :stop_area_routing_stops
-        member do
-          get 'add_children'
-          get 'select_parent'
-          get 'add_routing_lines'
-          get 'add_routing_stops'
-        end
-      end
       resources :routes do
+        member do
+          get 'edit_boarding_alighting'
+          put 'save_boarding_alighting'
+        end
         resources :journey_patterns do
           member do
             get 'new_vehicle_journey'
@@ -167,10 +141,7 @@ ChouetteIhm::Application.routes.draw do
     resources :stop_areas do
       resources :access_points
       resources :stop_area_copies
-      resources :stop_area_parents
-      resources :stop_area_children
       resources :stop_area_routing_lines
-      resources :stop_area_routing_stops
       member do
         get 'add_children'
         get 'select_parent'
@@ -184,25 +155,11 @@ ChouetteIhm::Application.routes.draw do
     end
 
     resources :connection_links do
-      resources :connection_link_areas
+      resources :stop_areas
       member do
         get 'select_areas'
       end
-      resources :stop_areas do
-        resources :access_points
-        resources :stop_area_parents
-        resources :stop_area_children
-        resources :stop_area_routing_lines
-        resources :stop_area_routing_stops
-        member do
-          get 'add_children'
-          get 'select_parent'
-          get 'add_routing_lines'
-          get 'add_routing_stops'
-        end
-      end
     end
-
     resources :clean_ups
 
   end

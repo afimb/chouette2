@@ -27,10 +27,9 @@ h3. Notes de version
 h4. Version 2.5.1
 
 * Nouvelles foctionnalités :
-** refonte de l'import/export GTFS
-** ajout des couleurs de lignes
-** ajout de l'URL d'une page web pour les transporteurs, lignes et les arrêts
-** ajout du fuseau horaire pour les transporteurs et les arrêts.
+** Reprise des imports/exports GTFS
+** Ajout des couleurs de lignes
+** Ajout de champs pour les échanges GTFS 
 
 h4. Version 2.5.0
 

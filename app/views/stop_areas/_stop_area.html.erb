@@ -21,27 +21,32 @@
   <div class="panel-body">
     <p>      
       <% unless stop_area.area_type == 'ITL' || stop_area.geometry %>
-      <span class="warning"><%= t('.no_position') %></span> -
+        <span class="warning"><%= t('.no_position') %></span>
       <% end %>
-      <span class="warning">
-      	<% if stop_area.zip_code.blank? %>
-      	   <%=  stop_area.human_attribute_name('country_code')+' '+stop_area.country_code unless stop_area.country_code.blank? %>
-      	<% else %>
-      	   <%=  stop_area.zip_code %>
-      	<% end %>
-      	<%=  stop_area.city_name %>
-      	&nbsp;
-      </span>	
     </p>
-    <p> 
+    <p>     
+      <%= stop_area.human_attribute_name('registration_number') %> : <%= stop_area.registration_number.present? ? stop_area.registration_number : t(".no_object") %>
+    </p>
+    <p>
+      <%=  t('.address') %> : <%= (stop_area.zip_code.present? || stop_area.city_name.present?) ? "#{stop_area.zip_code} #{stop_area.city_name}"  : t(".no_object") %> 
+    </p>
+    <p>
       <% if stop_area.area_type == 'ITL' %>
-        <%= t('.lines') %> <% stop_area.routing_lines.each do |line| %>
-          <span class="line"><%= line.number %></span>
-        <% end %>
+      <%=  t('.lines') %> : <% if stop_area.routing_lines.blank? %>
+          <%= t(".no_object") %>
+        <% else %>                               
+          <% stop_area.routing_lines.each do |line| %>
+            <span class="label label-default line"><%= line.number %></span>
+          <% end %>
+        <% end %>    
       <% else %>
-        <%= t('.lines') %> <% stop_area.lines.each do |line| %>
-          <span class="line"><%= line.number %></span>
-        <% end %>
+      <%= t('.lines') %> : <% if stop_area.lines.blank? %>
+          <%= t(".no_object") %>
+        <% else %>
+          <% stop_area.lines.each do |line| %>
+            <span class="label label-default line"><%= line.number || truncate( line.name, :length => 4 ) %></span>
+          <% end %>
+        <% end %>    
       <% end %>
     </p>
   </div>

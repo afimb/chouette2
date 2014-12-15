@@ -3,5 +3,30 @@ layout: default
 title: Glossaire
 ---
 
-p. à renseigner
+* Arrêt : Il existe différentes catégories d'arrêts qui permettent de décrire le réseau. Ils s'organisent hiérarchiquement.
+* Arrêt Physique : Il s'agit d'une catégorie qui regroupe les points d'arrêt et les quais. Les _"arrêts physiques"_ ne sont pas un type d'arrêt paramétrable dans CHOUETTE. Un arrêt physique est un lieu géographique réel.
+* Point d'arrêt : Les points sont des arrêts physiques sur la voirie ou au sein d'une gare routière, classiquement signalés par un poteau.
+* Quai : Les quais sont des arrêts physiques de transports ferrés ou en site propre. 
+* Arrêt commercial : Un arrêt commercial est un regroupement d'arrêts physiques (au moins un) desservant une même zone. Il est défini par un nom d'arrêt comme par exemple, "Mairie" ou bien encore "Gare routière".
+* Pôle d'échange : Un pôle d'échange est un regroupement de un ou plusieurs arrêts commerciaux. Un pôle d'échange peut aussi contenir un autre pôle d'échange.
+* Accès : Type d'accès physique (escalier, ascenseur, escalator) d'un arrêt.
+* Correspondance : Les correspondances permettent de déterminer la possibilité de couvrir la distance entre deux arrêts proches à pied et de préciser les temps de parcours.
+* Code INSEE : Code unique par commune. Contrairement au code postal qui peut être partagé par plusieurs petites communes ou au contraire ne concerner qu'une partie d'une grosse commune, le code INSEE est unique pour chaque commune.
+* Ligne : Éléments généraux descriptifs d'une ligne, comme le nom, le transporteur, l'indice... Une ligne contient une ou plusieurs séquences d'arrêts
+* Séquence d'arrêts : Ensemble ordonné d'arrêts qui permet de déterminer les trajets d'une ligne.
+* Mission : itinéraire spécifique au sein d'une séquence d'arrêts.
+* Course : horaires desservant une mission à certains jours définis par un calendrier. 
+* ITL : Interdiction de trafic local, ensemble d'arrêts d'une ligne au sein duquel il est interdit de faire un trajet. 
+* Indice : Nom raccourci d'un élément. Le numéro d'une ligne par exemple.
+* Réseau : Identité d'un service de transport public.
+* Transporteur : Service d'exploitation de véhicules de transport public au sein d'un réseau ou pour une ligne. 
+* Calendrier : ensemble de dates associées à une course qui permet de déterminer les jours de fonctionnement des différentes courses. 
+* GTFS : Format de données Google Transit. Il s'agit d'un format simple composé d'une série de fichiers CSV
+* Neptune : Format d'échange de données transport XML normalisé (NFP 99-506)
+* CSV : Type de fichier où l'information est enregistrée de façon simple, en utilisant des séparateurs pour distinguer les différentes information. Les fichiers CSV s'éditent avec un tableur.
+* Netex : Nouveau format européen d'échange de données transport XML normalisé.
+* HUB : Format d'échange Transdev composer d'un ensemble de fichiers au format txt mais dont les données sont organisées comme dans un fichier csv. 
+* Transport à la demande : Dans CHOUETTE, ligne régulière dont les services ne sont déclenchés que sur réservation des utilisateurs. 
+
+
 

@@ -26,6 +26,7 @@ gem 'devise_invitable'
 # Map, Geolocalization
 gem "map_layers", "0.0.4"
 gem "georuby-ext", "0.0.5"
+gem "georuby", "2.3.0" # Fix version for georuby-ext because api has changed
 
 # User interface
 gem 'language_engine', '0.0.5'
@@ -60,6 +61,7 @@ gem "breadcrumbs_on_rails"
 gem 'rails-assets-typeahead.js-bootstrap3.less'
 gem 'rails-assets-respond'
 gem 'rails-assets-eonasdan-bootstrap-datetimepicker', '~> 3.1.3'
+gem 'rails-assets-jquery-tokeninput', '~> 1.7.0'
 
 # Format Output
 gem 'json'
@@ -74,9 +76,9 @@ gem 'google-analytics-rails'
 gem 'will_paginate', '~> 3.0'
 gem 'ransack'
 gem 'squeel'
-#gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git'
+gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git'
 #gem 'ninoxe',:path => '~/workspace/chouette/ninoxe'
-gem 'ninoxe', '~> 1.1.1'
+#gem 'ninoxe', '~> 1.1.3'
 
 gem 'acts_as_list', '0.1.6'
 gem "acts_as_tree-1.8", '1.1.0', :require => "acts_as_tree"
@@ -93,6 +95,7 @@ group :development do
   gem 'guard'
   gem 'guard-rspec'
   gem 'rails-erd'
+  gem 'meta_request'
 end
 
 group :test, :development do
