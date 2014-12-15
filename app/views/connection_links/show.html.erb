@@ -22,7 +22,11 @@
     </p>
     <p>
       <label><%= @connection_link.human_attribute_name("connection_link_type") %>: </label>
-      <%= t("connection_link_types.label.#{@connection_link.connection_link_type}") %>
+      <% if @connection_link.connection_link_type.blank? %>
+        <%= t("connection_link_types.label.undefined") %>
+      <% else %>
+        <%= t("connection_link_types.label.#{@connection_link.connection_link_type}") %>
+      <% end %>
     </p>
     <p>
       <label><%= @connection_link.human_attribute_name("comment") %>: </label>

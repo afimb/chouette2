@@ -1,6 +1,7 @@
 en:
   connection_link_types:
     label:
+      undefined: "Undefined"
       underground: "Underground"
       mixed: "Mixed"
       overground: "Overground"
@@ -8,6 +9,7 @@ en:
 fr:
   connection_link_types:
     label:
+      undefined: "Non précisé"
       underground: "Souterrain"
       mixed: "Mixte"
       overground: "Aérien"
