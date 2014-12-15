@@ -72,14 +72,16 @@ ChouetteIhm::Application.routes.draw do
       collection do
         get :name_filter
       end
-    end
-
-    resources :lines, :networks, :group_of_lines do
       resources :routes do
         member do
           get 'edit_boarding_alighting'
           put 'save_boarding_alighting'
         end
+      end
+    end
+
+    resources :lines, :networks, :group_of_lines do
+      resources :routes do
         resources :journey_patterns do
           member do
             get 'new_vehicle_journey'

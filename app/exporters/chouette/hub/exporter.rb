@@ -133,6 +133,7 @@ class Chouette::Hub::Exporter
         
         if journey_patterns_exportable?
           Chouette::Hub::RouteExporter.save(@routes, temp_dir, hub_export)
+          Chouette::Hub::ItlExporter.save(@routes, temp_dir, hub_export)
           Chouette::Hub::JourneyPatternExporter.save(@journey_patterns, temp_dir, hub_export)
           Chouette::Hub::DirectionExporter.save(@journey_patterns, temp_dir, hub_export)
         else
