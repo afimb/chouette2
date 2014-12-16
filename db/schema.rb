@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141210134214) do
+ActiveRecord::Schema.define(:version => 20141216085004) do
 
   create_table "access_links", :force => true do |t|
     t.integer  "access_point_id",                        :limit => 8
@@ -218,12 +218,13 @@ ActiveRecord::Schema.define(:version => 20141210134214) do
   end
 
   create_table "group_of_lines", :force => true do |t|
-    t.string   "objectid",       :null => false
+    t.string   "objectid",            :null => false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
     t.string   "name"
     t.string   "comment"
+    t.string   "registration_number"
   end
 
   add_index "group_of_lines", ["objectid"], :name => "group_of_lines_objectid_key", :unique => true

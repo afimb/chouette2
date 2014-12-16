@@ -26,6 +26,7 @@ en:
     attributes:
       group_of_line:
         name: "Name"
+        registration_number: "Registration number"
         comment: "Comments"
         line_count: "Number of lines"
         objectid: "Neptune identifier"
@@ -65,6 +66,7 @@ fr:
     attributes:
       group_of_line:
         name: "Nom"
+        registration_number: "Numéro d'enregistrement"
         comment: "Commentaire"
         line_count: "Nombre de lignes"
         objectid: "Identifiant Neptune"
