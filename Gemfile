@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 source 'https://rails-assets.org'
 
 gem 'rails', '3.2.18'
+gem 'rest_client'
 
 platforms :jruby do
   gem 'activerecord-jdbcpostgresql-adapter', '~> 1.3.3'
@@ -65,7 +66,7 @@ gem 'rails-assets-jquery-tokeninput', '~> 1.7.0'
 
 # Format Output
 gem 'json'
-gem 'rubyzip', '~> 1.1.6' 
+gem 'rubyzip', '~> 1.1.6'
 gem 'roo'
 
 # Controller
