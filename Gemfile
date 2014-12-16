@@ -31,7 +31,6 @@ gem "georuby", "2.3.0" # Fix version for georuby-ext because api has changed
 
 # User interface
 gem 'language_engine', '0.0.5'
-gem 'gravatar_image_tag'
 gem 'calendar_helper', "0.2.5"
 gem 'cocoon', "1.1.2"
 gem 'formtastic', "2.3.1"
