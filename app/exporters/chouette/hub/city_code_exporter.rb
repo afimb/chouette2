@@ -27,7 +27,7 @@ class Chouette::Hub::CityCodeExporter
   end
   
   def save
-    File.open(directory + hub_name , "a:ISO_8859_1") do |f|
+    File.open(directory + hub_name , "a:Windows_1252") do |f|
       f.write("COMMUNES\u000D\u000A") if f.size == 0
       f.write(render)
     end

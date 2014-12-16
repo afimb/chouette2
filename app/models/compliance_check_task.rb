@@ -1,4 +1,5 @@
 class ComplianceCheckTask < ActiveRecord::Base
+  
   attr_accessor :rule_parameter_set_id
 
   belongs_to :referential
@@ -9,7 +10,7 @@ class ComplianceCheckTask < ActiveRecord::Base
   validates_presence_of :user_name
   validates_inclusion_of :status, :in => %w{ pending processing completed failed }
 
-  has_many :compliance_check_results, :order => :status
+  has_many :compliance_check_results, :order => [ :severity , :status ]
 
   serialize :parameter_set, JSON
 
@@ -100,6 +101,4 @@ class ComplianceCheckTask < ActiveRecord::Base
       update_attribute :status, "failed"
     end
   end
-
-
 end

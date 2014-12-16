@@ -260,9 +260,13 @@ en:
         rule_target: "Object"
         rule_number: "Step"
         rule_code: "Code"
-        violation_count: "Violation(s)"
+        violation_count: "Number of violations"
+        objects: "Objects in violations"
         detail: "Detail"
-
+        object: "Error object"
+        resource: "Resources of the error object"
+        url: "URL"
+        first_violations: "First violations"
 fr:
   compliance_check_results:
     index:
@@ -402,7 +406,6 @@ fr:
       detail_3_vehiclejourney_6: "La course %{objectId} a un mode de transport interdit %{transportMode}"
       detail_3_facility_1: "L'équipement %{name} (%{objectId}) n'est pas géolocalisé"
       detail_3_facility_2: "L'équipement %{name} (%{objectId}) est localisé trop loin de son parent %{areaName} (%{areaId}) : distance %{distance} > %{distanceLimit}"
-
   activerecord:
     models:
       compliance_check_result:
@@ -524,6 +527,11 @@ fr:
         rule_target: "Objet"
         rule_number: "Etape"
         rule_code: "Code"
-        violation_count: "Violation(s)"
+        violation_count: "Nombre de violations"
+        objects: "Objets en violations"
         detail: "Détail"
+        object: "Objet en erreur"
+        resource: "Ressource de l'objet en erreur"
+        url: "URL"
+        first_violations: "Premières  violations"
 

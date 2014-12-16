@@ -7,7 +7,9 @@ class Chouette::Hub::CommercialStopAreaExporter
     @directory = directory
     @template = File.open('app/views/api/hub/arrets_generiques.hub.erb' ){ |f| f.read }
     @type = "ONNNNNNNNNNNNNNNNN"
-    
+    if @stop_area.mobility_restricted_suitability
+      @type = "ONNNNNNNNNNNNONNNN"
+    end
     @stop_area.referential.projection_type = "27562"
 
     wgs84 = '+proj=lonlat +datum=WGS84 +ellps=WGS84'
@@ -35,7 +37,7 @@ class Chouette::Hub::CommercialStopAreaExporter
   end
   
   def save
-    File.open(directory + hub_name , "a:ISO_8859_1") do |f|
+    File.open(directory + hub_name , "a:Windows_1252") do |f|
       f.write("ARRET\u000D\u000A") if f.size == 0
       f.write(render)
     end if stop_area.present?

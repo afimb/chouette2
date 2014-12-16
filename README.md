@@ -57,7 +57,7 @@ sudo apt-get install make
 Installation
 ------------
 
-On debian, chouette can also be installed as package : see [debian packages](http://packages.chouette.cityway.fr/debian/chouette)
+On debian, chouette can also be installed as a package : see [debian packages](http://packages.chouette.cityway.fr/debian/chouette)
 
 Install chouette-gui-command to import, export and validate transport offer,
 Assume Linux user is myuser and its group mygroup (that user is the one who starts Rails server)
