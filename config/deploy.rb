@@ -73,6 +73,8 @@ namespace :deploy do
     run "cd /usr/local/opt/chouette-command && rm -rf chouette-cmd_#{gui_cmd}"
     run "cd /usr/local/opt/chouette-command && unzip chouette-gui-command-#{gui_cmd}.zip"
     run "cd /usr/local/opt/chouette-command/chouette-cmd_#{gui_cmd} && chmod a+w . && sudo chgrp -R wheel ."
+    run "cd /usr/local/opt/chouette-command && rm -f chouette-cmd-current"
+    run "cd /usr/local/opt/chouette-command && ln -s chouette-cmd_#{gui_cmd} chouette-cmd-current"
   end
 
   desc "Make group writable all deployed files"
