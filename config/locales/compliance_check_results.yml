@@ -1,5 +1,9 @@
 en:
   compliance_check_results:
+    file:
+      zip_name_prefix: "compliance_check_results"
+      summary_errors_file_prefix: "summary_errors_index.csv"
+      detailed_errors_file_prefix: "detailed_errors_index.csv"
     index:
       line: "Li"
       column: "Col"
@@ -269,6 +273,10 @@ en:
         first_violations: "First violations"
 fr:
   compliance_check_results:
+    file:
+      zip_name_prefix: "resultats_de_validation"
+      summary_errors_file_prefix: "sommaire_des_erreurs.csv"
+      detailed_errors_file_prefix: "détails_des_erreurs.csv"
     index:
       line: "Li"
       column: "Col"
