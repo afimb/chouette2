@@ -1,5 +1,9 @@
 en:
   compliance_check_results:
+    file:
+      zip_name_prefix: "compliance_check_results"
+      summary_errors_file_prefix: "summary_errors_index.csv"
+      detailed_errors_file_prefix: "detailed_errors_index.csv"
     index:
       line: "Li"
       column: "Col"
@@ -261,11 +265,18 @@ en:
         rule_number: "Step"
         rule_code: "Code"
         violation_count: "Number of violations"
+        objects: "Objects in violations"
         detail: "Detail"
+        object: "Error object"
+        resource: "Resources of the error object"
         url: "URL"
         first_violations: "First violations"
 fr:
   compliance_check_results:
+    file:
+      zip_name_prefix: "resultats_de_validation"
+      summary_errors_file_prefix: "sommaire_des_erreurs.csv"
+      detailed_errors_file_prefix: "détails_des_erreurs.csv"
     index:
       line: "Li"
       column: "Col"
@@ -525,7 +536,10 @@ fr:
         rule_number: "Etape"
         rule_code: "Code"
         violation_count: "Nombre de violations"
+        objects: "Objets en violations"
         detail: "Détail"
+        object: "Objet en erreur"
+        resource: "Ressource de l'objet en erreur"
         url: "URL"
         first_violations: "Premières  violations"
 

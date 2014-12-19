@@ -29,7 +29,7 @@ class ComplianceCheckTasksController < ChouetteController
   
   def export
     respond_to do |format|
-      format.zip { send_file ComplianceCheckTaskExport.new(compliance_check_task).export, :type => :zip }
+      format.zip { send_file ComplianceCheckTaskExport.new(compliance_check_task, request).export, :type => :zip }
     end
   end
 

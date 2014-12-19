@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 source 'https://rails-assets.org'
 
 gem 'rails', '3.2.18'
+gem 'rest_client'
 
 platforms :jruby do
   gem 'activerecord-jdbcpostgresql-adapter', '~> 1.3.3'
@@ -30,7 +31,6 @@ gem "georuby", "2.3.0" # Fix version for georuby-ext because api has changed
 
 # User interface
 gem 'language_engine', '0.0.5'
-gem 'gravatar_image_tag'
 gem 'calendar_helper', "0.2.5"
 gem 'cocoon', "1.1.2"
 gem 'formtastic', "2.3.1"
@@ -65,7 +65,7 @@ gem 'rails-assets-jquery-tokeninput', '~> 1.7.0'
 
 # Format Output
 gem 'json'
-gem 'rubyzip', '~> 1.1.6' 
+gem 'rubyzip', '~> 1.1.6'
 gem 'roo'
 
 # Controller
