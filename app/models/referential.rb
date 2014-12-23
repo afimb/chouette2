@@ -191,6 +191,67 @@ class Referential < ActiveRecord::Base
     GeoRuby::SimpleFeatures::Geometry.from_ewkt(bounds.present? ? bounds : default_bounds ).envelope
   end
 
+  ##
+  # In Development environment where cache_classes = false
+  # each time a controller rb file is saved
+  # ninoxe models are reloaded without after_initialize from config/initializers
+  # so for development confort, it's better to keep here that after_initialize
+Rails.application.config.after_initialize do
+
+  Chouette::TridentActiveRecord
+
+  class Chouette::TridentActiveRecord
+
+    # add referential relationship for objectid and localization functions
+    def referential
+      @referential ||= Referential.where(:slug => Apartment::Database.current_database).first!
+    end
+
+    # override prefix for good prefix in objectid generation
+    def prefix
+      self.referential.prefix
+    end
+
+  end
+
+  Chouette::TimeTable
+
+  class Chouette::TimeTable
+    def presenter
+      @presenter ||= ::TimeTablePresenter.new( self)
+    end
+  end
+
+  Chouette::VehicleJourney
+
+  class Chouette::VehicleJourney
+    def presenter
+      @presenter ||= ::VehicleJourneyPresenter.new( self)
+    end
+  end
+
+  Chouette::StopArea
+
+  class Chouette::StopArea
+
+    include  NinoxeExtension::ProjectionFields
+
+    # override default_position method to add referential envelope when no stoparea is positioned
+    def default_position
+      # for first StopArea ... the bounds is nil , set to referential center
+      Chouette::StopArea.bounds ? Chouette::StopArea.bounds.center : self.referential.envelope.center
+    end
+
+
+  end
+
+  Chouette::AccessPoint
+
+  class Chouette::AccessPoint
+    include  NinoxeExtension::ProjectionFields
+  end
+
+end
 end
 
 
