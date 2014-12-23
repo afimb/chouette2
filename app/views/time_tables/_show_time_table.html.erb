@@ -1,6 +1,6 @@
 <div class="time_table_show" id="time_table_show">
   <p>
-    <span class="state-code <%= time_table_state_code(@time_table) %>"><i class="fa fa-certificate"></i></span>
+    <span class="state-code <%= @time_table.presenter.time_table_state_code %>"><i class="fa fa-certificate"></i></span>
     <label>
       <% if @time_table.bounding_dates.empty? %>
         <%= t(".resume_empty") %>
@@ -53,7 +53,7 @@
       </div>
     </div>
     <div class="tab-pane" id="time_tables_datas">
-      <div class="summary">        
+      <div class="summary">
         <p>
           <label><%= @time_table.human_attribute_name("version") %>: </label>
           <%= @time_table.version %>
@@ -62,15 +62,15 @@
           <label><%= @time_table.human_attribute_name("day_types") %>:&nbsp;&nbsp;</label>
           <% if @time_table.int_day_types & 508 == 0 %>
           <label><%= @time_table.human_attribute_name("none") %></label>
-          <% else %>  
+          <% else %>
 	          <% %w(monday tuesday wednesday thursday friday saturday sunday).each do |day_type| %>
               <span class="<%= @time_table.send( day_type) ? "included_day_type" : "excluded_day_type" %>">
                 <%= @time_table.human_attribute_name(day_type) %>
               </span>
             <% end %>
-          <% end %>	
-        </p>       
-        
+          <% end %>
+        </p>
+
       </div>
 
       <% if @time_table.periods.present? %>
@@ -93,7 +93,7 @@
   	    <%= render "time_tables/excluded_dates" %>
       </div>
       <% end %>
-      
+
     </div>
   </div>
 

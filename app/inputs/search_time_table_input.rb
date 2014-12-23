@@ -25,12 +25,11 @@ class SearchTimeTableInput < Formtastic::Inputs::SearchInput
              minChars: 2,
              propertyToSearch: 'comment',
              preventDuplicates: true,
-             queryParam: 'q[comment_cont]',
              hintText: '#{options[:hint_text]}',
              noResultsText: '#{options[:no_result_text]}',
              searchingText: '#{options[:searching_text]}',
              resultsFormatter: time_table_formatter,
-             tokenFormatter: time_table_formatter,             
+             tokenFormatter: time_table_formatter,
            });
         });").html_safe)
     end
@@ -49,7 +48,7 @@ class SearchTimeTableInput < Formtastic::Inputs::SearchInput
                   :required          => nil,
                   :autofocus         => nil,
                   :class             => 'token-input',
-                  'data-model-name' => object.class.model_name.human                  
+                  'data-model-name' => object.class.model_name.human
                 })
   end
 

@@ -62,6 +62,7 @@ ChouetteIhm::Application.routes.draw do
     resources :api_keys
     resources :rule_parameter_sets
     resources :autocomplete_stop_areas
+    resources :autocomplete_time_tables
     match 'lines' => 'lines#destroy_all', :via => :delete
     resources :group_of_lines do
       collection do
