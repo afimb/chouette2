@@ -27,21 +27,27 @@ shared_examples "api key protected controller" do
           context "when authorization provided and request.accept is #{format}," do
             before :each do
               config_formatted_request_with_authorization( format)
-              h[http_verb].call
             end
 
             it "should assign expected api_key" do
-              expect(assigns[:api_key]).to eql(api_key) if json_xml_format?
+              if json_xml_format?
+                h[http_verb].call
+                expect(assigns[:api_key]).to eql(api_key)
+              end
             end
             it "should assign expected referential" do
-              expect(assigns[:referential]).to eq(api_key.referential) if json_xml_format?
+              if json_xml_format?
+                h[http_verb].call
+                expect(assigns[:referential]).to eq(api_key.referential)
+              end
             end
 
             it "should return #{(format == "application/json" || format == "application/xml") ? "success" : "failure"} response" do
               if json_xml_format?
+                h[http_verb].call
                 expect(response).to be_success
               else
-                expect(response).not_to be_success
+                expect {h[http_verb].call}.to raise_error(ActionController::UnknownFormat)
               end
             end
           end
