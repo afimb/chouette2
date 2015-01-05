@@ -1,7 +1,10 @@
 require 'spec_helper'
 
-describe NetexExport do
+describe NetexExport, :type => :model do
 
-  its(:export_options) { should include(:format => :netex) }
+  describe '#export_options' do
+    subject { super().export_options }
+    it { is_expected.to include(:format => :netex) }
+  end
   
 end

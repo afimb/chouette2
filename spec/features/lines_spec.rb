@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
 
-describe "Lines" do
+describe "Lines", :type => :feature do
   login_user
 
   let!(:network) { Factory(:network) }
@@ -12,8 +12,8 @@ describe "Lines" do
   describe "list" do
     it "display lines" do
       visit referential_lines_path(referential)
-      page.should have_content(lines.first.name)
-      page.should have_content(lines.last.name)
+      expect(page).to have_content(lines.first.name)
+      expect(page).to have_content(lines.last.name)
     end
     
   end
@@ -23,13 +23,13 @@ describe "Lines" do
     it "display line" do
       visit referential_lines_path(referential)
       click_link "#{lines.first.name}"
-      page.should have_content(lines.first.name)
+      expect(page).to have_content(lines.first.name)
     end
 
     it "display map" do
       visit referential_lines_path(referential)
       click_link "#{lines.first.name}"
-      page.should have_selector("#map", :class => 'line')
+      expect(page).to have_selector("#map", :class => 'line')
     end
     
   end
@@ -42,7 +42,7 @@ describe "Lines" do
       fill_in "Numéro d'enregistrement", :with => "1"
       fill_in "Identifiant Neptune", :with => "test:Line:999"        
       click_button("Créer ligne")
-      page.should have_content("Line 1")
+      expect(page).to have_content("Line 1")
     end
   end
 
@@ -53,7 +53,7 @@ describe "Lines" do
       fill_in "Nom", :with => "Line Modified"
       fill_in "Numéro d'enregistrement", :with => "test-1"
       click_button("Modifier ligne")
-      page.should have_content("Line Modified")
+      expect(page).to have_content("Line Modified")
     end
   end
 

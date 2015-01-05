@@ -1,7 +1,42 @@
 source 'http://rubygems.org'
 source 'https://rails-assets.org'
 
-gem 'rails', '3.2.18'
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.1.8'
+
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 4.0.3'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~> 4.0.0'
+
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+gem 'jquery-ui-sass-rails'
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 2.0'
+# bundle exec rake doc:rails generates the API under doc/api.
+gem 'sdoc', '~> 0.4.0', group: :doc
+
+# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+gem 'spring', group: :development
+
+# Use ActiveModel has_secure_password
+# gem 'bcrypt', '~> 3.1.7'
+
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
+
+# Use debugger
+# gem 'debugger', group: [:development, :test]
+
+
 gem 'rest_client'
 
 platforms :jruby do
@@ -14,12 +49,12 @@ end
 
 platforms :ruby do
   gem 'therubyracer', '~> 0.10.2'
-  gem 'pg', '~> 0.11.0'
+  gem 'pg'
   gem 'sqlite3'
 end
 
 # Authentication
-gem 'devise', '2.1.3'
+gem 'devise', '~> 3.4.0'
 gem 'devise-i18n'
 gem 'devise-encryptable'
 gem 'devise_invitable'
@@ -30,22 +65,13 @@ gem "georuby-ext", "0.0.5"
 gem "georuby", "2.3.0" # Fix version for georuby-ext because api has changed
 
 # User interface
-gem 'language_engine', '0.0.5'
+gem 'language_engine', '0.0.6'
 gem 'calendar_helper', "0.2.5"
-gem 'cocoon', "1.1.2"
+gem 'cocoon'
 gem 'formtastic', "2.3.1"
 gem 'RedCloth'
 
-# some views use coffee script
-gem 'coffee-rails', '~> 3.2.1'
-gem 'coffee-script-source'
-
-gem 'sass-rails',   '~> 3.2.3'
-gem 'uglifier', '>= 1.0.3'
-
 # Javascript
-gem 'jquery-rails', '2.2.1'
-gem 'jquery-ui-sass-rails'
 gem "modernizr-rails", "~> 2.0.6"
 gem 'morrisjs-rails'
 gem 'raphael-rails'
@@ -54,7 +80,7 @@ gem 'raphael-rails'
 gem 'rails-assets-bootstrap-sass-official', '~> 3.3.0'
 gem 'font-awesome-sass', '~> 4.2.0'
 gem 'will_paginate-bootstrap'
-gem 'simple_form', "2.1.1"
+gem 'simple_form'
 gem 'rails-assets-tagmanager', '~> 3.0.1.0'
 gem 'rails-assets-typeahead.js', '~> 0.10.5'
 gem "breadcrumbs_on_rails"
@@ -76,18 +102,17 @@ gem 'google-analytics-rails'
 gem 'will_paginate', '~> 3.0'
 gem 'ransack'
 gem 'squeel'
-gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git'
+gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git', :branch => "rails4"
 #gem 'ninoxe',:path => '~/workspace/chouette/ninoxe'
 #gem 'ninoxe', '~> 1.1.3'
 
-gem 'acts_as_list', '0.1.6'
-gem "acts_as_tree-1.8", '1.1.0', :require => "acts_as_tree"
-gem "active_enum"
+gem 'acts_as_list', '~> 0.6.0'
+gem "acts_as_tree", '~> 2.1.0', :require => "acts_as_tree"
 
 gem 'rabl'
 
 gem 'delayed_job_active_record'
-gem 'dr-apartment', :require => "apartment"
+gem 'apartment'
 
 group :development do
   gem 'capistrano'
@@ -99,16 +124,15 @@ group :development do
 end
 
 group :test, :development do
-  gem "rspec-rails", "~> 2.0"
-  gem "remarkable", "~> 4.0.0.alpha4"
-  gem "remarkable_activerecord", "~> 4.0.0.alpha4"
-  gem "shoulda-matchers"
-  gem 'capybara'
+  gem "rspec-rails", "~> 3.1.0"
+  gem 'capybara', "~> 2.4.0"
   gem 'launchy'
   gem 'factory_girl_rails', '1.7'
   # gem 'i18n-tasks'
   gem 'rb-inotify', :require => RUBY_PLATFORM.include?('linux') && 'rb-inotify'
   gem 'rb-fsevent', :require => RUBY_PLATFORM.include?('darwin') && 'rb-fsevent'
+  gem 'transpec'
+  gem 'database_cleaner'
 end
 
 group :production do

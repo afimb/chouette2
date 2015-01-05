@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "/lines/new" do
+describe "/lines/new", :type => :view do
   assign_referential
   let!(:network) { create(:network) }
   let!(:company) { create(:company) }
@@ -10,7 +10,7 @@ describe "/lines/new" do
     
     it "should render input for name" do
       render
-      rendered.should have_selector("form") do
+      expect(rendered).to have_selector("form") do
         with_selector "input[type=text][name=?]", line.name
       end
     end

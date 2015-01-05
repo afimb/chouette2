@@ -7,7 +7,7 @@ class ComplianceCheckResult < ActiveRecord::Base
   scope :nok, -> { where status: 'nok' }
   scope :na, -> { where status: 'na' }
 
-  attr_accessible :violation_count
+  #attr_accessible :violation_count
   belongs_to :compliance_check_task
 
   validates_presence_of :rule_code

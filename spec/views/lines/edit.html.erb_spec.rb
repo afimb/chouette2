@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "/lines/edit" do
+describe "/lines/edit", :type => :view do
   assign_referential
   let!(:network) { create(:network) }
   let!(:company) { create(:company) }
@@ -10,14 +10,14 @@ describe "/lines/edit" do
   describe "test" do
     it "should render h2 with the group name" do
       render    
-      rendered.should have_selector("h2", :text => Regexp.new(line.name))
+      expect(rendered).to have_selector("h2", :text => Regexp.new(line.name))
     end
   end
 
   describe "form" do
     it "should render input for name" do
       render
-      rendered.should have_selector("form") do
+      expect(rendered).to have_selector("form") do
         with_tag "input[type=text][name='line[name]'][value=?]", line.name
       end
     end
@@ -25,7 +25,7 @@ describe "/lines/edit" do
     it "should render a checkbox for each line" do
       render
       lines.each do |line|
-        rendered.should have_selector("form") do
+        expect(rendered).to have_selector("form") do
           with_tag "input[type='checkbox'][value=?]", line.id
         end
       end

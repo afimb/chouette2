@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe "/layouts/application" do
+describe "/layouts/application", :type => :view do
 
   before(:each) do
-    view.stub :user_signed_in? => true
+    allow(view).to receive_messages :user_signed_in? => true
   end
 
   context "when Referential is a new record" do

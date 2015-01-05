@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe RoutesController do
+describe RoutesController, :type => :controller do
   login_user
 
   let!(:route) { Factory(:route) }
 
-  it { should be_kind_of(ChouetteController) }
+  it { is_expected.to be_kind_of(ChouetteController) }
 
   shared_examples_for "redirected to referential_line_path(referential,line)" do
     it "should redirect_to referential_line_path(referential,line)" do
@@ -14,16 +14,16 @@ describe RoutesController do
   end
   shared_examples_for "line and referential linked" do
     it "assigns route.line as @line" do
-      assigns[:line].should == route.line
+      expect(assigns[:line]).to eq(route.line)
     end
 
     it "assigns referential as @referential" do
-      assigns[:referential].should == referential
+      expect(assigns[:referential]).to eq(referential)
     end
   end
   shared_examples_for "route, line and referential linked" do
     it "assigns route as @route" do
-      assigns[:route].should == route
+      expect(assigns[:route]).to eq(route)
     end
     it_behaves_like "line and referential linked"
   end
@@ -68,12 +68,12 @@ describe RoutesController do
     it_behaves_like "route, line and referential linked"
 
     it "assigns RouteMap.new(route) as @map" do
-      assigns[:map].should be_an_instance_of(RouteMap)
-      assigns[:map].route.should == route
+      expect(assigns[:map]).to be_an_instance_of(RouteMap)
+      expect(assigns[:map].route).to eq(route)
     end
 
     it "assigns route.stop_points.paginate(:page => nil) as @stop_points" do
-      assigns[:stop_points].should == route.stop_points.paginate(:page => nil)
+      expect(assigns[:stop_points]).to eq(route.stop_points.paginate(:page => nil))
     end
 
   end

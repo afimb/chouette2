@@ -6,7 +6,7 @@ class ChouetteController < BreadcrumbController
   before_filter :switch_referential
   
   def switch_referential
-    Apartment::Database.switch(referential.slug)
+    Apartment::Tenant.switch(referential.slug)
   end 
 
   def referential

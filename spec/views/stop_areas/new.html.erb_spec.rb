@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "/stop_areas/new" do
+describe "/stop_areas/new", :type => :view do
   assign_referential
   let!(:stop_area) { assign(:stop_area, build(:stop_area)) }
 
@@ -8,7 +8,7 @@ describe "/stop_areas/new" do
     
     it "should render input for name" do
       render
-      rendered.should have_selector("form") do
+      expect(rendered).to have_selector("form") do
         with_selector "input[type=text][name=?]", stop_area.name
       end
     end

@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe RuleParameterSetsController do
+describe RuleParameterSetsController, :type => :controller do
   login_user
   let(:mode){"air"}
 
   shared_examples_for "referential dependant" do
     it "assigns referential as @referential" do
-      assigns[:referential].should == referential
+      expect(assigns[:referential]).to eq(referential)
     end
   end
 
@@ -26,9 +26,9 @@ describe RuleParameterSetsController do
     it_behaves_like "referential dependant"
     it "should assign rule_parameter_set with default params" do
       RuleParameterSet.default_params.each do |k,v|
-        assigns[:rule_parameter_set].send( k ).should == v
+        expect(assigns[:rule_parameter_set].send( k )).to eq(v)
       end
-      assigns[:rule_parameter_set].referential_id.should == referential.id
+      expect(assigns[:rule_parameter_set].referential_id).to eq(referential.id)
     end
   end
 end

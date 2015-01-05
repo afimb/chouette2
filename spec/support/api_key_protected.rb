@@ -12,7 +12,7 @@ shared_examples "api key protected controller" do
               h[http_verb].call
             end
             it "should return HTTP 401" do
-              response.response_code.should == 401
+              expect(response.response_code).to eq(401)
             end
           end
           context "when no authorization is provided" do
@@ -21,7 +21,7 @@ shared_examples "api key protected controller" do
               h[http_verb].call
             end
             it "should return HTTP 401" do
-              response.response_code.should == 401
+              expect(response.response_code).to eq(401)
             end
           end
           context "when authorization provided and request.accept is #{format}," do
@@ -31,17 +31,17 @@ shared_examples "api key protected controller" do
             end
 
             it "should assign expected api_key" do
-              assigns[:api_key].should eql(api_key) if json_xml_format?
+              expect(assigns[:api_key]).to eql(api_key) if json_xml_format?
             end
             it "should assign expected referential" do
-              assigns[:referential].should == api_key.referential if json_xml_format?
+              expect(assigns[:referential]).to eq(api_key.referential) if json_xml_format?
             end
 
             it "should return #{(format == "application/json" || format == "application/xml") ? "success" : "failure"} response" do
               if json_xml_format?
-                response.should be_success
+                expect(response).to be_success
               else
-                response.should_not be_success
+                expect(response).not_to be_success
               end
             end
           end

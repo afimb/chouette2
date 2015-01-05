@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
 
-describe "StopAreas" do
+describe "StopAreas", :type => :feature do
   login_user
 
   let!(:stop_areas) { Array.new(2) { Factory(:stop_area) } }
@@ -10,8 +10,8 @@ describe "StopAreas" do
   describe "list" do
     it "display stop_areas" do
       visit referential_stop_areas_path(referential)
-      page.should have_content(stop_areas.first.name)
-      page.should have_content(stop_areas.last.name)
+      expect(page).to have_content(stop_areas.first.name)
+      expect(page).to have_content(stop_areas.last.name)
     end    
   end
 
@@ -19,13 +19,13 @@ describe "StopAreas" do
     it "display stop_area" do
       visit referential_stop_areas_path(referential)
       click_link "#{stop_areas.first.name}"
-      page.should have_content(stop_areas.first.name)
+      expect(page).to have_content(stop_areas.first.name)
     end
 
     it "display map" do
       visit referential_stop_areas_path(referential)
       click_link "#{stop_areas.first.name}"
-      page.should have_selector("#map", :class => 'stop_area')
+      expect(page).to have_selector("#map", :class => 'stop_area')
     end
     
   end
@@ -38,7 +38,7 @@ describe "StopAreas" do
       fill_in "Numéro d'enregistrement", :with => "test-1"
       fill_in "Identifiant Neptune", :with => "test:StopArea:1"        
       click_button("Créer arrêt")
-      page.should have_content("StopArea 1")
+      expect(page).to have_content("StopArea 1")
     end
   end
 
@@ -49,7 +49,7 @@ describe "StopAreas" do
       fill_in "Nom", :with => "StopArea Modified"
       fill_in "Numéro d'enregistrement", :with => "test-1"
       click_button("Modifier arrêt")
-      page.should have_content("StopArea Modified")
+      expect(page).to have_content("StopArea Modified")
     end
   end
 

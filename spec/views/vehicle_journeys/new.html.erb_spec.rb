@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "/vehicle_journeys/new" do
+describe "/vehicle_journeys/new", :type => :view do
   
   assign_referential
   let!(:line) { assign :line, create(:line) }
@@ -9,7 +9,7 @@ describe "/vehicle_journeys/new" do
 
   it "renders _form" do
     render
-    view.should render_template(:partial => "_form")
+    expect(view).to render_template(:partial => "_form")
   end
 
 end

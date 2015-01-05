@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe User do
+describe User, :type => :model do
   #it { should validate_uniqueness_of :email }
   #it { should validate_presence_of :name }
 
@@ -11,10 +11,10 @@ describe User do
       let!(:other_user){Factory(:user, :organisation => organisation)}
       it "should destoy also user's organisation" do
         user.destroy
-        Organisation.where(:name => organisation.name).exists?.should be_true
+        expect(Organisation.where(:name => organisation.name).exists?).to be_truthy
         read_organisation = Organisation.where(:name => organisation.name).first
-        read_organisation.users.count.should == 1
-        read_organisation.users.first.should == other_user
+        expect(read_organisation.users.count).to eq(1)
+        expect(read_organisation.users.first).to eq(other_user)
       end
     end
   end

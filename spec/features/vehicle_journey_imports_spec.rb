@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
 
-describe "VehicleJourneyImports" do
+describe "VehicleJourneyImports", :type => :feature do
   login_user
   
   let!(:route) { create :route }

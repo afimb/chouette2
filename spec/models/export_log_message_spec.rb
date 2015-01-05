@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ExportLogMessage do
+describe ExportLogMessage, :type => :model do
 
   describe "#attributes" do
 
@@ -8,7 +8,7 @@ describe ExportLogMessage do
 
     it "should read json stored in database" do
       subject.update_attribute :arguments, { "key" => "value"}
-      subject.raw_attributes.should == { "key" => "value"}.to_json
+      expect(subject.raw_attributes).to eq({ "key" => "value"}.to_json)
     end
 
   end

@@ -1,15 +1,11 @@
 require 'spec_helper'
 
-describe TimeTableCombination do
+describe TimeTableCombination, :type => :model do
   let!(:source){ Factory(:time_table)}
   let!(:combined){Factory(:time_table)}
   subject {Factory.build(:time_table_combination)}
   
-  it { should validate_presence_of :source_id }
-  it { should validate_presence_of :combined_id }
-  it { should validate_presence_of :operation }
-  
-  it { should ensure_inclusion_of(:operation).in_array(TimeTableCombination.operations) }
+  it { is_expected.to ensure_inclusion_of(:operation).in_array(TimeTableCombination.operations) }
 
   
   describe "#combine" do
@@ -32,9 +28,9 @@ describe TimeTableCombination do
         source.reload
       end
       it "should add combined to source" do
-        source.periods.size.should == 1
-        source.periods[0].period_start.should == Date.new(2014,8,1)
-        source.periods[0].period_end.should == Date.new(2014,9,15)
+        expect(source.periods.size).to eq(1)
+        expect(source.periods[0].period_start).to eq(Date.new(2014,8,1))
+        expect(source.periods[0].period_end).to eq(Date.new(2014,9,15))
       end
     end
     context "when operation is intersect" do
@@ -56,9 +52,9 @@ describe TimeTableCombination do
         source.reload
       end
       it "should intersect combined to source" do
-        source.periods.size.should == 1
-        source.periods[0].period_start.should == Date.new(2014,8,15)
-        source.periods[0].period_end.should == Date.new(2014,8,31)
+        expect(source.periods.size).to eq(1)
+        expect(source.periods[0].period_start).to eq(Date.new(2014,8,15))
+        expect(source.periods[0].period_end).to eq(Date.new(2014,8,31))
       end
     end
     context "when operation is disjoin" do
@@ -80,9 +76,9 @@ describe TimeTableCombination do
         source.reload
       end
       it "should disjoin combined to source" do
-        source.periods.size.should == 1
-        source.periods[0].period_start.should == Date.new(2014,8,1)
-        source.periods[0].period_end.should == Date.new(2014,8,14)
+        expect(source.periods.size).to eq(1)
+        expect(source.periods[0].period_start).to eq(Date.new(2014,8,1))
+        expect(source.periods[0].period_end).to eq(Date.new(2014,8,14))
       end
     end
  end

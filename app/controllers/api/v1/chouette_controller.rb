@@ -17,7 +17,7 @@ private
         end
       end
       def switch_referential
-        Apartment::Database.switch(@api_key.referential.slug)
+        Apartment::Tenant.switch(@api_key.referential.slug)
       end 
 
     end

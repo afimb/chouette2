@@ -7,24 +7,12 @@ ChouetteIhm::Application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root :to => 'referentials#index'
+      root :to => 'referentials#index', as: :authenticated_root
     end
-
-    unauthenticated do
-      root :to => 'devise/sessions#new'
+    unauthenticated :user do
+      root :to => 'devise/registrations#new', as: :unauthenticated_root
     end
   end
-
-  # Rails 4 syntax
-  # devise_for :users
-  # devise_scope :user do
-  #   authenticated :user do
-  #     root :to => 'referentials#index', as: :authenticated_root
-  #   end
-  # unauthenticated :user do
-  #     root :to => 'devise/registrations#new', as: :unauthenticated_root
-  #   end
-  # end
 
 
   namespace :api do
@@ -62,7 +50,7 @@ ChouetteIhm::Application.routes.draw do
     resources :api_keys
     resources :rule_parameter_sets
     resources :autocomplete_stop_areas
-    match 'lines' => 'lines#destroy_all', :via => :delete
+    get 'lines' => 'lines#destroy_all', :via => :delete
     resources :group_of_lines do
       collection do
         get :name_filter
@@ -166,10 +154,10 @@ ChouetteIhm::Application.routes.draw do
 
   end
 
-  match '/help/(*slug)' => 'help#show'
+  get '/help/(*slug)' => 'help#show'
 
-  match '/404', :to => 'errors#not_found'
-  match '/422', :to => 'errors#server_error'
-  match '/500', :to => 'errors#server_error'
+  get '/404', :to => 'errors#not_found'
+  get '/422', :to => 'errors#server_error'
+  get '/500', :to => 'errors#server_error'
 
 end

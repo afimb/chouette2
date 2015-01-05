@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Api::V1::LinesController do
+describe Api::V1::LinesController, :type => :controller do
   let!(:line) { referential.lines.first || create(:line) }
 
   it_behaves_like "api key protected controller" do
@@ -14,7 +14,7 @@ describe Api::V1::LinesController do
       end
 
       it "should assign expected lines" do
-        assigns[:lines].should == [line]
+        expect(assigns[:lines]).to eq([line])
       end
     end
   end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Api::V1::NetworksController do
+describe Api::V1::NetworksController, :type => :controller do
   let!(:network) { referential.networks.first || create(:network) }
 
   it_behaves_like "api key protected controller" do
@@ -15,7 +15,7 @@ describe Api::V1::NetworksController do
       end
 
       it "should assign expected network" do
-        assigns[:network].should == network
+        expect(assigns[:network]).to eq(network)
       end
     end
   end
@@ -27,7 +27,7 @@ describe Api::V1::NetworksController do
       end
 
       it "should assign expected networks" do
-        assigns[:networks].should == [network]
+        expect(assigns[:networks]).to eq([network])
       end
     end
   end

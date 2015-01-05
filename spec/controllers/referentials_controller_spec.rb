@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ReferentialsController do
+describe ReferentialsController, :type => :controller do
 
   login_user
 

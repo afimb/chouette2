@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
 
-describe VehicleJourneyExport do
+describe VehicleJourneyExport, :type => :model do
   
   let!(:route) { create(:route) }
   let!(:other_route) { create(:route) }

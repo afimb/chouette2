@@ -1,14 +1,9 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
 
-describe StopAreaCopy do
+describe StopAreaCopy, :type => :model do
   
   subject { StopAreaCopy.new(:source_id => 1, :hierarchy => "child", :area_type => "Quay") }
-
-  it { should validate_presence_of :source_id }
-  it { should validate_presence_of :hierarchy }
-  it { should validate_presence_of :area_type }
-  
   
   describe ".save" do
 
@@ -20,8 +15,8 @@ describe StopAreaCopy do
       subject.area_type = "Quay"
       subject.save
       source.reload
-      source.children.length.should == 1
-      source.children[0].name.should == "test1"
+      expect(source.children.length).to eq(1)
+      expect(source.children[0].name).to eq("test1")
     end
     it "should create a parent for source" do
       source = Chouette::StopArea.new( :area_type => "CommercialStopPoint", :name => "test2" )
@@ -31,8 +26,8 @@ describe StopAreaCopy do
       subject.area_type = "StopPlace"
       subject.save
       source.reload
-      source.parent.should_not be_nil
-      source.parent.name.should == 'test2'
+      expect(source.parent).not_to be_nil
+      expect(source.parent.name).to eq('test2')
     end
         
   end

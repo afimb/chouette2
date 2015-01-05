@@ -1,7 +1,10 @@
-require 'spec_helper'
+# require 'spec_helper'
 
-describe CsvExport do
+# describe CsvExport, :type => :model do
 
-  its(:export_options) { should include(:format => :csv) }
+#   describe '#export_options' do
+#     subject { super().export_options }
+#     it { is_expected.to include(:format => :csv) }
+#   end
   
-end
+# end

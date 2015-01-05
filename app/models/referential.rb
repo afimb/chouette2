@@ -50,43 +50,43 @@ class Referential < ActiveRecord::Base
   end
 
   def lines
-    Chouette::Line.scoped
+    Chouette::Line.all
   end
 
   def networks
-    Chouette::Network.scoped
+    Chouette::Network.all
   end
 
   def group_of_lines
-    Chouette::GroupOfLine.scoped
+    Chouette::GroupOfLine.all
   end
 
   def companies
-    Chouette::Company.scoped
+    Chouette::Company.all
   end
 
   def stop_areas
-    Chouette::StopArea.scoped
+    Chouette::StopArea.all
   end
 
   def access_points
-    Chouette::AccessPoint.scoped
+    Chouette::AccessPoint.all
   end
 
   def access_links
-    Chouette::AccessLink.scoped
+    Chouette::AccessLink.all
   end
 
   def time_tables
-    Chouette::TimeTable.scoped
+    Chouette::TimeTable.all
   end
 
   def connection_links
-    Chouette::ConnectionLink.scoped
+    Chouette::ConnectionLink.all
   end
 
   def vehicle_journeys
-    Chouette::VehicleJourney.scoped
+    Chouette::VehicleJourney.all
   end
 
   after_initialize :define_default_attributes
@@ -97,7 +97,7 @@ class Referential < ActiveRecord::Base
 
   def switch
     raise "Referential not created" if new_record?
-    Apartment::Database.switch(slug)
+    Apartment::Tenant.switch(slug)
     self
   end
 
@@ -139,12 +139,12 @@ class Referential < ActiveRecord::Base
 
   before_create :create_schema
   def create_schema
-    Apartment::Database.create slug
+    Apartment::Tenant.create slug
   end
 
   before_destroy :destroy_schema
   def destroy_schema
-    Apartment::Database.drop slug
+    Apartment::Tenant.drop slug
   end
 
   after_create :add_rule_parameter_set
@@ -202,7 +202,7 @@ Rails.application.config.after_initialize do
 
     # add referential relationship for objectid and localization functions
     def referential
-      @referential ||= Referential.where(:slug => Apartment::Database.current_database).first!
+      @referential ||= Referential.where(:slug => Apartment::Tenant.current_tenant).first!
     end
 
     # override prefix for good prefix in objectid generation
@@ -216,7 +216,7 @@ Rails.application.config.after_initialize do
 
   class Chouette::StopArea
 
-    attr_accessible :projection_x,:projection_y,:projection_xy
+    #attr_accessible :projection_x,:projection_y,:projection_xy
 
     # override default_position method to add referential envelope when no stoparea is positioned
     def default_position
@@ -282,7 +282,7 @@ Rails.application.config.after_initialize do
   Chouette::AccessPoint
 
   class Chouette::AccessPoint
-    attr_accessible :projection_x,:projection_y,:projection_xy
+    #attr_accessible :projection_x,:projection_y,:projection_xy
 
     # add projection_type set on pre-insert and pre_update action
     before_save :set_projections

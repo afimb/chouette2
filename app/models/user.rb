@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :confirmable, :invitable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :current_password, :password_confirmation, :remember_me, :name, :organisation_attributes
+  # attr_accessible :email, :password, :current_password, :password_confirmation, :remember_me, :name, :organisation_attributes
 
   belongs_to :organisation
 

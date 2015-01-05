@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
 
-describe VehicleJourneyImport do
+describe VehicleJourneyImport, :type => :model do
 
   def update_csv_file_with_factory_data(filename)
     csv_file = CSV.open("/tmp/#{filename}", "wb",{ :col_sep => ";"}) do |csv|
@@ -49,22 +49,22 @@ describe VehicleJourneyImport do
   # Must use uploaded file and not classical ruby File!
   let(:valid_file) {
     csv_file = update_csv_file_with_factory_data("vehicle_journey_imports_valid.csv")
-    mock("CSV", :tempfile => csv_file, :original_filename => File.basename(csv_file), :path => File.path(csv_file) )
+    double("CSV", :tempfile => csv_file, :original_filename => File.basename(csv_file), :path => File.path(csv_file) )
   }
 
   let(:invalid_file_on_vj) {
     csv_file = update_csv_file_with_factory_data("vehicle_journey_imports_with_vj_invalid.csv")
-    mock("CSV", :tempfile => csv_file, :original_filename => File.basename(csv_file), :path => File.path(csv_file) )
+    double("CSV", :tempfile => csv_file, :original_filename => File.basename(csv_file), :path => File.path(csv_file) )
   }
 
   let(:invalid_file_on_vjas) {
     csv_file = update_csv_file_with_factory_data("vehicle_journey_imports_with_vjas_invalid.csv")
-    mock("CSV", :tempfile => csv_file, :original_filename => File.basename(csv_file), :path => File.path(csv_file) )
+    double("CSV", :tempfile => csv_file, :original_filename => File.basename(csv_file), :path => File.path(csv_file) )
   }
 
   let(:invalid_file_on_vjas_object) {
     csv_file = update_csv_file_with_factory_data("vehicle_journey_imports_with_vjas_bad_order.csv")
-    mock("CSV", :tempfile => csv_file, :original_filename => File.basename(csv_file), :path => File.path(csv_file) )
+    double("CSV", :tempfile => csv_file, :original_filename => File.basename(csv_file), :path => File.path(csv_file) )
   }
   
   subject { VehicleJourneyImport.new(:route => route, :file => valid_file) } 
@@ -72,21 +72,21 @@ describe VehicleJourneyImport do
   describe ".save" do
 
     it "should validate presence of route" do
-      expect(VehicleJourneyImport.new(:route => route).save).to be_false
+      expect(VehicleJourneyImport.new(:route => route).save).to be_falsey
     end
 
     it "should validate presence of file" do
-      expect(VehicleJourneyImport.new(:file => valid_file).save).to be_false
+      expect(VehicleJourneyImport.new(:file => valid_file).save).to be_falsey
     end
 
     it "should import vehicle_journeys and create the right number of objects" do
-      expect(VehicleJourneyImport.new(:file => valid_file, :route => route).save).to be_true
+      expect(VehicleJourneyImport.new(:file => valid_file, :route => route).save).to be_truthy
       expect(Chouette::VehicleJourney.all.size).to eq(4)
       expect(Chouette::VehicleJourneyAtStop.all.size).to eq(17)
     end
 
     it "should not import vehicle_journeys and not create objects when vehicle journey at stops are not in ascendant order" do      
-      expect(VehicleJourneyImport.new(:route => route, :file => invalid_file_on_vjas_object).save).to be_false
+      expect(VehicleJourneyImport.new(:route => route, :file => invalid_file_on_vjas_object).save).to be_falsey
       expect(Chouette::VehicleJourney.all.size).to eq(3)
       expect(Chouette::VehicleJourneyAtStop.all.size).to eq(0)
     end
@@ -107,7 +107,7 @@ describe VehicleJourneyImport do
     end
 
     it "should return new journey_pattern if no journey pattern with same stop points is founded" do      
-      expect(subject.find_journey_pattern_schedule( 1, { stop_point0.id => "9:00", stop_point1.id => "9:05", stop_point2.id => nil, stop_point3.id => "9:15", stop_point4.id => "9:20"} )).to be_true
+      expect(subject.find_journey_pattern_schedule( 1, { stop_point0.id => "9:00", stop_point1.id => "9:05", stop_point2.id => nil, stop_point3.id => "9:15", stop_point4.id => "9:20"} )).to be_truthy
       expect(subject.find_journey_pattern_schedule( 1, { stop_point0.id => "9:00", stop_point1.id => "9:05", stop_point2.id => nil, stop_point3.id => "9:15", stop_point4.id => "9:20"} ).id).not_to eq(journey_pattern.id)
       expect(subject.find_journey_pattern_schedule( 1, { stop_point0.id => "9:00", stop_point1.id => "9:05", stop_point2.id => nil, stop_point3.id => "9:15", stop_point4.id => "9:20"} ).id).not_to eq(other_journey_pattern.id)
     end

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
 
-describe "Routes" do
+describe "Routes", :type => :feature do
   login_user
 
   let!(:line) { Factory(:line) }
@@ -13,8 +13,8 @@ describe "Routes" do
       pending
       visit referential_lines_path(referential)
       click_link "#{line.name}"
-      page.should have_content(route.name)
-      page.should have_content(route2.name)
+      expect(page).to have_content(route.name)
+      expect(page).to have_content(route2.name)
     end
   end
   describe "from line's page to route's page" do
@@ -22,8 +22,8 @@ describe "Routes" do
       pending
       visit referential_line_path(referential,line)
       click_link "#{route.name}"
-      page.should have_content(route.name)
-      page.should have_content(route.number)
+      expect(page).to have_content(route.name)
+      expect(page).to have_content(route.number)
     end
   end
   describe "from line's page, create a new route" do      
@@ -34,7 +34,7 @@ describe "Routes" do
       fill_in "Nom", :with => "A to B"
       fill_in "Indice", :with => "AB"
       click_button("Créer Séquence d'arrêts")
-      page.should have_content("A to B")
+      expect(page).to have_content("A to B")
     end
   end
   describe "from line's page, select a route and edit it" do      
@@ -45,7 +45,7 @@ describe "Routes" do
       click_link "Modifier cette séquence d'arrêts"
       fill_in "Nom", :with => "#{route.name}-changed"
       click_button("Modifier Séquence d'arrêts")
-      page.should have_content("#{route.name}-changed")
+      expect(page).to have_content("#{route.name}-changed")
     end
   end
   describe "from line's page, select a route and delete it" do      

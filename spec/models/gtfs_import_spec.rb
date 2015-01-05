@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe GtfsImport do
+describe GtfsImport, :type => :model do
 
  describe "#object_id_prefix" do
 
    it "should be included in import_options" do
      subject.object_id_prefix = "dummy"
-     subject.parameter_set["object_id_prefix"].should  == "dummy"
+     expect(subject.parameter_set["object_id_prefix"]).to  eq("dummy")
    end
 
  end
@@ -15,7 +15,7 @@ describe GtfsImport do
 
    it "should be included in import_options" do
      subject.max_distance_for_commercial = 300
-     subject.parameter_set["max_distance_for_commercial"].should == 300
+     expect(subject.parameter_set["max_distance_for_commercial"]).to eq(300)
    end
 
  end
@@ -24,7 +24,7 @@ describe GtfsImport do
 
    it "should be included in import_options" do
      subject.max_distance_for_connection_link = 300
-     subject.parameter_set["max_distance_for_connection_link"].should == 300
+     expect(subject.parameter_set["max_distance_for_connection_link"]).to eq(300)
    end
 
  end
@@ -33,7 +33,7 @@ describe GtfsImport do
 
    it "should be included in import_options" do
      subject.ignore_last_word = true
-     subject.parameter_set["ignore_last_word"].should == true
+     expect(subject.parameter_set["ignore_last_word"]).to eq(true)
    end
 
  end
@@ -42,7 +42,7 @@ describe GtfsImport do
 
    it "should be included in import_options" do
      subject.ignore_end_chars = 2
-     subject.parameter_set["ignore_end_chars"].should == 2
+     expect(subject.parameter_set["ignore_end_chars"]).to eq(2)
    end
 
  end

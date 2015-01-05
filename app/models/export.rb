@@ -5,7 +5,7 @@ class Export < ActiveRecord::Base
 
   validates_inclusion_of :status, :in => %w{ pending processing completed failed }
 
-  has_many :log_messages, :class_name => "ExportLogMessage", :order => :position, :dependent => :delete_all
+  has_many :log_messages, -> { order('position ASC') }, :class_name => "ExportLogMessage", :dependent => :delete_all
 
   serialize :options
 

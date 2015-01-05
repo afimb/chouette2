@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "import_tasks/new.html.erb" do
+describe "import_tasks/new.html.erb", :type => :view do
 
   assign_referential
   let!(:import_task) { assign(:import_task, ImportTask.new) }
@@ -9,7 +9,7 @@ describe "import_tasks/new.html.erb" do
 
   it "should display a radio button to choose import type" do
     render
-    rendered.should have_selector("input", :type => "select", :name => "import_task[format]")
+    expect(rendered).to have_selector("input", :type => "select", :name => "import_task[format]")
   end
 
 end

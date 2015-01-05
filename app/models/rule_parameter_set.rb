@@ -6,7 +6,7 @@ class RuleParameterSet < ActiveRecord::Base
 
   serialize :parameters, JSON
 
-  attr_accessible :name, :referential_id
+  #attr_accessible :name, :referential_id
 
   def self.mode_attribute_prefixes
     %w( allowed_transport inter_stop_area_distance_min inter_stop_area_distance_max speed_max speed_min inter_stop_duration_variation_max)
@@ -39,7 +39,7 @@ class RuleParameterSet < ActiveRecord::Base
 
   def self.mode_parameter(name)
     name = name.to_s
-    attr_accessible name
+    #attr_accessible name
 
     define_method(name) do
       attribute_name, mode = RuleParameterSet.attribute_of_mode_attribute( name), RuleParameterSet.mode_of_mode_attribute( name)
@@ -54,7 +54,7 @@ class RuleParameterSet < ActiveRecord::Base
   end
   def self.parameter(name)
     name = name.to_s
-    attr_accessible name
+    #attr_accessible name
 
     define_method(name) do
         self.parameters and self.parameters[name]

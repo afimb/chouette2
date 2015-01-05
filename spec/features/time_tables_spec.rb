@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
 
-describe "TimeTables" do
+describe "TimeTables", :type => :feature do
   login_user
 
   let!(:time_tables) { Array.new(2) { create(:time_table) } }
@@ -10,8 +10,8 @@ describe "TimeTables" do
   describe "list" do
     it "display time_tables" do
       visit referential_time_tables_path(referential)
-      page.should have_content(time_tables.first.comment)
-      page.should have_content(time_tables.last.comment)
+      expect(page).to have_content(time_tables.first.comment)
+      expect(page).to have_content(time_tables.last.comment)
     end
 
   end
@@ -20,7 +20,7 @@ describe "TimeTables" do
     it "display time_table" do
       visit referential_time_tables_path(referential)
       click_link "#{time_tables.first.comment}"
-      page.should have_content(time_tables.first.comment)
+      expect(page).to have_content(time_tables.first.comment)
     end
 
   end
@@ -32,7 +32,7 @@ describe "TimeTables" do
       fill_in "Nom", :with => "TimeTable 1"
       fill_in "Identifiant Neptune", :with => "test:Timetable:1"
       click_button("Créer Calendrier")
-      page.should have_content("TimeTable 1")
+      expect(page).to have_content("TimeTable 1")
     end
   end
 
@@ -42,7 +42,7 @@ describe "TimeTables" do
       click_link "Modifier ce calendrier"
       fill_in "Nom", :with => "TimeTable Modified"
       click_button("Modifier Calendrier")
-      page.should have_content("TimeTable Modified")
+      expect(page).to have_content("TimeTable Modified")
     end
   end
 

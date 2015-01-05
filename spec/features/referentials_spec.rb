@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
 
-describe "Referentials" do
+describe "Referentials", :type => :feature do
   login_user
 
   describe "index" do
 
     it "should support no referential" do
       visit referentials_path
-      page.should have_content("Espaces de Données")
+      expect(page).to have_content("Espaces de Données")
     end
 
     context "when several referentials exist" do
@@ -23,8 +23,8 @@ describe "Referentials" do
 
       it "should show n referentials" do
         visit referentials_path
-        page.should have_content(referentials.first.name)
-        page.should have_content(referentials.last.name)
+        expect(page).to have_content(referentials.first.name)
+        expect(page).to have_content(referentials.last.name)
       end
       
     end
@@ -41,7 +41,7 @@ describe "Referentials" do
       fill_in "Point bas/gauche de l'emprise par défaut", :with => "1.0, 1.0"
       click_button "Créer Espace de Données"
 
-      Referential.where(:name => "Test").should_not be_nil
+      expect(Referential.where(:name => "Test")).not_to be_nil
       # CREATE SCHEMA
     end
 
@@ -54,7 +54,7 @@ describe "Referentials" do
       pending "Unauthorized DELETE (ticket #14)"
       visit referential_path(referential)
       click_link "Supprimer"
-      Referential.where(:slug => referential.slug).should be_blank
+      expect(Referential.where(:slug => referential.slug)).to be_blank
     end
 
   end

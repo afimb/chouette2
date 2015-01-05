@@ -1,7 +1,10 @@
-require 'spec_helper'
+# require 'spec_helper'
 
-describe GtfsExport do
+# describe GtfsExport, :type => :model do
 
-  its(:export_options) { should include(:format => :gtfs) }
+#   describe '#export_options' do
+#     subject { super().export_options }
+#     it { is_expected.to include(:format => :gtfs) }
+#   end
   
-end
+# end

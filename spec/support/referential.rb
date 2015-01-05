@@ -27,15 +27,29 @@ RSpec.configure do |config|
   config.include ReferentialHelper
 
   config.before(:suite) do
-    organisation = Organisation.find_or_create_by_name :name => "first"
-    organisation.referentials.find_by_slug("first" ) ||
-      Referential.create(:prefix => "first", :name => "first", :slug => "first", :organisation => organisation) 
-    # FIXME in Rails 3.2 :
-    # Referential.where(:slug => 'first').first_or_create(FactoryGirl.attributes_for(:referential))
+    # Clean all tables to start
+    DatabaseCleaner.clean_with :truncation
+    # Use transactions for tests
+    DatabaseCleaner.strategy = :transaction
+    # Truncating doesn't drop schemas, ensure we're clean here, first *may not* exist
+    Apartment::Tenant.drop('first') rescue nil
+    # Create the default tenant for our tests
+    organisation = Organisation.where(:name => "first").first_or_create
+    Referential.where(:prefix => "first", :name => "first", :slug => "first", :organisation => organisation).first_or_create
   end
 
   config.before(:each) do
+    # Start transaction for this test
+    #DatabaseCleaner.start
+    # Switch into the default tenant
     first_referential.switch
   end
+
+  config.after(:each) do
+    # Reset tenant back to `public`
+    Apartment::Tenant.reset
+    # Rollback transaction
+    DatabaseCleaner.clean
+  end 
 
 end

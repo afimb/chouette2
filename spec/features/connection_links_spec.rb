@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
 
-describe "ConnectionLinks" do
+describe "ConnectionLinks", :type => :feature do
   login_user
 
   let!(:connection_links) { Array.new(2) { create(:connection_link) } }
@@ -10,8 +10,8 @@ describe "ConnectionLinks" do
   describe "list" do
     it "display connection_links" do
       visit referential_connection_links_path(referential)
-      page.should have_content(connection_links.first.name)
-      page.should have_content(connection_links.last.name)
+      expect(page).to have_content(connection_links.first.name)
+      expect(page).to have_content(connection_links.last.name)
     end
     
   end 
@@ -20,14 +20,14 @@ describe "ConnectionLinks" do
     it "display connection_link" do
       visit referential_connection_links_path(referential)
       click_link "#{connection_links.first.name}"
-      page.should have_content(connection_links.first.name)
+      expect(page).to have_content(connection_links.first.name)
     end
     
     it "display map" do
-      subject.stub(:stop_areas).and_return(Array.new(2) { Factory(:stop_area) })
+      allow(subject).to receive(:stop_areas).and_return(Array.new(2) { Factory(:stop_area) })
       visit referential_connection_links_path(referential)
       click_link "#{connection_links.first.name}"
-      page.should have_selector("#map", :class => 'connection_link')
+      expect(page).to have_selector("#map", :class => 'connection_link')
     end
     
   end
@@ -39,7 +39,7 @@ describe "ConnectionLinks" do
       fill_in "Nom", :with => "ConnectionLink 1"
       fill_in "Identifiant Neptune", :with => "test:ConnectionLink:1"        
       click_button("Créer correspondance")
-      page.should have_content("ConnectionLink 1")
+      expect(page).to have_content("ConnectionLink 1")
     end
   end
 
@@ -49,7 +49,7 @@ describe "ConnectionLinks" do
       click_link "Modifier cette correspondance"
       fill_in "Nom", :with => "ConnectionLink Modified"
       click_button("Modifier correspondance")
-      page.should have_content("ConnectionLink Modified")
+      expect(page).to have_content("ConnectionLink Modified")
     end
   end
 

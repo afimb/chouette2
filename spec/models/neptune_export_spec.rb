@@ -1,7 +1,10 @@
-require 'spec_helper'
+# require 'spec_helper'
 
-describe NeptuneExport do
+# describe NeptuneExport, :type => :model do
 
-  its(:export_options) { should include(:format => :neptune) }
+#   describe '#export_options' do
+#     subject { super().export_options }
+#     it { is_expected.to include(:format => :neptune) }
+#   end
   
-end
+# end
