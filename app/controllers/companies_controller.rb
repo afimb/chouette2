@@ -35,4 +35,8 @@ class CompaniesController < ChouetteController
     referential_companies_path(referential)
   end
 
+  def permitted_params
+    params.permit(company: [ :objectid, :object_version, :creation_time, :creator_id, :name, :short_name, :organizational_unit, :operating_department_name, :code, :phone, :fax, :email, :registration_number, :url, :time_zone ])
+  end
+
 end

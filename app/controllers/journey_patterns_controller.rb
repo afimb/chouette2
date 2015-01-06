@@ -50,4 +50,8 @@ class JourneyPatternsController < ChouetteController
     @journey_patterns ||= @q.result(:distinct => true).order(:name)
   end
 
+  def permitted_params
+    params.permit(journey_pattern: [ :route_id, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :registration_number, :published_name, :departure_stop_point_id, :arrival_stop_point_id, :stop_point_ids, :stop_points ])
+  end
+
 end

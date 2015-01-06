@@ -9,9 +9,9 @@ describe "/vehicle_journeys/_form", :type => :view do
 
   it "should render an input for transport_mode" do
     render
-    expect(rendered).to have_selector( "select", :name => "vehicle_journey[transport_mode]") do |node|
+    expect(rendered).to have_selector( "select#vehicle_journey_transport_mode_name") do |node|
       Chouette::Line.transport_modes.each do |mode|
-        expect(node).to have_selector("option", :value => mode.text_code)
+        expect(node).to have_selector("option", :text => mode.text_code)
       end
     end
   end

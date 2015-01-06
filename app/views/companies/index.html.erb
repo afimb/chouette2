@@ -16,7 +16,7 @@
 </div>  
 <% end %>
 
-<div id="companies"><%= render 'companies' %></div>
+<div id="companies"><%= render partial: "companies", object: @companies %></div>
 
 <% content_for :sidebar do %>
 <ul class="actions">
