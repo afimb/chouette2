@@ -5,7 +5,6 @@ class VehicleTranslation
 
   attr_accessor :vehicle_journey_id, :count, :duration
   attr_accessor :first_stop_time, :departure_or_arrival
-  attr_accessor :delta
 
   validates_presence_of :count, :duration, :first_stop_time, :departure_or_arrival
   validates_inclusion_of :departure_or_arrival, :in =>  %w( departure arrival)
@@ -75,6 +74,7 @@ class VehicleTranslation
 
         vehicle_journey.vehicle_journey_at_stops.each do |vjas|
           vjas_attributes = vjas.attributes.merge( "vehicle_journey_id" => translated.id)
+          vjas_attributes.delete( "id" )
           vjas_attributes.merge! "departure_time" => ( vjas_attributes[ "departure_time"] + delta),
                                  "arrival_time" => ( vjas_attributes[ "arrival_time"] + delta)
 

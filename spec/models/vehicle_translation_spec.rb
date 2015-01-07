@@ -48,7 +48,7 @@ describe VehicleTranslation, :type => :model do
       expect(count_after).to eq(count_before + subject.count.to_i)
     end
     def last_created_vehicle
-      Chouette::VehicleJourney.find( :all, :order => :creation_time).last
+      Chouette::VehicleJourney.order( creation_time: :asc).last
     end
     it "should add vehicle having same published_journey_name" do
       subject.translate
@@ -78,6 +78,7 @@ describe VehicleTranslation, :type => :model do
       read_vehicle = Chouette::VehicleJourney.find(vehicle_journey.id)  # read from bd, change time values
       delta = subject.first_delta
       subject.translate
+
       last_created_vehicle.vehicle_journey_at_stops.each_with_index do |vjas, index|
         expect(vjas.departure_time).to eq(read_vehicle.vehicle_journey_at_stops[index].departure_time + delta + subject.duration.minutes)
         expect(vjas.arrival_time).to eq(read_vehicle.vehicle_journey_at_stops[index].arrival_time + delta + subject.duration.minutes)
