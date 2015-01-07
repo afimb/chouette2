@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
+require 'csv'
 
 describe "VehicleJourneyImports", :type => :feature do
   login_user

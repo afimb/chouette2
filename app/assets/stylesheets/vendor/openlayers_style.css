@@ -139,7 +139,7 @@ div.olControlMousePosition {
 }    
 
 .olControlNavigationHistory {
-   background-image: url( image-path('/assets/openlayers/navigation_history.png') );
+   background-image: url( image-path('openlayers/navigation_history.png') );
    background-repeat: no-repeat;
    width:  24px;
    height: 24px;

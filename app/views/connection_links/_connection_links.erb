@@ -1,5 +1,5 @@
 <div class="page_info">
-  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @connection_links %>
+  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @connection_links.to_a %>
 </div>
 <div class="connection_links paginated_content">
   <%= paginated_content(@connection_links) %>

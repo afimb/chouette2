@@ -87,4 +87,9 @@ class TimeTablesController < ChouetteController
   def collection_url
     referential_time_tables_path(referential)
   end
+
+  def permitted_params
+    params.permit(time_table: [ :objectid, :object_version, :creation_time, :creator_id, :version, :comment,
+:int_day_types, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday, :start_date, :end_date, :dates_attributes, :periods_attributes, :tag_list, :tag_search ] )
+  end
 end

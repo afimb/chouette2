@@ -27,7 +27,7 @@ describe "ConnectionLinks", :type => :feature do
       allow(subject).to receive(:stop_areas).and_return(Array.new(2) { Factory(:stop_area) })
       visit referential_connection_links_path(referential)
       click_link "#{connection_links.first.name}"
-      expect(page).to have_selector("#map", :class => 'connection_link')
+      expect(page).to have_selector("#map.connection_link")
     end
     
   end

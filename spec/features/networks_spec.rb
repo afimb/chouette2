@@ -28,7 +28,7 @@ describe "Networks", :type => :feature do
       allow(subject).to receive(:stop_areas).and_return(Array.new(2) { Factory(:stop_area) })
       visit referential_networks_path(referential)
       click_link "#{networks.first.name}"
-      expect(page).to have_selector("#map", :class => 'network')
+      expect(page).to have_selector("#map.network")
     end
     
   end
@@ -38,7 +38,7 @@ describe "Networks", :type => :feature do
       allow(subject).to receive(:stop_areas).and_return(Array.new(2) { Factory(:stop_area) })
       visit referential_networks_path(referential)
       click_link "Ajouter un réseau"
-      fill_in "Nom", :with => "Network 1"
+      fill_in "network_name", :with => "Network 1"
       fill_in "Numéro d'enregistrement", :with => "test-1"
       fill_in "Identifiant Neptune", :with => "test:GroupOfLine:1"        
       click_button("Créer réseau")
@@ -51,7 +51,7 @@ describe "Networks", :type => :feature do
       allow(subject).to receive(:stop_areas).and_return(Array.new(2) { Factory(:stop_area) })
       visit referential_network_path(referential, subject)
       click_link "Modifier ce réseau"
-      fill_in "Nom", :with => "Network Modified"
+      fill_in "network_name", :with => "Network Modified"
       fill_in "Numéro d'enregistrement", :with => "test-1"
       click_button("Modifier réseau")
       expect(page).to have_content("Network Modified")

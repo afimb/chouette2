@@ -9,7 +9,6 @@ describe "Companies", :type => :feature do
 
   describe "list" do
     it "display companies" do
-      puts referential.inspect
       visit referential_companies_path(referential)
       expect(page).to have_content(companies.first.name)
       expect(page).to have_content(companies.last.name)
@@ -42,7 +41,7 @@ describe "Companies", :type => :feature do
     it "edit company" do
       visit referential_company_path(referential, subject)
       click_link "Modifier ce transporteur"
-      fill_in "Nom", :with => "Company Modified"
+      fill_in "company_name", :with => "Company Modified"
       fill_in "Numéro d'enregistrement", :with => "test-1"
       click_button("Modifier transporteur")
       expect(page).to have_content("Company Modified")

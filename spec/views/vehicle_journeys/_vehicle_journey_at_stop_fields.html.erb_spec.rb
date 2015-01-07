@@ -13,34 +13,38 @@ describe "/vehicle_journeys/_vehicle_journey_at_stop_fields", :type => :view do
     render( :partial => "vehicle_journeys/vehicle_journey_at_stop_fields", :collection => vehicle_journey.vehicle_journey_at_stops, :as => :vehicle_journey_at_stop, :locals => { :vehicle_journey_at_stops_size => 1 } )
   end
   
-  def field_name
-    "vehicle_journey[vehicle_journey_at_stops_attributes][0]"
-  end
-  
   it "should render vehicle_journey_at_stop's departure time" do
     render_collection
-    expect(rendered).to have_selector("td select", :name => "#{field_name}[departure_time(5i)]")
+    expect(rendered).to have_selector("td select[name='vehicle_journey[vehicle_journey_at_stops_attributes[0][departure_time(5i)]]']")
   end
 
   it "should render vehicle_journey_at_stop's stop_point_id" do
     render_collection
-    expect(rendered).to have_selector("td input", :name => "#{field_name}[stop_point_id]",
-                                 :value => vehicle_journey_at_stop.stop_point_id)
+    expect(rendered).to have_field("vehicle_journey[number]")
+    expect(rendered).to have_field("vehicle_journey[vehicle_journey_at_stops_attributes][0][stop_point_id]",
+                                      :with => vehicle_journey_at_stop.stop_point_id,
+                                      :type => "hidden")
   end
+  
   it "should render vehicle_journey_at_stop's id" do
     render_collection
-    expect(rendered).to have_selector("td input", :name => "#{field_name}[id]",
-                                 :value => vehicle_journey_at_stop.id)
+    expect(rendered).to have_field("vehicle_journey[vehicle_journey_at_stops_attributes][0][id]",
+                                   :with => vehicle_journey_at_stop.id,
+                                   :type => "hidden")
   end
+  
   it "should render vehicle_journey_at_stop's _destroy" do
     render_collection
-    expect(rendered).to have_selector("td input", :name => "#{field_name}[_destroy]",
-                                 :value => (vehicle_journey_at_stop._destroy ? "1" : "0"))
+    expect(rendered).to have_field("vehicle_journey[vehicle_journey_at_stops_attributes][0][_destroy]",
+                                   :with => (vehicle_journey_at_stop._destroy ? "1" : "0"),
+                                   :type => "hidden" )
   end
+  
   it "should render vehicle_journey_at_stop's stop name" do
     render_collection
     expect(rendered).to have_selector("td label", :text => vehicle_journey_at_stop.stop_point.stop_area.name )
   end
+  
   context "for a destroyed vehicle_journey_at_stop" do
     before(:each) do
       allow(vehicle_journey_at_stop).to receive_messages(:_destroy => true)
@@ -51,6 +55,7 @@ describe "/vehicle_journeys/_vehicle_journey_at_stop_fields", :type => :view do
       expect(rendered).to have_selector("tr.no_stop")
     end
   end
+  
   context "for a not destroyed vehicle_journey_at_stop" do
     before(:each) do
       allow(vehicle_journey_at_stop).to receive_messages(:_destroy => false)

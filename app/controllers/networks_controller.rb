@@ -40,4 +40,9 @@ class NetworksController < ChouetteController
   def collection_url
     referential_networks_path(referential)
   end
+
+  def permitted_params
+    params.permit(network: [ :objectid, :object_version, :creation_time, :creator_id, :version_date, :description, :name, :registration_number, :source_name, :source_type, :source_identifier, :comment ])
+  end
+  
 end

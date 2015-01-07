@@ -13,7 +13,7 @@ class CreateOrganisation < ActiveRecord::Migration
     Referential.reset_column_information
     User.reset_column_information
 
-    organisation = Organisation.find_or_create_by_name!("Chouette")
+    organisation = Organisation.first_or_create(:name => "Chouette")
     Referential.update_all :organisation_id => organisation.id
     User.update_all :organisation_id => organisation.id
   end
