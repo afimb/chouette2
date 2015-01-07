@@ -1,19 +1,16 @@
 ChouetteIhm::Application.routes.draw do
 
-  devise_scope :users do
-    #match "/users/sign_up" => "subscriptions#new",
-  end
   devise_for :users, :controllers => { :registrations => "registrations" }
+  resources :users
 
   devise_scope :user do
     authenticated :user do
       root :to => 'referentials#index', as: :authenticated_root
     end
     unauthenticated :user do
-      root :to => 'devise/registrations#new', as: :unauthenticated_root
+      root :to => 'devise/sessions#new', as: :unauthenticated_root
     end
   end
-
 
   namespace :api do
     namespace :v1 do

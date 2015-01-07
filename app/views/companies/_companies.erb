@@ -1,8 +1,8 @@
 <div class="page_info">
-  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info( @companies.to_a ) %>
+  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info( @companies ) %>
 </div>
 <div class="companies paginated_content">
-   <%= paginated_content(@companies) %>
+   <%= paginated_content(@companies) %>  
 </div>
 <div class="pagination">
   <%= will_paginate @companies, :container => false, renderer: RemoteBootstrapPaginationLinkRenderer %>

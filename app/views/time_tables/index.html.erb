@@ -1,4 +1,4 @@
-<%= title_tag t('time_tables.index.title') %> 
+<%= title_tag t('time_tables.index.title') %>
 
 <%= search_form_for @q, :url => referential_time_tables_path(@referential), remote: true, :html => {:method => :get, class: "form-inline", :id => "search", role: "form"} do |f| %>
 <div class="panel panel-default">

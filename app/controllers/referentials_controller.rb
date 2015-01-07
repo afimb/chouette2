@@ -25,18 +25,25 @@ class ReferentialsController < BreadcrumbController
   def resource
     @referential ||= current_organisation.referentials.find_by_id(params[:id])
   end
+  
   def collection
     @referentials ||= current_organisation.referentials.order(:name)
   end
+  
   def build_resource
     super.tap do |referential|
       referential.user_id = current_user.id
       referential.user_name = current_user.name
     end
   end
+  
   def create_resource(referential)
     referential.organisation = current_organisation
     super
   end
+
+  def permitted_params
+    params.permit(referential: [ :name, :slug, :prefix, :time_zone, :upper_corner, :lower_corner, :organisation_id  ])
+  end  
 
 end

@@ -12,15 +12,15 @@ describe "/vehicle_journeys/_vehicle_journey_at_stop_fields", :type => :view do
   def render_collection
     render( :partial => "vehicle_journeys/vehicle_journey_at_stop_fields", :collection => vehicle_journey.vehicle_journey_at_stops, :as => :vehicle_journey_at_stop, :locals => { :vehicle_journey_at_stops_size => 1 } )
   end
-  
+ 
   it "should render vehicle_journey_at_stop's departure time" do
-    render_collection
     expect(rendered).to have_selector("td select[name='vehicle_journey[vehicle_journey_at_stops_attributes[0][departure_time(5i)]]']")
   end
 
   it "should render vehicle_journey_at_stop's stop_point_id" do
     render_collection
-    expect(rendered).to have_field("vehicle_journey[number]")
+    puts rendered.inspect
+    expect(rendered).to have_field("vehicle_journey[vehicle_journey_at_stops_attributes][0][stop_point_id]")
     expect(rendered).to have_field("vehicle_journey[vehicle_journey_at_stops_attributes][0][stop_point_id]",
                                       :with => vehicle_journey_at_stop.stop_point_id,
                                       :type => "hidden")

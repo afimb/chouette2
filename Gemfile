@@ -80,7 +80,7 @@ gem 'raphael-rails'
 gem 'rails-assets-bootstrap-sass-official', '~> 3.3.0'
 gem 'font-awesome-sass', '~> 4.2.0'
 gem 'will_paginate-bootstrap'
-gem 'simple_form'
+gem 'simple_form', '~> 3.1.0'
 gem 'rails-assets-tagmanager', '~> 3.0.1.0'
 gem 'rails-assets-typeahead.js', '~> 0.10.5'
 gem "breadcrumbs_on_rails"
@@ -99,7 +99,7 @@ gem 'inherited_resources'
 gem 'google-analytics-rails'
 
 # Model
-gem 'will_paginate', '~> 3.0'
+gem 'will_paginate', '~> 3.0', :git => "https://github.com/mislav/will_paginate.git"
 gem 'ransack'
 gem 'squeel'
 gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git', :branch => "rails4"

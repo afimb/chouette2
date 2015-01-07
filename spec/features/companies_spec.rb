@@ -4,7 +4,7 @@ require 'spec_helper'
 describe "Companies", :type => :feature do
   login_user
 
-  let!(:companies) { Array.new(2) { create :company } }
+  let!(:companies) { Array.new(2) { create :company } }  
   subject { companies.first }
 
   describe "list" do

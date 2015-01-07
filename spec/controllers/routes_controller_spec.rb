@@ -28,7 +28,6 @@ describe RoutesController, :type => :controller do
     it_behaves_like "line and referential linked"
   end
 
-
   describe "GET /index" do
     before(:each) do
       get :index, :line_id => route.line_id,
@@ -37,8 +36,8 @@ describe RoutesController, :type => :controller do
 
     it_behaves_like "line and referential linked"
     it_behaves_like "redirected to referential_line_path(referential,line)"
-
   end
+  
   describe "POST /create" do
     before(:each) do
       post :create, :line_id => route.line_id,
@@ -49,15 +48,18 @@ describe RoutesController, :type => :controller do
     it_behaves_like "line and referential linked"
     it_behaves_like "redirected to referential_line_path(referential,line)"
   end
+  
   describe "PUT /update" do
     before(:each) do
       put :update, :id => route.id, :line_id => route.line_id,
-          :referential_id => referential.id
+          :referential_id => referential.id,
+          :route => { }
     end
 
     it_behaves_like "route, line and referential linked"
     it_behaves_like "redirected to referential_line_path(referential,line)"
   end
+  
   describe "GET /show" do
     before(:each) do
       get :show, :id => route.id, 
@@ -75,7 +77,7 @@ describe RoutesController, :type => :controller do
     it "assigns route.stop_points.paginate(:page => nil) as @stop_points" do
       expect(assigns[:stop_points]).to eq(route.stop_points.paginate(:page => nil))
     end
-
   end
+  
 end
 

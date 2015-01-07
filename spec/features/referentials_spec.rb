@@ -51,7 +51,6 @@ describe "Referentials", :type => :feature do
     let(:referential) {  create(:referential, :organisation => @user.organisation) } 
 
     it "should remove referential" do
-      pending "Unauthorized DELETE (ticket #14)"
       visit referential_path(referential)
       click_link "Supprimer"
       expect(Referential.where(:slug => referential.slug)).to be_blank
