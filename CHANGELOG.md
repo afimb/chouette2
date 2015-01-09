@@ -1,3 +1,9 @@
+# Version 2.5.2 (09/01/15)
+* Nouvelles foctionnalités
+  * Amélioration de l'export Hub
+  * Ajout de points de contrôle pour la validation
+  * Ajouts de champs pour les échanges Hub 
+
 # Version 2.5.1 (14/11/14)
 * Nouvelles foctionnalités
   * Reprise des imports/exports GTFS

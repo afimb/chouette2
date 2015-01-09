@@ -13,6 +13,11 @@ module RuleParameterSetsHelper
     return t("rule_parameter_sets.labels.lower_char") if value == "4"
   end
   
+  def boolean_value(value)
+    return t("true") if value == "1"
+    t "false"
+  end
+  
 end
 
 

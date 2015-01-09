@@ -71,27 +71,27 @@
     
     <p>
       <label><%= RuleParameterSet.human_attribute_name("check_lines_in_groups") %>: </label>
-      <%= @rule_parameter_set.check_lines_in_groups ? t("true") : t("false") %>
+      <%= boolean_value(@rule_parameter_set.check_lines_in_groups)%>
     </p>
 
     <p>
       <label><%= RuleParameterSet.human_attribute_name("check_line_routes") %>: </label>
-      <%= @rule_parameter_set.check_line_routes ? t("true") : t("false") %>
+      <%= boolean_value(@rule_parameter_set.check_line_routes)  %>
     </p>
 
     <p>
       <label><%= RuleParameterSet.human_attribute_name("check_stop_parent") %>: </label>
-      <%= @rule_parameter_set.check_stop_parent ? t("true") : t("false") %>
+      <%= boolean_value(@rule_parameter_set.check_stop_parent)  %>
     </p>
 
     <p>
       <label><%= RuleParameterSet.human_attribute_name("check_connection_link_on_physical") %>: </label>
-      <%= @rule_parameter_set.check_allowed_transport_modes ? t("true") : t("false") %>
+      <%= boolean_value(@rule_parameter_set.check_connection_link_on_physical) %>
     </p>
 
     </p>
       <label><%= RuleParameterSet.human_attribute_name("check_allowed_transport_modes") %>: </label>
-      <%= @rule_parameter_set.check_allowed_transport_modes ? t("true") : t("false") %>
+      <%= boolean_value(@rule_parameter_set.check_allowed_transport_modes) %>
     </p>
 
 
