@@ -156,6 +156,7 @@ ChouetteIhm::Application.routes.draw do
     resources :clean_ups
 
   end
+  root :to => "referentials#index"
 
   match '/help/(*slug)' => 'help#show'
 
