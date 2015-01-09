@@ -1,5 +1,5 @@
 <ul class="user">
-  <li class="home"><%= link_to  t('layouts.home'), root_path %></li>
+  <li class="home"><%= link_to  t('layouts.home'), authenticated_root_path %></li>
 
   <% if user_signed_in?  %>
   <li> | </li>

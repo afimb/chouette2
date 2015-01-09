@@ -30,11 +30,16 @@ en:
       facility_stop_area_distance_max: "a stop area and a facility"
       rule_parameter_by_mode: "Parameters by mode"
       modes_allowed: " (only for allowed ones)"
-      vehicle_journey_number_bounds: "Vehicle journey number limits (0,0 to disable check-point))"
-      min_value: "minimal value"
-      max_value: "maximal value"
     index:
       title: "Parameter sets"
+    labels:
+      columns_restrictions: "Check model objects atributes"
+      attribute: "attribute"
+      free_char: "free"
+      num_char: "number only"
+      alpha_char: "character only"
+      lower_char: "lowercase only"
+      upper_char: "uppercase only"
   activerecord:
     models:
       rule_parameter_set:  "Parameter Set for Conformity Rules"
@@ -58,10 +63,17 @@ en:
         speed_min: "Minimum speed"
         speed_max: "Maximum speed"
         inter_stop_duration_variation_max: "Maximum duration gap between 2 vehicle journeys and between 2 following stops"
-        vehicle_journey_number_min: "Minimal value for vehicle journey numbers (empty to disable check-point)"
-        vehicle_journey_number_min: "Maximal value for vehicle journey numbers (empty to disable check-point)"
+        check_lines_in_groups: "check if each line belongs scrictly to one group of line"
+        check_line_routes:  "check if each line have 1 route or 2 routes coupled"
+        check_stop_parent:  "check if all physical stop areas are owned by a commercial stop point"
+        check_connection_link_on_physical: "check if connection links connect only physical stops" 
         check_allowed_transport_modes: "Check transport modes"
         allowed_transport: "Allowed"
+        attribute: "attribute"
+        unique: "uniqness"
+        string_type: "allowed characters"
+        min_size: "minimal size or value"
+        max_size: "maximal  size or value"
 
 fr:
   rule_parameter_sets:
@@ -95,11 +107,16 @@ fr:
       inter_stop_duration_max: "Durée maximum de stationnement à un arrêt"
       rule_parameter_by_mode: "Jeu de paramètres pour un mode de transport"
       modes_allowed: " (uniquement pour les modes autorisés)"
-      vehicle_journey_number_bounds: "Fouchette de valeurs pour le numéro de courses"
-      min_value: "valeur minimale"
-      max_value: "valeur maximale"
     index:
       title: "Jeux de paramètres"
+    labels:
+      columns_restrictions: "Contôles sur les attributs des objets du modèle"
+      attribute: "attribut"
+      free_char: "libre"
+      num_char: "numérique"
+      alpha_char: "alphabétique"
+      lower_char: "minuscule"
+      upper_char: "majuscule"
   activerecord:
     models:
       rule_parameter_set: "Jeu de paramètres pour le contrôle de qualité des données"
@@ -123,8 +140,15 @@ fr:
         speed_min: "Vitesse minimum"
         speed_max: "Vitesse maximum"
         inter_stop_duration_variation_max: "Ecart maximum de durée entre 2 arrêts successifs pour les différentes courses"
-        vehicle_journey_number_min: "Borne inférieur pour les numéros de course (vide pour désactiver le contrôle)"
-        vehicle_journey_number_min: "Borne supérieure pour les numéros de course (vide pour désactiver le contrôle)"
-        check_allowed_transport_modes: "Contrôler les modes de transport"
+        check_lines_in_groups: "Contrôler que chaque ligne appartient à un et un seul groupe de lignes"
+        check_line_routes:  "Contrôler que chaque ligne a une séquence d'arrêt ou un couple A/R de séquences d'arrêts"
+        check_stop_parent:  "Contrôler que chaque arrêt physique est rattaché à un arrêt commercial"
+        check_connection_link_on_physical: "Contrôler que les correspondances ne relient que des arrêts physiques" 
+        check_allowed_transport_modes: "Contrôler les modes de transport des lignes et des courses"
         allowed_transport: "Autorisé"
+        attribute: "attribut"
+        unique: "unicité"
+        string_type: "caractères autorisés"
+        min_size: "taille ou valeur minimale"
+        max_size: "taille ou valeur maximale"
 
