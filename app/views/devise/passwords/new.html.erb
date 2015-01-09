@@ -6,7 +6,7 @@
       <%= form.input :email, :as => :email, placeholder: 'user@domain.com'  %> 
 
       <div class="col-md-offset-2">
-        <%= link_to t("cancel"), root_path, :class => "btn btn-default" %>    
+        <%= link_to t("cancel"), unauthenticated_root_path, :class => "btn btn-default" %>    
         <%= form.button :submit, :value => t("devise.passwords.new.commit"), :class => "btn-info" %>
       </div>
       <% end %>
