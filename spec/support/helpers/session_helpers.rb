@@ -10,7 +10,7 @@ module Features
 
     def signin(email, password)
       visit new_user_session_path
-      save_and_open_page
+      # save_and_open_page
       fill_in '#session_new #user_email', with: email
       fill_in 'Password', with: password
       click_button 'Sign in'

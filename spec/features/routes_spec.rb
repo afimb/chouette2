@@ -30,7 +30,6 @@ describe "Routes", :type => :feature do
     it "return to line's page that display new route" do
       visit referential_line_path(referential,line)
       click_link "Ajouter une séquence d'arrêts"
-      save_and_open_page
       fill_in "route_name", :with => "A to B"
       fill_in "Indice", :with => "AB"
       select 'aller', :from => "route_direction_code"
@@ -45,9 +44,7 @@ describe "Routes", :type => :feature do
       visit referential_line_path(referential,line)
       click_link "#{route.name}"
       click_link "Modifier cette séquence d'arrêts"
-      save_and_open_page
       fill_in "route_name", :with => "#{route.name}-changed"
-      save_and_open_page
       click_button("Modifier Séquence d'arrêts")
       expect(page).to have_content("#{route.name}-changed")
     end

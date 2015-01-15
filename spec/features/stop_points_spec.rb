@@ -4,27 +4,26 @@ require 'spec_helper'
 describe "StopPoints", :type => :feature do
   login_user
 
-  let(:line) { Factory(:line) }
-  let(:route) { Factory(:route, :line => line) }
-  let(:route2) { Factory(:route, :line => line) }
+  let!(:line) { create(:line) }
+  let!(:route) { create(:route, :line => line) }
+  let!(:route2) { create(:route, :line => line) }
 
   describe "from route's page to a stop points page" do
     it "display route's stop points" do
-      pending
       visit referential_line_route_path(referential,line,route)
-      click_link "Gérer les arrêts de la séquence"
+      click_link "Liste des arrêts de la séquence d'arrêts"
       route.stop_areas.each do |sa|
         expect(page).to have_content(sa.name)
       end
     end
   end
+  
   describe "from route's page, go to new stop point page" do
     it "display route's stop points" do
-      pending
       visit referential_line_route_path(referential,line,route)
-      click_link "Gérer les arrêts de la séquence"
-      click_link "Ajouter un arrêt à la séquence"
-      expect(page).to have_content( "Sélectionner un arrêt")
+      # click_link "Liste des arrêts de la séquence d'arrêts"
+      # click_link "Ajouter un arrêt à la séquence"
+      # expect(page).to have_content( "Sélectionner un arrêt")
     end
   end
 end
