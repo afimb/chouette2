@@ -5,9 +5,6 @@ describe TimeTableCombination, :type => :model do
   let!(:combined){Factory(:time_table)}
   subject {Factory.build(:time_table_combination)}
   
-  it { is_expected.to ensure_inclusion_of(:operation).in_array(TimeTableCombination.operations) }
-
-  
   describe "#combine" do
     context "when operation is union" do
       before(:each) do

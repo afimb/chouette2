@@ -3,7 +3,7 @@
   <%= render "shared/flash_messages" %>
   <%= form.inputs do %>
     <%= form.input :operation, :as => :radio, :collection => Hash[TimeTableCombination.operations.map {|b| [t( b, :scope => "time_table_combinations.operations"),b]}] %>
-    <%= form.input :combined_id, :label => t('.time_tables'), :as => :search_time_table, :json => referential_time_tables_path(@referential, :format => :json), :hint_text => t('search_hint'), :no_result_text => t('no_result_text'), :searching_text => t('searching_term'), :tokenLimit => 1 %>
+    <%= form.input :combined_id, :label => t('.time_tables'), :as => :search_time_table, :json => referential_autocomplete_time_tables_path(@referential, :format => :json), :hint_text => t('search_hint'), :no_result_text => t('no_result_text'), :searching_text => t('searching_term'), :tokenLimit => 1 %>
   <% end %>
   </div>
   <div class="modal-footer">

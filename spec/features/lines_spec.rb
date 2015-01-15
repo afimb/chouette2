@@ -16,8 +16,7 @@ describe "Lines", :type => :feature do
       expect(page).to have_content(lines.last.name)
     end
     
-  end
-  
+  end  
 
   describe "show" do      
     it "display line" do
@@ -29,7 +28,7 @@ describe "Lines", :type => :feature do
     it "display map" do
       visit referential_lines_path(referential)
       click_link "#{lines.first.name}"
-      expect(page).to have_selector("#map", :class => 'line')
+      expect(page).to have_selector("#map.line")
     end
     
   end
@@ -38,7 +37,7 @@ describe "Lines", :type => :feature do
     it "creates line and return to show" do
       visit referential_lines_path(referential)
       click_link "Ajouter une ligne"
-      fill_in "Nom", :with => "Line 1"
+      fill_in "line_name", :with => "Line 1"
       fill_in "Numéro d'enregistrement", :with => "1"
       fill_in "Identifiant Neptune", :with => "test:Line:999"        
       click_button("Créer ligne")
@@ -50,7 +49,7 @@ describe "Lines", :type => :feature do
     it "edit line" do
       visit referential_line_path(referential, subject)
       click_link "Modifier cette ligne"
-      fill_in "Nom", :with => "Line Modified"
+      fill_in "line_name", :with => "Line Modified"
       fill_in "Numéro d'enregistrement", :with => "test-1"
       click_button("Modifier ligne")
       expect(page).to have_content("Line Modified")

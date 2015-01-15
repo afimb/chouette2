@@ -53,7 +53,7 @@ describe RoutesController, :type => :controller do
     before(:each) do
       put :update, :id => route.id, :line_id => route.line_id,
           :referential_id => referential.id,
-          :route => { }
+          :route => route.attributes
     end
 
     it_behaves_like "route, line and referential linked"

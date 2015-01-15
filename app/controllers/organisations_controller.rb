@@ -14,5 +14,10 @@ class OrganisationsController < BreadcrumbController
   def resource
     @organisation = current_organisation
   end
+
+  def organisation_params
+    params.require(:organisation).permit(:name)
+  end
+  
 end
 

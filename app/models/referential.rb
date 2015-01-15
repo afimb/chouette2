@@ -191,10 +191,12 @@ class Referential < ActiveRecord::Base
     GeoRuby::SimpleFeatures::Geometry.from_ewkt(bounds.present? ? bounds : default_bounds ).envelope
   end
 
-end
-
+  ##
+  # In Development environment where cache_classes = false
+  # each time a controller rb file is saved
+  # ninoxe models are reloaded without after_initialize from config/initializers
+  # so for development confort, it's better to keep here that after_initialize
 Rails.application.config.after_initialize do
-
 
   Chouette::TridentActiveRecord
 
@@ -212,11 +214,26 @@ Rails.application.config.after_initialize do
 
   end
 
+  Chouette::TimeTable
+
+  class Chouette::TimeTable
+    def presenter
+      @presenter ||= ::TimeTablePresenter.new( self)
+    end
+  end
+
+  Chouette::VehicleJourney
+
+  class Chouette::VehicleJourney
+    def presenter
+      @presenter ||= ::VehicleJourneyPresenter.new( self)
+    end
+  end
+
   Chouette::StopArea
 
   class Chouette::StopArea
-
-    #attr_accessible :projection_x,:projection_y,:projection_xy
+    include  NinoxeExtension::ProjectionFields
 
     # override default_position method to add referential envelope when no stoparea is positioned
     def default_position
@@ -224,118 +241,16 @@ Rails.application.config.after_initialize do
       Chouette::StopArea.bounds ? Chouette::StopArea.bounds.center : self.referential.envelope.center
     end
 
-    # add projection_type set on pre-insert and pre_update action
-    before_save :set_projections
-    def set_projections
-      if ! self.coordinates.blank?
-        self.long_lat_type = 'WGS84'
-      else
-        self.long_lat_type = nil
-      end
-    end
-
-    def projection
-      if self.referential.projection_type.nil? || self.referential.projection_type.empty?
-        nil
-      else
-        self.referential.projection_type
-      end
-    end
-    @point = nil
-
-    def projection_x
-      if self.long_lat_type.nil? || self.projection.nil?
-        nil
-      else
-        @point ||= GeoRuby::SimpleFeatures::Point::from_lat_lng(Geokit::LatLng.new(self.latitude,self.longitude)).project_to(self.projection.to_i)
-        @point.x
-      end
-    end
-    def projection_y
-      if self.long_lat_type.nil? || self.projection.nil?
-        nil
-      else
-        @point ||= GeoRuby::SimpleFeatures::Point::from_lat_lng(Geokit::LatLng.new(self.latitude,self.longitude)).project_to(self.projection.to_i)
-        @point.y
-      end
-    end
-    def projection_xy
-      if self.long_lat_type.nil? || self.projection.nil?
-        nil
-      else
-        @point ||= GeoRuby::SimpleFeatures::Point::from_lat_lng(Geokit::LatLng.new(self.latitude,self.longitude)).project_to(self.projection.to_i)
-        @point.x.to_s+","+@point.y.to_s
-      end
-    end
-    def projection_x=(dummy)
-      # dummy method
-    end
-    def projection_y=(dummy)
-      # dummy method
-    end
-    def projection_xy=(dummy)
-      # dummy method
-    end
 
   end
 
   Chouette::AccessPoint
 
   class Chouette::AccessPoint
-    #attr_accessible :projection_x,:projection_y,:projection_xy
-
-    # add projection_type set on pre-insert and pre_update action
-    before_save :set_projections
-    def set_projections
-      if ! self.coordinates.blank?
-        self.long_lat_type = 'WGS84'
-      else
-        self.long_lat_type = nil
-      end
-    end
-
-    def projection
-      if self.referential.projection_type.nil? || self.referential.projection_type.empty?
-        nil
-      else
-        self.referential.projection_type
-      end
-    end
-    @point = nil
-
-    def projection_x
-      if self.long_lat_type.nil? || self.projection.nil?
-        nil
-      else
-        @point ||= GeoRuby::SimpleFeatures::Point::from_lat_lng(Geokit::LatLng.new(self.latitude,self.longitude)).project_to(self.projection.to_i)
-        @point.x
-      end
-    end
-    def projection_y
-      if self.long_lat_type.nil? || self.projection.nil?
-        nil
-      else
-        @point ||= GeoRuby::SimpleFeatures::Point::from_lat_lng(Geokit::LatLng.new(self.latitude,self.longitude)).project_to(self.projection.to_i)
-        @point.y
-      end
-    end
-    def projection_xy
-      if self.long_lat_type.nil? || self.projection.nil?
-        nil
-      else
-        @point ||= GeoRuby::SimpleFeatures::Point::from_lat_lng(Geokit::LatLng.new(self.latitude,self.longitude)).project_to(self.projection.to_i)
-        @point.x.to_s+","+@point.y.to_s
-      end
-    end
-    def projection_x=(dummy)
-      # dummy method
-    end
-    def projection_y=(dummy)
-      # dummy method
-    end
-    def projection_xy=(dummy)
-      # dummy method
-    end
+    include  NinoxeExtension::ProjectionFields
   end
 
 end
+end
+
+

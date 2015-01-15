@@ -34,6 +34,7 @@ class GroupOfLinesController < ChouetteController
     end  
   end
 
+  
   protected
 
   def filtered_group_of_lines_maps
@@ -58,4 +59,12 @@ class GroupOfLinesController < ChouetteController
   def collection_url
     referential_group_of_lines_path(referential)
   end
+
+
+  private
+
+  def group_of_line_params
+    params.require(:group_of_line).permit( :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :lines, :registration_number, :line_tokens)
+  end
+  
 end

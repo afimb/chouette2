@@ -4,13 +4,13 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <%= f.label :journey_pattern_id_eq, "Missions" %>
-    <%= f.text_field(:journey_pattern_id_eq, :class => "form-control") %>      
+    <%= f.text_field(:journey_pattern_id_eq, :class => "form-control") %>
     <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
     <a data-toggle="collapse" data-parent="#search" href="#advanced_search" class="advanced_search">
       <i class="fa fa-plus"></i> <%= "#{t('.advanced_search')}" %>
     </a>
   </div>
-  
+
   <div id="advanced_search" class="panel-collapse collapse">
     <div class="panel-body">
       <div>
@@ -50,24 +50,31 @@
 <script>
 	$(function() {
         var time_tables_url = function(){
-          return '<%= referential_time_tables_path(@referential, :format => :json) %>?route_id=<%= @route.id %>';
+          return '<%= referential_autocomplete_time_tables_path(@referential, :format => :json) %>?route_id=<%= @route.id %>';
         };
-        var time_table_to_html = function( item ){
+        var time_table_formatter = function(item){
+          var day_types = '';
+          if ( item.day_types.length >0 ){
+            day_types = '<span class=\"day_types\">' +  item.day_types + '</span>' ;
+          }
+          var tags = '';
+          if ( item.tags.length >0 ){
+            tags = '<div class=\"info\">' +  item.tags + '</div>' ;
+          }
           return '<li><div class=\"comment\">' + item.comment +
-              '</div><div class=\"info\">' + item.time_table_bounding +
-              '</div><div class=\"info\">' +  item.composition_info + '</div></li>';
+                  '</div><div class=\"info\">' + item.time_table_bounding + '  ' + day_types + '</div>' +
+                  tags + '</li>';
         };
 		$( "#q_time_tables_id_eq" ).tokenInput( time_tables_url, {
           crossDomain: false,
           prePopulate: $('#q_time_tables_id_eq').data('pre'),
-          minChars: 3,
-          queryParam: 'q[comment_cont]',
+          minChars: 2,
           propertyToSearch: 'comment',
           hintText: '<%= t('search_hint') %>',
           noResultsText: '<%= t('no_result_text') %>',
           searchingText: '<%= t('searching_term') %>',
-          resultsFormatter: time_table_to_html,
-          tokenFormatter: time_table_to_html,
+          resultsFormatter: time_table_formatter,
+          tokenFormatter: time_table_formatter
         });
 		$( "#q_journey_pattern_id_eq" ).tokenInput( '<%= referential_line_route_journey_patterns_path(@referential, @line, @route, :format => :json) %>', {
           crossDomain: false,

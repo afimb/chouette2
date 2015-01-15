@@ -62,4 +62,11 @@ class AccessPointsController < ChouetteController
       end
   end
 
+
+  private
+
+  def access_point_params
+    params.require(:access_point).permit( :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :longitude, :latitude, :long_lat_type, :country_code, :street_name, :zip_code, :city_name, :openning_time, :closing_time, :access_type, :access_point_type, :mobility_restricted_suitability, :stairs_availability, :lift_availability, :stop_area_id, :coordinates )
+  end
+
 end

@@ -3,7 +3,7 @@ layout: default
 title: Chouette v2 
 ---
 
-Version 2.5.1
+Version 2.5.2
 
 h3. Logiciel libre propriété de :
 
@@ -23,6 +23,12 @@ En contrepartie de l'accessibilité au code source et des droits de copie, de mo
 A cet égard  l'attention de l'utilisateur est attirée sur les risques associés au chargement,  à l'utilisation,  à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve donc à des développeurs et des professionnels avertis possédant  des  connaissances  informatiques approfondies.  Les utilisateurs sont donc invités à charger  et  tester  l'adéquation  du logiciel à leurs besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et, plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité. 
 
 h3. Notes de version
+
+h4. Version 2.5.2
+
+* Nouvelles foctionnalités :
+** Ajout des particularités de monté/descente aux arrêts d'une séquence
+** Ajout de tests sur les données pour l'export
 
 h4. Version 2.5.1
 
