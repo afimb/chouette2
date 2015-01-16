@@ -11,11 +11,11 @@
   <div class="col-md-4 login">
     <div class="panel panel-default">
       <div class="panel-body">
-        <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :wrapper => "form_without_label", :form_class => 'session_new' ) do |form| %>
-          <%= form.input :email, :label => false, :placeholder => t("helpers.label.user.email"), input_html: { :class => "form-control" } %>
+        <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :wrapper => "form_without_label", html: { :class => 'session_new' } ) do |form| %>
+          <%= form.input :email, :label => false, input_html: { :class => "form-control" } %>
           <div class="row">
             <div class="col-md-6">
-              <%= form.input :password, :as => :password, :label => false, :placeholder => t("helpers.label.user.password"), input_html: { :class => "form-control" } %>
+              <%= form.input :password, :as => :password, :label => false, input_html: { :class => "form-control" } %>
             </div>
             <div class="col-md-6">
               <%= form.button :submit, t("devise.sessions.new.commit"), :class => "btn-primary" %>
@@ -24,7 +24,7 @@
           <div class="row options">
             <div class="col-md-6">
               <% if devise_mapping.rememberable? %>
-                <%= form.input :remember_me, :as => :boolean, :label => false, :inline_label => t("helpers.label.user.remember_me") if devise_mapping.rememberable? %>
+                <%= form.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
               <% end %>
             </div>
             <div class="col-md-6 new_password">
@@ -39,16 +39,16 @@
     <div class="panel panel-default">
       <div class="panel-heading"><%= t("devise.registrations.new.title") %></div>
       <div class="panel-body">
-        <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :wrapper => "form_without_label", input_html: { class: "registration_new" } ) do |form| %>
+        <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :wrapper => "form_without_label", html: { class: "registration_new" } ) do |form| %>
         <%= form.simple_fields_for :organisation, Organisation.new do |organisation| %>
-          <%= organisation.input :name, :label => false, :placeholder => t("helpers.label.user.organisation_name"), input_html: { :class => "form-control" } %>
+          <%= organisation.input :name, :label => false, input_html: { :class => "form-control" } %>
         <% end %>
         <% if resource.respond_to?( :name) %>
-          <%= form.input :name, :label => false, :placeholder => t("helpers.label.user.name"), input_html: { :class => "form-control" }  %>
+          <%= form.input :name, :label => false, input_html: { :class => "form-control" }  %>
         <% end %>
-        <%= form.input :email, :label => false, :placeholder => t("helpers.label.user.email"), input_html: { :class => "form-control" } %>
-        <%= form.input :password, :as => :password, :label => false, :placeholder => t("helpers.label.user.password"), input_html: { :class => "form-control" } %>
-        <%= form.input :password_confirmation, :as => :password, :label => false, :placeholder => t("helpers.label.user.password_confirmation"), input_html: { :class => "form-control" } %>
+        <%= form.input :email, :label => false, input_html: { :class => "form-control" } %>
+        <%= form.input :password, :as => :password, :label => false, input_html: { :class => "form-control" } %>
+        <%= form.input :password_confirmation, :as => :password, :label => false, input_html: { :class => "form-control" } %>
 
         <%= form.button :submit, t("devise.registrations.new.commit"), :class => "btn-info" %>
         <% end %>

@@ -1,11 +1,6 @@
 # Additional translations for devise forms
 
 fr:
-  activerecord:
-    attributes:
-      user:
-        password: Mot de passe
-        password_confirmation:  Confirmation du mot de passe
   devise:
     sessions:
       new:
@@ -46,13 +41,28 @@ norme Neptune (NFP 99 506)"
       sign_up: "S'inscrire"
       new_password: "Mot de passe oublié?"
       new_confirmation: "Vous n'avez pas reçu les instructions de confirmation ?"
-  helpers:
-    label:
+  simple_form:
+    labels:
       user:
         email: "Email"
-        organisation_name: "Nom de l'organisation"
+        organisation:
+          name: "Nom de l'organisation"
         name: Nom complet
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
         current_password: Mot de passe actuel
         remember_me: Se souvenir de moi
+    hints:
+      user:
+        edit:
+          password: 'Laissez le vide si vous ne voulez pas le changer'
+          current_password: "Nous avons besoin de votre mot de passe pour confirmer les changements"
+    placeholders:
+      user:
+        email: "Email"
+        organisation:
+          name: "Nom de l'organisation"
+        name: Nom complet
+        password: Mot de passe
+        password_confirmation: Confirmation du mot de passe
+        current_password: Mot de passe actuel

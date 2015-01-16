@@ -40,13 +40,28 @@ validating conformance of data wrt Neptune (French standard NFP 99 506)."
       sign_up: "Sign up"
       new_password: Forget your password ?
       new_confirmation: "Didn't receive confirmation instructions?"
-  helpers:
-    label:
+  simple_form:
+    labels:
       user:
         email: "Email"
-        organisation_name: "Organisation name"
+        organisation:
+          name: "Organisation name"
         name: Full name
         password: Password
         password_confirmation: Password confirmation
         current_password: Current password
         remember_me: Remember me
+    hints:
+      user:
+        edit:
+          password: "Leave it blank if you don't want to change it"
+          current_password: "We need your current password to confirm your changes"
+    placeholders:
+      user:
+        email: "Email"
+        organisation:
+          name: "Organisation name"
+        name: Full name
+        password: Password
+        password_confirmation: Password confirmation
+        current_password: Current password
