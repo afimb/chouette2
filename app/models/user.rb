@@ -15,7 +15,6 @@ class User < ActiveRecord::Base
   validates :organisation, :presence => true
   validates :email, :presence => true, :uniqueness => true
   validates :name, :presence => true
-  validates :password, :presence => true, :confirmation => true
 
   before_validation(:on => :create) do
     self.password ||= Devise.friendly_token.first(6)
