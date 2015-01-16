@@ -1,11 +1,11 @@
 # Version 2.5.1 (14/11/14)
-* Nouvelles foctionnalités
+* Nouvelles fonctionnalités
   * Reprise des imports/exports GTFS
   * Ajout des couleurs de lignes
   * Ajouts de champs pour les échanges GTFS 
 
 # Version 2.5.0 (23/10/14)
-* Nouvelles foctionnalités
+* Nouvelles fonctionnalités
   * Ajout d'un lien de création d'objet dans la page de consultation (Mantis 26415)
   * Ajout d'un lien vers l'accueil dans le bandeau (Mantis 26820)
   * Fournir plus de détails pour identifier un arrêt dans les listes de choix (Mantis 26821)
