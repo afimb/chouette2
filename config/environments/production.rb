@@ -181,4 +181,6 @@ ChouetteIhm::Application.configure do
     Export.root = "/var/lib/chouette/exports"
   end
 
+  config.i18n.available_locales = [:fr, :en]
+
 end

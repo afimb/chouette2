@@ -53,6 +53,9 @@ platforms :ruby do
   gem 'sqlite3'
 end
 
+# I18n
+gem 'rails-i18n', '~> 4.0.0'
+
 # Authentication
 gem 'devise', '~> 3.4.0'
 gem 'devise-i18n'

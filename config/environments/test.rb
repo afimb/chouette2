@@ -77,4 +77,6 @@ ChouetteIhm::Application.configure do
   config.to_prepare do
     Chouette::Command.command = "true"
   end
+
+  config.i18n.available_locales = [:fr, :en]
 end

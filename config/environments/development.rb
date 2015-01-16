@@ -91,4 +91,6 @@ ChouetteIhm::Application.configure do
     end
   end
 
+  config.i18n.available_locales = [:fr, :en]
+
 end
