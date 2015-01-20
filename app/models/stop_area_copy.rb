@@ -5,7 +5,7 @@ class StopAreaCopy
   include ActiveModel::Conversion
   extend  ActiveModel::Naming
 
-  attr_accessor :source_id, :hierarchy, :area_type, :source
+  attr_accessor :source_id, :hierarchy, :area_type, :source, :copy
   
   validates_presence_of :source_id, :hierarchy, :area_type
   
@@ -40,17 +40,17 @@ class StopAreaCopy
     begin
       if self.valid?
         self.source ||= Chouette::StopArea.find self.source_id
-        copy = source.duplicate
-        copy.name = source.name
-        copy.area_type = self.area_type.camelcase
+        self.copy = source.duplicate
+        self.copy.name = source.name
+        self.copy.area_type = self.area_type.camelcase
         Chouette::StopArea.transaction do
           if self.hierarchy == "child"
-            copy.parent_id = source.id
+            self.copy.parent_id = source.id
           end
-          copy.save!
+          self.copy.save!
           if self.hierarchy == "parent"
-            source.parent_id = copy.id
-            source.save!
+            self.source.parent_id = copy.id
+            self.source.save!
           end
         end
         true
