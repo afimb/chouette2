@@ -1,4 +1,4 @@
-# Version 2.5.2 (09/01/15)
+# Version 2.5.2 (20/01/15)
 * Nouvelles foctionnalités
   * Amélioration de l'export Hub
   * Ajout de points de contrôle pour la validation
