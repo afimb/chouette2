@@ -90,6 +90,7 @@ en:
         object_version: "Version"
         creation_time: "Created on"
         creator_id: "Created by"
+        footnote_ids: "Footnotes"
     errors:
       models:
         vehicle_journey:
@@ -191,6 +192,7 @@ fr:
         object_version: "Version"
         creation_time: "Créé le"
         creator_id: "Créé par"
+        footnote_ids: "Notes de bas de page"
     errors:
       models:
         vehicle_journey:
