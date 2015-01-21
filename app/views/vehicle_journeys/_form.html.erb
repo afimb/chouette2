@@ -52,6 +52,8 @@
       </tbody>
     </table>
 
+    <%= form.input :footnote_ids, :label => "mon label", :as => :check_boxes, :collection => @line.footnotes.map { |f| [ "#{f.code} #{f.label}", f.id.to_s]} %>
+
   <% end %>
 
   <%= form.actions do %>

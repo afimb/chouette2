@@ -1,8 +1,9 @@
 GIT
   remote: https://github.com/afimb/ninoxe.git
-  revision: 95471a42daa8a0183f94b1f3beac9242033ed236
+  revision: b612664e38a1c1e778d19875a9975c98e468e106
+  branch: footnotes
   specs:
-    ninoxe (1.1.3)
+    ninoxe (1.1.4)
       activerecord (~> 3.2.13)
       acts-as-taggable-on (>= 3)
       acts_as_list (>= 0.1.6)
