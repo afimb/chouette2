@@ -15,20 +15,22 @@
     <%= form.input :flexible_service, :as => :select, :collection => [[@line.human_attribute_name("on_demaond_fs"), true], [@line.human_attribute_name("regular_fs"), false]], :include_blank => true %>
     <%= form.input :comment %>
     <%= form.input :objectid, :required => !@line.new_record?, :input_html => { :title => t("formtastic.titles.line.objectid")} %>
-  <% end %>
-
-  <%= form.inputs do %>
     <%= form.input :group_of_line_tokens, :label => t('.group_of_lines'), :as => :text,  :input_html => { :"data-pre" => ( @line.group_of_lines.map { |group_of_line| { :id => group_of_line.id, :name => group_of_line.name } } ).to_json }  %>
 
-    <div id="footnotes">
-    <%= form.semantic_fields_for :footnotes do |f| %>
-       <%= render "footnotes/footnote_fields",  :f => f %>
-    <% end %>
-    </div>
-    <%= link_to_add_association t("footnotes.actions.add_footnote"), form, :footnotes ,
+    <div class="footnotes_block">
+      <h3><%= t("footnotes.index.title") %></h3>
+      <div id="footnotes">
+        <%= form.semantic_fields_for :footnotes do |f| %>
+          <%= render "footnotes/footnote_fields",  :f => f %>
+        <% end %>
+      </div>
+      <div class="add_footnote">
+        <%= link_to_add_association t("footnotes.actions.add_footnote"), form, :footnotes ,
       :partial => "footnotes/footnote_fields",
 	  :"data-association-insertion-method" => "append",
-	  :"data-association-insertion-node" => "div#footnotes"%>
+	  :"data-association-insertion-node" => "div#footnotes", :class => "add" %>
+      </div>
+    </div>
   <% end %>
 
    <%= form.actions do %>

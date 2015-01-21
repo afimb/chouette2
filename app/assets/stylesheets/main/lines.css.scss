@@ -26,6 +26,14 @@
     #line_color_old{ width: 100px;
                  color: white;
                  font-weight: bold;}
+
+    .nested-fields.footnote, .add_footnote{
+        @extend .col-md-offset-3;
+    }
+
+    .footnotes_block{
+        margin-bottom: 30px;
+    }    
 }
 
 #workspace.lines.show
