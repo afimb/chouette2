@@ -1,0 +1,23 @@
+en:
+  footnotes:
+    actions:
+      add_footnote: "add footnote"
+  activerecord:
+    models:
+      footnote: "footnote"
+    attributes:
+      footnote:
+        code: "number"
+        label: "line text"
+fr:
+  footnotes:
+    actions:
+      add_footnote: "ajouter une note en bas de page"
+  activerecord:
+    models:
+      footnote: "note en bas de page"
+    attributes:
+      footnote:
+        code: "numéro"
+        label: "ligne de texte"
+
