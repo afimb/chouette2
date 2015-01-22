@@ -7,8 +7,8 @@
   <%= @map.to_html %>
 
   <div class="summary">
-<% text_color = @line.text_color.blank? ? "black" : "##{@line.text_color}" %>
-<% bg_color = @line.color.blank? ? "white" : "#"+@line.color %>
+    <% text_color = @line.text_color.blank? ? "black" : "##{@line.text_color}" %>
+    <% bg_color = @line.color.blank? ? "white" : "#"+@line.color %>
     <% if colors?(@line) %>
 	    <p>
 	    	<label><%= t('lines.index.color') %>: </label>
@@ -86,11 +86,23 @@
 	    (@line.vehicle_journeys.where("flexible_service = ?", true).count + 
 	    @line.vehicle_journeys.where("flexible_service = ?", false).count) %>
     </p>
-    
+    <p>
+      <label><%= @line.human_attribute_name("footnotes") %>: </label>
+      <ul>
+        <% @line.footnotes.each do |footnote| %>
+        <li><%= footnote.code %> : <%= footnote.label %></li>          
+      <% end %>
+      </ul>
+    </p>
     <p>
       <label><%= @line.human_attribute_name("comment") %>: </label>
       <%= @line.comment %>
     </p>
+  </div>
+
+  <div class="row">
+    <div id="mobility_restricted_suitability" class="col-md-6"></div>
+    <div id="flexible_service" class="col-md-6"></div>
   </div>
 </div>
 

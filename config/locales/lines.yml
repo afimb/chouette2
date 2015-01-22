@@ -82,6 +82,7 @@ en:
         object_version: "Version"
         creation_time: "Created on"
         creator_id: "Created by"
+        footnotes: "Footnotes"
   formtastic:
     titles:
       line:
@@ -172,6 +173,7 @@ fr:
         object_version: "Version"
         creation_time: "Créé le"
         creator_id: "Créé par"
+        footnotes: "Notes de bas de page"
   formtastic:
     titles:
       line:
