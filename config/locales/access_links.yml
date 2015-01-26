@@ -63,9 +63,9 @@ fr:
   activerecord:        
     models:        
       access_link:
-        zero:  "lien"
-        one:   "lien"
-        other: "liens"
+        zero:  "lien d'accès"
+        one:   "lien d'accès"
+        other: "liens d'accès"
     attributes:
       access_link:
         access_point: "Accès"

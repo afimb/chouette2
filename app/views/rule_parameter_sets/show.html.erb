@@ -68,25 +68,32 @@
       <label><%= t(".inter_stop_duration_max") %>: </label>
       <%= @rule_parameter_set.inter_stop_duration_max %>
     </p>
-    <% if @rule_parameter_set.vehicle_journey_number_min.present? && @rule_parameter_set.vehicle_journey_number_max.present? %>
-    <div class="attributes_group" >
-      <span class="title"><%= t(".vehicle_journey_number_bounds") %></span>
-      <div class="columns">
-        <div class="two_columns">
-          <label><%= t(".min_value") %> : </label>
-          <span class="value"><%= @rule_parameter_set.vehicle_journey_number_min %></span>
-        </div>
-        <div class="two_columns">
-          <label><%= t(".max_value") %> : </label>
-          <span class="value"><%= @rule_parameter_set.vehicle_journey_number_max %></span>
-        </div>
-      </div>
-    </div>
-    <% end %>
+    
     <p>
-      <label><%= RuleParameterSet.human_attribute_name("check_allowed_transport_modes") %>: </label>
-      <%= @rule_parameter_set.check_allowed_transport_modes ? t("true") : t("false") %>
+      <label><%= RuleParameterSet.human_attribute_name("check_lines_in_groups") %>: </label>
+      <%= boolean_value(@rule_parameter_set.check_lines_in_groups)%>
     </p>
+
+    <p>
+      <label><%= RuleParameterSet.human_attribute_name("check_line_routes") %>: </label>
+      <%= boolean_value(@rule_parameter_set.check_line_routes)  %>
+    </p>
+
+    <p>
+      <label><%= RuleParameterSet.human_attribute_name("check_stop_parent") %>: </label>
+      <%= boolean_value(@rule_parameter_set.check_stop_parent)  %>
+    </p>
+
+    <p>
+      <label><%= RuleParameterSet.human_attribute_name("check_connection_link_on_physical") %>: </label>
+      <%= boolean_value(@rule_parameter_set.check_connection_link_on_physical) %>
+    </p>
+
+    </p>
+      <label><%= RuleParameterSet.human_attribute_name("check_allowed_transport_modes") %>: </label>
+      <%= boolean_value(@rule_parameter_set.check_allowed_transport_modes) %>
+    </p>
+
 
     <div class="rule_parameter_by_mode">
     <label><%= t(".rule_parameter_by_mode") %>
@@ -114,6 +121,40 @@
       	</tr>
     		<% end %>
     	<% end %>
+    </table>
+    </div>
+    <div class="rule_parameter_by_object">
+    <label><%= t("rule_parameter_sets.labels.columns_restrictions") %>  </label>
+    <table class="table table-bordered table-condensed">
+    <% RuleParameterSet.validable_objects.each do |obj| %>
+    <% if @rule_parameter_set.selected(obj.table_name.singularize) %>
+      <thead>
+      <tr>
+            <th> <%= t("activerecord.models.#{obj.table_name.singularize}.one") %></th>
+    		<th><%= RuleParameterSet.human_attribute_name("attribute") %></th>
+    		<th><%= RuleParameterSet.human_attribute_name("unique") %></th>
+    		<th><%= RuleParameterSet.human_attribute_name("string_type") %></th>
+    		<th><%= RuleParameterSet.human_attribute_name("min_size") %></th>
+    		<th><%= RuleParameterSet.human_attribute_name("max_size") %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% RuleParameterSet.validable_columns[obj.table_name.singularize].each do |col| %>
+      <% if @rule_parameter_set.selected_column(obj.table_name.singularize,col)%>
+        <tr>
+		  <td></td>
+		  <td><%= t("activerecord.attributes.#{obj.table_name.singularize}.#{col}") %></td>
+		  <% suffix = "column_#{col}_object_#{obj.table_name.singularize}"%>
+		  <td><%= unique(@rule_parameter_set.send  "unique_#{suffix}".to_sym) %></td>
+		  <td><%= pattern(@rule_parameter_set.send  "pattern_#{suffix}".to_sym) %></td>
+		  <td><%= @rule_parameter_set.send  "min_size_#{suffix}".to_sym %></td>
+		  <td><%= @rule_parameter_set.send  "max_size_#{suffix}".to_sym %></td>
+        </tr>
+        <% end %>
+      <% end %>
+      </tbody>
+    <% end %>
+    <% end %>
     </table>
     </div>
   </div>
