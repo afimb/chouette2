@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150120183020) do
+ActiveRecord::Schema.define(:version => 20150121144108) do
 
   create_table "access_links", :force => true do |t|
     t.integer  "access_point_id",                        :limit => 8
@@ -326,8 +326,9 @@ ActiveRecord::Schema.define(:version => 20150120183020) do
 
   create_table "organisations", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.boolean  "hub_restrictions"
   end
 
   create_table "pt_links", :force => true do |t|

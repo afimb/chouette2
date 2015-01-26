@@ -207,11 +207,24 @@ Rails.application.config.after_initialize do
       @referential ||= Referential.where(:slug => Apartment::Database.current_database).first!
     end
 
+    def hub_restricted?
+      referential.organisation.hub_restrictions
+    end
+
     # override prefix for good prefix in objectid generation
     def prefix
       self.referential.prefix
     end
 
+  end
+
+  Chouette::Route
+
+  class Chouette::Route
+    include NinoxeExtension::Hub::RouteRestrictions
+
+    #validates_numericality_of :number
+    #validates_numericality_of :wayback_code
   end
 
   Chouette::TimeTable
