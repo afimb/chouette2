@@ -1,3 +1,10 @@
+# Version 2.5.3 (en cours)
+* Nouvelles foctionnalités
+  * Contrôle de cohérence des communes des arrêts (Mantis 31896)
+  * Ajout de champs dans les échanges Neptune en structurant le champ commentaire (Mantis 31897)
+  * ajout de notes dans les lignes et de leur références dans les courses pour les échanges hub
+
+
 # Version 2.5.2 (20/01/15)
 * Nouvelles foctionnalités
   * Amélioration de l'export Hub
