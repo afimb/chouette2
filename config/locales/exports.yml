@@ -108,6 +108,7 @@ en:
         start_date: "Start of period"
         end_date: "End of period"
         object_id_prefix: "objectId prefix to be ignored"
+        extensions: "add extra fields in comments"
       export_log_message:
         created_at: "Date"
         position: "N."
@@ -238,6 +239,7 @@ fr:
         start_date: "Début de période"
         end_date: "Fin de période"
         object_id_prefix: "Préfixe d'identifiant Neptune à ignorer"
+        extensions: "ajout de champs supplémentaires dans les commentaires"
       export_log_message:
         created_at: "Date"
         position: "No"

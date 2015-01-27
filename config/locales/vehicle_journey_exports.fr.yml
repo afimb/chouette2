@@ -1,0 +1,30 @@
+fr:
+  vehicle_journey_exports:
+    new:
+      title: "Exporter les horaires existants"
+      basename: "courses"
+    label:
+      vehicle_journey_id: "id course (vide si nouvelle)"
+      number: "numéro"
+      time_table_ids: "calendriers"
+      flexible_service: "TAD (O(ui)|N(on)|vide si inconnu)"
+      published_journey_name: "nom public"
+      mobility: "PMR (O(ui)|N(on)|vide si inconnu)"
+      footnotes_ids: "notes de bas de page"
+      stop_id: "id arrêt"
+      stop_name: "nom arrêt"
+      b_true: "Oui"
+      b_false: "Non"
+      tt_columns: "code;nom;étiquettes;début;fin;types de jour;périodes;jours particuliers;jours exclus"
+      monday: "Lu"
+      tuesday: "Ma"
+      wednesday: "Me"
+      thursday: "Je"
+      friday: "Ve"
+      saturday: "Sa"
+      sunday: "Di"
+      ftn_columns: "clé;numéro;ligne de texte"
+      vj_filename: "courses_"
+      tt_filename: "calendriers"
+      ftn_filename: "notes"
+      
