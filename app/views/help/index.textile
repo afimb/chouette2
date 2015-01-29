@@ -28,7 +28,7 @@ h4. Version 2.5.2
 
 * Nouvelles foctionnalités :
 ** Ajout des particularités de monté/descente aux arrêts d'une séquence
-** Ajout de tests sur les données pour l'export
+** Ajout de points de contrôle sur les données pour l'export
 
 h4. Version 2.5.1
 

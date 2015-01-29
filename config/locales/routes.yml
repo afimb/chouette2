@@ -113,9 +113,9 @@ fr:
   activerecord:        
     models:        
       route: 
-        zero:  "Séquence d'arrêts"
-        one:   "Séquence d'arrêts"
-        other: "Séquences d'arrêts"
+        zero:  "séquence d'arrêts"
+        one:   "séquence d'arrêts"
+        other: "séquences d'arrêts"
     attributes:
       route:
         wayback: 

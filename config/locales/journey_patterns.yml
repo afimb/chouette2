@@ -24,9 +24,9 @@ en:
   activerecord:        
     models:        
       journey_pattern: 
-        zero:  "Journey pattern"
-        one:   "Journey pattern"
-        other: "Journey patterns"
+        zero:  "journey pattern"
+        one:   "journey pattern"
+        other: "journey patterns"
     attributes:
       journey_pattern:
         route: "Route"
@@ -70,9 +70,9 @@ fr:
   activerecord:        
     models:        
       journey_pattern: 
-        zero:  "Mission"
-        one:   "Mission"
-        other: "Missions"
+        zero:  "mission"
+        one:   "mission"
+        other: "missions"
     attributes:
       journey_pattern:
         route: "Séquence d'arrêts"

@@ -33,7 +33,7 @@ describe "JourneyPatterns", :type => :feature do
       click_link "Ajouter une mission"
       fill_in "Nom", :with => "A to B"
       fill_in "Comment", :with => "AB"
-      click_button("Créer Mission")
+      click_button("Créer mission")
       expect(page).to have_content("A to B")
     end
   end

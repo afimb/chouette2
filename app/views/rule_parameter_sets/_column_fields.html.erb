@@ -1,0 +1,11 @@
+  <td></td>
+  <td><%= t("activerecord.attributes.#{obj.table_name.singularize}.#{column}") %></td>
+  <% suffix = "column_#{column}_object_#{obj.table_name.singularize}"%>
+  <td> <%= f.check_box "unique_#{suffix}".to_sym, :class => "special" %></td>
+  <% if obj.columns_hash[column].type == :string %>
+    <td><%=  f.select "pattern_#{suffix}".to_sym, options_for_select([[t("rule_parameter_sets.labels.free_char"), "0"], [t("rule_parameter_sets.labels.num_char"), "1"], [t("rule_parameter_sets.labels.alpha_char"), "2"], [t("rule_parameter_sets.labels.upper_char"), "3"], [t("rule_parameter_sets.labels.lower_char"), "4"]]) %></td>
+  <% else %>
+    <td><%= t "rule_parameter_sets.labels.num_char" %></td>
+  <% end %>
+  <td><%= f.number_field "min_size_#{suffix}".to_sym,  :class => "special" %></td>
+  <td><%= f.number_field "max_size_#{suffix}".to_sym,  :class => "special" %></td>

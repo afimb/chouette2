@@ -47,6 +47,22 @@ On peut modifier une séquence d'arrêts en cliquant sur le bouton de modificati
 !2014-10-31_112543.png! 
 Modification des arrêts d'une séquence
 
+h3. Contraintes de montée - descente
+
+On peut ajouter des règles de montée ou de descente aux arrêts de la séquence d'arrêt (interdit ou à la demande); ces règles s'appliquent à toutes les courses de la séquence d'arrêt
+
+Les règles sont : 
+
+* Non défini (par défaut)
+* Montée autorisée
+* Montée interdite
+* Montée sur réservation
+* Montée sur demande au conducteur
+* Descente autorisée
+* Descente interdite
+* Descente sur réservation
+* Descente sur demande au conducteur
+
 h3. Supprimer une séquence d'arrêts
 
 Il est possible de supprimer une séquence d'arrêts depuis la page de la ligne. Chaque élément de la liste des séquences d'arrêts en bas de la page est dotée d'un pictogramme de suppression. Il est à noter que la suppression de la séquence d'arrêts ne supprime par les arrêts qu'elle contient. 

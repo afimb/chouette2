@@ -38,7 +38,7 @@ feature 'User profile page', :devise do
     login_as(me, :scope => :user)
     Capybara.current_session.driver.header 'Referer', authenticated_root_path
     visit organisation_user_path(other)
-    expect(page).to have_content 'Access denied.'
+    expect(page).to have_content other.email
   end
 
 end

@@ -72,10 +72,11 @@ ChouetteIhm::Application.configure do
   # Configure the e-mail address which will be shown in Devise::Maile
   config.mailer_sender = "appli@chouette.mobi"
 
-  ActionMailer::Base.smtp_settings = {
-    :address        => "smtp.samle.com",
-    :domain         => "sample.com"
-  }
+ config.action_mailer.delivery_method = :sendmail 
+  # change to true to allow email to be sent during development
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
 
   # api key to geoportail IGN (development key 3 month validity)
   # config.geoportail_api_key = "f1t6wihbh98njlbaf5cuzxy4"
