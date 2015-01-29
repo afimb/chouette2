@@ -1,8 +1,7 @@
 ChouetteIhm::Application.routes.draw do
 
-  devise_for :users, :controllers => { :registrations => "registrations" }
-  resources :users
-
+  devise_for :users, :controllers => { :registrations => "registrations", :invitations => 'invitations' }
+  
   devise_scope :user do
     authenticated :user do
       root :to => 'referentials#index', as: :authenticated_root
@@ -36,10 +35,7 @@ ChouetteIhm::Application.routes.draw do
     end
   end
 
-
-  resource :subscription
-
-  resource :organisation do
+  resource :organisation, :only => [:show, :edit, :update] do
     resources :users
   end
 

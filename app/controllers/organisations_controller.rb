@@ -1,7 +1,7 @@
 class OrganisationsController < BreadcrumbController
 
   defaults :resource_class => Organisation
-  respond_to :html
+  respond_to :html, :only => [:edit, :show, :update]
 
   def update
     update! do |success, failure|

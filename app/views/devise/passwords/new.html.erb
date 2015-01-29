@@ -2,11 +2,11 @@
   <div class="panel panel-default">
     <div class="panel-heading"><%= t('.title') %></div>
     <div class="panel-body">
-      <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name)) do |form| %>
+      <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), html: {class: 'form-horizontal' } ) do |form| %>
       <%= form.input :email, :as => :email, placeholder: 'user@domain.com'  %> 
 
       <div class="submit">
-        <%= link_to t("cancel"), root_path, :class => "btn btn-default" %>    
+        <%= link_to t("cancel"), unauthenticated_root_path, :class => "btn btn-default" %>    
         <%= form.button :submit, :value => t("devise.passwords.new.commit"), :class => "btn-info" %>
       </div>
       <% end %>

@@ -1,11 +1,10 @@
-<%= semantic_form_for [:organisation, @user] do |form| %>
-  <%= form.inputs do %> 
-    <%= form.input :name %> 
-    <%= form.input :email %> 
-  <% end %>  
+<%= simple_form_for [:organisation, @user], html: {class: 'form-horizontal' } do |form| %>
+  <%= form.input :name %> 
+  <%= form.input :email %>
+  
 
-   <%= form.actions do %>
-     <%= form.action :submit, :as => :button %> 
-     <%= form.action :cancel, :as => :link , :url => organisation_path %>
-   <% end %>
+  <div class="form-actions">
+    <%= link_to t("cancel"), organisation_path, :class => "btn btn-default" %>
+    <%= form.button :submit, :as => :button %>
+  </div>
 <% end %>
