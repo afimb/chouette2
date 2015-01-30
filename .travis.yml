@@ -1,6 +1,7 @@
 language: ruby
 rvm:
   - 1.9.3
+  - 2.1.3
   - jruby-1.7.16.1
 jdk:
   - oraclejdk7
@@ -9,6 +10,9 @@ matrix:
   exclude:
     - rvm:  1.9.3
     - jdk: openjdk7
+  exclude:
+    - rvm:  2.1.3
+    - jdk: openjdk7        
 notifications:
   email:        
     - mflorisson@cityway.fr
@@ -21,5 +25,5 @@ before_install:
 before_script:
   - "bundle exec rake ci:db_travis_config"
   - "bundle exec rake db:create"
-  - "bundle exec rake apartment:migrate"
+  - "bundle exec rake db:migrate"
 script: "bundle exec rake spec"
