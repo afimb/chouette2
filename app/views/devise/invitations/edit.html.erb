@@ -3,9 +3,10 @@
     <div class="panel-heading"><%= t "devise.invitations.edit.header" %></div>
     <div class="panel-body">
 
-      <%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |form| %>
+      <%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put, class: "form-horizontal" } do |form| %>
         <%= form.hidden_field :invitation_token %>
 
+        <%= form.input :name %>
         <%= form.input :password, :as => :password %>
         <%= form.input :password_confirmation, :as => :password %>
 

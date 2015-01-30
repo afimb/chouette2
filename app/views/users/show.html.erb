@@ -14,8 +14,6 @@
 <% content_for(:sidebar) do %>
   <ul class="actions">
     <li><%= link_to( t('users.actions.edit'), edit_user_registration_path, :class => "edit") if @user == current_user %></li>
-    <% unless current_user.id==@user.id %>
     <li><%= link_to t('users.actions.destroy'), organisation_user_path(@user),:method => :delete, :data => {:confirm => t('users.actions.destroy_confirm')}, :class => "remove" %></li>
-    <% end %>
   </ul>
 <% end %>
