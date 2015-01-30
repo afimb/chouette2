@@ -2,16 +2,16 @@ language: ruby
 rvm:
   - 1.9.3
   - 2.1.3
-  - jruby-1.7.16.1
+  - jruby-1.7.18
 jdk:
   - oraclejdk7
   - openjdk7
 matrix:
   exclude:
     - rvm:  1.9.3
-    - jdk: openjdk7
+      jdk: openjdk7
     - rvm:  2.1.3
-    - jdk: openjdk7        
+      jdk: openjdk7        
 notifications:
   email:        
     - mflorisson@cityway.fr
