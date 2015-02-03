@@ -63,26 +63,20 @@ ChouetteIhm::Application.routes.draw do
     resources :rule_parameter_sets
     resources :autocomplete_stop_areas
     resources :autocomplete_time_tables
-    match 'lines' => 'lines#destroy_all', :via => :delete
     resources :group_of_lines do
       collection do
-        get :name_filter
+        get 'name_filter'
       end
     end
+    resources :networks
+
+    match 'lines' => 'lines#destroy_all', :via => :delete
     resources :lines do
-      collection do
-        get :name_filter
-      end
       resources :routes do
         member do
           get 'edit_boarding_alighting'
           put 'save_boarding_alighting'
         end
-      end
-    end
-
-    resources :lines, :networks, :group_of_lines do
-      resources :routes do
         resources :journey_patterns do
           member do
             get 'new_vehicle_journey'

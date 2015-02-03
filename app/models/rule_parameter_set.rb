@@ -1,12 +1,13 @@
 class RuleParameterSet < ActiveRecord::Base
   belongs_to :referential
+  belongs_to :organisation
 
-  validates_presence_of :referential
+  #validates_presence_of :referential
   validates_presence_of :name
 
   serialize :parameters, JSON
 
-  attr_accessible :name, :referential_id
+  attr_accessible :name, :referential_id, :organisation_id
 
   def self.mode_attribute_prefixes
     %w( allowed_transport inter_stop_area_distance_min inter_stop_area_distance_max speed_max speed_min inter_stop_duration_variation_max)
@@ -15,25 +16,25 @@ class RuleParameterSet < ActiveRecord::Base
     %w( inter_stop_area_distance_min parent_stop_area_distance_max stop_areas_area inter_access_point_distance_min
       inter_connection_link_distance_max walk_default_speed_max
       walk_occasional_traveller_speed_max walk_frequent_traveller_speed_max walk_mobility_restricted_traveller_speed_max
-      inter_access_link_distance_max inter_stop_duration_max facility_stop_area_distance_max 
-      check_allowed_transport_modes check_lines_in_groups check_line_routes 
+      inter_access_link_distance_max inter_stop_duration_max facility_stop_area_distance_max
+      check_allowed_transport_modes check_lines_in_groups check_line_routes
       check_stop_parent check_connection_link_on_physical)
   end
-  
+
   def self.validable_objects
       [Chouette::Network,Chouette::Company,Chouette::GroupOfLine,
         Chouette::StopArea,Chouette::AccessPoint,Chouette::AccessLink,Chouette::ConnectionLink,
         Chouette::TimeTable,Chouette::Line,Chouette::Route,
         Chouette::JourneyPattern,Chouette::VehicleJourney]
   end
-  
+
   def self.validable_object_names
       ["network","company","group_of_line",
         "stop_area","access_point","access_link","connection_link",
         "time_table","line","route",
         "journey_pattern","vehicle_journey"]
   end
-  
+
   def self.validable_columns
       {"network" => ['objectid','name','registration_number'],
         "company" => ['objectid','name','registration_number'],
@@ -48,7 +49,7 @@ class RuleParameterSet < ActiveRecord::Base
         "journey_pattern" => ['objectid','name','registration_number','published_name'],
         "vehicle_journey" => ['objectid','published_journey_name','published_journey_identifier','number'] }
   end
-  
+
   def self.column_attribute_prefixes
     %w( unique pattern min_size max_size )
   end
@@ -63,14 +64,14 @@ class RuleParameterSet < ActiveRecord::Base
 
     mode_attribute_prefixes.include?( $1) && self.class.all_modes.include?( $2)
   end
-  
+
   def self.column_attribute?( method_name )
     pattern = /(\w+)_column_(\w+)_object_(\w+)/
     return false unless method_name.match( pattern)
     return false unless validable_object_names.include?($3)
     column_attribute_prefixes.include?( $1) && validable_columns[$3].include?( $2)
   end
-  
+
   def self.mode_of_mode_attribute( method_name )
     method_name.match( /(\w+)_mode_(\w+)/)
     $2
@@ -109,7 +110,7 @@ class RuleParameterSet < ActiveRecord::Base
       ((self.parameters ||= {})["mode_#{mode}"] ||= {})[attribute_name] = prefix
     end
   end
-  
+
   def self.column_parameter(obj,column,prefix)
     name = "#{prefix}_column_#{column}_object_#{obj}"
     attr_accessible name
@@ -123,7 +124,7 @@ class RuleParameterSet < ActiveRecord::Base
       attribute_name, column, obj = prefix, column, obj
       (((self.parameters ||= {})[obj] ||= {})[column]||= {})[attribute_name] = key
     end
-    
+
    end
 
   def self.object_parameter(clazz)
@@ -135,11 +136,11 @@ class RuleParameterSet < ActiveRecord::Base
       column_attribute_prefixes.each do |prefix|
          column_parameter name,column,prefix
       end
-      
+
     end
 
   end
-  
+
   def self.parameter(name)
     name = name.to_s
     attr_accessible name
@@ -169,7 +170,7 @@ class RuleParameterSet < ActiveRecord::Base
       :check_lines_in_groups => false,
       :check_line_routes  => false,
       :check_stop_parent  => false,
-      :check_connection_link_on_physical  => false 
+      :check_connection_link_on_physical  => false
     }
     if mode && self.mode_default_params[ mode.to_sym]
       base.merge!( self.mode_default_params[ mode.to_sym])
@@ -320,13 +321,13 @@ class RuleParameterSet < ActiveRecord::Base
         :name => "valeurs par defaut"
       }.merge( mode_attributes))
   end
-  
+
   def allowed(mode)
     return true unless self.check_allowed_transport_modes
     # puts "#{mode} = "+self.send("allowed_transport_mode_#{mode}").to_s
     return self.send("allowed_transport_mode_#{mode}") == "1"
   end
-  
+
   def selected(object)
     # puts "#{mode} = "+self.send("allowed_transport_mode_#{mode}").to_s
     return self.send("check_#{object}") == "1"
@@ -337,7 +338,7 @@ class RuleParameterSet < ActiveRecord::Base
     return self.send("unique_column_#{column}_object_#{object}") == "1" ||
            self.send("pattern_column_#{column}_object_#{object}") != "0" ||
            !self.send("min_size_column_#{column}_object_#{object}").empty? ||
-           !self.send("max_size_column_#{column}_object_#{object}").empty? 
+           !self.send("max_size_column_#{column}_object_#{object}").empty?
   end
 
 
@@ -346,15 +347,15 @@ class RuleParameterSet < ActiveRecord::Base
       mode_parameter "#{prefix}_mode_#{mode}".to_sym
     end
   end
-  
+
   general_attributes.each do |attribute|
     parameter attribute.to_sym
     unless attribute == "stop_areas_area" || attribute == "check_allowed_transport_modes"
       validates attribute.to_sym, :numericality => true, :allow_nil => true, :allow_blank => true
     end
   end
-  
-  
+
+
   validable_objects.each do |obj|
      object_parameter obj
   end
