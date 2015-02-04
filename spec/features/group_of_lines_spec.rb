@@ -32,7 +32,6 @@ describe "Group of lines", :type => :feature do
     it "display map" do
       visit referential_group_of_lines_path(referential)
       click_link "#{subject.name}"
-      save_and_open_page
       expect(page).to have_selector("#map.group_of_line")
     end
   end
