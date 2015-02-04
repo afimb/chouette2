@@ -6,9 +6,13 @@ describe "Group of lines", :type => :feature do
 
   let!(:network) { Factory(:network) }
   let!(:company) { Factory(:company) }
-  let!(:line) { Factory(:line, :network => network, :company => company) }
+  let!(:line) { Factory(:line_with_stop_areas, :network => network, :company => company) }
   let!(:group_of_lines) { Array.new(2) { Factory(:group_of_line) } }
   subject { group_of_lines.first }
+
+  before :each do
+    subject.lines << line    
+  end
 
   describe "list" do
     it "display group of lines" do
@@ -28,6 +32,7 @@ describe "Group of lines", :type => :feature do
     it "display map" do
       visit referential_group_of_lines_path(referential)
       click_link "#{subject.name}"
+      save_and_open_page
       expect(page).to have_selector("#map.group_of_line")
     end
   end
