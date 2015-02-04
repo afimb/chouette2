@@ -6,7 +6,7 @@ describe "Group of lines", :type => :feature do
 
   let!(:network) { Factory(:network) }
   let!(:company) { Factory(:company) }
-  let!(:lines) { Array.new(2) { Factory(:line_with_stop_areas, :network => network, :company => company) } }
+  let!(:line) { Factory(:line, :network => network, :company => company) }
   let!(:group_of_lines) { Array.new(2) { Factory(:group_of_line) } }
   subject { group_of_lines.first }
 
@@ -38,7 +38,7 @@ describe "Group of lines", :type => :feature do
       click_link "Ajouter un groupe de ligne"
       fill_in "group_of_line[name]", :with => "Group of lines 1"
       fill_in "group_of_line[registration_number]", :with => "1"
-      fill_in "group_of_line[objectid]", :with => "test:GroupOfLine:999"        
+      fill_in "group_of_line[objectid]", :with => "test:GroupOfLine:999"
       click_button("Créer groupe de ligne")
       expect(page).to have_content("Group of lines 1")
     end
