@@ -8,7 +8,7 @@ module StopAreasHelper
     localization += stop_area.zip_code || ""
     localization += ( truncate(stop_area.city_name, :length => 15) ) if stop_area.city_name
     
-    ( "#{image_tag( stop_area_picture_url(stop_area)) }" + " <span style='height:25px; line-height:25px; margin-left: 5px; '>" + name + " <small style='height:25px; line-height:25px; margin-left: 10px; color: #555;'>" + localization + "</small></span>").html_safe
+    ( "<img src='#{stop_area_picture_url(stop_area)}'/>" + " <span style='height:25px; line-height:25px; margin-left: 5px; '>" + name + " <small style='height:25px; line-height:25px; margin-left: 10px; color: #555;'>" + localization + "</small></span>").html_safe
   end
   
   def genealogical_title
