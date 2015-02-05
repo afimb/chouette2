@@ -4,10 +4,10 @@ require 'spec_helper'
 describe "Group of lines", :type => :feature do
   login_user
 
-  let!(:network) { Factory(:network) }
-  let!(:company) { Factory(:company) }
-  let!(:line) { Factory(:line_with_stop_areas, :network => network, :company => company) }
-  let!(:group_of_lines) { Array.new(2) { Factory(:group_of_line) } }
+  let!(:network) { create(:network) }
+  let!(:company) { create(:company) }
+  let!(:line) { create(:line_with_stop_areas, :network => network, :company => company) }
+  let!(:group_of_lines) { Array.new(2) { create(:group_of_line) } }
   subject { group_of_lines.first }
 
   before :each do
@@ -39,11 +39,11 @@ describe "Group of lines", :type => :feature do
   describe "new" do      
     it "creates group of line and return to show" do
       visit referential_group_of_lines_path(referential)
-      click_link "Ajouter un groupe de ligne"
+      click_link I18n.t('group_of_lines.actions.new')
       fill_in "group_of_line[name]", :with => "Group of lines 1"
       fill_in "group_of_line[registration_number]", :with => "1"
       fill_in "group_of_line[objectid]", :with => "test:GroupOfLine:999"
-      click_button("Créer groupe de ligne")
+      click_button(I18n.t('formtastic.create',model: I18n.t('activerecord.models.group_of_line.one')))
       expect(page).to have_content("Group of lines 1")
     end
   end
@@ -51,13 +51,12 @@ describe "Group of lines", :type => :feature do
   describe "edit and return to show" do      
     it "edit line" do
       visit referential_group_of_line_path(referential, subject)
-      click_link "Modifier ce groupe de lignes"
+      click_link I18n.t('group_of_lines.actions.edit')
       fill_in "group_of_line[name]", :with => "Group of lines Modified"
       fill_in "group_of_line[registration_number]", :with => "test-1"
-      click_button("Modifier groupe de lignes")
+      click_button(I18n.t('formtastic.update',model: I18n.t('activerecord.models.group_of_line.one')))
       expect(page).to have_content("Group of lines Modified")
     end
   end
-
-
+  
 end
