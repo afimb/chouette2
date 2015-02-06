@@ -83,7 +83,14 @@ class VehicleJourneyImport
     vj.time_tables.clear
     return unless tm_ids.present?
     ids = tm_ids.split(",").map(&:to_i)
-    vj.time_tables << Chouette::TimeTable.find(ids)
+    vj.time_tables << Chouette::TimeTable.where(:id => ids)
+  end
+  
+  def update_footnotes(vj,ftn_ids)
+    vj.footnotes.clear
+    return unless ftn_ids.present?
+    ids = ftn_ids.split(",").map(&:to_i)
+    vj.footnotes << Chouette::Footnote.where(:id => ids, :line_id => vj.route.line.id)
   end
 
   def load_imported_vehicle_journeys
@@ -100,13 +107,14 @@ class VehicleJourneyImport
     mobility_row = 4
     flexible_service_row = 5
     time_tables_row = 6
+    footnotes_row = 7
 
     # rows in column (first = 0)
-    first_stop_row_index = 7
+    first_stop_row_index = 8
     
     stop_point_ids = first_column[first_stop_row_index..spreadsheet.last_row].map(&:to_i)
     # blank lines at end of file will produce id = 0 ; ignore them
-    last_stop_row_index = stop_point_ids.length + 6
+    last_stop_row_index = stop_point_ids.length + 7
     while stop_point_ids.last == 0
       stop_point_ids = stop_point_ids[0..-2]
       last_stop_row_index -= 1
@@ -152,6 +160,8 @@ class VehicleJourneyImport
       
       # time_tables
       update_time_tables(vehicle_journey,spreadsheet.row(time_tables_row)[i-1])
+      
+      update_footnotes(vehicle_journey,spreadsheet.row(footnotes_row)[i-1])
       
       # journey_pattern
       vehicle_journey.journey_pattern = journey_pattern

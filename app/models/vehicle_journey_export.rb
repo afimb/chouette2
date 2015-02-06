@@ -38,8 +38,16 @@ class VehicleJourneyExport
     (vj.time_tables.collect{ |t| t.id })
   end
 
+  def footnotes (vj)
+    (vj.footnotes.collect{ |f| f.id })
+  end
+
   def time_tables_array
     (vehicle_journeys.collect{ |vj| time_tables(vj).to_s[1..-2] } )
+  end
+  
+  def footnotes_array
+    (vehicle_journeys.collect{ |vj| footnotes(vj).to_s[1..-2] } )
   end
 
   def vehicle_journey_at_stops_array
@@ -86,6 +94,7 @@ class VehicleJourneyExport
       csv << ["", label("mobility")] + mobility_restricted_suitability_array
       csv << ["", label("flexible_service")] + flexible_service_array
       csv << ["", label("time_table_ids")] + time_tables_array
+      csv << ["", label("footnotes_ids")] + footnotes_array
       csv << [label("stop_id"), label("stop_name")] + empty_array
       vjas_array = vehicle_journey_at_stops_array
       route.stop_points.each_with_index do |stop_point, index|        
@@ -155,12 +164,33 @@ class VehicleJourneyExport
       end
     end
   end
+
+  def ftn_data(ftn)
+    [].tap do |array|
+      # id;code;label
+      array << ftn.id.to_s
+      array << ftn.code
+      array << ftn.label
+    end  
+  end
+  
+  def footnotes_to_csv(options = {})
+    footnotes = route.line.footnotes
+    CSV.generate(options) do |csv|            
+      csv << label("ftn_columns").split(";")
+      footnotes.each do |ftn|        
+        csv << ftn_data(ftn)
+      end
+    end
+    
+  end
   
   def to_zip(temp_file,options = {})
     ::Zip::OutputStream.open(temp_file) { |zos| }
     ::Zip::File.open(temp_file.path, ::Zip::File::CREATE) do |zipfile|
       zipfile.get_output_stream(label("vj_filename")+route.id.to_s+".csv") { |f| f.puts to_csv(options) }
       zipfile.get_output_stream(label("tt_filename")+".csv") { |f| f.puts time_tables_to_csv(options) }
+      zipfile.get_output_stream(label("ftn_filename")+".csv") { |f| f.puts footnotes_to_csv(options) }
     end    
   end
 
