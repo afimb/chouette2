@@ -47,6 +47,10 @@ RSpec.configure do |config|
 
   config.before(:each, :js => true) do
     DatabaseCleaner.strategy = :truncation
+    # Start transaction for this test
+    DatabaseCleaner.start
+    # Switch into the default tenant
+    first_referential.switch
   end
 
   config.after(:each) do

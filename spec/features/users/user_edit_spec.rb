@@ -26,7 +26,6 @@ feature 'User edit', :devise do
     fill_in 'user_current_password', :with => user.password
     click_button 'Modifier'
     txts = [I18n.t( 'devise.registrations.updated'), I18n.t( 'devise.registrations.update_needs_confirmation')]
-    save_and_open_page
     expect(page).to have_content(/.*#{txts[0]}.*|.*#{txts[1]}.*/)
   end
 

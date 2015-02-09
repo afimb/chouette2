@@ -7,6 +7,7 @@ describe "Lines", :type => :feature do
   let!(:network) { Factory(:network) }
   let!(:company) { Factory(:company) }
   let!(:lines) { Array.new(2) { Factory(:line_with_stop_areas, :network => network, :company => company) } }
+  let!(:group_of_line) { Factory(:group_of_line) }  
   subject { lines.first }
 
   describe "list" do
@@ -39,9 +40,22 @@ describe "Lines", :type => :feature do
       click_link "Ajouter une ligne"
       fill_in "line_name", :with => "Line 1"
       fill_in "Numéro d'enregistrement", :with => "1"
-      fill_in "Identifiant Neptune", :with => "test:Line:999"        
+      fill_in "Identifiant Neptune", :with => "test:Line:999"
       click_button("Créer ligne")
       expect(page).to have_content("Line 1")
+    end
+  end
+
+  describe "new with group of line", :js => true do      
+    it "creates line and return to show" do
+      visit new_referential_line_path(referential)
+      fill_in "line_name", :with => "Line 1"
+      fill_in "Numéro d'enregistrement", :with => "1"
+      fill_in "Identifiant Neptune", :with => "test:Line:999"
+      fill_in_token_input('line_group_of_line_tokens', :with => "#{group_of_line.name}")
+      find_button("Créer ligne").trigger("click")
+      expect(page).to have_text("Line 1")
+      expect(page).to have_text("#{group_of_line.name}")
     end
   end
 

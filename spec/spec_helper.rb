@@ -7,6 +7,7 @@ require 'rspec/rails'
 # Add this to load Capybara integration:
 require 'capybara/rspec'
 require 'capybara/rails'
+require 'capybara/poltergeist'
 
 # FIXME FactoryGirl not found in jenkins build #13
 unless defined?(FactoryGirl)
@@ -39,6 +40,10 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
 
   #Capybara.exact = true
+  Capybara.javascript_driver = :webkit
+  config.filter_run_excluding :js => true
+  config.run_all_when_everything_filtered = true
+  config.include TokenInputHelper, :type => :feature
   
   # ## Mock Framework
   #
