@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/afimb/ninoxe.git
-  revision: 2f7b4b1d91727211c75f98953443fc4088ac2dc2
+  revision: 581fb0b69e22ede7b176116462848b3d2592423b
   branch: rails4
   specs:
     ninoxe (1.1.3)
@@ -26,32 +26,32 @@ GEM
     RedCloth (4.2.9)
     RedCloth (4.2.9-java)
     SyslogLogger (1.4.1)
-    actionmailer (4.1.8)
-      actionpack (= 4.1.8)
-      actionview (= 4.1.8)
+    actionmailer (4.1.9)
+      actionpack (= 4.1.9)
+      actionview (= 4.1.9)
       mail (~> 2.5, >= 2.5.4)
-    actionpack (4.1.8)
-      actionview (= 4.1.8)
-      activesupport (= 4.1.8)
+    actionpack (4.1.9)
+      actionview (= 4.1.9)
+      activesupport (= 4.1.9)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
-    actionview (4.1.8)
-      activesupport (= 4.1.8)
+    actionview (4.1.9)
+      activesupport (= 4.1.9)
       builder (~> 3.1)
       erubis (~> 2.7.0)
-    activemodel (4.1.8)
-      activesupport (= 4.1.8)
+    activemodel (4.1.9)
+      activesupport (= 4.1.9)
       builder (~> 3.1)
-    activerecord (4.1.8)
-      activemodel (= 4.1.8)
-      activesupport (= 4.1.8)
+    activerecord (4.1.9)
+      activemodel (= 4.1.9)
+      activesupport (= 4.1.9)
       arel (~> 5.0.0)
     activerecord-jdbc-adapter (1.3.13)
       activerecord (>= 2.2)
     activerecord-jdbcpostgresql-adapter (1.3.13)
       activerecord-jdbc-adapter (~> 1.3.13)
       jdbc-postgres (>= 9.1)
-    activesupport (4.1.8)
+    activesupport (4.1.9)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -92,9 +92,13 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-webkit (1.4.1)
+      capybara (>= 2.3.0, < 2.5.0)
+      json
     celluloid (0.16.0)
       timers (~> 4.0.0)
     choice (0.1.7)
+    cliver (0.3.2)
     cocoon (1.2.6)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -140,6 +144,10 @@ GEM
     factory_girl_rails (1.7.0)
       factory_girl (~> 2.6.0)
       railties (>= 3.0.0)
+    faraday (0.9.1)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.9.1)
+      faraday (>= 0.7.4, < 0.10)
     fastercsv (1.5.5)
     ffi (1.9.6)
     ffi (1.9.6-java)
@@ -210,6 +218,7 @@ GEM
       jruby-rack (>= 1.1.10)
     json (1.8.2)
     json (1.8.2-java)
+    kleisli (0.2.6)
     language_engine (0.0.6)
       rails (~> 4.1.1)
     launchy (2.3.0)
@@ -235,6 +244,7 @@ GEM
     morrisjs-rails (0.4.3)
       railties (> 3.1, < 5)
     multi_json (1.10.1)
+    multipart-post (2.0.0)
     nenv (0.1.1)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
@@ -243,7 +253,6 @@ GEM
     net-ssh (2.6.2)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
-    netrc (0.7.9)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     nokogiri (1.6.5-java)
@@ -253,6 +262,11 @@ GEM
       ast (>= 1.1, < 3.0)
       slop (~> 3.4, >= 3.4.5)
     pg (0.17.1)
+    poltergeist (1.5.1)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      multi_json (~> 1.0)
+      websocket-driver (>= 0.2.0)
     polyamorous (1.1.0)
       activerecord (>= 3.0)
     pry (0.10.1)
@@ -271,15 +285,15 @@ GEM
       rack (>= 0.9.1)
     rack-test (0.6.3)
       rack (>= 1.0)
-    rails (4.1.8)
-      actionmailer (= 4.1.8)
-      actionpack (= 4.1.8)
-      actionview (= 4.1.8)
-      activemodel (= 4.1.8)
-      activerecord (= 4.1.8)
-      activesupport (= 4.1.8)
+    rails (4.1.9)
+      actionmailer (= 4.1.9)
+      actionpack (= 4.1.9)
+      actionview (= 4.1.9)
+      activemodel (= 4.1.9)
+      activerecord (= 4.1.9)
+      activesupport (= 4.1.9)
       bundler (>= 1.3.0, < 2.0)
-      railties (= 4.1.8)
+      railties (= 4.1.9)
       sprockets-rails (~> 2.0)
     rails-assets-bootstrap (3.1.1)
       rails-assets-jquery (>= 1.9.0)
@@ -309,9 +323,9 @@ GEM
     rails-i18n (4.0.3)
       i18n (~> 0.6)
       railties (~> 4.0)
-    railties (4.1.8)
-      actionpack (= 4.1.8)
-      activesupport (= 4.1.8)
+    railties (4.1.9)
+      actionpack (= 4.1.9)
+      activesupport (= 4.1.9)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rainbow (2.0.0)
@@ -330,8 +344,6 @@ GEM
       json (~> 1.4)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
-    rest_client (1.8.2)
-      netrc (~> 0.7.7)
     rgeo (0.3.20)
     roo (1.13.2)
       nokogiri
@@ -372,6 +384,8 @@ GEM
     simple_form (3.1.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
+    sitemap_generator (5.0.5)
+      builder
     slop (3.6.0)
     spoon (0.0.4)
       ffi
@@ -383,7 +397,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sprockets-rails (2.2.2)
+    sprockets-rails (2.2.4)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
@@ -424,6 +438,11 @@ GEM
       rubyzip (>= 0.9, < 1.2)
     warden (1.2.3)
       rack (>= 1.0)
+    websocket-driver (0.5.1)
+      websocket-extensions (>= 0.1.0)
+    websocket-driver (0.5.1-java)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.1)
     will_paginate-bootstrap (1.0.0)
       will_paginate (>= 3.0.3)
     xpath (2.0.0)
@@ -445,6 +464,7 @@ DEPENDENCIES
   capistrano
   capistrano-ext
   capybara (~> 2.4.0)
+  capybara-webkit
   cocoon
   coffee-rails (~> 4.0.0)
   daemons
@@ -455,6 +475,8 @@ DEPENDENCIES
   devise-i18n
   devise_invitable
   factory_girl_rails (= 1.7)
+  faraday (~> 0.9.1)
+  faraday_middleware (~> 0.9.1)
   font-awesome-sass (~> 4.2.0)
   formtastic (= 2.3.1)
   georuby (= 2.3.0)
@@ -469,6 +491,7 @@ DEPENDENCIES
   jruby-openssl
   jruby-rack-worker
   json
+  kleisli
   language_engine (= 0.0.6)
   launchy
   map_layers (= 0.0.4)
@@ -477,8 +500,9 @@ DEPENDENCIES
   morrisjs-rails
   ninoxe!
   pg
+  poltergeist
   rabl
-  rails (= 4.1.8)
+  rails (= 4.1.9)
   rails-assets-bootstrap-sass-official (~> 3.3.0)
   rails-assets-eonasdan-bootstrap-datetimepicker (~> 3.1.3)
   rails-assets-jquery-tokeninput (~> 1.7.0)
@@ -492,13 +516,13 @@ DEPENDENCIES
   raphael-rails
   rb-fsevent
   rb-inotify
-  rest_client
   roo
   rspec-rails (~> 3.1.0)
   rubyzip (~> 1.1.6)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   simple_form (~> 3.1.0)
+  sitemap_generator
   spring
   sqlite3
   squeel

@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 source 'https://rails-assets.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.8'
+gem 'rails', '4.1.9'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -36,8 +36,13 @@ gem 'spring', group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Sitemap
+gem "sitemap_generator"
 
-gem 'rest_client'
+# API Rest
+gem 'faraday', '~> 0.9.1'
+gem 'faraday_middleware', '~> 0.9.1'
+gem 'kleisli'
 
 platforms :jruby do
   gem 'activerecord-jdbcpostgresql-adapter', '~> 1.3.3'
@@ -130,6 +135,8 @@ end
 group :test, :development do
   gem "rspec-rails", "~> 3.1.0"
   gem 'capybara', "~> 2.4.0"
+  gem 'capybara-webkit'
+  gem 'poltergeist'
   gem 'launchy'
   gem 'factory_girl_rails', '1.7'
   # gem 'i18n-tasks'
