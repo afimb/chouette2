@@ -20,7 +20,7 @@ set :copy_exclude, ".git/*"
 ssh_options[:forward_agent] =   true
 ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa")]
 
-after "deploy:update", "deploy:cleanup", "deploy:group_writable", "deploy:sitemap:refresh"
+after "deploy:update", "deploy:cleanup", "deploy:group_writable"
 after "deploy:update_code", "deploy:symlink_shared", "deploy:chouette_command", "deploy:gems"
 # ugly workaround for bug https://github.com/capistrano/capistrano/issues/81
 before "deploy:assets:precompile", "deploy:symlink_shared"
