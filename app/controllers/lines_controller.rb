@@ -34,10 +34,9 @@ class LinesController < ChouetteController
     object.delete
   end
       
-  def destroy_all
+  def delete_all
     objects =
       get_collection_ivar || set_collection_ivar(end_of_association_chain.where(:id => params[:ids]))
-    #objects.destroy_all
     objects.each { |object| object.delete }
     respond_with(objects, :location => smart_collection_url)
   end

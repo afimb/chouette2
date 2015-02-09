@@ -44,14 +44,14 @@ ChouetteIhm::Application.routes.draw do
     resources :rule_parameter_sets
     resources :autocomplete_stop_areas
     resources :autocomplete_time_tables
-    # TODO : TO fix
-    #get 'lines' => 'lines#destroy_all'
     resources :group_of_lines do
       collection do
         get :name_filter
       end
     end
+    
     resources :lines do
+      delete :index, on: :collection, action: :delete_all
       collection do
         get :name_filter
       end
