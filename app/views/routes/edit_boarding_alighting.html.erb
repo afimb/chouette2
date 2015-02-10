@@ -1,6 +1,6 @@
 <%= title_tag t('routes.edit_boarding_alighting.title', :route => @route.name ) %>
 
-<%= simple_form_for ["save_boarding_alighting", @referential, @line, @route] do |form| %>
+<%= simple_form_for ["save_boarding_alighting", @referential, @line, @route], :method => :PUT do |form| %>
 <table class="table table-hover">
   <thead>
     <th><%= t(".stop_area_name") %></th>

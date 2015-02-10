@@ -22,8 +22,7 @@ class RoutesController < ChouetteController
 
   def save_boarding_alighting
     @route = route
-    
-    if @route.update_attributes(params[:route])
+    if @route.update_attributes!(route_params)
       redirect_to referential_line_route_path(@referential, @line, @route)
     else
       render "edit_boarding_alighting"
@@ -78,8 +77,8 @@ class RoutesController < ChouetteController
   private
   
   def route_params
-    params.require(:route).permit( :direction_code, :wayback_code, :line_id, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :opposite_route_id, :published_name, :number, :direction, :wayback, { stop_points_attributes: [ :id, :_destroy, :position, :stop_area_id ] } )
-  end  
+    params.require(:route).permit( :direction_code, :wayback_code, :line_id, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :opposite_route_id, :published_name, :number, :direction, :wayback, { stop_points_attributes: [ :id, :_destroy, :position, :stop_area_id, :for_boarding, :for_alighting ] } )
+  end
 
 end
 

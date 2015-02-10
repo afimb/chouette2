@@ -4,9 +4,12 @@ require 'spec_helper'
 describe "Routes", :type => :feature do
   login_user
 
-  let!(:line) { Factory(:line) }
-  let!(:route) { Factory(:route, :line => line) }
-  let!(:route2) { Factory(:route, :line => line) }
+  let!(:line) { create(:line) }
+  let!(:route) { create(:route, :line => line) }
+  let!(:route2) { create(:route, :line => line) }
+  #let!(:stop_areas) { Array.new(4) { create(:stop_area) } }
+  let!(:stop_points) { Array.new(4) { create(:stop_point, :route => route) } }
+      
 
   describe "from lines page to a line page" do
     it "display line's routes" do
@@ -58,4 +61,32 @@ describe "Routes", :type => :feature do
       expect(page).not_to have_content(route.name)
     end
   end
+
+  describe "from route's page, select edit boarding/alighting and update it" do
+    it "Edits boarding/alighting properties on route stops" do
+      visit referential_line_route_path(referential, line, route)
+      click_link I18n.t('routes.actions.edit_boarding_alighting')
+      expect(page).to have_content(I18n.t('routes.edit_boarding_alighting.title'))
+      stop_points.each do |sp|
+        expect(page).to have_content(sp.stop_area.name)
+        expect(page).to have_content(sp.for_boarding)
+        expect(page).to have_content(sp.for_alighting)
+      end
+    end
+  end
+
+  describe "Modifies boarding/alighting properties on route stops" do
+    it "Puts (http) an update request" do
+      #visit edit_boarding_alighting_referential_line_route_path(referential, line, route)
+      visit referential_line_route_path(referential, line, route)
+      click_link I18n.t('routes.actions.edit_boarding_alighting')
+      #select('', :from => '')
+      # Changes the boarding of the first stop
+      # Changes the alighting of the last stop
+      # save
+      #click_button(I18n.t('helpers.submit.update', model: I18n.t('activerecord.models.route.one')))
+      click_button(I18n.t('helpers.submit.update', model: I18n.t('activerecord.models.route.one')))
+    end
+  end
+  
 end
