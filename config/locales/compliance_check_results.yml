@@ -341,7 +341,7 @@ en:
         violation_count_txt: "Number of errors"
         objects: "Objects in violations"
         detail: "Detail"
-        title: "Title"
+        title: "Test title"
         object: "Error object"
         resource: "Resources of the error object"
         url: "URL"
@@ -351,7 +351,7 @@ fr:
     file:
       zip_name_prefix: "resultats_de_validation"
       summary_errors_file_prefix: "sommaire_des_tests.csv"
-      detailed_errors_file_prefix: "détails_des_erreurs.csv"
+      detailed_errors_file_prefix: "details_des_erreurs.csv"
     index:
       line: "Li"
       column: "Col"
@@ -685,7 +685,7 @@ fr:
         violation_count_txt: "Nombre d'erreurs"
         objects: "Objets en erreur"
         detail: "Détail"
-        title: "Titre"
+        title: "Titre du test"
         object: "Objet en erreur"
         resource: "Ressource de l'objet en erreur"
         url: "URL"
