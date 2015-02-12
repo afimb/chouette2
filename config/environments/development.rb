@@ -40,6 +40,12 @@ ChouetteIhm::Application.configure do
   config.active_record.auto_explain_threshold_in_seconds = (RUBY_PLATFORM == "java" ? nil : 0.5)
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  
+  config.action_mailer.delivery_method = :sendmail 
+  # change to true to allow email to be sent during development
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
 
   # replace this with your production tracker code
   GA.tracker = "UA-AAAAAAAA"
@@ -66,13 +72,8 @@ ChouetteIhm::Application.configure do
   # link to validation specification pages
   config.validation_spec = "http://www.chouette.mobi/neptune-validation/v20/"
 
-  # Configure the e-mail address which will be shown in Devise::Maile
+  # Configure the e-mail address which will be shown in Devise::Mailer
   config.mailer_sender = "appli@chouette.mobi"
-
-  ActionMailer::Base.smtp_settings = {
-    :address        => "smtp.samle.com",
-    :domain         => "sample.com"
-  }
 
   # api key to geoportail IGN (development key 3 month validity)
   # config.geoportail_api_key = "f1t6wihbh98njlbaf5cuzxy4"
