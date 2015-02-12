@@ -15,11 +15,14 @@
     <%= form.input :inter_stop_duration_max, :as => :number %>
     <%= form.input :facility_stop_area_distance_max, :as => :number %>
     
-    <%= form.input :vehicle_journey_number_min, :as => :number %>
-    <%= form.input :vehicle_journey_number_max, :as => :number %>
+    <%= form.input :check_lines_in_groups, :as => :boolean %>
+    <%= form.input :check_line_routes, :as => :boolean %>
+    <%= form.input :check_stop_parent, :as => :boolean %>
+    <%= form.input :check_connection_link_on_physical, :as => :boolean %>
     <%= form.input :check_allowed_transport_modes, :as => :boolean %>
     
     <table class="table table-striped table-condensed">
+      <thead>
     	<tr>
     		<th><%= t("transport_modes.name") %></th>
 			<% RuleParameterSet.mode_attribute_prefixes.each do |prefix| %>
@@ -31,12 +34,39 @@
                 <% end %>
 			<% end %>
         </tr>
+      </thead>
+      <tbody>
     <% Chouette::Line.transport_modes.map(&:to_s).each do |mode| %>
       <tr>
       <%= render :partial => "mode_fields", :locals => { :f => form, :mode => mode} %>
       </tr>
     <% end %>
+      </tbody>
     </table>
+    
+    <%= t("rule_parameter_sets.labels.columns_restrictions") %>
+    <table class="table table-bordered table-condensed">
+    <% RuleParameterSet.validable_objects.each do |obj| %>
+      <thead>
+      <tr>
+         <th> <%= form.check_box "check_#{obj.table_name.singularize}".to_sym, :class => "special" %> <%= t("activerecord.models.#{obj.table_name.singularize}.one") %></th>
+    		<th><%= RuleParameterSet.human_attribute_name("attribute") %></th>
+    		<th><%= RuleParameterSet.human_attribute_name("unique") %></th>
+    		<th><%= RuleParameterSet.human_attribute_name("string_type") %></th>
+    		<th><%= RuleParameterSet.human_attribute_name("min_size") %></th>
+    		<th><%= RuleParameterSet.human_attribute_name("max_size") %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% RuleParameterSet.validable_columns[obj.table_name.singularize].each do |col| %>
+        <tr class="<%= "columns_for_#{obj.table_name}" %>">
+        <%= render :partial => "column_fields", :locals => { :f => form, :obj => obj, :column => col} %>
+        </tr>
+      <% end %>
+      </tbody>
+    <% end %>
+    </table>
+
   <% end %>
 
    <%= form.actions do %>

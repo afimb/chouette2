@@ -158,9 +158,9 @@ fr:
   activerecord:
     models:
       vehicle_journey:
-        zero:  "Course"
-        one:   "Course"
-        other: "Courses"
+        zero:  "course"
+        one:   "course"
+        other: "courses"
     attributes:
       vehicle_journey:
         line: "Ligne"

@@ -1,6 +1,6 @@
 <p>Bonjour <%= @resource.email %>,</p>
 
-<p>Ce message est une invitation pour accéder à <%= link_to nil, root_url %>, vous pouvez l'accepter en cliquant sur le lien suivant :</p>
+<p>Ce message est une invitation pour accéder à <%= link_to nil, unauthenticated_root_url %>, vous pouvez l'accepter en cliquant sur le lien suivant :</p>
 
 <p><%= link_to "Accepter l'invitation", accept_invitation_url(@resource, :invitation_token => @resource.invitation_token) %></p>
 
