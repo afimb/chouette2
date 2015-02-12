@@ -67,4 +67,9 @@ class ImportTasksController < ChouetteController
     @import_tasks ||= end_of_association_chain.order('created_at DESC').paginate(:page => params[:page])
   end
 
+  private
+  def import_task_params
+    params.require(:import_task).permit(:resources, :rule_parameter_set_id, :no_save)
+  end
+  
 end
