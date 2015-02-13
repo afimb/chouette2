@@ -135,7 +135,6 @@ end
 group :test, :development do
   gem "rspec-rails", "~> 3.1.0"
   gem 'capybara', "~> 2.4.0"
-  gem 'capybara-webkit'
   gem 'poltergeist'
   gem 'launchy'
   gem 'factory_girl_rails', '1.7'

@@ -29,8 +29,6 @@ RSpec.configure do |config|
   config.before(:suite) do
     # Clean all tables to start
     DatabaseCleaner.clean_with :truncation
-    # Use transactions for tests
-    DatabaseCleaner.strategy = :transaction
     # Truncating doesn't drop schemas, ensure we're clean here, first *may not* exist
     Apartment::Tenant.drop('first') rescue nil
     # Create the default tenant for our tests
@@ -39,18 +37,17 @@ RSpec.configure do |config|
   end
 
   config.before(:each) do
-    # Start transaction for this test
-    DatabaseCleaner.start
+    DatabaseCleaner.strategy = :transaction
     # Switch into the default tenant
     first_referential.switch
   end
 
   config.before(:each, :js => true) do
     DatabaseCleaner.strategy = :truncation
-    # Start transaction for this test
+  end
+
+  config.before(:each) do
     DatabaseCleaner.start
-    # Switch into the default tenant
-    first_referential.switch
   end
 
   config.after(:each) do

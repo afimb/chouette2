@@ -40,7 +40,7 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
 
   #Capybara.exact = true
-  Capybara.javascript_driver = :webkit
+  Capybara.javascript_driver = :poltergeist
   config.filter_run_excluding :js => true
   config.run_all_when_everything_filtered = true
   config.include TokenInputHelper, :type => :feature
@@ -59,7 +59,7 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
