@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe VehicleTranslation, :type => :model do
-  let!(:company){ Factory(:company )}
-  let!(:journey_pattern){Factory(:journey_pattern)}
-  let!(:vehicle_journey){ Factory(:vehicle_journey,
+  let!(:company){ create(:company )}
+  let!(:journey_pattern){create(:journey_pattern)}
+  let!(:vehicle_journey){ create(:vehicle_journey,
                                   :objectid => "dummy",
                                   :journey_pattern => journey_pattern,
                                   :route => journey_pattern.route,
@@ -11,7 +11,7 @@ describe VehicleTranslation, :type => :model do
                                   :transport_mode => Chouette::TransportMode.new("metro"),
                                   :published_journey_name => "dummy"
                                   )}
-  subject {Factory.build(:vehicle_translation,
+  subject {build(:vehicle_translation,
                          :vehicle_journey_id => vehicle_journey.id,
                          :first_stop_time => "12:00",
                          :departure_or_arrival => "departure",

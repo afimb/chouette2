@@ -6,7 +6,7 @@ describe "/rule_parameter_sets/new", :type => :view do
   let!(:rule_parameter_set) { assign :rule_parameter_set, build( :rule_parameter_set, :referential => referential) }
 
   describe "form" do
-
+    
     it "should render input for name" do
       render
       expect(rendered).to have_selector("form") do
@@ -21,6 +21,6 @@ describe "/rule_parameter_sets/new", :type => :view do
     end
 
   end
-
+  
 end
 

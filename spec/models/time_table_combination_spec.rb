@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe TimeTableCombination, :type => :model do
-  let!(:source){ Factory(:time_table)}
-  let!(:combined){Factory(:time_table)}
-  subject {Factory.build(:time_table_combination)}
+  let!(:source){ create(:time_table)}
+  let!(:combined){create(:time_table)}
+  subject {build(:time_table_combination)}
   
   describe "#combine" do
     context "when operation is union" do

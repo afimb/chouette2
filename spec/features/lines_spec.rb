@@ -4,10 +4,10 @@ require 'spec_helper'
 describe "Lines", :type => :feature do
   login_user
 
-  let!(:network) { Factory(:network) }
-  let!(:company) { Factory(:company) }
-  let!(:lines) { Array.new(2) { Factory(:line_with_stop_areas, :network => network, :company => company) } }
-  let!(:group_of_line) { Factory(:group_of_line) }  
+  let!(:network) { create(:network) }
+  let!(:company) { create(:company) }
+  let!(:lines) { Array.new(2) { create(:line_with_stop_areas, :network => network, :company => company) } }
+  let!(:group_of_line) { create(:group_of_line) }  
   subject { lines.first }
 
   describe "list" do

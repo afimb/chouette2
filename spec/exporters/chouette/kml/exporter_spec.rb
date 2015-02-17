@@ -2,22 +2,22 @@ require 'spec_helper'
 
 describe Chouette::Kml::Exporter do
 
-  # let(:referential) { Factory(:referential) }
+  # let(:referential) { create(:referential) }
   # subject { Chouette::Kml::Exporter.new(referential) }
 
   # let(:zip_file_path) { "#{Rails.root}/tmp/exports/test.zip" }
   # let(:line) {
   #   referential.switch
-  #   Factory(:line_with_stop_areas_having_parent) }
+  #   create(:line_with_stop_areas_having_parent) }
 
-  let(:kml_export){ Factory(:kml_export)}
+  let(:kml_export){ create(:kml_export)}
   subject { Chouette::Kml::Exporter.new(first_referential, kml_export) }
 
   let(:tmp_path) { File.join( Rails.root, "tmp")}
   let(:exports_path) { File.join( tmp_path, "exports")}
   let(:zip_file_path) { File.join( exports_path, "test.zip")}
-  let!(:line) { Factory(:line_with_stop_areas_having_parent) }
-  let!(:line2) { Factory(:line_with_stop_areas_having_parent) }
+  let!(:line) { create(:line_with_stop_areas_having_parent) }
+  let!(:line2) { create(:line_with_stop_areas_having_parent) }
 
   describe "#export" do
     before(:each) do
@@ -28,25 +28,25 @@ describe Chouette::Kml::Exporter do
     it "should return a zip file with nothing inside with no objects in arguments" do
       subject.export(zip_file_path, {:export_id => 1, :o => "line"} )
       expect(File.exists?(zip_file_path)).to be_truthy
-      expect(::Zip::File.open(zip_file_path).size).to eq(6)
+      expect(::Zip::File.open(zip_file_path).size).to eq(8)
     end
 
-    it "should return a zip file with 4 kml files" do
+    it "should return a zip file with 5 kml files" do
       subject.export(zip_file_path, {:export_id => 1, :o => "line", :id => "#{line.id}" } )
       expect(File.exists?(zip_file_path)).to be_truthy
-      expect(::Zip::File.open(zip_file_path).size).to eq(4)
+      expect(::Zip::File.open(zip_file_path).size).to eq(5)
     end
 
-    it "should return a zip file with 6 kml files" do
+    it "should return a zip file with 8 kml files" do
       subject.export(zip_file_path, {:export_id => 1, :o => "line", :id => "#{line.id},#{line2.id}" } )
       expect(File.exists?(zip_file_path)).to be_truthy
-      expect(::Zip::File.open(zip_file_path).size).to eq(6)
+      expect(::Zip::File.open(zip_file_path).size).to eq(8)
     end
 
-    it "should return a zip file with 6 kml files" do
+    it "should return a zip file with 8 kml files" do
       subject.export(zip_file_path, {:export_id => 1, :o => "", :id => "" } )
       expect(File.exists?(zip_file_path)).to be_truthy
-      expect(::Zip::File.open(zip_file_path).size).to eq(6)
+      expect(::Zip::File.open(zip_file_path).size).to eq(8)
     end
 
    end

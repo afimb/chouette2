@@ -5,10 +5,10 @@ describe User, :type => :model do
   #it { should validate_presence_of :name }
 
   describe "#destroy" do
-    let!(:organisation){Factory(:organisation)}
-    let!(:user){Factory(:user, :organisation => organisation)}
+    let!(:organisation){create(:organisation)}
+    let!(:user){create(:user, :organisation => organisation)}
     context "user's organisation contains many user" do
-      let!(:other_user){Factory(:user, :organisation => organisation)}
+      let!(:other_user){create(:user, :organisation => organisation)}
       it "should destoy also user's organisation" do
         user.destroy
         expect(Organisation.where(:name => organisation.name).exists?).to be_truthy

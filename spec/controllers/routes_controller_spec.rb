@@ -3,7 +3,7 @@ require 'spec_helper'
 describe RoutesController, :type => :controller do
   login_user
 
-  let!(:route) { Factory(:route) }
+  let!(:route) { create(:route) }
 
   it { is_expected.to be_kind_of(ChouetteController) }
 

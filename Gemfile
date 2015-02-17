@@ -113,7 +113,7 @@ gem 'squeel'
 
 gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git', :branch => "rails4"
 #gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git'
-#gem 'ninoxe',:path => '~/workspace/chouette/ninoxe'
+#gem 'ninoxe',:path => '~/Projets/cityway/ninoxe'
 
 gem 'acts_as_list', '~> 0.6.0'
 gem "acts_as_tree", '~> 2.1.0', :require => "acts_as_tree"
@@ -137,7 +137,7 @@ group :test, :development do
   gem 'capybara', "~> 2.4.0"
   gem 'poltergeist'
   gem 'launchy'
-  gem 'factory_girl_rails', '1.7'
+  gem 'factory_girl_rails', '~> 4.0'
   # gem 'i18n-tasks'
   gem 'rb-inotify', :require => RUBY_PLATFORM.include?('linux') && 'rb-inotify'
   gem 'rb-fsevent', :require => RUBY_PLATFORM.include?('darwin') && 'rb-fsevent'

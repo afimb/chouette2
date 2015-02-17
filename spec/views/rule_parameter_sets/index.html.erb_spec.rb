@@ -3,8 +3,8 @@ require 'spec_helper'
 describe "/rule_parameter_sets/index", :type => :view do
 
   assign_referential
-  let!(:rule_parameter_sets) { assign :rule_parameter_sets, [ Factory(:rule_parameter_set),
-                                                              Factory(:rule_parameter_set)] }
+  let!(:rule_parameter_sets) { assign :rule_parameter_sets, [ create(:rule_parameter_set),
+                                                              create(:rule_parameter_set)] }
 
   it "should render a show link for each rule_parameter_set" do
     render

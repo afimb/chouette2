@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Chouette::StopArea do
   # check override methods
 
-   subject {Factory(:stop_area)}
+   subject {create(:stop_area)}
 
     it "should return referential projection " do
       subject.referential.projection_type='27572'
@@ -31,7 +31,7 @@ end
 describe Chouette::AccessPoint do
   # check override methods
 
-   subject {Factory(:access_point)}
+   subject {create(:access_point)}
 
     it "should return referential projection " do
       subject.referential.projection_type='27572'

@@ -4,7 +4,7 @@ require 'spec_helper'
 describe "StopAreas", :type => :feature do
   login_user
 
-  let!(:stop_areas) { Array.new(2) { Factory(:stop_area) } }
+  let!(:stop_areas) { Array.new(2) { create(:stop_area) } }
   subject { stop_areas.first }
 
   describe "list" do
