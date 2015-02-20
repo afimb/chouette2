@@ -12,7 +12,7 @@ en:
       failed: "[ Failed ]"
       pending: "[ In the treatment queue ]"
       processing: "[ In progress... ]"
-      export: "Export"
+      export: "Download test report"
       export_csv: "CSV format"
     new:
       title: "Create a new validation"
@@ -81,7 +81,7 @@ fr:
       failed: "[ Echoué ]"
       pending: "[ En file d'attente ]"
       processing: "[ En progression... ]"
-      export: "Export"
+      export: "Télécharger les résultats"
       export_csv: "Format CSV"
     new:
       title: "Démarrer une nouvelle validation"
