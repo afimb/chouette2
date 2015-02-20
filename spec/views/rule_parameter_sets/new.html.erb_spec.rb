@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe "/rule_parameter_sets/new" do
 
-  assign_referential
-  let!(:rule_parameter_set) { assign :rule_parameter_set, build( :rule_parameter_set, :referential => referential) }
+  assign_organisation
+  let!(:rule_parameter_set) { assign :rule_parameter_set, build( :rule_parameter_set, :organisation => organisation) }
 
   describe "form" do
 

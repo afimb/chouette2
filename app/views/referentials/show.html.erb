@@ -20,6 +20,10 @@
   <%= @referential.time_zone %>
   </p>
   <p>
+  <label><%= Referential.human_attribute_name("hub_restrictions") %>: </label>
+  <%= @referential.hub_restrictions %>
+  </p>
+  <p>
   	<label><%= Referential.human_attribute_name("validity_period") %>: </label>
   	<% if Chouette::TimeTable.start_validity_period.nil? %>
   	 <%= Referential.human_attribute_name("no_validity_period") %>
@@ -30,10 +34,10 @@
      <%= l Chouette::TimeTable.end_validity_period %>
    <% end %>
   </p>
-  
+
   <table width="100%">
   	<tr>
-  	  <td valign="top" width="50%">	
+  	  <td valign="top" width="50%">
         <%= render "counts" %>
       </td>
       <td valign="top" >
@@ -43,12 +47,12 @@
   </table>
 
   <% if @referential.api_keys.present? %>
-  <h3 class="api_keys"><%= t('.api_keys') %></h3>  
+  <h3 class="api_keys"><%= t('.api_keys') %></h3>
   <div class="api_keys paginated_content">
     <%= paginated_content(@referential.api_keys, "api_keys/api_key") %>
   </div>
   <% end %>
-</div>  
+</div>
 
 <% content_for :sidebar do %>
 <ul class="actions">

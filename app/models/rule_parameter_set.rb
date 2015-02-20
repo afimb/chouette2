@@ -1,5 +1,4 @@
 class RuleParameterSet < ActiveRecord::Base
-  belongs_to :referential
   belongs_to :organisation
 
   #validates_presence_of :referential
@@ -7,7 +6,11 @@ class RuleParameterSet < ActiveRecord::Base
 
   serialize :parameters, JSON
 
-  attr_accessible :name, :referential_id, :organisation_id
+  attr_accessible :name, :organisation_id
+
+  # TODO: remove when migration deployed
+  # convert referential id to organisation id
+  attr_accessible :referential_id,
 
   def self.mode_attribute_prefixes
     %w( allowed_transport inter_stop_area_distance_min inter_stop_area_distance_max speed_max speed_min inter_stop_duration_variation_max)
@@ -308,16 +311,15 @@ class RuleParameterSet < ActiveRecord::Base
     }
     # :waterborne, :bus, :ferry, :walk, :metro, :shuttle, :rapidtransit, :taxi, :localtrain, :train, :longdistancetrain, :tramway, :trolleybus, :privatevehicle, :bicycle, :other
   end
-  def self.default( referential)
-    self.default_for_all_modes( referential).tap do |rps|
+  def self.default( organisation)
+    self.default_for_all_modes( organisation).tap do |rps|
       rps.name = ""
     end
   end
-  def self.default_for_all_modes( referential)
+  def self.default_for_all_modes( organisation)
     mode_attributes = mode_default_params.values.inject(self.default_params){|memo, obj| memo.merge! obj}
     self.new(
-      { :referential_id => referential.id,
-        :stop_areas_area => referential.envelope.to_polygon.points.map(&:to_coordinates).to_json,
+      { :organisation_id => organisation.id,
         :name => "valeurs par defaut"
       }.merge( mode_attributes))
   end

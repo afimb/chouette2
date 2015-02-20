@@ -56,6 +56,7 @@ ChouetteIhm::Application.routes.draw do
 
   resource :organisation do
     resources :users
+    resources :rule_parameter_sets
   end
 
   resources :referentials do
@@ -72,6 +73,9 @@ ChouetteIhm::Application.routes.draw do
 
     match 'lines' => 'lines#destroy_all', :via => :delete
     resources :lines do
+      collection do
+        get 'name_filter'
+      end
       resources :routes do
         member do
           get 'edit_boarding_alighting'

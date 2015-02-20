@@ -15,9 +15,9 @@ FactoryGirl.define do
 
   factory :rule_parameter_set do |f|
     f.sequence(:name) { |n| "Test #{n}" }
-    f.association :referential
+    f.association :organisation
     f.after_create do |rsp|
-      rsp.parameters = RuleParameterSet.default_for_all_modes( rsp.referential).parameters
+      rsp.parameters = RuleParameterSet.default_for_all_modes( rsp.organisation).parameters
     end
   end
 
@@ -70,6 +70,6 @@ FactoryGirl.define do
     f.referential { Referential.find_by_slug("first") }
   end
 
-  factory :time_table_combination 
+  factory :time_table_combination
 
 end

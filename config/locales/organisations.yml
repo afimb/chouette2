@@ -6,11 +6,15 @@ en:
       title: "Update your organisation"
       key_registered: "Key registered"
       key_not_registered: "No key registered"
-  activerecord:        
+    show:
+      users: "Users"
+      rule_parameter_sets: "Rule parameter sets"
+  activerecord:
     attributes:
       organisation:
         name: "Name"
-        geoportail_key: "IGN Geoportail Key" 
+        hub_restrictions_by_default: "Hub constraint by default"
+        geoportail_key: "IGN Geoportail Key"
 
 fr:
   organisations:
@@ -20,8 +24,12 @@ fr:
       title: "Modifier votre organisation"
       key_registered: "Clé enregistrée"
       key_not_registered: "Pas de clé"
-  activerecord:        
+    show:
+      users: "Utilisateurs"
+      rule_parameter_sets: "Jeux de paramètres"
+  activerecord:
     attributes:
       organisation:
         name: "Nom"
-        geoportail_key: "Clé de l'API du Geoportail IGN" 
+        hub_restrictions_by_default: "Appliquer les contraintes Hub par defaut"
+        geoportail_key: "Clé de l'API du Geoportail IGN"

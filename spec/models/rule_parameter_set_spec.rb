@@ -37,9 +37,9 @@ describe RuleParameterSet do
     it { should allow_mass_assignment_of attribute.to_sym}
   end
 
-  describe "#referential" do
+  describe "#organisation" do
     #it { should validate_presence_of(:referential) }
-    it { should allow_mass_assignment_of :referential_id }
+    it { should allow_mass_assignment_of :organisation_id }
   end
 
   describe "#name" do

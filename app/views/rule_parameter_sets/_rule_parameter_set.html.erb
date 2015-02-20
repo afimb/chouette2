@@ -1,23 +1,23 @@
 <div id="index_item" class="panel panel-default rule_parameter_set">
   <div class="panel-heading">
     <div class="panel-title clearfix">
-      <span class="pull-right">                
-        <%= link_to edit_referential_rule_parameter_set_path(@referential, rule_parameter_set), :class => "btn btn-default btn-sm" do %>
+      <span class="pull-right">
+        <%= link_to edit_organisation_rule_parameter_set_path( rule_parameter_set), :class => "btn btn-default btn-sm" do %>
           <span class="fa fa-pencil"></span>
         <% end %>
-        <% if @referential.rule_parameter_sets.size > 1 %>  
-          <%= link_to referential_rule_parameter_set_path(@referential, rule_parameter_set), :method => :delete, :data => {:confirm =>  t('rule_parameter_sets.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>        
+        <% if rule_parameter_set.organisation.rule_parameter_sets.size > 1 %>
+          <%= link_to organisation_rule_parameter_set_path( rule_parameter_set), :method => :delete, :data => {:confirm =>  t('rule_parameter_sets.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
             <span class="fa fa-trash-o"></span>
           <% end %>
         <% end %>
       </span>
       <h5>
-        <%= link_to([@referential, rule_parameter_set], :class => "preview", :title => "#{RuleParameterSet.model_name.human.capitalize} #{rule_parameter_set.name}") do %>            
+        <%= link_to( organisation_rule_parameter_set_path( rule_parameter_set), :class => "preview", :title => "#{RuleParameterSet.model_name.human.capitalize} #{rule_parameter_set.name}") do %>
         <span class="name">
-          <%= truncate(rule_parameter_set.name, :length => 20) %>          
+          <%= truncate(rule_parameter_set.name, :length => 20) %>
         </span>
         <% end %>
       </h5>
-    </div>                          
+    </div>
   </div>
 </div>

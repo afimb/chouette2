@@ -18,7 +18,6 @@ class Referential < ActiveRecord::Base
   attr_accessor :lower_corner
 
   has_one :user
-  has_many :rule_parameter_sets, :dependent => :destroy
   has_many :import_tasks, :dependent => :destroy
   has_many :compliance_check_tasks, :dependent => :destroy
   has_many :exports, :dependent => :destroy
@@ -147,11 +146,6 @@ class Referential < ActiveRecord::Base
     Apartment::Database.drop slug
   end
 
-  after_create :add_rule_parameter_set
-  def add_rule_parameter_set
-    RuleParameterSet.default_for_all_modes( self).save
-  end
-
   def upper_corner
     envelope.upper_corner
   end
@@ -208,7 +202,7 @@ Rails.application.config.after_initialize do
     end
 
     def hub_restricted?
-      referential.organisation.hub_restrictions == true
+      referential.hub_restrictions == true
     end
 
     # override prefix for good prefix in objectid generation

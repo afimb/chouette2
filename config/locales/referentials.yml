@@ -10,7 +10,7 @@ en:
       title: "Data space"
       clean_up: "Clean up"
       api_keys: "Authentification keys for an API REST access"
-    counts:    
+    counts:
       objects: "Data space elements"
       count: "count"
     validity_out:
@@ -30,7 +30,7 @@ en:
       user_excluded: "%{user} is a reserved value"
   activerecord:
     models:
-      referential: 
+      referential:
         zero: "Data space"
         one: "Data space"
         other: "Data spaces"
@@ -66,6 +66,7 @@ en:
         export_tasks: "Exports"
         compliance_check_tasks: "Validations"
         rule_parameter_sets: "Rule parameters sets"
+        hub_restrictions: "Apply constraints specific to Hub"
   formtastic:
     titles:
       referential:
@@ -86,8 +87,8 @@ fr:
       title: "Espace de données"
       clean_up: "Purge des données obsolètes"
       api_keys: "Clés d'authentification pour un accès à l'API REST"
-    counts:    
-      objects: "Eléments" 
+    counts:
+      objects: "Eléments"
       count: "Qté"
     validity_out:
       validity_out_time_tables: "Calendriers échus"
@@ -106,7 +107,7 @@ fr:
       user_excluded: "%{user} est une valeur réservée"
   activerecord:
     models:
-      referential: 
+      referential:
         zero: "Espace de Données"
         one: "Espace de Données"
         other: "Espaces de Données"
@@ -117,7 +118,7 @@ fr:
         prefix: "Préfixe des identifiants Neptune"
         projection_type: "Système de référence spatiale (SRID) optionnel"
         time_zone: "Fuseau horaire"
-        upper_corner: "Point haut/droite de l'emprise par défaut" 
+        upper_corner: "Point haut/droite de l'emprise par défaut"
         lower_corner: "Point bas/gauche de l'emprise par défaut"
         resources: "Import Neptune"
         validity_period: "Période de validité"
@@ -142,10 +143,11 @@ fr:
         export_tasks: "Exports"
         compliance_check_tasks: "Validations"
         rule_parameter_sets: "Jeux de paramètres"
+        hub_restrictions: "Appliquer les contraintes propres au format Hub"
   formtastic:
     titles:
       referential:
-        slug: "caractères autorisés : alphanumériques minuscules et 'souligné' et doit commencer par une lettre"  
+        slug: "caractères autorisés : alphanumériques minuscules et 'souligné' et doit commencer par une lettre"
         prefix: "caractères autorisés : alphanumériques et 'souligné'"
         upper_corner: "latitude,longitude dans le référentiel WGS84, le séparateur de décimales est 'point'"
         lower_corner: "latitude,longitude dans le référentiel WGS84, le séparateur de décimales est 'point'"

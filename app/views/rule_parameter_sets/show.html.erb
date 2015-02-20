@@ -68,7 +68,7 @@
       <label><%= t(".inter_stop_duration_max") %>: </label>
       <%= @rule_parameter_set.inter_stop_duration_max %>
     </p>
-    
+
     <p>
       <label><%= RuleParameterSet.human_attribute_name("check_lines_in_groups") %>: </label>
       <%= boolean_value(@rule_parameter_set.check_lines_in_groups)%>
@@ -113,7 +113,7 @@
       	<tr>
   			<td><%= t("transport_modes.label.#{mode}") %></td>
   			<% RuleParameterSet.mode_attribute_prefixes.each do |prefix| %>
-	    
+
     			<% unless prefix == "allowed_transport" %>
     		<td><%= @rule_parameter_set.send  "#{prefix}_mode_#{mode}" %></td>
     			<% end %>
@@ -162,11 +162,11 @@
 
 <% content_for :sidebar do %>
 <ul class="actions">
-  <li><%= link_to t('rule_parameter_sets.actions.new'), new_referential_rule_parameter_set_path(@referential), :class => "add" %></li>
+  <li><%= link_to t('rule_parameter_sets.actions.new'), new_organisation_rule_parameter_set_path, :class => "add" %></li>
   <% if @rule_parameter_set.persisted? %>
-  <li><%= link_to t('rule_parameter_sets.actions.edit'), edit_referential_rule_parameter_set_path(@referential, @rule_parameter_set), :class => "edit" %></li>
-  <% if @referential.rule_parameter_sets.size > 1 %>
-  <li><%= link_to  t('rule_parameter_sets.actions.destroy'), referential_rule_parameter_set_path(@referential, @rule_parameter_set), :method => :delete, :data => {:confirm =>  t('rule_parameter_sets.actions.destroy_confirm')}, :class => "remove" %></li>
+  <li><%= link_to t('rule_parameter_sets.actions.edit'), edit_organisation_rule_parameter_set_path( @rule_parameter_set), :class => "edit" %></li>
+  <% if current_organisation.rule_parameter_sets.size > 1 %>
+  <li><%= link_to  t('rule_parameter_sets.actions.destroy'), organisation_rule_parameter_set_path( @rule_parameter_set), :method => :delete, :data => {:confirm =>  t('rule_parameter_sets.actions.destroy_confirm')}, :class => "remove" %></li>
   <% end %>
   <% end %>
 </ul>
