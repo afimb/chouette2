@@ -1,26 +1,22 @@
-# ENV["CHOUETTE_RUN_MIGRATIONS"] = "true"
-ChouetteIhm::Application.configure do
-  # Settings specified here will take precedence over those in config/application.rb
+Rails.application.configure do
+  # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
-  # every request.  This slows down response time but is perfect for development
+  # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
   # Do not eager load code on boot.
   config.eager_load = false
 
-  # Log error messages when you accidentally call methods on nil.
-  config.whiny_nils = true
-
-  # Show full error reports and disable caching
+  # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send
+  # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
-  # Print deprecation notices to the Rails logger
+  # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
   # Raise an error on page load if there are pending migrations.
@@ -31,18 +27,13 @@ ChouetteIhm::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-   # Adds additional error checking when serving assets at runtime.
+  # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-
-  # uncomment to show chouette error view in development
-  #config.consider_all_requests_local = false
-
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # replace this with your production tracker code
   GA.tracker = "UA-AAAAAAAA"
@@ -62,25 +53,27 @@ ChouetteIhm::Application.configure do
   # config.company_theme = "#32adb0"
   # config.company_contact = "http://www.cityway.fr/contact/?rub_code=14"
   # config.accept_user_creation = false
-
+  
   # file to data for demo
   config.demo_data = "tmp/demo.zip"
-
+  
   # link to validation specification pages
   config.validation_spec = "http://www.chouette.mobi/neptune-validation/v20/"
 
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  
   # Configure the e-mail address which will be shown in Devise::Maile
   config.mailer_sender = "appli@chouette.mobi"
 
- config.action_mailer.delivery_method = :sendmail 
+  config.action_mailer.delivery_method = :sendmail 
   # change to true to allow email to be sent during development
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
-
+  
   # api key to geoportail IGN (development key 3 month validity)
   # config.geoportail_api_key = "f1t6wihbh98njlbaf5cuzxy4"
-
+  
   config.to_prepare do
     Devise::Mailer.layout "mailer"
     #ApplicationMap.ign_api_key = "i2aqyge3x3iovnuhz7z06flp"
@@ -91,7 +84,6 @@ ChouetteIhm::Application.configure do
       Chouette::Command.command = "true"
     end
   end
-
+  
   config.i18n.available_locales = [:fr, :en]
-
 end

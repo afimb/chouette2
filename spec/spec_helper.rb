@@ -8,13 +8,6 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'capybara/poltergeist'
-
-# FIXME FactoryGirl not found in jenkins build #13
-unless defined?(FactoryGirl)
-  require 'factory_girl'
-  require 'spec/factories.rb'
-end
-require 'chouette_factories'
 require 'georuby-ext'
 require 'will_paginate/array'
 

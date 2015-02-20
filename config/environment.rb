@@ -1,9 +1,8 @@
-# Load the rails application
+# Load the Rails application.
 require File.expand_path('../application', __FILE__)
 
-
-# Initialize the rails application
-ChouetteIhm::Application.initialize!
+# Initialize the Rails application.
+Rails.application.initialize!
 
 # Fix version
 APP_VERSION = '2.5.2'

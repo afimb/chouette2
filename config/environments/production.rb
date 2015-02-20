@@ -1,7 +1,7 @@
-ChouetteIhm::Application.configure do
-  # Settings specified here will take precedence over those in config/application.rb
+Rails.application.configure do
+  # Settings specified here will take precedence over those in config/application.rb.
 
-  # Code is not reloaded between requests
+  # Code is not reloaded between requests.
   config.cache_classes = true
 
   # Eager load code on boot. This eager loads most of Rails and
@@ -29,12 +29,11 @@ ChouetteIhm::Application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
-  # Generate digests for assets URLs
+  # Generate digests for assets URLs.
   config.assets.digest = true
 
-  # Version of your assets, change this if you want to expire all your assets.
-  config.assets.version = '1.0'
-  
+  # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
+
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
@@ -57,10 +56,6 @@ ChouetteIhm::Application.configure do
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = "http://assets.example.com"
 
-  # Precompile additional assets.
-  # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-  # config.assets.precompile += %w( search.js )
-
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
@@ -80,7 +75,7 @@ ChouetteIhm::Application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  
+
   # Use a different logger for distributed setups
   #if ENV['OS'] == 'Windows_NT'
   #  # args = log_path,number of files,file sizes
@@ -91,52 +86,33 @@ ChouetteIhm::Application.configure do
     logger.level = Logger::INFO
   end
   #end
-
+  
   if ENV['CHOUETTE_BASE_URL'].nil?
-     config.action_mailer.default_url_options = { :host => 'my-domain-name.com' }
+    config.action_mailer.default_url_options = { :host => 'my-domain-name.com' }
   else
-     config.action_mailer.default_url_options = { :host => ENV['CHOUETTE_BASE_URL'] }
+    config.action_mailer.default_url_options = { :host => ENV['CHOUETTE_BASE_URL'] }
   end  
   
   # Configure the e-mail address which will be shown in Devise::Maile
   if ENV['CHOUETTE_MAIL_SENDER'].nil?
-     config.mailer_sender = "chouette-production@my-domain-name.com"
+    config.mailer_sender = "chouette-production@my-domain-name.com"
   else
-     config.mailer_sender = ENV['CHOUETTE_MAIL_SENDER']
-  end  
-
-  #  mailer configuration :
-  #  by default : set to smtp on windows platforms and sendmail on unix one
-  #               may be changed as convenience
-  #if ENV['OS'] == 'Windows_NT'
-  #  ## using SMTP (maybe useful for Windows or VM platforms):
-  #   ActionMailer::Base.delivery_method = :smtp
-  #   ActionMailer::Base.smtp_settings = {
-  #     :address => "smtp.sample.com",
-  #     :domain => "sample.com",
-  #     :user_name => "username",
-  #   }
-  #else
-  mailer = ""
-  if ENV['CHOUETTE_MAILER'].nil?
-    mailer = "smtp"
-  else
-    mailer = ENV['CHOUETTE_MAILER']
+    config.mailer_sender = ENV['CHOUETTE_MAIL_SENDER']
   end
   if mailer == "smtp"
     if ENV['CHOUETTE_SMTP_USER'].nil?
       ActionMailer::Base.smtp_settings = {
-	:address        => ENV['CHOUETTE_SMTP_ADDRESS'].nil? ? "smtp.sample.com" : ENV['CHOUETTE_SMTP_ADDRESS'],
-	:port           => ENV['CHOUETTE_SMTP_PORT'].nil? ? 25 : ENV['CHOUETTE_SMTP_PORT'].to_i,
-	:domain         => ENV['CHOUETTE_SMTP_DOMAIN'].nil? ? "sample.com" : ENV['CHOUETTE_SMTP_DOMAIN']   }
+        :address        => ENV['CHOUETTE_SMTP_ADDRESS'].nil? ? "smtp.sample.com" : ENV['CHOUETTE_SMTP_ADDRESS'],
+        :port           => ENV['CHOUETTE_SMTP_PORT'].nil? ? 25 : ENV['CHOUETTE_SMTP_PORT'].to_i,
+        :domain         => ENV['CHOUETTE_SMTP_DOMAIN'].nil? ? "sample.com" : ENV['CHOUETTE_SMTP_DOMAIN']   }
     else
       ActionMailer::Base.smtp_settings = {
-	:address        => ENV['CHOUETTE_SMTP_ADDRESS'],
-	:port           => ENV['CHOUETTE_SMTP_PORT'].nil? ? 25 : ENV['CHOUETTE_SMTP_PORT'].to_i,
-	:domain         => ENV['CHOUETTE_SMTP_DOMAIN'],
-	:user_name      => ENV['CHOUETTE_SMTP_USER'],
-	:password       => ENV['CHOUETTE_SMTP_PASSWORD'],
-	:authentication => ENV['CHOUETTE_SMTP_AUTH']    }
+        :address        => ENV['CHOUETTE_SMTP_ADDRESS'],
+        :port           => ENV['CHOUETTE_SMTP_PORT'].nil? ? 25 : ENV['CHOUETTE_SMTP_PORT'].to_i,
+        :domain         => ENV['CHOUETTE_SMTP_DOMAIN'],
+        :user_name      => ENV['CHOUETTE_SMTP_USER'],
+        :password       => ENV['CHOUETTE_SMTP_PASSWORD'],
+        :authentication => ENV['CHOUETTE_SMTP_AUTH']    }
     end  
   end 
   #end
@@ -144,14 +120,14 @@ ChouetteIhm::Application.configure do
   # replace this with your production tracker code
   # replace this with your production tracker code
   if ENV['CHOUETTE_GOOGLE_ANALYTICS'].nil?
-     GA.tracker = "UA-AAAAAAAA"
+    GA.tracker = "UA-AAAAAAAA"
   else
-     GA.tracker = ENV['CHOUETTE_GOOGLE_ANALYTICS']
+    GA.tracker = ENV['CHOUETTE_GOOGLE_ANALYTICS']
   end  
-
+  
   # api key to geoportail IGN (production key link to application url root referer)
   if !ENV['CHOUETTE_GEOPORTAIL_KEY'].nil?
-     config.geoportail_api_key = ENV['CHOUETTE_GEOPORTAIL_KEY']
+    config.geoportail_api_key = ENV['CHOUETTE_GEOPORTAIL_KEY']
   end  
 
   # Specific theme for each company
@@ -166,13 +142,13 @@ ChouetteIhm::Application.configure do
   # config.company_theme = "#32adb0"
   # config.company_contact = "http://www.cityway.fr/contact/?rub_code=14"
   # config.accept_user_creation = false  
-
+  
   # file to data for demo
   config.demo_data = ENV['CHOUETTE_DEMO_DATA'].nil? ? "/path/to/demo.zip" : ENV['CHOUETTE_DEMO_DATA']
-
+  
   # link to validation specification pages
   config.validation_spec = "http://www.chouette.mobi/neptune-validation/v20/"
-
+  
   # paths for external resources
   config.to_prepare do
     Devise::Mailer.layout "mailer"
