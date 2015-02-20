@@ -5,7 +5,6 @@ describe "/routes/show" do
   assign_referential
   let!(:line) { assign :line, create(:line) }
   let!(:route) { assign :route, create(:route, :line => line) }
-  let!(:stop_points) { assign :stop_points, Array.new(2) { create(:stop_point) }.paginate }
   let!(:map) { assign(:map, mock(:to_html => '<div id="map"/>'.html_safe)) }
 
   it "should render h2 with the route name" do
