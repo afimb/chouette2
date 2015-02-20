@@ -39,16 +39,44 @@ vitesse maximale admise dans les correspondances et les liaisons arrêt - accès
 * un voyageur habituel : voyageur qui connaît bien le réseau
 * un voyageur à mobilité réduite : voyageur qui a des difficultés de déplacement
 
+p. *Activation de contrôles supplémentaires* (ceux-ci sont alors déclarés bloquants) 
+
+* contraite d'appartenance d'une ligne à un unique groupe de lignes.
+* limitation du nombre de séquences d'arrêts d'une ligne à au plus 1 A/R) 
+* appartenance obligatoire des arrêts physiques à un arrêt commercial
+* limiter les correspondances aux seuls arrêts physiques
+* limiter les modes de transports à un sous-ensemble des modes gérés par Chouette (si ce contrôle est activé, une case à cocher est ajouter par mode de transport pour l'autoriser)
 
 h3. Paramètres par mode de transport.
 
 p. les paramètres suivants sont à définir pour chaque mode de transport disponible dans le réseau à tester.
 
+* Autoriser ce mode (si le contrôle sur les modes de transports est actif)
 * Distance minimum entre 2 arrêts (en mètres) : distance minimale de parcours d'un véhicule entre 2 arrêts.
 * Distance maximum entre 2 arrêts (en mètres) : distance maximale de parcours d'un véhicule entre 2 arrêts.
 * Vitesse minimum (en kilomètres/heure) : vitesse minimale attendue entre 2 arrêts d'une course
 * Vitesse maximum (en kilomètres/heure) : vitesse maximale attendue entre 2 arrêts d'une course
 * Écart maximum de durée de trajet entre 2 arrêts successifs pour les différentes courses (en secondes) : la différence de temps de trajet entre 2 arrêts successifs de 2 courses d'une même mission ne doit pas dépasser ce seuil =:
+
+h3. Contrôles sur les attributs du modèle
+
+p. les paramètres suivants sont disponible pour fixer des limitations sur différents champs du modèle par rapport à leur spécification dans Chouette; ces contrôles s'applique sur l'ensemble des données fournies à la validation.
+
+p. pour activer un point de contrôle, il faut cocher le type d'objet, puis renseigner les limitations sur les attributs désirés.
+
+p. les limitations sont les suivantes : 
+
+* Unicité : contrôle de l'unicité de la valeur dans le lot de données contrôlées.
+* Caractères autorisés : restriction possible des valeurs à :
+** uniquement des chiffres, (restriction imposée pour un champ numérique)
+** uniquement des lettres (pas d'espace) 
+** uniquement des lettres majuscules (pas d'espace) 
+** uniquement des lettres minuscules (pas d'espace) 
+* obligation d'un nombre minimal de caractères ou valeur minimale pour un champ numérique ou contraint à des chiffres
+** en mettant 1 dans ce champs pour un texte, ceci le rend obligatoire
+* restriction à une longueur maximale de caractères ou valeur maximale pour un champ numérique ou contraint à des chiffres
+
+p. L'attribut *Identifiant Neptune* est un cas particulier, les limitations s'appliquent à la troisième composante de ce champ, soit la partie identifiant technique.
 
 h3. Remarques
 

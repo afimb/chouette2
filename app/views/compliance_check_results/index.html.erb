@@ -17,7 +17,7 @@
       <td><%= status_icon( compliance_check_result.status, compliance_check_result.severity ) %> </td>
       <td><%= t compliance_check_result.severity, :scope => "compliance_check_result.severities" %></td>
       <td>
-        <button data-content='<%= ComplianceCheckResult.human_attribute_name(compliance_check_result.rule_code) %>' data-title='<%= t("activerecord.attributes.compliance_check_result.detail") %>' rel="popover" data-toggle="popover" class="notice btn btn-info btn-xs" ><i class="fa fa-info"></i></button>
+        <button data-content='<%= ComplianceCheckResult.human_attribute_name(compliance_check_result.rule_code) %>' data-title='<%= t("activerecord.attributes.compliance_check_result.title") %>' rel="popover" data-toggle="popover" class="notice btn btn-info btn-xs" ><i class="fa fa-info"></i></button>
         <%= link_to compliance_check_result.rule_code, test_definition(compliance_check_result.rule_code), :title => ComplianceCheckResult.human_attribute_name(compliance_check_result.rule_code), :target => "validation" %></td>
       <% if @compliance_check_results && @compliance_check_results.first.status == "nok" %>
       <td class="td_error">
