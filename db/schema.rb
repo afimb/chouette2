@@ -70,8 +70,8 @@ ActiveRecord::Schema.define(version: 20150130094642) do
     t.integer  "referential_id"
     t.string   "token"
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "companies", force: true do |t|
@@ -102,8 +102,8 @@ ActiveRecord::Schema.define(version: 20150130094642) do
     t.string   "status"
     t.integer  "violation_count"
     t.text     "detail"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "rule_target"
     t.string   "rule_format"
     t.integer  "rule_level"
@@ -119,8 +119,8 @@ ActiveRecord::Schema.define(version: 20150130094642) do
     t.integer  "user_id",            limit: 8
     t.string   "user_name"
     t.text     "progress_info"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "references_type"
     t.string   "reference_ids"
   end
@@ -158,8 +158,8 @@ ActiveRecord::Schema.define(version: 20150130094642) do
     t.datetime "failed_at"
     t.string   "locked_by"
     t.string   "queue"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
@@ -170,8 +170,8 @@ ActiveRecord::Schema.define(version: 20150130094642) do
     t.string   "arguments",  limit: 1000
     t.integer  "position"
     t.string   "severity"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "export_log_messages", ["export_id"], name: "index_export_log_messages_on_export_id", using: :btree
@@ -181,8 +181,8 @@ ActiveRecord::Schema.define(version: 20150130094642) do
     t.string   "status"
     t.string   "type"
     t.string   "options"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "references_type"
     t.string   "reference_ids"
   end
@@ -245,8 +245,8 @@ ActiveRecord::Schema.define(version: 20150130094642) do
     t.string   "user_name"
     t.text     "result"
     t.text     "progress_info"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "journey_patterns", force: true do |t|
@@ -316,8 +316,8 @@ ActiveRecord::Schema.define(version: 20150130094642) do
 
   create_table "organisations", force: true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pt_links", force: true do |t|
@@ -338,8 +338,8 @@ ActiveRecord::Schema.define(version: 20150130094642) do
   create_table "referentials", force: true do |t|
     t.string   "name"
     t.string   "slug"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "prefix"
     t.string   "projection_type"
     t.string   "time_zone"
@@ -376,8 +376,8 @@ ActiveRecord::Schema.define(version: 20150130094642) do
     t.integer  "referential_id", limit: 8
     t.text     "parameters"
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "stop_areas", force: true do |t|
@@ -514,8 +514,8 @@ ActiveRecord::Schema.define(version: 20150130094642) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "organisation_id"
     t.string   "name"
     t.string   "confirmation_token"
