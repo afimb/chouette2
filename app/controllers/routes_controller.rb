@@ -32,7 +32,6 @@ class RoutesController < ChouetteController
   
   def show
     @map = RouteMap.new(route).with_helpers(self)
-    @stop_points = route.stop_points.paginate(:page => params[:page])
     show! do
       build_breadcrumb :show
     end
