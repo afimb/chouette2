@@ -184,6 +184,7 @@ GEM
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
+    hashie (3.4.0)
     highline (1.6.15)
     hike (1.2.3)
     hitimes (1.2.2)
@@ -480,6 +481,7 @@ DEPENDENCIES
   google-analytics-rails
   guard
   guard-rspec
+  hashie
   inherited_resources
   jbuilder (~> 2.0)
   jquery-rails

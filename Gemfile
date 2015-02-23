@@ -43,6 +43,7 @@ gem "sitemap_generator"
 gem 'faraday', '~> 0.9.1'
 gem 'faraday_middleware', '~> 0.9.1'
 gem 'kleisli'
+gem 'hashie'
 
 platforms :jruby do
   gem 'activerecord-jdbcpostgresql-adapter', '~> 1.3.3'

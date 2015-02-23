@@ -42,6 +42,9 @@ Rails.application.configure do
   
   # api key to geoportail IGN (production key link to application url root referer)
   config.geoportail_api_key = "aaaaaaaaaaaaaa" 
+
+  # Iev server url
+  config.iev_url="localhost:8080/mobi.chouette.api"
   
   # Specific theme for each company
   # AFIMB

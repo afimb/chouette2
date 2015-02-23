@@ -130,6 +130,9 @@ Rails.application.configure do
     config.geoportail_api_key = ENV['CHOUETTE_GEOPORTAIL_KEY']
   end  
 
+  # Iev server url
+  config.iev_url="mobi.chouette.api"
+  
   # Specific theme for each company
   # AFIMB
   config.company_name = "afimb"  
