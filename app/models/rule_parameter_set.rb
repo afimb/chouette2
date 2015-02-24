@@ -8,10 +8,6 @@ class RuleParameterSet < ActiveRecord::Base
 
   attr_accessible :name, :organisation_id
 
-  # TODO: remove when migration deployed
-  # convert referential id to organisation id
-  attr_accessible :referential_id,
-
   def self.mode_attribute_prefixes
     %w( allowed_transport inter_stop_area_distance_min inter_stop_area_distance_max speed_max speed_min inter_stop_duration_variation_max)
   end
