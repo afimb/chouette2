@@ -26,28 +26,23 @@ module ImportsHelper
     end
   end
 
-  def import_progress_bar_tag(export)
+  def import_progress_bar_tag(import)
       
-    if export.status == "failed"
+    if import.canceled? || import.aborted?
       div_class = "progress-bar progress-bar-danger"
-      percentage_progress = "100"
-    elsif export.status == "pending"
+    elsif import.scheduled?
       div_class = "progress-bar progress-bar-info"
-      percentage_progress = "10"
-    elsif export.status == "processing"
+    elsif import.created?
       div_class = "progress-bar progress-bar-info"
-      percentage_progress = "50"
-    elsif export.status == "completed"
+    elsif import.terminated?
       div_class = "progress-bar progress-bar-success"
-      percentage_progress = "100"
     else
       div_class = ""
-      percentage_progress = ""
     end  
 
     content_tag :div, :class => "progress" do
-      content_tag :div, :class => div_class, role: "progressbar", :'aria-valuenow' => percentage_progress, :'aria-valuemin' => "0", :'aria-valuemax' => "100", :style => "width: #{percentage_progress}%;" do
-        percentage_progress + "% " + I18n.t("exports.statuses.#{export.status}")
+      content_tag :div, :class => div_class, role: "progressbar", :'aria-valuenow' => "#{import.percentage_progress}", :'aria-valuemin' => "0", :'aria-valuemax' => "100", :style => "width: #{import.percentage_progress}%;" do
+        "#{import.percentage_progress}% " + I18n.t("import_tasks.statuses.#{import.import_status}")
       end
     end
     

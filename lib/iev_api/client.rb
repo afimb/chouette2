@@ -3,6 +3,9 @@ module IevApi
 
     PER_PAGE = 12
     PARALLEL_WORKERS = 10
+    ACTIONS = %w{ importer exporter validator }
+    IMPORT_FORMAT = %w{ neptune netex gtfs }
+    EXPORT_FORMAT = %w{ neptune netex gtfs hub kml }
 
     attr_accessor *IevApi::Configuration::VALID_OPTIONS_KEYS
     
@@ -61,13 +64,16 @@ module IevApi
     
     # Perform an HTTP request
     def request(method, path, params = {}, options = {})
-
+      
+      action_and_format = (params[:action].present? && params[:format].present?) ? "/#{params[:action]}/#{params[:format]}" : ""      
+      build_path = connection.path_prefix + path + action_and_format
+      puts build_path.inspect
       response = connection(options).run_request(method, nil, nil, nil) do |request|
         case method
         when :delete, :get
-          request.url(connection.path_prefix + path, params)
+          request.url(build_path, params)
         when :post, :put
-          request.url(connection.path_prefix + path)
+          request.url(build_path)
           request.body = params unless params.empty?
         end
       end

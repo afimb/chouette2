@@ -67,7 +67,7 @@
             </li>
           </ul>
         </li>
-        <li><%= link_to Referential.human_attribute_name("import_tasks"), referential_import_tasks_path(@referential) %></li>
+        <li><%= link_to Referential.human_attribute_name("imports"), referential_imports_path(@referential) %></li>
         <li><%= link_to Referential.human_attribute_name("export_tasks"), referential_exports_path(@referential) %></li>
         <li><%= link_to Referential.human_attribute_name("compliance_check_tasks"), referential_compliance_check_tasks_path(@referential) %></li>
         <% end %>

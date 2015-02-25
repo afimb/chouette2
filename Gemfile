@@ -88,7 +88,7 @@ gem 'raphael-rails'
 # Use twitter bootstrap resources
 gem 'rails-assets-bootstrap-sass-official', '~> 3.3.0'
 gem 'font-awesome-sass', '~> 4.2.0'
-gem 'will_paginate-bootstrap'
+gem 'will_paginate-bootstrap', '~> 1.0.1'
 gem 'simple_form', '~> 3.1.0'
 gem 'rails-assets-tagmanager', '~> 3.0.1.0'
 gem 'rails-assets-typeahead.js', '~> 0.10.5'
@@ -108,9 +108,10 @@ gem 'inherited_resources'
 gem 'google-analytics-rails'
 
 # Model
-gem 'will_paginate', '~> 3.0', :git => "https://github.com/mislav/will_paginate.git"
+gem 'will_paginate', '~> 3.0.7'
 gem 'ransack'
 gem 'squeel'
+gem 'enumerize', '~> 0.10.0'
 
 gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git', :branch => "rails4"
 #gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git'

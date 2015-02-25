@@ -86,6 +86,12 @@ ChouetteIhm::Application.routes.draw do
       end
     end
 
+    resources :imports do
+      member do
+        get 'file_to_import'
+      end
+    end
+
     resources :exports do
       collection do
         get 'references'
