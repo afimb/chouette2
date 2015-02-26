@@ -1,7 +1,7 @@
-class CsvExport < Export
+# class CsvExport < Export
 
-  def export_options
-    super.merge(:format => :csv)
-  end
+#   def export_options
+#     super.merge(:format => :csv)
+#   end
 
-end
+# end

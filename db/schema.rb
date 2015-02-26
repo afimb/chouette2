@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150130094642) do
+ActiveRecord::Schema.define(version: 20150226083920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -164,31 +164,6 @@ ActiveRecord::Schema.define(version: 20150130094642) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
-  create_table "export_log_messages", force: true do |t|
-    t.integer  "export_id",  limit: 8
-    t.string   "key"
-    t.string   "arguments",  limit: 1000
-    t.integer  "position"
-    t.string   "severity"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-  end
-
-  add_index "export_log_messages", ["export_id"], name: "index_export_log_messages_on_export_id", using: :btree
-
-  create_table "exports", force: true do |t|
-    t.integer  "referential_id",  limit: 8
-    t.string   "status"
-    t.string   "type"
-    t.string   "options"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.string   "references_type"
-    t.string   "reference_ids"
-  end
-
-  add_index "exports", ["referential_id"], name: "index_exports_on_referential_id", using: :btree
-
   create_table "facilities", force: true do |t|
     t.integer  "stop_area_id",       limit: 8
     t.integer  "line_id",            limit: 8
@@ -249,6 +224,17 @@ ActiveRecord::Schema.define(version: 20150130094642) do
     t.datetime "updated_at",               null: false
   end
 
+  create_table "jobs", force: true do |t|
+    t.string   "action"
+    t.datetime "created"
+    t.string   "filename"
+    t.string   "path"
+    t.string   "referential"
+    t.string   "status"
+    t.string   "type"
+    t.datetime "updated"
+  end
+
   create_table "journey_patterns", force: true do |t|
     t.integer  "route_id",                limit: 8
     t.string   "objectid",                          null: false
@@ -295,6 +281,14 @@ ActiveRecord::Schema.define(version: 20150130094642) do
 
   add_index "lines", ["objectid"], name: "lines_objectid_key", unique: true, using: :btree
   add_index "lines", ["registration_number"], name: "lines_registration_number_key", unique: true, using: :btree
+
+  create_table "links", id: false, force: true do |t|
+    t.integer "job_id", limit: 8, null: false
+    t.string  "href"
+    t.string  "method"
+    t.string  "rel"
+    t.string  "type"
+  end
 
   create_table "networks", force: true do |t|
     t.string   "objectid",            null: false
@@ -607,6 +601,8 @@ ActiveRecord::Schema.define(version: 20150130094642) do
 
   add_foreign_key "lines", "companies", name: "line_company_fkey", dependent: :nullify
   add_foreign_key "lines", "networks", name: "line_ptnetwork_fkey", dependent: :nullify
+
+  add_foreign_key "links", "jobs", name: "fk_n5ypxycc1stckgkm6ust2l6on"
 
   add_foreign_key "routes", "lines", name: "route_line_fkey", dependent: :delete
 

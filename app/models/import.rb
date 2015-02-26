@@ -11,7 +11,7 @@ class Import
   def initialize(options=Hashie::Mash.new)
     @datas = options
     @import_status = @datas.status.downcase if @datas.status
-    @import_format = @datas.type.downcase
+    @import_format = @datas.type.downcase if @datas.type
   end
 
   def percentage_progress

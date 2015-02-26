@@ -2,7 +2,7 @@
   <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info @exports %>
 </div>
 <div class="exports paginated_content">
-  <%= paginated_content @exports, "export" %>
+  <%= paginated_content(@exports, "export",  {:delete => false, :edit => true}) %>
 </div>
 <div class="pagination">  
   <%= will_paginate @exports, :container => false, renderer: RemoteBootstrapPaginationLinkRenderer %>

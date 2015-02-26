@@ -1,137 +1,55 @@
-class Export < ActiveRecord::Base
+class Export
+  extend Enumerize
+  extend ActiveModel::Naming
+  include ActiveModel::Model  
+  
+  enumerize :export_status, in: %w{created scheduled terminated canceled aborted}, default: "created", predicates: true
+  enumerize :export_format, in: %w{neptune netex gtfs hub kml}, default: "neptune", predicates: true
+  
+  attr_reader :datas
 
-  belongs_to :referential
-  validates_presence_of :referential_id
+  def initialize(options=Hashie::Mash.new)
+    @datas = options
+    @export_status = @datas.status.downcase if @datas.status
+    @export_format = @datas.type.downcase if @datas.type
+  end
 
-  validates_inclusion_of :status, :in => %w{ pending processing completed failed }
-
-  has_many :log_messages, -> { order('position ASC') }, :class_name => "ExportLogMessage", :dependent => :delete_all
-
-  serialize :options
-
-  include ::TypeIdsModelable
-
-  def self.option(name)
-    name = name.to_s
-
-    define_method(name) do
-      self.options and self.options[name]
+  def percentage_progress
+    if %w{created}.include? export_status
+      0
+    elsif %w{ terminated canceled aborted }.include? export_status
+      100
+    else
+      20
     end
-
-    define_method("#{name}=") do |prefix|
-      (self.options ||= {})[name] = prefix
-    end
   end
 
-
-  def exporter
-    exporter ||= ::Chouette::Exporter.new(referential.slug)
-  end
-
-  @@root = "#{Rails.root}/tmp/exports"
-  cattr_accessor :root
-
-  after_destroy :destroy_file
-  def destroy_file
-    FileUtils.rm file if File.exists? file
-  end
-
-  def file
-    "#{root}/#{id}.zip"
+  def links
+    @datas.links
   end
 
   def name
-    "#{self.class.model_name.human} #{id}"
+    @datas.parameters.name
   end
 
-  def export_options
-    { :export_id => self.id, :o => export_object_type }.tap do |options|
-      options[:id] = reference_ids.join(',') if reference_ids.present?
-    end
+  def user_name
+    @datas.parameters.user_name
   end
 
-  def export_object_type
-      references_relation ? references_relation.singularize : "line"
+  def no_save
+    @datas.parameters.no_save
   end
 
-  before_validation :define_default_attributes, :on => :create
-  def define_default_attributes
-    self.status ||= "pending"
-    self.options ||= {}
+  def filename
+    @datas.filename
   end
 
-  after_create :delayed_export
-  def delayed_export
-    delay.export
+  def created_at
+    Time.at(@datas.created.to_i / 1000)
   end
 
-  def export
-    result_severity = "ok"
-    FileUtils.mkdir_p root
-
-    begin
-      # delayed job may repeat call
-      ExportLogMessage.where(:export_id => self.id).delete_all
-      log_messages.create :severity => "ok", :key => :started
-
-      exporter.export file, export_options
-
-      update_attribute :status, "completed"
-    rescue => e
-      Rails.logger.error "Export #{id} failed : #{e}, #{e.backtrace}"
-      update_attribute :status, "failed"
-      result_severity = "error"
-    end
-
-    log_messages.create :severity => result_severity, :key => status
-  end
-
-
-  def self.all_references_types
-    [ Chouette::Line, Chouette::Network, Chouette::Company , Chouette::StopArea]
-  end
-
-  def references_types
-    [ Chouette::Line, Chouette::Network, Chouette::Company ]
-  end
-
-  # @@references_types = [ Chouette::Line, Chouette::Network, Chouette::Company ]
-  # cattr_reader :references_types
-
-  # validates_inclusion_of :references_type, :in => references_types.map(&:to_s), :allow_blank => true, :allow_nil => true
-
-  def self.format_name(format)
-    name_by_format = {
-      "NeptuneExport" => "Neptune",
-      "CsvExport" => "CSV",
-      "GtfsExport" => "GTFS",
-      "NetexExport" => "NeTEx",
-      "KmlExport" => "KML",
-      "HubExport" => "HUB"
-    }
-    name_by_format[format]
-  end
-  
-  def self.format_label(format)
-    I18n.t 'exchange.format.'+format.sub("Export",'').downcase
-  end
-
-  def self.types
-    unless Rails.env.development?
-      subclasses.map(&:to_s)
-    else
-      # FIXME
-      %w{NeptuneExport CsvExport GtfsExport NetexExport KmlExport HubExport}
-    end
-  end
-
-  def self.new(attributes = {}, options = {}, &block)
-    if self == Export
-      Object.const_get(attributes.delete(:type) || "NeptuneExport").new(attributes, options)
-    else
-      super
-    end
+  def updated_at
+    Time.at(@datas.updated.to_i / 1000)
   end
 
 end
-

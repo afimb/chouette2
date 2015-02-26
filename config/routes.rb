@@ -97,6 +97,7 @@ ChouetteIhm::Application.routes.draw do
         get 'references'
       end
     end
+    
     resources :compliance_check_tasks do
       member do
         get 'export', defaults: { format: 'zip' }
