@@ -76,10 +76,7 @@ gem 'google-analytics-rails'
 gem 'will_paginate', '~> 3.0'
 gem 'ransack'
 gem 'squeel'
-gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git', :branch => 'footnotes'
-#gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git'
-#gem 'ninoxe',:path => '~/workspace/chouette/ninoxe'
-#gem 'ninoxe', '1.1.5'
+gem 'ninoxe', '1.1.5'
 
 gem 'acts_as_list', '0.1.6'
 gem "acts_as_tree-1.8", '1.1.0', :require => "acts_as_tree"
