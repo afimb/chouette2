@@ -13,7 +13,7 @@ class RuleParameterSetsController < BreadcrumbController
 
   def destroy
     if current_organisation.rule_parameter_sets.count == 1
-      flash[:alert] = "Suppression impossible, le referentiel doit compter au minimum un jeu de parametre."
+      flash[:alert] = t('rule_parameter_sets.destroy.last_rps_protected')
       redirect_to organisation_rule_parameter_sets_path
     else
       destroy! do |success, failure|
