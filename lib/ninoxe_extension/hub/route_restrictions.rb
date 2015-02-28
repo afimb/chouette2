@@ -10,13 +10,13 @@ module NinoxeExtension::Hub
       # HUB-37
       def wayback_code_limitation
         return unless hub_restricted?
-        errors.add( :wayback_code, "déjà pris!") if line.routes.reject {|r| r.id==id}.map(&:wayback_code).include?( wayback_code)
+        errors.add( :wayback_code, I18n.t('hub.routes.wayback_code_exclusive')) if line.routes.reject {|r| r.id==id}.map(&:wayback_code).include?( wayback_code)
       end
 
       # HUB-37
       def max_instance_limitation
         return unless hub_restricted?
-        errors.add( :flash, "2 routes max")
+        errors.add( :flash, I18n.t('hub.routes.max_by_line'))
       end
 
       # HUB-38
