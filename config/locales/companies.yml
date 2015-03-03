@@ -87,6 +87,13 @@ fr:
   formtastic:
     titles:
       company:
+        name: ""
         registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
         objectid: "[prefixe]:Company:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      hub:
+        company:
+          name: "TEST"
+          registration_number: "TEST" 
+          objectid: "TEST"
+
 
