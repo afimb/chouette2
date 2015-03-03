@@ -57,7 +57,7 @@ class Chouette::Hub::VehicleJourneyExporter
       end
       File.open(directory + "/RENVOI.TXT" , "a:Windows_1252") do |f|
         f.write("RENVOI\u000D\u000A") if f.size == 0
-        f.write("#{footnote.code},#{footnote.label},#{@number}\u000D\u000A")
+        f.write("#{footnote.code};#{footnote.label};#{@number}\u000D\u000A")
       end
     end
   end
