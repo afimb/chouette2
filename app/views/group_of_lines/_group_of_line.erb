@@ -4,7 +4,7 @@
       <span class="pull-right">                
         <%= link_to edit_referential_group_of_line_path(@referential, group_of_line), :class => "btn btn-default btn-sm" do %>
           <span class="fa fa-pencil"></span>
-        <% end %>
+        <% end if edit %>
         <%= link_to('<span class="fa fa-trash-o"></span>'.html_safe, referential_group_of_line_path(@referential, group_of_line), :method => :delete, :data => {:confirm =>  t('group_of_lines.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm") if delete %>         
       </span>
       <h5>
