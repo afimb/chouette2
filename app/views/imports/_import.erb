@@ -7,7 +7,7 @@
         <% end %>
       </span>
       <h5>
-        <%= link_to( "#{Rails.application.config.iev_url}#{import.datas.links[3].href}", :class => "preview", :title => "#{ImportTask.model_name.human.capitalize} #{import.name}") do %>        
+        <%= link_to( referential_import_path(@referential, import.id), :class => "preview", :title => "#{ImportTask.model_name.human.capitalize} #{import.name}") do %>        
         <span class="name">
           <% if !import.no_save %><i class="fa fa-save"></i><% end %> <%= truncate(import.name, :length => 20) %>          
         </span>

@@ -42,7 +42,7 @@ module ImportsHelper
 
     content_tag :div, :class => "progress" do
       content_tag :div, :class => div_class, role: "progressbar", :'aria-valuenow' => "#{import.percentage_progress}", :'aria-valuemin' => "0", :'aria-valuemax' => "100", :style => "width: #{import.percentage_progress}%;" do
-        "#{import.percentage_progress}% " + I18n.t("import_tasks.statuses.#{import.import_status}")
+        "#{import.percentage_progress}% " + I18n.t("import_tasks.statuses.#{import.status}")
       end
     end
     

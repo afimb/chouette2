@@ -40,10 +40,11 @@ en:
           vehicle_journeys_stats: "Vehicle Journeys"
           journey_patterns_stats: "Journey Patterns"
     statuses:
-      pending: "Pending"
-      processing: "Processing"
-      completed: "Completed"
-      failed: "Failed"
+      created: "Pending ..."
+      scheduled: "Processing ..."
+      terminated: "Completed"
+      canceled: "Canceled"
+      aborted: "Failed"
     compliance_check_task: "Validate Report"
     severities:
       info: "Information"
@@ -150,10 +151,11 @@ fr:
           saved: "Sauvé"
           save_error: "Sauvegarde en erreur"
     statuses:
-      pending: "En attente ..."
-      processing: "En cours ..."
-      completed: "Achevé"
-      failed: "Echoué"
+      created: "En attente ..."
+      scheduled: "En cours ..."
+      terminated: "Achevé"
+      canceled: "Annulé"
+      aborted: "Echoué"
     compliance_check_task: "Validation"
     severities:
       info: "Information"

@@ -10,10 +10,7 @@ module PaginationHelper
       html += '<div class="row">'
       row_models.each do |model|
         partial_name = default_partial_name || model.class.name.underscore.gsub("chouette/", "")
-        puts "PARTIAL_NAME = #{partial_name}\nMODEL = #{model.inspect}\nOPTIONS = #{options}"
-        #html += '<div  class="col-md-4">' + (render :partial => partial_name, :object => model, :locals => options).to_s + '</div>'
-        #html += '<div  class="col-md-4">' + "<%= link_to referential_export_path(#{model.referential}, #{model}) %>" + '</div>'
-        puts "HTML= #{html}"
+        html += '<div  class="col-md-4">' + (render :partial => partial_name, :object => model, :locals => options).to_s + '</div>'
       end
       html += '</div>'
     end

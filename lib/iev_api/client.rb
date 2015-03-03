@@ -2,7 +2,7 @@ module IevApi
   class Client
 
     PER_PAGE = 12
-    PARALLEL_WORKERS = 10
+    #PARALLEL_WORKERS = 10
     ACTIONS = %w{ importer exporter validator }
     IMPORT_FORMAT = %w{ neptune netex gtfs }
     EXPORT_FORMAT = %w{ neptune netex gtfs hub kml }
@@ -34,7 +34,13 @@ module IevApi
     
     def job(referential_id, job_id, options = {})
       results = request(:get, job_path(referential_id, job_id), options)
-      results.respond_to?(:job) ? results.job : []
+      if results.respond_to?(:job)
+        results.job
+      elsif results.respond_to?(:report)
+        results.report
+      else
+        []
+      end
     end
     
     def jobs_path(referential_id)
@@ -51,7 +57,7 @@ module IevApi
     end
     
     def report_path(referential_id, report_id)
-      "/referential/#{referential_id}/job/#{report_id}"
+      "/referentials/#{referential_id}/reports/#{report_id}"
     end
 
     def account_path
@@ -67,7 +73,7 @@ module IevApi
       
       action_and_format = (params[:action].present? && params[:format].present?) ? "/#{params[:action]}/#{params[:format]}" : ""      
       build_path = connection.path_prefix + path + action_and_format
-      puts build_path.inspect
+
       response = connection(options).run_request(method, nil, nil, nil) do |request|
         case method
         when :delete, :get

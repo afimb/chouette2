@@ -33,17 +33,17 @@ module HistoryHelper
     field_set_tag t("layouts.history_tag.title"), :class => "history_tag" do
       content_tag :ul do
         [(content_tag :li do
-          if object.has_attribute?(:created_at)    
+          if object.created_at?
             t('layouts.history_tag.created_at') + ' : ' + l(object.created_at, :format => :short)
           end
         end),
         (content_tag :li do
-          if object.has_attribute?(:updated_at)    
+          if object.updated_at?
             t('layouts.history_tag.updated_at') + ' : ' + l(object.updated_at, :format => :short)
           end
         end),  
         (content_tag :li do
-           if object.has_attribute?(:user_name)
+           if object.user_name?
              t('layouts.history_tag.user_name') + ' : ' + object.user_name if  object.user_name
            end
         end)].join.html_safe
