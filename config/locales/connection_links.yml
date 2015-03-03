@@ -61,6 +61,9 @@ en:
     titles:
       connection_link:
         objectid: "[prefix]:ConnectionLink:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      hub:
+        connection_link:
+          link_distance: "At most 10000.0 meters."
 
 fr:
   connection_links:
@@ -125,4 +128,7 @@ fr:
     titles:
       connection_link:
         objectid: "[prefixe]:ConnectionLink:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      hub:
+        connection_link:
+          link_distance: "Au plus 10000.0 mètres."
 

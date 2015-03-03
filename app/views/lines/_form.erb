@@ -3,10 +3,10 @@
   <%= form.inputs do %>
     <%= form.input :network, :as => :select, :collection => Chouette::Network.all, :include_blank => false %>
     <%= form.input :company, :as => :select, :collection => Chouette::Company.all, :include_blank => false%>
-    <%= form.input :name %>
+    <%= form.input :name, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.line.name") } %>
     <%= form.input :published_name %>
-    <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles.line.registration_number")} %>
-    <%= form.input :number %>
+    <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.line.registration_number")} %>
+    <%= form.input :number, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.line.number") } %>
     <%= form.input :transport_mode, :as => :select, :collection => Chouette::Line.transport_modes, :include_blank => false, :member_label => Proc.new { |mode| t("transport_modes.label.#{mode}") }  %>
     <%= form.input :color, :as => :string %>
     <%= form.input :text_color %>
@@ -14,7 +14,7 @@
     <%= form.input :mobility_restricted_suitability, :as => :select, :collection => [[@line.human_attribute_name("accessible"), true], [@line.human_attribute_name("not_accessible"), false]], :include_blank => true %>
     <%= form.input :flexible_service, :as => :select, :collection => [[@line.human_attribute_name("on_demaond_fs"), true], [@line.human_attribute_name("regular_fs"), false]], :include_blank => true %>
     <%= form.input :comment %>
-    <%= form.input :objectid, :required => !@line.new_record?, :input_html => { :title => t("formtastic.titles.line.objectid")} %>
+    <%= form.input :objectid, :required => !@line.new_record?, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.line.objectid")} %>
     <%= form.input :group_of_line_tokens, :label => t('.group_of_lines'), :as => :text,  :input_html => { :"data-pre" => ( @line.group_of_lines.map { |group_of_line| { :id => group_of_line.id, :name => group_of_line.name } } ).to_json }  %>
 
     <div class="footnotes_block">

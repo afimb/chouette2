@@ -1,11 +1,11 @@
 <%= semantic_form_for [@referential, @line, @route, @journey_pattern] do |form| %>
   <%= form.inputs do %> 
-    <%= form.input :name %>
+    <%= form.input :name, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.journey_pattern.name") } %>
     <%= form.input :published_name %>
-    <%= form.input :registration_number %>              
+    <%= form.input :registration_number, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.journey_pattern.registration_number") } %>              
     <%= form.input :comment %>              
     <%= form.input :stop_point_ids, :label => stop_point_ids_label(@journey_pattern), :as => :check_boxes, :collection => @route.stop_points.map { |s| [s.stop_area.name, s.id.to_s]}, :input_html => (@journey_pattern.new_record? ? { :checked => 'checked' }:{}) %>              
-    <%= form.input :objectid, :required => !@journey_pattern.new_record?, :input_html => { :title => t("formtastic.titles.journey_pattern.objectid")} %>  
+    <%= form.input :objectid, :required => !@journey_pattern.new_record?, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.journey_pattern.objectid") } %>  
   <% end %>
 
    <%= form.actions do %>

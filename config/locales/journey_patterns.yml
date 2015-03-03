@@ -43,6 +43,11 @@ en:
     titles:
       journey_pattern:
         objectid: "[prefix]:JourneyPattern:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      hub:
+        journey_pattern:
+          name: "Only alphanumerical or underscore characters. Maximum length = 75."
+          registration_number: "Positif integer, unique key, of no more than 8 digits." 
+          objectid: "[prefix]:JourneyPattern:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character. Maximum length of the unique key = 30."
 
 fr:
   journey_patterns:
@@ -89,3 +94,8 @@ fr:
     titles:
       journey_pattern:
         objectid: "[prefixe]:JourneyPattern:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      hub:
+        journey_pattern:
+          name: "Caractères autorisés : alphanumériques et 'souligné'. Longueur maximale = 75."
+          registration_number: "Entier positif, clé unique, d'un maximum de 8 chiffres." 
+          objectid: "[prefixe]:JourneyPattern:[clé_unique] caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'. Longueur maximale de la clé unique = 30."

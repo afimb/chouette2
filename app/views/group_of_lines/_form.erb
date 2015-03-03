@@ -1,9 +1,9 @@
 <%= semantic_form_for [@referential, @group_of_line] do |form| %>
   <%= form.inputs do %>
-    <%= form.input :name %>
-    <%= form.input :registration_number %>
+    <%= form.input :name, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.group_of_lines.name") } %>
+    <%= form.input :registration_number, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.group_of_lines.registration_number") } %>
     <%= form.input :comment %>
-    <%= form.input :objectid, :required => !@group_of_line.new_record?, :input_html => { :title => t("formtastic.titles.group_of_line.objectid")} %>
+    <%= form.input :objectid, :required => !@group_of_line.new_record?, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.group_of_lines.objectid") } %>
   <% end %>
 
   <%= form.inputs do %>

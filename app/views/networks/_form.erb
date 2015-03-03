@@ -1,13 +1,13 @@
 <%= semantic_form_for [@referential, @network] do |form| %>
   <%= form.inputs do %> 
-    <%= form.input :name %> 
-    <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles.network.registration_number")} %>  
+    <%= form.input :name, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.network.name")} %> 
+    <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.network.registration_number")} %>
     <%= form.input :comment %>
     <%= form.input :version_date, :as => :date_picker %>
     <%= form.input :description %>              
     <%= form.input :source_name %>              
     <%= form.input :source_identifier %>              
-    <%= form.input :objectid, :required => !@network.new_record?, :input_html => { :title => t("formtastic.titles.network.objectid")} %>  
+    <%= form.input :objectid, :required => !@network.new_record?, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.network.objectid")} %>  
   <% end %>
 
    <%= form.actions do %>
