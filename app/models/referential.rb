@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 class Referential < ActiveRecord::Base
+  include DataFormatEnumerations
+
   validates_presence_of :name
   validates_presence_of :slug
   validates_presence_of :prefix
@@ -25,6 +27,8 @@ class Referential < ActiveRecord::Base
 
   belongs_to :organisation
   validates_presence_of :organisation
+
+  attr_accessible :data_format, :name, :prefix, :projection_type, :time_zone, :upper_corner, :lower_corner, :slug
 
   def slug_excluded_values
     if ! slug.nil?
@@ -202,7 +206,7 @@ Rails.application.config.after_initialize do
     end
 
     def hub_restricted?
-      referential.hub_restrictions == true
+      referential.data_format == "hub"
     end
 
     # override prefix for good prefix in objectid generation

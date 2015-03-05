@@ -86,10 +86,30 @@ en:
   formtastic:
     titles:
       line:
+        name: "Only alphanumerical or underscore characters."
         registration_number: "only alphanumerical or underscore characters"
         objectid: "[prefix]:Line:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+        number: ""
+      neptune:
+        line:
+          name: "Only alphanumerical or underscore characters."
+          registration_number: "only alphanumerical or underscore characters"
+          objectid: "[prefix]:Line:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+          number: ""
+      netex:
+        line:
+          name: "Only alphanumerical or underscore characters."
+          registration_number: "only alphanumerical or underscore characters"
+          objectid: "[prefix]:Line:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+          number: ""
+      gtfs:
+        line:
+          name: "Only alphanumerical or underscore characters."
+          registration_number: "only alphanumerical or underscore characters"
+          objectid: "[prefix]:Line:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+          number: ""
       hub:
-        company:
+        line:
           name: "Only alphanumerical or underscore characters. Maximum length = 75."
           registration_number: "Positif integer, unique key, of no more than 8 digits." 
           objectid: "[prefix]:Line:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character. Maximum length of the unique key = 14."
@@ -183,8 +203,28 @@ fr:
   formtastic:
     titles:
       line:
+        name: "Caractères autorisés : alphanumériques et 'souligné'."
         registration_number: "caractères autorisés : alphanumériques et 'souligné'"
         objectid: "[prefixe]:Line:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+        number: ""
+      neptune:
+        line:
+          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          registration_number: "caractères autorisés : alphanumériques et 'souligné'"
+          objectid: "[prefixe]:Line:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          number: ""
+      netex:
+        line:
+          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          registration_number: "caractères autorisés : alphanumériques et 'souligné'"
+          objectid: "[prefixe]:Line:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          number: ""
+      gtfs:
+        line:
+          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          registration_number: "caractères autorisés : alphanumériques et 'souligné'"
+          objectid: "[prefixe]:Line:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          number: ""
       hub:
         line:
           name: "Caractères autorisés : alphanumériques et 'souligné'. Longueur maximale = 75."

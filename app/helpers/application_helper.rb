@@ -9,7 +9,11 @@ module ApplicationHelper
   end
 
   def format_restriction_for_locales(referential)
-    referential.hub_restrictions ? ".hub" : ""
+    if referential.data_format.blank?
+      ""
+    else
+      "."+referential.data_format
+    end
   end
 
   def polymorphic_path_patch( source)

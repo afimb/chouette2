@@ -111,10 +111,48 @@ en:
   formtastic:
     titles:
       stop_area:
+        name: "Only alphanumerical or underscore characters."
         registration_number: "only alphanumerical or underscore characters" 
         objectid: "[prefix]:StopArea:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+        nearest_topic_name: ""
+        city_name: ""
+        zip_code: ""
+        comment: ""
         coordinates: "latitude,longitude in WGS84 referential, dot for decimal separator"
         projection_xy: "x,y in secondary referential, dot for decimal separator"
+      neptune:
+        stop_area:
+          name: "Only alphanumerical or underscore characters."
+          registration_number: "only alphanumerical or underscore characters" 
+          objectid: "[prefix]:StopArea:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+          nearest_topic_name: ""
+          city_name: ""
+          zip_code: ""
+          comment: ""
+          coordinates: "latitude,longitude in WGS84 referential, dot for decimal separator"
+          projection_xy: "x,y in secondary referential, dot for decimal separator"
+      netex:
+        stop_area:
+          name: "Only alphanumerical or underscore characters."
+          registration_number: "only alphanumerical or underscore characters" 
+          objectid: "[prefix]:StopArea:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+          nearest_topic_name: ""
+          city_name: ""
+          zip_code: ""
+          comment: ""
+          coordinates: "latitude,longitude in WGS84 referential, dot for decimal separator"
+          projection_xy: "x,y in secondary referential, dot for decimal separator"
+      gtfs:
+        stop_area:
+          name: "Only alphanumerical or underscore characters."
+          registration_number: "only alphanumerical or underscore characters" 
+          objectid: "[prefix]:StopArea:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+          nearest_topic_name: ""
+          city_name: ""
+          zip_code: ""
+          comment: ""
+          coordinates: "latitude,longitude in WGS84 referential, dot for decimal separator"
+          projection_xy: "x,y in secondary referential, dot for decimal separator"
       hub:
         stop_area:
           name: "Only alphanumerical or underscore characters. Maximum length = 75."
@@ -242,10 +280,48 @@ fr:
   formtastic:
     titles:
       stop_area:
+        name: "Caractères autorisés : alphanumériques et 'souligné'."
         registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
         objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+        nearest_topic_name: ""
+        city_name: ""
+        zip_code: ""
+        comment: ""
         coordinates: "latitude,longitude dans le référentiel WGS84, le séparateur de décimales est 'point'"
         projection_xy: "x,y dans le référentiel secondaire, le séparateur de décimales est 'point'"
+      neptune:
+        stop_area:
+          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
+          objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          nearest_topic_name: ""
+          city_name: ""
+          zip_code: ""
+          comment: ""
+          coordinates: "latitude,longitude dans le référentiel WGS84, le séparateur de décimales est 'point'"
+          projection_xy: "x,y dans le référentiel secondaire, le séparateur de décimales est 'point'"
+      netex:
+        stop_area:
+          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
+          objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          nearest_topic_name: ""
+          city_name: ""
+          zip_code: ""
+          comment: ""
+          coordinates: "latitude,longitude dans le référentiel WGS84, le séparateur de décimales est 'point'"
+          projection_xy: "x,y dans le référentiel secondaire, le séparateur de décimales est 'point'"
+      gtfs:
+        stop_area:
+          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
+          objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          nearest_topic_name: ""
+          city_name: ""
+          zip_code: ""
+          comment: ""
+          coordinates: "latitude,longitude dans le référentiel WGS84, le séparateur de décimales est 'point'"
+          projection_xy: "x,y dans le référentiel secondaire, le séparateur de décimales est 'point'"
       hub:
         stop_area:
           name: "Caractères autorisés : alphanumériques et 'souligné'. Longueur maximale = 75."

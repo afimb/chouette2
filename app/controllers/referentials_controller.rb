@@ -6,6 +6,12 @@ class ReferentialsController < BreadcrumbController
   respond_to :json, :only => :show
   respond_to :js, :only => :show
 
+  def new
+    new! do
+      @referential.data_format = current_organisation.data_format
+    end
+  end
+  
   def show
      resource.switch
      show! do |format|

@@ -13,7 +13,8 @@ en:
     attributes:
       organisation:
         name: "Name"
-        hub_restrictions_by_default: "Hub constraint by default"
+        data_format_restrictions_by_default: "Data format constraint by default"
+        data_format: "Data format"
         geoportail_key: "IGN Geoportail Key"
 
 fr:
@@ -31,5 +32,6 @@ fr:
     attributes:
       organisation:
         name: "Nom"
-        hub_restrictions_by_default: "Appliquer les contraintes Hub par defaut"
+        data_format_restrictions_by_default: "Appliquer les contraintes format des données par defaut"
+        data_format: "Format de données"
         geoportail_key: "Clé de l'API du Geoportail IGN"

@@ -42,7 +42,24 @@ en:
   formtastic:
     titles:
       journey_pattern:
+        name: "Only alphanumerical or underscore characters."
+        registration_number: "Positif integer." 
         objectid: "[prefix]:JourneyPattern:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      neptune:
+        journey_pattern:
+          name: "Only alphanumerical or underscore characters."
+          registration_number: "Positif integer." 
+          objectid: "[prefix]:JourneyPattern:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      netex:
+        journey_pattern:
+          name: "Only alphanumerical or underscore characters."
+          registration_number: "Positif integer." 
+          objectid: "[prefix]:JourneyPattern:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      gtfs:
+        journey_pattern:
+          name: "Only alphanumerical or underscore characters."
+          registration_number: "Positif integer." 
+          objectid: "[prefix]:JourneyPattern:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
       hub:
         journey_pattern:
           name: "Only alphanumerical or underscore characters. Maximum length = 75."
@@ -93,7 +110,24 @@ fr:
   formtastic:
     titles:
       journey_pattern:
+        name: "Caractères autorisés : alphanumériques et 'souligné'."
+        registration_number: "Entier positif." 
         objectid: "[prefixe]:JourneyPattern:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      neptune:
+        journey_pattern:
+          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          registration_number: "Entier positif." 
+          objectid: "[prefixe]:JourneyPattern:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      netex:
+        journey_pattern:
+          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          registration_number: "Entier positif." 
+          objectid: "[prefixe]:JourneyPattern:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      gtfs:
+        journey_pattern:
+          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          registration_number: "Entier positif." 
+          objectid: "[prefixe]:JourneyPattern:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
       hub:
         journey_pattern:
           name: "Caractères autorisés : alphanumériques et 'souligné'. Longueur maximale = 75."

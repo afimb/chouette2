@@ -99,6 +99,15 @@ en:
     titles:
       vehicle_journey:
         objectid: "[prefix]:VehicleJourney:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      neptune:
+        vehicle_journey:
+          objectid: "[prefix]:VehicleJourney:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      netex:
+        vehicle_journey:
+          objectid: "[prefix]:VehicleJourney:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      gtfs:
+        vehicle_journey:
+          objectid: "[prefix]:VehicleJourney:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
       hub:
         vehicle_journey:
           objectid: "[prefix]:VehicleJourney:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character. Maximum length of the unique key = 8."
@@ -204,6 +213,15 @@ fr:
     titles:
       vehicle_journey:
         objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      neptune:
+        vehicle_journey:
+          objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      netex:
+        vehicle_journey:
+          objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      gtfs:
+        vehicle_journey:
+          objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
       hub:
         vehicle_journey:
           objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'. Longueur maximale de la clé unique = 8."

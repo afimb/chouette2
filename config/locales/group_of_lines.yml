@@ -36,7 +36,24 @@ en:
   formtastic:
     titles:
       group_of_line:
+        name: "Only alphanumerical or underscore characters."
+        registration_number: "Positif integer." 
         objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      neptune:
+        group_of_line:
+          name: "Only alphanumerical or underscore characters."
+          registration_number: "Positif integer." 
+          objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      netex:
+        group_of_line:
+          name: "Only alphanumerical or underscore characters."
+          registration_number: "Positif integer." 
+          objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      gtfs:
+        group_of_line:
+          name: "Only alphanumerical or underscore characters."
+          registration_number: "Positif integer." 
+          objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
       hub:
         group_of_lines:
           name: "Only alphanumerical or underscore characters. Maximum length = 75."
@@ -81,7 +98,24 @@ fr:
   formtastic:
     titles:
       group_of_line:
+        name: "Caractères autorisés : alphanumériques et 'souligné'."
+        registration_number: "Entier positif." 
         objectid: "[prefixe]:GroupOfLine:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      neptune:
+        group_of_line:
+          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          registration_number: "Entier positif." 
+          objectid: "[prefixe]:GroupOfLine:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      netex:
+        group_of_line:
+          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          registration_number: "Entier positif." 
+          objectid: "[prefixe]:GroupOfLine:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      gtfs:
+        group_of_line:
+          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          registration_number: "Entier positif." 
+          objectid: "[prefixe]:GroupOfLine:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
       hub:
         group_of_lines:
           name: "Caractères autorisés : alphanumériques et 'souligné'. Longueur maximale = 75."

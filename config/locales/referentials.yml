@@ -66,7 +66,8 @@ en:
         export_tasks: "Exports"
         compliance_check_tasks: "Validations"
         rule_parameter_sets: "Rule parameters sets"
-        hub_restrictions: "Apply constraints specific to Hub"
+        data_format_restrictions: "Data format constraint"
+        data_format: "Data format"
   formtastic:
     titles:
       referential:
@@ -143,7 +144,8 @@ fr:
         export_tasks: "Exports"
         compliance_check_tasks: "Validations"
         rule_parameter_sets: "Jeux de paramètres"
-        hub_restrictions: "Appliquer les contraintes propres au format Hub"
+        data_format_restrictions: "Appliquer les contraintes format des données"
+        data_format: "Format de données"
   formtastic:
     titles:
       referential:
