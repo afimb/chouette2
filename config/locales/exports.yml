@@ -1,5 +1,213 @@
 en:
   exports:
+    actions:
+      new: "New export"
+      destroy: "Destroy"
+      destroy_confirm: "Are you sure you want destroy this export?"
+    new:
+      title: "New export"
+      all: "All"
+      flash: "Export task on queue, refresh page to see progression"
+      fields_gtfs_export:
+        warning: "Filter on stop areas export only GTFS stops and transfers files, these may contain extra attributes"
+    index:
+      title: "Exports"
+      warning: ""
+    show:
+      report: "Report"
+      not_yet_started: "On queue"
+      exported_file: "Exported file"
+      completed: "[ Completed ]"
+      failed: "[ Failed ]"
+      pending: "[ In the treatment queue ]"
+      processing: "[ In progress... ]"
+      graph:
+        files:
+          title_zip: "Export results for files in zip"
+          title_default: "Export result for %{extension} file"
+          error: "Errors"
+          ignored: "Ignored"
+          ok: "Success"
+        lines:
+          title: "Exported objects"
+          objects_label: "Objects count"
+          lines_stats: "Lines"
+          routes_stats: "Routes"
+          connection_links_stats: "Connection Links"
+          time_tables_stats: "Timetables"
+          stop_areas_stats: "Stop Areas"
+          access_points_stats: "Access Points"
+          vehicle_journeys_stats: "Vehicle Journeys"
+          journey_patterns_stats: "Journey Patterns"
+    statuses:
+      created: "Pending ..."
+      scheduled: "Processing ..."
+      terminated: "Completed"
+      canceled: "Canceled"
+      aborted: "Failed"
+    compliance_check_task: "Validate Report"
+    severities:
+      info: "Information"
+      uncheck: "Unchecked"
+      ok: "Ok"
+      warning: "Warning"
+      error: "Error"
+      fatal: "Fatal"
+  activerecord:
+    models:
+      export:
+        zero:  "export"
+        one:   "export"
+        other: "exports"
+      neptune_export:
+        zero:  "export"
+        one:   "Neptune export"
+        other: "exports"
+      csv_export:
+        zero:  "export"
+        one:   "CSV export"
+        other: "exports"
+      gtfs_export:
+        zero:  "export"
+        one:   "GTFS export"
+        other: "exports"
+      netex_export:
+        zero:  "export"
+        one:   "NeTEx export"
+        other: "exports"
+    attributes:
+      export:
+        resources: "File to export"
+        created_at: "Created on"
+        status: "Status"
+        references_type: "subset"
+        no_save: "No save"
+        rule_parameter_set_id: "Rule parameter set for compliance check"
+        object_id_prefix: "Neptune Id prefix"
+        max_distance_for_commercial: "Max distance for commercial stop"
+        max_distance_for_connection_link: "Max distance for connection link"
+        ignore_last_word: "ignore last word"
+        ignore_end_chars: "ignore last chars"
+  formtastic:
+    titles:
+      export:
+        max_distance_for_commercial: "Maximal distance to merge homonymous stops in commercial stop in meter"
+        max_distance_for_connection_link: "Maximal distance to link stops by connection link stop in meter"
+        ignore_last_word: "ignore last word on stop name in homonymous detection (inappliable when just one word occurs)"
+        ignore_end_chars: "ignore some chars at the end of stop names in homonymous detection"
+fr:
+  exports:
+    actions:
+      new: "Nouvel export"
+      destroy: "Supprimer cet export"
+      destroy_confirm: "Etes vous sûr de supprimer cet export ?"
+    new:
+      title: "Nouvel export"
+      all: "Tout"
+      flash: "La demande d'export est mise en file d'attente, veuillez rafraichir régulièrement la page pour en suivre la progression"
+      fields_gtfs_export:
+        warning: "Le filtre sur arrêts exporte uniquement les fichiers GTFS stops et transfers gtfs, ceux-ci pouvant contenir des attributs supplémentaires"
+    index:
+      title: "Exports"
+      warning: ""
+    show:
+      report: "Rapport"
+      not_yet_started: "En file d'attente"
+      exported_file: "Fichier exporté"
+      completed: "[ Terminé ]"
+      failed: "[ Echoué ]"
+      pending: "[ En file d'attente ]"
+      processing: "[ En progression... ]"
+      graph:
+        files:
+          title_zip: "Résultat d'export des fichiers du zip"
+          title_default: "Résultat d'export du fichier %{extension}"
+          error: "Erreurs"
+          ignored: "Ignorés"
+          ok: "Succès"
+        lines:
+          title: "Volume de données lues par type de donnée"
+          objects_label: "Quantité lue"
+          lines_stats: "Lignes"
+          routes_stats: "Séquences d'arrêts"
+          connection_links_stats: "Correspondances"
+          time_tables_stats: "Calendriers"
+          stop_areas_stats: "Zones d'arrèt"
+          access_points_stats: "Accès"
+          vehicle_journeys_stats: "Courses"
+          journey_patterns_stats: "Missions"
+      table:
+        line:
+          name: "Nom"
+          save: "Sauvegarde"
+          routes: "Séquences d'arrêts"
+          connection_links: "Correspondances"
+          time_tables: "Calendriers"
+          stop_areas: "Zones d'arrèt"
+          access_points: "Accès"
+          vehicle_journeys: "Courses"
+          journey_patterns: "Missions"
+          not_saved: "Non Sauvé"
+          saved: "Sauvé"
+          save_error: "Sauvegarde en erreur"
+    statuses:
+      created: "En attente ..."
+      scheduled: "En cours ..."
+      terminated: "Achevé"
+      canceled: "Annulé"
+      aborted: "Echoué"
+    compliance_check_task: "Validation"
+    severities:
+      info: "Information"
+      uncheck: "Non testé"
+      ok: "Ok"
+      warning: "Alerte"
+      error: "Erreur"
+      fatal: "Fatal"
+  activerecord:
+    models:
+      export:
+        zero:  "export"
+        one:   "export"
+        other: "exports"
+      neptune_export:
+        zero:  "export"
+        one:   "export Neptune"
+        other: "exports"
+      csv_export:
+        zero:  "export"
+        one:   "export CSV"
+        other: "exports"
+      gtfs_export:
+        zero:  "export"
+        one:   "export GTFS"
+        other: "exports"
+      netex_export:
+        zero:  "export"
+        one:   "export NeTEx"
+        other: "exports"
+    attributes:
+      export:
+        resources: "Fichier à exporter"
+        created_at: "Créé le"
+        status: "Status"
+        no_save: "Pas de sauvegarde"
+        references_type: "Sous ensemble"
+        rule_parameter_set_id: "Jeu de paramètres pour validation"
+        object_id_prefix: "Préfixe d'identifiants"
+        max_distance_for_commercial: "Distance max pour créer les zones"
+        max_distance_for_connection_link: "Distance max pour créer les correspondances"
+        ignore_last_word: "ignorer le dernier mot"
+        ignore_end_chars: "ignorer les n derniers caractères"
+  formtastic:
+    titles:
+      export:
+        max_distance_for_commercial: "Distance maximale entre deux arrêts homonymes pour créer les zones d'arrêt (en mètre)"
+        max_distance_for_connection_link: "Distance maximale entre deux arrêts pour créer les correspondances (en mètre)"
+        ignore_last_word: "Ignorer le dernier mot pour détecter l'homonymie des noms d'arrêt (inapplicable quand le nom ne comporte qu'un mot)"
+        ignore_end_chars: "Ignorer les n derniers caractères du nom de l'arrêt pour détecter l'homonymie"
+en:
+  exports:
     export:
       exported_file: "Exported file"
     actions:
@@ -117,8 +325,8 @@ en:
       export:
         time_zone: "according to TZ  encoding (see http://en.wikipedia.org/wiki/Tz_database)"
         object_id_prefix: "when prefix has this value, it will be removed to build GTFS id"
-        start_date: "reduce import to vehicle journeys running from this date"
-        end_date: "reduce import to vehicle journeys running until this date"
+        start_date: "reduce export to vehicle journeys running from this date"
+        end_date: "reduce export to vehicle journeys running until this date"
         vjas:
           size: "HUB export not allowed. The number of vehicle journeys at stops (%{size}) is greater than 50000."
         dates:
