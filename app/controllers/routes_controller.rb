@@ -9,7 +9,7 @@ class RoutesController < ChouetteController
     belongs_to :line, :parent_class => Chouette::Line, :optional => true, :polymorphic => true
   end
 
-  def index     
+  def index
     index! do |format|
       format.html { redirect_to referential_line_path(@referential,@line) }
     end
@@ -28,16 +28,15 @@ class RoutesController < ChouetteController
       render "edit_boarding_alighting"
     end
   end
-  
+
   def show
     @map = RouteMap.new(route).with_helpers(self)
-    @stop_points = route.stop_points.paginate(:page => params[:page])
     show! do
       build_breadcrumb :show
     end
   end
 
-  # overwrite inherited resources to use delete instead of destroy 
+  # overwrite inherited resources to use delete instead of destroy
   # foreign keys will propagate deletion)
   def destroy_resource(object)
     object.delete
@@ -52,6 +51,7 @@ class RoutesController < ChouetteController
   def create
     create! do |success, failure|
       success.html { redirect_to referential_line_path(@referential,@line) }
+      failure.html { flash[:alert] = route.errors[:flash]; render :action => :new }
     end
   end
 
@@ -66,7 +66,7 @@ class RoutesController < ChouetteController
 
   def collection
     @q = parent.routes.search(params[:q])
-    @routes ||= 
+    @routes ||=
       begin
         routes = @q.result(:distinct => true).order(:name)
         routes = routes.paginate(:page => params[:page]) if @per_page.present?

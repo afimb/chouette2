@@ -1,36 +1,48 @@
 <!-- <%= @line.errors.inspect %> -->
 <%= semantic_form_for [@referential, @line] do |form| %>
-  <%= form.inputs do %> 
-    <%= form.input :network, :as => :select, :collection => Chouette::Network.all, :include_blank => false %> 
+  <%= form.inputs do %>
+    <%= form.input :network, :as => :select, :collection => Chouette::Network.all, :include_blank => false %>
     <%= form.input :company, :as => :select, :collection => Chouette::Company.all, :include_blank => false%>
-    <%= form.input :name %>
+    <%= form.input :name, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.line.name") } %>
     <%= form.input :published_name %>
-    <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles.line.registration_number")} %>  
-    <%= form.input :number %>
+    <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.line.registration_number")} %>
+    <%= form.input :number, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.line.number") } %>
     <%= form.input :transport_mode, :as => :select, :collection => Chouette::Line.transport_modes, :include_blank => false, :member_label => Proc.new { |mode| t("transport_modes.label.#{mode}") }  %>
     <%= form.input :color, :as => :string %>
     <%= form.input :text_color %>
     <%= form.input :url %>
     <%= form.input :mobility_restricted_suitability, :as => :select, :collection => [[@line.human_attribute_name("accessible"), true], [@line.human_attribute_name("not_accessible"), false]], :include_blank => true %>
     <%= form.input :flexible_service, :as => :select, :collection => [[@line.human_attribute_name("on_demaond_fs"), true], [@line.human_attribute_name("regular_fs"), false]], :include_blank => true %>
-    <%= form.input :comment %>              
-    <%= form.input :objectid, :required => !@line.new_record?, :input_html => { :title => t("formtastic.titles.line.objectid")} %>  
-  <% end %>
-
-  <%= form.inputs do %> 
+    <%= form.input :comment %>
+    <%= form.input :objectid, :required => !@line.new_record?, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.line.objectid")} %>
     <%= form.input :group_of_line_tokens, :label => t('.group_of_lines'), :as => :text,  :input_html => { :"data-pre" => ( @line.group_of_lines.map { |group_of_line| { :id => group_of_line.id, :name => group_of_line.name } } ).to_json }  %>
+
+    <div class="footnotes_block">
+      <h3><%= t("footnotes.index.title") %></h3>
+      <div id="footnotes">
+        <%= form.semantic_fields_for :footnotes do |f| %>
+          <%= render "footnotes/footnote_fields",  :f => f %>
+        <% end %>
+      </div>
+      <div class="add_footnote">
+        <%= link_to_add_association t("footnotes.actions.add_footnote"), form, :footnotes ,
+      :partial => "footnotes/footnote_fields",
+	  :"data-association-insertion-method" => "append",
+	  :"data-association-insertion-node" => "div#footnotes", :class => "add" %>
+      </div>
+    </div>
   <% end %>
 
    <%= form.actions do %>
-     <%= form.action :submit, :as => :button %> 
+     <%= form.action :submit, :as => :button %>
      <%= form.action :cancel, :as => :link %>
    <% end %>
 <% end %>
 
 <script>
 	$(function() {
-          $( "#line_group_of_line_tokens" ).tokenInput('<%= name_filter_referential_group_of_lines_path(@referential, :format => :json) %>', { 
-       crossDomain: false, 
+          $( "#line_group_of_line_tokens" ).tokenInput('<%= name_filter_referential_group_of_lines_path(@referential, :format => :json) %>', {
+       crossDomain: false,
        prePopulate: $('#group_of_line_tokens').data('pre'),
        minChars: 3,
        preventDuplicates: true,

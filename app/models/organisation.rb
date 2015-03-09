@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 class Organisation < ActiveRecord::Base
   include DataFormatEnumerations
-
+  
   has_many :users, :dependent => :destroy
   has_many :referentials, :dependent => :destroy
   has_many :rule_parameter_sets, :dependent => :destroy

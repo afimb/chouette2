@@ -4,7 +4,7 @@
     <%= form.input :name %>
     <%= form.input :connection_link_type, :as => :select, :collection => Chouette::ConnectionLink.connection_link_types, :include_blank => false, :member_label => Proc.new { |type| t("connection_link_types.label.#{type}") }  %>
     <%= form.input :comment %>  
-    <%= form.input :link_distance %>
+    <%= form.input :link_distance, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.connection_link.link_distance") } %>
       <%= form.input :mobility_restricted_suitability,:as => :boolean %>
     <%= form.input :stairs_availability,:as => :boolean %>
     <%= form.input :lift_availability,:as => :boolean %>

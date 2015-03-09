@@ -10,12 +10,13 @@ class CreateOrganisation < ActiveRecord::Migration
     change_table :users do |u|
       u.belongs_to :organisation
     end
-    Referential.reset_column_information
-    User.reset_column_information
 
-    organisation = Organisation.first_or_create(:name => "Chouette")
-    Referential.update_all :organisation_id => organisation.id
-    User.update_all :organisation_id => organisation.id
+    # Referential.reset_column_information
+    # User.reset_column_information
+
+    # organisation = Organisation.first_or_create(:name => "Chouette")
+    # Referential.update_all :organisation_id => organisation.id
+    # User.update_all :organisation_id => organisation.id
   end
 
   def down

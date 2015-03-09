@@ -19,6 +19,9 @@ namespace :stats do
         1.upto(12) do |i|
           stats << class_for_stat.all.select {|o| o.created_at.month==i && o.created_at.year==2014}.count
         end
+        1.upto(12) do |i|
+          stats << class_for_stat.all.select {|o| o.created_at.month==i && o.created_at.year==2015}.count
+        end
         s.puts stats.join(",")
       end
     end

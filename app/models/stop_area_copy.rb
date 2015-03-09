@@ -6,13 +6,13 @@ class StopAreaCopy
   extend  ActiveModel::Naming
 
   attr_accessor :source_id, :hierarchy, :area_type, :source, :copy
-  
-  validates_presence_of :source_id, :hierarchy, :area_type
-  
-  validates :hierarchy, inclusion: { in: %w(child parent) }
-    
 
-  def initialize(attributes = {})    
+  validates_presence_of :source_id, :hierarchy, :area_type
+
+  validates :hierarchy, inclusion: { in: %w(child parent) }
+
+
+  def initialize(attributes = {})
     attributes.each { |name, value| send("#{name}=", value) } if attributes
     if self.area_type.blank? && self.source != nil
       self.source_id = self.source.id
@@ -31,7 +31,7 @@ class StopAreaCopy
       end
     end
   end
-  
+
   def persisted?
     false
   end
@@ -86,6 +86,5 @@ class StopAreaCopy
       false
     end
   end
-  
   
 end

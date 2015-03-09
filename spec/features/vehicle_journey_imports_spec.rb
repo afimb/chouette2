@@ -30,10 +30,10 @@ describe "VehicleJourneyImports", :type => :feature do
             row2 << cell
           end
           csv << row2
-        elsif  counter < 7
+        elsif  counter < 8
           csv << row
         else
-          csv << ( row[0] = route.stop_points[counter - 7].id; row)          
+          csv << ( row[0] = route.stop_points[counter - 8].id; row)          
         end
         counter += 1
       end

@@ -111,11 +111,13 @@ gem 'google-analytics-rails'
 gem 'will_paginate', '~> 3.0.7'
 gem 'ransack'
 gem 'squeel'
+
 gem 'enumerize', '~> 0.10.0'
 
 gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git', :branch => "rails4"
 #gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git'
 #gem 'ninoxe',:path => '~/Projets/cityway/ninoxe'
+#gem 'ninoxe', '1.1.5'
 
 gem 'acts_as_list', '~> 0.6.0'
 gem "acts_as_tree", '~> 2.1.0', :require => "acts_as_tree"

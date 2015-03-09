@@ -14,7 +14,6 @@ en:
     index:
       title: "Companies"
       name: "Search by name"
-
   activerecord:
     models:
       company:
@@ -41,8 +40,29 @@ en:
   formtastic:
     titles:
       company:
+        name: "Only alphanumerical or underscore characters."
         registration_number: "only alphanumerical or underscore characters "
         objectid: "[prefix]:Company:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      neptune:
+        company:
+          name: "Only alphanumerical or underscore characters."
+          registration_number: "only alphanumerical or underscore characters "
+          objectid: "[prefix]:Company:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      netex:
+        company:
+          name: "Only alphanumerical or underscore characters."
+          registration_number: "only alphanumerical or underscore characters "
+          objectid: "[prefix]:Company:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      gtfs:
+        company:
+          name: "Only alphanumerical or underscore characters."
+          registration_number: "only alphanumerical or underscore characters "
+          objectid: "[prefix]:Company:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      hub:
+        company:
+          name: "Only alphanumerical or underscore characters. Maximum length = 75."
+          registration_number: "Positif integer, unique key, of no more than 8 digits." 
+          objectid: "[prefix]:Company:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character. Maximum length of the unique key = 3."
 
 fr:
   companies:
@@ -60,7 +80,6 @@ fr:
     index:
       title: "Transporteurs"
       name: "Recherche par nom"
-
   activerecord:
     models:
       company: 
@@ -87,6 +106,28 @@ fr:
   formtastic:
     titles:
       company:
+        name: "Caractères autorisés : alphanumériques et 'souligné'."
         registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
         objectid: "[prefixe]:Company:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      neptune:
+        company:
+          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
+          objectid: "[prefixe]:Company:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      netex:
+        company:
+          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
+          objectid: "[prefixe]:Company:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      gtfs:
+        company:
+          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
+          objectid: "[prefixe]:Company:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      hub:
+        company:
+          name: "Caractères autorisés : alphanumériques et 'souligné'. Longueur maximale = 75."
+          registration_number: "Entier positif, clé unique, d'un maximum de 8 chiffres." 
+          objectid: "[prefixe]:Company:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'. Longueur maximale de la clé unique = 3."
+
 

@@ -3,8 +3,9 @@ require 'spec_helper'
 
 describe VehicleJourneyExport, :type => :model do
   
-  let!(:route) { create(:route) }
-  let!(:other_route) { create(:route) }
+  let!(:line) { create(:line) }
+  let!(:route) { create(:route, :line => line) }
+  let!(:other_route) { create(:route, :line => line) }
 
   let!(:journey_pattern) { create(:journey_pattern, :route => route) }
   let!(:other_journey_pattern) { create(:journey_pattern_even, :route => route) }

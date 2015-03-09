@@ -12,12 +12,18 @@ module ReferentialHelper
   end
 
   module ClassMethods
-
+    
     def assign_referential
       before(:each) do
         assign :referential, referential
       end
     end
+    def assign_organisation
+      before(:each) do
+        assign :organisation, referential.organisation
+      end
+    end
+
 
   end
 

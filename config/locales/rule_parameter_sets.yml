@@ -8,6 +8,8 @@ en:
       destroy_confirm: "Are you sure you want destroy this rule parameter set ?"
     new:
       title: "Add a new parameter set"
+    destroy:
+      last_rps_protected: "Delete refused. Last rule parameter set in current referential can't be destroyed."
     edit:
       title: "Update parameter set %{rule_parameter_set}"
     form:
@@ -66,7 +68,7 @@ en:
         check_lines_in_groups: "check if each line belongs scrictly to one group of line"
         check_line_routes:  "check if each line have 1 route or 2 routes coupled"
         check_stop_parent:  "check if all physical stop areas are owned by a commercial stop point"
-        check_connection_link_on_physical: "check if connection links connect only physical stops" 
+        check_connection_link_on_physical: "check if connection links connect only physical stops"
         check_allowed_transport_modes: "Check transport modes"
         allowed_transport: "Allowed"
         attribute: "attribute"
@@ -89,6 +91,8 @@ fr:
       add_mode_parameter_set: "Ajouter les paramètres spécifiques à un mode"
     edit:
       title: "Modifier le jeu de paramètres %{rule_parameter_set}"
+    destroy:
+      last_rps_protected: "Suppresion impossible. L'espace de données doit compter au minimum un jeu de paramètres."
     show:
       title: "Jeu de paramètres %{rule_parameter_set}"
       max_distance: "Distance maximum entre : "

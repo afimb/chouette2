@@ -29,6 +29,8 @@ class Referential < ActiveRecord::Base
   belongs_to :organisation
   validates_presence_of :organisation
 
+  attr_accessible :data_format, :name, :prefix, :projection_type, :time_zone, :upper_corner, :lower_corner, :slug, :organisation
+
   def slug_excluded_values
     if ! slug.nil?
       if slug.start_with? "pg_"
@@ -149,11 +151,6 @@ class Referential < ActiveRecord::Base
     Apartment::Tenant.drop slug
   end
 
-  after_create :add_rule_parameter_set
-  def add_rule_parameter_set
-    RuleParameterSet.default_for_all_modes( self).save
-  end
-
   def upper_corner
     envelope.upper_corner
   end
@@ -209,12 +206,28 @@ Rails.application.config.after_initialize do
       @referential ||= Referential.where(:slug => Apartment::Tenant.current_tenant).first!
     end
 
+    def hub_restricted?
+      referential.data_format == "hub"
+    end
+
     # override prefix for good prefix in objectid generation
     def prefix
       self.referential.prefix
     end
 
   end
+
+  # Hub constraints
+  Chouette::Route; class Chouette::Route; include NinoxeExtension::Hub::RouteRestrictions; end
+  Chouette::JourneyPattern; class Chouette::JourneyPattern; include NinoxeExtension::Hub::JourneyPatternRestrictions; end
+  Chouette::VehicleJourney; class Chouette::VehicleJourney; include NinoxeExtension::Hub::VehicleJourneyRestrictions; end
+  Chouette::TimeTable; class Chouette::TimeTable; include NinoxeExtension::Hub::TimeTableRestrictions; end
+  Chouette::ConnectionLink; class Chouette::ConnectionLink; include NinoxeExtension::Hub::ConnectionLinkRestrictions; end
+  Chouette::StopArea; class Chouette::StopArea; include NinoxeExtension::Hub::StopAreaRestrictions; end
+  Chouette::Line; class Chouette::Line; include NinoxeExtension::Hub::LineRestrictions; end
+  Chouette::GroupOfLine; class Chouette::GroupOfLine; include NinoxeExtension::Hub::GroupOfLineRestrictions; end
+  Chouette::Company; class Chouette::Company; include NinoxeExtension::Hub::CompanyRestrictions; end
+  Chouette::Network; class Chouette::Network; include NinoxeExtension::Hub::NetworkRestrictions; end
 
   Chouette::TimeTable
 

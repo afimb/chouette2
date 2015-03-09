@@ -11,8 +11,9 @@
     <%= form.input :status_value %>
     <%= form.input :facility %>
     <%= form.input :vehicle_type_identifier%>
-    <%= form.input :objectid, :required => !@vehicle_journey.new_record?, :input_html => { :title => t("formtastic.titles.vehicle_journey.objectid")} %>
+    <%= form.input :objectid, :required => !@vehicle_journey.new_record?, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.vehicle_journey.objectid")} %>
     <%= form.input :time_table_tokens, :label => t('.time_tables'), :as => :search_time_table, :json => referential_autocomplete_time_tables_path(@referential, :format => :json), :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'),  :input_html => { :"data-pre" => Rabl::Renderer.new( 'autocomplete_time_tables/index', @vehicle_journey.time_tables, :view_path => 'app/views', :format => :json, :scope => :self ).render }  %>
+    <%= form.input :footnote_ids, :as => :check_boxes, :collection => @line.footnotes.map { |f| [ "#{f.code}: #{f.label}", f.id.to_s]} %>
     <li class="input">
 	    <%= form.label @vehicle_journey.human_attribute_name(:vehicle_journey_at_stop_ids), :class => "label" %>
     </li>
@@ -50,7 +51,7 @@
 	      :collection => @vehicle_journey.vehicle_journey_at_stops, :as => :vehicle_journey_at_stop, :locals => { :vehicle_journey_at_stops_size => @vehicle_journey.vehicle_journey_at_stops.size } %>
 
       </tbody>
-    </table>
+    </table>    
 
   <% end %>
 

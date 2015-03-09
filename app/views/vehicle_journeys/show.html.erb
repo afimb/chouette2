@@ -68,6 +68,14 @@
       <label><%= @vehicle_journey.human_attribute_name("vehicle_type_identifier") %>: </label>
       <%= @vehicle_journey.vehicle_type_identifier %>
     </p>
+        <p>
+      <label><%= @vehicle_journey.human_attribute_name("footnote_ids") %>: </label>
+      <ul>
+        <% @vehicle_journey.footnotes.each do |footnote| %>
+        <li><%= footnote.code %> : <%= footnote.label %></li>          
+      <% end %>
+      </ul>
+    </p>
   </div>
 </div>
 <h3><%= @vehicle_journey.human_attribute_name(:vehicle_journey_at_stop_ids) %></h3>

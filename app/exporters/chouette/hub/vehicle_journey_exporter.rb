@@ -1,6 +1,6 @@
 class Chouette::Hub::VehicleJourneyExporter
   include ERB::Util
-  attr_accessor :vehicle_journey, :directory, :template
+  attr_accessor :vehicle_journey, :directory, :template, :renvoi
   
   def initialize(vehicle_journey, directory, index)
     @vehicle_journey = vehicle_journey
@@ -36,15 +36,28 @@ class Chouette::Hub::VehicleJourneyExporter
     unless periods.empty?
       periods.each { |p| @periods += "|" + p.sub(/(\w*\:\w*\:)(\w*)/, '\2') }
     end
-    # USE @renvoi for PMR and TAD and create RENVOI.TXT File
+
     @renvoi = ""
+    # USE @renvoi for PMR and create RENVOI.TXT File
     if @vehicle_journey.mobility_restricted_suitability || @line.mobility_restricted_suitability
-      @renvoi = "1"
+      @number += 1
+      @renvoi = "#{@number}"
       File.open(directory + "/RENVOI.TXT" , "a:Windows_1252") do |f|
-        if f.size == 0
-          f.write("RENVOI\u000D\u000A") 
-          f.write("a;PMR;1\u000D\u000A")
-        end
+        f.write("RENVOI\u000D\u000A") if f.size == 0
+        f.write("p;PMR;#{number}\u000D\u000A")
+      end
+    end
+    
+    @vehicle_journey.footnotes.each do |footnote|
+      @number += 1
+      if @renvoi
+        @renvoi += "|#{@number}"
+      else
+        @renvoi = "#{@number}"
+      end
+      File.open(directory + "/RENVOI.TXT" , "a:Windows_1252") do |f|
+        f.write("RENVOI\u000D\u000A") if f.size == 0
+        f.write("#{footnote.code};#{footnote.label};#{@number}\u000D\u000A")
       end
     end
   end
@@ -58,6 +71,7 @@ class Chouette::Hub::VehicleJourneyExporter
   end
   
   def self.save( vehicle_journeys, directory, hub_export)
+    @number = 0
     vehicle_journeys.each_index do |index|
       self.new( vehicle_journeys[index], directory, index).tap do |specific_exporter|
         specific_exporter.save

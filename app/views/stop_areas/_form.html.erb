@@ -2,23 +2,23 @@
   <div class="row">
     <div class="col-md-6">
       <%= form.inputs do %>
-      <%= form.input :id, :as => :hidden %>
-      <%= form.input :name %>
-      <%= form.input :stop_area_type, :as => :select, :input_html => { :disabled => !@stop_area.new_record? }, :collection => Chouette::StopArea.stop_area_types, :include_blank => false, :member_label => Proc.new { |stop_area_type| t("area_types.label.#{stop_area_type}") }  %>
-      <div class="location_info">
-      <h3><%= t("stop_areas.stop_area.localisation") %></h3>
-      <div id="prefetch">
+        <%= form.input :id, :as => :hidden %>
+        <%= form.input :name, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.stop_area.name")} %>
+        <%= form.input :stop_area_type, :as => :select, :input_html => { :disabled => !@stop_area.new_record? }, :collection => Chouette::StopArea.stop_area_types, :include_blank => false, :member_label => Proc.new { |stop_area_type| t("area_types.label.#{stop_area_type}") }  %>
+        <div class="location_info">
+          <h3><%= t("stop_areas.stop_area.localisation") %></h3>
+        <div id="prefetch">
         <label><%= t('.geolocalize') %></label>
 	      <input class="typeahead form-control input-lg" maxlength="255" type="text" placeholder="<%= t('.address') %>" />
       </div>
       <% unless @referential.projection_type_label.empty? %>
-  	    <%= form.input :projection_xy, :label => t("projection_xy", :projection => @referential.projection_type_label), :input_html => { :title => t("formtastic.titles.stop_area.projection_xy")} %>
+  	    <%= form.input :projection_xy, :label => t("projection_xy", :projection => @referential.projection_type_label), :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.stop_area.projection_xy")} %>
 	    <% end %>
-	    <%= form.input :coordinates, :input_html => { :title => t("formtastic.titles.stop_area.coordinates")} %>
+	    <%= form.input :coordinates, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.stop_area.coordinates")} %>
       <%= form.input :street_name %>
       <%= form.input :country_code %>
-      <%= form.input :zip_code %>
-      <%= form.input :city_name %>
+      <%= form.input :zip_code, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.stop_area.zip_code")} %>
+      <%= form.input :city_name, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.stop_area.city_name")} %>
     <% end %>
     </div>
     <div class="col-md-6">
@@ -30,11 +30,11 @@
   <div class="stop_areas.stop_area.general_info">
     <h3><%= t("stop_area.general") %></h3>
     <%= form.inputs do %>
-      <%= form.input :objectid, :required => !@stop_area.new_record?, :input_html => { :title => t("formtastic.titles.stop_area.objectid")} %>
-      <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles.stop_area.registration_number")} %>
+      <%= form.input :objectid, :required => !@stop_area.new_record?, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.stop_area.objectid")} %>
+      <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.stop_area.registration_number")} %>
       <%= form.input :fare_code, :as => :number %>
-      <%= form.input :nearest_topic_name %>
-      <%= form.input :comment, :as => :text, :input_html => { :rows => 5 } %>
+      <%= form.input :nearest_topic_name, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.stop_area.nearest_topic_name")} %>
+      <%= form.input :comment, :as => :text, :input_html => { :rows => 5,  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.stop_area.comment") } %>
       <%= form.input :time_zone,  :include_blank => true  %>
       <%= form.input :url %>
     <% end %>

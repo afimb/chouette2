@@ -14,7 +14,6 @@ en:
     index:
       title: "Networks"
       name: "Search by name"
-
   activerecord:
     models:
       network: 
@@ -38,8 +37,29 @@ en:
   formtastic:
     titles:
       network:
+        name: "Only alphanumerical or underscore characters."
         registration_number: "only alphanumerical or underscore characters"
         objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      neptune:
+        network:
+          name: "Only alphanumerical or underscore characters."
+          registration_number: "only alphanumerical or underscore characters"
+          objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      netex:
+        network:
+          name: "Only alphanumerical or underscore characters."
+          registration_number: "only alphanumerical or underscore characters"
+          objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      gtfs:
+        network:
+          name: "Only alphanumerical or underscore characters."
+          registration_number: "only alphanumerical or underscore characters"
+          objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      hub:
+        network:
+          name: "Only alphanumerical or underscore characters. Maximum length = 75."
+          registration_number: "Positif integer, unique key, of no more than 8 digits." 
+          objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character. Maximum length of the unique key = 3."
 
 fr:
   networks:
@@ -80,6 +100,27 @@ fr:
   formtastic:
     titles:
       network:
+        name: "Caractères autorisés : alphanumériques et 'souligné'."
         registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
         objectid: "[prefixe]:GroupOfLine:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      neptune:
+        network:
+          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
+          objectid: "[prefixe]:GroupOfLine:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      netex:
+        network:
+          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
+          objectid: "[prefixe]:GroupOfLine:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      gtfs:
+        network:
+          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
+          objectid: "[prefixe]:GroupOfLine:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      hub:
+        network:
+          name: "Caractères autorisés : alphanumériques et 'souligné'. Longueur maximale = 75."
+          registration_number: "Entier positif, clé unique, d'un maximum de 8 chiffres." 
+          objectid: "[prefixe]:GroupOfLine:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'. Longueur maximale de la clé unique = 3."
 

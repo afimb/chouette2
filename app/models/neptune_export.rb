@@ -1,4 +1,4 @@
-# class NeptuneExport < Export
+class NeptuneExport < Export
 
 #   option :start_date
 #   option :end_date
@@ -17,4 +17,4 @@
 #     end
 #   end
 
-# end
+end

@@ -4,6 +4,7 @@
 ;PMR (O(ui)|N(on)|vide si inconnu);Oui;;
 ;TAD (O(ui)|N(on)|vide si inconnu);Oui;;
 ;calendriers;;;;
+;notes de bas de page;;;;
 id arrêt;nom arrêt;;;
 1;Arrêt 1;invalid time;10:05:00;11:10:00
 2;Arrêt 2;9:05:00;;11:15:00

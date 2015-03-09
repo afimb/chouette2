@@ -8,10 +8,19 @@ module ApplicationHelper
     @referential.present? and not @referential.new_record?
   end
 
+  def format_restriction_for_locales(referential)
+    if referential.data_format.blank?
+      ""
+    else
+      "."+referential.data_format
+    end
+  end
+
   def polymorphic_path_patch( source)
     relative_url_root = Rails.application.config.relative_url_root
     relative_url_root && !source.starts_with?("#{relative_url_root}/") ? "#{relative_url_root}#{source}" : source
   end
+  
   def assets_path_patch( source)
     relative_url_root = Rails.application.config.relative_url_root
     return "/assets/#{source}" unless relative_url_root

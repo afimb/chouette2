@@ -1,11 +1,17 @@
 class ReferentialsController < BreadcrumbController
 
   defaults :resource_class => Referential
-  
+
   respond_to :html
   respond_to :json, :only => :show
   respond_to :js, :only => :show
 
+  def new
+    new! do
+      @referential.data_format = current_organisation.data_format
+    end
+  end
+  
   def show
      resource.switch
      show! do |format|
@@ -17,7 +23,7 @@ class ReferentialsController < BreadcrumbController
                 :referential_id => resource.id}
        }
        format.html { build_breadcrumb :show}
-       
+
      end
   end
 

@@ -7,7 +7,7 @@
     <%= form.input :opposite_route, :as => :select, :collection => @line.routes.select { |r| r.id != @route.id } %>
     <%= form.input :direction_code, :as => :select, :collection => Chouette::Route.directions, :include_blank => false, :member_label => Proc.new { |mode| t("directions.label.#{mode}") } %>
     <%= form.input :wayback_code, :as => :select, :collection => Chouette::Route.waybacks, :include_blank => false, :member_label => Proc.new { |mode| t("waybacks.label.#{mode}") } %>
-    <%= form.input :objectid, :required => !@route.new_record?, :input_html => { :title => t("formtastic.titles.route.objectid")}%>
+    <%= form.input :objectid, :required => !@route.new_record?, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.route.objectid")} %>
   <% end %>
 	<div id="stop_points">
 		<%= form.semantic_fields_for :stop_points, :include_id => false, :label => "TOTO" do |p| %>

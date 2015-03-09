@@ -105,3 +105,5 @@ p. En cas d'erreur, la localisation est fournie dans la colonne 'Détail':
 * pour les tests de la phase 3, par un lien vers la page de consultation de l'objet en base qui est en erreur.
 
 p(border_image). !validation_location.png!
+
+p. Un bouton à droite permet d'exporter l'ensemble du rapport de validation au format CSV pour usage externe.

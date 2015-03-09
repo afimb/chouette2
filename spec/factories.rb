@@ -70,6 +70,6 @@ FactoryGirl.define do
     referential { Referential.find_by_slug("first") }
   end
 
-  factory :time_table_combination 
+  factory :time_table_combination
 
 end

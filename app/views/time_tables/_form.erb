@@ -1,11 +1,11 @@
 <%= semantic_form_for [@referential, @time_table] do |form| %>
   <%= form.inputs do %> 
-    <%= form.input :comment %>
+    <%= form.input :comment, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.time_table.comment")} %>
     <%= form.input :version %>    
     <%= form.input :tag_search, :as => :tags, :input_html => { :id => "tag_search",:placeholder => t("formtastic.placeholders.time_table.tag_search") } %>
     <%= form.input :tag_list, :as => :hidden, :input_html => { :id => "tag_list" } %>
     
-    <%= form.input :objectid, :required => !@time_table.new_record?, :input_html => { :title => t("formtastic.titles.time_table.objectid")} %>
+    <%= form.input :objectid, :required => !@time_table.new_record?, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.time_table.objectid")} %>
   <% end %>
   
   <h3 class="time_table_periods"><%= @time_table.human_attribute_name("periods") %></h3>

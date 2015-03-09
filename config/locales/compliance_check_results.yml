@@ -2,15 +2,17 @@ en:
   compliance_check_results:
     file:
       zip_name_prefix: "compliance_check_results"
-      summary_errors_file_prefix: "summary_errors_index.csv"
-      detailed_errors_file_prefix: "detailed_errors_index.csv"
+      summary_errors_file_prefix: "summary_of_tests.csv"
+      detailed_errors_file_prefix: "detail_of_errors.csv"
     index:
       line: "Li"
       column: "Col"
   compliance_check_result:
     severities:
-      error: "Obligatory Tests"
-      warning: "Optionnal Tests"
+      error: "Required"
+      warning: "Optional"
+      error_txt: "Required"
+      warning_txt: "Optional"
     statuses:
       nok: "Error"
       na: "Unavailable"
@@ -128,7 +130,7 @@ en:
       detail_3_route_7: "La séquence d'arrêt %{objectId} n'a pas de mission"
       detail_3_route_8: "La séquence d'arrêt %{objectId} a %{count} arrêts non utilisés par des missions : %{names}"
       detail_3_route_9: "La séquence d'arrêt %{objectId} n'a pas de mission desservant l'ensemble de ses arrêts"
-      detail_3_journeypattern_1: "La mission %{objectId} utilise les mêmes arrêts que la mission %{journeyPatternId}; nombre d'arrêts = %{count}"
+      detail_3_journeypattern_1: "La mission %{objectId} utilise les mêmes arrêts que la mission %{journeyPatternId} - nombre d'arrêts = %{count}"
       detail_3_vehiclejourney_1: "Arrêt n° %{stopRank} (%{stopName}) : durée d'arrêt mesurée %{diffTime} > %{maxDiffTime}"
       detail_3_vehiclejourney_2_1: "La course %{objectId} a des horaires décroissants entre les arrêts n° %{firstStopRank} (%{firstStopName}) et n° %{lastStopRank} (%{lastStopName})"
       detail_3_vehiclejourney_2_2: "La course %{objectId} a une vitesse %{speed} < %{speedLimit} km/h entre les arrêts n° %{firstStopRank} (%{firstStopName}) et n° %{lastStopRank} (%{lastStopName})"
@@ -159,6 +161,8 @@ en:
       detail_4_stoparea_1_pattern: "L'attribut %{column} de l'arrêt %{objectId} (%{value}) n'est pas au bon format "
       detail_4_stoparea_1_unique: "L'attribut %{column} de l'arrêt %{objectId} a une valeur partagée avec l'arrêt  %{alternateId}"
       detail_4_stoparea_2: "L'arrêt physique %{name} (%{objectId}) n'a pas de parent"
+      detail_4_stoparea_3_1: "La commune %{cityName} de l'arrêt %{name} (%{objectId}) a le même code Insee %{countryCode} que la commune %{alternateCityName} de l'arrêt %{alternateStopareaName} (%{alternateStopareaId})"
+      detail_4_stoparea_3_2: "La commune %{cityName} a un code Insee %{countryCode} pour l'arrêt %{name} (%{objectId}) différent de celui %{alternateCountryCode} de l'arrêt %{alternateStopareaName} (%{alternateStopareaId})"
       detail_4_accesspoint_1_min_size: "L'attribut %{column} du point d'accès %{objectId} (%{value}) n'est pas renseigné ou plus petit que %{minimum}"
       detail_4_accesspoint_1_max_size: "L'attribut %{column} du point d'accès %{objectId} (%{value}) est plus grand que %{maximum}"
       detail_4_accesspoint_1_pattern: "L'attribut %{column} du point d'accès %{objectId} (%{value}) n'est pas au bon format "
@@ -198,8 +202,7 @@ en:
       detail_4_vehiclejourney_1_pattern: "L'attribut %{column} de la course %{objectId} (%{value}) n'est pas au bon format "
       detail_4_vehiclejourney_1_unique: "L'attribut %{column} de la course %{objectId} a une valeur partagée avec la course  %{alternateId}"
       detail_4_vehiclejourney_2: "La course %{objectId} a un mode de transport interdit %{transportMode}"
-      
-      activerecord:
+  activerecord:
     models:
       compliance_check_result:
         zero: "Validation"
@@ -317,6 +320,7 @@ en:
         4-GroupOfLine-1: "Vérification de contraintes sur les attributs des groupes de lignes"
         4-StopArea-1: "Vérification de contraintes sur les attributs des arrêts"
         4-StopArea-2: "Vérification de l'existance d'un arrêt commercial pour les arrêts physiques"
+        4-StopArea-3: "Vérification de la cohérence entre les noms de communes et leur code INSEE"
         4-AccessPoint-1: "Vérification de contraintes sur les attributs des accès"
         4-AccessLink-1: "Vérification de contraintes sur les attributs des liens d'accès"
         4-ConnectionLink-1: "Vérification de contraintes sur les attributs des correspondances"
@@ -336,9 +340,11 @@ en:
         rule_target: "Object"
         rule_number: "Step"
         rule_code: "Code"
-        violation_count: "Number of violations"
+        violation_count: "errors"
+        violation_count_txt: "Number of errors"
         objects: "Objects in violations"
         detail: "Detail"
+        title: "Test title"
         object: "Error object"
         resource: "Resources of the error object"
         url: "URL"
@@ -347,15 +353,17 @@ fr:
   compliance_check_results:
     file:
       zip_name_prefix: "resultats_de_validation"
-      summary_errors_file_prefix: "sommaire_des_erreurs.csv"
-      detailed_errors_file_prefix: "détails_des_erreurs.csv"
+      summary_errors_file_prefix: "sommaire_des_tests.csv"
+      detailed_errors_file_prefix: "details_des_erreurs.csv"
     index:
       line: "Li"
       column: "Col"
   compliance_check_result:
     severities:
-      error: "Tests Obligatoires"
-      warning: "Tests Optionnels"
+      error: "Obligatoires"
+      warning: "Optionnels"
+      error_txt: "Obligatoire"
+      warning_txt: "Optionnel"
     statuses:
       nok: "Erreur"
       na: "Absent"
@@ -471,7 +479,7 @@ fr:
       detail_3_route_7: "La séquence d'arrêt %{objectId} n'a pas de mission"
       detail_3_route_8: "La séquence d'arrêt %{objectId} a %{count} arrêts non utilisés par des missions : %{names}"
       detail_3_route_9: "La séquence d'arrêt %{objectId} n'a pas de mission desservant l'ensemble de ses arrêts"
-      detail_3_journeypattern_1: "La mission %{objectId} utilise les mêmes arrêts que la mission %{journeyPatternId}; nombre d'arrêts = %{count}"
+      detail_3_journeypattern_1: "La mission %{objectId} utilise les mêmes arrêts que la mission %{journeyPatternId} - nombre d'arrêts = %{count}"
       detail_3_vehiclejourney_1: "Arrêt n° %{stopRank} (%{stopName}) : durée d'arrêt mesurée %{diffTime} > %{maxDiffTime}"
       detail_3_vehiclejourney_2_1: "La course %{objectId} a des horaires décroissants entre les arrêts n° %{firstStopRank} (%{firstStopName}) et n° %{lastStopRank} (%{lastStopName})"
       detail_3_vehiclejourney_2_2: "La course %{objectId} a une vitesse %{speed} < %{speedLimit} km/h entre les arrêts n° %{firstStopRank} (%{firstStopName}) et n° %{lastStopRank} (%{lastStopName})"
@@ -639,6 +647,10 @@ fr:
         3-Route-3: "Vérification de la distance entre deux arrêts successifs de la séquence"
         3-Route-4: "Vérification de double définition de séquences"
         3-Route-5: "Vérification de séquences sans séquence opposée"
+        3-Route-6: "Vérification de la présence d'arrêts dans la séquence"
+        3-Route-7: "Vérification de la présence de missions"
+        3-Route-8: "Vérification de l'utilisation des arrêts par les missions"
+        3-Route-9: "Vérification de l’existence d’une mission passant par tous les arrêts de la séquence"
         3-JourneyPattern-1: "Vérification de l'utilisation des arrêts par les missions"
         3-JourneyPattern-2: "Vérification de l’existence d’une mission passant par tous les arrêts de la séquence"
         3-JourneyPattern-3: "Vérification de double définition de missions"
@@ -672,9 +684,11 @@ fr:
         rule_target: "Objet"
         rule_number: "Etape"
         rule_code: "Code"
-        violation_count: "Nombre de violations"
-        objects: "Objets en violations"
+        violation_count: "erreurs"
+        violation_count_txt: "Nombre d'erreurs"
+        objects: "Objets en erreur"
         detail: "Détail"
+        title: "Titre du test"
         object: "Objet en erreur"
         resource: "Ressource de l'objet en erreur"
         url: "URL"

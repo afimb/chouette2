@@ -1,0 +1,13 @@
+en:
+  footnotes:
+    actions:
+      add_footnote: "add footnote" 
+    index:
+      title: "Footnotes"     
+  activerecord:
+    models:
+      footnote: "footnote"
+    attributes:
+      footnote:
+        code: "number"
+        label: "line text"

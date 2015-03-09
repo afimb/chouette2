@@ -38,7 +38,6 @@ en:
         negative: "backward"
       opposite: "Opposite route"
       no_opposite: "No opposite route"
-
   activerecord:        
     models:        
       route: 
@@ -69,6 +68,18 @@ en:
     titles:
       route:
         objectid: "[prefix]:Route:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      neptune:
+        route:
+          objectid: "[prefix]:Route:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      netex:
+        route:
+          objectid: "[prefix]:Route:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      gtfs:
+        route:
+          objectid: "[prefix]:Route:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      hub:
+        route:
+          objectid: "[prefix]:Route:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character. Maximum length of the unique key = 8."
 
 fr:
   routes:
@@ -140,5 +151,17 @@ fr:
     titles:
       route:
         objectid: "[prefixe]:Route:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      neptune:
+        route:
+          objectid: "[prefixe]:Route:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      netex:
+        route:
+          objectid: "[prefixe]:Route:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      gtfs:
+        route:
+          objectid: "[prefixe]:Route:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      hub:
+        route:
+          objectid: "[prefixe]:Route:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'. Longueur maximale de la clé unique = 8."
 
 

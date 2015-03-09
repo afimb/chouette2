@@ -53,7 +53,7 @@ module BreadcrumbHelper
       organisation_breadcrumb :index
     end
   end
-  
+
 
   def network_breadcrumb(action)
     referential_breadcrumb
@@ -121,52 +121,53 @@ module BreadcrumbHelper
     add_breadcrumb I18n.t("breadcrumbs.vehicle_journeys"), referential_line_route_vehicle_journeys_path(@referential, @line,@route) unless action == :index
     add_breadcrumb breadcrumb_label(@vehicle_journey), referential_line_route_vehicle_journey_path(@referential, @line,@route,@vehicle_journey),:title => breadcrumb_tooltip(@vehicle_journey) if action == :edit
   end
-  
+
   def vehicle_journey_import_breadcrumb (action)
     route_breadcrumb :edit
   end
 
   def company_breadcrumb (action)
-    referential_breadcrumb 
+    referential_breadcrumb
     add_breadcrumb Chouette::Company.model_name.human(:count => 2), referential_companies_path(@referential) unless action == :index
     add_breadcrumb breadcrumb_label(@company), referential_company_path(@referential, @company),:title => breadcrumb_tooltip(@company) if action == :edit
   end
-  
+
   def import_breadcrumb (action)
-    referential_breadcrumb 
+    referential_breadcrumb
     add_breadcrumb Referential.human_attribute_name("import_tasks"), referential_import_tasks_path(@referential) unless action == :index
   end
-  
+
   def export_breadcrumb (action)
-    referential_breadcrumb 
+    referential_breadcrumb
     add_breadcrumb Referential.human_attribute_name("exports"), referential_exports_path(@referential) unless action == :index
   end
 
   def compliance_breadcrumb (action)
-    referential_breadcrumb 
+    referential_breadcrumb
     add_breadcrumb Referential.human_attribute_name("compliance_check_tasks"), referential_compliance_check_tasks_path(@referential) unless action == :index
     add_breadcrumb breadcrumb_label(@compliance_check_task), referential_compliance_check_task_path(@referential, @compliance_check_task),:title => breadcrumb_tooltip(@compliance_check_task) if action == :edit
   end
 
   def rule_parameter_breadcrumb (action)
-    referential_breadcrumb 
-    add_breadcrumb Referential.human_attribute_name("import_tasks"), referential_import_tasks_path(@referential) 
-    add_breadcrumb Referential.human_attribute_name("compliance_check_tasks"), referential_compliance_check_tasks_path(@referential)
-    add_breadcrumb Referential.human_attribute_name("rule_parameter_sets"), referential_rule_parameter_sets_path(@referential) unless action == :index
+    organisation_breadcrumb
+    add_breadcrumb Referential.human_attribute_name("rule_parameter_sets"), organisation_path unless action == :index
+    add_breadcrumb breadcrumb_label(@rule_parameter_set), organisation_rule_parameter_set_path(@rule_parameter_set),:title => breadcrumb_tooltip(@rule_parameter_set) if action == :edit
   end
 
   def referential_breadcrumb (action = :edit)
     organisation_breadcrumb
-    add_breadcrumb breadcrumb_label(@referential), referential_path(@referential),:title => breadcrumb_tooltip(@referential) if action == :edit || action == :show || action == :update
+    if @referential
+      add_breadcrumb breadcrumb_label(@referential), referential_path(@referential),:title => breadcrumb_tooltip(@referential) if action == :edit || action == :show || action == :update
+    end
   end
-  
+
   def organisation_breadcrumb (action = :index)
-    add_breadcrumb I18n.t("breadcrumbs.referentials"), referentials_path 
+    add_breadcrumb I18n.t("breadcrumbs.referentials"), referentials_path
     add_breadcrumb breadcrumb_label(@organisation), organisation_path,:title => breadcrumb_tooltip(@organisation) unless action == :index
   end
 
   def user_breadcrumb (action)
-    organisation_breadcrumb 
+    organisation_breadcrumb
     add_breadcrumb I18n.t("breadcrumbs.users"), organisation_path unless action == :index
     add_breadcrumb breadcrumb_label(@user), organisation_user_path(@user),:title => breadcrumb_tooltip(@user) if action == :edit
   end
@@ -176,14 +177,14 @@ module BreadcrumbHelper
     if label.blank?
       label = obj.class.model_name.human+" "+obj.id.to_s
     end
-    
+
     if label.length > 20
       label[0..16]+"..."
     else
-      label  
+      label
     end
   end
-  
+
   def breadcrumb_tooltip(obj)
     label = breadcrumb_name(obj)
     if label.blank?
@@ -196,12 +197,12 @@ module BreadcrumbHelper
 
   def breadcrumb_name(obj)
     label = ""
-    if obj.respond_to?('name') 
+    if obj.respond_to?('name')
       label = obj.name
-    elsif obj.respond_to?('comment') 
+    elsif obj.respond_to?('comment')
       label = obj.comment
     end
-    label    
+    label
   end
 
 end
