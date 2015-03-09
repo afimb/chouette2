@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150226083920) do
+ActiveRecord::Schema.define(version: 20150304090743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -195,6 +195,19 @@ ActiveRecord::Schema.define(version: 20150226083920) do
     t.integer "choice_code"
   end
 
+  create_table "footnotes", force: true do |t|
+    t.integer  "line_id",    limit: 8
+    t.string   "code"
+    t.string   "label"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "footnotes_vehicle_journeys", id: false, force: true do |t|
+    t.integer "vehicle_journey_id", limit: 8
+    t.integer "footnote_id",        limit: 8
+  end
+
   create_table "group_of_lines", force: true do |t|
     t.string   "objectid",            null: false
     t.integer  "object_version"
@@ -310,8 +323,9 @@ ActiveRecord::Schema.define(version: 20150226083920) do
 
   create_table "organisations", force: true do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "data_format"
   end
 
   create_table "pt_links", force: true do |t|
@@ -342,6 +356,7 @@ ActiveRecord::Schema.define(version: 20150226083920) do
     t.text     "geographical_bounds"
     t.integer  "user_id",             limit: 8
     t.string   "user_name"
+    t.string   "data_format"
   end
 
   create_table "routes", force: true do |t|
@@ -367,11 +382,11 @@ ActiveRecord::Schema.define(version: 20150226083920) do
   end
 
   create_table "rule_parameter_sets", force: true do |t|
-    t.integer  "referential_id", limit: 8
     t.text     "parameters"
     t.string   "name"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "organisation_id", limit: 8
   end
 
   create_table "stop_areas", force: true do |t|

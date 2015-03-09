@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 class Referential < ActiveRecord::Base
+  include DataFormatEnumerations
+
   validates_presence_of :name
   validates_presence_of :slug
   validates_presence_of :prefix
@@ -18,7 +20,7 @@ class Referential < ActiveRecord::Base
   attr_accessor :lower_corner
 
   has_one :user
-  has_many :rule_parameter_sets, :dependent => :destroy
+  ##has_many :rule_parameter_sets, :dependent => :destroy
   has_many :import_tasks, :dependent => :destroy
   has_many :compliance_check_tasks, :dependent => :destroy
   has_many :exports, :dependent => :destroy
