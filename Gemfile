@@ -56,9 +56,10 @@ end
 
 platforms :ruby do
   gem 'therubyracer', '~> 0.10.2'
-  gem 'pg'
   gem 'sqlite3'
 end
+
+gem 'pg'
 
 # I18n
 gem 'rails-i18n', '~> 4.0.0'
