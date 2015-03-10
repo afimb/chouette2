@@ -1,8 +1,10 @@
+<div class="test">
 <% title = @import.no_save ? "": "<i class='fa fa-save'></i>" %>
-<%= title_tag "#{title} #{@import.name} <span class='status status_#{@import.status}'>#{ t('imports.show.'+ @import.status) }</span>" %>
+<%= title_tag "#{title} #{@import.name} <span class='status status_#{@import.status}'>#{ t('imports.statuses.'+ @import.status) }</span>" %>
+</div>
 
 <div class="import_show">
-
+  <%= render( :partial => "results_dashboard", :locals => { :referential => @referential} ) %>
 </div>
 
 <% content_for :sidebar do %>

@@ -30,7 +30,7 @@ module BreadcrumbHelper
       time_table_breadcrumb action
     when "StopAreaCopy"
       stop_area_copy_breadcrumb action
-    when "ImportTask"
+    when "Import"
       import_breadcrumb action
     when "Export"
       export_breadcrumb action
@@ -134,7 +134,7 @@ module BreadcrumbHelper
   
   def import_breadcrumb (action)
     referential_breadcrumb 
-    add_breadcrumb Referential.human_attribute_name("import_tasks"), referential_import_tasks_path(@referential) unless action == :index
+    add_breadcrumb Referential.human_attribute_name("imports"), referential_imports_path(@referential) unless action == :index
   end
   
   def export_breadcrumb (action)

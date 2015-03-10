@@ -44,6 +44,7 @@ gem 'faraday', '~> 0.9.1'
 gem 'faraday_middleware', '~> 0.9.1'
 gem 'kleisli'
 gem 'hashie'
+gem 'hashie_rails', '~> 0.0.2'
 
 platforms :jruby do
   gem 'activerecord-jdbcpostgresql-adapter', '~> 1.3.3'
@@ -82,8 +83,8 @@ gem 'RedCloth'
 
 # Javascript
 gem "modernizr-rails", "~> 2.0.6"
-gem 'morrisjs-rails'
-gem 'raphael-rails'
+gem 'rails-assets-morrisjs', "~> 0.5.1"
+gem 'rails-assets-raphael', "~> 2.1.3"
 
 # Use twitter bootstrap resources
 gem 'rails-assets-bootstrap-sass-official', '~> 3.3.0'

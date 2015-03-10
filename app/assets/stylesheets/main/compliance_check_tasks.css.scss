@@ -1,18 +1,17 @@
-
-.status {
-    margin-left: 10px;
-}
-
-.status_failed { color: #a94442;}
-.status_pending { color: #31708f;}
-.status_processing { color: #31708f;}
-.status_completed { color: #3c763d;}
-
 #workspace.compliance_check_tasks.index
 {
 }
 
 #workspace.compliance_check_tasks.show {
+
+    .status {
+        margin-left: 10px;                 
+    }
+    
+    .status_failed { color: #a94442;}
+    .status_pending { color: #31708f;}
+    .status_processing { color: #31708f;}
+    .status_completed { color: #3c763d;}
 
     .links{
         margin: 0px 0 20px 0;
