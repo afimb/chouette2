@@ -1,24 +1,30 @@
 # Version 2.5.3 (en cours)
-* Nouvelles foctionnalités
+* Nouvelles fonctionnalités
   * Contrôle de cohérence des communes des arrêts (Mantis 31896)
   * Ajout de champs dans les échanges Neptune en structurant le champ commentaire (Mantis 31897)
   * ajout de notes dans les lignes et de leur références dans les courses pour les échanges hub
 
-
 # Version 2.5.2 (20/01/15)
-* Nouvelles foctionnalités
+* Nouvelles fonctionnalités
   * Amélioration de l'export Hub
   * Ajout de points de contrôle pour la validation
   * Ajouts de champs pour les échanges Hub 
+  * Ajout de Metadata à l'export (Neptune/NeTEx/GTFS)
+* Améliorations
+  * Optimisation de jaxb
+* Corrections
+  * Détection d'absence de fin de ligne en fin de fichier gtfs (Mantis 30988)
 
 # Version 2.5.1 (14/11/14)
-* Nouvelles foctionnalités
+* Nouvelles fonctionnalités
   * Reprise des imports/exports GTFS
   * Ajout des couleurs de lignes
   * Ajouts de champs pour les échanges GTFS 
+* Améliorations
+  * Complétude du javadoc pour chouette-model
 
 # Version 2.5.0 (23/10/14)
-* Nouvelles foctionnalités
+* Nouvelles fonctionnalités
   * Ajout d'un lien de création d'objet dans la page de consultation (Mantis 26415)
   * Ajout d'un lien vers l'accueil dans le bandeau (Mantis 26820)
   * Fournir plus de détails pour identifier un arrêt dans les listes de choix (Mantis 26821)
