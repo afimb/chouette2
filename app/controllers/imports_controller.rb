@@ -17,7 +17,7 @@ class ImportsController < ChouetteController
       index! do 
         build_breadcrumb :index
       end
-    rescue IevError => error
+    rescue IevApi::IevError => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t('iev.failure')
       redirect_to referential_path(@referential)
@@ -29,7 +29,7 @@ class ImportsController < ChouetteController
       show! do 
         build_breadcrumb :show
       end
-    rescue IevError => error
+    rescue IevApi::IevError => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t('iev.failure')
       redirect_to referential_path(@referential)
@@ -41,7 +41,7 @@ class ImportsController < ChouetteController
       new! do 
         puts "OK"
       end
-    rescue IevError => error
+    rescue IevApi::IevError => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t('iev.failure')
       redirect_to referential_path(@referential)
@@ -53,7 +53,7 @@ class ImportsController < ChouetteController
       create! do 
         puts "OK"
       end
-    rescue IevError => error
+    rescue IevApi::IevError => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t('iev.failure')
       redirect_to referential_path(@referential)
@@ -66,7 +66,7 @@ class ImportsController < ChouetteController
         import_service.delete(@import.id)
         redirect_to referential_imports_path(@referential)      
       end
-    rescue IevError => error
+    rescue IevApi::IevError => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t('iev.failure')
       redirect_to referential_path(@referential)
