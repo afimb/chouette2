@@ -9,11 +9,11 @@ module NinoxeExtension::Hub
 
       with_options if: :hub_restricted? do |l|
         # HUB-15
-        l.validates_format_of :objectid, :with => %r{^\w+:\w+:[\w]{1,14}$}
+        l.validates_format_of :objectid, :with => %r{\A\w+:\w+:[\w]{1,14}\z}
         # HUB-16
-        l.validates_format_of :number, :with => %r{^[\w]{1,6}$}
+        l.validates_format_of :number, :with => %r{\A[\w]{1,6}\z}
         # HUB-17
-        l.validates_format_of :name, :with => %r{^[\w]{0,75}$}
+        l.validates_format_of :name, :with => %r{\A[\w]{0,75}\z}
         # HUB-21
         l.validates :registration_number, :numericality => { :less_than => 10 ** 8 }
         # HUB-22

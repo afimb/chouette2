@@ -7,7 +7,7 @@ module NinoxeExtension::Hub::ObjectidRestrictions
       validate :third_part_objectid_uniqueness
 
       def third_part_objectid
-        self.objectid.match(/:(\w+)$/)[1]
+        self.objectid.match(/:(\w+)\z/)[1]
       end
       def third_part_objectid_uniqueness
         return unless hub_restricted?

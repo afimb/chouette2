@@ -8,9 +8,9 @@ module NinoxeExtension::Hub
 
       with_options if: :hub_restricted? do |jp|
         # HUB-44
-        jp.validates_format_of :objectid, :with => %r{^\w+:\w+:[\w]{1,6}$}
+        jp.validates_format_of :objectid, :with => %r{\A\w+:\w+:[\w]{1,6}\z}
         # HUB-45
-        jp.validates_format_of :comment, :with => %r{^[\w]{0,75}$}
+        jp.validates_format_of :comment, :with => %r{\A[\w]{0,75}\z}
       end
     end
   end
