@@ -15,12 +15,7 @@ en:
       warning: ""
     show:
       report: "Report"
-      not_yet_started: "On queue"
       imported_file: "Imported file"
-      completed: "[ Completed ]"
-      failed: "[ Failed ]"
-      pending: "[ In the treatment queue ]"
-      processing: "[ In progress... ]"
       graph:
         files:
           title_zip: "Import results for files in zip"
@@ -112,12 +107,7 @@ fr:
       warning: ""
     show:
       report: "Rapport"
-      not_yet_started: "En file d'attente"
       imported_file: "Fichier importé"
-      completed: "[ Terminé ]"
-      failed: "[ Echoué ]"
-      pending: "[ En file d'attente ]"
-      processing: "[ En progression... ]"
       graph:
         files:
           title_zip: "Résultat d'import des fichiers du zip"
@@ -151,8 +141,8 @@ fr:
           saved: "Sauvé"
           save_error: "Sauvegarde en erreur"
     statuses:
-      created: "En attente ..."
-      scheduled: "En cours ..."
+      created: "En file d'attente..."
+      scheduled: "En cours..."
       terminated: "Achevé"
       canceled: "Annulé"
       aborted: "Echoué"

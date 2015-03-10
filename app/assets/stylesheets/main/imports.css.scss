@@ -1,9 +1,18 @@
-#workspace.import_tasks.index
+#workspace.imports.index
 {
 }
 
-#workspace.import_tasks.show {
+#workspace.imports.show {
 
+    .status {
+        margin-left: 10px;
+    }
+    
+    .status_aborted,.status_canceled { color: #a94442;}
+    .status_created { color: #31708f;}
+    .status_scheduled { color: #31708f;}
+    .status_terminated { color: #3c763d;}
+    
     .links{
         margin: 0 0 20px 0;
         img{ margin: 0 5px 0 15px; }
@@ -18,19 +27,8 @@
             visibility: hidden;
         }
 
-        .col1 {
-            float: left;
-            width: 45%;
-        }
-
-        .col2 {
-            margin-left: 10px;
-            float: left;
-            width: 45%;
-        }
-
-        #files_statistics { height: 200px; }
-        #objects_statistics { height: 200px; }
+        #files_statistics { height: 225px; }
+        #objects_statistics { height: 225px; }
 
         .caption {
             text-align :center;
@@ -67,11 +65,18 @@
             display: none;
         }
 
-        .lines{ display: none; }
+        .lines{
+            display: none;
+
+            td{
+                text-align: center;
+            }
+
+        }
     }
 }
 
-#workspace.import_tasks.new #workspace.import_tasks.create form.import_task_new {
+#workspace.imports.new #workspace.imports.create form.import_new {
     padding: 0.5em 0;
     margin-top: -0.5em;
     margin-bottom: 1em;

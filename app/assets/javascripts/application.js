@@ -10,7 +10,7 @@
 //= require modernizr
 //= require cocoon
 //= require raphael
-//= require morris
+//= require morrisjs
 //= require bootstrap-sass-official
 //= require typeahead.js
 //= require jquery-tokeninput

@@ -9,18 +9,26 @@ class Import
   attr_reader :datas, :report
   
   def initialize( options = Hashie::Mash.new )
-    puts "options #{options.inspect}"
     @datas = options
     @status = @datas.status.downcase if @datas.status?
     @format = @datas.type.downcase if @datas.type?
   end
 
   def report
-    ImportReport.new( IevApi.job(referential_name, id,{ :action => "importer" }) )
+    result = IevApi.job(referential_name, id,{ :action => "importer" })
+    ImportReport.new( result )
   end
 
   def id
     @datas.id
+  end
+
+  def filename
+    @datas.filename
+  end
+
+  def filename_extension
+    File.extname(filename) if filename
   end
 
   def percentage_progress
@@ -38,7 +46,7 @@ class Import
   end
 
   def referential_name
-    @datas.parameters.referential
+    @datas.referential
   end
   
   def name

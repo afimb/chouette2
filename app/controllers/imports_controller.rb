@@ -1,7 +1,9 @@
 require 'will_paginate/array'
 
 class ImportsController < ChouetteController
-  respond_to :html, :xml, :json
+  defaults :resource_class => Import
+  
+  respond_to :html, :only => [:show, :index, :new, :create, :delete]
   respond_to :js, :only => [:show, :index]
   belongs_to :referential
 
@@ -9,15 +11,65 @@ class ImportsController < ChouetteController
   # index curl http://localhost:8080/mobi.chouette.api/referentials/test/jobs
   # show curl http://localhost:8080/mobi.chouette.api/referentials/test/jobs
 
+  
   def index
-    index! do
-      build_breadcrumb :index
+    begin
+      index! do 
+        build_breadcrumb :index
+      end
+    rescue IevApi::IevError => error
+      logger.error("Iev failure : #{error.message}")
+      flash[:error] = t('iev.failure')
+      redirect_to referential_path(@referential)
     end
   end
   
   def show
-    show! do
-      build_breadcrumb :show
+    begin
+      show! do 
+        build_breadcrumb :show
+      end
+    rescue IevApi::IevError => error
+      logger.error("Iev failure : #{error.message}")
+      flash[:error] = t('iev.failure')
+      redirect_to referential_path(@referential)
+    end
+  end
+  
+  def new
+    begin
+      new! do 
+        puts "OK"
+      end
+    rescue IevApi::IevError => error
+      logger.error("Iev failure : #{error.message}")
+      flash[:error] = t('iev.failure')
+      redirect_to referential_path(@referential)
+    end
+  end
+  
+  def create
+    begin
+      create! do 
+        puts "OK"
+      end
+    rescue IevApi::IevError => error
+      logger.error("Iev failure : #{error.message}")
+      flash[:error] = t('iev.failure')
+      redirect_to referential_path(@referential)
+    end
+  end
+
+  def delete
+    begin
+      delete! do
+        import_service.delete(@import.id)
+        redirect_to referential_imports_path(@referential)      
+      end
+    rescue IevApi::IevError => error
+      logger.error("Iev failure : #{error.message}")
+      flash[:error] = t('iev.failure')
+      redirect_to referential_path(@referential)
     end
   end
   
@@ -27,6 +79,10 @@ class ImportsController < ChouetteController
     ImportService.new(@referential)
   end
 
+  def build_resource(attributes = {})
+    @import ||= ImportTask.new
+  end
+  
   def resource
     @import ||= import_service.find( params[:id] )
   end
