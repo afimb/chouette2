@@ -21,7 +21,7 @@ module NinoxeExtension::Hub
 
       # HUB-38
       with_options if: :hub_restricted? do |route|
-        route.validates_format_of :objectid, :with => %r{^\w+:\w+:[\w]{1,8}$}
+        route.validates_format_of :objectid, :with => %r{\A\w+:\w+:[\w]{1,8}\z}
       end
     end
   end

@@ -74,9 +74,9 @@ describe RoutesController, :type => :controller do
       expect(assigns[:map].route).to eq(route)
     end
 
-    it "assigns route.stop_points.paginate(:page => nil) as @stop_points" do
-      expect(assigns[:stop_points]).to eq(route.stop_points.paginate(:page => nil))
-    end
+    #it "assigns route.stop_points.paginate(:page => nil) as @stop_points" do
+    #  expect(assigns[:stop_points]).to eq(route.stop_points.paginate(:page => nil))
+    #end
   end
   
 end

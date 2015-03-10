@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150304090743) do
-=======
-ActiveRecord::Schema.define(:version => 20150219205300) do
->>>>>>> V2_5
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -199,7 +195,6 @@ ActiveRecord::Schema.define(:version => 20150219205300) do
     t.integer "choice_code"
   end
 
-<<<<<<< HEAD
   create_table "footnotes", force: true do |t|
     t.integer  "line_id",    limit: 8
     t.string   "code"
@@ -215,23 +210,6 @@ ActiveRecord::Schema.define(:version => 20150219205300) do
 
   create_table "group_of_lines", force: true do |t|
     t.string   "objectid",            null: false
-=======
-  create_table "footnotes", :force => true do |t|
-    t.integer  "line_id",    :limit => 8
-    t.string   "code"
-    t.string   "label"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
-  end
-
-  create_table "footnotes_vehicle_journeys", :id => false, :force => true do |t|
-    t.integer "vehicle_journey_id", :limit => 8
-    t.integer "footnote_id",        :limit => 8
-  end
-
-  create_table "group_of_lines", :force => true do |t|
-    t.string   "objectid",            :null => false
->>>>>>> V2_5
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
@@ -345,15 +323,9 @@ ActiveRecord::Schema.define(:version => 20150219205300) do
 
   create_table "organisations", force: true do |t|
     t.string   "name"
-<<<<<<< HEAD
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "data_format"
-=======
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
-    t.boolean  "hub_restrictions_by_default"
->>>>>>> V2_5
   end
 
   create_table "pt_links", force: true do |t|
@@ -384,11 +356,7 @@ ActiveRecord::Schema.define(:version => 20150219205300) do
     t.text     "geographical_bounds"
     t.integer  "user_id",             limit: 8
     t.string   "user_name"
-<<<<<<< HEAD
     t.string   "data_format"
-=======
-    t.boolean  "hub_restrictions"
->>>>>>> V2_5
   end
 
   create_table "routes", force: true do |t|
@@ -413,21 +381,12 @@ ActiveRecord::Schema.define(:version => 20150219205300) do
     t.integer "line_id",      limit: 8
   end
 
-<<<<<<< HEAD
   create_table "rule_parameter_sets", force: true do |t|
     t.text     "parameters"
     t.string   "name"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.integer  "organisation_id", limit: 8
-=======
-  create_table "rule_parameter_sets", :force => true do |t|
-    t.text     "parameters"
-    t.string   "name"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
-    t.integer  "organisation_id", :limit => 8
->>>>>>> V2_5
   end
 
   create_table "stop_areas", force: true do |t|

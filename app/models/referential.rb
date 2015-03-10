@@ -29,7 +29,7 @@ class Referential < ActiveRecord::Base
   belongs_to :organisation
   validates_presence_of :organisation
 
-  attr_accessible :data_format, :name, :prefix, :projection_type, :time_zone, :upper_corner, :lower_corner, :slug, :organisation
+  #attr_accessible :data_format, :name, :prefix, :projection_type, :time_zone, :upper_corner, :lower_corner, :slug, :organisation
 
   def slug_excluded_values
     if ! slug.nil?

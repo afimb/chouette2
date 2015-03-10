@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "sdflkjskdjf" do
 
-  subject { Factory(:line) }
+  subject { create(:line) }
 
   def set_large_object_id( line)
     line.update_attributes :objectid => "AA:Line:123456789012345"
@@ -12,7 +12,7 @@ describe "sdflkjskdjf" do
     let(:referential){subject.referential}
     let(:objectid_a){ "A:Line:1234" }
     let(:objectid_b){ "B:Line:1234" }
-    let!(:second_line){ Factory( :line, :objectid => objectid_a, :registration_number => "123456") }
+    let!(:second_line){ create( :line, :objectid => objectid_a, :registration_number => "123456") }
     context "when referential works with HUB" do
       before( :each) do
         referential.update_attributes :data_format => "hub"

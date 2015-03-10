@@ -1,10 +1,11 @@
 require 'spec_helper'
 
 describe "/rule_parameter_sets/new", :type => :view do
-
+  
   assign_organisation
+  let!(:organisation) { create(:organisation) }
   let!(:rule_parameter_set) { assign :rule_parameter_set, build( :rule_parameter_set, :organisation => organisation) }
-
+  
   describe "form" do
     
     it "should render input for name" do
