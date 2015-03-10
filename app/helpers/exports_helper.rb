@@ -2,8 +2,6 @@
 module ExportsHelper
 
   def fields_for_export_format(form)
-    #partial_name = "fields_#{form.object.format.underscore}"
-
     begin
       render :partial => export_partial_name(form), :locals => { :form => form }
     rescue ActionView::MissingTemplate

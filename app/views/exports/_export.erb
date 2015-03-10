@@ -1,33 +1,29 @@
 <div id="index_item" class="panel panel-default">
   <div class="panel-heading">
     <div class="panel-title clearfix">
-      <!-- span class="pull-right" -->                
-        <!-- %= link_to referential_export_path(@referential, export), :method => :delete, :data => {:confirm =>  t('exports.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do % -->
-          <!-- span class="fa fa-trash-o"></span -->
-         <!--% end % -->
-      <!-- /span -->
-      <!-- <h5> -->
-      <!--   <  %= link_to( referential_export_path(@referential, export), :class => "preview", :title => "#{Export.model_name.human.capitalize} #{export.name}") do %  >         -->
-      <!--   <span class="name"> -->
-      <!--     <  %= truncate(export.name, :length => 20) % >           -->
-      <!--   </span> -->
-      <!--   < % end % > -->
-      <!-- </h5> -->
-    </div>                          
+      <span class="pull-right">
+        <!-- % puts "EXPORTEXPORTEXPORTEXPORTEXPORT = #{export.datas.links.inspect}" % -->
+        <!-- % puts "EXPORTEXPORTEXPORTEXPORTEXPORT = #{export.datas.links[2].href}" % -->
+        <!-- % puts "EXPORTEXPORTEXPORTEXPORTEXPORT = #{export.datas.links[3].href}" % -->
+        <%= link_to "#{Rails.application.config.iev_url}#{export.datas.links[3].href}", :method => :delete, :data => {:confirm =>  t('exports.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
+          <span class="fa fa-trash-o"></span>
+        <% end %>
+      </span>
+      <h5>
+	<%= link_to( "#{Rails.application.config.iev_url}#{export.datas.links[3].href}", :class => "preview", :title => "#{Export.model_name.human.capitalize} #{export.name}") do %>
+	  <span class="name">
+	    <%if !export.no_save %><i class="fa fa-save"></i><% end %> <%= truncate(export.name, :length => 20) %>
+	  </span>
+	<% end %>
+      </h5>
+    </div>
   </div>
   <div class="panel-body">
-      <p>
-        <% if export.status == 'completed' %>
-          <%= link_to image_tag("icons/file_zip.png") + t(".exported_file"), referential_export_path(@referential, export, :format => :zip), :class => "download" %>
-        <% else %>
-          &nbsp;
-        <% end %>
-      </p>      
   </div>
   <div class="panel-footer">
     <%= export_progress_bar_tag(export) %>    
     <div class="history">
-      <%= l export.created_at, :format => "%d/%m/%Y %H:%M" %>
+      <%= l export.created_at, :format => "%d/%m/%Y %H:%M" %> | <%= export.user_name %>
     </div>
   </div>
 </div>
