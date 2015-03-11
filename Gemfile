@@ -129,7 +129,7 @@ gem 'delayed_job_active_record'
 gem 'apartment'
 
 group :development do
-  gem 'capistrano'
+  gem 'capistrano', '2.13.5'
   gem 'capistrano-ext'
   gem 'guard'
   gem 'guard-rspec'
