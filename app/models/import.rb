@@ -6,7 +6,7 @@ class Import
   enumerize :status, in: %w{created scheduled terminated canceled aborted}, default: "created", predicates: true
   enumerize :format, in: %w{neptune netex gtfs}, default: "neptune", predicates: true
 
-  attr_reader :datas, :report
+  attr_reader :datas
   
   def initialize( options = Hashie::Mash.new )
     @datas = options
@@ -15,9 +15,12 @@ class Import
   end
 
   def report
-    result = IevApi.job(referential_name, id,{ :action => "importer" })
-    ImportReport.new( result )
+    ImportReport.new( IevApi.job(referential_name, id,{ :action => "importer" }) )
   end
+
+  # def compliance_check
+  #   ComplianceCheck.new( IevApi.job(referential_name, { :action => "importer" }) )
+  # end
 
   def id
     @datas.id
