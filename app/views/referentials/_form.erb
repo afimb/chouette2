@@ -14,7 +14,7 @@
     <%= form.input :time_zone %>
     <%= form.input :upper_corner, :input_html => { :title => t("formtastic.titles.referential.upper_corner")} %>
     <%= form.input :lower_corner, :input_html => { :title => t("formtastic.titles.referential.lower_corner")} %>
-    <%= form.input :data_format, :label => true %>
+    <%= form.input :data_format, :label => true, :include_blank => false %>
   <% end %>
 
   <%= form.actions do %>
