@@ -19,8 +19,8 @@ module IevApi
     def url_for(endpoint, *args)
       path = case endpoint.to_s
              when 'jobs' then jobs_path(args)
-             when 'job' then job_path(args)               
-             when 'report' then report_path(args)
+             when 'scheduled_job' then scheduled_job_path(args)               
+             when 'terminated_job' then terminated_job_path(args)
              else raise ArgumentError.new("Unrecognized path: #{path}")
              end
 
@@ -29,36 +29,27 @@ module IevApi
 
     def jobs(referential_id, options = {})
       results = request(:get, jobs_path(referential_id), options)
-      results.respond_to?(:jobs) ? results.jobs : []
-    end
-    
-    def job(referential_id, job_id, options = {})
-      results = request(:get, job_path(referential_id, job_id), options)
-      if results.respond_to?(:job)
-        results.job
-      elsif results.respond_to?(:report)
-        results.report
-      else
-        []
-      end
-    end
-    
-    def jobs_path(referential_id)
-      "/referentials/#{referential_id}/jobs"
     end
 
-    def job_path(referential_id, job_id)
-      "/referentials/#{referential_id}/jobs/#{job_id}"
+    def jobs_path(referential_id)
+      "referentials/#{referential_id}/jobs"
     end
     
-    def report(referential_id, report_id, options = {})
-      results = request(:get, report_path(referential_id, report_id), options)
-      results.respond_to?(:report) ? results.report : []
+    def scheduled_job(referential_id, job_id, options = {})
+      results = request(:get, scheduled_job_path(referential_id, job_id), options)    
     end
-    
-    def report_path(referential_id, report_id)
-      "/referentials/#{referential_id}/reports/#{report_id}"
+
+    def scheduled_job_path(referential_id, job_id)
+      "referentials/#{referential_id}/scheduled_jobs/#{job_id}"
     end
+
+    def terminated_job(referential_id, job_id, options = {})
+      results = request(:get, terminated_job_path(referential_id, job_id), options)    
+    end   
+
+    def terminated_job_path(referential_id, job_id)
+      "referentials/#{referential_id}/terminated_jobs/#{job_id}"
+    end    
 
     def account_path
       "#{protocol}://#{Rails.application.config.iev_url}"      
@@ -70,20 +61,17 @@ module IevApi
     
     # Perform an HTTP request
     def request(method, path, params = {}, options = {})
-      
-      action_and_format = (params[:action].present? && params[:format].present?) ? "/#{params[:action]}/#{params[:format]}" : ""      
-      build_path = connection.path_prefix + path + action_and_format
 
       response = connection(options).run_request(method, nil, nil, nil) do |request|
         case method
         when :delete, :get
-          request.url(build_path, params)
+          request.url(path, params)
         when :post, :put
-          request.url(build_path)
+          request.url(path)
           request.body = params unless params.empty?
         end
       end
-
+      
       response.body
     end
 
@@ -97,7 +85,7 @@ module IevApi
         :url => account_path,
       }
 
-      @connection ||= Faraday.new(default_options.deep_merge(connection_options)) do |builder|
+      @connection ||= Faraday.new(default_options.deep_merge(options)) do |builder|
         middleware.each { |mw| builder.use *mw }
 
         builder.adapter adapter
@@ -109,6 +97,8 @@ module IevApi
       #   ActiveSupport::Cache::FileStore.new cache_dir, :namespace => 'iev',
       #   :expires_in => 3600  # one hour
       # end
+      
+      @connection      
     end
     
   end  

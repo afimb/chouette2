@@ -1,9 +1,13 @@
 class ImportReport
-
-  attr_reader :datas
+  extend ActiveModel::Naming
+  include ActiveModel::Model
   
-  def initialize( options = Hashie::Mash.new )
-    @datas = options
+  attr_reader :datas, :errors, :metadatas
+  
+  def initialize( response )
+    @datas = response.datas
+    @errors = response.errors
+    @metadatas = response.metadatas
   end
 
   def zip_file
@@ -35,7 +39,7 @@ class ImportReport
   end
 
   def lines
-    1 #datas.stats.line_count if datas.stats_.line_count?
+    datas.stats.line_count if datas.stats_.line_count?
   end
   
   def routes

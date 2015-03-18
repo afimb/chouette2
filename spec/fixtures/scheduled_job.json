@@ -1,0 +1,574 @@
+HTTP/1.1 200 OK
+Connection: keep-alive
+Cache-Control: no-transform, max-age=2147483647
+Content-Type: application/json
+Link: <http://localhost:8080/mobi.chouette.api/referentials/tatrotest/data/9151/Citura_050115_220215.zip>; rel="data"
+Link: <http://localhost:8080/mobi.chouette.api/referentials/tatrotest/data/9151/action_parameters.json>; rel="action_params"
+Link: <http://localhost:8080/mobi.chouette.api/referentials/tatrotest/data/9151/validation_parameters.json>; rel="validation_params"
+Link: <http://localhost:8080/mobi.chouette.api/referentials/tatrotest/reports/9151>; rel="location"
+Link: <http://localhost:8080/mobi.chouette.api/referentials/tatrotest/reports/9151>; rel="delete"
+Link: <http://localhost:8080/mobi.chouette.api/referentials/tatrotest/data/9151/validation.json>; rel="validation"
+Date: Fri, 13 Mar 2015 09:18:07 GMT
+
+{
+    "id": 9151,
+    "referexntial": "tatrotest",
+    "action": "importer",
+    "type": "neptune",
+    "created": 1425984896098,
+    "updated": 1425984896542,
+    "status": "TERMINATED",
+    "action_report": {
+        "result": "OK",
+        "zip_file": {
+            "status": "OK",
+            "name": "Citura_050115_220215.zip"
+        },
+        "files": [
+            {
+                "name": "C_NEPTUNE_reseau_5_39901717.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901712.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901718.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901710.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901709.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901727.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901746.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901719.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901715.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901716.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901721.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901734.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901725.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901731.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901711.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901722.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901724.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901733.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901726.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901732.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901736.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901708.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901730.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901720.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901745.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901713.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901723.xml",
+                "status": "OK",
+                "error": []
+            },
+            {
+                "name": "C_NEPTUNE_reseau_5_39901729.xml",
+                "status": "OK",
+                "error": []
+            }
+        ],
+        "lines": [
+            {
+                "name": "03 SOIREE",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 2,
+                    "connection_link_count": 0,
+                    "time_table_count": 1,
+                    "stop_area_count": 95,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 10,
+                    "journey_pattern_count": 2
+                }
+            },
+            {
+                "name": "17",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 2,
+                    "connection_link_count": 0,
+                    "time_table_count": 1,
+                    "stop_area_count": 66,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 45,
+                    "journey_pattern_count": 2
+                }
+            },
+            {
+                "name": "TRAMWAY",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 10,
+                    "connection_link_count": 0,
+                    "time_table_count": 3,
+                    "stop_area_count": 67,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 769,
+                    "journey_pattern_count": 10
+                }
+            },
+            {
+                "name": "02",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 3,
+                    "connection_link_count": 0,
+                    "time_table_count": 3,
+                    "stop_area_count": 68,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 388,
+                    "journey_pattern_count": 3
+                }
+            },
+            {
+                "name": "01",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 6,
+                    "connection_link_count": 0,
+                    "time_table_count": 3,
+                    "stop_area_count": 84,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 385,
+                    "journey_pattern_count": 6
+                }
+            },
+            {
+                "name": "10",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 6,
+                    "connection_link_count": 0,
+                    "time_table_count": 3,
+                    "stop_area_count": 79,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 253,
+                    "journey_pattern_count": 6
+                }
+            },
+            {
+                "name": "15",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 2,
+                    "connection_link_count": 0,
+                    "time_table_count": 3,
+                    "stop_area_count": 31,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 8,
+                    "journey_pattern_count": 2
+                }
+            },
+            {
+                "name": "13 SOIREE",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 2,
+                    "connection_link_count": 0,
+                    "time_table_count": 1,
+                    "stop_area_count": 22,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 17,
+                    "journey_pattern_count": 2
+                }
+            },
+            {
+                "name": "05",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 14,
+                    "connection_link_count": 0,
+                    "time_table_count": 3,
+                    "stop_area_count": 109,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 378,
+                    "journey_pattern_count": 14
+                }
+            },
+            {
+                "name": "02 SOIREE",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 2,
+                    "connection_link_count": 0,
+                    "time_table_count": 1,
+                    "stop_area_count": 68,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 10,
+                    "journey_pattern_count": 2
+                }
+            },
+            {
+                "name": "08",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 9,
+                    "connection_link_count": 0,
+                    "time_table_count": 3,
+                    "stop_area_count": 104,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 236,
+                    "journey_pattern_count": 9
+                }
+            },
+            {
+                "name": "05 SOIREE",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 2,
+                    "connection_link_count": 0,
+                    "time_table_count": 1,
+                    "stop_area_count": 94,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 10,
+                    "journey_pattern_count": 2
+                }
+            },
+            {
+                "name": "12",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 6,
+                    "connection_link_count": 0,
+                    "time_table_count": 3,
+                    "stop_area_count": 100,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 236,
+                    "journey_pattern_count": 6
+                }
+            },
+            {
+                "name": "13",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 4,
+                    "connection_link_count": 0,
+                    "time_table_count": 1,
+                    "stop_area_count": 101,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 81,
+                    "journey_pattern_count": 4
+                }
+            },
+            {
+                "name": "03",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 5,
+                    "connection_link_count": 0,
+                    "time_table_count": 3,
+                    "stop_area_count": 97,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 387,
+                    "journey_pattern_count": 5
+                }
+            },
+            {
+                "name": "07",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 4,
+                    "connection_link_count": 0,
+                    "time_table_count": 3,
+                    "stop_area_count": 105,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 238,
+                    "journey_pattern_count": 4
+                }
+            },
+            {
+                "name": "11",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 2,
+                    "connection_link_count": 0,
+                    "time_table_count": 3,
+                    "stop_area_count": 96,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 251,
+                    "journey_pattern_count": 2
+                }
+            },
+            {
+                "name": "09 SOIREE",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 2,
+                    "connection_link_count": 0,
+                    "time_table_count": 1,
+                    "stop_area_count": 29,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 10,
+                    "journey_pattern_count": 2
+                }
+            },
+            {
+                "name": "CITADINE",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 2,
+                    "connection_link_count": 0,
+                    "time_table_count": 1,
+                    "stop_area_count": 61,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 77,
+                    "journey_pattern_count": 2
+                }
+            },
+            {
+                "name": "14",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 2,
+                    "connection_link_count": 0,
+                    "time_table_count": 2,
+                    "stop_area_count": 65,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 130,
+                    "journey_pattern_count": 2
+                }
+            },
+            {
+                "name": "01 SOIREE",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 4,
+                    "connection_link_count": 0,
+                    "time_table_count": 1,
+                    "stop_area_count": 84,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 11,
+                    "journey_pattern_count": 4
+                }
+            },
+            {
+                "name": "04 SOIREE",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 2,
+                    "connection_link_count": 0,
+                    "time_table_count": 1,
+                    "stop_area_count": 102,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 10,
+                    "journey_pattern_count": 2
+                }
+            },
+            {
+                "name": "07 SOIREE",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 2,
+                    "connection_link_count": 0,
+                    "time_table_count": 1,
+                    "stop_area_count": 50,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 10,
+                    "journey_pattern_count": 2
+                }
+            },
+            {
+                "name": "09",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 4,
+                    "connection_link_count": 0,
+                    "time_table_count": 3,
+                    "stop_area_count": 105,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 268,
+                    "journey_pattern_count": 4
+                }
+            },
+            {
+                "name": "18",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 3,
+                    "connection_link_count": 0,
+                    "time_table_count": 4,
+                    "stop_area_count": 27,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 8,
+                    "journey_pattern_count": 3
+                }
+            },
+            {
+                "name": "04",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 8,
+                    "connection_link_count": 0,
+                    "time_table_count": 3,
+                    "stop_area_count": 112,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 381,
+                    "journey_pattern_count": 8
+                }
+            },
+            {
+                "name": "06",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 5,
+                    "connection_link_count": 0,
+                    "time_table_count": 3,
+                    "stop_area_count": 67,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 279,
+                    "journey_pattern_count": 5
+                }
+            },
+            {
+                "name": "16",
+                "status": "OK",
+                "stats": {
+                    "line_count": 1,
+                    "route_count": 4,
+                    "connection_link_count": 0,
+                    "time_table_count": 1,
+                    "stop_area_count": 63,
+                    "access_point_count": 0,
+                    "vehicle_journey_count": 42,
+                    "journey_pattern_count": 4
+                }
+            }
+        ],
+        "stats": {
+            "line_count": 28,
+            "route_count": 119,
+            "connection_link_count": 0,
+            "time_table_count": 60,
+            "stop_area_count": 2151,
+            "access_point_count": 0,
+            "vehicle_journey_count": 4928,
+            "journey_pattern_count": 119
+        }
+    }
+}

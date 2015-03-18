@@ -70,8 +70,8 @@ ActiveRecord::Schema.define(version: 20150304090743) do
     t.integer  "referential_id"
     t.string   "token"
     t.string   "name"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "companies", force: true do |t|
@@ -102,8 +102,8 @@ ActiveRecord::Schema.define(version: 20150304090743) do
     t.string   "status"
     t.integer  "violation_count"
     t.text     "detail"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "rule_target"
     t.string   "rule_format"
     t.integer  "rule_level"
@@ -119,8 +119,8 @@ ActiveRecord::Schema.define(version: 20150304090743) do
     t.integer  "user_id",            limit: 8
     t.string   "user_name"
     t.text     "progress_info"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "references_type"
     t.string   "reference_ids"
   end
@@ -158,8 +158,8 @@ ActiveRecord::Schema.define(version: 20150304090743) do
     t.datetime "failed_at"
     t.string   "locked_by"
     t.string   "queue"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
@@ -233,8 +233,8 @@ ActiveRecord::Schema.define(version: 20150304090743) do
     t.string   "user_name"
     t.text     "result"
     t.text     "progress_info"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "jobs", force: true do |t|
@@ -323,8 +323,8 @@ ActiveRecord::Schema.define(version: 20150304090743) do
 
   create_table "organisations", force: true do |t|
     t.string   "name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "data_format"
   end
 
@@ -346,8 +346,8 @@ ActiveRecord::Schema.define(version: 20150304090743) do
   create_table "referentials", force: true do |t|
     t.string   "name"
     t.string   "slug"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "prefix"
     t.string   "projection_type"
     t.string   "time_zone"
@@ -384,8 +384,8 @@ ActiveRecord::Schema.define(version: 20150304090743) do
   create_table "rule_parameter_sets", force: true do |t|
     t.text     "parameters"
     t.string   "name"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "organisation_id", limit: 8
   end
 
@@ -523,8 +523,8 @@ ActiveRecord::Schema.define(version: 20150304090743) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "organisation_id"
     t.string   "name"
     t.string   "confirmation_token"

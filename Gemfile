@@ -1,5 +1,4 @@
 source 'http://rubygems.org'
-source 'https://rails-assets.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.9'
@@ -80,24 +79,28 @@ gem 'calendar_helper', "0.2.5"
 gem 'cocoon'
 gem 'formtastic', "2.3.1"
 gem 'RedCloth'
-
-# Javascript
-gem "modernizr-rails", "~> 2.0.6"
-gem 'rails-assets-morrisjs', "~> 0.5.1"
-gem 'rails-assets-raphael', "~> 2.1.3"
-
-# Use twitter bootstrap resources
-gem 'rails-assets-bootstrap-sass-official', '~> 3.3.0'
+gem 'simple_form', '~> 3.1.0'
 gem 'font-awesome-sass', '~> 4.2.0'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
-gem 'simple_form', '~> 3.1.0'
-gem 'rails-assets-tagmanager', '~> 3.0.1.0'
-gem 'rails-assets-typeahead.js', '~> 0.10.5'
 gem "breadcrumbs_on_rails"
-gem 'rails-assets-typeahead.js-bootstrap3.less'
-gem 'rails-assets-respond'
-gem 'rails-assets-eonasdan-bootstrap-datetimepicker', '~> 3.1.3'
-gem 'rails-assets-jquery-tokeninput', '~> 1.7.0'
+
+# TODO : Move these resources to rails assets
+gem "modernizr-rails", "~> 2.0.6"
+
+# Javascript
+source 'https://rails-assets.org' do 
+  gem 'rails-assets-morrisjs', "~> 0.5.1"
+  gem 'rails-assets-raphael', "~> 2.1.3"
+
+  # Use twitter bootstrap resources
+  gem 'rails-assets-bootstrap-sass-official', '~> 3.3.0'  
+  gem 'rails-assets-tagmanager', '~> 3.0.1.0'
+  gem 'rails-assets-typeahead.js', '~> 0.10.5'
+  gem 'rails-assets-typeahead.js-bootstrap3.less'
+  gem 'rails-assets-respond'
+  gem 'rails-assets-eonasdan-bootstrap-datetimepicker', '~> 3.1.3'
+  gem 'rails-assets-jquery-tokeninput', '~> 1.7.0'
+end
 
 # Format Output
 gem 'json'
@@ -126,7 +129,7 @@ gem "acts_as_tree", '~> 2.1.0', :require => "acts_as_tree"
 gem 'rabl'
 
 gem 'delayed_job_active_record'
-gem 'apartment'
+gem 'apartment', "~> 1.0.0"
 
 group :development do
   gem 'capistrano', '2.13.5'
@@ -139,6 +142,7 @@ end
 
 group :test, :development do
   gem "rspec-rails", "~> 3.1.0"
+  gem "fakeweb"
   gem 'capybara', "~> 2.4.0"
   gem 'poltergeist'
   gem 'launchy'

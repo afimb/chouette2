@@ -3,27 +3,67 @@ class Import
   extend ActiveModel::Naming
   include ActiveModel::Model  
   
-  enumerize :status, in: %w{created scheduled terminated canceled aborted}, default: "created", predicates: true
-  enumerize :format, in: %w{neptune netex gtfs}, default: "neptune", predicates: true
+  # enumerize :status, in: %w{created scheduled terminated canceled aborted}, default: "created", predicates: true
+  # enumerize :format, in: %w{neptune netex gtfs}, default: "neptune", predicates: true
 
-  attr_reader :datas
+  attr_reader :datas, :links, :headers, :errors
+
+  def initialize( response  )
+    @datas = response[:datas]
+    @headers = response[:headers]
+    @links = response[:links]
+    # @status = @datas.status.downcase if @datas.status?
+    # @format = @datas.type.downcase if @datas.type?
+  end  
   
-  def initialize( options = Hashie::Mash.new )
-    @datas = options
-    @status = @datas.status.downcase if @datas.status?
-    @format = @datas.type.downcase if @datas.type?
-  end
-
   def report
-    ImportReport.new( IevApi.job(referential_name, id,{ :action => "importer" }) )
+    report_path = links[:report]
+    if report_path      
+      response = IevApi.request(:get, compliance_check_path, params)
+      ImportReport.new(response)
+    else
+      raise IevApi::IevError("Impossible to access report path link for import")
+    end
+  end 
+
+  def compliance_check
+    compliance_check_path = links[:validation]
+    if compliance_check_path
+      response = IevApi.request(:get, compliance_check_path, params)
+      ComplianceCheck.new(response)
+    else
+      raise IevApi::IevError("Impossible to access compliance check path link for import")
+    end
   end
 
-  # def compliance_check
-  #   ComplianceCheck.new( IevApi.job(referential_name, { :action => "importer" }) )
-  # end
+  def delete
+    delete_path =  links[:delete]
+    if delete_path
+      IevApi.request(:delete, delete_path, params)
+    else
+      raise IevApi::IevError("Impossible to access delete path link for import")
+    end
+  end
+
+  def cancel
+    cancel_path =  links[:cancel]
+    if cancel_path
+      IevApi.request(:delete, cancel_path, params)
+    else
+      raise IevApi::IevError("Impossible to access cancel path link for import")
+    end
+  end
 
   def id
     @datas.id
+  end
+
+  def status
+    datas.status
+  end
+
+  def format
+    datas.format
   end
 
   def filename
@@ -43,11 +83,7 @@ class Import
       20
     end
   end
-
-  def links
-    @datas.links
-  end
-
+  
   def referential_name
     @datas.referential
   end

@@ -23,6 +23,7 @@ module IevApi
                            FaradayMiddleware::FollowRedirects,
                            FaradayMiddleware::ParseJson,
                            IevApi::Middleware::RaiseServerError,
+                           IevApi::Middleware::CustomParser
                           ]
 
     def self.extended(base)

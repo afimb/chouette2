@@ -10,6 +10,7 @@ require 'capybara/rails'
 require 'capybara/poltergeist'
 require 'georuby-ext'
 require 'will_paginate/array'
+require 'fakeweb'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
