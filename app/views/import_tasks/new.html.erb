@@ -17,7 +17,7 @@
       <%= form.input :format, :as => :hidden %>
       <%= form.input :no_save, :as => :boolean, :collection => [true, false] %>
       <%= form.input :rule_parameter_set_id, :as => :select,
-          :collection =>  @referential.rule_parameter_sets.map { |rps| [ rps.name, rps.id ] }, :include_blank => true %>
+          :collection =>  @referential.organisation.rule_parameter_sets.map { |rps| [ rps.name, rps.id ] }, :include_blank => true %>
       <%= form.input :resources, :as => :file %>
       
       <% unless import_task.references_types.empty? %>
