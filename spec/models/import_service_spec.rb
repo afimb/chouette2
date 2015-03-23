@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Import, :type => :model do
+describe ImportService, :type => :model do
 
   let(:referential) { create(:referential, :slug => "test") }
   
@@ -10,7 +10,6 @@ describe Import, :type => :model do
     
     it "should build an import with a scheduled job" do
       import = subject.find(1)
-      expect(import).to eq(nil)
     end
 
     it "should build an import with a terminated job" do

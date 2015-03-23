@@ -39,6 +39,7 @@ gem 'spring', group: :development
 gem "sitemap_generator"
 
 # API Rest
+gem 'sawyer'
 gem 'faraday', '~> 0.9.1'
 gem 'faraday_middleware', '~> 0.9.1'
 gem 'kleisli'

@@ -28,17 +28,17 @@ module ImportsHelper
 
   def import_progress_bar_tag(import)
       
-    if import.canceled? || import.aborted?
-      div_class = "progress-bar progress-bar-danger"
-    elsif import.scheduled?
-      div_class = "progress-bar progress-bar-info"
-    elsif import.created?
-      div_class = "progress-bar progress-bar-info"
-    elsif import.terminated?
-      div_class = "progress-bar progress-bar-success"
-    else
-      div_class = ""
-    end  
+    # if import.canceled? || import.aborted?
+    #   div_class = "progress-bar progress-bar-danger"
+    # elsif import.scheduled?
+    #   div_class = "progress-bar progress-bar-info"
+    # elsif import.created?
+    #   div_class = "progress-bar progress-bar-info"
+    # elsif import.terminated?
+    #   div_class = "progress-bar progress-bar-success"
+    # else
+       div_class = ""
+    # end  
 
     content_tag :div, :class => "progress" do
       content_tag :div, :class => div_class, role: "progressbar", :'aria-valuenow' => "#{import.percentage_progress}", :'aria-valuemin' => "0", :'aria-valuemax' => "100", :style => "width: #{import.percentage_progress}%;" do

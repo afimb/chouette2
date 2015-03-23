@@ -6,18 +6,16 @@ class Import
   # enumerize :status, in: %w{created scheduled terminated canceled aborted}, default: "created", predicates: true
   # enumerize :format, in: %w{neptune netex gtfs}, default: "neptune", predicates: true
 
-  attr_reader :datas, :links, :headers, :errors
+  attr_reader :datas
 
-  def initialize( response  )
-    @datas = response[:datas]
-    @headers = response[:headers]
-    @links = response[:links]
+  def initialize( response  )    
+    @datas = response
     # @status = @datas.status.downcase if @datas.status?
     # @format = @datas.type.downcase if @datas.type?
   end  
   
   def report
-    report_path = links[:report]
+    report_path = datas.links[:report]
     if report_path      
       response = IevApi.request(:get, compliance_check_path, params)
       ImportReport.new(response)
@@ -27,7 +25,7 @@ class Import
   end 
 
   def compliance_check
-    compliance_check_path = links[:validation]
+    compliance_check_path = datas.links[:validation]
     if compliance_check_path
       response = IevApi.request(:get, compliance_check_path, params)
       ComplianceCheck.new(response)
@@ -37,7 +35,7 @@ class Import
   end
 
   def delete
-    delete_path =  links[:delete]
+    delete_path =  datas.links[:delete]
     if delete_path
       IevApi.request(:delete, delete_path, params)
     else
@@ -46,7 +44,7 @@ class Import
   end
 
   def cancel
-    cancel_path =  links[:cancel]
+    cancel_path =  datas.links[:cancel]
     if cancel_path
       IevApi.request(:delete, cancel_path, params)
     else
@@ -55,7 +53,7 @@ class Import
   end
 
   def id
-    @datas.id
+    datas.id
   end
 
   def status
@@ -67,7 +65,7 @@ class Import
   end
 
   def filename
-    @datas.filename
+    datas.filename
   end
 
   def filename_extension
@@ -85,43 +83,40 @@ class Import
   end
   
   def referential_name
-    @datas.referential
+    datas.referential
   end
   
   def name
-    @datas.parameters.name
-  end
-
-  def user_name?
-    @datas.parameters? && @datas.parameters.user_name?
+    datas.action_parameters.name
   end
   
   def user_name
-    @datas.parameters.user_name if user_name?
+    
+    datas.action_parameters.user_name
   end
 
   def no_save
-    @datas.parameters.no_save
+    datas.action_parameters.no_save
   end
 
   def filename
-    @datas.filename
+    datas.filename
   end
 
   def created_at?
-    @datas.created?
+    datas.created?
   end
   
   def created_at
-    Time.at(@datas.created.to_i / 1000) if created_at?
+    Time.at(datas.created.to_i / 1000) if created_at?
   end
 
   def updated_at?
-    @datas.updated?
+    datas.updated?
   end
 
   def updated_at
-    Time.at(@datas.updated.to_i / 1000) if updated_at?
+    Time.at(datas.updated.to_i / 1000) if updated_at?
   end
 
 end

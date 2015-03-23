@@ -8,14 +8,16 @@ class ImportService
 
   # Find an import whith his id
   def find(id)
-    Import.new( IevApi.scheduled_job(referential.slug, id, { :action => "importer" }) )
+    Import.new( Ievkit.scheduled_job(referential.slug, id, { :action => "importer" }) )
   end
 
   # Find all imports
   def all
-    IevApi.jobs(referential.slug, { :action => "importer" }).map do |import_hash|
-      Import.new( import_hash  )
+    [].tap do |jobs|
+      Ievkit.jobs(referential.slug, { :action => "importer" }).each do |job|
+        jobs << Import.new( job )
+      end
     end
   end
-
+  
 end

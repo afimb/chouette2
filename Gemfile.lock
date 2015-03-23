@@ -384,6 +384,9 @@ GEM
       sass (~> 3.2.2)
       sprockets (~> 2.8, < 3.0)
       sprockets-rails (~> 2.0)
+    sawyer (0.6.0)
+      addressable (~> 2.3.5)
+      faraday (~> 0.8, < 0.10)
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
@@ -531,6 +534,7 @@ DEPENDENCIES
   rspec-rails (~> 3.1.0)
   rubyzip (~> 1.1.6)
   sass-rails (~> 4.0.3)
+  sawyer
   sdoc (~> 0.4.0)
   simple_form (~> 3.1.0)
   sitemap_generator
