@@ -7,7 +7,7 @@ class ImportsController < ChouetteController
   respond_to :js, :only => [:show, :index]
   belongs_to :referential
 
-  # create => curl -F "file=@Citura_050115_220215_ref.zip;filename=Citura_050115_220215_ref.zip" -F "file=@parameters.json;filename=parameters.json" http://localhost:8080/mobi.chouette.api/referentials/test/importer/neptune
+  # create => curl -F "file=@Citura.zip;filename=Citura.zip" -F "file=@parameters.json;filename=parameters.json" http://localhost:8080/chouette_iev/referentials/test/importer/neptune
   # index curl http://localhost:8080/mobi.chouette.api/referentials/test/jobs
   # show curl http://localhost:8080/mobi.chouette.api/referentials/test/jobs
 
