@@ -61,11 +61,11 @@ class Import
   end
 
   def format
-    datas.format
+    datas.type
   end
 
   def filename
-    datas.filename
+    datas.links.select{ |link| link["rel"] == "data"}.first.href.gsub( /\/.*\//, "" )
   end
 
   def filename_extension
@@ -96,10 +96,6 @@ class Import
 
   def no_save
     datas.action_parameters.no_save
-  end
-
-  def filename
-    datas.filename
   end
 
   def created_at?
