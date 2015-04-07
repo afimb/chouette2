@@ -17,10 +17,10 @@ module Ievkit
         end
 
         # Big horrible hack to fix
-        body = response[:body]
-        if body["jobs"].present?
-          response[:body] = body.gsub("{\"jobs\":", "").chomp("}")
-        end
+        #body = response[:body]
+        #if body["{\"jobs\":"].present?
+        #  response[:body] = body.gsub("{\"jobs\":", "").chomp("}")
+        #end
         
       end
     end
