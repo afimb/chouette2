@@ -1,69 +1,70 @@
- <div class="resume row">
-   <div class="col-md-4">
-     <% file_title = (@import.filename_extension=="zip") ? t( "imports.show.graph.files.title_zip") : t( "imports.show.graph.files.title_default", :extension => @import.filename_extension)%>
-     <div class="caption"><%= file_title %></div>
-     <div id="files_statistics"></div>
-   </div>
-   <div class="col-md-8">
-     <div class="caption"><%= t "imports.show.graph.lines.title" %></div>
-     <div id="objects_statistics"></div>
-   </div>
- </div>
- <div class="report">   
-   <div class="files files_error">
-     <% @import.report.error_files.each_with_index do |file, index| %>
-     <div class="col-md-6">
-       <%= image_tag "icons/file_xml_md.png" %><span class="file_name" title='<%= file.name %>'><%= truncate(file.name, :length => 40) %></span>
-     </div>
-     <% end %>
-   </div>
-   <div class="files files_ignored">
-     <% @import.report.ignored_files.each_with_index do |file, index| %>
-     <div class="col-md-6">
-       <%= image_tag "icons/file_xml_md.png" %><span class="file_name" title='<%= file.name %>'><%= truncate(file.name, :length => 40) %></span>
-     </div>
-     <% end %>
-   </div>
-   <div class="files files_ok">
-     <% @import.report.ok_files.each_with_index do |file, index| %>
-     <div class="col-md-6">
-       <%= image_tag "icons/file_xml_md.png" %><span class="file_name" title='<%= file.name %>'><%= truncate(file.name, :length => 40) %></span>
-     </div>
-     <% end %>
-   </div>
-   <div class="lines">
-     <table class="table table-hover table-striped">
-       <thead>
-         <tr>
-           <th><%= t("import_tasks.show.table.line.name") %></th>
-           <th><%= t("import_tasks.show.table.line.save") %></th>
-           <th><%= t("import_tasks.show.table.line.routes") %></th>
-           <th><%= t("import_tasks.show.table.line.connection_links") %></th>
-           <th><%= t("import_tasks.show.table.line.time_tables") %></th>
-           <th><%= t("import_tasks.show.table.line.stop_areas") %></th>
-           <th><%= t("import_tasks.show.table.line.access_points") %></th>
-           <th><%= t("import_tasks.show.table.line.vehicle_journeys") %></th>
-           <th><%= t("import_tasks.show.table.line.journey_patterns") %></th>
-         </tr>
-       </thead>
-       <tbody>
-         <% @import.report.line_items.each_with_index do |line_item, index| %>
-           <% tr_class = (line_item.status == "saved") ? '' : 'class=\'danger\''%>
-           <tr <%=  tr_class %>>
-           <td><%= line_item.name %></td>
-           <td><%= t("import_tasks.show.table.line." + line_item.status ) %></td>
-           <td><%= line_item.routes %></td>
-           <td><%= line_item.connection_links %></td>
-           <td><%= line_item.time_tables %></td>
-           <td><%= line_item.stop_areas %></td>
-           <td><%= line_item.access_points %></td>
-           <td><%= line_item.vehicle_journeys %></td>
-           <td><%= line_item.journey_patterns %></td>
-         </tr>
-         <% end %>
-       </tbody>
-     </table>
-   </div>
- </div>
- <%= javascript_include_tag referential_import_path(@referential, @import.id,:format => :js) %>
+<div class="resume row">
+  <div class="col-md-4">
+    <% file_title = (@import.filename_extension==".zip") ? t("imports.show.graph.files.title_zip") : t("imports.show.graph.files.title_default", :extension => @import.filename_extension)%>
+    <div class="caption"><%= file_title %></div>
+    <div id="files_statistics"></div>
+  </div>
+  <div class="col-md-8">
+    <div class="caption"><%= t "imports.show.graph.lines.title" %></div>
+    <div id="objects_statistics"></div>
+  </div>
+</div>
+
+<div class="report">   
+  <div class="files files_error">
+    <% @import.report.error_files.each_with_index do |file, index| %>
+      <div class="col-md-6">
+        <%= image_tag "icons/file_xml_md.png" %><span class="file_name" title='<%= file.name %>'><%= truncate(file.name, :length => 40) %></span>
+      </div>
+    <% end %>
+  </div>
+  <div class="files files_ignored">
+    <% @import.report.ignored_files.each_with_index do |file, index| %>
+      <div class="col-md-6">
+        <%= image_tag "icons/file_xml_md.png" %><span class="file_name" title='<%= file.name %>'><%= truncate(file.name, :length => 40) %></span>
+      </div>
+    <% end %>
+  </div>
+  <div class="files files_ok">
+    <% @import.report.ok_files.each_with_index do |file, index| %>
+      <div class="col-md-6">
+        <%= image_tag "icons/file_xml_md.png" %><span class="file_name" title='<%= file.name %>'><%= truncate(file.name, :length => 40) %></span>
+      </div>
+    <% end %>
+  </div>
+  <div class="lines">
+    <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <th><%= t("import_tasks.show.table.line.name") %></th>
+          <th><%= t("import_tasks.show.table.line.save") %></th>
+          <th><%= t("import_tasks.show.table.line.routes") %></th>
+          <th><%= t("import_tasks.show.table.line.connection_links") %></th>
+          <th><%= t("import_tasks.show.table.line.time_tables") %></th>
+          <th><%= t("import_tasks.show.table.line.stop_areas") %></th>
+          <th><%= t("import_tasks.show.table.line.access_points") %></th>
+          <th><%= t("import_tasks.show.table.line.vehicle_journeys") %></th>
+          <th><%= t("import_tasks.show.table.line.journey_patterns") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @import.report.line_items.each_with_index do |line_item, index| %>
+          <% tr_class = (line_item.status == "saved") ? '' : 'class=\'danger\''%>
+          <tr <%=  tr_class %>>
+            <td><%= line_item.name %></td>
+            <td><%= t("import_tasks.show.table.line." + line_item.status ) %></td>
+            <td><%= line_item.routes %></td>
+            <td><%= line_item.connection_links %></td>
+            <td><%= line_item.time_tables %></td>
+            <td><%= line_item.stop_areas %></td>
+            <td><%= line_item.access_points %></td>
+            <td><%= line_item.vehicle_journeys %></td>
+            <td><%= line_item.journey_patterns %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%= javascript_include_tag referential_import_path(@referential, @import.id,:format => :js) %>
 
