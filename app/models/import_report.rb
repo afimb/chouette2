@@ -2,12 +2,10 @@ class ImportReport
   extend ActiveModel::Naming
   include ActiveModel::Model
   
-  attr_reader :datas, :errors, :metadatas
+  attr_reader :datas
   
   def initialize( response )
-    @datas = response.datas
-    @errors = response.errors
-    @metadatas = response.metadatas
+    @datas = response[:action_report]
   end
 
   def zip_file

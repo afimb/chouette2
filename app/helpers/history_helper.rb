@@ -43,8 +43,8 @@ module HistoryHelper
           end
         end),  
         (content_tag :li do
-           if object.user_name?
-             t('layouts.history_tag.user_name') + ' : ' + object.user_name if  object.user_name
+           if  object.user_name
+             t('layouts.history_tag.user_name') + ' : ' + object.user_name
            end
         end)].join.html_safe
       end

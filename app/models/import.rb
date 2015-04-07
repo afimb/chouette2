@@ -15,40 +15,40 @@ class Import
   end  
   
   def report
-    report_path = datas.links[:report]
+    report_path = "http://localhost:8080/chouette_iev" + datas.links.select{ |link| link["rel"] == "action_report"}.first.href
     if report_path      
-      response = IevApi.request(:get, compliance_check_path, params)
+      response = Ievkit.get(report_path)
       ImportReport.new(response)
     else
-      raise IevApi::IevError("Impossible to access report path link for import")
+      raise Ievkit::IevError("Impossible to access report path link for import")
     end
   end 
 
   def compliance_check
-    compliance_check_path = datas.links[:validation]
+    compliance_check_path = "http://localhost:8080/chouette_iev" + datas.links.select{ |link| link["rel"] == "validation_report"}.first.href
     if compliance_check_path
-      response = IevApi.request(:get, compliance_check_path, params)
+      response = Ievkit.get(compliance_check_path)
       ComplianceCheck.new(response)
     else
-      raise IevApi::IevError("Impossible to access compliance check path link for import")
+      raise Ievkit::Error("Impossible to access compliance check path link for import")
     end
   end
 
   def delete
-    delete_path =  datas.links[:delete]
+    delete_path =  "http://localhost:8080/chouette_iev" + datas.links.select{ |link| link["rel"] == "delete"}.first.href
     if delete_path
-      IevApi.request(:delete, delete_path, params)
+      Ievkit.delete(delete_path)
     else
-      raise IevApi::IevError("Impossible to access delete path link for import")
+      raise Ievkit::Error("Impossible to access delete path link for import")
     end
   end
 
   def cancel
-    cancel_path =  datas.links[:cancel]
+    cancel_path = datas.links.select{ |link| link["rel"] == "cancel"}.first.href
     if cancel_path
-      IevApi.request(:delete, cancel_path, params)
+      Ievkit.delete(cancel_path)
     else
-      raise IevApi::IevError("Impossible to access cancel path link for import")
+      raise Ievkit::Error("Impossible to access cancel path link for import")
     end
   end
 
@@ -90,8 +90,7 @@ class Import
     datas.action_parameters.name
   end
   
-  def user_name
-    
+  def user_name    
     datas.action_parameters.user_name
   end
 
