@@ -4,14 +4,10 @@ class ExportReport
   
   attr_reader :datas, :errors, :metadatas
   
-  def initialize( response )
-    @datas = response.datas
+  def initialize(response)
+    @datas = response.action_report
     @errors = response.errors
     @metadatas = response.metadatas
-  end
-
-  def zip_file
-    datas.zip_file
   end
 
   def error_files
@@ -39,35 +35,35 @@ class ExportReport
   end
   
   def lines
-    datas.stats.line_count if datas.stats_.line_count?
+    datas.stats.line_count if datas.stats.line_count?
   end
   
   def routes
-    datas.stats.route_count if datas.stats_.route_count?
+    datas.stats.route_count if datas.stats.route_count?
   end
   
   def connection_links
-    datas.stats.connection_link_count if datas.stats_.connection_link_count?
+    datas.stats.connection_link_count if datas.stats.connection_link_count?
   end
   
   def time_tables
-    datas.stats.time_table_count if datas.stats_.time_table_count?
+    datas.stats.time_table_count if datas.stats.time_table_count?
   end
   
   def stop_areas
-    datas.stats.stop_area_count if datas.stats_.stop_area_count?
+    datas.stats.stop_area_count if datas.stats.stop_area_count?
   end
   
   def access_points
-    datas.stats.access_point_count if datas.stats_.access_point_count?
+    datas.stats.access_point_count if datas.stats.access_point_count?
   end
   
   def vehicle_journeys
-    datas.stats.vehicle_journey_count if datas.stats_.vehicle_journey_count?
+    datas.stats.vehicle_journey_count if datas.stats.vehicle_journey_count?
   end
   
   def journey_patterns
-    datas.stats.journey_pattern_count if datas.stats_.journey_pattern_count?
+    datas.stats.journey_pattern_count if datas.stats.journey_pattern_count?
   end
   
   class LineItem

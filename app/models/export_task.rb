@@ -53,19 +53,13 @@ class ExportTask < ActiveRecord::Base
     delay.export
   end
 
-  def save_requested?
-    !parameter_set["no_save"]
-  end
-
   protected
 
-  option :no_save, :boolean
   option :format
   option :file_path
   option :references_type
 
-  validates_inclusion_of :no_save, :in => [ true, false]
-  validates_inclusion_of :format, :in => self.formats
+   validates_inclusion_of :format, :in => self.formats
 
   def chouette_command
     Chouette::Command.new(:schema => referential.slug)
@@ -139,8 +133,7 @@ class ExportTask < ActiveRecord::Base
   end
 
   def full_name
-    return name unless no_save
-    "#{name} - #{I18n.t('activerecord.attributes.export_task.no_save')}"
+    return name
   end
 
   # Create ExportTask and ComplianceCheckTask associated and give export id to Chouette Loader

@@ -8,7 +8,7 @@ class ExportService
 
   # Find an export whith his id
   def find(id)
-    Export.new(IevApi.scheduled_job(referential.slug, id, { :action => "exporter" }))
+    Export.new(Ievkit.scheduled_job(referential.slug, id, { :action => "exporter" }))
   end
 
   # Find all exports

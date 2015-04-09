@@ -1,52 +1,17 @@
-<%= title_tag @export.name %>
+<div class="test">
+  <% title = "<i class='fa fa-save'></i>" %>
+  <%= title_tag "#{title} #{@export.name} <span class='status status_#{@export.status}'>#{ t('exports.statuses.'+ @export.status) }</span>" %>
+</div>
 
 <div class="export_show">
-  <div class="summary">
-    <p>
-      <label><%= Export.human_attribute_name(:created_at) %>: </label>
-      <%= l @export.created_at %>
-    </p>
-    <p>
-      <label><%= Export.human_attribute_name(:status) %>: </label>
-      <%= t @export.status, :scope => "exports.statuses" %>
-    </p>
-  </div>
-
-  <% if @export.references.present? %>
-  <h3><%= Export.human_attribute_name(:references) %></h3>
-  <ul>
-    <% @export.references.each do |reference| %>
-    <li><%= link_to "#{reference.class.model_name.humanize} #{reference.name}", [@referential, reference] %>
-    <% end %>
-  </ul>
-  <% end %>
-
-  <% if @export.log_messages.present? %>
-  <h3><%= t(".report") %></h3>
-  <table>
-    <tr>
-      <th class="severity"></th>
-      <th class="created_at"><%= ExportLogMessage.human_attribute_name(:created_at) %></th>
-      <th class="position"><%= ExportLogMessage.human_attribute_name(:position) %></th>
-      <th class="message"><%= ExportLogMessage.human_attribute_name(:full_message) %></th>
-    </tr>
-    <% @export.log_messages.each do |message| %>
-    <tr>
-      <td class="severity"><%= image_tag "severity-#{message.severity}.png", :alt => t(message.severity, :scope => "export_log_messages.severities") %></td>
-      <td class="created_at"><%= l message.created_at, :format => :short %></td>
-      <td class="position"><%= message.position %></td>
-      <td class="message"><%= message.full_message %></td>
-    </tr>
-    <% end %>
-  </table>
-  <% end %>
+  <%= render( :partial => "results_dashboard", :locals => { :referential => @referential} ) %>
 </div>
 
 <% content_for :sidebar do %>
-<ul class="actions">
-  <% if @export.status == 'completed' %>
-    <li><%= link_to  t('exports.actions.download'), referential_export_path(@referential, @export, :format => :zip), :class => "download" %></li>
-  <% end %>
-  <li><%= link_to  t('exports.actions.destroy'), referential_export_path(@referential, @export), :method => :delete,  :data => {:confirm =>  t('exports.actions.destroy_confirm')}, :class => "remove" %></li>
-</ul>
+  <ul class="actions">
+    <li><%= link_to t('exports.actions.destroy'), referential_export_path(@referential, @export.id), :method => :delete, :data => {:confirm => t('exports.actions.destroy_confirm')}, :class => "remove" %></li>
+  </ul>
+
+  <%= history_tag(@export) %>
+
 <% end %>

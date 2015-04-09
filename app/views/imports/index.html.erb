@@ -5,8 +5,8 @@
 
 
 <% content_for :sidebar do %>
-<ul class="actions">
-  <li><%= link_to t('imports.actions.new'), new_referential_import_path(@referential), :class => "add" %></li>
-  <li><%= link_to t('rule_parameter_sets.actions.index'), referential_rule_parameter_sets_path(@referential), :class => "link" %></li>
-</ul>
+  <ul class="actions">
+    <li><%= link_to t('imports.actions.new'), new_referential_import_path(@referential), :class => "add" %></li>
+    <li><%= link_to t('rule_parameter_sets.actions.index'), referential_rule_parameter_sets_path(@referential), :class => "link" %></li>
+  </ul>
 <% end %>

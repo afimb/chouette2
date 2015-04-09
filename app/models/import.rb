@@ -113,5 +113,4 @@ class Import
   def updated_at
     Time.at(datas.updated.to_i / 1000) if updated_at?
   end
-
 end
