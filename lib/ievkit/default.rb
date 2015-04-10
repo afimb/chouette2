@@ -7,7 +7,7 @@ module Ievkit
   module Default
 
     # Default API endpoint
-    API_ENDPOINT = "http://localhost:8080/chouette_iev/".freeze
+    API_ENDPOINT = "http://localhost:8080/".freeze
 
     # Default User Agent header string
     USER_AGENT   = "Ievkit Ruby Gem #{Ievkit::VERSION}".freeze

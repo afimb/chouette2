@@ -10,7 +10,7 @@ class Export
   end
 
   def report
-    report_path = "http://localhost:8080/chouette_iev" + datas.links.select{ |link| link["rel"] == "action_report"}.first.href
+    report_path = datas.links.select{ |link| link["rel"] == "action_report"}.first.href
     if report_path
       response = Ievkit.get(report_path)
       ExportReport.new(response)
@@ -20,7 +20,7 @@ class Export
   end 
 
   def compliance_check
-    compliance_check_path = "http://localhost:8080/chouette_iev" + datas.links.select{ |link| link["rel"] == "validation_report"}.first.href
+    compliance_check_path = datas.links.select{ |link| link["rel"] == "validation_report"}.first.href
     if compliance_check_path
       response = Ievkit.get(compliance_check_path)
       ComplianceCheck.new(response)
@@ -30,7 +30,7 @@ class Export
   end
 
   def delete
-    delete_path =  "http://localhost:8080/chouette_iev" + datas.links.select{ |link| link["rel"] == "delete"}.first.href
+    delete_path =  datas.links.select{ |link| link["rel"] == "delete"}.first.href
     if delete_path
       Ievkit.delete(delete_path)
     else
