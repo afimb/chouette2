@@ -10,7 +10,7 @@ class Organisation < ActiveRecord::Base
 
   after_create :add_rule_parameter_set
 
-  #attr_accessible :data_format, :name
+  attr_accessor :data_format, :name
   
   def add_rule_parameter_set
     RuleParameterSet.default_for_all_modes( self).save
