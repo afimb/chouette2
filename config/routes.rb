@@ -96,6 +96,12 @@ ChouetteIhm::Application.routes.draw do
         get 'references'
       end
     end
+
+    resources :validations do
+      collection do
+        get 'references'
+      end
+    end
     
     resources :compliance_check_tasks do
       member do

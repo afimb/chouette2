@@ -1,3 +1,4 @@
+# coding: utf-8
 module PaginationHelper
   def paginated_content(models, default_partial_name = nil, options = {})
     default_options = {:delete => true, :edit => true}
@@ -14,6 +15,7 @@ module PaginationHelper
       end
       html += '</div>'
     end
+
     html.html_safe
   end
 end

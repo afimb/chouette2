@@ -51,7 +51,7 @@ Rails.application.configure do
   #config.geoportail_api_key = "aaaaaaaaaaaaaa"
 
   # Iev server url
-  config.iev_url="localhost:8080/chouette_iev/"
+  # config.iev_url="localhost:8080/chouette_iev/"
   
   # Specific theme for each company
   # AFIMB

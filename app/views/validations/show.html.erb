@@ -1,0 +1,17 @@
+<div class="test">
+  <% title = @validation.no_save ? "": "<i class='fa fa-save'></i>" %>
+  <%= title_tag "#{title} #{@validation.name} <span class='status status_#{@validation.status}'>#{ t('validations.statuses.'+ @validation.status) }</span>" %>
+</div>
+
+<div class="validation_show">
+  <%= render( :partial => "results_dashboard", :locals => { :referential => @referential} ) %>
+</div>
+
+<% content_for :sidebar do %>
+  <ul class="actions">
+    <li><%= link_to t('validations.actions.destroy'), referential_validation_path(@referential, @validation.id), :method => :delete, :data => {:confirm => t('validations.actions.destroy_confirm')}, :class => "remove" %></li>
+  </ul>
+
+  <%= history_tag(@validation) %>
+
+<% end %>

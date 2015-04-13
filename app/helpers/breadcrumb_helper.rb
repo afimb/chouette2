@@ -34,6 +34,8 @@ module BreadcrumbHelper
       import_breadcrumb action
     when "Export"
       export_breadcrumb action
+    when "Validation"
+      validation_breadcrumb action
     when "ComplianceCheckTask"
       compliance_breadcrumb action
     when "RuleParameterSet"
@@ -140,6 +142,11 @@ module BreadcrumbHelper
   def export_breadcrumb (action)
     referential_breadcrumb
     add_breadcrumb Referential.human_attribute_name("exports"), referential_exports_path(@referential) unless action == :index
+  end
+
+  def validation_breadcrumb (action)
+    referential_breadcrumb
+    add_breadcrumb Referential.human_attribute_name("validations"), referential_validations_path(@referential) unless action == :index
   end
 
   def compliance_breadcrumb (action)
