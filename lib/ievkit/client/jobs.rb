@@ -9,7 +9,7 @@ module Ievkit
       # @example Fetch all jobs for referential test
       #   client.jobs("test")
       def jobs(referential, options = {})
-        paginate "referentials/#{referential}/jobs", options
+        paginate "chouette_iev/referentials/#{referential}/jobs", options
       end
       
       # Get scheduled job
@@ -20,7 +20,7 @@ module Ievkit
       # @example
       #   client.scheduled_job('test', 1451398)
       def scheduled_job(referential, job_id, options = {})
-        get "referentials/#{referential}/scheduled_jobs/#{job_id}", options
+        get "chouette_iev/referentials/#{referential}/scheduled_jobs/#{job_id}", options
       end
 
       # Get terminated job
@@ -31,7 +31,7 @@ module Ievkit
       # @example
       #   client.terminated_job('test', 1451399)
       def terminated_job(referential, job_id, options = {})
-        get "referentials/#{referential}/terminated_jobs/#{job_id}", options
+        get "chouette_iev/referentials/#{referential}/terminated_jobs/#{job_id}", options
       end
 
       # Create job 
