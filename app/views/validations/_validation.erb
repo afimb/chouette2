@@ -1,8 +1,9 @@
 <div id="index_item" class="panel panel-default">
   <div class="panel-heading">
     <div class="panel-title clearfix">
-      <span class="pull-right">                
-        <%= link_to "#{validation.datas.links[4].href}", :method => :delete, :data => {:confirm =>  t('validation_tasks.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
+      <span class="pull-right">
+	<% location = validation.datas.links.select { |link| link["rel"] == "location" }.first.href %>
+        <%= link_to "#{location}", :method => :delete, :data => {:confirm =>  t('validation_tasks.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
           <span class="fa fa-trash-o"></span>
         <% end %>
       </span>
