@@ -1,13 +1,13 @@
 <%= semantic_form_for [@referential, @group_of_line] do |form| %>
   <%= form.inputs do %>
-    <%= form.input :name, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.group_of_lines.name") } %>
-    <%= form.input :registration_number, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.group_of_lines.registration_number") } %>
+    <%= form.input :name, :input_html => {  :title => I18n.t("formtastic.titles#{format_restriction_for_locales(@referential)}.group_of_line.name") } %>
+    <%= form.input :registration_number, :input_html => {  :title => I18n.t("formtastic.titles#{format_restriction_for_locales(@referential)}.group_of_line.registration_number") } %>
     <%= form.input :comment %>
-    <%= form.input :objectid, :required => !@group_of_line.new_record?, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.group_of_lines.objectid") } %>
+    <%= form.input :objectid, :required => !@group_of_line.new_record?, :input_html => {  :title => I18n.t("formtastic.titles#{format_restriction_for_locales(@referential)}.group_of_line.objectid") } %>
   <% end %>
 
   <%= form.inputs do %>
-    <%= form.input :line_tokens, :label => t('.lines'), :as => :text,  :input_html => { :"data-pre" => ( @group_of_line.lines.map { |line| { :id => line.id, :name => line.name } } ).to_json }  %>
+    <%= form.input :line_tokens, :label => I18n.t('.lines'), :as => :text,  :input_html => { :"data-pre" => ( @group_of_line.lines.map { |line| { :id => line.id, :name => line.name } } ).to_json }  %>
   <% end %>
 
    <%= form.actions do %>
@@ -17,15 +17,15 @@
 <% end %>
 
 <script>
-	$(function() {
-          $( "#group_of_line_line_tokens" ).tokenInput('<%= name_filter_referential_lines_path(@referential, :format => :json) %>', {
+  $(function() {
+    $( "#group_of_line_line_tokens" ).tokenInput('<%= name_filter_referential_lines_path(@referential, :format => :json) %>', {
        crossDomain: false,
        prePopulate: $('#line_tokens').data('pre'),
        minChars: 1,
        preventDuplicates: true,
-       hintText: '<%= t('search_hint') %>',
-       noResultsText: '<%= t('no_result_text') %>',
-       searchingText: '<%= t('searching_term') %>'
+       hintText: '<%= I18n.t('search_hint') %>',
+       noResultsText: '<%= I18n.t('no_result_text') %>',
+       searchingText: '<%= I18n.t('searching_term') %>'
     });
-	});
+  });
 </script>
