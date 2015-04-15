@@ -28,6 +28,9 @@ class ReferentialsController < BreadcrumbController
   end
 
   protected
+
+  alias_method :referential, :resource
+
   def resource
     @referential ||= current_organisation.referentials.find_by_id(params[:id])
   end
@@ -48,8 +51,9 @@ class ReferentialsController < BreadcrumbController
     super
   end
 
-  def permitted_params
-    params.permit(referential: [ :name, :slug, :prefix, :time_zone, :upper_corner, :lower_corner, :organisation_id  ])
+  private
+  def referential_params
+    params.require(:referential).permit( :id, :name, :slug, :prefix, :time_zone, :upper_corner, :lower_corner, :organisation_id, :projection_type, :data_format )
   end  
 
 end
