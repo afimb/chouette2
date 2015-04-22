@@ -9,7 +9,7 @@ module Ievkit
       # @example Fetch all jobs for referential test
       #   client.jobs("test")
       def jobs(referential, options = {})
-        paginate "referentials/#{referential}/jobs", options
+        get "referentials/#{referential}/jobs", options
       end
       
       # Get scheduled job
@@ -40,8 +40,20 @@ module Ievkit
       # @return [Sawyer::Resource] Hash representing the new job.
       # @example
       #   client.create_job("test",....)
-      def create_job(referential, options = {})
-        post "jobs", options
+      def create_job(referential, action, format = "",   options = {})
+        url = "referentials/#{referential}/#{action}"
+        url += "/#{format}" if format.present?
+        multipart_post url, options
+      end
+
+      # Delete jobs 
+      #
+      # @param referential [String] Data referential name.
+      # @return [Boolean] Success
+      # @example
+      #   client.delete_jobs("test")
+      def delete_jobs(referential)
+        boolean_from_response :delete, "referentials/#{referential}/jobs", options
       end
       
     end

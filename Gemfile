@@ -105,7 +105,7 @@ end
 
 # Format Output
 gem 'json'
-gem 'rubyzip', '~> 1.1.6'
+gem 'rubyzip', '~> 1.1.7'
 gem 'roo'
 
 # Controller

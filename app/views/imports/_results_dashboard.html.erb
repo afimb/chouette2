@@ -1,6 +1,6 @@
 <div class="resume row">
   <div class="col-md-4">
-    <% file_title = (@import.filename_extension==".zip") ? t("imports.show.graph.files.title_zip") : t("imports.show.graph.files.title_default", :extension => @import.filename_extension)%>
+    <% file_title = (@import.filename_extension=="zip") ? t("imports.show.graph.files.title_zip") : t("imports.show.graph.files.title_default", :extension => @import.filename_extension)%>
     <div class="caption"><%= file_title %></div>
     <div id="files_statistics"></div>
   </div>

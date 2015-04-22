@@ -5,7 +5,27 @@ class ImportReport
   attr_reader :datas
   
   def initialize( response )
-    @datas = response[:action_report]
+    @datas = response.action_report
+  end
+  
+  def current_level
+    datas.progression.current_step if datas.progression    
+  end
+
+  def last_step
+    datas.progression.steps.last if datas.progression
+  end
+
+  def current_step_name
+    last_step.step if last_step
+  end
+  
+  def current_step
+    last_step.realized if last_step
+  end
+
+  def total_steps
+    last_step.total if last_step
   end
 
   def zip_file

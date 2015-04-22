@@ -66,6 +66,15 @@ module Ievkit
     def post(url, options = {})
       request :post, url, options
     end
+    
+    # Make a HTTP POST request
+    #
+    # @param url [String] The path, relative to {#api_endpoint}
+    # @param options [Hash] Body and header params for request
+    # @return [Sawyer::Resource]
+    def multipart_post(url, options = {})
+      multipart_request :post, url, options
+    end
 
     # Make a HTTP PUT request
     #
@@ -137,6 +146,27 @@ module Ievkit
       data
     end
 
+    # Hypermedia agent for the Iev API
+    #
+    # @return [Sawyer::Agent]
+    def multipart_agent
+      @agent ||= Sawyer::Agent.new(api_endpoint, sawyer_options) do |http|
+        http.headers[:accept] = default_media_type
+        http.headers[:content_type] = "multipart/form-data"
+        http.headers[:user_agent] = user_agent
+        
+        # Activate if authentication is needed
+        #
+        # if basic_authenticated?
+        #   http.basic_auth(@login, @password)
+        # elsif token_authenticated?
+        #   http.authorization 'token', @access_token
+        # elsif application_authenticated?
+        #   http.params = http.params.merge application_authentication
+        # end
+      end
+    end
+    
     # Hypermedia agent for the Iev API
     #
     # @return [Sawyer::Agent]
@@ -253,6 +283,19 @@ module Ievkit
       @agent = nil
     end
 
+    def multipart_request(method, path, data, options = {})
+      if data.is_a?(Hash)
+        options[:query]   = data.delete(:query) || {}
+        options[:headers] = data.delete(:headers) || {}
+        if accept = data.delete(:accept)
+          options[:headers][:accept] = accept
+        end
+      end
+      
+      @last_response = response = multipart_agent.call(method, URI::Parser.new.escape(path.to_s), data, options)
+      response.data
+    end
+    
     def request(method, path, data, options = {})
       if data.is_a?(Hash)
         options[:query]   = data.delete(:query) || {}
@@ -261,7 +304,7 @@ module Ievkit
           options[:headers][:accept] = accept
         end
       end
-
+      
       @last_response = response = agent.call(method, URI::Parser.new.escape(path.to_s), data, options)
       response.data
     end

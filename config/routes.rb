@@ -79,15 +79,10 @@ ChouetteIhm::Application.routes.draw do
       end
     end
 
-    resources :import_tasks do
+    resources :import_tasks, :only => [:new, :create]
+    resources :imports, :only => [:index, :show, :destroy] do
       member do
-        get 'file_to_import'
-      end
-    end
-
-    resources :imports do
-      member do
-        get 'file_to_import'
+        get "imported_file"
       end
     end
 

@@ -1,5 +1,5 @@
 module Ievkit
-  # Custom error class for rescuing from all GitHub errors
+  # Custom error class for rescuing from all Iev errors
   class Error < StandardError
 
     # Returns the appropriate Ievkit::Error subclass based
@@ -147,21 +147,21 @@ module Ievkit
   # Raised on errors in the 400-499 range
   class ClientError < Error; end
 
-  # Raised when GitHub returns a 400 HTTP status code
+  # Raised when Iev returns a 400 HTTP status code
   class BadRequest < ClientError; end
 
-  # Raised when GitHub returns a 401 HTTP status code
+  # Raised when Iev returns a 401 HTTP status code
   class Unauthorized < ClientError; end
 
-  # Raised when GitHub returns a 401 HTTP status code
-  # and headers include "X-GitHub-OTP"
+  # Raised when Iev returns a 401 HTTP status code
+  # and headers include "X-Iev-OTP"
   class OneTimePasswordRequired < ClientError
     #@private
     OTP_DELIVERY_PATTERN = /required; (\w+)/i
 
     #@private
     def self.required_header(headers)
-      OTP_DELIVERY_PATTERN.match headers['X-GitHub-OTP'].to_s
+      OTP_DELIVERY_PATTERN.match headers['X-Iev-OTP'].to_s
     end
 
     # Delivery method for the user's OTP
@@ -180,56 +180,56 @@ module Ievkit
     end
   end
 
-  # Raised when GitHub returns a 403 HTTP status code
+  # Raised when Iev returns a 403 HTTP status code
   class Forbidden < ClientError; end
 
-  # Raised when GitHub returns a 403 HTTP status code
+  # Raised when Iev returns a 403 HTTP status code
   # and body matches 'rate limit exceeded'
   class TooManyRequests < Forbidden; end
 
-  # Raised when GitHub returns a 403 HTTP status code
+  # Raised when Iev returns a 403 HTTP status code
   # and body matches 'login attempts exceeded'
   class TooManyLoginAttempts < Forbidden; end
 
-  # Raised when GitHub returns a 403 HTTP status code
+  # Raised when Iev returns a 403 HTTP status code
   # and body matches 'abuse'
   class AbuseDetected < Forbidden; end
 
-  # Raised when GitHub returns a 403 HTTP status code
+  # Raised when Iev returns a 403 HTTP status code
   # and body matches 'repository access blocked'
   class RepositoryUnavailable < Forbidden; end
 
-  # Raised when GitHub returns a 404 HTTP status code
+  # Raised when Iev returns a 404 HTTP status code
   class NotFound < ClientError; end
 
-  # Raised when GitHub returns a 405 HTTP status code
+  # Raised when Iev returns a 405 HTTP status code
   class MethodNotAllowed < ClientError; end
 
-  # Raised when GitHub returns a 406 HTTP status code
+  # Raised when Iev returns a 406 HTTP status code
   class NotAcceptable < ClientError; end
 
-  # Raised when GitHub returns a 409 HTTP status code
+  # Raised when Iev returns a 409 HTTP status code
   class Conflict < ClientError; end
 
-  # Raised when GitHub returns a 414 HTTP status code
+  # Raised when Iev returns a 414 HTTP status code
   class UnsupportedMediaType < ClientError; end
 
-  # Raised when GitHub returns a 422 HTTP status code
+  # Raised when Iev returns a 422 HTTP status code
   class UnprocessableEntity < ClientError; end
 
   # Raised on errors in the 500-599 range
   class ServerError < Error; end
 
-  # Raised when GitHub returns a 500 HTTP status code
+  # Raised when Iev returns a 500 HTTP status code
   class InternalServerError < ServerError; end
 
-  # Raised when GitHub returns a 501 HTTP status code
+  # Raised when Iev returns a 501 HTTP status code
   class NotImplemented < ServerError; end
 
-  # Raised when GitHub returns a 502 HTTP status code
+  # Raised when Iev returns a 502 HTTP status code
   class BadGateway < ServerError; end
 
-  # Raised when GitHub returns a 503 HTTP status code
+  # Raised when Iev returns a 503 HTTP status code
   class ServiceUnavailable < ServerError; end
 
   # Raised when client fails to provide valid Content-Type

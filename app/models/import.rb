@@ -3,7 +3,7 @@ class Import
   extend ActiveModel::Naming
   include ActiveModel::Model  
   
-  # enumerize :status, in: %w{created scheduled terminated canceled aborted}, default: "created", predicates: true
+  # enumerize :status, in: %w{started scheduled terminated canceled aborted}, default: "created", predicates: true
   # enumerize :format, in: %w{neptune netex gtfs}, default: "neptune", predicates: true
 
   attr_reader :datas
@@ -12,10 +12,18 @@ class Import
     @datas = response
     # @status = @datas.status.downcase if @datas.status?
     # @format = @datas.type.downcase if @datas.type?
-  end  
+  end
+
+  def links
+    {}.tap do |links|
+      datas.links.each do |link|
+        links[link["rel"]] = link["href"] 
+      end    
+    end
+  end
   
   def report
-    report_path = datas.links.select{ |link| link["rel"] == "action_report"}.first.href
+    report_path = links["action_report"]
     if report_path      
       response = Ievkit.get(report_path)
       ImportReport.new(response)
@@ -25,7 +33,7 @@ class Import
   end 
 
   def compliance_check
-    compliance_check_path = datas.links.select{ |link| link["rel"] == "validation_report"}.first.href
+    compliance_check_path = links["validation_report"]
     if compliance_check_path
       response = Ievkit.get(compliance_check_path)
       ComplianceCheck.new(response)
@@ -34,21 +42,20 @@ class Import
     end
   end
 
-  def delete
-    delete_path =  datas.links.select{ |link| link["rel"] == "delete"}.first.href
-    if delete_path
-      Ievkit.delete(delete_path)
-    else
-      raise Ievkit::Error("Impossible to access delete path link for import")
-    end
+  def file_path
+    links["data"]
   end
 
-  def cancel
-    cancel_path = datas.links.select{ |link| link["rel"] == "cancel"}.first.href
-    if cancel_path
+  def destroy
+    delete_path =  links["delete"]
+    cancel_path = links["cancel"]
+    
+    if delete_path
+      Ievkit.delete(delete_path)
+    elsif cancel_path
       Ievkit.delete(cancel_path)
     else
-      raise Ievkit::Error("Impossible to access cancel path link for import")
+      raise Ievkit::Error("Impossible to access delete path link for import")
     end
   end
 
@@ -57,7 +64,7 @@ class Import
   end
 
   def status
-    datas.status
+    datas.status.downcase
   end
 
   def format
@@ -65,21 +72,11 @@ class Import
   end
 
   def filename
-    datas.links.select{ |link| link["rel"] == "data"}.first.href.gsub( /\/.*\//, "" )
+    links["data"].gsub( /\/.*\//, "" ) if links["data"]
   end
 
   def filename_extension
-    File.extname(filename) if filename
-  end
-
-  def percentage_progress
-    if %w{created}.include? status
-      0
-    elsif %w{ terminated canceled aborted }.include? status
-      100
-    else
-      20
-    end
+    File.extname(filename).gsub(".", "") if filename
   end
   
   def referential_name
@@ -97,20 +94,13 @@ class Import
   def no_save
     datas.action_parameters.no_save
   end
-
-  def created_at?
-    datas.created?
-  end
   
-  def created_at
-    Time.at(datas.created.to_i / 1000) if created_at?
-  end
-
-  def updated_at?
-    datas.updated?
+  def created_at    
+    Time.at(datas.created.to_i / 1000) if datas.created
   end
 
   def updated_at
-    Time.at(datas.updated.to_i / 1000) if updated_at?
+    Time.at(datas.updated.to_i / 1000) if datas.updated
   end
+  
 end

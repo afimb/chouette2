@@ -1,0 +1,13 @@
+<%= form.input :referential_id, :as => :hidden, :value => @referential.id %>
+<%= form.input :user_id, :as => :hidden, :value => current_user.id %>
+<%= form.input :user_name, :as => :hidden, :value => current_user.name %>  
+<%= form.input :format, :as => :hidden %>
+<%= form.input :name %>      
+<%= form.input :no_save, :as => :boolean, :collection => [true, false] %>  
+<%= form.input :rule_parameter_set_id, :as => :select,
+        :collection =>  @referential.organisation.rule_parameter_sets.map { |rps| [ rps.name, rps.id ] }, :include_blank => true %>
+<%= form.input :resources, :as => :file %>
+<% unless import_task.references_types.empty? %>
+  <p class="warning"><%= t('.'+import_partial_name(form)+'.warning')%></p>
+  <%= form.input :references_type, :as => :select, :collection => import_task.references_types.map { |c| [ c.model_name.human.capitalize.pluralize, c.name ] }, :include_blank => t(".all") %>
+<% end %>    

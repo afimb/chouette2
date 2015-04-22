@@ -22,15 +22,6 @@ module ImportsHelper
         return 'icons/link_page.png'
       end
     end
-  end
-  
-  def import_progress_bar_tag(import)
-    div_class = ""
-    content_tag :div, :class => "progress" do
-      content_tag :div, :class => div_class, role: "progressbar", :'aria-valuenow' => "#{import.percentage_progress}", :'aria-valuemin' => "0", :'aria-valuemax' => "100", :style => "width: #{import.percentage_progress}%;" do
-        "#{import.percentage_progress}% " + I18n.t("import_tasks.statuses.#{import.status}")
-      end
-    end
-  end
+  end    
 
 end

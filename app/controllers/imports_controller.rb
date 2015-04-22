@@ -1,17 +1,13 @@
 require 'will_paginate/array'
+require 'open-uri'
 
 class ImportsController < ChouetteController
   defaults :resource_class => Import
   
-  respond_to :html, :only => [:show, :index, :new, :create, :delete]
+  respond_to :html, :only => [:show, :index, :destroy, :imported_file]
   respond_to :js, :only => [:show, :index]
   belongs_to :referential
 
-  # create => curl -F "file=@Citura.zip;filename=Citura.zip" -F "file=@parameters.json;filename=parameters.json" http://localhost:8080/chouette_iev/referentials/test/importer/neptune
-  # index curl http://localhost:8080/mobi.chouette.api/referentials/test/jobs
-  # show curl http://localhost:8080/mobi.chouette.api/referentials/test/jobs
-
-  
   def index
     begin
       index! do 
@@ -34,24 +30,11 @@ class ImportsController < ChouetteController
       flash[:error] = t('iev.failure')
       redirect_to referential_path(@referential)
     end
-  end
-  
-  def new
+  end  
+
+  def destroy
     begin
-      new! do 
-        puts "OK"
-      end
-    rescue Ievkit::Error => error
-      logger.error("Iev failure : #{error.message}")
-      flash[:error] = t('iev.failure')
-      redirect_to referential_path(@referential)
-    end
-  end
-  
-  def create
-    begin
-      create! do 
-        puts "OK"
+      destroy! do 
       end
     rescue Ievkit::Error => error
       logger.error("Iev failure : #{error.message}")
@@ -60,12 +43,9 @@ class ImportsController < ChouetteController
     end
   end
 
-  def delete
+  def imported_file
     begin
-      delete! do
-        import_service.delete(@import.id)
-        redirect_to referential_imports_path(@referential)      
-      end
+      send_file open(resource.file_path), { :type => "application/#{resource.filename_extension}", :disposition => "attachment", :filename => resource.filename }
     rescue Ievkit::Error => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t('iev.failure')
@@ -74,13 +54,10 @@ class ImportsController < ChouetteController
   end
   
   protected
+  alias_method :import, :resource
 
   def import_service
     ImportService.new(@referential)
-  end
-
-  def build_resource(attributes = {})
-    @import ||= ImportTask.new
   end
   
   def resource

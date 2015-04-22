@@ -532,7 +532,7 @@ DEPENDENCIES
   rb-inotify
   roo
   rspec-rails (~> 3.1.0)
-  rubyzip (~> 1.1.6)
+  rubyzip (~> 1.1.7)
   sass-rails (~> 4.0.3)
   sawyer
   sdoc (~> 0.4.0)
