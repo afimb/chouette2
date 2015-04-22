@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319082515) do
+ActiveRecord::Schema.define(version: 20150413071835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,36 +94,6 @@ ActiveRecord::Schema.define(version: 20150319082515) do
 
   add_index "companies", ["objectid"], name: "companies_objectid_key", unique: true, using: :btree
   add_index "companies", ["registration_number"], name: "companies_registration_number_key", unique: true, using: :btree
-
-  create_table "compliance_check_results", force: true do |t|
-    t.integer  "compliance_check_task_id", limit: 8
-    t.string   "rule_code"
-    t.string   "severity"
-    t.string   "status"
-    t.integer  "violation_count"
-    t.text     "detail"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "rule_target"
-    t.string   "rule_format"
-    t.integer  "rule_level"
-    t.integer  "rule_number"
-  end
-
-  create_table "compliance_check_tasks", force: true do |t|
-    t.integer  "referential_id",     limit: 8
-    t.integer  "import_task_id",     limit: 8
-    t.string   "status"
-    t.string   "parameter_set_name"
-    t.text     "parameter_set"
-    t.integer  "user_id",            limit: 8
-    t.string   "user_name"
-    t.text     "progress_info"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "references_type"
-    t.string   "reference_ids"
-  end
 
   create_table "connection_links", force: true do |t|
     t.integer  "departure_id",                           limit: 8
@@ -225,16 +195,15 @@ ActiveRecord::Schema.define(version: 20150319082515) do
     t.integer "line_id",          limit: 8
   end
 
-  create_table "import_tasks", force: true do |t|
-    t.integer  "referential_id", limit: 8
+  create_table "jobs", force: true do |t|
+    t.string   "action"
+    t.datetime "created"
+    t.string   "filename"
+    t.string   "path"
+    t.string   "referential"
     t.string   "status"
-    t.text     "parameter_set"
-    t.integer  "user_id",        limit: 8
-    t.string   "user_name"
-    t.text     "result"
-    t.text     "progress_info"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "type"
+    t.datetime "updated"
   end
 
   create_table "journey_patterns", force: true do |t|
@@ -283,6 +252,14 @@ ActiveRecord::Schema.define(version: 20150319082515) do
 
   add_index "lines", ["objectid"], name: "lines_objectid_key", unique: true, using: :btree
   add_index "lines", ["registration_number"], name: "lines_registration_number_key", unique: true, using: :btree
+
+  create_table "links", id: false, force: true do |t|
+    t.integer "job_id", limit: 8, null: false
+    t.string  "href"
+    t.string  "method"
+    t.string  "rel"
+    t.string  "type"
+  end
 
   create_table "networks", force: true do |t|
     t.string   "objectid",            null: false
@@ -575,18 +552,11 @@ ActiveRecord::Schema.define(version: 20150319082515) do
 
   add_foreign_key "access_points", "stop_areas", name: "access_area_fkey", dependent: :delete
 
-  add_foreign_key "compliance_check_results", "compliance_check_tasks", name: "compliance_check_results_compliance_check_task_id_fk", dependent: :delete
-
-  add_foreign_key "compliance_check_tasks", "import_tasks", name: "compliance_check_tasks_import_task_id_fk", dependent: :delete
-  add_foreign_key "compliance_check_tasks", "referentials", name: "compliance_check_tasks_referential_id_fk", dependent: :delete
-
   add_foreign_key "connection_links", "stop_areas", name: "colk_endarea_fkey", column: "arrival_id", dependent: :delete
   add_foreign_key "connection_links", "stop_areas", name: "colk_startarea_fkey", column: "departure_id", dependent: :delete
 
   add_foreign_key "group_of_lines_lines", "group_of_lines", name: "groupofline_group_fkey", dependent: :delete
   add_foreign_key "group_of_lines_lines", "lines", name: "groupofline_line_fkey", dependent: :delete
-
-  add_foreign_key "import_tasks", "referentials", name: "import_tasks_referential_id_fk", dependent: :delete
 
   add_foreign_key "journey_patterns", "routes", name: "jp_route_fkey", dependent: :delete
   add_foreign_key "journey_patterns", "stop_points", name: "arrival_point_fkey", column: "arrival_stop_point_id", dependent: :nullify
@@ -597,6 +567,8 @@ ActiveRecord::Schema.define(version: 20150319082515) do
 
   add_foreign_key "lines", "companies", name: "line_company_fkey", dependent: :nullify
   add_foreign_key "lines", "networks", name: "line_ptnetwork_fkey", dependent: :nullify
+
+  add_foreign_key "links", "jobs", name: "fk_n5ypxycc1stckgkm6ust2l6on"
 
   add_foreign_key "routes", "lines", name: "route_line_fkey", dependent: :delete
 

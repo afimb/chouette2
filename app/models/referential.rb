@@ -101,7 +101,7 @@ class Referential < ActiveRecord::Base
 
   def switch
     raise "Referential not created" if new_record?
-    Apartment::Tenant.switch(slug)
+    Apartment::Tenant.switch!(slug)
     self
   end
 
@@ -203,7 +203,7 @@ Rails.application.config.after_initialize do
 
     # add referential relationship for objectid and localization functions
     def referential
-      @referential ||= Referential.where(:slug => Apartment::Tenant.current_tenant).first!
+      @referential ||= Referential.where(:slug => Apartment::Tenant.current).first!
     end
 
     def hub_restricted?
