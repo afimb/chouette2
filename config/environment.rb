@@ -5,4 +5,4 @@ require File.expand_path('../application', __FILE__)
 Rails.application.initialize!
 
 # Fix version
-APP_VERSION = '2.5.2'
+APP_VERSION = '3.0.0'
