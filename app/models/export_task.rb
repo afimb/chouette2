@@ -1,164 +1,64 @@
-class ExportTask < ActiveRecord::Base
-  attr_accessor :resources, :rule_parameter_set_id
+class ExportTask
+  extend Enumerize
+  extend ActiveModel::Naming
+  extend ActiveModel::Translation
+  extend ActiveModel::Callbacks
+  include ActiveModel::Validations
+  include ActiveModel::Conversion
 
-  belongs_to :referential
+  define_model_callbacks :initialize, only: :after
 
-  has_one :user
-  has_one :compliance_check_task, :dependent => :delete
-
-  serialize :parameter_set, JSON
-  serialize :result, JSON
-
-  validates_presence_of :referential_id
-  validates_presence_of :resources
-  validates_presence_of :user_id
-  validates_presence_of :user_name
-  validates_inclusion_of :status, :in => %w{ pending processing completed failed }
-
-  def references_types
-    []
-  end
-
-  protected
-
-  def self.option(name, type=nil)
-    name = name.to_s
-
-    define_method(name) do
-      self.parameter_set and self.parameter_set[name]
-    end
-
-    if type.to_s == "boolean"
-      define_method("#{name}=") do |prefix|
-        (self.parameter_set ||= {})[name] = (prefix=="1" || prefix==true)
-      end
-    else
-      define_method("#{name}=") do |prefix|
-        (self.parameter_set ||= {})[name] = prefix
-      end
-    end
-  end
-
-  public
-
-  def self.formats
-    %w{Neptune Csv Gtfs Netex Hub}
-  end
-
-  def self.format_label(format)
-    I18n.t 'exchange.format.'+format.downcase
-  end
-
-  def delayed_export
-    delay.export
-  end
-
-  protected
-
-  option :format
-  option :file_path
-  option :references_type
-
-   validates_inclusion_of :format, :in => self.formats
-
-  def chouette_command
-    Chouette::Command.new(:schema => referential.slug)
-  end
-
-  before_validation :define_default_attributes, :on => :create
-  def define_default_attributes
-    self.status ||= "pending"
-  end
-
+  # TODO : Move in configuration
   @@root = "#{Rails.root}/tmp/exports"
   cattr_accessor :root
 
-  def compliance_check_task_attributes
-    {:referential_id => referential.id,
-     :user_id => user_id,
-     :user_name => user_name,
-     :rule_parameter_set_id => rule_parameter_set_id}
+  enumerize :data_format, in: %w( neptune netex gtfs hub kml )
+  enumerize :references_type, in: %w( all network line company groupofline stoparea )
+  attr_accessor :referential_id, :user_id, :user_name, :references_type, :data_format, :name, :projection_type
+  
+  validates_presence_of :referential_id
+  validates_presence_of :user_id
+  validates_presence_of :user_name
+  validates_presence_of :name
+  validates_presence_of :data_format
+  validates_presence_of :references_type
+  
+  def initialize( params = {} )
+    params.each {|k,v| send("#{k}=",v)}
   end
 
-  after_create :update_info, :save_resources
-  def update_info
-    self.file_path = saved_resources
-    self.update_attribute :parameter_set, self.parameter_set
-
-    self.create_compliance_check_task( self.compliance_check_task_attributes)
+  def referential
+    Referential.find(referential_id)
   end
 
-  def save_resources
-    FileUtils.mkdir_p root
-    FileUtils.cp resources.path, saved_resources
+  def organisation
+    referential.organisation
   end
 
-  after_destroy :destroy_resources
-  def destroy_resources
-    FileUtils.rm file_path if File.exists? file_path
-  end
-
-  def saved_resources
-    raise Exception.new("Illegal call") if self.new_record?
-    "#{root}/#{id}#{File.extname(resources.original_filename)}"
-  end
-
-  def chouette_command_args
-    {:c => "export", :id => id}
-  end
-
-  public
-
-  def failed?
-    status == "failed"
-  end
-
-  def completed?
-    status == "completed"
-  end
-
-  def file_path_extension
-    extension = File.extname( self.file_path )
-    if extension == ".xml"
-      "xml"
-    elsif extension == ".zip"
-      "zip"
-    else
-      "basic"
+  def save        
+    # Call Iev Server
+    begin 
+      Ievkit.create_job( referential.name, "exporter", data_format, {
+                          :file1 => action_params_io,
+                        } )     
+    rescue Exception => exception
+      raise exception
     end
   end
 
-  def name
-    "#{ExportTask.model_name.human} #{self.format} #{self.id}"
+  def self.formats
+    self.data_format.values
   end
 
-  def full_name
-    return name
+  def action_params
+    {
+      "parameters" => {}
+    }
   end
-
-  # Create ExportTask and ComplianceCheckTask associated and give export id to Chouette Loader
-  def export
-    return nil if self.new_record?
-    begin
-      chouette_command.run! chouette_command_args
-      reload
-      update_attribute :status, "completed"
-      compliance_check_task.update_attribute :status, "completed"
-    rescue => e
-      Rails.logger.error "Export #{id} failed : #{e}, #{e.backtrace}"
-      reload
-      update_attribute :status, "failed"
-      compliance_check_task.update_attribute :status, "failed"
-    end
-  end
-
-  def self.new(attributes = {}, parameter_set = {}, &block)
-    if self == ExportTask
-      attributes[:format] = "Neptune" unless attributes[:format]
-      Object.const_get( attributes[:format] + "Export").new(attributes, parameter_set)
-    else
-      super
-    end
+  
+  def action_params_io
+    file = StringIO.new( action_params.to_s )
+    Faraday::UploadIO.new(file, "application/json", "parameters.json")
   end
 
 end

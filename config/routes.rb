@@ -86,7 +86,8 @@ ChouetteIhm::Application.routes.draw do
       end
     end
 
-    resources :exports do
+    resources :export_tasks, :only => [:new, :create]
+    resources :exports, :only => [:index, :show, :destroy]  do
       collection do
         get 'references'
       end

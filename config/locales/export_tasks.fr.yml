@@ -1,0 +1,48 @@
+fr:
+  export_tasks:
+    actions:
+      new: "Nouvel export"
+    new:
+      title: "Nouvel export"
+      flash: "La demande d'export est mise en file d'attente, veuillez rafraichir régulièrement la page pour en suivre la progression"
+      fields_gtfs_export:
+        warning: "Le filtre sur arrêts exporte uniquement les fichiers GTFS stops et transfers gtfs, ceux-ci pouvant contenir des attributs supplémentaires"
+  activemodel:
+    models:
+      export_task:
+        zero:  "export"
+        one:   "export"
+        other: "exports"
+      neptune_export:
+        zero:  "export"
+        one:   "export Neptune"
+        other: "exports"
+      gtfs_export:
+        zero:  "export"
+        one:   "export GTFS"
+        other: "exports"
+      netex_export:
+        zero:  "export"
+        one:   "export NeTEx"
+        other: "exports"
+    attributes:
+      export_task:
+        name: "Nom de l'export"
+        start_date: "Date de début"
+        end_date: "Date de fin"
+        extensions: "Extensions"
+        created_at: "Créé le"
+        status: "Status"
+        references_type: "Sous ensemble"
+        object_id_prefix: "Préfixe d'identifiants"
+        max_distance_for_commercial: "Distance max pour créer les zones"
+        max_distance_for_connection_link: "Distance max pour créer les correspondances"
+        ignore_last_word: "ignorer le dernier mot"
+        ignore_end_chars: "ignorer les n derniers caractères"
+  formtastic:
+    titles:
+      export_task:
+        max_distance_for_commercial: "Distance maximale entre deux arrêts homonymes pour créer les zones d'arrêt (en mètre)"
+        max_distance_for_connection_link: "Distance maximale entre deux arrêts pour créer les correspondances (en mètre)"
+        ignore_last_word: "Ignorer le dernier mot pour détecter l'homonymie des noms d'arrêt (inapplicable quand le nom ne comporte qu'un mot)"
+        ignore_end_chars: "Ignorer les n derniers caractères du nom de l'arrêt pour détecter l'homonymie"

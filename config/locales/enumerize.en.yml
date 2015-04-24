@@ -15,3 +15,22 @@ en:
       forbidden: "No drop off available"
       request_stop: "Drop off if requested"
       is_flexible: "Booking requested for drop off"
+    references_type:
+      all: "All datas"
+      network: "Networks"
+      line: "Lines"
+      company: "Companies"
+      groupofline: "Group of lines"
+      stoparea: "Stop areas"
+    data_format:
+      neptune: "Neptune"
+      gtfs: "GTFS (General Transit Feed Specification)"
+      netex: "NeTEx"
+      hub: "HUB 1.3"
+      kml: "KML"
+    data_format_detail:
+      neptune: ""
+      gtfs: "General Transit Feed Specification"
+      netex: "Experimental"
+      hub: "Specific Transdev Format"
+      kml: "line, route, ... drawings on Keyhole Markup Language format"    

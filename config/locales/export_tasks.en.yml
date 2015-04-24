@@ -1,0 +1,48 @@
+en:
+  export_tasks:
+    actions:
+      new: "New export"
+    new:
+      title: "New export"
+      flash: "Export task on queue, refresh page to see progression"
+      fields_gtfs_export:
+        warning: "Filter on stop areas export only GTFS stops and transfers files, these may contain extra attributes"    
+  activemodel:
+    models:
+      export_task:
+        zero:  "export"
+        one:   "export"
+        other: "exports"
+      neptune_export:
+        zero:  "export"
+        one:   "Neptune export"
+        other: "exports"
+      gtfs_export:
+        zero:  "export"
+        one:   "GTFS export"
+        other: "exports"
+      netex_export:
+        zero:  "export"
+        one:   "NeTEx export"
+        other: "exports"
+    attributes:
+      export_task:
+        name: "Export name"
+        start_date: "Start date"
+        end_date: "End date"
+        extensions: "Extensions"
+        created_at: "Created on"        
+        status: "Status"
+        references_type: "subset"
+        object_id_prefix: "Neptune Id prefix"
+        max_distance_for_commercial: "Max distance for commercial stop"
+        max_distance_for_connection_link: "Max distance for connection link"
+        ignore_last_word: "ignore last word"
+        ignore_end_chars: "ignore last chars"
+  formtastic:
+    titles:
+      export_task:
+        max_distance_for_commercial: "Maximal distance to merge homonymous stops in commercial stop in meter"
+        max_distance_for_connection_link: "Maximal distance to link stops by connection link stop in meter"
+        ignore_last_word: "ignore last word on stop name in homonymous detection (inappliable when just one word occurs)"
+        ignore_end_chars: "ignore some chars at the end of stop names in homonymous detection"

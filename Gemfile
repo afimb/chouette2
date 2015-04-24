@@ -39,12 +39,8 @@ gem 'spring', group: :development
 gem "sitemap_generator"
 
 # API Rest
-gem 'sawyer'
-gem 'faraday', '~> 0.9.1'
+gem 'sawyer', "~> 0.6.0"
 gem 'faraday_middleware', '~> 0.9.1'
-gem 'kleisli'
-gem 'hashie'
-gem 'hashie_rails', '~> 0.0.2'
 
 platforms :jruby do
   gem 'activerecord-jdbcpostgresql-adapter', '~> 1.3.3'

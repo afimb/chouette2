@@ -1,3 +1,4 @@
-<%= I18n.t("formtastic.titles.export.vjas.size", size: Chouette::VehicleJourneyAtStop.count) if Chouette::VehicleJourneyAtStop.count > 50000 %>
 <%= form.input :start_date, :as => :date_picker, :input_html => { :title => t("formtastic.titles.export.start_date")} %>
 <%= form.input :end_date, :as => :date_picker, :input_html => { :title => t("formtastic.titles.export.end_date")} %>
+<%= form.input :projection_type, :as => :hidden, :input_html => { :value => @referential.projection_type || "" } %>	  
+<%= form.input :extensions , :as => :boolean%>

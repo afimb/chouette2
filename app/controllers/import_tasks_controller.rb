@@ -6,9 +6,7 @@ class ImportTasksController < ChouetteController
 
   def new
     begin
-      new! do 
-        puts "new"
-      end
+      new!
     rescue Ievkit::Error => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t('iev.failure')
