@@ -7,46 +7,60 @@
 }
 
 #workspace.exports.show {
-    table {
-        th {
-            font-style: italic;
+  .resume {
+        &:after{
+            content: " ";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
         }
-        th.severity {
-            width: 30px;
-        }
-        th.created_at {
-            text-align: center;
-            width: 100px;
-        }
-        th.position {
-            padding-right: 5px;
-            text-align: right;
-            width: 40px;
-        }
-        td.severity {
-            text-align: center;
-        }
-        td.created_at {
-            padding-right: 3px;
-        }
-        td.position {
-            padding-right: 5px;
-            text-align: right;
-        }
-    }                       
-}
 
-#workspace.exports.new #workspace.exports.create  form.new_export {
-    padding: 0.5em 0;
-    margin-top: -0.5em;
-    margin-bottom: 1em;
+        #files_statistics { height: 225px; }
+        #objects_statistics { height: 225px; }
 
-    label {
-        display: block;
-        width: 25%;
-        float: left;
+        .caption {
+            text-align :center;
+            font-weight: bold;
+        }
     }
-    select {
-        width: 25%;
+
+    .report {
+        margin-top: 20px;
+
+        .files {
+            img {
+                margin-right: 5px;
+            }
+
+            .file_name{
+                font-weight: bold;
+                margin-right: 30px;
+            }
+        }
+
+        .files_error{
+            color: #e22b1b;
+            display: none;
+        }
+
+        .files_ignored{
+            color: #898e7f;
+            display: none;
+        }
+
+        .files_ok{
+            color: #8fc861;
+            display: none;
+        }
+
+        .lines{
+            display: none;
+                      
+            th, td{
+                text-align: center;
+            }
+
+        }
     }
 }

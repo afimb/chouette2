@@ -3,17 +3,11 @@ class Import
   extend ActiveModel::Naming
   extend ActiveModel::Translation
   include ActiveModel::Model  
-  
-  # enumerize :status, in: %w{started scheduled terminated canceled aborted}, default: "created", predicates: true
-  # enumerize :format, in: %w{neptune netex gtfs}, default: "neptune", predicates: true
 
   attr_reader :datas
 
   def initialize( response  )    
     @datas = response
-    Validation.new(response)
-    # @status = @datas.status.downcase if @datas.status?
-    # @format = @datas.type.downcase if @datas.type?
   end
 
   def links
@@ -57,7 +51,7 @@ class Import
     elsif cancel_path
       Ievkit.delete(cancel_path)
     else
-      raise Ievkit::Error("Impossible to access delete path link for import")
+      raise Ievkit::Error("Impossible to access delete or cancel path link for import")
     end
   end
 
@@ -70,7 +64,7 @@ class Import
   end
 
   def format
-    datas.type
+    datas.format
   end
 
   def filename

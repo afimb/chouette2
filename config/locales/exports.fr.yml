@@ -1,15 +1,18 @@
 fr:
-  imports:
+  exports:
     actions:
-      new: "Nouvel import"
-      destroy: "Supprimer cet import"
-      destroy_confirm: "Etes vous sûr de supprimer cet import ?"
+      new: "Nouvel export"
+      destroy: "Supprimer cet export"
+      destroy_confirm: "Etes vous sûr de supprimer cet export ?"
+    new:
+      title: "Nouvel export"
+      all: "Toutes"
+      flash: "La demande d'export est mise en file d'attente, veuillez rafraichir régulièrement la page pour en suivre la progression"
     index:
-      title: "Imports"
+      title: "Exports"
       warning: ""
     show:
       report: "Rapport"
-      imported_file: "Fichier importé"
       graph:
         files:
           title_zip: "Résultat d'import des fichiers du zip"
@@ -48,46 +51,28 @@ fr:
       terminated: "Achevé"
       canceled: "Annulé"
       aborted: "Echoué"
-    compliance_check_task: "Validation"
     severities:
       info: "Information"
-      uncheck: "Non testé"
+      uncheck: "Non disponible"
       ok: "Ok"
       warning: "Alerte"
       error: "Erreur"
       fatal: "Fatal"
-  activerecord:
+  activemodel:
     models:
-      import:
-        zero:  "import"
-        one:   "import"
-        other: "imports"
-      neptune_import:
-        zero:  "import"
-        one:   "import Neptune"
-        other: "imports"
-      csv_import:
-        zero:  "import"
-        one:   "import CSV"
-        other: "imports"
-      gtfs_import:
-        zero:  "import"
-        one:   "import GTFS"
-        other: "imports"
-      netex_import:
-        zero:  "import"
-        one:   "import NeTEx"
-        other: "imports"
-    attributes:
-      import:
-        resources: "Fichier à importer"
-        created_at: "Créé le"
-        status: "Status"
-        no_save: "Pas de sauvegarde"
-        references_type: "Sous ensemble"
-        rule_parameter_set_id: "Jeu de paramètres pour validation"
-        object_id_prefix: "Préfixe d'identifiants"
-        max_distance_for_commercial: "Distance max pour créer les zones"
-        max_distance_for_connection_link: "Distance max pour créer les correspondances"
-        ignore_last_word: "ignorer le dernier mot"
-        ignore_end_chars: "ignorer les n derniers caractères"
+      export:
+        zero:  "export"
+        one:   "export"
+        other: "exports"
+      neptune_export:
+        zero:  "export"
+        one:   "export neptune"
+        other: "exports"
+      gtfs_export:
+        zero:  "export"
+        one:   "export GTFS"
+        other: "exports"
+      netex_export:
+        zero:  "export"
+        one:   "export NeTEx"
+        other: "exports"

@@ -68,25 +68,10 @@
         .lines{
             display: none;
 
-            td{
+            th, td{
                 text-align: center;
             }
 
         }
-    }
-}
-
-#workspace.imports.new #workspace.imports.create form.import_new {
-    padding: 0.5em 0;
-    margin-top: -0.5em;
-    margin-bottom: 1em;
-
-    label {
-        display: block;
-        width: 25%;
-        float: left;
-    }
-    select {
-        width: 25%;
     }
 }

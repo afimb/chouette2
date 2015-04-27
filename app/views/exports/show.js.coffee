@@ -42,4 +42,4 @@ jQuery ->
     padding: 40,
     hideHover: true
   }).on('click', update = (i, row) ->
-       get_export_results( $(".report"), $(".lines")) )
+    get_export_results( $(".report"), $(".lines")) )

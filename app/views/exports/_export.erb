@@ -2,17 +2,15 @@
   <div class="panel-heading">
     <div class="panel-title clearfix">
       <span class="pull-right">
-	<% location = export.datas.links.select { |link| link["rel"] == "location" } %>
-	<% location = location.first if location %>
-	<% location = location.href  if location %>
-        <%= link_to "#{location}", :method => :delete, :data => {:confirm =>  t('exports.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
+	<% location = export.datas.links.select { |link| link["rel"] == "location" }.first.href %>
+        <%= link_to referential_export_path(@referential, export.id), :method => :delete, :data => {:confirm =>  t('exports.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
           <span class="fa fa-trash-o"></span>
         <% end %>
       </span>
       <h5>
 	<%= link_to( referential_export_path(@referential, export.id), :class => "preview", :title => "#{Export.model_name.human.capitalize} #{export.name}") do %>
 	  <span class="name">
-	    <i class="fa fa-save"></i> <%= truncate(export.name, :length => 20) %>
+	    <%= truncate(export.name, :length => 20) %>
 	  </span>
 	<% end %>
       </h5>
@@ -21,7 +19,7 @@
   <div class="panel-body">
   </div>
   <div class="panel-footer">
-    <%= export_progress_bar_tag(export) %>    
+    <%= progress_bar_tag(export) %>    
     <div class="history">
       <%= l export.created_at, :format => "%d/%m/%Y %H:%M" %> | <%= export.user_name %>
     </div>

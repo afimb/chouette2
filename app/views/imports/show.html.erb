@@ -1,5 +1,4 @@
 <div class="test">
-  <% title = @import.no_save ? "": "<i class='fa fa-save'></i>" %>
   <%= title_tag "#{title} #{@import.name} <span class='status status_#{@import.status}'>#{ t('imports.statuses.'+ @import.status) }</span>" %>
 </div>
 

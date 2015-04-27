@@ -11,6 +11,7 @@ module ProgressBarHelper
   end
   
   def progress_bar_tag(object_model)
+    puts object_model.report
     report = object_model.report
     percentage_progress = percentage_progress(object_model, report)
     

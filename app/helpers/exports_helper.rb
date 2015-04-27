@@ -24,13 +24,4 @@ module ExportsHelper
     end
   end
   
-  def export_progress_bar_tag(export)
-    div_class = ""
-    content_tag :div, :class => "progress" do
-      content_tag :div, :class => div_class, role: "progressbar", :'aria-valuenow' => "#{export.percentage_progress}", :'aria-valuemin' => "0", :'aria-valuemax' => "100", :style => "width: #{export.percentage_progress}%;" do
-        "#{export.percentage_progress}% " + I18n.t("export_tasks.statuses.#{export.status}")
-      end
-    end
-  end
-  
 end

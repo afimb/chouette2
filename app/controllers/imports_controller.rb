@@ -34,8 +34,7 @@ class ImportsController < ChouetteController
 
   def destroy
     begin
-      destroy! do 
-      end
+      destroy!
     rescue Ievkit::Error => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t('iev.failure')

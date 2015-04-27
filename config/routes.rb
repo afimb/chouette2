@@ -91,6 +91,9 @@ ChouetteIhm::Application.routes.draw do
       collection do
         get 'references'
       end
+      member do
+        get "exported_file"
+      end
     end
     
     resources :compliance_check_tasks do
