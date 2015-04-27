@@ -30,7 +30,7 @@
      </div>
    </div>
    <div class="order" style="display: none;">
-     Filtre : <%= select_tag "order", ("<option value='severity'>" + ComplianceCheckResult.human_attribute_name(:severity) +"</option><option value='status'>" + ComplianceCheckResult.human_attribute_name(:status) + "</option>").html_safe, :include_blank => false %>
+     Filtre : <!-- %= select_tag "order", ("<option value='severity'>" + ComplianceCheckResult.human_attribute_name(:severity) +"</option><option value='status'>" + ComplianceCheckResult.human_attribute_name(:status) + "</option>").html_safe, :include_blank => false % -->
    </div>
 
    <div class="report"></div>

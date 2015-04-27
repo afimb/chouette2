@@ -1,6 +1,7 @@
 class Export
   extend Enumerize
   extend ActiveModel::Naming
+  extend ActiveModel::Translation
   include ActiveModel::Model  
   
   attr_reader :datas

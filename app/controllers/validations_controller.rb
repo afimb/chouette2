@@ -72,8 +72,16 @@ class ValidationsController < ChouetteController
       redirect_to referential_path(@referential)
     end
   end
+
+  def export
+    respond_to do |format|
+      format.zip { send_file ValidationExport.new(resource, @referential.id, request).export, :type => :zip }
+    end
+  end
   
   protected
+
+  alias_method :validation, :resource
 
   def validation_service
     ValidationService.new(@referential)
@@ -84,7 +92,7 @@ class ValidationsController < ChouetteController
   end
   
   def resource
-    @validation ||= validation_service.find( params[:id] )
+    @validation ||= validation_service.find(params[:id] )
   end
 
   def collection

@@ -3,6 +3,7 @@ require "zip"
 class ImportTask
   extend Enumerize
   extend ActiveModel::Naming
+  extend ActiveModel::Translation
   include ActiveModel::Validations
   include ActiveModel::Conversion
 

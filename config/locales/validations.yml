@@ -16,6 +16,14 @@ en:
     show:
       report: "Report"
       validated_file: "Validated file"
+      title: "Neptune Validation"
+      summary: "Rapport de conformité à la norme NEPTUNE"
+      completed: "[ Completed ]"
+      failed: "[ Failed ]"
+      pending: "[ In the treatment queue ]"
+      processing: "[ In progress... ]"
+      export: "Download test report"
+      export_csv: "CSV format"
       graph:
         files:
           title_zip: "Validation results for files in zip"
@@ -48,7 +56,7 @@ en:
       warning: "Warning"
       error: "Error"
       fatal: "Fatal"
-  activerecord:
+  activemodel:
     models:
       validation:
         zero:  "validation"
@@ -108,6 +116,16 @@ fr:
     show:
       report: "Rapport"
       validated_file: "Fichier validé"
+      title: "Validation Neptune"
+      summary: "Rapport de conformité à la norme NEPTUNE"
+      details: "Détails"
+      parameters: "Paramètres des tests"
+      completed: "[ Terminé ]"
+      failed: "[ Echoué ]"
+      pending: "[ En file d'attente ]"
+      processing: "[ En progression... ]"
+      export: "Télécharger les résultats"
+      export_csv: "Format CSV"
       graph:
         files:
           title_zip: "Résultat de validation des fichiers du zip"
@@ -154,7 +172,7 @@ fr:
       warning: "Alerte"
       error: "Erreur"
       fatal: "Fatal"
-  activerecord:
+  activemodel:
     models:
       validation:
         zero:  "validation"

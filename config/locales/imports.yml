@@ -48,7 +48,7 @@ en:
       warning: "Warning"
       error: "Error"
       fatal: "Fatal"
-  activerecord:
+  activemodel:
     models:
       import:
         zero:  "import"
@@ -154,7 +154,7 @@ fr:
       warning: "Alerte"
       error: "Erreur"
       fatal: "Fatal"
-  activerecord:
+  activemodel:
     models:
       import:
         zero:  "import"

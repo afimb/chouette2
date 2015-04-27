@@ -94,9 +94,17 @@ ChouetteIhm::Application.routes.draw do
     end
 
     resources :validations do
+      member do
+        get 'export', defaults: { format: 'zip' }
+      end
+      member do
+        get 'rule_parameter_set'
+      end
       collection do
         get 'references'
       end
+
+      resources :validation_results
     end
     
     resources :compliance_check_tasks do

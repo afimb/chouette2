@@ -1,0 +1,21 @@
+ <div class="severity_<%= validation_result.severity %> status_<%= validation_result.status %>"> 
+   <div class="status_icon">
+     <%= image_tag "icons/status_#{validation_result.status}.png", :class => "status" %>      
+   </div> 
+   <div class="status_text">
+   <div class="code">
+     <%= validation_result.rule_code %>
+   </div>
+   <div class="severity">
+     [ <%= ValidationReport.human_attribute_name(:severity) %> : <%= t validation_result.severity, :scope => "validation_result.severities" %> ]
+   </div>
+   <div class="explanation">
+     <%= ValidationReport.human_attribute_name(validation_result.rule_code) %>
+   </div>
+   <div class="attributes">
+     <% if validation_result.violation_count > 0 %>
+       <%= ValidationReport.human_attribute_name(:violation_count) %> : 
+     <% end %>
+   </div>
+   </div>
+</div>

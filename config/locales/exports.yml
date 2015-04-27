@@ -53,7 +53,7 @@ en:
       warning: "Warning"
       error: "Error"
       fatal: "Fatal"
-  activerecord:
+  activemodel:
     models:
       export:
         zero:  "export"
@@ -164,7 +164,7 @@ fr:
       warning: "Alerte"
       error: "Erreur"
       fatal: "Fatal"
-  activerecord:
+  activemodel:
     models:
       export:
         zero:  "export"
@@ -295,7 +295,7 @@ en:
       warning: "Warning"
       error: "Error"
       fatal: "Fatal"
-  activerecord:
+  activemodel:
     models:
       export:
         one: "export"
@@ -426,7 +426,7 @@ fr:
       warning: "Alerte"
       error: "Erreur"
       fatal: "Fatal"
-  activerecord:
+  activemodel:
     models:
       export:
         one: "export"

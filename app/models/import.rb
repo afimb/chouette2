@@ -1,6 +1,7 @@
 class Import
   extend Enumerize
   extend ActiveModel::Naming
+  extend ActiveModel::Translation
   include ActiveModel::Model  
   
   # enumerize :status, in: %w{started scheduled terminated canceled aborted}, default: "created", predicates: true
@@ -10,6 +11,7 @@ class Import
 
   def initialize( response  )    
     @datas = response
+    Validation.new(response)
     # @status = @datas.status.downcase if @datas.status?
     # @format = @datas.type.downcase if @datas.type?
   end

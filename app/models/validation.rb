@@ -1,29 +1,50 @@
 class Validation
   extend Enumerize
   extend ActiveModel::Naming
+  extend ActiveModel::Translation
   include ActiveModel::Model  
   
   # enumerize :status, in: %w{created scheduled terminated canceled aborted}, default: "created", predicates: true
   # enumerize :format, in: %w{neptune netex gtfs}, default: "neptune", predicates: true
 
   attr_reader :datas
-
-  def initialize( response  )    
+  
+  def initialize(response)    
     @datas = response
-    # @status = @datas.status.downcase if @datas.status?
-    # @format = @datas.type.downcase if @datas.type?
   end  
   
   def report
-    report_path = datas.links.select{ |link| link["rel"] == "action_report"}.first.href
+    report_path = datas.links.select{ |link| link["rel"] == "validation_report"}.first.href
     if report_path      
       response = Ievkit.get(report_path)
       ValidationReport.new(response)
     else
       raise Ievkit::IevError("Impossible to access report path link for validation")
     end
-  end 
+  end
+  
+  def import
+    if datas.action == "importer"
+      Import.new(Ievkit.scheduled_job(referential_name, id, { :action => "importer" }) )
+    end
+  end
 
+  def export
+    if datas.action == "exporter"
+      Export.new(Ievkit.scheduled_job(referential_name, id, { :action => "exporter" }) )
+    end
+  end
+
+  def rule_parameter_set
+    rule_parameter_set = datas.links.select{ |link| link["rel"] == "validation_params"}.first.href
+    if rule_parameter_set
+      response = Ievkit.get(rule_parameter_set)
+      rule_parameter_set = RuleParameterSet.new.tap { |rps| rps.parameters = response.validation }
+    else
+      raise Ievkit::Error("Impossible to access rule parameter set link for validation")
+    end
+  end
+  
   def compliance_check
     compliance_check_path = datas.links.select{ |link| link["rel"] == "validation_report"}.first.href
     if compliance_check_path
@@ -57,7 +78,23 @@ class Validation
   end
 
   def status
-    datas.status
+    # pending processing completed failed
+    # CREATED, SCHEDULED, STARTED, TERMINATED, CANCELED, ABORTED, DELETED
+    if datas.status == "CREATED"
+      "pending"
+    elsif datas.status == "SCHEDULED"
+      "pending"
+    elsif datas.status == "STARTED"
+      "processing"
+    elsif datas.status == "TERMINATED"
+      "completed"
+    elsif datas.status == "CANCELED"
+      "failed"
+    elsif datas.status == "ABORTED"
+      "failed"
+    elsif datas.status == "DELETED"
+      "failed"
+    end
   end
 
   def format
@@ -80,6 +117,10 @@ class Validation
     else
       20
     end
+  end
+
+  def referential_id
+    Referential.where(:slug => referential_name).id
   end
   
   def referential_name

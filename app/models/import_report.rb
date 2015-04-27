@@ -1,5 +1,6 @@
 class ImportReport
   extend ActiveModel::Naming
+  extend ActiveModel::Translation
   include ActiveModel::Model
   
   attr_reader :datas
