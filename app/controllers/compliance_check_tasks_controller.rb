@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 class ComplianceCheckTasksController < ChouetteController
   defaults :resource_class => ComplianceCheckTask
 
@@ -5,7 +7,18 @@ class ComplianceCheckTasksController < ChouetteController
   respond_to :zip, :only => :export
   belongs_to :referential
 
-
+  def index
+    begin
+      index! do 
+        build_breadcrumb :index
+      end
+    rescue Ievkit::Error => error
+      logger.error("Iev failure : #{error.message}")
+      flash[:error] = t('iev.failure')
+      redirect_to referential_path(@referential)
+    end
+  end
+  
   def references
     @references = referential.send(params[:type]).where("name ilike ?", "%#{params[:q]}%")
     respond_to do |format|
@@ -29,30 +42,28 @@ class ComplianceCheckTasksController < ChouetteController
   
   def export
     respond_to do |format|
-      format.zip { send_file ComplianceCheckTaskExport.new(compliance_check_task, request).export, :type => :zip }
+      format.zip { send_file ComplianceCheckTaskExport.new(resource, @referential.id, request).export, :type => :zip }
     end
   end
 
   protected
-
+  
   alias_method :compliance_check_task, :resource
-
-  def create_resource( object )
-    if object.save
-      object.delayed_validate
-    end
+  
+  def  compliance_check_service
+    ComplianceCheckService.new(@referential)
   end
-
-  def build_resource
-    super.tap do |export|
-      compliance_check_task.assign_attributes referential_id: @referential.id,
-        user_id: current_user.id,
-        user_name: current_user.name
-    end
+  
+  def build_resource(attributes = {})
+    @compliance_check_task ||= ComplianceCheckTask.new
   end
-
+  
+  def resource
+    @compliance_check_task ||= compliance_check_service.find(params[:id] )
+  end
+  
   def collection
-    @compliance_check_tasks ||= end_of_association_chain.order('created_at DESC').paginate(page: params[:page])
+    @compliance_check_tasks ||= compliance_check_service.all.paginate(:page => params[:page])
   end
-
+  
 end

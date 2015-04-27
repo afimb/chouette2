@@ -5,7 +5,7 @@
       <th><%= ComplianceCheckResult.human_attribute_name(:status) %></th>
       <th><%= ComplianceCheckResult.human_attribute_name(:severity) %></th>
       <th><%= ComplianceCheckResult.human_attribute_name(:rule_code) %></th>
-      <% if @compliance_check_results && @compliance_check_results.first.status == "nok" %>
+      <% if @compliance_check_results && @compliance_check_results.first.result == "NOK" %>
         <th><%= ComplianceCheckResult.human_attribute_name(:detail) %></th>
       <% end %>
     </tr>
@@ -14,32 +14,37 @@
     <% @compliance_check_results.each_with_index do |compliance_check_result, index| %>
     <tr>
       <td><%= index + 1 %></td>
-      <td><%= status_icon( compliance_check_result.status, compliance_check_result.severity ) %> </td>
-      <td><%= t compliance_check_result.severity, :scope => "compliance_check_result.severities" %></td>
+      <td><%= status_icon( compliance_check_result.result, compliance_check_result.severity ) %> </td>
+      <td><%= t("compliance_check_result.severities." + compliance_check_result.severity.downcase + "_txt") %></td>
       <td>
-        <button data-content='<%= ComplianceCheckResult.human_attribute_name(compliance_check_result.rule_code) %>' data-title='<%= t("activerecord.attributes.compliance_check_result.title") %>' rel="popover" data-toggle="popover" class="notice btn btn-info btn-xs" ><i class="fa fa-info"></i></button>
-        <%= link_to compliance_check_result.rule_code, test_definition(compliance_check_result.rule_code), :title => ComplianceCheckResult.human_attribute_name(compliance_check_result.rule_code), :target => "validation" %></td>
-      <% if @compliance_check_results && @compliance_check_results.first.status == "nok" %>
+	<% data_content = t ( "activemodel.attributes.compliance_check_result." + compliance_check_result.test_id ) %>
+	<% data_title = t ( "activemodel.attributes.compliance_check_result.title" ) %>
+        <button data-content='<%= data_content %>' data-title='<%= data_title %>' rel="popover" data-toggle="popover" class="notice btn btn-info btn-xs" ><i class="fa fa-info"></i></button>
+        <%= link_to compliance_check_result.test_id, test_definition(compliance_check_result.test_id), :title => ComplianceCheckResult.human_attribute_name(compliance_check_result.test_id), :target => "compliance_check_task" %></td>
+      <% if @compliance_check_results && @compliance_check_results.first.result == "NOK" %>
       <td class="td_error">
-        <% if compliance_check_result.detail.present? %>
+        <% if compliance_check_result.errors.present? %>
         <span class="title_error">
-          <i class="fa fa-plus-square"></i><%= compliance_check_result.violation_count.to_s + " " + ComplianceCheckResult.human_attribute_name(:violation_count) %>
+          <i class="fa fa-plus-square"></i><%= compliance_check_result.error_count.to_s + " " + ComplianceCheckResult.human_attribute_name(:violation_count) %>
         </span>
         <div class="details_error">
-          <% compliance_check_result.detail["detail"].first(10).each do |error| %>
+          <% compliance_check_result.errors.first(10).each do |error| %>
             <p class="detail_error">
-              <% if error["messageArgs"] %>
-                |- <button data-content='<%= ComplianceCheckResult.human_attribute_name(compliance_check_result.rule_code) + t("compliance_check_result.details." + error["messageKey"], error["messageArgs"].symbolize_keys ) %>' data-title='<%= t("activerecord.attributes.compliance_check_result.detail") %>' data-toggle="popover" class="notice btn btn-info btn-xs"><i class="fa fa-info"></i></button>
-              <% else %>
-              |- <button data-content='<%= ComplianceCheckResult.human_attribute_name(compliance_check_result.rule_code) + t("compliance_check_result.details." + error["messageKey"] ) %>' data-title='<%= t("activerecord.attributes.compliance_check_result.detail") %>' data-toggle="popover" class="notice btn btn-info btn-xs"><i class="fa fa-info"></i></button>
-              <% end %>
-              <% if error["location"]["url"].present? %>
-                <%= link_to error["objectId"], referential_path(@referential) + "/" + error["location"]["url"] %>
-              <% elsif error["location"]["filename"].present? %>
-                <%= error["objectId"] %><br>
-                <span class="file_error"> <%= File.basename(error["location"]["filename"]) %>
-                <%= t("compliance_check_results.index.column") %>: <%= error["location"]["columnNumber"] %>, <%= t("compliance_check_results.index.line") %>: <%= error["location"]["lineNumber"] %></span>
-              <% end %>
+	      <% if error["source"].present? %>
+                <% if error["source"].objectid.present? %>
+	          <% data_content_1 = t("activemodel.attributes.compliance_check_result." + compliance_check_result.test_id) + ". " +
+		     t("compliance_check_result.details.detail_" + error[:error_id], object_labels_hash(error) ) %>
+	          <% data_title_1 = t("activemodel.attributes.compliance_check_result.detail") %>
+                  |- <button data-content='<%= data_content_1 %>' data-title='<%= data_title_1 %>' data-toggle="popover" class="notice btn btn-info btn-xs"><i class="fa fa-info"></i></button>
+                <% else %>
+		  <% data_content_2 = ValidationReport.human_attribute_name(validation_result.test_id) + t("validation_result.details." + error[:error_id] ) %>
+	          <% data_title_2 = t("activemodel.attributes.validation_result.detail") %>
+                  |- <button data-content='<%= data_content_2 %>' data-title='<%= data_title_2 %>' data-toggle="popover" class="notice btn btn-info btn-xs"><i class="fa fa-info"></i></button>
+                <% end %>
+		<% if error[:source].object_path.present? %>
+	          <%= link_to error[:source].label, object_url(@referential.id, error) %>
+		<% end %>
+	      <% end %>
             </p>   
           <% end %>             
         </div>
@@ -50,5 +55,5 @@
   <% end %>
   </tbody>
 </table>
-<%= javascript_include_tag referential_compliance_check_task_compliance_check_results_path(@compliance_check_task.referential, @compliance_check_task, :format => :js) %>
+<%= javascript_include_tag referential_compliance_check_task_compliance_check_results_path(@referential, @compliance_check_task.id, :format => :js) %>
 

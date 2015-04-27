@@ -1,104 +1,153 @@
-class ComplianceCheckTask < ActiveRecord::Base
+class ComplianceCheckTask
+  extend Enumerize
+  extend ActiveModel::Naming
+  extend ActiveModel::Translation
+  include ActiveModel::Model  
+  attr_reader :datas
   
-  attr_accessor :rule_parameter_set_id
-
-  belongs_to :referential
-  belongs_to :import_task
-
-  validates_presence_of :referential
-  validates_presence_of :user_id
-  validates_presence_of :user_name
-  validates_inclusion_of :status, :in => %w{ pending processing completed failed }
-
-  has_many :compliance_check_results, -> { order([ :severity , :status ]) }
-
-  serialize :parameter_set, JSON
-
-  include ::TypeIdsModelable
-
-  def any_error_severity_failure?
-    return false if compliance_check_results.empty? || compliance_check_results.nil?
-
-    compliance_check_results.any? { |r| r.error_severity_failure? }
-  end
-
-  def failed?
-    status == "failed"
+  def initialize(response)    
+    @datas = response
   end
   
-  def chouette_command
-    Chouette::Command.new(:schema => referential.slug)
+  def compliance_check_result
+    report_path = datas.links.select{ |link| link["rel"] == "validation_report"}.first.href
+    if report_path      
+      response = Ievkit.get(report_path)
+      ComplianceCheckResult.new(response)
+    else
+      raise Ievkit::IevError("Impossible to access report path link for validation")
+    end
   end
-
-  before_validation :define_default_attributes, :on => :create
-  def define_default_attributes
-    self.status ||= "pending"
-    if self.rule_parameter_set
-      self.parameter_set = self.rule_parameter_set.parameters
-      self.parameter_set_name = self.rule_parameter_set.name
+  
+  def import_task
+    if datas.action == "importer"
+      Import.new(Ievkit.scheduled_job(referential_name, id, { :action => "importer" }) )
     end
   end
 
-  @@references_types = [ Chouette::Line, Chouette::Network, Chouette::Company, Chouette::GroupOfLine ]
-  cattr_reader :references_types
-
-  #validates_inclusion_of :references_type, :in => references_types.map(&:to_s), :allow_blank => true, :allow_nil => true
-
-  after_destroy :destroy_import_task
-  def destroy_import_task
-    import_task.destroy if import_task
-  end
-
-  def delayed_validate
-    delay.validate if import_task.blank?
-  end
-
-  def name
-    "#{self.class.model_name.human} #{id}"
-  end
-
-  def levels
-    [].tap do |l|
-      l.concat( [1 , 2]) if self.import_task
-      l << 3 if self.parameter_set
-    end
-  end
-
-  def level1?
-    levels.include?( 1)
-  end
-
-  def level2?
-    levels.include?( 2)
-  end
-
-  def level3?
-    levels.include?( 3)
-  end
-
-  def rule_parameter_set_archived
-    return nil unless parameter_set
-    RuleParameterSet.new( :name => parameter_set_name).tap do |rs|
-      rs.parameters = parameter_set
+  def export_task
+    if datas.action == "exporter"
+      Export.new(Ievkit.scheduled_job(referential_name, id, { :action => "exporter" }) )
     end
   end
 
   def rule_parameter_set
-    return nil if self.rule_parameter_set_id.blank?
-    RuleParameterSet.find( self.rule_parameter_set_id)
-  end
-
-  def chouette_command_args
-    {:c => "validate", :id => id}
-  end
-
-  def validate
-    begin
-      chouette_command.run! chouette_command_args
-      update_attribute :status, "completed"
-    rescue => e
-      Rails.logger.error "Validation #{id} failed : #{e}, #{e.backtrace}"
-      update_attribute :status, "failed"
+    rule_parameter_set = datas.links.select{ |link| link["rel"] == "validation_params"}.first.href
+    if rule_parameter_set
+      response = Ievkit.get(rule_parameter_set)
+      rule_parameter_set = RuleParameterSet.new.tap { |rps| rps.parameters = response.validation }
+    else
+      raise Ievkit::Error("Impossible to access rule parameter set link for validation")
     end
+  end
+  
+  def compliance_check
+    compliance_check_path = datas.links.select{ |link| link["rel"] == "validation_report"}.first.href
+    if compliance_check_path
+      response = Ievkit.get(compliance_check_path)
+      ComplianceCheck.new(response)
+    else
+      raise Ievkit::Error("Impossible to access compliance check path link for validation")
+    end
+  end
+
+  def delete
+    delete_path =  datas.links.select{ |link| link["rel"] == "delete"}.first.href
+    if delete_path
+      Ievkit.delete(delete_path)
+    else
+      raise Ievkit::Error("Impossible to access delete path link for validation")
+    end
+  end
+
+  def cancel
+    cancel_path = datas.links.select{ |link| link["rel"] == "cancel"}.first.href
+    if cancel_path
+      Ievkit.delete(cancel_path)
+    else
+      raise Ievkit::Error("Impossible to access cancel path link for validation")
+    end
+  end
+
+  def id
+    datas.id
+  end
+
+  def status
+    # pending processing completed failed
+    # CREATED, SCHEDULED, STARTED, TERMINATED, CANCELED, ABORTED, DELETED
+    if datas.status == "CREATED"
+      "pending"
+    elsif datas.status == "SCHEDULED"
+      "pending"
+    elsif datas.status == "STARTED"
+      "processing"
+    elsif datas.status == "TERMINATED"
+      "completed"
+    elsif datas.status == "CANCELED"
+      "failed"
+    elsif datas.status == "ABORTED"
+      "failed"
+    elsif datas.status == "DELETED"
+      "failed"
+    end
+  end
+
+  def format
+    datas.type
+  end
+
+  # def filename
+  #   datas.links.select{ |link| link["rel"] == "data"}.first.href.gsub( /\/.*\//, "" )
+  # end
+
+  # def filename_extension
+  #   File.extname(filename) if filename
+  # end
+
+  def percentage_progress
+    if %w{created}.include? status
+      0
+    elsif %w{ terminated canceled aborted }.include? status
+      100
+    else
+      20
+    end
+  end
+
+  def referential_id
+    Referential.where(:slug => referential_name).id
+  end
+  
+  def referential_name
+    datas.referential
+  end
+  
+  def name
+    datas.action_parameters.name
+  end
+  
+  def user_name    
+    datas.action_parameters.user_name
+  end
+
+  def no_save
+    datas.action_parameters.no_save
+  end
+
+  def created_at?
+    datas.created?
+  end
+  
+  def created_at
+    Time.at(datas.created.to_i / 1000) if created_at?
+  end
+
+  def updated_at?
+    datas.updated?
+  end
+
+  def updated_at
+    Time.at(datas.updated.to_i / 1000) if updated_at?
   end
 end

@@ -195,7 +195,7 @@ en:
       detail_4_vehiclejourney_1_pattern: "L'attribut %{reference_value} de la course %{source_label} (%{source_objectid}) n'est pas au bon format (%{error_value})"
       detail_4_vehiclejourney_1_unique: "L'attribut %{reference_value} de la course %{source_label} (%{source_objectid}) a une valeur partagée avec la course %{target_0_label} (%{target_0_objectid})"
       detail_4_vehiclejourney_2: "La course %{source_label} (%{source_objectid}) a un mode de transport interdit %{error_value}"
-  activerecord:
+  activemodel:
     models:
       compliance_check_result:
         zero: "Validation"
@@ -539,7 +539,7 @@ fr:
       detail_4_vehiclejourney_1_pattern: "L'attribut %{reference_value} de la course %{source_label} (%{source_objectid}) n'est pas au bon format (%{error_value})"
       detail_4_vehiclejourney_1_unique: "L'attribut %{reference_value} de la course %{source_label} (%{source_objectid}) a une valeur partagée avec la course %{target_0_label} (%{target_0_objectid})"
       detail_4_vehiclejourney_2: "La course %{source_label} (%{source_objectid}) a un mode de transport interdit %{error_value}"
-  activerecord:
+  activemodel:
     models:
       compliance_check_result:
         zero:  "Validation"

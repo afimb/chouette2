@@ -1,51 +1,64 @@
-class ComplianceCheckResult < ActiveRecord::Base
-  scope :warning, -> { where severity: 'warning' }
-  scope :error, -> { where severity: 'error' }
-  scope :improvment, -> { where severity: 'improvment' }
-
-  scope :ok, -> { where status: 'ok' }
-  scope :nok, -> { where status: 'nok' }
-  scope :na, -> { where status: 'na' }
-
-  #attr_accessible :violation_count
-  belongs_to :compliance_check_task
-
-  validates_presence_of :rule_code
-  validates_inclusion_of :severity, :in => %w{warning error improvment}
-  validates_inclusion_of :status, :in => %w{na ok nok}
-
-  serialize :detail, JSON
-
-  def error_severity_failure?
-    severity == "error" && status == "nok"
+class ComplianceCheckResult
+  extend ActiveModel::Naming
+  extend ActiveModel::Translation
+  include ActiveModel::Model
+  
+  attr_reader :datas
+  
+  def initialize(response)
+    @datas = response[:validation_report].tests.sort_by { |hash| [ hash[:severity], hash[:result], hash[:test_id]] }
   end
 
-  def indice
-    return nil unless rule_code
-
-    rule_code.match( /\d+-\w+-\w+-(\d+)/ )[1].to_i
+  def ok_error
+    @datas.select { |test| (test[:result] == "OK" && test[:severity] == "ERROR") }
+  end
+  
+  def nok_error
+    @datas.select { |test| (test[:result] == "NOK" && test[:severity] == "ERROR")}
+  end
+  
+  def na_error
+    @datas.select { |test| (test[:result] == "UNCHECK" && test[:severity] == "ERROR")}
   end
 
-  def data_type
-    return nil unless rule_code
-
-    rule_code.match( /\d+-\w+-(\w+)-\d+/ )[1]
+  def ok_warning
+    @datas.select { |test| (test[:result] == "OK" && test[:severity] == "WARNING")}
+  end
+  
+  def nok_warning
+    @datas.select { |test| (test[:result] == "NOK" && test[:severity] == "WARNING")}
+  end
+  
+  def na_warning
+    @datas.select { |test| (test[:result] == "UNCHECK" && test[:severity] == "WARNING")}
+  end
+  
+  def mandatory_tests
+    @datas.select { |test| test[:severity] == "ERROR"}
   end
 
-  def format
-    return nil unless rule_code
-
-    rule_code.match( /\d+-(\w+)-\w+-\d+/ )[1]
+  def optional_tests
+    @datas.select { |test| test[:severity] == "WARNING"}
   end
 
-  def level
-    return nil unless rule_code
-
-    rule_code.match( /(\d+)-\w+-\w+-\d+/ )[1].to_i
+  def ok_tests
+    @datas.select { |test| test[:result] == "OK"}
   end
 
-  def rule_code_formatted
-    rule_code.gsub("-", "_").downcase if rule_level
+  def nok_tests
+    @datas.select { |test| test[:result] == "NOK"}
   end
 
+  def uncheck_tests
+    @datas.select { |test| test[:result] == "UNCHECK"}
+  end
+
+  def all(status, severity)
+    @datas.select { |test| ( test[:result] == status && test[:severity] == severity ) }
+  end
+
+  def results
+    return @datas
+  end
+  
 end
