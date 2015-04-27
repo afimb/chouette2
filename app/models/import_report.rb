@@ -33,61 +33,66 @@ class ImportReport
     datas.zip_file
   end
 
+  def files
+    datas.files || []
+  end
+  
   def error_files
-    datas.files.select{ |file| file[:status] == "ERROR"}
+    files.select{ |file| file[:status] == "ERROR"}
   end
 
   def ignored_files
-    datas.files.select{ |file| file[:status] == "IGNORED"}
+    files.select{ |file| file[:status] == "IGNORED"}
   end
 
   def ok_files
-    datas.files.select{ |file| file[:status] == "OK"}
-  end
+    files.select{ |file| file[:status] == "OK"}
+  end 
   
-  def files
-    datas.files
-  end
-
   def line_items
     [].tap do |line_items|
       datas.lines.each do |line|
         line_items << LineItem.new(line)
-      end
+      end if datas.lines?
     end
   end
 
+  def stats
+    datas.stats 
+  end
+  
   def lines
-    datas.stats.line_count if datas.stats.line_count?
+    stats.present? ? stats.line_count : 0
   end
   
   def routes
-    datas.stats.route_count if datas.stats.route_count?
+    stats.present? ? stats.route_count : 0
   end
   
   def connection_links
-    datas.stats.connection_link_count if datas.stats.connection_link_count?
+    stats.present? ? stats.connection_link_count : 0
   end
   
   def time_tables
-    datas.stats.time_table_count if datas.stats.time_table_count?
+    stats.present? ? stats.time_table_count : 0
   end
   
   def stop_areas
-    datas.stats.stop_area_count if datas.stats.stop_area_count?
+    stats.present? ? stats.stop_area_count : 0
   end
   
   def access_points
-    datas.stats.access_point_count if datas.stats.access_point_count?
+    stats.present? ? stats.access_point_count : 0
   end
   
   def vehicle_journeys
-    datas.stats.vehicle_journey_count if datas.stats.vehicle_journey_count?
+    stats.present? ? stats.vehicle_journey_count : 0
   end
   
   def journey_patterns
-    datas.stats.journey_pattern_count if datas.stats.journey_pattern_count?
+    stats.present? ? stats.journey_pattern_count : 0
   end
+  
   
   class LineItem
     attr_reader :name, :status, :stats
