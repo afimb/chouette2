@@ -1,3 +1,4 @@
+<%= form.input :references_type, :as => :select, :include_blank => false, :input_html => { :title => t("formtastic.titles.import_task.references_type") } %>
 <%= form.input :object_id_prefix, :input_html => { :value => @referential.prefix } %>
 <%= form.input :max_distance_for_commercial , :as => :number , :input_html => { :title => t("formtastic.titles.import_task.max_distance_for_commercial"), :value => 0 } %>
 <%= form.input :ignore_last_word , :as => :boolean , :input_html => { :title => t("formtastic.titles.import_task.ignore_last_word"), :value => false }%>

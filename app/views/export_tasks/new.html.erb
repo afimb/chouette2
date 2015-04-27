@@ -1,6 +1,6 @@
 <%= title_tag t(".title") %>
 <ul class="nav nav-pills">
-  <% ExportTask.formats.each do |format| %>  
+  <% ExportTask.data_formats.each do |format| %>  
   <li role="presentation"><a href="#<%= format %>" class="<%= format %>" title='<%= t(:"enumerize.data_format_detail.#{format}")%>' data-toggle="tab"><%= t(:"enumerize.data_format.#{format}") %></a></li>
   <% end %>
 </ul>

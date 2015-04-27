@@ -1,0 +1,79 @@
+en:
+  imports:
+    actions:
+      new: "New import"
+      destroy: "Destroy"
+      destroy_confirm: "Are you sure you want destroy this import?"
+    index:
+      title: "Imports"
+      warning: ""
+    show:
+      report: "Report"
+      imported_file: "Imported file"
+      graph:
+        files:
+          title_zip: "Import results for files in zip"
+          title_default: "Import result for %{extension} file"
+          error: "Errors"
+          ignored: "Ignored"
+          ok: "Success"
+        lines:
+          title: "Imported objects"
+          objects_label: "Objects count"
+          lines_stats: "Lines"
+          routes_stats: "Routes"
+          connection_links_stats: "Connection Links"
+          time_tables_stats: "Timetables"
+          stop_areas_stats: "Stop Areas"
+          access_points_stats: "Access Points"
+          vehicle_journeys_stats: "Vehicle Journeys"
+          journey_patterns_stats: "Journey Patterns"
+    statuses:
+      started: "Started"      
+      scheduled: "Processing ..."
+      terminated: "Completed"
+      canceled: "Canceled"
+      aborted: "Failed"
+    compliance_check_task: "Validate Report"
+    severities:
+      info: "Information"
+      uncheck: "Unchecked"
+      ok: "Ok"
+      warning: "Warning"
+      error: "Error"
+      fatal: "Fatal"
+  activerecord:
+    models:
+      import:
+        zero:  "import"
+        one:   "import"
+        other: "imports"
+      neptune_import:
+        zero:  "import"
+        one:   "Neptune import"
+        other: "imports"
+      csv_import:
+        zero:  "import"
+        one:   "CSV import"
+        other: "imports"
+      gtfs_import:
+        zero:  "import"
+        one:   "GTFS import"
+        other: "imports"
+      netex_import:
+        zero:  "import"
+        one:   "NeTEx import"
+        other: "imports"
+    attributes:
+      import:
+        resources: "File to import"
+        created_at: "Created on"
+        status: "Status"
+        references_type: "subset"
+        no_save: "No save"
+        rule_parameter_set_id: "Rule parameter set for compliance check"
+        object_id_prefix: "Neptune Id prefix"
+        max_distance_for_commercial: "Max distance for commercial stop"
+        max_distance_for_connection_link: "Max distance for connection link"
+        ignore_last_word: "ignore last word"
+        ignore_end_chars: "ignore last chars"

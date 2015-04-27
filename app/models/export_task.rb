@@ -46,7 +46,7 @@ class ExportTask
     end
   end
 
-  def self.formats
+  def self.data_formats
     self.data_format.values
   end
 

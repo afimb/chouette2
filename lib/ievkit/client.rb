@@ -150,8 +150,11 @@ module Ievkit
     #
     # @return [Sawyer::Agent]
     def multipart_agent
+      sawyer_options[:serializer] = Ievkit::Serializer.multipart
+      
       @agent ||= Sawyer::Agent.new(api_endpoint, sawyer_options) do |http|
         http.headers[:accept] = default_media_type
+        http.headers[:content_type] = "multipart/form-data"
         http.headers[:user_agent] = user_agent
         
         # Activate if authentication is needed

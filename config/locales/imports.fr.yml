@@ -1,0 +1,93 @@
+fr:
+  imports:
+    actions:
+      new: "Nouvel import"
+      destroy: "Supprimer cet import"
+      destroy_confirm: "Etes vous sûr de supprimer cet import ?"
+    index:
+      title: "Imports"
+      warning: ""
+    show:
+      report: "Rapport"
+      imported_file: "Fichier importé"
+      graph:
+        files:
+          title_zip: "Résultat d'import des fichiers du zip"
+          title_default: "Résultat d'import du fichier %{extension}"
+          error: "Erreurs"
+          ignored: "Ignorés"
+          ok: "Succès"
+        lines:
+          title: "Volume de données lues par type de donnée"
+          objects_label: "Quantité lue"
+          lines_stats: "Lignes"
+          routes_stats: "Séquences d'arrêts"
+          connection_links_stats: "Correspondances"
+          time_tables_stats: "Calendriers"
+          stop_areas_stats: "Zones d'arrèt"
+          access_points_stats: "Accès"
+          vehicle_journeys_stats: "Courses"
+          journey_patterns_stats: "Missions"
+      table:
+        line:
+          name: "Nom"
+          save: "Sauvegarde"
+          routes: "Séquences d'arrêts"
+          connection_links: "Correspondances"
+          time_tables: "Calendriers"
+          stop_areas: "Zones d'arrèt"
+          access_points: "Accès"
+          vehicle_journeys: "Courses"
+          journey_patterns: "Missions"
+          not_saved: "Non Sauvé"
+          saved: "Sauvé"
+          save_error: "Sauvegarde en erreur"
+    statuses:
+      created: "En file d'attente..."
+      scheduled: "En cours..."
+      terminated: "Achevé"
+      canceled: "Annulé"
+      aborted: "Echoué"
+    compliance_check_task: "Validation"
+    severities:
+      info: "Information"
+      uncheck: "Non testé"
+      ok: "Ok"
+      warning: "Alerte"
+      error: "Erreur"
+      fatal: "Fatal"
+  activerecord:
+    models:
+      import:
+        zero:  "import"
+        one:   "import"
+        other: "imports"
+      neptune_import:
+        zero:  "import"
+        one:   "import Neptune"
+        other: "imports"
+      csv_import:
+        zero:  "import"
+        one:   "import CSV"
+        other: "imports"
+      gtfs_import:
+        zero:  "import"
+        one:   "import GTFS"
+        other: "imports"
+      netex_import:
+        zero:  "import"
+        one:   "import NeTEx"
+        other: "imports"
+    attributes:
+      import:
+        resources: "Fichier à importer"
+        created_at: "Créé le"
+        status: "Status"
+        no_save: "Pas de sauvegarde"
+        references_type: "Sous ensemble"
+        rule_parameter_set_id: "Jeu de paramètres pour validation"
+        object_id_prefix: "Préfixe d'identifiants"
+        max_distance_for_commercial: "Distance max pour créer les zones"
+        max_distance_for_connection_link: "Distance max pour créer les correspondances"
+        ignore_last_word: "ignorer le dernier mot"
+        ignore_end_chars: "ignorer les n derniers caractères"
