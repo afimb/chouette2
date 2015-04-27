@@ -31,6 +31,21 @@ module Ievkit
     rescue LoadError
     end
 
+    def self.multipart
+      new(IevMultipart)
+    rescue LoadError
+    end
+
+    class IevMultipart
+      def self.dump(data)
+        data
+      end
+      
+      def self.load(data)
+        data
+      end
+    end
+
     # Public: Wraps a serialization format for Sawyer.  Nested objects are
     # prepared for serialization (such as changing Times to ISO 8601 Strings).
     # Any serialization format that responds to #dump and #load will work.
@@ -46,9 +61,8 @@ module Ievkit
     #
     # Returns an encoded String.
     def encode(data)
-      data #@dump.call(encode_object(data))
+      @dump.call(encode_object(data))
     end
-
     alias dump encode
 
     # Public: Decodes a String into an Object (usually a Hash or Array of
@@ -78,8 +92,10 @@ module Ievkit
         when Date then hash[key] = value.to_time.utc.xmlschema
         when Time then hash[key] = value.utc.xmlschema
         when Hash then hash[key] = encode_hash(value)
+        when UploadIO then hash[key] = value
         end
       end
+      puts "hash #{hash.inspect}"
       hash
     end
 
@@ -107,7 +123,7 @@ module Ievkit
             value
           end
         elsif value.is_a?(Integer) || value.is_a?(Float)
-          Time.at(value)
+          Time.at(value)          
         else
           value
         end

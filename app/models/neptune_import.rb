@@ -1,7 +1,21 @@
 class NeptuneImport < ImportTask
   
-  # def import_options
-  #   super.merge()
-  # end
+  def action_params  
+    { "parameters" =>
+        {
+          "neptune-import" => {
+            "no_save" => false,
+            "user_name" => user_name,
+            "name" => name,
+            "organisation_name" => organisation.name,
+            "referential_name" => referential.name,
+          }
+        }
+    }
+  end
+    
+  def data_format
+    "neptune"
+  end
 
 end
