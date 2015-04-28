@@ -16,11 +16,11 @@ module ValidationResultsHelper
 
   def object_url (referential_id, error)
     location = "/referentials/" + referential_id.to_s
-    if error[:source].object_path.kind_of?(Array)
-      error[:source].object_path.reverse.each { |sub_path| location = location + "/" + sub_path["type"].to_s.pluralize + "/" + sub_path["id"].to_s }
-    else
-      location = location + "/" + error[:source].object_path.type.to_s + "s/" + error[:source].object_path.id.to_s
+    object_path = error[:source].object_path
+    if object_path.first[:type] == "vehicle_journey"
+      object_path.delete_at 1
     end
+    object_path.reverse.each { |sub_path| location = location + "/" + sub_path[:type].to_s.pluralize + "/" + sub_path[:id].to_s }
     return location
   end
 
@@ -49,14 +49,9 @@ module ValidationResultsHelper
     end
     
     if error[:target].present?
-      if error[:target].kind_of?(Array)
-        error[:target].each_with_index do |target, index|
-          object_labels_hash["target_#{index}_objectid".to_sym] = target[:objectid] if target[:objectid]
-          object_labels_hash["target_#{index}_label".to_sym] = target[:label] if target[:label]
-        end
-      else
-        object_labels_hash[:target_0_objectid] = error[:target][:objectid] if error[:target][:objectid]
-        object_labels_hash[:target_0_label] = error[:target][:label] if error[:target][:label]        
+      error[:target].each_with_index do |target, index|
+        object_labels_hash["target_#{index}_objectid".to_sym] = target[:objectid] if target[:objectid]
+        object_labels_hash["target_#{index}_label".to_sym] = target[:label] if target[:label]
       end
     end
     if error[:error_value].present?

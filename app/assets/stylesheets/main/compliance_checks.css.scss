@@ -1,8 +1,8 @@
-#workspace.validations.index
+#workspace.compliance_checks.index
 {
 }
 
-#workspace.validations.show {
+#workspace.compliance_checks.show {
 
     .status {
         margin-left: 10px;                 
@@ -160,41 +160,4 @@
             }
         }
     }
-}
-
-#workspace.validations.new, #workspace.validations.create
-{
-    padding: 0;
-    margin-top: -0.3em;
-    margin-bottom: 1em;
-
-
-
-  .inputs ol {
-      margin-top: -0.3em;
-      margin-bottom: 1em;
-      padding: 0;
-      width: 100%;
-    }
-    .inputs ol li { padding : 0.3em 0; }
-
-    .inputs ol li textarea {
-      width: 54%;
-    }
-    .inputs ol li label {
-      width: 40%;
-      margin-top: -0.3em;
-    }
-
-  .inputs ol li.fl label { width: 40%; margin-top: -0.3em; }
-  .inputs ol li.fl input { width: 21%; padding: 0; }
-
-  .inputs ol li.fl1 {float: left; width: 70% ;}
-  .inputs ol li.fl1 label {width: 57%; margin-top: -0.3em; }
-  .inputs ol li.fl1 input { width: 30%; }
-
-  .inputs ol li.fl2 {float: left; width: 25% ;}
-  .inputs ol li.fl2 label {width: 10%; margin-top: -0.3em;}
-  .inputs ol li.fl2 input { width: 85%; }
-
 }

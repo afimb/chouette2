@@ -6,7 +6,7 @@ jQuery ->
     h["severity"] = severity if severity    
       
     $.get(
-        "<%= @compliance_check_task.id %>/compliance_check_results",
+        "<%= @compliance_check.id %>/compliance_check_results",
         h,
         update = (data) ->
           html_container.empty()
@@ -16,9 +16,9 @@ jQuery ->
   Morris.Donut({
     element: 'error',
     data: [
-      {label: "<%= t 'nok', :scope => 'compliance_check_result.statuses' %>", value: <%= @compliance_check_task.compliance_check_result.nok_error.count %>},
-      {label: "<%= t 'na', :scope => 'compliance_check_result.statuses' %>", value: <%= @compliance_check_task.compliance_check_result.na_error.count %>},
-      {label: "<%= t 'ok', :scope => 'compliance_check_result.statuses' %>", value: <%= @compliance_check_task.compliance_check_result.ok_error.count %>}
+      {label: "<%= t 'nok', :scope => 'compliance_check_result.statuses' %>", value: <%= @compliance_check.compliance_check_result.nok_error.count %>},
+      {label: "<%= t 'na', :scope => 'compliance_check_result.statuses' %>", value: <%= @compliance_check.compliance_check_result.na_error.count %>},
+      {label: "<%= t 'ok', :scope => 'compliance_check_result.statuses' %>", value: <%= @compliance_check.compliance_check_result.ok_error.count %>}
     ]
     colors: [ "#e22b1b", "#898e7f", "#8fc861" ]
   }).on('click', update = (i, row) ->
@@ -31,9 +31,9 @@ jQuery ->
   Morris.Donut({
     element: 'warning',
     data: [
-      {label: "<%= t 'nok', :scope => 'compliance_check_result.statuses' %>", value: <%= @compliance_check_task.compliance_check_result.nok_warning.count %>},
-      {label: "<%= t 'na', :scope => 'compliance_check_result.statuses' %>", value: <%= @compliance_check_task.compliance_check_result.na_warning.count %>},
-      {label: "<%= t 'ok', :scope => 'compliance_check_result.statuses' %>", value: <%= @compliance_check_task.compliance_check_result.ok_warning.count %>}
+      {label: "<%= t 'nok', :scope => 'compliance_check_result.statuses' %>", value: <%= @compliance_check.compliance_check_result.nok_warning.count %>},
+      {label: "<%= t 'na', :scope => 'compliance_check_result.statuses' %>", value: <%= @compliance_check.compliance_check_result.na_warning.count %>},
+      {label: "<%= t 'ok', :scope => 'compliance_check_result.statuses' %>", value: <%= @compliance_check.compliance_check_result.ok_warning.count %>}
     ]
     colors: [ "#ffbd2b", "#898e7f", "#8fc861" ]
   }).on('click', update = (i, row) ->

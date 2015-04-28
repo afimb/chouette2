@@ -18,12 +18,12 @@ class ComplianceCheckResultsController < ChouetteController
     ComplianceCheckService.new(@referential)
   end
     
-  def compliance_check_task
-    @compliance_check_task ||= compliance_check_service.find( params[:compliance_check_task_id] )
+  def compliance_check
+    @compliance_check ||= compliance_check_service.find( params[:compliance_check_id] )
   end
   
   def compliance_check_result
-    @compliance_check_result ||= compliance_check_task.compliance_check_result
+    @compliance_check_result ||= compliance_check.compliance_check_result
   end
   
   def collection

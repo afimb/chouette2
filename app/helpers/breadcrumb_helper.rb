@@ -34,10 +34,10 @@ module BreadcrumbHelper
       import_breadcrumb action
     when "Export"
       export_breadcrumb action
-    when "Validation"
-      validation_breadcrumb action
+    when "ComplianceCheck"
+      compliance_check_breadcrumb action
     when "ComplianceCheckTask"
-      compliance_breadcrumb action
+      compliance_check_task_breadcrumb action
     when "RuleParameterSet"
       rule_parameter_breadcrumb action
     when "User"
@@ -144,12 +144,12 @@ module BreadcrumbHelper
     add_breadcrumb Referential.human_attribute_name("exports"), referential_exports_path(@referential) unless action == :index
   end
 
-  def validation_breadcrumb (action)
+  def compliance_check_breadcrumb (action)
     referential_breadcrumb
-    add_breadcrumb Referential.human_attribute_name("validations"), referential_validations_path(@referential) unless action == :index
+    add_breadcrumb Referential.human_attribute_name("compliance_checks"), referential_compliance_checks_path(@referential) unless action == :index
   end
 
-  def compliance_breadcrumb (action)
+  def compliance_check_task_breadcrumb (action)
     referential_breadcrumb
     add_breadcrumb Referential.human_attribute_name("compliance_check_tasks"), referential_compliance_check_tasks_path(@referential) unless action == :index
     add_breadcrumb breadcrumb_label(@compliance_check_task), referential_compliance_check_task_path(@referential, @compliance_check_task),:title => breadcrumb_tooltip(@compliance_check_task) if action == :edit

@@ -20,7 +20,7 @@
 	<% data_content = t ( "activemodel.attributes.compliance_check_result." + compliance_check_result.test_id ) %>
 	<% data_title = t ( "activemodel.attributes.compliance_check_result.title" ) %>
         <button data-content='<%= data_content %>' data-title='<%= data_title %>' rel="popover" data-toggle="popover" class="notice btn btn-info btn-xs" ><i class="fa fa-info"></i></button>
-        <%= link_to compliance_check_result.test_id, test_definition(compliance_check_result.test_id), :title => ComplianceCheckResult.human_attribute_name(compliance_check_result.test_id), :target => "compliance_check_task" %></td>
+        <%= link_to compliance_check_result.test_id, test_definition(compliance_check_result.test_id), :title => ComplianceCheckResult.human_attribute_name(compliance_check_result.test_id), :target => "compliance_check" %></td>
       <% if @compliance_check_results && @compliance_check_results.first.result == "NOK" %>
       <td class="td_error">
         <% if compliance_check_result.errors.present? %>
@@ -55,5 +55,5 @@
   <% end %>
   </tbody>
 </table>
-<%= javascript_include_tag referential_compliance_check_task_compliance_check_results_path(@referential, @compliance_check_task.id, :format => :js) %>
+<%= javascript_include_tag referential_compliance_check_compliance_check_results_path(@referential, @compliance_check.id, :format => :js) %>
 

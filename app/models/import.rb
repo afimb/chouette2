@@ -22,17 +22,17 @@ class Import
     report_path = links["action_report"]
     if report_path      
       response = Ievkit.get(report_path)
-      ImportReport.new(response)
+      ImportReport.new(response, id)
     else
       raise Ievkit::IevError("Impossible to access report path link for import")
     end
   end 
 
-  def compliance_check
+  def compliance_check_result
     compliance_check_path = links["validation_report"]
     if compliance_check_path
       response = Ievkit.get(compliance_check_path)
-      ComplianceCheck.new(response)
+      ComplianceCheckResult.new(response)
     else
       raise Ievkit::Error("Impossible to access compliance check path link for import")
     end
@@ -64,7 +64,7 @@ class Import
   end
 
   def format
-    datas.format
+    datas.type
   end
 
   def filename
