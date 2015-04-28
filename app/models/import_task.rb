@@ -59,21 +59,28 @@ class ImportTask
     end
   end
 
-  def action_params
-    {
-      "parameters" => {}
-    }
+  def params
+    {}.tap do |h|
+      h["parameters"] = action_params.merge(validation_params)
+    end
   end
 
+  def action_params
+    {}
+  end
+
+  def validation_params
+    {
+      "validation" => rule_parameter_set.parameters
+    } if rule_parameter_set.present?    
+  end
   
   def self.data_formats
     self.data_format.values
   end
 
   def params_io
-    params = action_params.merge(validation_params)
-    puts params.inspect
-    file = StringIO.new( params.to_s )
+    file = StringIO.new( params.to_json.to_s )
     Faraday::UploadIO.new(file, "application/json", "parameters.json")
   end 
 
@@ -84,14 +91,7 @@ class ImportTask
     elsif file_extname == ".xml"
       Faraday::UploadIO.new(file, "application/xml", original_filename )
     end   
-  end
-
-  # TODO : How to find RuleParameterSet
-  def validation_params
-    {
-      "validation" => rule_parameter_set.parameters
-    } if rule_parameter_set.present?    
-  end
+  end 
 
   def save_resources
     FileUtils.mkdir_p root

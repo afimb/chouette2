@@ -19,16 +19,14 @@ class GtfsExport < ExportTask
 
   def action_params
     {
-      "parameters" => {
-        "gtfs-export" => {
-          "name" => name,
-          "references_type" => references_type,
-          "user_name" => user_name,
-          "organisation_name" => organisation.name,
-          "referential_name" => referential.name,
-          "time_zone" => time_zone,
-          "object_id_prefix" => object_id_prefix
-        }
+      "gtfs-export" => {
+        "name" => name,
+        "references_type" => references_type,
+        "user_name" => user_name,
+        "organisation_name" => organisation.name,
+        "referential_name" => referential.name,
+        "time_zone" => time_zone,
+        "object_id_prefix" => object_id_prefix
       }
     }
   end

@@ -50,14 +50,18 @@ class ExportTask
     self.data_format.values
   end
 
+  def params
+    {}.tap do |h|
+      h["parameters"] = action_params
+    end
+  end
+  
   def action_params
-    {
-      "parameters" => {}
-    }
+    {}
   end
   
   def action_params_io
-    file = StringIO.new( action_params.to_s )
+    file = StringIO.new( params.to_json.to_s )
     Faraday::UploadIO.new(file, "application/json", "parameters.json")
   end
 
