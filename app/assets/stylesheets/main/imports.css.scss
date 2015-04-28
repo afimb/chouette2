@@ -3,75 +3,12 @@
 }
 
 #workspace.imports.show {
-
-    .status {
-        margin-left: 10px;
-    }
-    
-    .status_aborted,.status_canceled { color: #a94442;}
-    .status_created { color: #31708f;}
-    .status_scheduled { color: #31708f;}
-    .status_terminated { color: #3c763d;}
+    @import "../modules/report";
     
     .links{
         margin: 0 0 20px 0;
         img{ margin: 0 5px 0 15px; }
     }
 
-    .resume {
-        &:after{
-            content: " ";
-            display: block;
-            height: 0;
-            clear: both;
-            visibility: hidden;
-        }
-
-        #files_statistics { height: 225px; }
-        #objects_statistics { height: 225px; }
-
-        .caption {
-            text-align :center;
-            font-weight: bold;
-        }
-    }
-
-    .report {
-        margin-top: 20px;
-
-        .files {
-            img {
-                margin-right: 5px;
-            }
-
-            .file_name{
-                font-weight: bold;
-                margin-right: 30px;
-            }
-        }
-
-        .files_error{
-            color: #e22b1b;
-            display: none;
-        }
-
-        .files_ignored{
-            color: #898e7f;
-            display: none;
-        }
-
-        .files_ok{
-            color: #8fc861;
-            display: none;
-        }
-
-        .lines{
-            display: none;
-
-            th, td{
-                text-align: center;
-            }
-
-        }
-    }
+    
 }

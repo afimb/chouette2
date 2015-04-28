@@ -28,6 +28,16 @@ class Import
     end
   end 
 
+  def rule_parameter_set
+    rule_parameter_set_path = links["validation_report"]
+    if rule_parameter_set_path
+      response = Ievkit.get(rule_parameter_set_path)
+      #ComplianceCheck.new(response)
+    else
+      raise Ievkit::Error("Impossible to access rule parameter set path link for import")
+    end
+  end
+  
   def compliance_check
     compliance_check_path = links["validation_report"]
     if compliance_check_path
