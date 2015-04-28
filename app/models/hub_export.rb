@@ -21,16 +21,14 @@ class HubExport < ExportTask
 
   def action_params
     {
-      "parameters" => {
-        "hub-export" => {
-          "name" => name,
-          "references_type" => references_type,
-          "user_name" => user_name,
-          "organisation_name" => organisation.name,
-          "referential_name" => referential.name,
-          "start_date" => start_date,
+      "hub-export" => {
+        "name" => name,
+        "references_type" => references_type,
+        "user_name" => user_name,
+        "organisation_name" => organisation.name,
+        "referential_name" => referential.name,
+        "start_date" => start_date,
           "end_date" => end_date
-        }
       }
     }
   end

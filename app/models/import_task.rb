@@ -43,7 +43,7 @@ class ImportTask
     # Call Iev Server
     begin 
       Ievkit.create_job(referential.name, "importer", data_format, {
-                                                  :file1 => action_params_io,
+                                                  :file1 => params_io,
                                                   :file2 => transport_data_io
                         }
                         
@@ -59,21 +59,30 @@ class ImportTask
     end
   end
 
-  def action_params
-    {
-      "parameters" => {}
-    }
+  def params
+    {}.tap do |h|
+      h["parameters"] = action_params.merge(validation_params)
+    end
   end
 
+  def action_params
+    {}
+  end
+
+  def validation_params
+    {
+      "validation" => rule_parameter_set.parameters
+    } if rule_parameter_set.present?    
+  end
   
   def self.data_formats
     self.data_format.values
   end
-    
-  def action_params_io
-    file = StringIO.new( action_params.to_s )
+
+  def params_io
+    file = StringIO.new( params.to_json.to_s )
     Faraday::UploadIO.new(file, "application/json", "parameters.json")
-  end
+  end 
 
   def transport_data_io
     file = File.new(saved_resources_path, "r")
@@ -82,12 +91,7 @@ class ImportTask
     elsif file_extname == ".xml"
       Faraday::UploadIO.new(file, "application/xml", original_filename )
     end   
-  end
-
-  # TODO : How to find RuleParameterSet
-  def rule_parameter_set_io
-    UploadIO.new(rule_parameter_set.parameters, "application/octet-stream", "rule_parameter_set") if rule_parameter_set.present?
-  end
+  end 
 
   def save_resources
     FileUtils.mkdir_p root

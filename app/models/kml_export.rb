@@ -4,14 +4,12 @@ class KmlExport < ExportTask
 
   def action_params
     {
-      "parameters" => {
-        "kml-export" => {
-          "name" => name,
-          "references_type" => references_type,
-          "user_name" => user_name,
-          "organisation_name" => organisation.name,
-          "referential_name" => referential.name         
-        }
+      "kml-export" => {
+        "name" => name,
+        "references_type" => references_type,
+        "user_name" => user_name,
+        "organisation_name" => organisation.name,
+        "referential_name" => referential.name         
       }
     }
   end

@@ -8,17 +8,15 @@ class NeptuneExport < ExportTask
   
   def action_params
     {
-      "parameters" => {
-        "neptune-export" => {
-          "name" => name,
-          "references_type" => references_type,
-          "user_name" => user_name,
-          "organisation_name" => organisation.name,
-          "referential_name" => referential.name,
-          "projection_type" => projection_type || "",
-          "start_date" => start_date,
-          "end_date" => end_date
-        }
+      "neptune-export" => {
+        "name" => name,
+        "references_type" => references_type,
+        "user_name" => user_name,
+        "organisation_name" => organisation.name,
+        "referential_name" => referential.name,
+        "projection_type" => projection_type || "",
+        "start_date" => start_date,
+        "end_date" => end_date
       }
     }
   end

@@ -61,7 +61,7 @@ module Ievkit
     #
     # Returns an encoded String.
     def encode(data)
-      @dump.call(encode_object(data))
+      data #@dump.call(encode_object(data))
     end
     alias dump encode
 
@@ -92,10 +92,8 @@ module Ievkit
         when Date then hash[key] = value.to_time.utc.xmlschema
         when Time then hash[key] = value.utc.xmlschema
         when Hash then hash[key] = encode_hash(value)
-        when UploadIO then hash[key] = value
         end
       end
-      puts "hash #{hash.inspect}"
       hash
     end
 
