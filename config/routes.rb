@@ -42,7 +42,6 @@ ChouetteIhm::Application.routes.draw do
 
   resources :referentials do
     resources :api_keys
-    resources :rule_parameter_sets
     resources :autocomplete_stop_areas
     resources :autocomplete_time_tables
     resources :group_of_lines do
@@ -83,6 +82,7 @@ ChouetteIhm::Application.routes.draw do
     resources :imports, :only => [:index, :show, :destroy] do
       member do
         get "imported_file"
+        get "rule_parameter_set"
       end
     end
 

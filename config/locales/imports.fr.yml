@@ -10,6 +10,7 @@ fr:
     show:
       report: "Rapport"
       imported_file: "Fichier importé"
+      rule_parameter_set: "Jeu de paramètres"
       graph:
         files:
           title_zip: "Résultat d'import des fichiers du zip"

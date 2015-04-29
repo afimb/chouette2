@@ -10,6 +10,7 @@ en:
     show:
       report: "Report"
       imported_file: "Imported file"
+      rule_parameter_set: "Rule parameter set"
       graph:
         files:
           title_zip: "Import results for files in zip"

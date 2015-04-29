@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Import
   extend Enumerize
   extend ActiveModel::Naming
@@ -22,7 +24,7 @@ class Import
     report_path = links["action_report"]
     if report_path      
       response = Ievkit.get(report_path)
-      ImportReport.new(response, id)
+      ImportReport.new(response)
     else
       raise Ievkit::IevError("Impossible to access report path link for import")
     end
@@ -31,9 +33,9 @@ class Import
   def rule_parameter_set
     rule_parameter_set_path = links["validation_params"]
     if rule_parameter_set_path
-      response = Ievkit.get(rule_parameter_set_path)
+      ::JSON.load( open(rule_parameter_set_path).read )
     else
-      raise Ievkit::Error("Impossible to access rule parameter set path link for import")
+      false
     end
   end
   

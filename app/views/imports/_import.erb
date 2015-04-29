@@ -17,6 +17,9 @@
   </div>
   <div class="panel-body">
     <p><%= link_to image_tag("icons/file_#{import.filename_extension}.png") + t("imports.show.imported_file"), imported_file_referential_import_path(@referential, import.id) %></p>
+    <% if import.rule_parameter_set %> 
+    <p><%= link_to image_tag("icons/link_page.png") + t("imports.show.rule_parameter_set"), rule_parameter_set_referential_import_path(@referential, import.id) %></p>
+    <% end %> 
   </div>
   <div class="panel-footer">
     <%= progress_bar_tag(import) %>    
