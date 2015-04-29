@@ -52,6 +52,15 @@ class ExportsController < ChouetteController
     end
   end
 
+  def references
+    @references = referential.send(params[:type]).where("name ilike ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.json do
+        render :json => @references.collect { |child| { :id => child.id, :name => child.name } }
+      end
+    end
+  end
+
   protected
   
   def export_service

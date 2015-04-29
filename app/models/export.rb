@@ -40,6 +40,18 @@ class Export
       raise Ievkit::Error("Impossible to access delete or cancel path link for import")
     end
   end
+
+  def file_path
+    links["data"]
+  end
+
+  def filename
+    File.basename(file_path) if file_path
+  end
+
+  def filename_extension
+    File.extname(filename).gsub(".", "") if filename
+  end
   
   def id
     datas.id
@@ -53,14 +65,6 @@ class Export
     datas.format
   end
 
-  def filename
-    datas.links.select{ |link| link["rel"] == "data"}.first.href.gsub( /\/.*\//, "" )
-  end
-  
-  def filename_extension
-    File.extname(filename) if filename
-  end
-  
   def referential_name
     datas.referential
   end

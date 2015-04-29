@@ -49,10 +49,6 @@ class Import
     end
   end
 
-  def file_path
-    links["data"]
-  end
-
   def destroy
     delete_path =  links["delete"]
     cancel_path = links["cancel"]
@@ -66,6 +62,18 @@ class Import
     end
   end
 
+  def file_path
+    links["data"]
+  end
+
+  def filename
+    File.basename(file_path) if file_path
+  end
+
+  def filename_extension
+    File.extname(filename).gsub(".", "") if filename
+  end
+
   def id
     datas.id
   end
@@ -76,14 +84,6 @@ class Import
 
   def format
     datas.type
-  end
-
-  def filename
-    links["data"].gsub( /\/.*\//, "" ) if links["data"]
-  end
-
-  def filename_extension
-    File.extname(filename).gsub(".", "") if filename
   end
   
   def referential_name

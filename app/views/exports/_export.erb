@@ -17,6 +17,7 @@
     </div>
   </div>
   <div class="panel-body">
+    <p><%= link_to image_tag("icons/file_#{export.filename_extension}.png") + t("exports.show.exported_file"), exported_file_referential_export_path(@referential, export.id) %></p>
   </div>
   <div class="panel-footer">
     <%= progress_bar_tag(export) %>    

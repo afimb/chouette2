@@ -13,6 +13,7 @@ fr:
       warning: ""
     show:
       report: "Rapport"
+      exported_file: "Fichier exporté"
       graph:
         files:
           title_zip: "Résultat d'import des fichiers du zip"

@@ -12,7 +12,8 @@ en:
       title: "Exports"
       warning: ""
     show:
-      report: "Report"        
+      report: "Report"
+      exported_file: "Exported file"
     statuses:
       started: "Started"      
       scheduled: "Processing ..."
