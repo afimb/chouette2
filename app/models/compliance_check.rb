@@ -38,7 +38,7 @@ class ComplianceCheck
   end
 
   def rule_parameter_set
-    rule_parameter_set = datas.links.select{ |link| link["rel"] == "validation_params"}.first.href
+    rule_parameter_set = links["validation_params"]
     if rule_parameter_set
       response = Ievkit.get(rule_parameter_set)
       rule_parameter_set = RuleParameterSet.new.tap { |rps| rps.parameters = response.validation }
