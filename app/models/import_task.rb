@@ -80,7 +80,7 @@ class ImportTask
   end
 
   def params_io
-    file = StringIO.new( params.to_json.to_s )
+    file = StringIO.new( params.to_json )
     Faraday::UploadIO.new(file, "application/json", "parameters.json")
   end 
 
