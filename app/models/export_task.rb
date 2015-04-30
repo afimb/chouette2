@@ -14,7 +14,7 @@ class ExportTask
 
   enumerize :data_format, in: %w( neptune netex gtfs hub kml )
   enumerize :references_type, in: %w( all network line company groupofline stoparea )
-  attr_accessor :referential_id, :user_id, :user_name, :references_type, :data_format, :name, :projection_type
+  attr_accessor :referential_id, :user_id, :user_name, :references_type, :data_format, :name, :projection_type, :reference_ids
   
   validates_presence_of :referential_id
   validates_presence_of :user_id
@@ -39,7 +39,7 @@ class ExportTask
     # Call Iev Server
     begin 
       Ievkit.create_job( referential.name, "exporter", data_format, {
-                          :file1 => action_params_io,
+                          :file1 => params_io,
                         } )     
     rescue Exception => exception
       raise exception
@@ -48,6 +48,10 @@ class ExportTask
 
   def self.data_formats
     self.data_format.values
+  end
+
+  def self.references_types
+    self.references_type.values
   end
 
   def params
@@ -60,8 +64,8 @@ class ExportTask
     {}
   end
   
-  def action_params_io
-    file = StringIO.new( params.to_json.to_s )
+  def params_io
+    file = StringIO.new( params.to_json )
     Faraday::UploadIO.new(file, "application/json", "parameters.json")
   end
 

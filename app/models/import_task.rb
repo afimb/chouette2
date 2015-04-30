@@ -61,7 +61,7 @@ class ImportTask
 
   def params
     {}.tap do |h|
-      h["parameters"] = action_params.merge(validation_params)
+      h["parameters"] = validation_params ? action_params.merge(validation_params) : action_params
     end
   end
 
