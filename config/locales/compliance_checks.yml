@@ -25,6 +25,11 @@ en:
       processing: "Processing"
       completed: "Completed"
       failed: "Failed"
+      started: "Started"      
+      scheduled: "Processing ..."
+      terminated: "Completed"
+      canceled: "Canceled"
+      aborted: "Failed"
   file_validation_log_messages:
     messages:
       undefined: "%{key} undefined"
@@ -88,6 +93,11 @@ fr:
       processing: "En cours ..."
       completed: "Achevé"
       failed: "Echoué"
+      started: "En file d'attente..."
+      scheduled: "En cours..."
+      terminated: "Achevé"
+      canceled: "Annulé"
+      aborted: "Echoué"
     uncheck_count:
       zero: "aucun inapplicable"
       one: "un inapplicable"

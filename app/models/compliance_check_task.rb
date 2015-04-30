@@ -97,24 +97,6 @@ class ComplianceCheckTask
     datas.type
   end
 
-  # def filename
-  #   datas.links.select{ |link| link["rel"] == "data"}.first.href.gsub( /\/.*\//, "" )
-  # end
-
-  # def filename_extension
-  #   File.extname(filename) if filename
-  # end
-
-  def percentage_progress
-    if %w{created}.include? status
-      0
-    elsif %w{ terminated canceled aborted }.include? status
-      100
-    else
-      20
-    end
-  end
-
   def referential_id
     Referential.where(:slug => referential_name).id
   end

@@ -29,7 +29,8 @@ class ComplianceChecksController < ChouetteController
   end
 
   def rule_parameter_set
-    @rule_parameter_set = compliance_check.rule_parameter_set_archived
+    #@rule_parameter_set = compliance_check.rule_parameter_set_archived
+    @rule_parameter_set = resource.rule_parameter_set
     build_breadcrumb :edit
     render "rule_parameter_sets/show"
   end

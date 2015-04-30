@@ -16,15 +16,12 @@
     </div>                          
   </div>
   <div class="panel-body">
-     <!-- % if compliance_check.import.present? % -->
-      <p><!-- %= link_to( image_tag('icons/link_page.png') + t("compliance_checks.import"), referential_import_path(@referential, compliance_check.import)) % --></p>
-      <!-- % end % -->
       <% if compliance_check.rule_parameter_set %>
       <p><%= link_to( image_tag('icons/link_page.png') + t("compliance_checks.actions.rule_parameter_set"), rule_parameter_set_referential_compliance_check_path(@referential, compliance_check.id)) %></p>
       <% end %>
   </div>
   <div class="panel-footer">
-    <%= compliance_check_progress_bar_tag(compliance_check) %>    
+    <%= progress_bar_tag(compliance_check) %>
     <div class="history">
       <%= l compliance_check.created_at, :format => "%d/%m/%Y %H:%M" %> | <%= compliance_check.user_name %>
     </div>

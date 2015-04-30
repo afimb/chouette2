@@ -16,8 +16,18 @@ class ComplianceCheck
       end    
     end
   end
+
+  def report
+    report_path = links["action_report"]
+    if report_path      
+      response = Ievkit.get(report_path)
+      ComplianceCheckReport.new(response)
+    else
+      raise Ievkit::IevError("Impossible to access report path link for compliance check")
+    end
+  end
   
-  def compliance_check_result
+  def compliance_check_validation_report
     report_path = links["validation_report"]
     if report_path      
       response = Ievkit.get(report_path)
@@ -55,23 +65,7 @@ class ComplianceCheck
   end
 
   def status
-    # pending processing completed failed
-    # CREATED, SCHEDULED, STARTED, TERMINATED, CANCELED, ABORTED, DELETED
-    if datas.status == "CREATED"
-      "pending"
-    elsif datas.status == "SCHEDULED"
-      "pending"
-    elsif datas.status == "STARTED"
-      "processing"
-    elsif datas.status == "TERMINATED"
-      "completed"
-    elsif datas.status == "CANCELED"
-      "failed"
-    elsif datas.status == "ABORTED"
-      "failed"
-    elsif datas.status == "DELETED"
-      "failed"
-    end
+    datas.status.downcase
   end
 
   def format
@@ -94,30 +88,12 @@ class ComplianceCheck
     datas.action_parameters.user_name
   end
 
-  def created_at?
-    datas.created?
-  end
-  
   def created_at
-    Time.at(datas.created.to_i / 1000) if created_at?
-  end
-
-  def updated_at?
-    datas.updated?
+    Time.at(datas.created.to_i / 1000) if datas.created
   end
 
   def updated_at
-    Time.at(datas.updated.to_i / 1000) if updated_at?
-  end
-
-  def percentage_progress
-    if %w{created}.include? status
-      0
-    elsif %w{ terminated canceled aborted }.include? status
-      100
-    else
-      20
-    end
+    Time.at(datas.updated.to_i / 1000) if datas.updated
   end
 
 end

@@ -1,11 +1,8 @@
-<%= title_tag "#{@compliance_check.name} <span class='status status_#{@compliance_check.status}'>#{ t('compliance_checks.show.'+@compliance_check.status) }</span>" %>
+<%= title_tag "#{@compliance_check.name} <span class='status status_#{@compliance_check.status}'>#{ t('compliance_checks.statuses.'+@compliance_check.status) }</span>" %>
 <% @title = "#{@compliance_check.name}" %>
 
 <div class="compliance_check_show">
    <div class="links">
-     <!-- % if @compliance_check.import % -->
-       <!-- %= link_to image_tag('icons/link_page.png') + t("compliance_checks.import"), referential_import_path(@referential, @compliance_check.import)  % -->
-     <!-- % end % -->
      <% if @compliance_check.rule_parameter_set %>
        <%= link_to image_tag('icons/link_page.png') + t("compliance_checks.rule_parameter_set"), rule_parameter_set_referential_compliance_check_path(@referential, @compliance_check.id) %>
      <% end %>
@@ -18,7 +15,7 @@
        </ul>
      </div>  
    </div>
-  <% if @compliance_check.status == 'completed'%>
+  <% if @compliance_check.status == 'terminated'%>
    <div class="resume">
      <div class="col1">
        <div class="caption"><%= t "error", :scope => "compliance_check_result.severities" %></div>

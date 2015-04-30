@@ -22,12 +22,12 @@ class ComplianceCheckResultsController < ChouetteController
     @compliance_check ||= compliance_check_service.find( params[:compliance_check_id] )
   end
   
-  def compliance_check_result
-    @compliance_check_result ||= compliance_check.compliance_check_result
+  def compliance_check_validation_report
+    @compliance_check_validation_report ||= compliance_check.compliance_check_validation_report
   end
   
   def collection
-    @compliance_check_results ||= compliance_check_result.all(params[:status], params[:severity]) #.paginate(:page => params[:page])
+    @compliance_check_validation_reports ||= compliance_check_validation_report.all(params[:status], params[:severity]) #.paginate(:page => params[:page])
   end
   
   def rule_parameter_set

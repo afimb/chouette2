@@ -321,7 +321,7 @@ class RuleParameterSet < ActiveRecord::Base
   end
 
   def allowed(mode)
-    return true unless self.check_allowed_transport_modes
+    return true unless self.check_allowed_transport_modes == "1"
     # puts "#{mode} = "+self.send("allowed_transport_mode_#{mode}").to_s
     return self.send("allowed_transport_mode_#{mode}") == "1"
   end

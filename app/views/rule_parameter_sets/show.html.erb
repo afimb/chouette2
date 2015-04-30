@@ -95,32 +95,33 @@
     </p>
 
 
-    <div class="rule_parameter_by_mode">
+<div class="rule_parameter_by_mode">
     <label><%= t(".rule_parameter_by_mode") %>
-    	<%= t(".modes_allowed") if @rule_parameter_set.check_allowed_transport_modes %>
+    	<%= t(".modes_allowed") if @rule_parameter_set.check_allowed_transport_modes == "1" %>
     </label>
     <table class="table table-striped table-condensed">
-    	<tr>
-    		<th><%= t("transport_modes.name") %></th>
-			<% RuleParameterSet.mode_attribute_prefixes.each do |prefix| %>
-			    <% unless prefix == "allowed_transport" %>
-            		<th><%= RuleParameterSet.human_attribute_name(prefix) %></th>
-                <% end %>
-			<% end %>
-        </tr>
-    	<% Chouette::Line.transport_modes.map(&:to_s).each do |mode| %>
-	    	<% if @rule_parameter_set.allowed(mode) %>
-      	<tr>
-  			<td><%= t("transport_modes.label.#{mode}") %></td>
-  			<% RuleParameterSet.mode_attribute_prefixes.each do |prefix| %>
-
-    			<% unless prefix == "allowed_transport" %>
-    		<td><%= @rule_parameter_set.send  "#{prefix}_mode_#{mode}" %></td>
-    			<% end %>
-  			<% end %>
-      	</tr>
-    		<% end %>
+      <tr>
+    	<th><%= t("transport_modes.name") %></th>
+	  <% RuleParameterSet.mode_attribute_prefixes.each do |prefix| %>
+	    <% unless prefix == "allowed_transport" %>
+              <th><%= RuleParameterSet.human_attribute_name(prefix) %></th>
+            <% end %>
+	  <% end %>
+      </tr>
+      
+      <% Chouette::Line.transport_modes.map(&:to_s).each do |mode| %>
+      <% if @rule_parameter_set.allowed(mode) %>
+      <tr>
+  	<td><%= t("transport_modes.label.#{mode}") %></td>
+  	<% RuleParameterSet.mode_attribute_prefixes.each do |prefix| %>
+	
+    	<% unless prefix == "allowed_transport" %>
+    	<td><%= @rule_parameter_set.send  "#{prefix}_mode_#{mode}" %></td>
     	<% end %>
+  	<% end %>
+      	</tr>
+      <% end %>
+      <% end %>
     </table>
     </div>
     <div class="rule_parameter_by_object">
