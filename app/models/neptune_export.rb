@@ -13,7 +13,7 @@ class NeptuneExport < ExportTask
         "references_type" => references_type,
         "user_name" => user_name,
         "organisation_name" => organisation.name,
-        "referential_name" => referential.name,
+        "referential_name" => referential.slug,
         "projection_type" => projection_type || "",
         "start_date" => start_date,
         "end_date" => end_date

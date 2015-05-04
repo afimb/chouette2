@@ -24,7 +24,7 @@ class GtfsExport < ExportTask
         "references_type" => references_type,
         "user_name" => user_name,
         "organisation_name" => organisation.name,
-        "referential_name" => referential.name,
+        "referential_name" => referential.slug,
         "time_zone" => time_zone,
         "object_id_prefix" => object_id_prefix
       }

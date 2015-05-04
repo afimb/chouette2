@@ -9,7 +9,7 @@ class KmlExport < ExportTask
         "references_type" => references_type,
         "user_name" => user_name,
         "organisation_name" => organisation.name,
-        "referential_name" => referential.name         
+        "referential_name" => referential.slug 
       }
     }
   end
