@@ -149,10 +149,8 @@ module Ievkit
     # Hypermedia agent for the Iev API
     #
     # @return [Sawyer::Agent]
-    def multipart_agent
-      sawyer_options[:serializer] = Ievkit::Serializer.multipart
-      
-      @agent ||= Sawyer::Agent.new(api_endpoint, sawyer_options) do |http|
+    def multipart_agent      
+      @multipart_agent ||= Sawyer::Agent.new(api_endpoint, sawyer_options.merge({ :serializer => Ievkit::Serializer.multipart}) ) do |http|
         http.headers[:accept] = default_media_type
         http.headers[:content_type] = "multipart/form-data"
         http.headers[:user_agent] = user_agent

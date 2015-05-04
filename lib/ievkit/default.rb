@@ -27,7 +27,7 @@ module Ievkit
     # Default Faraday middleware stack
     MIDDLEWARE = RACK_BUILDER_CLASS.new do |builder|                  
       builder.use Faraday::Request::Multipart
-      builder.use Faraday::Request::UrlEncoded
+      
       builder.use Ievkit::Response::RaiseError
       builder.use FaradayMiddleware::FollowRedirects
       builder.use Faraday::Response::Logger

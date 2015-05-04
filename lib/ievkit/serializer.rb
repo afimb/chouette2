@@ -61,7 +61,7 @@ module Ievkit
     #
     # Returns an encoded String.
     def encode(data)
-      data #@dump.call(encode_object(data))
+      @dump.call(encode_object(data))
     end
     alias dump encode
 

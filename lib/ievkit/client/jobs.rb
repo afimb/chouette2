@@ -52,7 +52,7 @@ module Ievkit
       # @return [Boolean] Success
       # @example
       #   client.delete_jobs("test")
-      def delete_jobs(referential)
+      def delete_jobs(referential, options = {})
         boolean_from_response :delete, "referentials/#{referential}/jobs", options
       end
       
