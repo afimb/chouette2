@@ -3,7 +3,7 @@ class UsersController < BreadcrumbController
   defaults :resource_class => User
 
   def create
-    @user = current_organisation.users.build(params[:user])
+    @user = current_organisation.users.build(user_params)
 
     if @user.valid?
       @user.invite!
@@ -23,6 +23,11 @@ class UsersController < BreadcrumbController
     destroy! do |success, failure|
       success.html { redirect_to organisation_path }
     end
+  end
+
+  private
+  def user_params
+    params.require(:user).permit( :id, :name, :email )
   end
 
 end
