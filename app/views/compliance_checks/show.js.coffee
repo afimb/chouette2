@@ -6,7 +6,7 @@ jQuery ->
     h["severity"] = severity if severity    
 
     $.get(
-        "compliance_check_results",
+        "<%= @compliance_check.id %>/compliance_check_results",
         h,
         update = (data) ->
           html_container.empty()
