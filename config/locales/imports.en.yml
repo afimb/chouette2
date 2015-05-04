@@ -11,6 +11,9 @@ en:
       report: "Report"
       imported_file: "Imported file"
       rule_parameter_set: "Rule parameter set"
+      compliance_check: "Validation"
+      compliance_check_of: "Validation of import: "
+      import_of_validation: "Import of the validation"
       graph:
         files:
           title_zip: "Import results for files in zip"

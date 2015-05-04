@@ -83,7 +83,10 @@ ChouetteIhm::Application.routes.draw do
       member do
         get "imported_file"
         get "rule_parameter_set"
+        get "compliance_check"
       end
+      #resources :compliance_checks, :only => [:show]
+      resources :compliance_check_results
     end
 
     resources :export_tasks, :only => [:new, :create]
