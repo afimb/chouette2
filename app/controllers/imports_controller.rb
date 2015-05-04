@@ -64,6 +64,19 @@ class ImportsController < ChouetteController
       redirect_to referential_path(@referential)
     end
   end
+
+  def compliance_check
+    begin
+      build_breadcrumb :show
+      @import = resource
+      #@compliance_check = ComplianceCheck.new @import.datas
+      render "compliance_checks/show"
+    rescue Ievkit::Error => error
+      logger.error("Iev failure : #{error.message}")
+      flash[:error] = t('iev.failure')
+      redirect_to referential_path(@referential)
+    end
+  end
   
   protected
   alias_method :import, :resource

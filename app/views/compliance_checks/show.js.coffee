@@ -4,9 +4,9 @@ jQuery ->
     h = new Object()
     h["status"] = status if status
     h["severity"] = severity if severity    
-      
+
     $.get(
-        "<%= @compliance_check.id %>/compliance_check_results",
+        "compliance_check_results",
         h,
         update = (data) ->
           html_container.empty()

@@ -42,10 +42,9 @@ class Import
   def compliance_check
     compliance_check_path = links["validation_report"]
     if compliance_check_path
-      response = Ievkit.get(compliance_check_path)
-      ComplianceCheckResult.new(response)
+      ::JSON.load( open(compliance_check_path).read )
     else
-      raise Ievkit::Error("Impossible to access compliance check path link for import")
+      false
     end
   end
 
