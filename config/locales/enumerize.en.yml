@@ -16,7 +16,6 @@ en:
       request_stop: "Drop off if requested"
       is_flexible: "Booking requested for drop off"
     references_type:
-      all: "All datas"
       network: "Networks"
       line: "Lines"
       company: "Companies"

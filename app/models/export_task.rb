@@ -13,7 +13,6 @@ class ExportTask
   cattr_accessor :root
 
   enumerize :data_format, in: %w( neptune netex gtfs hub kml )
-  enumerize :references_type, in: %w( all network line company groupofline stoparea )
   attr_accessor :referential_id, :user_id, :user_name, :references_type, :data_format, :name, :projection_type, :reference_ids
   
   validates_presence_of :referential_id

@@ -4,6 +4,7 @@ fr:
       new: "Nouvel export"
     new:
       title: "Nouvel export"
+      all: "Tous"
       flash: "La demande d'export est mise en file d'attente, veuillez rafraichir régulièrement la page pour en suivre la progression"
       fields_gtfs_export:
         warning: "Le filtre sur arrêts exporte uniquement les fichiers GTFS stops et transfers gtfs, ceux-ci pouvant contenir des attributs supplémentaires"

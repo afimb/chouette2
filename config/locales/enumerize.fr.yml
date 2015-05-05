@@ -16,7 +16,6 @@ fr:
       request_stop: "Descente sur demande au conducteur"
       is_flexible: "Descente sur réservation"
     references_type:
-      all: "Toutes les données"
       network: "Réseaux"
       line: "Lignes"
       company: "Transporteurs"

@@ -4,6 +4,7 @@ en:
       new: "New export"
     new:
       title: "New export"
+      all: "All"
       flash: "Export task on queue, refresh page to see progression"
       fields_gtfs_export:
         warning: "Filter on stop areas export only GTFS stops and transfers files, these may contain extra attributes"    

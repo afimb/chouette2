@@ -18,7 +18,7 @@ class GtfsImport < ImportTask
         "user_name" => user_name,
         "name" => name,
         "organisation_name" => organisation.name,
-        "referential_name" => referential.slug,
+        "referential_name" => referential.name,
         "object_id_prefix" => object_id_prefix,
         "max_distance_for_commercial" => max_distance_for_commercial,
         "ignore_last_word" => ignore_last_word,

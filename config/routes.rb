@@ -89,11 +89,13 @@ ChouetteIhm::Application.routes.draw do
       resources :compliance_check_results
     end
 
-    resources :export_tasks, :only => [:new, :create]
-    resources :exports, :only => [:index, :show, :destroy]  do
+    resources :export_tasks, :only => [:new, :create] do
       collection do
         get 'references'
       end
+    end
+    
+    resources :exports, :only => [:index, :show, :destroy]  do
       member do
         get "exported_file"
       end
