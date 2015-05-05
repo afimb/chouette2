@@ -26,6 +26,7 @@ fr:
     attributes:
       import_task:
         name: "Nom de l'import"
+        no_save: "Pas de sauvegarde"
         resources: "Fichier à importer"
         references_type: "Sous ensemble"
         rule_parameter_set_id: "Jeu de paramètres pour validation"

@@ -12,8 +12,9 @@
 	<%= form.inputs do %>
 	  <%= form.input :user_name, :as => :hidden, :input_html => { :value => current_user.name } %>      <%= form.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
 	  <%= form.input :data_format, :as => :hidden %>
-	  <%= form.input :referential_id, :as => :hidden, :input_html => { :value => @referential.id } %>	  
+	  <%= form.input :referential_id, :as => :hidden, :input_html => { :value => @referential.id } %>	      
           <%= form.input :name %>
+	  <%= form.input :no_save, :as => :boolean %>    
 	  <%= form.input :rule_parameter_set_id, :as => :select,
         :collection =>  @referential.organisation.rule_parameter_sets.map { |rps| [ rps.name, rps.id ] }, :include_blank => true %>
 	  <%= form.input :resources, :as => :file %>

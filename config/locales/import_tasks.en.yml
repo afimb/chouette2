@@ -26,6 +26,7 @@ en:
     attributes:
       import_task:
         name: "Import name"
+        no_save: "No save"
         resources: "File to import"      
         references_type: "subset"
         rule_parameter_set_id: "Rule parameter set for compliance check"

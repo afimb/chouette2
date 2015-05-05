@@ -3,7 +3,7 @@ class NeptuneImport < ImportTask
   def action_params  
     { 
       "neptune-import" => {
-        "no_save" => false,
+        "no_save" => no_save,
         "user_name" => user_name,
         "name" => name,
         "organisation_name" => organisation.name,
