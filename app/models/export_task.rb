@@ -37,7 +37,7 @@ class ExportTask
   def save        
     # Call Iev Server
     begin 
-      Ievkit.create_job( referential.name, "exporter", data_format, {
+      Ievkit.create_job( referential.slug, "exporter", data_format, {
                           :file1 => params_io,
                         } )     
     rescue Exception => exception
