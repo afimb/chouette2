@@ -2,134 +2,111 @@ class ComplianceCheckTask
   extend Enumerize
   extend ActiveModel::Naming
   extend ActiveModel::Translation
-  include ActiveModel::Model  
-  attr_reader :datas
+  extend ActiveModel::Callbacks
+  include ActiveModel::Validations
+  include ActiveModel::Conversion
   
-  def initialize(response)    
-    @datas = response
-  end
+  enumerize :references_type, in: %w( network line company group_of_line )
+  attr_accessor :rule_parameter_set_id, :referential_id, :user_id, :user_name, :name, :references_type, :reference_ids
   
-  def compliance_check_result
-    report_path = datas.links.select{ |link| link["rel"] == "validation_report"}.first.href
-    if report_path      
-      response = Ievkit.get(report_path)
-      ComplianceCheckResult.new(response)
-    else
-      raise Ievkit::IevError("Impossible to access report path link for validation")
-    end
-  end
+  validates_presence_of :referential_id
+  validates_presence_of :user_id
+  validates_presence_of :user_name
+  validates_presence_of :name
   
-  def import_task
-    if datas.action == "importer"
-      Import.new(Ievkit.scheduled_job(referential_name, id, { :action => "importer" }) )
-    end
+  def initialize( params = {} )
+    params.each {|k,v| send("#{k}=",v)}
   end
 
-  def export_task
-    if datas.action == "exporter"
-      Export.new(Ievkit.scheduled_job(referential_name, id, { :action => "exporter" }) )
-    end
+  def referential
+    Referential.find(referential_id)
+  end
+
+  def organisation
+    referential.organisation
   end
 
   def rule_parameter_set
-    rule_parameter_set = datas.links.select{ |link| link["rel"] == "validation_params"}.first.href
-    if rule_parameter_set
-      response = Ievkit.get(rule_parameter_set)
-      rule_parameter_set = RuleParameterSet.new.tap { |rps| rps.parameters = response.validation }
-    else
-      raise Ievkit::Error("Impossible to access rule parameter set link for validation")
+    organisation.rule_parameter_sets.find(rule_parameter_set_id) if rule_parameter_set_id.present?
+  end
+
+  def save        
+    # Call Iev Server
+    begin 
+      Ievkit.create_job( referential.slug, "validator", "", {
+                          :file1 => params_io,
+                        } )     
+    rescue Exception => exception
+      raise exception
     end
   end
   
-  def compliance_check
-    compliance_check_path = datas.links.select{ |link| link["rel"] == "validation_report"}.first.href
-    if compliance_check_path
-      response = Ievkit.get(compliance_check_path)
-      ComplianceCheck.new(response)
-    else
-      raise Ievkit::Error("Impossible to access compliance check path link for validation")
+  def self.references_types
+    self.references_type.values
+  end
+
+  def params
+    {}.tap do |h|
+      h["parameters"] = validation_params ? action_params.merge(validation_params) : action_params
     end
   end
 
-  def delete
-    delete_path =  datas.links.select{ |link| link["rel"] == "delete"}.first.href
-    if delete_path
-      Ievkit.delete(delete_path)
-    else
-      raise Ievkit::Error("Impossible to access delete path link for validation")
-    end
+  def action_params
+    {
+      "validate" => {
+        "name" => name,
+        "references_type" => references_type,
+        "reference_ids" => reference_ids,
+        "user_name" => user_name,
+        "organisation_name" => organisation.name,
+        "referential_name" => referential.name,
+      }
+      
+    }
   end
 
-  def cancel
-    cancel_path = datas.links.select{ |link| link["rel"] == "cancel"}.first.href
-    if cancel_path
-      Ievkit.delete(cancel_path)
-    else
-      raise Ievkit::Error("Impossible to access cancel path link for validation")
-    end
-  end
-
-  def id
-    datas.id
-  end
-
-  def status
-    # pending processing completed failed
-    # CREATED, SCHEDULED, STARTED, TERMINATED, CANCELED, ABORTED, DELETED
-    if datas.status == "CREATED"
-      "pending"
-    elsif datas.status == "SCHEDULED"
-      "pending"
-    elsif datas.status == "STARTED"
-      "processing"
-    elsif datas.status == "TERMINATED"
-      "completed"
-    elsif datas.status == "CANCELED"
-      "failed"
-    elsif datas.status == "ABORTED"
-      "failed"
-    elsif datas.status == "DELETED"
-      "failed"
-    end
-  end
-
-  def format
-    datas.type
-  end
-
-  def referential_id
-    Referential.where(:slug => referential_name).id
+  def validation_params
+    {
+      "validation" => rule_parameter_set.parameters
+    } if rule_parameter_set.present?    
   end
   
-  def referential_name
-    datas.referential
+  def self.data_formats
+    self.data_format.values
+  end
+
+  def params_io
+    file = StringIO.new( params.to_json )
+    Faraday::UploadIO.new(file, "application/json", "parameters.json")
+  end 
+
+  def transport_data_io
+    file = File.new(saved_resources_path, "r")
+    if file_extname == ".zip"
+      Faraday::UploadIO.new(file, "application/zip", original_filename )
+    elsif file_extname == ".xml"
+      Faraday::UploadIO.new(file, "application/xml", original_filename )
+    end   
+  end 
+
+  def save_resources
+    FileUtils.mkdir_p root
+    FileUtils.cp resources.path, saved_resources_path
+  end
+
+  def delete_resources
+    FileUtils.rm saved_resources_path if File.exists? saved_resources_path
+  end
+
+  def original_filename
+    resources.original_filename
   end
   
-  def name
-    datas.action_parameters.name
-  end
-  
-  def user_name    
-    datas.action_parameters.user_name
+  def file_extname
+    File.extname(resources.original_filename)
   end
 
-  def no_save
-    datas.action_parameters.no_save
-  end
-
-  def created_at?
-    datas.created?
-  end
-  
-  def created_at
-    Time.at(datas.created.to_i / 1000) if created_at?
-  end
-
-  def updated_at?
-    datas.updated?
-  end
-
-  def updated_at
-    Time.at(datas.updated.to_i / 1000) if updated_at?
+  def saved_resources_path
+    "#{root}/#{Time.now.to_i}#{file_extname}"
   end
 end

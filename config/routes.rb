@@ -101,7 +101,12 @@ ChouetteIhm::Application.routes.draw do
       end
     end
 
-    resources :compliance_check_tasks, :only => [:new, :create]
+    resources :compliance_check_tasks, :only => [:new, :create] do
+      collection do
+        get 'references'
+      end
+    end
+    
     resources :compliance_checks, :only => [:index, :show, :destroy] do
       member do
         get 'export', defaults: { format: 'zip' }
