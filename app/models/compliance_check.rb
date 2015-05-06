@@ -23,7 +23,7 @@ class ComplianceCheck
       response = Ievkit.get(report_path)
       ComplianceCheckReport.new(response)
     else
-      raise Ievkit::IevError("Impossible to access report path link for compliance check")
+      nil
     end
   end
   
@@ -33,7 +33,7 @@ class ComplianceCheck
       response = Ievkit.get(report_path)
       ComplianceCheckResult.new(response)
     else
-      raise Ievkit::IevError("Impossible to access report path link for validation")
+      nil
     end
   end
 
@@ -43,7 +43,7 @@ class ComplianceCheck
       response = Ievkit.get(rule_parameter_set)
       rule_parameter_set = RuleParameterSet.new.tap { |rps| rps.parameters = response.validation }
     else
-      raise Ievkit::Error("Impossible to access rule parameter set link for validation")
+      nil
     end
   end
 
@@ -56,7 +56,7 @@ class ComplianceCheck
     elsif cancel_path
       Ievkit.delete(cancel_path)
     else
-      raise Ievkit::Error("Impossible to access delete or cancel path link for compliance check")
+      nil
     end
   end
 

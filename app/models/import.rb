@@ -25,7 +25,7 @@ class Import
       response = Ievkit.get(report_path)
       ImportReport.new(response)
     else
-      raise Ievkit::IevError("Impossible to access report path link for import")
+      nil
     end
   end 
 
@@ -34,7 +34,7 @@ class Import
     if rule_parameter_set_path
       ::JSON.load( open(rule_parameter_set_path).read )
     else
-      false
+      nil
     end
   end
   
@@ -43,7 +43,7 @@ class Import
     if compliance_check_path
       ::JSON.load( open(compliance_check_path).read )
     else
-      false
+      nil
     end
   end
 
@@ -56,7 +56,7 @@ class Import
     elsif cancel_path
       Ievkit.delete(cancel_path)
     else
-      raise Ievkit::Error("Impossible to access delete or cancel path link for import")
+      nil
     end
   end
 
