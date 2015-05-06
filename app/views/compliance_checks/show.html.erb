@@ -40,9 +40,9 @@
    <div class="report"></div>
    <% end %>
    <% if @import %>
-   <%= javascript_include_tag referential_compliance_check_path(@referential, @import.id,:format => :js) %>
+     <%= javascript_include_tag referential_compliance_check_path(@referential, @import.id,:format => :js) %>
    <% else %>
-   <%= javascript_include_tag referential_compliance_check_path(@referential, @compliance_check.id,:format => :js) %>
+     <%= javascript_include_tag referential_compliance_check_path(@referential, @compliance_check.id,:format => :js) %>
    <% end %>
 </div>
 <% content_for :sidebar do %>

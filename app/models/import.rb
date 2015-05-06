@@ -19,6 +19,16 @@ class Import
     end
   end
   
+  def compliance_check_validation_report
+    report_path = links["validation_report"]
+    if report_path
+      response = Ievkit.get(report_path)
+      ComplianceCheckResult.new(response)
+    else
+      raise Ievkit::IevError("Impossible to access report path link for validation of import")
+    end
+  end
+  
   def report
     report_path = links["action_report"]
     if report_path      

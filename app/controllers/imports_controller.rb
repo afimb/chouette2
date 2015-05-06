@@ -5,8 +5,8 @@ require 'open-uri'
 class ImportsController < ChouetteController
   defaults :resource_class => Import
   
-  respond_to :html, :only => [:show, :index, :destroy, :imported_file, :rule_parameter_set]
-  respond_to :js, :only => [:show, :index]
+  respond_to :html, :only => [:show, :index, :destroy, :imported_file, :rule_parameter_set, :compliance_check]
+  respond_to :js, :only => [:show, :index, :compliance_check]
   belongs_to :referential
 
   def index
@@ -69,7 +69,6 @@ class ImportsController < ChouetteController
     begin
       build_breadcrumb :show
       @import = resource
-      #@compliance_check = ComplianceCheck.new @import.datas
       render "compliance_checks/show"
     rescue Ievkit::Error => error
       logger.error("Iev failure : #{error.message}")

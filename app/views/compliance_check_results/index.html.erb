@@ -27,10 +27,26 @@
         <span class="title_error">
           <i class="fa fa-plus-square"></i><%= compliance_check_validation_report.error_count.to_s + " " + ComplianceCheckResult.human_attribute_name(:violation_count) %>
         </span>
+
+
+<!-- error : 1    error_id (string) 
+             0..1 source :
+                  0..1 file :
+                       1    filename (string)
+                       0..1 line_number (int)
+                       0..1 column_number (int)
+                  0..1 objectid (string)
+                  0..1 label (string)
+                  0..  object_path :
+                       1 type : {"network", "company", etc...}
+                       1 id (long)
+             0..  target : (same as source)
+             0..1 error_value (string)
+             0..1 reference_value (striung) -->
         <div class="details_error">
           <% compliance_check_validation_report.errors.first(10).each do |error| %>
             <p class="detail_error">
-	      <% if error["source"].present? %>
+	      <% if error["source"].present? %>		
                 <% if error["source"].objectid.present? %>
 	          <% data_content_1 = t("activemodel.attributes.compliance_check_result." + compliance_check_validation_report.test_id) + ". " +
 		     t("compliance_check_result.details.detail_" + error[:error_id], object_labels_hash(error) ) %>
@@ -41,9 +57,28 @@
 	          <% data_title_2 = t("activemodel.attributes.validation_result.detail") %>
                   |- <button data-content='<%= data_content_2 %>' data-title='<%= data_title_2 %>' data-toggle="popover" class="notice btn btn-info btn-xs"><i class="fa fa-info"></i></button>
                 <% end %>
+		  
 		<% if error[:source].object_path.present? %>
-	          <%= link_to error[:source].label, object_url(@referential.id, error) %>
+		  <% if error[:source].label.present? %>
+	            <%= link_to error[:source].label, object_url(@referential.id, error) %>
+		  <% else %>
+	            <%= link_to "#{error[:source].object_path.type} (#{error[:source].object_path.id})", object_url(@referential.id, error) %>
+		  <% end %>
 		<% end %>
+		<% if error[:source].file.present? %>
+		  <% if error[:source].objectid.present? %>
+		    <%= "#{error[:source].objectid}" %>
+		    <p>
+		  <% end %>
+		  <%= error[:source].file.filename  %>
+		  <% if error[:source].file.line_number.present?  %>
+		    <%= ", li: #{error[:source].file.line_number}" %>
+		  <% end %>
+		  <% if error[:source].file.column_number.present?  %>
+		    <%= ", co: #{error[:source].file.column_number}" %>
+		  <% end %>
+		<% end %>
+		  
 	      <% end %>
             </p>   
           <% end %>             
@@ -55,5 +90,8 @@
   <% end %>
   </tbody>
 </table>
-<%= javascript_include_tag referential_compliance_check_compliance_check_results_path(@referential, @compliance_check.id, :format => :js) %>
-
+<% if @import %>
+  <%= javascript_include_tag referential_import_compliance_check_results_path(@referential, @import.id, :format => :js) %>
+<% else %>
+  <%= javascript_include_tag referential_compliance_check_compliance_check_results_path(@referential, @compliance_check.id, :format => :js) %>
+<% end %>

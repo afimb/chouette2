@@ -6,11 +6,25 @@ class ComplianceChecksController < ChouetteController
   respond_to :html, :js
   respond_to :zip, :only => :export
   belongs_to :referential
-
+  
   def index
     begin
       index! do 
         build_breadcrumb :index
+      end
+    rescue Ievkit::Error => error
+      logger.error("Iev failure : #{error.message}")
+      flash[:error] = t('iev.failure')
+      redirect_to referential_path(@referential)
+    end
+  end
+
+  def show
+    @import = resource if resource.kind_of?(Import)
+    begin
+      show! do |format|
+        build_breadcrumb :show
+        format.js { render 'show_for_import.js.coffee' if @import}
       end
     rescue Ievkit::Error => error
       logger.error("Iev failure : #{error.message}")
@@ -29,7 +43,6 @@ class ComplianceChecksController < ChouetteController
   end
 
   def rule_parameter_set
-    #@rule_parameter_set = compliance_check.rule_parameter_set_archived
     @rule_parameter_set = resource.rule_parameter_set
     build_breadcrumb :edit
     render "rule_parameter_sets/show"
@@ -54,13 +67,22 @@ class ComplianceChecksController < ChouetteController
   def  compliance_check_service
     ComplianceCheckService.new(@referential)
   end
+
+  def  import_service
+    ImportService.new(@referential)
+  end
   
   def build_resource(attributes = {})
     @compliance_check ||= ComplianceCheck.new
   end
   
   def resource
-    @compliance_check ||= compliance_check_service.find(params[:id] )
+    compliance_check ||= compliance_check_service.find(params[:id])
+    if compliance_check.datas[:action] == "importer"
+      @importer = import_service.find(params[:id])
+    else
+      @compliance_check = compliance_check
+    end
   end
   
   def collection
