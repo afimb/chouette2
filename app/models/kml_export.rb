@@ -1,6 +1,6 @@
 class KmlExport < ExportTask
 
-  enumerize :references_type, in: %w( network line company groupofline )
+  enumerize :references_type, in: %w( network line company group_of_line )
 
   def action_params
     {

@@ -1,7 +1,7 @@
 class HubExport < ExportTask
 
   attr_accessor :start_date, :end_date
-  enumerize :references_type, in: %w( network line company groupofline )
+  enumerize :references_type, in: %w( network line company group_of_line )
 
   validates :start_date, presence: true , if: "end_date.present?"   
   validates :end_date, presence: true, if: "start_date.present?" 

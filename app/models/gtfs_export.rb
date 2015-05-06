@@ -3,7 +3,7 @@ class GtfsExport < ExportTask
   validates_presence_of :time_zone
   attr_accessor :time_zone, :object_id_prefix
 
-  enumerize :references_type, in: %w( network line company groupofline stoparea )
+  enumerize :references_type, in: %w( network line company group_of_line stop_area )
   
   after_initialize :init_params
   

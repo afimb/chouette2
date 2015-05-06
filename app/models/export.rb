@@ -24,7 +24,7 @@ class Export
       response = Ievkit.get(report_path)
       ExportReport.new(response)
     else
-      raise Ievkit::Error("Impossible to access report path link for export")
+      nil
     end
   end 
 
@@ -37,7 +37,7 @@ class Export
     elsif cancel_path
       Ievkit.delete(cancel_path)
     else
-      raise Ievkit::Error("Impossible to access delete or cancel path link for import")
+      nil
     end
   end
 
