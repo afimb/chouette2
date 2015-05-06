@@ -1,4 +1,3 @@
-<!-- <%= @line.errors.inspect %> -->
 <%= semantic_form_for [@referential, @line] do |form| %>
   <%= form.inputs do %>
     <%= form.input :network, :as => :select, :collection => Chouette::Network.all, :include_blank => false %>
