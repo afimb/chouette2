@@ -1,0 +1,28 @@
+en:
+  shared:
+    ie_report:      
+      html:
+        graph:
+          files:
+            title_default: "%{job} result for %{extension} file"
+            error: "Errors"
+            ignored: "Ignored"
+            ok: "Success"
+          lines:
+            title: "Data size by object types"
+            objects_label: "Objects count"      
+        table:
+          line:
+            save: "Save"
+            routes: "Routes"
+            lines: "Lines"
+            connection_links: "Connection links"
+            time_tables: "Timetables"
+            stop_areas: "Stop Areas"
+            access_points: "Access Points"
+            vehicle_journeys: "Vehicle Journeys"
+            journey_patterns: "Journey Patterns"
+            not_saved: "Not saved"
+            saved: "Saved"
+            save_error: "Save error"
+          

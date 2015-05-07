@@ -39,22 +39,22 @@
       }
   }
 
-  .files_error{
+  div.files_error{
     color: #e22b1b;
     display: none;
   }
 
-  .files_ignored{
+  div.files_ignored{
     color: #898e7f;
     display: none;
   }
 
-  .files_ok{
+  div.files_ok{
     color: #8fc861;
     display: none;
   }
 
-  .lines{
+  div.lines{
     display: none;
     
     th, td{

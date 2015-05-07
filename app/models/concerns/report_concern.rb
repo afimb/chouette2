@@ -103,38 +103,38 @@ module ReportConcern
   class LineItem
     attr_reader :name, :status, :stats
     
-    def initialize( options = Hashie::Mash.new )
+    def initialize( options )
       @name = options.name if options.name?
       @status = options.status if options.status?
       @stats = options.stats if options.stats?
     end
     
     def routes
-      stats.route_count
+      stats ? stats.route_count : 0
     end
 
     def connection_links
-      stats.connection_link_count
+      stats ? stats.connection_link_count : 0
     end
 
     def time_tables
-      stats.time_table_count
+      stats ? stats.time_table_count : 0
     end
 
     def stop_areas
-      stats.stop_area_count
+      stats ? stats.stop_area_count : 0
     end
 
     def access_points
-      stats.access_point_count
+      stats ? stats.access_point_count : 0
     end
     
     def vehicle_journeys
-      stats.vehicle_journey_count
+      stats ? stats.vehicle_journey_count : 0
     end
 
     def journey_patterns
-      stats.journey_pattern_count
+      stats ? stats.journey_pattern_count : 0
     end
 
   end 

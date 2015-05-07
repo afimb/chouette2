@@ -43,6 +43,10 @@ class ExportsController < ChouetteController
   end
 
   def exported_file
+    # WARNING : files under 10kb in size get treated as StringIO by OpenUri
+    # http://stackoverflow.com/questions/10496874/why-does-openuri-treat-files-under-10kb-in-size-as-stringio
+    OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined?('StringMax')
+    OpenURI::Buffer.const_set 'StringMax', 0
     begin
       send_file open(resource.file_path), { :type => "application/#{resource.filename_extension}", :disposition => "attachment", :filename => resource.filename }
     rescue Ievkit::Error => error

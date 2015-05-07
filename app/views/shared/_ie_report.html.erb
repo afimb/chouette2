@@ -1,0 +1,67 @@
+<div class="resume row">
+  <div class="col-md-4">
+    <div class="caption"><%= t(".graph.files.title_default", {:job => job.class.model_name.human, :extension => job.filename_extension} ) %></div>
+    <div id="files_statistics"></div>
+  </div>
+  <div class="col-md-8">
+    <div class="caption"><%= t ".graph.lines.title" %></div>
+    <div id="objects_statistics"></div>
+  </div>
+</div>
+
+<div class="report">   
+  <div class="files files_error" data-label="<%= t('.graph.files.error') %>">
+    <% job.report.error_files.each_with_index do |file, index| %>
+      <div class="col-md-6">
+        <%= image_tag "icons/file_xml_md.png" %><span class="file_name" title='<%= file.name %>'><%= truncate(file.name, :length => 40) %></span>
+      </div>
+    <% end %>
+  </div>
+  <div class="files files_ignored" data-label="<%= t('.graph.files.ignored') %>">
+    <% job.report.ignored_files.each_with_index do |file, index| %>
+      <div class="col-md-6">
+        <%= image_tag "icons/file_xml_md.png" %><span class="file_name" title='<%= file.name %>'><%= truncate(file.name, :length => 40) %></span>
+      </div>
+    <% end %>
+  </div>
+  <div class="files files_ok" data-label="<%= t('.graph.files.ok') %>">
+    <% job.report.ok_files.each_with_index do |file, index| %>
+      <div class="col-md-6">
+        <%= image_tag "icons/file_xml_md.png" %><span class="file_name" title='<%= file.name %>'><%= truncate(file.name, :length => 40) %></span>
+      </div>
+    <% end %>
+  </div>
+  <div class="lines">
+    <table class="table table-hover table-striped" data-label="<%= t('.graph.lines.objects_label') %>" data-total-lines="<%= job.report.lines %>" data-total-routes="<%= job.report.routes %>" data-total-connection_links="<%= job.report.connection_links %>", data-total-time_tables="<%= job.report.time_tables %>" data-total-stop_areas="<%= job.report.stop_areas %>" data-total-access_points="<%= job.report.access_points %>" data-total-vehicle_journeys="<%= job.report.vehicle_journeys %>" data-total-journey_patterns="<%= job.report.journey_patterns %>" >
+      <thead>
+        <tr>
+          <th class="lines"><%= t(".table.line.lines") %></th>
+          <th class="save"><%= t(".table.line.save") %></th>
+          <th class="routes"><%= t(".table.line.routes") %></th>
+          <th class="connection_links"><%= t(".table.line.connection_links") %></th>
+          <th class="time_tables"><%= t(".table.line.time_tables") %></th>
+          <th class="stop_areas"><%= t(".table.line.stop_areas") %></th>
+          <th class="access_points"><%= t(".table.line.access_points") %></th>
+          <th class="vehicle_journeys"><%= t(".table.line.vehicle_journeys") %></th>
+          <th class="journey_patterns"><%= t(".table.line.journey_patterns") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% job.report.line_items.each_with_index do |line_item, index| %>
+          <% tr_class = (line_item.status == "saved") ? '' : 'class=\'danger\''%>
+          <tr <%=  tr_class %>>
+            <td><%= line_item.name %></td>
+            <td><%= t(".table.line." + line_item.status ) %></td>
+            <td><%= line_item.routes %></td>
+            <td><%= line_item.connection_links %></td>
+            <td><%= line_item.time_tables %></td>
+            <td><%= line_item.stop_areas %></td>
+            <td><%= line_item.access_points %></td>
+            <td><%= line_item.vehicle_journeys %></td>
+            <td><%= line_item.journey_patterns %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

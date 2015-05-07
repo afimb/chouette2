@@ -1,10 +1,15 @@
 <div class="test">
-  <%= title_tag "#{title} #{@export.name} <span class='status status_#{@export.status}'>#{ t('exports.statuses.'+ @export.status) }</span>" %>
+  <%= title_tag job_status_title(@export) %>
 </div>
 
+<% if !@export.aborted? %>
 <div class="export_show">
-  <%= render( :partial => "results_dashboard", :locals => { :referential => @referential} ) %>
+  <div class="links">
+    <%= link_to( image_tag("icons/file_#{@export.filename_extension}.png") + t("exports.show.exported_file"), exported_file_referential_export_path(@referential, @export.id) ) %>
+  </div>
+  <%= render( :partial => "shared/ie_report.html", :locals => { :referential => @referential, :job => @export} ) %>
 </div>
+<% end %>
 
 <% content_for :sidebar do %>
   <ul class="actions">

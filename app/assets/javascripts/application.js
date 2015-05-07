@@ -27,3 +27,4 @@
 //= require_directory ./export_tasks
 //= require_directory ./exports
 //= require_directory ./lines
+//= require_directory ./partials

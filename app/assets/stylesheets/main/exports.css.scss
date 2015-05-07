@@ -7,5 +7,11 @@
 }
 
 #workspace.exports.show {
-  @import "../modules/report";
+  @import "../partials/ie_report";
+  @import "../modules/job_status_colors";
+
+  .links{
+    margin: 0 0 20px 0;
+    img{ margin: 0 5px 0 15px; }
+  }
 }

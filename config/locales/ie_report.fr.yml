@@ -1,0 +1,28 @@
+fr:
+  shared:
+    ie_report:
+      html:
+        graph:
+          files:
+            title_default: "Résultat d'%{job} du fichier %{extension}"
+            error: "Erreurs"
+            ignored: "Ignorés"
+            ok: "Succès"
+          lines:
+            title: "Volume de données lues par type de donnée"
+            objects_label: "Quantité lue"
+        table:
+          line:
+            save: "Sauvegarde"
+            routes: "Séquences d'arrêts"
+            lines: "Lignes"
+            connection_links: "Correspondances"
+            time_tables: "Calendriers"
+            stop_areas: "Zones d'arrèt"
+            access_points: "Accès"
+            vehicle_journeys: "Courses"
+            journey_patterns: "Missions"
+            not_saved: "Non Sauvé"
+            saved: "Sauvé"
+            save_error: "Sauvegarde en erreur"
+

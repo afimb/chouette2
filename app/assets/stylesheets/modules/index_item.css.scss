@@ -32,7 +32,15 @@
 
         h5{
             margin: 0px;
-            padding-top: 4.5px;            
+            padding-top: 4.5px;
+
+            .name{
+              .fa{
+                margin-right: 5px;                                
+                }                
+            }
+              
+            @import "job_status_colors"  
         }
         
     }
@@ -63,17 +71,7 @@
     }   
    
     .panel-footer{
-        text-align: center;
-
-            
-        .progress {
-            margin-bottom: 5px;
-
-            .progress-bar.failed { width: 100%;}
-            .progress-bar.pending { width: 10%;}
-            .progress-bar.processing { width: 50%;}
-            .progress-bar.completed { width: 100%;}   
-        }
+        text-align: center;           
 
         .history{
             color: $gray;
