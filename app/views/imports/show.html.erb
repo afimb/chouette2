@@ -1,10 +1,21 @@
 <div class="test">
-  <%= title_tag "#{title} #{@import.name} <span class='status status_#{@import.status}'>#{ t('imports.statuses.'+ @import.status) }</span>" %>
+  <%= title_tag job_status_title(@import) %>
 </div>
 
+<% if !@import.aborted? %>
 <div class="import_show">
-  <%= render( :partial => "results_dashboard", :locals => { :referential => @referential} ) %>
+  <div class="links">
+    <%= link_to image_tag("icons/file_#{@import.filename_extension}.png") + t("imports.show.imported_file"), imported_file_referential_import_path(@referential, @import.id) if !@import.aborted? %>
+    <% if @import.rule_parameter_set %> 
+    <%= link_to image_tag("icons/link_page.png") + t("imports.show.rule_parameter_set"), rule_parameter_set_referential_import_path(@referential, @import.id) %>
+    <% end %>
+    <% if @import.compliance_check %> 
+    <%= link_to image_tag("icons/link_page.png") + t("imports.show.compliance_check"), compliance_check_referential_import_path(@referential, @import.id) %>
+    <% end %>
+  </div>
+  <%= render( :partial => "shared/ie_report.html", :locals => { :referential => @referential, :job => @import} ) %>
 </div>
+<% end %>
 
 <% content_for :sidebar do %>
   <ul class="actions">

@@ -5,7 +5,7 @@ class ExportsController < ChouetteController
   defaults :resource_class => Export
   
   respond_to :html, :only => [:show, :index, :destroy, :exported_file]
-  respond_to :js, :only => [:show, :index]
+  respond_to :js, :only => [:index]
   belongs_to :referential
 
   def index

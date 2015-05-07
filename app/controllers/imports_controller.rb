@@ -6,7 +6,7 @@ class ImportsController < ChouetteController
   defaults :resource_class => Import
   
   respond_to :html, :only => [:show, :index, :destroy, :imported_file, :rule_parameter_set, :compliance_check]
-  respond_to :js, :only => [:show, :index, :compliance_check]
+  respond_to :js, :only => [:index, :compliance_check]
   belongs_to :referential
 
   def index
@@ -44,6 +44,10 @@ class ImportsController < ChouetteController
   end
 
   def imported_file
+    # WARNING : files under 10kb in size get treated as StringIO by OpenUri
+    # http://stackoverflow.com/questions/10496874/why-does-openuri-treat-files-under-10kb-in-size-as-stringio
+    OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined?('StringMax')
+    OpenURI::Buffer.const_set 'StringMax', 0
     begin
       send_file open(resource.file_path), { :type => "application/#{resource.filename_extension}", :disposition => "attachment", :filename => resource.filename }
     rescue Ievkit::Error => error
