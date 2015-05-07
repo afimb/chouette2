@@ -4,40 +4,48 @@ class Import
   include JobConcern
   
   def compliance_check_validation_report
-    report_path = links["validation_report"]
-    if report_path
-      response = Ievkit.get(report_path)
-      ComplianceCheckResult.new(response)
-    else
-      raise Ievkit::IevError("Impossible to access report path link for validation of import")
+    Rails.cache.fetch("#{cache_key}/validation_report", expires_in: cache_expiration) do
+      report_path = links["validation_report"]
+      if report_path
+        response = Ievkit.get(report_path)
+        ComplianceCheckResult.new(response)
+      else
+        raise Ievkit::IevError("Impossible to access report path link for validation of import")
+      end
     end
   end
   
   def report
-    report_path = links["action_report"]
-    if report_path      
-      response = Ievkit.get(report_path)
-      ImportReport.new(response)
-    else
-      nil
+    Rails.cache.fetch("#{cache_key}/action_report", expires_in: cache_expiration) do
+      report_path = links["action_report"]
+      if report_path      
+        response = Ievkit.get(report_path)
+        ImportReport.new(response)
+      else
+        nil
+      end
     end
   end 
 
   def rule_parameter_set
-    rule_parameter_set_path = links["validation_params"]
-    if rule_parameter_set_path
-      ::JSON.load( open(rule_parameter_set_path).read )
-    else
-      nil
+    Rails.cache.fetch("#{cache_key}/validation_params", expires_in: cache_expiration) do
+      rule_parameter_set_path = links["validation_params"]
+      if rule_parameter_set_path
+        ::JSON.load( open(rule_parameter_set_path).read )
+      else
+        nil
+      end
     end
   end
   
   def compliance_check
-    compliance_check_path = links["validation_report"]
-    if compliance_check_path
-      ::JSON.load( open(compliance_check_path).read )
-    else
-      nil
+    Rails.cache.fetch("#{cache_key}/validation_report", expires_in: cache_expiration) do
+      compliance_check_path = links["validation_report"]
+      if compliance_check_path
+        ::JSON.load( open(compliance_check_path).read )
+      else
+        nil
+      end
     end
   end
 
