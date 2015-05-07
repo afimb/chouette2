@@ -3,6 +3,7 @@
 }
 
 #workspace.compliance_checks.show {
+  @import "../modules/job_status_colors";
 
     .status {
         margin-left: 10px;                 

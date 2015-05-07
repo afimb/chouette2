@@ -2,10 +2,10 @@
   <%= title_tag "#{t('imports.show.compliance_check_of')} #{title} #{@import.name} <span class='status status_#{@import.status}'>(#{ t('imports.statuses.'+ @import.status) })</span>" %>
   <% @title = "#{@import.name}" %>
 <% else %> 
-  <%= title_tag "#{@compliance_check.name} <span class='status status_#{@compliance_check.status}'>(#{ t('compliance_checks.statuses.'+@compliance_check.status) })</span>" %>
-  <% @title = "#{@compliance_check.name}" %>
+  <%= title_tag job_status_title(@compliance_check) %>
 <% end %>
 
+<% if !@compliance_check.aborted? %>
 <div class="compliance_check_show">
   <div class="links">
      <% if !@import && @compliance_check.rule_parameter_set %>
@@ -45,6 +45,7 @@
      <%= javascript_include_tag referential_compliance_check_path(@referential, @compliance_check.id,:format => :js) %>
    <% end %>
 </div>
+<% end %>
 <% content_for :sidebar do %>
 <ul class="actions">
   <li>

@@ -8,9 +8,7 @@
       </span>
       <h5>
         <%= link_to( referential_compliance_check_path(@referential, compliance_check.id), :class => "preview", :title => "#{ComplianceCheck.model_name.human.capitalize} #{compliance_check.name}") do %>        
-        <span class="name">
-          <%= truncate(compliance_check.name, :length => 20) %>          
-        </span>
+	  <%= job_status_title(compliance_check) %>
         <% end %>
       </h5>
     </div>                          
@@ -21,7 +19,6 @@
       <% end %>
   </div>
   <div class="panel-footer">
-    <%= progress_bar_tag(compliance_check) %>
     <div class="history">
       <%= l compliance_check.created_at, :format => "%d/%m/%Y %H:%M" %> | <%= compliance_check.user_name %>
     </div>
