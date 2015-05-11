@@ -4,6 +4,7 @@ fr:
       new: "Nouvel import"
     new:
       title: "Nouvel import"
+      all: "Tout"
       flash: "La demande d'import est mise en file d'attente, veuillez rafraichir régulièrement la page pour en suivre la progression"
   activemodel:
     models:

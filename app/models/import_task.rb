@@ -95,6 +95,8 @@ class ImportTask
 
   def save_resources
     FileUtils.mkdir_p root
+    puts resources.inspect
+    puts saved_resources_path.inspect
     FileUtils.cp resources.path, saved_resources_path
   end
 
@@ -111,7 +113,7 @@ class ImportTask
   end
 
   def saved_resources_path
-    "#{root}/#{Time.now.to_i}#{file_extname}"
+    @saved_resources_path ||= "#{root}/#{Time.now.to_i}#{file_extname}"
   end
 
 end

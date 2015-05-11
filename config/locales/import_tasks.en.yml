@@ -4,7 +4,8 @@ en:
       new: "New import"
     new:
       title: "New import"
-      flash: "Import task on queue, refresh page to see progression"
+      all: "All"
+      flash: "Import task on queue, refresh page to see progression"  
   activemodel:
     models:
       import_task:
