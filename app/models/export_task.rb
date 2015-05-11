@@ -23,7 +23,9 @@ class ExportTask
   validates_presence_of :references_type
   
   def initialize( params = {} )
-    params.each {|k,v| send("#{k}=",v)}
+    run_callbacks :initialize do
+      params.each {|k,v| send("#{k}=",v)}
+    end
   end
 
   def referential

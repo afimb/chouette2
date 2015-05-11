@@ -1,7 +1,7 @@
 class GtfsExport < ExportTask
 
   validates_presence_of :time_zone
-  attr_accessor :time_zone, :object_id_prefix
+  attr_accessor :object_id_prefix, :time_zone
 
   enumerize :references_type, in: %w( network line company group_of_line stop_area )
   
@@ -13,7 +13,7 @@ class GtfsExport < ExportTask
     end
   end
 
-  def time_zone=(time_zone)
+  def real_time_zone
     ActiveSupport::TimeZone.find_tzinfo(time_zone).name
   end
 
@@ -26,7 +26,7 @@ class GtfsExport < ExportTask
         "user_name" => user_name,
         "organisation_name" => organisation.name,
         "referential_name" => referential.name,
-        "time_zone" => time_zone,
+        "time_zone" => real_time_zone,
         "object_id_prefix" => object_id_prefix
       }
     }
