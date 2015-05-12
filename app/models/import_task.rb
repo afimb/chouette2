@@ -37,25 +37,30 @@ class ImportTask
   end
 
   def save
-    # Save resources 
-    save_resources
-
-    # Call Iev Server
-    begin 
-      Ievkit.create_job(referential.slug, "importer", data_format, {
-                                                  :file1 => params_io,
-                                                  :file2 => transport_data_io
-                        }
-                        
-                       )
-
-      # Delete resources
-      delete_resources
-    rescue Exception => exception
-      # If iev server has an error must delete resources before
-      delete_resources
-
-      raise exception
+    if valid?
+      # Save resources 
+      save_resources
+      
+      # Call Iev Server
+      begin 
+        Ievkit.create_job(referential.slug, "importer", data_format, {
+                            :file1 => params_io,
+                            :file2 => transport_data_io
+                          }
+                          
+                         )
+        
+        # Delete resources
+        delete_resources        
+      rescue Exception => exception
+        # If iev server has an error must delete resources before
+        delete_resources
+        
+        raise exception
+      end
+      true
+    else
+      false
     end
   end
 
@@ -95,8 +100,6 @@ class ImportTask
 
   def save_resources
     FileUtils.mkdir_p root
-    puts resources.inspect
-    puts saved_resources_path.inspect
     FileUtils.cp resources.path, saved_resources_path
   end
 
@@ -109,7 +112,7 @@ class ImportTask
   end
   
   def file_extname
-    File.extname(resources.original_filename)
+    File.extname(original_filename) if original_filename
   end
 
   def saved_resources_path

@@ -30,14 +30,19 @@ class ComplianceCheckTask
     organisation.rule_parameter_sets.find(rule_parameter_set_id) if rule_parameter_set_id.present?
   end
 
-  def save        
-    # Call Iev Server
-    begin 
-      Ievkit.create_job( referential.slug, "validator", "", {
-                          :file1 => params_io,
-                        } )     
-    rescue Exception => exception
-      raise exception
+  def save
+    if valid?
+      # Call Iev Server
+      begin 
+        Ievkit.create_job( referential.slug, "validator", "", {
+                             :file1 => params_io,
+                           } )     
+      rescue Exception => exception
+        raise exception
+      end
+      true
+    else
+      false
     end
   end
   
