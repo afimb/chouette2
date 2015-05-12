@@ -1,4 +1,13 @@
 module ApplicationHelper
+
+  def font_awesome_classic_tag(name, size = "")
+    if name == "fa-file-csv-o"
+      name = "fa-file-text-o"
+    elsif name == "fa-file-xml-o"
+      name = "fa-file-code-o"
+    end
+    "<i class='fa #{name} #{size}'></i>".html_safe
+  end
   
   def stop_area_picture_url(stop_area)
     image_path("map/#{stop_area.area_type.underscore}.png")

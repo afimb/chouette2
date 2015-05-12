@@ -1,5 +1,9 @@
 class Export
   include JobConcern
+
+  def report?
+    links["action_report"].present?
+  end
   
   def report
     Rails.cache.fetch("#{cache_key}/action_report", expires_in: cache_expiration) do
@@ -26,6 +30,10 @@ class Export
     end
   end
 
+  def file_path?
+    links["data"].present?
+  end
+  
   def file_path
     links["data"]
   end

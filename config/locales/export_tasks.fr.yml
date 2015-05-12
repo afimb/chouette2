@@ -44,6 +44,12 @@ fr:
   formtastic:
     titles:
       export_task:
+        time_zone: "selon le codage TZ  (http://fr.wikipedia.org/wiki/Tz_database)"
+        object_id_prefix: "lorsque le préfixe d'identifiant Netpune prend cette valeur, il n'est pas utilisé pour composer l'identifiant GTFS"
+        start_date: "limite l'export aux courses circulant à partir de cette date"
+        end_date: "limite l'export aux courses circulant jusqu'à cette date"
+        dates:
+          not_nul: "Export HUB interrompu. Les dates de début et de fin doivent êtres renseignées."
         max_distance_for_commercial: "Distance maximale entre deux arrêts homonymes pour créer les zones d'arrêt (en mètre)"
         max_distance_for_connection_link: "Distance maximale entre deux arrêts pour créer les correspondances (en mètre)"
         ignore_last_word: "Ignorer le dernier mot pour détecter l'homonymie des noms d'arrêt (inapplicable quand le nom ne comporte qu'un mot)"

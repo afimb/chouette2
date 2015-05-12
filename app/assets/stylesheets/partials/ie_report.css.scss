@@ -39,7 +39,7 @@
       }
   }
 
-  div.files_error{
+  .files_error{
     color: #e22b1b;
     display: none;
   }
@@ -60,6 +60,9 @@
     th, td{
       text-align: center;
       }
+
+    .fa-check{ color: $brand-success; }
+    .fa-times{ color: $brand-danger; }  
         
   }
 }  

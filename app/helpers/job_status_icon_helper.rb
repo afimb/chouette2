@@ -6,11 +6,11 @@ module JobStatusIconHelper
     
     title = ""
     if %w{ aborted canceled }.include?(status)
-      title += "<span class='name aborted'><i class='fa fa-times'></i>"
+      title += "<span class='aborted'><i class='fa fa-times'></i>"
     elsif %w{ created scheduled }.include?(status)
-      title += "<span class='name processed'><i class='fa fa-spinner fa-spin'></i>"
+      title += "<span class='processed'><i class='fa fa-spinner fa-spin'></i>"
     elsif %w{ terminated}.include?(status)
-      title += "<span class='name terminated'><i class='fa fa-check'></i>"
+      title += "<span class='terminated'><i class='fa fa-check'></i>"
     end
 
     title += "#{truncate(name, :length => 20)}</span>"

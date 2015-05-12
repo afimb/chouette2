@@ -35,8 +35,8 @@
     <table class="table table-hover table-striped" data-label="<%= t('.graph.lines.objects_label') %>" data-total-lines="<%= job.report.lines %>" data-total-routes="<%= job.report.routes %>" data-total-connection_links="<%= job.report.connection_links %>", data-total-time_tables="<%= job.report.time_tables %>" data-total-stop_areas="<%= job.report.stop_areas %>" data-total-access_points="<%= job.report.access_points %>" data-total-vehicle_journeys="<%= job.report.vehicle_journeys %>" data-total-journey_patterns="<%= job.report.journey_patterns %>" >
       <thead>
         <tr>
+	  <th class="save"><%= t(".table.line.save") %></th>
           <th class="lines"><%= t(".table.line.lines") %></th>
-          <th class="save"><%= t(".table.line.save") %></th>
           <th class="routes"><%= t(".table.line.routes") %></th>
           <th class="connection_links"><%= t(".table.line.connection_links") %></th>
           <th class="time_tables"><%= t(".table.line.time_tables") %></th>
@@ -47,11 +47,10 @@
         </tr>
       </thead>
       <tbody>
-        <% job.report.line_items.each_with_index do |line_item, index| %>
-          <% tr_class = (line_item.status == "saved") ? '' : 'class=\'danger\''%>
-          <tr <%=  tr_class %>>
-            <td><%= line_item.name %></td>
-            <td><%= t(".table.line." + line_item.status ) %></td>
+        <% job.report.line_items.each_with_index do |line_item, index| %>          
+          <tr>
+	    <td><%= line_item.status ? font_awesome_classic_tag("fa-check") : font_awesome_classic_tag("fa-times")  %></td>
+            <td><%= line_item.name %></td>            
             <td><%= line_item.routes %></td>
             <td><%= line_item.connection_links %></td>
             <td><%= line_item.time_tables %></td>

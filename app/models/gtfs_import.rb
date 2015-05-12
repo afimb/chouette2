@@ -5,7 +5,6 @@ class GtfsImport < ImportTask
   attr_accessor :object_id_prefix, :max_distance_for_commercial, :ignore_last_word,  :ignore_end_chars, :max_distance_for_connection_link, :references_type
   
   validates_presence_of :object_id_prefix
-  validates_presence_of :references_type
 
   def references_types
     self.references_type.values

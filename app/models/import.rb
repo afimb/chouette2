@@ -2,17 +2,24 @@ require 'open-uri'
 
 class Import
   include JobConcern
+
+  # def compliance_check_validation_report?
+  # end
   
-  def compliance_check_validation_report
-    Rails.cache.fetch("#{cache_key}/validation_report", expires_in: cache_expiration) do
-      report_path = links["validation_report"]
-      if report_path
-        response = Ievkit.get(report_path)
-        ComplianceCheckResult.new(response)
-      else
-        raise Ievkit::IevError("Impossible to access report path link for validation of import")
-      end
-    end
+  # def compliance_check_validation_report
+  #   Rails.cache.fetch("#{cache_key}/validation_report", expires_in: cache_expiration) do
+  #     report_path = links["validation_report"]
+  #     if report_path
+  #       response = Ievkit.get(report_path)
+  #       ComplianceCheckResult.new(response)
+  #     else
+  #       raise Ievkit::IevError("Impossible to access report path link for validation of import")
+  #     end
+  #   end
+  # end
+
+  def report?
+    links["action_report"].present?
   end
   
   def report
@@ -27,6 +34,10 @@ class Import
     end
   end 
 
+  def rule_parameter_set?
+    links["validation_params"].present?
+  end
+  
   def rule_parameter_set
     Rails.cache.fetch("#{cache_key}/validation_params", expires_in: cache_expiration) do
       rule_parameter_set_path = links["validation_params"]
@@ -36,6 +47,10 @@ class Import
         nil
       end
     end
+  end
+
+  def compliance_check?
+    links["validation_report"].present?
   end
   
   def compliance_check
@@ -62,6 +77,10 @@ class Import
     end
   end
 
+  def file_path?
+    links["data"].present?
+  end
+  
   def file_path
     links["data"]
   end

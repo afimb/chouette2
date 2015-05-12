@@ -9,9 +9,10 @@
 #workspace.exports.show {
   @import "../partials/ie_report";
   @import "../modules/job_status_colors";
+  @import "../modules/links";
 
-  .links{
-    margin: 0 0 20px 0;
-    img{ margin: 0 5px 0 15px; }
+  h2{
+    i{ margin: 0 5px 0 0; }
   }
+ 
 }

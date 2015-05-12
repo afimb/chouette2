@@ -101,13 +101,31 @@ module ReportConcern
   
   
   class LineItem
-    attr_reader :name, :status, :stats
+    attr_reader :options
     
     def initialize( options )
-      @name = options.name if options.name?
-      @status = options.status if options.status?
-      @stats = options.stats if options.stats?
+      @options = options
     end
+
+    def name
+      @name ||= options.name if options.name?
+    end
+
+    def stats
+      @stats ||= options.stats if options.stats?
+    end
+
+    def status
+      @status ||= if options.status?        
+                    if %w{ok warning}.include? options.status.downcase
+                      true
+                    else
+                      false
+                    end                    
+                  else
+                    false
+                  end
+    end     
     
     def routes
       stats ? stats.route_count : 0
