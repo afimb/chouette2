@@ -8,10 +8,6 @@ class ExportTask
 
   define_model_callbacks :initialize, only: :after
 
-  # TODO : Move in configuration
-  @@root = "#{Rails.root}/tmp/exports"
-  cattr_accessor :root
-
   enumerize :data_format, in: %w( neptune netex gtfs hub kml )
   attr_accessor :referential_id, :user_id, :user_name, :references_type, :data_format, :name, :projection_type, :reference_ids
   
@@ -20,7 +16,6 @@ class ExportTask
   validates_presence_of :user_name
   validates_presence_of :name
   validates_presence_of :data_format
-  validates_presence_of :references_type
   
   def initialize( params = {} )
     run_callbacks :initialize do

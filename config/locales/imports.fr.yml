@@ -9,7 +9,7 @@ fr:
       warning: ""
     show:
       report: "Rapport"
-      imported_file: "Fichier importé"
+      imported_file: "Fichier source"
       rule_parameter_set: "Jeu de paramètres"
       compliance_check: "Validation"
       compliance_check_of: "Validation de l'import : "

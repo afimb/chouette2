@@ -14,13 +14,9 @@
     </div>
   </div>
   <div class="panel-body">
-    <p><%= link_to image_tag("icons/file_#{import.filename_extension}.png") + t("imports.show.imported_file"), imported_file_referential_import_path(@referential, import.id) if !import.aborted? %></p>
-    <% if import.rule_parameter_set && !import.aborted? %> 
-    <p><%= link_to image_tag("icons/link_page.png") + t("imports.show.rule_parameter_set"), rule_parameter_set_referential_import_path(@referential, import.id) %></p>
-    <% end %>
-    <% if import.compliance_check && !import.aborted? %> 
-    <p><%= link_to image_tag("icons/link_page.png") + t("imports.show.compliance_check"), compliance_check_referential_import_path(@referential, import.id) %></p>
-    <% end %>
+    <p><%= link_to image_tag("icons/file_#{import.filename_extension}.png") + t("imports.show.imported_file"), imported_file_referential_import_path(@referential, import.id) if import.file_path  %></p>
+    <p><%= link_to image_tag("icons/link_page.png") + t("imports.show.rule_parameter_set"), rule_parameter_set_referential_import_path(@referential, import.id) if import.rule_parameter_set %></p>
+    <p><%= link_to image_tag("icons/link_page.png") + t("imports.show.compliance_check"), compliance_check_referential_import_path(@referential, import.id) if import.compliance_check %></p>
   </div>
   <div class="panel-footer">  
     <div class="history">

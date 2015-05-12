@@ -17,6 +17,7 @@ class ExportTasksController < ChouetteController
   end
   
   def create
+    @available_exports = available_exports
     begin            
       create! do |success, failure|
         success.html { redirect_to referential_exports_path(@referential) }
@@ -31,7 +32,6 @@ class ExportTasksController < ChouetteController
   def references
     references_type = params[:filter].pluralize
     references = @referential.send(references_type).where("name ilike ?", "%#{params[:q]}%").select("id, name")
-    puts references.inspect
     respond_to do |format|
       format.json do
         render :json => references.collect { |child| { :id => child.id, :name => child.name } }

@@ -1,13 +1,3 @@
-en:
-  compliance_check_tasks:
-    new:
-      title: "Create a new validation"
-      submit: "Create a validation"
-      all: "All"
-      flash: "Validation task on queue, refresh page to see progression"
-    actions:
-      new: "Add a validation"
-
 fr:
   compliance_check_tasks:
     new:
@@ -17,3 +7,10 @@ fr:
       flash: "La demande de validation est mise en file d'attente, veuillez rafraichir régulièrement la page pour en suivre la progression"
     actions:
       new: "Ajouter une validation"
+  activemodel:
+    attributes:
+      compliance_check_task:
+        name: "Nom de la validation"
+        references_type: "Sous ensemble"
+        reference_ids: "Identifiants du sous ensemble"
+        rule_parameter_set_id: "Jeu de paramètres pour validation"

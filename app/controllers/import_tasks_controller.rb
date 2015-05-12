@@ -18,6 +18,7 @@ class ImportTasksController < ChouetteController
   end
   
   def create
+    @available_imports = available_imports
     begin            
       create! do |success, failure|
         success.html { redirect_to referential_imports_path(@referential) }
