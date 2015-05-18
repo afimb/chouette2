@@ -22,3 +22,4 @@ public/assets/
 .DS_Store
 chouette2.war
 vendor/bundle
+.ruby-version
