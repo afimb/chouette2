@@ -24,6 +24,7 @@
 //= require_directory ./vehicle_journeys
 //= require_directory ./import_tasks
 //= require_directory ./compliance_check_tasks
+//= require_directory ./compliance_checks
 //= require_directory ./export_tasks
 //= require_directory ./exports
 //= require_directory ./lines

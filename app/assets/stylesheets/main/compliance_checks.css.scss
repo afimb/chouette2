@@ -2,23 +2,17 @@
 {
 }
 
-#workspace.compliance_checks.show {
+#workspace.compliance_checks.show, #workspace.imports.compliance_check{
   @import "../modules/job_status_colors";
+  @import "../modules/links";
+
+  h2{
+    i{ margin: 0 5px 0 0; }
+  }
 
     .status {
         margin-left: 10px;                 
-    }
-    
-    .status_failed { color: #a94442;}
-    .status_pending { color: #31708f;}
-    .status_processing { color: #31708f;}
-    .status_completed { color: #3c763d;}
-
-    .links{
-        margin: 0px 0 20px 0;
-
-        img{ margin: 0 5px 0 15px; }
-    }
+    }   
 
     .order{
         margin-bottom: 10px;
@@ -29,11 +23,11 @@
 
     .status_ok_error { color: #8fc861; }
     .status_nok_error { color: #e22b1b;  }
-    .status_na_error { color: #898e7f; }
+    .status_uncheck_error { color: #898e7f; }
     
     .status_ok_warning { color: #8fc861; }
     .status_nok_warning { color: #ffbd2b;  } 
-    .status_na_warning { color: #898e7f; }
+    .status_uncheck_warning { color: #898e7f; }
     
     .resume {
         &:after{

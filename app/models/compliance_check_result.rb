@@ -3,62 +3,78 @@ class ComplianceCheckResult
   extend ActiveModel::Translation
   include ActiveModel::Model
   
-  attr_reader :datas
+  attr_accessor :datas
   
   def initialize(response)
-    @datas = response[:validation_report].tests.sort_by { |hash| [ hash[:severity], hash[:result], hash[:test_id]] }
+    @datas = response.validation_report
+  end
+
+  def tests?
+    datas.tests?
   end
 
   def ok_error
-    @datas.select { |test| (test[:result] == "OK" && test[:severity] == "ERROR") }
+    tests? ? tests.select { |test| (test.result == "OK" && test.severity == "ERROR") } : []
   end
   
   def nok_error
-    @datas.select { |test| (test[:result] == "NOK" && test[:severity] == "ERROR")}
+    tests? ? tests.select { |test| (test.result == "NOK" && test.severity == "ERROR")} : []
   end
   
   def na_error
-    @datas.select { |test| (test[:result] == "UNCHECK" && test[:severity] == "ERROR")}
+    tests? ? tests.select { |test| (test.result == "UNCHECK" && test.severity == "ERROR")} : []
   end
 
   def ok_warning
-    @datas.select { |test| (test[:result] == "OK" && test[:severity] == "WARNING")}
+    tests? ? tests.select { |test| (test.result == "OK" && test.severity == "WARNING")} : []
   end
   
   def nok_warning
-    @datas.select { |test| (test[:result] == "NOK" && test[:severity] == "WARNING")}
+    tests? ? tests.select { |test| (test.result == "NOK" && test.severity == "WARNING")} : []
   end
   
   def na_warning
-    @datas.select { |test| (test[:result] == "UNCHECK" && test[:severity] == "WARNING")}
+    tests? ? tests.select { |test| (test.result == "UNCHECK" && test.severity == "WARNING")} : []
   end
   
-  def mandatory_tests
-    @datas.select { |test| test[:severity] == "ERROR"}
-  end
-
-  def optional_tests
-    @datas.select { |test| test[:severity] == "WARNING"}
-  end
-
-  def ok_tests
-    @datas.select { |test| test[:result] == "OK"}
-  end
-
-  def nok_tests
-    @datas.select { |test| test[:result] == "NOK"}
-  end
-
-  def uncheck_tests
-    @datas.select { |test| test[:result] == "UNCHECK"}
-  end
-
   def all(status, severity)
-    @datas.select { |test| ( test[:result] == status && test[:severity] == severity ) }
+    tests? ? tests.select { |test| ( test.result == status && test.severity == severity ) } : []
   end
 
-  def results
-    return @datas
+  def tests
+    [].tap do |tests|
+      datas.tests.each do |test|
+        tests << Test.new(test)
+      end if datas.tests?
+    end
+  end
+
+  class Test
+    attr_reader :options
+    
+    def initialize( options )
+      @options = options
+    end
+
+    def test_id
+      options.test_id if options.test_id?
+    end
+    
+    def severity
+      options.severity.downcase if options.severity?
+    end
+
+    def result
+      options.result.downcase if options.result?
+    end
+
+    def errors
+      options.errors if options.errors?
+    end
+
+    def error_count
+      options.error_count if options.error_count?
+    end
   end
   
 end

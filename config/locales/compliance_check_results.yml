@@ -15,7 +15,7 @@ en:
       warning_txt: "Optional"
     statuses:
       nok: "Error"
-      na: "Unavailable"
+      uncheck: "Unavailable"
       ok: "Success"
     details:
       #### level 1
@@ -359,7 +359,7 @@ fr:
       warning_txt: "Optionnel"
     statuses:
       nok: "Erreur"
-      na: "Absent"
+      uncheck: "Absent"
       ok: "Succès"
     details:
       #### level 1

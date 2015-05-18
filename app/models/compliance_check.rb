@@ -1,6 +1,10 @@
 class ComplianceCheck
   include JobConcern
 
+  def report?
+    links["action_report"].present?
+  end
+  
   def report
     Rails.cache.fetch("#{cache_key}/action_report", expires_in: cache_expiration) do
       report_path = links["action_report"]
@@ -11,6 +15,10 @@ class ComplianceCheck
         nil
       end
     end
+  end
+
+  def compliance_check_validation_report?
+    links["validation_report"].present?
   end
   
   def compliance_check_validation_report
@@ -25,12 +33,16 @@ class ComplianceCheck
     end
   end
 
+  def rule_parameter_set?
+    links["validation_params"].present?
+  end
+
   def rule_parameter_set
     Rails.cache.fetch("#{cache_key}/validation_params", expires_in: cache_expiration) do
-      rule_parameter_set = links["validation_params"]
-      if rule_parameter_set
-        response = Ievkit.get(rule_parameter_set)
-        rule_parameter_set = RuleParameterSet.new.tap { |rps| rps.parameters = response.validation }
+      rule_parameter_set_path = links["validation_params"]
+      if rule_parameter_set_path
+        response = Ievkit.get(rule_parameter_set_path)
+        rule_parameter_set = RuleParameterSet.new(:name => "", :compliance_check => self).tap { |rps| rps.parameters = response.validation }
       else
         nil
       end

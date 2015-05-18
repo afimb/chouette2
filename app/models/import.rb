@@ -3,21 +3,6 @@ require 'open-uri'
 class Import
   include JobConcern
 
-  # def compliance_check_validation_report?
-  # end
-  
-  # def compliance_check_validation_report
-  #   Rails.cache.fetch("#{cache_key}/validation_report", expires_in: cache_expiration) do
-  #     report_path = links["validation_report"]
-  #     if report_path
-  #       response = Ievkit.get(report_path)
-  #       ComplianceCheckResult.new(response)
-  #     else
-  #       raise Ievkit::IevError("Impossible to access report path link for validation of import")
-  #     end
-  #   end
-  # end
-
   def report?
     links["action_report"].present?
   end
@@ -42,7 +27,8 @@ class Import
     Rails.cache.fetch("#{cache_key}/validation_params", expires_in: cache_expiration) do
       rule_parameter_set_path = links["validation_params"]
       if rule_parameter_set_path
-        ::JSON.load( open(rule_parameter_set_path).read )
+        response = Ievkit.get(rule_parameter_set_path)
+        rule_parameter_set = RuleParameterSet.new(:name => "", :import => self).tap { |rps| rps.parameters = response.validation }
       else
         nil
       end
@@ -53,11 +39,13 @@ class Import
     links["validation_report"].present?
   end
   
-  def compliance_check
+  def compliance_check_validation_report
+    puts "compliance_check_validation_report"
     Rails.cache.fetch("#{cache_key}/validation_report", expires_in: cache_expiration) do
       compliance_check_path = links["validation_report"]
       if compliance_check_path
-        ::JSON.load( open(compliance_check_path).read )
+        response = Ievkit.get(compliance_check_path)
+        ComplianceCheckResult.new(response)
       else
         nil
       end

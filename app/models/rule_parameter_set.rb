@@ -4,6 +4,9 @@ class RuleParameterSet < ActiveRecord::Base
   #validates_presence_of :referential
   validates_presence_of :name
 
+  # Access to parent object
+  attr_accessor :import, :compliance_check
+
   serialize :parameters, JSON
 
   #attr_accessible :name, :organisation_id

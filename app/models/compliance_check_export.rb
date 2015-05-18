@@ -2,7 +2,7 @@ require 'tempfile'
 
 class ComplianceCheckExport
   include ERB::Util
-  include ValidationResultsHelper
+  include ComplianceChecksHelper
   
   require 'zip'
   

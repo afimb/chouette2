@@ -1,28 +1,28 @@
-<% if @import %>
-  <%= title_tag "#{t('imports.show.compliance_check_of')} #{title} #{@import.name} <span class='status status_#{@import.status}'>(#{ t('imports.statuses.'+ @import.status) })</span>" %>
-  <% @title = "#{@import.name}" %>
-<% else %> 
-  <%= title_tag job_status_title(@compliance_check) %>
-<% end %>
+<%= title_tag job_status_title(@compliance_check) %>
 
-<% if !@compliance_check.aborted? %>
 <div class="compliance_check_show">
   <div class="links">
-     <% if !@import && @compliance_check.rule_parameter_set %>
-       <%= link_to image_tag('icons/link_page.png') + t("compliance_checks.rule_parameter_set"), rule_parameter_set_referential_compliance_check_path(@referential, @compliance_check.id) %>
-     <% end %>
+    <% if @compliance_check.class == Import  %>
+      <%= link_to font_awesome_classic_tag("fa-external-link") + t("compliance_checks.rule_parameter_set"), rule_parameter_set_referential_import_path(@referential, @compliance_check.id) if @compliance_check.rule_parameter_set? %>
+    <% else %>
+      <%= link_to font_awesome_classic_tag("fa-external-link") + t("compliance_checks.rule_parameter_set"), rule_parameter_set_referential_compliance_check_path(@referential, @compliance_check.id) if @compliance_check.rule_parameter_set? %>
+    <% end %>
      <div class="btn-group pull-right">
-       <% if !@import %>
        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
          <%= t(".export") %> <span class="caret"></span>
        </button>
-       <ul class="dropdown-menu" role="menu">
-         <li><%= link_to t(".export_csv"), export_referential_compliance_check_path(@referential, @compliance_check.id)   %></li>
-	 <% end %>
+       <ul class="dropdown-menu" role="menu">	 
+         <li>
+	   <% if @compliance_check.class == Import  %>
+	     <%= link_to t(".export_csv"), export_referential_import_path(@referential, @compliance_check.id) %>
+	   <% else %>
+	     <%= link_to t(".export_csv"), export_referential_compliance_check_path(@referential, @compliance_check.id) %>
+	   <% end %>
+	 </li>
        </ul>
      </div>  
    </div>
-  <% if (@import && @import.status == 'terminated') || @compliance_check.status == 'terminated'%>
+
    <div class="resume">
      <div class="col1">
        <div class="caption"><%= t "error", :scope => "compliance_check_result.severities" %></div>
@@ -33,32 +33,21 @@
        <div class="graph" id="warning"></div>
      </div>
    </div>
-   <div class="order" style="display: none;">
-     Filtre : <!-- %= select_tag "order", ("<option value='severity'>" + ComplianceCheckResult.human_attribute_name(:severity) +"</option><option value='status'>" + ComplianceCheckResult.human_attribute_name(:status) + "</option>").html_safe, :include_blank => false % -->
-   </div>
 
-   <div class="report"></div>
-   <% end %>
-   <% if @import %>
-     <%= javascript_include_tag referential_compliance_check_path(@referential, @import.id,:format => :js) %>
-   <% else %>
-     <%= javascript_include_tag referential_compliance_check_path(@referential, @compliance_check.id,:format => :js) %>
-   <% end %>
+   <div class="report">
+     <%= render :partial => "compliance_checks/compliance_check_results", :locals => { :compliance_check_validation_report => @compliance_check.compliance_check_validation_report } %>
+   </div>
 </div>
-<% end %>
+
 <% content_for :sidebar do %>
 <ul class="actions">
   <li>
-    <% if @import %>
-      <%= link_to image_tag("icons/link_page.png") + t("imports.show.import_of_validation"), referential_import_path(@referential, @import.id) %>
-    <% else %>
+    <% if @compliance_check.class != Import %>
       <%= link_to  t('compliance_checks.actions.destroy'), referential_compliance_check_path(@referential, @compliance_check.id), :method => :delete,  :data => {:confirm =>  t('compliance_checks.actions.destroy_confirm')}, :class => "remove" %>
     <% end %>
   </li>
 </ul>
 
-<% if !@import %>
-  <%= history_tag(@compliance_check) %>
-<% end %>
+<%= history_tag(@compliance_check) %>
   
 <% end %>

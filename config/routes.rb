@@ -84,9 +84,8 @@ ChouetteIhm::Application.routes.draw do
         get "imported_file"
         get "rule_parameter_set"
         get "compliance_check"
-      end
-      
-      resources :compliance_check_results
+        get 'export', defaults: { format: 'zip' }
+      end     
     end
 
     resources :export_tasks, :only => [:new, :create] do
@@ -110,15 +109,11 @@ ChouetteIhm::Application.routes.draw do
     resources :compliance_checks, :only => [:index, :show, :destroy] do
       member do
         get 'export', defaults: { format: 'zip' }
-      end
-      member do
         get 'rule_parameter_set'
       end
       collection do
         get 'references'
       end
-
-      resources :compliance_check_results
     end
 
     resources :companies

@@ -23,9 +23,7 @@ class ImportsController < ChouetteController
   
   def show
     begin
-      show! do 
-        build_breadcrumb :show
-      end
+      show!
     rescue Ievkit::Error => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t('iev.failure')
@@ -59,9 +57,9 @@ class ImportsController < ChouetteController
 
   def rule_parameter_set
     begin
-      build_breadcrumb :show
-      @rule_parameter_set = RuleParameterSet.new(:name => "").tap{ |rps| rps.parameters = resource.rule_parameter_set["validation"] }
-      render "rule_parameter_set"
+      @rule_parameter_set = resource.rule_parameter_set
+      build_breadcrumb :rule_parameter_set     
+      render "rule_parameter_sets/show"
     rescue Ievkit::Error => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t('iev.failure')
@@ -69,10 +67,16 @@ class ImportsController < ChouetteController
     end
   end
 
+  def export
+    respond_to do |format|
+      format.zip { send_file ComplianceCheckExport.new(resource, @referential.id, request).export, :type => :zip }
+    end
+  end
+
   def compliance_check
     begin
-      build_breadcrumb :show
-      @import = resource
+      @compliance_check = resource
+      build_breadcrumb :compliance_check
       render "compliance_checks/show"
     rescue Ievkit::Error => error
       logger.error("Iev failure : #{error.message}")

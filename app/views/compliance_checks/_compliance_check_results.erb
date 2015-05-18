@@ -1,31 +1,26 @@
-<table class="table table-hover">
+<table class="table table-hover" data-title-nok="<%= t 'nok', :scope => 'compliance_check_result.statuses' %>", data-title-uncheck="<%= t 'uncheck', :scope => 'compliance_check_result.statuses' %>", data-title-ok="<%= t 'ok', :scope => 'compliance_check_result.statuses' %>" >
   <thead>
     <tr>
-      <th>#</th>
       <th><%= ComplianceCheckResult.human_attribute_name(:status) %></th>
       <th><%= ComplianceCheckResult.human_attribute_name(:severity) %></th>
       <th><%= ComplianceCheckResult.human_attribute_name(:rule_code) %></th>
-      <% if @compliance_check_validation_reports && @compliance_check_validation_reports.first.result == "NOK" %>
-        <th><%= ComplianceCheckResult.human_attribute_name(:detail) %></th>
-      <% end %>
+      <th><%= ComplianceCheckResult.human_attribute_name(:detail) %></th>
     </tr>
   </thead>
   <tbody>
-    <% @compliance_check_validation_reports.each_with_index do |compliance_check_validation_report, index| %>
-    <tr>
-      <td><%= index + 1 %></td>
-      <td><%= status_icon( compliance_check_validation_report.result, compliance_check_validation_report.severity ) %> </td>
-      <td><%= t("compliance_check_result.severities." + compliance_check_validation_report.severity.downcase + "_txt") %></td>
+    <% compliance_check_validation_report.tests.each_with_index do |test, index| %>
+    <tr class='<%= "#{test.result}_#{test.severity}" %>'>
+      <td><%= status_icon( test.result, test.severity ) %> </td>
+      <td><%= t("compliance_check_result.severities." + test.severity + "_txt") %></td>
       <td>
-	<% data_content = t ( "activemodel.attributes.compliance_check_result." + compliance_check_validation_report.test_id ) %>
+	<% data_content = t ( "activemodel.attributes.compliance_check_result." + test.test_id ) %>
 	<% data_title = t ( "activemodel.attributes.compliance_check_result.title" ) %>
         <button data-content='<%= data_content %>' data-title='<%= data_title %>' rel="popover" data-toggle="popover" class="notice btn btn-info btn-xs" ><i class="fa fa-info"></i></button>
-        <%= link_to compliance_check_validation_report.test_id, test_definition(compliance_check_validation_report.test_id), :title => ComplianceCheckResult.human_attribute_name(compliance_check_validation_report.test_id), :target => "compliance_check" %></td>
-      <% if @compliance_check_validation_reports && @compliance_check_validation_reports.first.result == "NOK" %>
+        <%= link_to test.test_id, test_definition(test.test_id), :title => ComplianceCheckResult.human_attribute_name(test.test_id), :target => "compliance_check" %></td>
       <td class="td_error">
-        <% if compliance_check_validation_report.errors.present? %>
+        <% if test.errors.present? %>
         <span class="title_error">
-          <i class="fa fa-plus-square"></i><%= compliance_check_validation_report.error_count.to_s + " " + ComplianceCheckResult.human_attribute_name(:violation_count) %>
+          <i class="fa fa-plus-square"></i><%= test.error_count.to_s + " " + ComplianceCheckResult.human_attribute_name(:violation_count) %>
         </span>
 
 
@@ -44,11 +39,11 @@
              0..1 error_value (string)
              0..1 reference_value (striung) -->
         <div class="details_error">
-          <% compliance_check_validation_report.errors.first(10).each do |error| %>
+          <% test.errors.first(10).each do |error| %>
             <p class="detail_error">
 	      <% if error["source"].present? %>		
                 <% if error["source"].objectid.present? %>
-	          <% data_content_1 = t("activemodel.attributes.compliance_check_result." + compliance_check_validation_report.test_id) + ". " +
+	          <% data_content_1 = t("activemodel.attributes.compliance_check_result." + test.test_id) + ". " +
 		     t("compliance_check_result.details.detail_" + error[:error_id], object_labels_hash(error) ) %>
 	          <% data_title_1 = t("activemodel.attributes.compliance_check_result.detail") %>
                   |- <button data-content='<%= data_content_1 %>' data-title='<%= data_title_1 %>' data-toggle="popover" class="notice btn btn-info btn-xs"><i class="fa fa-info"></i></button>
@@ -67,9 +62,9 @@
 		<% end %>
 		<% if error[:source].file.present? %>
 		  <% if error[:source].objectid.present? %>
-		    <%= "#{error[:source].objectid}" %>
-		    <p>
+		    <%= "#{error[:source].objectid}" %>		    
 		  <% end %>
+		  <p class="file_error">
 		  <%= error[:source].file.filename  %>
 		  <% if error[:source].file.line_number.present?  %>
 		    <%= ", li: #{error[:source].file.line_number}" %>
@@ -77,21 +72,14 @@
 		  <% if error[:source].file.column_number.present?  %>
 		    <%= ", co: #{error[:source].file.column_number}" %>
 		  <% end %>
-		<% end %>
-		  
-	      <% end %>
-            </p>   
+		  </p> 
+		<% end %>		  
+	      <% end %>              
           <% end %>             
         </div>
         <% end %>
       </td>
-      <% end %>
     </tr>
   <% end %>
   </tbody>
 </table>
-<% if @import %>
-  <%= javascript_include_tag referential_import_compliance_check_results_path(@referential, @import.id, :format => :js) %>
-<% else %>
-  <%= javascript_include_tag referential_compliance_check_compliance_check_results_path(@referential, @compliance_check.id, :format => :js) %>
-<% end %>
