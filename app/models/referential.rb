@@ -21,9 +21,9 @@ class Referential < ActiveRecord::Base
 
   has_one :user
   ##has_many :rule_parameter_sets, :dependent => :destroy
-  has_many :import_tasks, :dependent => :destroy
-  has_many :compliance_check_tasks, :dependent => :destroy
-  has_many :exports, :dependent => :destroy
+  #has_many :import_tasks, :dependent => :destroy
+  #has_many :compliance_check_tasks, :dependent => :destroy
+  #has_many :exports, :dependent => :destroy
   has_many :api_keys, :class_name => 'Api::V1::ApiKey', :dependent => :destroy
 
   belongs_to :organisation
@@ -267,5 +267,3 @@ Rails.application.config.after_initialize do
 
 end
 end
-
-
