@@ -10,10 +10,6 @@ module ReportConcern
 
   module ClassMethods
   end
-
-  def initialize( response )
-    @datas = response.action_report
-  end
   
   def current_level
     datas.progression.current_step if datas.progression    

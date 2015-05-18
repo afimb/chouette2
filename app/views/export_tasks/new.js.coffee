@@ -1,2 +1,2 @@
 jQuery ->
-  $('#workspace.export_tasks .nav a:first').tab('show') 
+  $('#workspace.export_tasks .nav a.active').tab('show') 

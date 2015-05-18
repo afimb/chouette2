@@ -11,22 +11,12 @@ module JobConcern
   module ClassMethods
   end
 
-  def initialize( response )
-    @datas = response
-  end
-
   def links
     {}.tap do |links|
       datas.links.each do |link|
         links[link["rel"]] = link["href"] 
       end    
     end
-  end
-
-  def failure?
-  end
-
-  def failure
   end
 
   def started?

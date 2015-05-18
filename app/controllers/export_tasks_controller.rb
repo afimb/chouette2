@@ -42,36 +42,45 @@ class ExportTasksController < ChouetteController
   protected
 
   def available_exports
-    @available_exports ||= [
-      NeptuneExport.new(:referential_id => @referential.id ),
-      NetexExport.new(:referential_id => @referential.id ),
-      GtfsExport.new(:referential_id => @referential.id ),
-      HubExport.new(:referential_id => @referential.id ),
-      KmlExport.new(:referential_id => @referential.id )
-    ]
+    export_task_parameters = params[:export_task]
+    if export_task_parameters.present?
+      @available_exports = [
+        export_task_parameters[:data_format] == "neptune" ? build_resource : NeptuneExport.new(:referential_id => @referential.id ),
+        export_task_parameters[:data_format] == "netex" ? build_resource : NetexExport.new(:referential_id => @referential.id ),
+        export_task_parameters[:data_format] == "gtfs" ? build_resource : GtfsExport.new(:referential_id => @referential.id ),
+        export_task_parameters[:data_format] == "hub" ? build_resource : HubExport.new(:referential_id => @referential.id ),
+        export_task_parameters[:data_format] == "kml" ? build_resource : KmlExport.new(:referential_id => @referential.id )
+      ]
+    else
+      @available_exports = [
+        NeptuneExport.new(:referential_id => @referential.id ),
+        NetexExport.new(:referential_id => @referential.id ),
+        GtfsExport.new(:referential_id => @referential.id ),
+        HubExport.new(:referential_id => @referential.id ),
+        KmlExport.new(:referential_id => @referential.id )
+      ]
+    end
   end
 
-  def build_resource
-    export_task_parameters = params[:export_task]
+  def build_resource    
+    @export_task ||= if params[:export_task].present?
+                       export_task_parameters = params[:export_task]
+                       case export_task_parameters[:data_format]
+                       when "neptune"
+                         NeptuneExport.new(export_task_parameters)
+                       when "netex"
+                         NetexExport.new(export_task_parameters)
+                       when "gtfs"
+                         GtfsExport.new(export_task_parameters)
+                       when "hub"
+                         HubExport.new(export_task_parameters)
+                       when "kml"
+                         KmlExport.new(export_task_parameters)
+                       end
+                     else
+                       NeptuneExport.new
+                     end
     
-    if export_task_parameters.present?
-      case export_task_parameters[:data_format]
-      when "neptune"
-        @export_task = NeptuneExport.new(export_task_parameters)
-      when "netex"
-        @export_task = NetexExport.new(export_task_parameters)
-      when "gtfs"
-        @export_task = GtfsExport.new(export_task_parameters)
-      when "hub"
-        @export_task = HubExport.new(export_task_parameters)
-      when "kml"
-        @export_task = KmlExport.new(export_task_parameters)
-      else
-        @export_task = nil
-      end
-    else
-      @export_task = nil
-    end
   end
   
 end

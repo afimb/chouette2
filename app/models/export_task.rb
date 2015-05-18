@@ -32,7 +32,9 @@ class ExportTask
   end
 
   def save
-    if valid?
+    puts self.errors.inspect
+    puts self.errors.size
+    if self.valid?
       # Call Iev Server
       begin 
         Ievkit.create_job( referential.slug, "exporter", data_format, {

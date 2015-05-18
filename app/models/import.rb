@@ -3,6 +3,10 @@ require 'open-uri'
 class Import
   include JobConcern
 
+  def initialize( response )
+    @datas = response
+  end
+  
   def report?
     links["action_report"].present?
   end

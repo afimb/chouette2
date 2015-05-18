@@ -1,6 +1,10 @@
 class ComplianceCheck
   include JobConcern
 
+  def initialize( response )
+    @datas = response
+  end
+  
   def report?
     links["action_report"].present?
   end
