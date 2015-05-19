@@ -50,8 +50,4 @@ class Export
     File.extname(filename).gsub(".", "") if filename
   end 
   
-  def format
-    datas.format
-  end
-  
 end

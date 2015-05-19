@@ -34,10 +34,16 @@
             margin: 0px;
             padding-top: 4.5px;
 
-            .name{
+            span.name{
               .fa{
                 margin-right: 5px;                                
-                }                
+              }                
+            }
+
+            p.format{
+              color: $gray;
+              margin: 0px 0px 0px 0px;
+              font-size: 10px;
             }
               
             @import "job_status_colors"  

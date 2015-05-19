@@ -4,11 +4,8 @@
 
 #workspace.compliance_checks.show, #workspace.imports.compliance_check{
   @import "../modules/job_status_colors";
-  @import "../modules/links";
-
-  h2{
-    i{ margin: 0 5px 0 0; }
-  }
+  @import "../modules/job_status_title";
+  @import "../modules/links";  
 
     .status {
         margin-left: 10px;                 

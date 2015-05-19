@@ -5,10 +5,7 @@
 #workspace.imports.show {
     @import "../partials/ie_report";
     @import "../modules/job_status_colors";
-    @import "../modules/links";
-
-    h2{
-      i{ margin: 0 5px 0 0; }
-    }
+    @import "../modules/job_status_title";
+    @import "../modules/links";    
     
 }

@@ -84,10 +84,6 @@ class Import
   def filename_extension
     File.extname(filename).gsub(".", "") if filename
   end
-
-  def format
-    datas.type
-  end
   
   def no_save
     datas.action_parameters.no_save

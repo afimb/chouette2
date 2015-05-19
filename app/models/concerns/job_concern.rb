@@ -62,5 +62,9 @@ module JobConcern
   def updated_at
     Time.at(datas.updated.to_i / 1000) if datas.updated
   end
+
+  def format
+    datas.type
+  end
   
 end
