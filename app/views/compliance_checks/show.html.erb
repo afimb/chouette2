@@ -11,7 +11,7 @@
        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
          <%= t(".export") %> <span class="caret"></span>
        </button>
-       <ul class="dropdown-menu" role="menu">	 
+       <ul class="dropdown-menu" role="menu">
          <li>
 	   <% if @compliance_check.class == Import  %>
 	     <%= link_to t(".export_csv"), export_referential_import_path(@referential, @compliance_check.id) %>
@@ -20,7 +20,7 @@
 	   <% end %>
 	 </li>
        </ul>
-     </div>  
+     </div>
    </div>
 
    <div class="resume">
@@ -34,7 +34,7 @@
      </div>
    </div>
 
-   <div class="report">
+   <div class="report" data-refresh-interval="<%= job_refresh_interval(@compliance_check) %>">
      <%= render :partial => "compliance_checks/compliance_check_results", :locals => { :compliance_check_validation_report => @compliance_check.compliance_check_validation_report } %>
    </div>
 </div>
@@ -49,5 +49,5 @@
 </ul>
 
 <%= history_tag(@compliance_check) %>
-  
+
 <% end %>

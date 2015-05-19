@@ -1,5 +1,5 @@
-$(".imports.show, .exports.show").ready ->             
-  
+$(".imports.show, .exports.show").ready ->
+
   get_export_results = (html_container, html_element) ->
     html_container.children().each ->
       if( $( this ).is(html_element) )
@@ -40,7 +40,7 @@ $(".imports.show, .exports.show").ready ->
       { object: $("th.stop_areas").text(), value: $(".lines table").data("total-stop_areas") },
       { object: $("th.access_points").text(), value: $(".lines table").data("total-access_points") },
       { object: $("th.vehicle_journeys").text(), value: $(".lines table").data("total-vehicle_journeys") },
-      { object: $("th.journey_patterns").text(), value: $(".lines table").data("total-journey_patterns") }, 
+      { object: $("th.journey_patterns").text(), value: $(".lines table").data("total-journey_patterns") },
     ],
     xkey: 'object',
     ykeys: ['value'],
@@ -51,3 +51,8 @@ $(".imports.show, .exports.show").ready ->
     hideHover: true
   }).on('click', update = (i, row) ->
     get_export_results( $(".report"), $("div.lines")) )
+
+  refreshInterval = $(".report").data("refresh-interval")
+  if refreshInterval > 0
+    reloadPage = () -> window.location.reload()
+    setInterval(reloadPage,refreshInterval * 1000)
