@@ -303,7 +303,7 @@ GEM
     rails-assets-jquery-tokeninput (1.7.0)
       rails-assets-jquery (>= 1.5)
     rails-assets-mocha (1.17.1)
-    rails-assets-moment (2.10.2)
+    rails-assets-moment (2.10.3)
     rails-assets-morrisjs (0.5.1)
       rails-assets-jquery (>= 2.1.0)
       rails-assets-mocha (~> 1.17.1)

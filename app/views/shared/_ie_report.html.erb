@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<div class="report">   
+<div class="report" data-refresh-interval="<%= job_refresh_interval(job) %>">
   <div class="files files_error" data-label="<%= t('.graph.files.error') %>">
     <% job.report.error_files.each_with_index do |file, index| %>
       <div class="col-md-6">
@@ -47,10 +47,10 @@
         </tr>
       </thead>
       <tbody>
-        <% job.report.line_items.each_with_index do |line_item, index| %>          
+        <% job.report.line_items.each_with_index do |line_item, index| %>
           <tr>
 	    <td><%= line_item.status ? font_awesome_classic_tag("fa-check") : font_awesome_classic_tag("fa-times")  %></td>
-            <td><%= line_item.name %></td>            
+            <td><%= line_item.name %></td>
             <td><%= line_item.routes %></td>
             <td><%= line_item.connection_links %></td>
             <td><%= line_item.time_tables %></td>
