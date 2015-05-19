@@ -18,6 +18,7 @@ notifications:
     - ldonnet@cityway.fr
     - metienne@cityway.fr
     - zbouziane@cityway.fr
+    - alban.peignier@af83.com
 before_install:
   - sudo apt-get update
   - sudo apt-get install build-essential ruby-dev libproj-dev libgeos-dev libffi-dev libsparsehash-dev zlib1g-dev libxslt1-dev libxml2-dev libbz2-dev
