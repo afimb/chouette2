@@ -1,8 +1,10 @@
 <div class="resume row">
+  <% if job.respond_to?(:file_path) %>
   <div class="col-md-4">
     <div class="caption"><%= t(".graph.files.title_default", {:job => job.class.model_name.human, :extension => job.filename_extension} ) %></div>
     <div id="files_statistics"></div>
   </div>
+  <% end %>
   <div class="col-md-8">
     <div class="caption"><%= t ".graph.lines.title" %></div>
     <div id="objects_statistics"></div>

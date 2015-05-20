@@ -4,14 +4,14 @@ require 'open-uri'
 
 class ImportsController < ChouetteController
   defaults :resource_class => Import
-  
+
   respond_to :html, :only => [:show, :index, :destroy, :imported_file, :rule_parameter_set, :compliance_check]
   respond_to :js, :only => [:index, :compliance_check]
   belongs_to :referential
 
   def index
     begin
-      index! do 
+      index! do
         build_breadcrumb :index
       end
     rescue Ievkit::Error, Faraday::Error => error
@@ -20,7 +20,7 @@ class ImportsController < ChouetteController
       redirect_to referential_path(@referential)
     end
   end
-  
+
   def show
     begin
       show!
@@ -29,7 +29,7 @@ class ImportsController < ChouetteController
       flash[:error] = t('iev.exception.default')
       redirect_to referential_path(@referential)
     end
-  end  
+  end
 
   def destroy
     begin
@@ -58,7 +58,7 @@ class ImportsController < ChouetteController
   def rule_parameter_set
     begin
       @rule_parameter_set = resource.rule_parameter_set
-      build_breadcrumb :rule_parameter_set     
+      build_breadcrumb :rule_parameter_set
       render "rule_parameter_sets/show"
     rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
@@ -77,21 +77,21 @@ class ImportsController < ChouetteController
     begin
       @compliance_check = resource
       build_breadcrumb :compliance_check
-      render "compliance_checks/show"
+      render "compliance_checks/report"
     rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t('iev.exception.default')
       redirect_to referential_path(@referential)
     end
   end
-  
+
   protected
   alias_method :import, :resource
 
   def import_service
     ImportService.new(@referential)
   end
-  
+
   def resource
     @import ||= import_service.find( params[:id] )
   end
@@ -99,5 +99,5 @@ class ImportsController < ChouetteController
   def collection
     @imports ||= import_service.all.paginate(:page => params[:page])
   end
-  
+
 end

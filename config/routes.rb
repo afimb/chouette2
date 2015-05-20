@@ -1,7 +1,7 @@
 ChouetteIhm::Application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => "registrations", :invitations => 'invitations' }
-  
+
   devise_scope :user do
     authenticated :user do
       root :to => 'referentials#index', as: :authenticated_root
@@ -85,7 +85,7 @@ ChouetteIhm::Application.routes.draw do
         get "rule_parameter_set"
         get "compliance_check"
         get 'export', defaults: { format: 'zip' }
-      end     
+      end
     end
 
     resources :export_tasks, :only => [:new, :create] do
@@ -93,7 +93,7 @@ ChouetteIhm::Application.routes.draw do
         get 'references'
       end
     end
-    
+
     resources :exports, :only => [:index, :show, :destroy]  do
       member do
         get "exported_file"
@@ -105,10 +105,11 @@ ChouetteIhm::Application.routes.draw do
         get 'references'
       end
     end
-    
+
     resources :compliance_checks, :only => [:index, :show, :destroy] do
       member do
         get 'export', defaults: { format: 'zip' }
+        get 'report'
         get 'rule_parameter_set'
       end
       collection do

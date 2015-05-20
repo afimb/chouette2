@@ -7,14 +7,14 @@
         <% end %>
       </span>
       <h5>
-        <%= link_to( referential_compliance_check_path(@referential, compliance_check.id), :class => "preview", :title => "#{ComplianceCheck.model_name.human.capitalize} #{compliance_check.name}") do %>        
+        <%= link_to( referential_compliance_check_path(@referential, compliance_check.id), :class => "preview", :title => "#{ComplianceCheck.model_name.human.capitalize} #{compliance_check.name}") do %>
 	  <%= job_status_title(compliance_check) %>
         <% end %>
       </h5>
-    </div>                          
+    </div>
   </div>
   <div class="panel-body">
-      <p><%= link_to( font_awesome_classic_tag("fa-external-link") + t("compliance_checks.actions.rule_parameter_set"), rule_parameter_set_referential_compliance_check_path(@referential, compliance_check.id)) if compliance_check.rule_parameter_set? %></p>
+    <p><%= link_to( font_awesome_classic_tag("fa-external-link") + t("compliance_checks.actions.report"), report_referential_compliance_check_path(@referential, compliance_check.id)) if compliance_check.report? %></p>
   </div>
   <div class="panel-footer">
     <div class="history">

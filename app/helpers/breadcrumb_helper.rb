@@ -135,7 +135,7 @@ module BreadcrumbHelper
   end
 
   def import_breadcrumb (action)
-    referential_breadcrumb 
+    referential_breadcrumb
     add_breadcrumb Referential.human_attribute_name("imports"), referential_imports_path(@referential) unless action == :index
     add_breadcrumb @rule_parameter_set.import.name, compliance_check_referential_import_path(@referential, @rule_parameter_set.import.id) if action == :rule_parameter_set
     add_breadcrumb @compliance_check.name, referential_import_path(@referential, @compliance_check.id) if action == :compliance_check
@@ -149,7 +149,8 @@ module BreadcrumbHelper
   def compliance_check_breadcrumb (action)
     referential_breadcrumb
     add_breadcrumb Referential.human_attribute_name("compliance_checks"), referential_compliance_checks_path(@referential) unless action == :index
-    add_breadcrumb @rule_parameter_set.compliance_check.name, referential_compliance_check_path(@referential, @rule_parameter_set.compliance_check.id) if action == :rule_parameter_set
+    add_breadcrumb @compliance_check.name, referential_compliance_check_path(@referential, @compliance_check.id) if @compliance_check
+    add_breadcrumb t("compliance_checks.rule_parameter_set"), rule_parameter_set_referential_compliance_check_path(@referential, @rule_parameter_set.compliance_check.id) if action == :rule_parameter_set
   end
 
   def compliance_check_task_breadcrumb (action)

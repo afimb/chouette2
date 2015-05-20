@@ -1,4 +1,4 @@
-$(".compliance_checks.show, .imports.compliance_check").ready ->
+$(".compliance_checks.report, .imports.compliance_check").ready ->
 
   get_compliance_check_results = (html_container, css_class) ->
     html_container.each ->

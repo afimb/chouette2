@@ -1,53 +1,21 @@
-<%= title_tag job_status_title(@compliance_check) %>
-
-<div class="compliance_check_show">
+<div class="test">
+  <%= title_tag job_status_title(@compliance_check) %>
+</div>
+<div class="progress_bars">
+  <%= progress_bar_tag(@compliance_check) %>
+</div>
+<div class="compliance_check show">
   <div class="links">
-    <% if @compliance_check.class == Import  %>
-      <%= link_to font_awesome_classic_tag("fa-external-link") + t("compliance_checks.rule_parameter_set"), rule_parameter_set_referential_import_path(@referential, @compliance_check.id) if @compliance_check.rule_parameter_set? %>
-    <% else %>
-      <%= link_to font_awesome_classic_tag("fa-external-link") + t("compliance_checks.rule_parameter_set"), rule_parameter_set_referential_compliance_check_path(@referential, @compliance_check.id) if @compliance_check.rule_parameter_set? %>
-    <% end %>
-     <div class="btn-group pull-right">
-       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-         <%= t(".export") %> <span class="caret"></span>
-       </button>
-       <ul class="dropdown-menu" role="menu">
-         <li>
-	   <% if @compliance_check.class == Import  %>
-	     <%= link_to t(".export_csv"), export_referential_import_path(@referential, @compliance_check.id) %>
-	   <% else %>
-	     <%= link_to t(".export_csv"), export_referential_compliance_check_path(@referential, @compliance_check.id) %>
-	   <% end %>
-	 </li>
-       </ul>
-     </div>
-   </div>
-
-   <div class="resume">
-     <div class="col1">
-       <div class="caption"><%= t "error", :scope => "compliance_check_result.severities" %></div>
-       <div class="graph" id="error"></div>
-     </div>
-     <div class="col2">
-       <div class="caption"><%= t "warning", :scope => "compliance_check_result.severities" %></div>
-       <div class="graph" id="warning"></div>
-     </div>
-   </div>
-
-   <div class="report" data-refresh-interval="<%= job_refresh_interval(@compliance_check) %>">
-     <%= render :partial => "compliance_checks/compliance_check_results", :locals => { :compliance_check_validation_report => @compliance_check.compliance_check_validation_report } %>
-   </div>
+    <%= link_to font_awesome_classic_tag("fa-external-link") + t("compliance_checks.actions.report"), report_referential_compliance_check_path(@referential, @compliance_check.id) if @compliance_check.report? %>
+  </div>
+  <%= render( :partial => "shared/ie_report.html", :locals => { :referential => @referential, :job => @compliance_check} ) %>
 </div>
 
 <% content_for :sidebar do %>
-<ul class="actions">
-  <li>
-    <% if @compliance_check.class != Import %>
-      <%= link_to  t('compliance_checks.actions.destroy'), referential_compliance_check_path(@referential, @compliance_check.id), :method => :delete,  :data => {:confirm =>  t('compliance_checks.actions.destroy_confirm')}, :class => "remove" %>
-    <% end %>
-  </li>
-</ul>
+  <ul class="actions">
+    <li><%= link_to t('compliance_checks.actions.destroy'), referential_compliance_check_path(@referential, @compliance_check.id), :method => :delete, :data => {:confirm => t('compliance_checks.actions.destroy_confirm')}, :class => "remove" %></li>
+  </ul>
 
-<%= history_tag(@compliance_check) %>
+  <%= history_tag(@compliance_check) %>
 
 <% end %>

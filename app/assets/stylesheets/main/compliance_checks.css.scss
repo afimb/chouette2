@@ -2,14 +2,21 @@
 {
 }
 
-#workspace.compliance_checks.show, #workspace.imports.compliance_check{
+#workspace.compliance_checks.show {
   @import "../modules/job_status_colors";
   @import "../modules/job_status_title";
-  @import "../modules/links";  
+  @import "../partials/ie_report";
+  @import "../modules/links";
+}
+
+#workspace.compliance_checks.report, #workspace.imports.compliance_check{
+  @import "../modules/job_status_colors";
+  @import "../modules/job_status_title";
+  @import "../modules/links";
 
     .status {
-        margin-left: 10px;                 
-    }   
+        margin-left: 10px;
+    }
 
     .order{
         margin-bottom: 10px;
@@ -21,11 +28,11 @@
     .status_ok_error { color: #8fc861; }
     .status_nok_error { color: #e22b1b;  }
     .status_uncheck_error { color: #898e7f; }
-    
+
     .status_ok_warning { color: #8fc861; }
-    .status_nok_warning { color: #ffbd2b;  } 
+    .status_nok_warning { color: #ffbd2b;  }
     .status_uncheck_warning { color: #898e7f; }
-    
+
     .resume {
         &:after{
             content: " ";
@@ -133,10 +140,10 @@
     }
 
     .td_error {
-        width: 30%;       
+        width: 30%;
 
         .title_error i { margin-right: 5px; }
-        
+
         div.details_error{
             margin: 0px 0px 0px 3px !important;
             display: none;
@@ -144,7 +151,7 @@
             p.detail_error{
                 margin: 0px 0px 5px 0px !important;
             }
-            
+
             .file_error{
                 margin-left: 26px;
                 font-size: 10px;
