@@ -1,5 +1,6 @@
 class DropTableExports < ActiveRecord::Migration
   def change
-    drop_table :exports
+    # To be discuted
+    # drop_table :exports
   end
 end
