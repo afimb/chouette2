@@ -30,7 +30,7 @@ module Ievkit
       
       builder.use Ievkit::Response::RaiseError
       builder.use FaradayMiddleware::FollowRedirects
-      builder.use Faraday::Response::Logger
+      #builder.use Faraday::Response::Logger
       
       builder.adapter Faraday.default_adapter
     end
