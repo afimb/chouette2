@@ -8,14 +8,14 @@ module JobStatusIconHelper
     title = ""
     if %w{ aborted canceled }.include?(status)
       title += "<span class='name aborted'><i class='fa fa-times'></i>"
-    elsif %w{ created scheduled }.include?(status)
+    elsif %w{ started scheduled }.include?(status)
       title += "<span class='name processed'><i class='fa fa-spinner fa-spin'></i>"
     elsif %w{ terminated}.include?(status)
       title += "<span class='name terminated'><i class='fa fa-check'></i>"
     end
 
     title += "#{object_name} #{truncate(name, :length => 20)}</span>"
-    title += "<p class='format'>[#{object.format.upcase}]</p>" if object.format.present?
+    title += "<p class='format'><span class='label label-default'>#{t("enumerize.data_format.#{object.format}")}</span></p>" if object.format.present?
     title.html_safe
   end
 

@@ -1,41 +1,34 @@
+# coding: utf-8
 module ProgressBarHelper
-
-  def percentage_progress(object_model, report)
-    if %w{ aborted canceled terminated }.include? object_model.status
-      percentage_progress = "100"
-    elsif object_model.status == "started" && report.total_steps != 0
-      percentage_progress = "#{report.current_step / report.total_steps}"
-    else # %w{ scheduled nil }.include? object_model.status
-      percentage_progress = "0"
-    end      
-  end
   
   def progress_bar_tag(object_model)
-    puts object_model.report
-    report = object_model.report
-    percentage_progress = percentage_progress(object_model, report)
-    
-    percentage_info = ""
-    if %w{ aborted canceled scheduled terminated }.include? object_model.status
-      percentage_info = "#{percentage_progress}% " + I18n.t("#{object_model.class.to_s.downcase.pluralize}.statuses.#{object_model.status}")
-    elsif object_model.status == "started"
-      percentage_info = "Niv #{report.current_level} : #{report.current_step_name.downcase}  #{report.current_step} / #{report.total_steps}"
-    end
+    report = object_model.report   
     
     if  %w{ aborted canceled }.include? object_model.status
       div_class = "progress-bar progress-bar-danger"
     elsif %w{ started scheduled }.include? object_model.status
-      div_class = "progress-bar progress-bar-info"
+      div_class = "progress-bar progress-bar-striped active progress-bar-info"
     elsif object_model.status == "terminated"
       div_class = "progress-bar progress-bar-success"
     else
       div_class = "progress-bar"
-    end      
+    end
+
+    if object_model.status != "terminated"
+      progress = content_tag :div, :class => "progress" do
+        concat(content_tag(:div, :class => div_class, role: "progressbar", :'aria-valuenow' => "#{report.level_progress}", :'aria-valuemin' => "0", :'aria-valuemax' => "100", :style => "width: #{report.level_progress}%;") do               
+             end)
+        concat( content_tag(:span, t("progress_bar.level"), :class => "progress-type") )
+        concat( content_tag(:span, "#{report.progression.current_step}/#{report.progression.steps_count}", :class => "progress-completed") )
+      end
     
-    content_tag :div, :class => "progress", :title => percentage_info do
-      content_tag :div, :class => div_class, role: "progressbar", :'aria-valuenow' => "#{percentage_progress}", :'aria-valuemin' => "0", :'aria-valuemax' => "100", :style => "width: #{percentage_progress}%;"  do
-        "#{percentage_progress}%"
+      progress += content_tag :div, :class => "progress" do 
+        concat(content_tag( :div, :class => div_class, role: "progressbar", :'aria-valuenow' => "#{report.step_progress}", :'aria-valuemin' => "0", :'aria-valuemax' => "100", :style => "width: 100%;" ) do
+             end)
+        concat( content_tag(:span, t("progress_bar.step"), :class => "progress-type") )
+        concat( content_tag(:span, "#{report.current_step.realized}/#{report.current_step.total}", :class => "progress-completed") )
       end
     end
+    
   end
 end

@@ -10,25 +10,41 @@ module ReportConcern
 
   module ClassMethods
   end
+
+  def progression?
+    datas.progression?
+  end
   
-  def current_level
-    datas.progression.current_step if datas.progression    
+  def progression
+    datas.progression
+  end
+
+  def percentage(a, b)
+    (a.to_f / b.to_f * 100).round(0)
+  end
+  
+  def level_progress
+    percentage( progression.current_step, progression.steps_count) if progression?
   end
 
   def last_step
-    datas.progression.steps.last if datas.progression
+    datas.progression.steps.last if progression?
   end
 
-  def current_step_name
-    last_step.step if last_step
+  def current_step
+    datas.progression.steps[progression.current_step]
   end
   
-  def current_step
-    last_step.realized if last_step
-  end
+  def step_progress
+    return 100 if progression.current_step == progression.steps_count
 
-  def total_steps
-    last_step.total if last_step
+    percentage( current_step.realized, current_step.total )
+  end
+  
+  def step_progress_name
+    return last_step.step  if progression.current_step == progression.steps_count
+
+    current_step.step
   end
 
   def zip_file

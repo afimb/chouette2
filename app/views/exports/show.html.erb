@@ -1,7 +1,9 @@
 <div class="test">
   <%= title_tag job_status_title(@export) %>
 </div>
-
+<div class="progress_bars">
+  <%= progress_bar_tag(@export) %>
+</div>  
 <div class="export_show">
   <div class="links">
     <%= link_to( font_awesome_classic_tag("fa-file-#{@export.filename_extension}-o") + t("exports.show.exported_file"), exported_file_referential_export_path(@referential, @export.id) ) if @export.file_path %>
