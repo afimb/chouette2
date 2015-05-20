@@ -11,6 +11,14 @@ module ReportConcern
   module ClassMethods
   end
 
+  def failure_code?
+    datas.result == "NOK" && datas.failure?
+  end
+
+  def failure_code
+    datas.failure.code.downcase if failure_code?
+  end
+  
   def progression?
     datas.progression?
   end

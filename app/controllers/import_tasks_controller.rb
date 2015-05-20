@@ -10,9 +10,9 @@ class ImportTasksController < ChouetteController
     @available_imports = available_imports
     begin
       new!
-    rescue Ievkit::Error => error
+    rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
-      flash[:error] = t('iev.failure')
+      flash[:error] = t('iev.exception.default')
       redirect_to referential_path(@referential)
     end
   end
@@ -23,9 +23,9 @@ class ImportTasksController < ChouetteController
       create! do |success, failure|
         success.html { redirect_to referential_imports_path(@referential) }
       end
-    rescue Ievkit::Error => error
+    rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
-      flash[:error] = t('iev.failure')
+      flash[:error] = t('iev.exception.default')
       redirect_to referential_path(@referential)
     end
   end

@@ -1,6 +1,11 @@
 <div class="test">
   <%= title_tag job_status_title(@import) %>
 </div>
+<% if @import.report.failure_code? %>
+<div class="alert alert-danger">
+  <%= t("iev.failure.#{@import.report.failure_code}") %>
+</div>
+<% end %>
 <div class="progress_bars">
   <%= progress_bar_tag(@import) %>
 </div>  

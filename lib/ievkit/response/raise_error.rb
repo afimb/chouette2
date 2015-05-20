@@ -14,14 +14,7 @@ module Ievkit
       def on_complete(response)
         if error = Ievkit::Error.from_response(response)
           raise error
-        end
-
-        # Big horrible hack to fix
-        #body = response[:body]
-        #if body["{\"jobs\":"].present?
-        #  response[:body] = body.gsub("{\"jobs\":", "").chomp("}")
-        #end
-        
+        end        
       end
     end
   end

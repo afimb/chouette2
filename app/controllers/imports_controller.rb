@@ -14,9 +14,9 @@ class ImportsController < ChouetteController
       index! do 
         build_breadcrumb :index
       end
-    rescue Ievkit::Error => error
+    rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
-      flash[:error] = t('iev.failure')
+      flash[:error] = t('iev.exception.default')
       redirect_to referential_path(@referential)
     end
   end
@@ -24,9 +24,9 @@ class ImportsController < ChouetteController
   def show
     begin
       show!
-    rescue Ievkit::Error => error
+    rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
-      flash[:error] = t('iev.failure')
+      flash[:error] = t('iev.exception.default')
       redirect_to referential_path(@referential)
     end
   end  
@@ -34,9 +34,9 @@ class ImportsController < ChouetteController
   def destroy
     begin
       destroy!
-    rescue Ievkit::Error => error
+    rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
-      flash[:error] = t('iev.failure')
+      flash[:error] = t('iev.exception.default')
       redirect_to referential_path(@referential)
     end
   end
@@ -48,9 +48,9 @@ class ImportsController < ChouetteController
     OpenURI::Buffer.const_set 'StringMax', 0
     begin
       send_file open(resource.file_path), { :type => "application/#{resource.filename_extension}", :disposition => "attachment", :filename => resource.filename }
-    rescue Ievkit::Error => error
+    rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
-      flash[:error] = t('iev.failure')
+      flash[:error] = t('iev.exception.default')
       redirect_to referential_path(@referential)
     end
   end
@@ -60,9 +60,9 @@ class ImportsController < ChouetteController
       @rule_parameter_set = resource.rule_parameter_set
       build_breadcrumb :rule_parameter_set     
       render "rule_parameter_sets/show"
-    rescue Ievkit::Error => error
+    rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
-      flash[:error] = t('iev.failure')
+      flash[:error] = t('iev.exception.default')
       redirect_to referential_path(@referential)
     end
   end
@@ -78,9 +78,9 @@ class ImportsController < ChouetteController
       @compliance_check = resource
       build_breadcrumb :compliance_check
       render "compliance_checks/show"
-    rescue Ievkit::Error => error
+    rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
-      flash[:error] = t('iev.failure')
+      flash[:error] = t('iev.exception.default')
       redirect_to referential_path(@referential)
     end
   end

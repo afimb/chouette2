@@ -1,4 +1,11 @@
 en:
   iev:
-    failure: "Impossible to access IEV service"
+    failure:
+      invalid_parameters: "Paramètres invalides"
+      no_data_found: "Pas de données à traiter dans l'ensemble du traitement"
+      no_data_proceeded: "Pas de données traitée dans l'ensemble du traitement"
+      invalid_data: "Données invalides"
+      internal_error: "Erreur interne"
+    exception:  
+      default: "Impossible d'accéder au service IEV"
     
