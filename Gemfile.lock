@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/afimb/ninoxe.git
-  revision: 7ebe2200b31f5a89498875b694f707e7c4004cfd
+  revision: a35e23d59dd54c13e6f93c9e7c2fa098e0b9a3e8
   branch: rails4
   specs:
     ninoxe (1.1.5)
@@ -141,8 +141,8 @@ GEM
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
     fastercsv (1.5.5)
-    ffi (1.9.6)
-    ffi (1.9.6-java)
+    ffi (1.9.8)
+    ffi (1.9.8-java)
     ffi-geos (1.0.0)
       ffi (>= 1.0.0)
     font-awesome-sass (4.2.2)
@@ -235,7 +235,7 @@ GEM
     method_source (0.8.2)
     mime-types (2.4.3)
     mini_portile (0.6.2)
-    minitest (5.6.0)
+    minitest (5.6.1)
     modernizr-rails (2.0.6)
     multi_json (1.11.0)
     multipart-post (2.0.0)
