@@ -3,12 +3,11 @@
 Chouette2 is an open source web project in Ruby/Rails to edit and view transport offer. It's designed as an [SaaS](http://en.wikipedia.org/wiki/Software_as_a_service) platform and can :
 * Exchange transport data : [Neptune](http://www.chouette.mobi/spip.php?rubrique61), [GTFS](https://developers.google.com/transit/gtfs/reference?hl=fr), [NeTEx](http://www.kizoom.com/standards/netex/), CSV
 * Edit transport data
-* Validate transport data
 * Offer a [Restful API](https://en.wikipedia.org/wiki/Representational_state_transfer) in read-only
-* Import and Export Data asynchronously
+* [Import, Export and Validate transport data asynchronously](http://github.com/afimb/chouette)
 * Use [multi-tenancy database](http://en.wikipedia.org/wiki/Multitenancy)
 
-It uses java library from another git project to import and export various transport data [chouette](http://github.com/afimb/chouette)
+It uses java library from another git project to import, export and validate various transport data [chouette](http://github.com/afimb/chouette)
 
 Feel free to test and access to the free SaaS web site at [http://appli.chouette.mobi](http://appli.chouette.mobi/chouette2/users/sign_in). Two types of access are granted :
 * A demo organisation with a set of data
@@ -25,10 +24,11 @@ Requirements
 ------------
 
 This code has been run and tested on [Travis](http://travis-ci.org/afimb/chouette2?branch=master) with :
-* Ruby 1.9.3
+* Ruby 1.9.3 and 2.1.6
 * Java 7
-* Postgres 9.x
+* Postgres 9.3
 * Proj 4.8.0
+* [Chouette Web Services](https://github.com/afimb/chouette) 3.X
 
 External Deps
 -------------
@@ -36,15 +36,15 @@ External Deps
 If Linux distribution does't publish RVM package,
 install [RVM from sources](./doc/install/rvm.md)
 
-Install ruby 1.9.3
+Install ruby 2.1.6
 ```sh
-rvm  install ruby-1.9.3-p448
-rvm --default use 1.9.3-p448
+rvm  install ruby-2.1.6
+rvm --default use 2.1.6
 ```
 
 On Debian/Ubuntu/Kubuntu OS : assume depot contains the correct version
 ```sh
-sudo apt-get install postgresql
+sudo apt-get install postgresql-9.3
 sudo apt-get install libpq-dev
 sudo apt-get install openjdk-7-jdk
 sudo apt-get install git
@@ -59,24 +59,12 @@ Installation
 
 On debian, chouette can also be installed as a package : see [debian packages](http://packages.chouette.cityway.fr/debian/chouette)
 
-Install chouette-gui-command to import, export and validate transport offer,
-Assume Linux user is myuser and its group mygroup (that user is the one who starts Rails server)
-```sh
-sudo mkdir -p /usr/local/opt/chouette-command/
-sudo chown -R myuser:mygroup /usr/local/opt/chouette-command/
-cd /usr/local/opt/chouette-command/
-wget http://maven.chouette.cityway.fr/fr/certu/chouette/chouette-gui-command/2.5.2/chouette-gui-command-2.5.2.zip
-unzip chouette-gui-command-2.5.2.zip
-cd chouette-cmd_2.5.2
-sudo chmod a+w .
-```
-
 Install web application
 
 Get git source code :
 ```sh
 cd
-git clone -b V2_5 git://github.com/afimb/chouette2
+git clone -b V3_0 git://github.com/afimb/chouette2
 cd chouette2
 ```
 Download gem librairies
@@ -88,23 +76,12 @@ Create [Postgres database user] (./doc/install/postgresql.md)
 
 Create database and its schema
 ```sh
-RAILS_ENV=production bundle exec rake db:create apartment:migrate
+RAILS_ENV=production bundle exec rake db:create db:migrate
 ```
 
 Prepare static resources (assets)
 ```sh
 RAILS_ENV=production bundle exec rake assets:clean assets:precompile
-```
-
-The next step assume default path defined by following settings in file [production.rb](./config/environments/production.rb) are unchanged
-* ```ImportTask.root```
-* ```Export.root```
-
-Create directories
-```sh
-sudo mkdir -p /var/lib/chouette/imports
-sudo mkdir -p /var/lib/chouette/exports
-sudo chmod a+x /var/lib/chouette/imports /var/lib/chouette/exports
 ```
 
 Configuration
@@ -121,13 +98,21 @@ Configure SMTP settings.
 Configure e-mail address shown on mail sent when user registers, re-initialises its password, ...
 * Edit [production.rb](./config/environments/production.rb) and change ```config.mailer_sender```
 
-Configure IGN Géoportail Key.
-* Edit [production.rb](./config/environments/production.rb) and uncomment and set```config.geoportail_api_key```
-* see [API Géoportail documentation](http://api.ign.fr/accueil)
+Configure Rails secret key.
+* Edit [secrets.yml](./config/secrets.yml) and uncomment and set```secret_key_base```
+* see [Rails documentation](http://guides.rubyonrails.org/4_1_release_notes.html#config-secrets-yml)
+
+Configure API Endpoint for Chouette Web Services.
+* Edit [secrets.yml](./config/secrets.yml) and uncomment and set```api_endpoint```
+* see [API IEV](https://github.com/afimb/chouette)
 
 Configure Google Analytics Key.
-* Edit [production.rb](./config/environments/production.rb) and change```GA.tracker```
+* Edit [secrets.yml](./config/secrets.yml) and change```google_analytic_tracker```
 * see [Google Analytics](https://www.google.fr/intl/fr/analytics/)
+
+Configure IGN Géoportail Key.
+* Edit [secrets.yml](./config/secrets.yml) and uncomment and set```geoportail_api_key```
+* see [API Géoportail documentation](http://api.ign.fr/accueil)
 
 
 Run
@@ -155,7 +140,7 @@ Test
 
 ```sh
 bundle exec rake db:create
-bundle exec rake apartment:migrate
+bundle exec rake db:migrate
 bundle exec rake spec
 ```
 
@@ -171,6 +156,7 @@ API Documentation
 The description of the restful API is described in :
 * [User manual file](./doc/interfaces/Chouette_API_REST_v1.2.pdf)
 * [XSD file](./doc/interfaces/api_rest_v1.xsd)
+* [Chouette Web Services](https://github.com/afimb/chouette)
 
 
 License
