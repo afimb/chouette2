@@ -13,6 +13,7 @@ class CleanUpsController < ChouetteController
         result = clean_up.clean
         flash[:notice] = result.notice.join("<br/>")
       rescue => e
+        Rails.logger.error "CleanUp failed : #{e} #{e.backtrace}"
         flash[:alert] = t('clean_ups.failure', error_message: e.to_s)
       end
     end
