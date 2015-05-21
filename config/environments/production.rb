@@ -4,15 +4,10 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
-  # Eager load code on boot. This eager loads most of Rails and
-  # your application in memory, allowing both threaded web servers
-  # and those relying on copy on write to perform better.
-  # Rake tasks automatically ignore this option for performance.
-  config.eager_load = true
-
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
+  #config.action_controller.relative_url_root = "/chouette2"
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
@@ -24,7 +19,7 @@ Rails.application.configure do
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
-  # config.assets.css_compressor = :sass
+  config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
@@ -117,22 +112,6 @@ Rails.application.configure do
   end 
   #end
 
-  # replace this with your production tracker code
-  # replace this with your production tracker code
-  if ENV['CHOUETTE_GOOGLE_ANALYTICS'].nil?
-    GA.tracker = "UA-AAAAAAAA"
-  else
-    GA.tracker = ENV['CHOUETTE_GOOGLE_ANALYTICS']
-  end  
-  
-  # api key to geoportail IGN (production key link to application url root referer)
-  if !ENV['CHOUETTE_GEOPORTAIL_KEY'].nil?
-    config.geoportail_api_key = ENV['CHOUETTE_GEOPORTAIL_KEY']
-  end  
-
-  # Iev server url
-  config.iev_url="mobi.chouette.api"
-  
   # Specific theme for each company
   # AFIMB
   config.company_name = "afimb"  
@@ -155,9 +134,6 @@ Rails.application.configure do
   # paths for external resources
   config.to_prepare do
     Devise::Mailer.layout "mailer"
-    Chouette::Command.command = ENV['CHOUETTE_GUI_COMMAND'].nil? ? "/usr/local/opt/chouette-command/chouette-cmd_2.5.2/chouette" : ENV['CHOUETTE_GUI_COMMAND']
-    ImportTask.root = "/var/lib/chouette/imports"
-    Export.root = "/var/lib/chouette/exports"
   end
 
   config.i18n.available_locales = [:fr, :en]

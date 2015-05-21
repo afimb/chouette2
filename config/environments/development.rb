@@ -43,15 +43,6 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
-
-  # replace this with your production tracker code
-  GA.tracker = "UA-AAAAAAAA"
-
-  # api key to geoportail IGN (production key link to application url root referer)
-  #config.geoportail_api_key = "aaaaaaaaaaaaaa"
-
-  # Iev server url
-  # config.iev_url="localhost:8080/chouette_iev/"
   
   # Specific theme for each company
   # AFIMB
@@ -81,18 +72,8 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
   
-  # api key to geoportail IGN (development key 3 month validity)
-  # config.geoportail_api_key = "f1t6wihbh98njlbaf5cuzxy4"
-  
   config.to_prepare do
-    Devise::Mailer.layout "mailer"
-    #ApplicationMap.ign_api_key = "i2aqyge3x3iovnuhz7z06flp"
-    chouette_command_script = "tmp/chouette-command/chouette"
-    if File.exists? chouette_command_script
-      Chouette::Command.command = "tmp/chouette-command/chouette"
-    else
-      Chouette::Command.command = "true"
-    end
+    Devise::Mailer.layout "mailer"    
   end
   
   config.i18n.available_locales = [:fr, :en]

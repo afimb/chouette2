@@ -36,15 +36,6 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-
-  # replace this with your production tracker code
-  GA.tracker = "UA-AAAAAAAA"
-  
-  # api key to geoportail IGN (production key link to application url root referer)
-  config.geoportail_api_key = "aaaaaaaaaaaaaa" 
-
-  # Iev server url
-  config.iev_url="localhost:8080/chouette_iev/"
   
   # Specific theme for each company
   # AFIMB
@@ -74,11 +65,7 @@ Rails.application.configure do
   # change to true to allow email to be sent during development
   config.action_mailer.perform_deliveries = false
   config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default :charset => "utf-8"
-  
-  config.to_prepare do
-    Chouette::Command.command = "true"
-  end
+  config.action_mailer.default :charset => "utf-8"  
   
   config.i18n.available_locales = [:fr, :en]
 end

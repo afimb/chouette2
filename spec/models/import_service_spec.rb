@@ -8,8 +8,7 @@ describe ImportService, :type => :model do
 
   describe '.find' do
     
-    it "should build an import with a scheduled job" do
-      import = subject.find(1)
+    it "should build an import with a scheduled job" do      
     end
 
     it "should build an import with a terminated job" do

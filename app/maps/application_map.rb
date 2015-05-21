@@ -20,8 +20,8 @@ class ApplicationMap
   end
 
   def geoportail_key
-    if ( ChouetteIhm::Application.config.respond_to? :geoportail_api_key)
-      return ChouetteIhm::Application.config.geoportail_api_key
+    if ( Rails.application.secrets.respond_to? :geoportail_api_key)
+      return Rails.application.secrets.geoportail_api_key
     end
     return nil
   end

@@ -48,7 +48,7 @@ namespace :deploy do
 
   desc "Runs rake task which migrates database tables for all tenants"
   task :migrate_tenants do
-    run "cd #{release_path} && RAILS_ENV=production bundle exec rake apartment:migrate"
+    run "cd #{release_path} && RAILS_ENV=production bundle exec rake db:migrate"
   end
 
   desc "Install gems"
@@ -60,21 +60,22 @@ namespace :deploy do
   task :symlink_shared, :except => { :no_release => true }  do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/"
     run "ln -nfs #{shared_path}/config/production.rb #{release_path}/config/environments/"
+    run "ln -nfs #{shared_path}/config/secrets.yml #{release_path}/config/"
   end
 
   desc "Install chouette command"
   task :chouette_command, :except => { :no_release => true }  do
-    run "mkdir -p /var/lib/chouette/imports"
-    run "mkdir -p /var/lib/chouette/exports"
-    run "mkdir -p /var/lib/chouette/validations"
-    run "mkdir -p /usr/local/opt/chouette-command/"
-    run "cd /usr/local/opt/chouette-command && rm -f chouette-gui-command-#{gui_cmd}.zip"
-    run "cd /usr/local/opt/chouette-command && wget #{maven_repo}/fr/certu/chouette/chouette-gui-command/#{gui_cmd}/chouette-gui-command-#{gui_cmd}.zip"
-    run "cd /usr/local/opt/chouette-command && rm -rf chouette-cmd_#{gui_cmd}"
-    run "cd /usr/local/opt/chouette-command && unzip chouette-gui-command-#{gui_cmd}.zip"
-    run "cd /usr/local/opt/chouette-command/chouette-cmd_#{gui_cmd} && chmod a+w . && sudo chgrp -R wheel ."
-    run "cd /usr/local/opt/chouette-command && rm -f chouette-cmd-current"
-    run "cd /usr/local/opt/chouette-command && ln -s chouette-cmd_#{gui_cmd} chouette-cmd-current"
+  #   run "mkdir -p /var/lib/chouette/imports"
+  #   run "mkdir -p /var/lib/chouette/exports"
+  #   run "mkdir -p /var/lib/chouette/validations"
+  #   run "mkdir -p /usr/local/opt/chouette-command/"
+  #   run "cd /usr/local/opt/chouette-command && rm -f chouette-gui-command-#{gui_cmd}.zip"
+  #   run "cd /usr/local/opt/chouette-command && wget #{maven_repo}/fr/certu/chouette/chouette-gui-command/#{gui_cmd}/chouette-gui-command-#{gui_cmd}.zip"
+  #   run "cd /usr/local/opt/chouette-command && rm -rf chouette-cmd_#{gui_cmd}"
+  #   run "cd /usr/local/opt/chouette-command && unzip chouette-gui-command-#{gui_cmd}.zip"
+  #   run "cd /usr/local/opt/chouette-command/chouette-cmd_#{gui_cmd} && chmod a+w . && sudo chgrp -R wheel ."
+  #   run "cd /usr/local/opt/chouette-command && rm -f chouette-cmd-current"
+  #   run "cd /usr/local/opt/chouette-command && ln -s chouette-cmd_#{gui_cmd} chouette-cmd-current"
   end
 
   desc "Make group writable all deployed files"
@@ -96,10 +97,4 @@ namespace :deploy do
     end
   end
 
-end
-
-namespace :delayed_job do
-  task :restart do
-    run "sudo /etc/init.d/chouette2 restart"
-  end
 end

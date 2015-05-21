@@ -10,13 +10,13 @@ end
 # Importer
 ############
 # get list
-fixture_request :get, "http://#{Rails.application.config.iev_url}referentials/test/scheduled_jobs?action=importer
+fixture_request :get, "http://#{Rails.application.secrets.api_endpoint}referentials/test/scheduled_jobs?action=importer
 ", 'scheduled_jobs.json'
 # get element
-fixture_request :get, "http://#{Rails.application.config.iev_url}referentials/test/scheduled_jobs/1?action=importer
+fixture_request :get, "http://#{Rails.application.secrets.api_endpoint}referentials/test/scheduled_jobs/1?action=importer
 ", 'scheduled_job.json'
 # post element
-fixture_request :post, "http://#{Rails.application.config.iev_url}referentials/test/scheduled_jobs/
+fixture_request :post, "http://#{Rails.application.secrets.api_endpoint}referentials/test/scheduled_jobs/
 ", 'scheduled_job.json'
 
 # Optionnels

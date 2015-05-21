@@ -1,7 +1,9 @@
 language: ruby
+addons:
+  postgresql: "9.3"
 rvm:
   - 1.9.3
-  - 2.1.5
+  - 2.1.6
   - jruby-1.7.19
 jdk:
   - oraclejdk7
@@ -10,7 +12,7 @@ matrix:
   exclude:
     - rvm:  1.9.3
       jdk: openjdk7
-    - rvm:  2.1.5
+    - rvm:  2.1.6
       jdk: openjdk7        
 notifications:
   email:        
