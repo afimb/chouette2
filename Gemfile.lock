@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/afimb/ninoxe.git
-  revision: a35e23d59dd54c13e6f93c9e7c2fa098e0b9a3e8
+  revision: 88d0a167d8f5a11f88bc5e3903aaad81a68755b5
   branch: rails4
   specs:
     ninoxe (1.1.5)
