@@ -1,20 +1,6 @@
 class HubExport < ExportTask
 
-  attr_accessor :start_date, :end_date
   enumerize :references_type, in: %w( network line company group_of_line )
-  
-  after_initialize :init_period
-  
-  def init_period
-    unless Chouette::TimeTable.start_validity_period.nil?
-      if start_date.nil?
-        self.start_date = Chouette::TimeTable.start_validity_period
-      end
-      if end_date.nil?
-        self.end_date = Chouette::TimeTable.end_validity_period
-      end
-    end
-  end
 
   def action_params
     {

@@ -18,7 +18,11 @@
 	  <% export_task.class.references_types.each do |type| %>
 	      <%= form.input :reference_ids, :as => :reference_ids, :json => references_referential_export_tasks_path(@referential, :format => :json) + "?filter=#{type}", :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'), :id => "#{export_task.data_format}_#{type}_reference_ids", :input_html => { :id => "#{export_task.data_format}_#{type}_reference_ids" }, :wrapper_html => { :style => "display:none;", :id => "#{export_task.data_format}_#{type}", :"data-type" => "#{type}" } %>
 	   <% end %>
-        <% end %>
+          <% end %>
+
+	  <%= form.input :start_date, :as => :date_picker, :input_html => { :title => t("formtastic.titles.export_task.start_date")} %>
+	  <%= form.input :end_date, :as => :date_picker, :input_html => { :title => t("formtastic.titles.export_task.end_date")} %>
+
     
         <%= render partial: "fields_#{export_task.data_format}_export", :locals => { :form => form } %>
 

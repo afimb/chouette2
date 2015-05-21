@@ -1,6 +1,6 @@
 class NeptuneExport < ExportTask
 
-  attr_accessor :start_date, :end_date, :extensions, :export_type
+  attr_accessor :extensions, :export_type
   enumerize :references_type, in: %w( network line company group_of_line )
   
   def action_params

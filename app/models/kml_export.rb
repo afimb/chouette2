@@ -10,7 +10,9 @@ class KmlExport < ExportTask
         "reference_ids" => reference_ids,
         "user_name" => user_name,
         "organisation_name" => organisation.name,
-        "referential_name" => referential.name 
+        "referential_name" => referential.name,
+        "start_date" => start_date,
+        "end_date" => end_date
       }
     }
   end

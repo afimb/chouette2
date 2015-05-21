@@ -9,22 +9,22 @@ en:
     success_c: "%{count} companies deleted"
     success_n: "%{count} networks deleted"
     success_g: "%{count} groups of lines deleted"
-    failure: "Fail when clean_up"
+    failure: "Fail when clean_up : %{error_message}"
     actions:
       clean_up: "clean up"
       confirm: "Clean up will destroy time tables which ended on requested date\nand next recursively all object without any time table\nPlease confirm this action"
-  activemodel:        
+  activemodel:
     attributes:
       clean_up:
         expected_date: "Final date : "
-        keep_lines: "keep lines" 
+        keep_lines: "keep lines"
         keep_stops: "keep stop areas"
         keep_companies: "keep companies"
         keep_networks: "keep networks"
         keep_group_of_lines: "keep groups of lines"
   titles:
     clean_up:
-      expected_date: "value included in clean up"  
+      expected_date: "value included in clean up"
 fr:
   clean_ups:
     success_tm: "%{count} calendrier(s) supprimé(s)"
@@ -36,7 +36,7 @@ fr:
     success_c: "%{count} transporteur(s) supprimé(s)"
     success_n: "%{count} réseau(x) supprimé(s)"
     success_g: "%{count} groupe(s) de lignes supprimé(s)"
-    failure: "Echec de la purge "
+    failure: "Echec de la purge : %{error_message}"
     actions:
       clean_up: "Purger"
       confirm: "La purge détruit les calendriers se finissant au plus tard à la date indiquée \npuis en cascade les objets qui n'ont pas ou plus de calendrier\nConfirmer cette action SVP"
@@ -44,12 +44,11 @@ fr:
     attributes:
       clean_up:
         expected_date: "Date limite : "
-        keep_lines: "conserver les lignes" 
+        keep_lines: "conserver les lignes"
         keep_stops: "conserver les arrêts"
-        keep_companies: "conserver les transporteurs" 
+        keep_companies: "conserver les transporteurs"
         keep_networks: "conserver les réseaux"
         keep_group_of_lines: "conserver les groupes de lignes"
   titles:
     clean_up:
-      expected_date: "valeur incluse dans la purge"  
-
+      expected_date: "valeur incluse dans la purge"
