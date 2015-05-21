@@ -6,6 +6,8 @@ class ExportTask
   include ActiveModel::Validations
   include ActiveModel::Conversion
 
+  attr_accessor :start_date, :end_date
+
   define_model_callbacks :initialize, only: :after
 
   enumerize :data_format, in: %w( neptune netex gtfs hub kml )
@@ -16,10 +18,41 @@ class ExportTask
   validates_presence_of :user_name
   validates_presence_of :name
   validates_presence_of :data_format
+
+  validate :period_validation
+
+  after_initialize :init_period
   
   def initialize( params = {} )
     run_callbacks :initialize do
       params.each {|k,v| send("#{k}=",v)}
+    end
+  end
+  
+  def period_validation
+    st_date = Date.parse(start_date) unless start_date.blank? 
+    ed_date = Date.parse(end_date) unless end_date.blank? 
+    unless  Chouette::TimeTable.start_validity_period.nil? || st_date.nil?
+      tt_st_date = Chouette::TimeTable.start_validity_period
+      errors.add(:start_date, ExportTask.human_attribute_name("start_date_greater_than" , {:tt_st_date => tt_st_date})) unless tt_st_date <= st_date
+    end
+    unless st_date.nil? || ed_date.nil?
+      errors.add(:end_date, ExportTask.human_attribute_name("end_date_greater_than_start_date")) unless st_date < ed_date
+    end
+    unless  ed_date.nil? || Chouette::TimeTable.end_validity_period.nil?
+      tt_ed_date = Chouette::TimeTable.end_validity_period
+      errors.add(:end_date, ExportTask.human_attribute_name("end_date_less_than", {:tt_ed_date => tt_ed_date})) unless ed_date <= tt_ed_date
+    end
+  end
+  
+  def init_period
+    unless Chouette::TimeTable.start_validity_period.nil?
+      if start_date.nil?
+        self.start_date = Chouette::TimeTable.start_validity_period
+      end
+      if end_date.nil?
+        self.end_date = Chouette::TimeTable.end_validity_period
+      end
     end
   end
 

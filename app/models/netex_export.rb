@@ -11,6 +11,8 @@ class NetexExport < ExportTask
         "user_name" => user_name,
         "organisation_name" => organisation.name,
         "referential_name" => referential.name,
+        "start_date" => start_date,
+        "end_date" => end_date
       }
     }
   end

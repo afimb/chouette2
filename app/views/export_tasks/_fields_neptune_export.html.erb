@@ -1,4 +1,2 @@
-<%= form.input :start_date, :as => :date_picker, :input_html => { :title => t("formtastic.titles.export_task.start_date")} %>
-<%= form.input :end_date, :as => :date_picker, :input_html => { :title => t("formtastic.titles.export_task.end_date")} %>
 <%= form.input :projection_type, :as => :hidden, :input_html => { :value => @referential.projection_type || "" } %>	  
 <%= form.input :extensions , :as => :boolean%>
