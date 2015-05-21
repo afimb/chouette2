@@ -149,7 +149,7 @@ group :test, :development do
 end
 
 group :production do
-   gem "SyslogLogger"
+   gem "SyslogLogger", :require => "syslog/logger"
    gem "daemons"
 end
 
