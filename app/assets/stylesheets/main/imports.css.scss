@@ -1,11 +1,32 @@
-#workspace.imports.index
-{
+#workspace.imports.index {
+    .panel.import {
+        .panel-footer {
+            min-height: 5.5em;
+
+            .save-mode, .format {
+                display: inline-block;
+            }
+
+            .save-mode {
+                color: $brand-info;
+                .fa-lg {
+                    font-size: 1em;
+                }
+                .fa-ban {
+                    opacity: 0.6;
+                }
+            }
+
+            .history {
+                margin-top: 10px;
+            }
+        }
+    }
 }
 
 #workspace.imports.show {
     @import "../partials/ie_report";
     @import "../modules/job_status_colors";
     @import "../modules/job_status_title";
-    @import "../modules/links";    
-    
+    @import "../modules/links";
 }

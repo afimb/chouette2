@@ -6,27 +6,27 @@ class Import
   def initialize( response )
     @datas = response
   end
-  
+
   def report?
     links["action_report"].present?
   end
-  
+
   def report
     Rails.cache.fetch("#{cache_key}/action_report", expires_in: cache_expiration) do
       report_path = links["action_report"]
-      if report_path      
+      if report_path
         response = Ievkit.get(report_path)
         ImportReport.new(response)
       else
         nil
       end
     end
-  end 
+  end
 
   def rule_parameter_set?
     links["validation_params"].present?
   end
-  
+
   def rule_parameter_set
     Rails.cache.fetch("#{cache_key}/validation_params", expires_in: cache_expiration) do
       rule_parameter_set_path = links["validation_params"]
@@ -42,7 +42,7 @@ class Import
   def compliance_check?
     links["validation_report"].present?
   end
-  
+
   def compliance_check_validation_report
     puts "compliance_check_validation_report"
     Rails.cache.fetch("#{cache_key}/validation_report", expires_in: cache_expiration) do
@@ -59,7 +59,7 @@ class Import
   def destroy
     delete_path =  links["delete"]
     cancel_path = links["cancel"]
-    
+
     if delete_path
       Ievkit.delete(delete_path)
     elsif cancel_path
@@ -72,7 +72,7 @@ class Import
   def file_path?
     links["data"].present?
   end
-  
+
   def file_path
     links["data"]
   end
@@ -84,9 +84,10 @@ class Import
   def filename_extension
     File.extname(filename).gsub(".", "") if filename
   end
-  
+
   def no_save
     datas.action_parameters.no_save
   end
-  
+  alias_method :no_save?, :no_save
+
 end

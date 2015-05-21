@@ -18,7 +18,7 @@ a.edit:before { // fa-pencil
 a.remove:before { // fa-trash
                   content: "\f1f8";
                   color: $brand-danger;
-                }           
+                }
 
 a.export:before { // fa-upload
                   content: "\f093";
@@ -33,7 +33,7 @@ a.import:before { // fa-download
 a.clone:before { // fa-copy
                  content: "\f0c5";
                  color: $brand-success;
-               }           
+               }
 
 a.link:before { // fa-external-link
                 content: "\f08e";
@@ -73,10 +73,6 @@ a.merge:before { // fa-link
 a.clock:before { // fa-clock-o
                  content: "\f017";
                }
-
-/* first-child makes sure to grab the first element inside
-your fa-stack. The top margin shifts the inner icon down */
-.fa-stack-1x { top: .25em; }
 
 .fa-stack {
     /* sizes whole .fa-stack down to make them the regular sized */
