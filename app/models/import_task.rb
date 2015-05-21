@@ -13,13 +13,15 @@ class ImportTask
 
   enumerize :data_format, in: %w( neptune netex gtfs )
   attr_accessor :rule_parameter_set_id, :referential_id, :user_id, :user_name, :data_format, :resources, :name, :no_save
-  
+
   validates_presence_of :referential_id
   validates_presence_of :resources
   validates_presence_of :user_id
   validates_presence_of :user_name
   validates_presence_of :name
-  
+
+  validate :validate_file_size
+
   def initialize( params = {} )
     params.each {|k,v| send("#{k}=",v)}
   end
@@ -38,24 +40,24 @@ class ImportTask
 
   def save
     if valid?
-      # Save resources 
+      # Save resources
       save_resources
-      
+
       # Call Iev Server
-      begin 
+      begin
         Ievkit.create_job(referential.slug, "importer", data_format, {
                             :file1 => params_io,
                             :file2 => transport_data_io
                           }
-                          
+
                          )
-        
+
         # Delete resources
-        delete_resources        
+        delete_resources
       rescue Exception => exception
         # If iev server has an error must delete resources before
         delete_resources
-        
+
         raise exception
       end
       true
@@ -77,9 +79,9 @@ class ImportTask
   def validation_params
     {
       "validation" => rule_parameter_set.parameters
-    } if rule_parameter_set.present?    
+    } if rule_parameter_set.present?
   end
-  
+
   def self.data_formats
     self.data_format.values
   end
@@ -87,7 +89,7 @@ class ImportTask
   def params_io
     file = StringIO.new( params.to_json )
     Faraday::UploadIO.new(file, "application/json", "parameters.json")
-  end 
+  end
 
   def transport_data_io
     file = File.new(saved_resources_path, "r")
@@ -95,8 +97,8 @@ class ImportTask
       Faraday::UploadIO.new(file, "application/zip", original_filename )
     elsif file_extname == ".xml"
       Faraday::UploadIO.new(file, "application/xml", original_filename )
-    end   
-  end 
+    end
+  end
 
   def save_resources
     FileUtils.mkdir_p root
@@ -110,13 +112,25 @@ class ImportTask
   def original_filename
     resources.original_filename
   end
-  
+
   def file_extname
     File.extname(original_filename) if original_filename
   end
 
   def saved_resources_path
     @saved_resources_path ||= "#{root}/#{Time.now.to_i}#{file_extname}"
+  end
+
+  @@maximum_file_size = 80.megabytes
+  cattr_accessor :maximum_file_size
+
+  def validate_file_size
+    return unless resources.present? and resources.path.present? and File.exists? resources.path
+
+    if File.size(resources.path) > maximum_file_size
+      message = I18n.t("activemodel.errors.models.import_task.attributes.resources.maximum_file_size", file_size:   ActionController::Base.helpers.number_to_human_size(File.size(resources.path)), maximum_file_size: ActionController::Base.helpers.number_to_human_size(maximum_file_size))
+      errors.add(:resources, message)
+    end
   end
 
 end
