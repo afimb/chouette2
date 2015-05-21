@@ -389,8 +389,6 @@ GEM
     simple_form (3.1.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
-    sitemap_generator (5.0.5)
-      builder
     slop (3.6.0)
     spoon (0.0.4)
       ffi
@@ -528,7 +526,6 @@ DEPENDENCIES
   sawyer (~> 0.6.0)
   sdoc (~> 0.4.0)
   simple_form (~> 3.1.0)
-  sitemap_generator
   spring
   sqlite3
   squeel

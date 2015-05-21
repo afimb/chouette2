@@ -24,8 +24,6 @@ after "deploy:update", "deploy:cleanup", "deploy:group_writable"
 after "deploy:update_code", "deploy:symlink_shared", "deploy:chouette_command", "deploy:gems"
 # ugly workaround for bug https://github.com/capistrano/capistrano/issues/81
 before "deploy:assets:precompile", "deploy:symlink_shared"
-after "deploy:restart", "delayed_job:restart"
-after "deploy:migrate", "deploy:migrate_tenants"
 
 # If you want to use command line options, for example to start multiple workers,
 # define a Capistrano variable delayed_job_args:
@@ -44,11 +42,6 @@ namespace :deploy do
     dirs = [deploy_to, releases_path, shared_path]
     dirs += shared_children.map { |d| File.join(shared_path, d) }
     run "mkdir -p #{dirs.join(' ')} && (chmod g+w #{dirs.join(' ')} || true)"
-  end
-
-  desc "Runs rake task which migrates database tables for all tenants"
-  task :migrate_tenants do
-    run "cd #{release_path} && RAILS_ENV=production bundle exec rake db:migrate"
   end
 
   desc "Install gems"

@@ -1,6 +1,5 @@
 load 'deploy' if respond_to?(:namespace) # cap2 differentiator
 require 'bundler/capistrano'
-require 'capistrano/sitemap_generator'
 # Uncomment if you are using Rails' asset pipeline
 load 'deploy/assets'
 

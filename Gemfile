@@ -35,9 +35,6 @@ gem 'spring', group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-# Sitemap
-gem "sitemap_generator"
-
 # API Rest
 gem 'sawyer', "~> 0.6.0"
 gem 'faraday_middleware', '~> 0.9.1'
