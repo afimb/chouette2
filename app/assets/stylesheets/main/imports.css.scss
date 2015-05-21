@@ -3,10 +3,6 @@
         .panel-footer {
             min-height: 5.5em;
 
-            .save-mode, .format {
-                display: inline-block;
-            }
-
             .save-mode {
                 color: $brand-info;
                 .fa-lg {
@@ -24,9 +20,33 @@
     }
 }
 
+#workspace.imports.index, #workspace.imports.show {
+    .import-attributes {
+        .save-mode, .format {
+            display: inline-block;
+        }
+
+        .save-mode {
+            color: $brand-info;
+            .fa-ban {
+                opacity: 0.6;
+            }
+            .fa-stack {
+                font-size: 0.9em;
+            }
+            margin-left: 0.3em;
+        }
+    }
+}
+
 #workspace.imports.show {
     @import "../partials/ie_report";
     @import "../modules/job_status_colors";
     @import "../modules/job_status_title";
     @import "../modules/links";
+
+    .import-attributes {
+        font-size: 1.7em;
+        margin-top: 20px;
+    }
 }
