@@ -18,17 +18,7 @@
     <p><%= link_to font_awesome_classic_tag("fa-external-link") + t("imports.show.compliance_check"), compliance_check_referential_import_path(@referential, import.id) if import.compliance_check? %></p>
   </div>
   <div class="panel-footer">
-    <% if import.format.present? %>
-      <div class="format"><span class='label label-default'><%= t("enumerize.data_format.#{import.format}") %></span></div>
-    <% end %>
-
-    <div class="save-mode">
-      <% if import.no_save? %>
-      <span class="fa-stack fa-lg"><i class="fa fa-database fa-stack-1x"></i><i class="fa fa-ban fa-stack-2x"></i></span>
-      <% else %>
-      <span class="fa-lg"><i class="fa fa-database"></i></span>
-      <% end %>
-    </div>
+    <%= import_attributes_tag(import) %>
 
     <div class="history">
       <%=  l(import.created_at, :format => "%d/%m/%Y %H:%M") if import.created_at %> | <%= import.user_name %>

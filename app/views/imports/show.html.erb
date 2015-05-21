@@ -1,5 +1,10 @@
-<div class="test">
-  <%= title_tag job_status_title(@import) %>
+<div class="title row">
+  <div class="col-md-8">
+    <%= title_tag job_status_title(@import) %>
+  </div>
+  <div class="col-md-4">
+    <%= import_attributes_tag(@import) %>
+  </div>
 </div>
 <% if @import.report.failure_code? %>
 <div class="alert alert-danger">
@@ -8,7 +13,7 @@
 <% end %>
 <div class="progress_bars">
   <%= progress_bar_tag(@import) %>
-</div>  
+</div>
 <div class="import_show">
   <div class="links">
     <%= link_to font_awesome_classic_tag("fa-file-#{@import.filename_extension}-o") + t("imports.show.imported_file"), imported_file_referential_import_path(@referential, @import.id) if @import.file_path? %>
