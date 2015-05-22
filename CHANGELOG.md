@@ -1,4 +1,11 @@
-# Version 2.5.3 (en cours)
+# Version 3.0.0 (en cours)
+* Nouvelles fonctionnalités
+  * Mise à jour des briques logicielles utilisées ( Rails 4 et plugins associées ) et version du langage Ruby ( 1.9.3 -> 2.1.6 en restant compatible 1.9.3 )
+  * Prise en compte d'une barre de progression lorsqu'un import, un export ou une validation est lancé
+  * Mise en valeur du format des données importées ou exportées
+  * Affichage d'une synthèse de la validation effectuée par lignes de transport
+
+# Version 2.5.3
 * Nouvelles fonctionnalités
   * Contrôle de cohérence des communes des arrêts (Mantis 31896)
   * Ajout de champs dans les échanges Neptune en structurant le champ commentaire (Mantis 31897)

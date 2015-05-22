@@ -1,6 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.eager_load = true
+  
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -41,9 +43,12 @@ Rails.application.configure do
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
-
+  
   # Use a different logger for distributed setups.
-  config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new("rails/chouette2").tap do |syslog|
+  #if ENV['OS'] == 'Windows_NT'
+  #  # args = log_path,number of files,file sizes
+  #  config.logger = Logger.new("C:/chouette/logs/chouette2.log", 5, 10.megabytes)
+  config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new("rails/chouette2").tap do |syslog|
                                                      syslog.level = Logger::INFO
                                                    end)
 
@@ -73,16 +78,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Use a different logger for distributed setups
-  #if ENV['OS'] == 'Windows_NT'
-  #  # args = log_path,number of files,file sizes
-  #  config.logger = Logger.new("C:/chouette/logs/chouette2.log", 5, 10.megabytes)
-  #else
-  require 'syslog_logger'
-  config.logger = SyslogLogger.new("rails/chouette2").tap do |logger|
-    logger.level = Logger::INFO
-  end
-  #end
   
   if ENV['CHOUETTE_BASE_URL'].nil?
     config.action_mailer.default_url_options = { :host => 'my-domain-name.com' }
@@ -96,7 +91,8 @@ Rails.application.configure do
   else
     config.mailer_sender = ENV['CHOUETTE_MAIL_SENDER']
   end
-  if mailer == "smtp"
+
+  #if mailer == "smtp"
     if ENV['CHOUETTE_SMTP_USER'].nil?
       ActionMailer::Base.smtp_settings = {
         :address        => ENV['CHOUETTE_SMTP_ADDRESS'].nil? ? "smtp.sample.com" : ENV['CHOUETTE_SMTP_ADDRESS'],
@@ -111,8 +107,7 @@ Rails.application.configure do
         :password       => ENV['CHOUETTE_SMTP_PASSWORD'],
         :authentication => ENV['CHOUETTE_SMTP_AUTH']    }
     end  
-  end 
-  #end
+  #end 
 
   # Specific theme for each company
   # AFIMB
