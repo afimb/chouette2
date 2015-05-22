@@ -28,7 +28,7 @@ This code has been run and tested on [Travis](http://travis-ci.org/afimb/chouett
 * Java 7
 * Postgres 9.3
 * Proj 4.8.0
-* [Chouette Web Services](https://github.com/afimb/chouette) 3.X
+* [Chouette Web Service IEV](https://github.com/afimb/chouette) 3.X
 
 External Deps
 -------------
@@ -102,9 +102,8 @@ Configure Rails secret key.
 * Edit [secrets.yml](./config/secrets.yml) and uncomment and set```secret_key_base```
 * see [Rails documentation](http://guides.rubyonrails.org/4_1_release_notes.html#config-secrets-yml)
 
-Configure API Endpoint for Chouette Web Services.
+Configure API Endpoint for Chouette Web Service IEV
 * Edit [secrets.yml](./config/secrets.yml) and uncomment and set```api_endpoint```
-* see [API IEV](https://github.com/afimb/chouette)
 
 Configure Google Analytics Key.
 * Edit [secrets.yml](./config/secrets.yml) and change```google_analytic_tracker```
@@ -117,12 +116,6 @@ Configure IGN Géoportail Key.
 
 Run
 ---
-
-Launch the task to import and export asynchronously
-```sh
-RAILS_ENV=production bundle exec rake jobs:work
-```
-This task may be added in system start up configuration
 
 Launch rails server with [WEBrick](http://guides.rubyonrails.org/command_line.html#server-with-different-backends) ( default RoR web server, note: running on default port 3000)
 ```sh
@@ -156,7 +149,7 @@ API Documentation
 The description of the restful API is described in :
 * [User manual file](./doc/interfaces/Chouette_API_REST_v1.2.pdf)
 * [XSD file](./doc/interfaces/api_rest_v1.xsd)
-* [Chouette Web Services](https://github.com/afimb/chouette)
+* [Chouette Web Service IEV](https://github.com/afimb/chouette)
 
 
 License
