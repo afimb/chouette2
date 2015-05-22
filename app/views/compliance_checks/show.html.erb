@@ -11,7 +11,7 @@
 </div>
 <div class="compliance_check show">
   <div class="links">
-    <%= link_to font_awesome_classic_tag("fa-external-link") + t("compliance_checks.actions.report"), report_referential_compliance_check_path(@referential, @compliance_check.id) if @compliance_check.report? %>
+    <%= link_to font_awesome_classic_tag("fa-external-link") + t("compliance_checks.actions.report"), report_referential_compliance_check_path(@referential, @compliance_check.id) if @compliance_check.compliance_check_validation_report? %>
   </div>
   <%= render( :partial => "shared/ie_report.html", :locals => { :referential => @referential, :job => @compliance_check} ) %>
 </div>
