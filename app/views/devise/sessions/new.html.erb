@@ -24,7 +24,7 @@
           <div class="row options">
             <div class="col-md-6">
               <% if devise_mapping.rememberable? %>
-                <%= form.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+                <%= form.input :remember_me, :as => :boolean %>
               <% end %>
             </div>
             <div class="col-md-6 new_password">
