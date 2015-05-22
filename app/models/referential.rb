@@ -20,16 +20,10 @@ class Referential < ActiveRecord::Base
   attr_accessor :lower_corner
 
   has_one :user
-  ##has_many :rule_parameter_sets, :dependent => :destroy
-  #has_many :import_tasks, :dependent => :destroy
-  #has_many :compliance_check_tasks, :dependent => :destroy
-  #has_many :exports, :dependent => :destroy
   has_many :api_keys, :class_name => 'Api::V1::ApiKey', :dependent => :destroy
 
   belongs_to :organisation
   validates_presence_of :organisation
-
-  #attr_accessible :data_format, :name, :prefix, :projection_type, :time_zone, :upper_corner, :lower_corner, :slug, :organisation
 
   def slug_excluded_values
     if ! slug.nil?
