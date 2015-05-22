@@ -37,7 +37,7 @@ class ExportTask
       errors.add(:start_date, ExportTask.human_attribute_name("start_date_greater_than" , {:tt_st_date => tt_st_date})) unless tt_st_date <= st_date
     end
     unless st_date.nil? || ed_date.nil?
-      errors.add(:end_date, ExportTask.human_attribute_name("end_date_greater_than_start_date")) unless st_date < ed_date
+      errors.add(:end_date, ExportTask.human_attribute_name("end_date_greater_than_start_date")) unless st_date <= ed_date
     end
     unless  ed_date.nil? || Chouette::TimeTable.end_validity_period.nil?
       tt_ed_date = Chouette::TimeTable.end_validity_period
