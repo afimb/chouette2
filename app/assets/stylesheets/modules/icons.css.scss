@@ -88,10 +88,3 @@ Google Web Font */
     font-weight: 700;
     font-family: 'Oswald';
 }
-
-a.kml:before {
-    content: "<span class='fa-stack'>
-<span class='fa-stack-1x filetype-text'>KML</span>
-<i class='fa fa-file-o fa-stack-2x'></i>
-</span>";
-}
