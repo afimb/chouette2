@@ -5,31 +5,19 @@
         text-align: right;
     }
 
-    .boolean {
-        // to align horizontally boolean label with other labels
-        // (with the help of customized BooleanInput)
-        label {
-            padding-left: inherit;
-        }
-        // to align vertically checkbox with align text
-        input[type="checkbox"] {
-            margin-top: 0.3em;
-        }
-    }
-
     .stringish input{
         width: auto;
     }
-
+    
     fieldset.inputs {
-
-        a.action { float: right; }
+        
+        a.action { float: right; }          
     }
-
+    
     .choices .label, .formtastic .fragments .label {
         width: 25%;
         border: 0px;
-
+        
         label {
             position: relative;
             font-size: 14px;
@@ -40,13 +28,13 @@
         @extend .label;
         font-size: 14px !important;
         width: 100% !important;
-    }
-
+    }    
+    
     .token-input-list {
         display: inline-block;
     }
 
-    /* Hack to remove!!!! */
+    /* Hack to remove!!!! */ 
     .inputs input[type="file"] {
         display: initial;
     }
