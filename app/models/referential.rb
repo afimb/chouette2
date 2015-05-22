@@ -145,6 +145,12 @@ class Referential < ActiveRecord::Base
     Apartment::Tenant.drop slug
   end
 
+  before_destroy :destroy_jobs
+  def destroy_jobs
+    Ievkit.delete_jobs(slug)
+    true
+  end
+
   def upper_corner
     envelope.upper_corner
   end
