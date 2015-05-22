@@ -5,17 +5,17 @@
         text-align: right;
     }
 
-    /* .boolean {
-    /*     // to align horizontally boolean label with other labels
-    /*     // (with the help of customized BooleanInput)
-    /*     label {
-    /*         padding-left: inherit;
-    /*     }
-    /*     // to align vertically checkbox with align text
-    /*     input[type="checkbox"] {
-    /*         margin-top: 0.3em;
-    /*     }
-    /* }
+    .boolean {
+        // to align horizontally boolean label with other labels
+        // (with the help of customized BooleanInput)
+        label {
+            padding-left: inherit;
+        }
+        // to align vertically checkbox with align text
+        input[type="checkbox"] {
+            margin-top: 0.3em;
+        }
+    }
 
     .stringish input{
         width: auto;
