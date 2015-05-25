@@ -28,10 +28,36 @@
 <script>
 
 $(document).ready( function() {
+  var stop_point_ids = [];
+
   var order_position = function() {
     $('#stop_points input[type="hidden"][id$="position"]').each(function(index) {
       $(this).val(index);
     });
+  };
+
+  var write_stop_point_ids = function(){
+    $('#stop_points input[type="hidden"][class~="stop_point_id"]').each(function(index,element) {
+
+
+      // soit le parent a la classe added_stop_point
+        if ( $(element).hasClass("added_stop_point") ){
+          $(this).attr("value", "");
+        } else {
+          $(this).attr("value", stop_point_ids.shift());
+        }
+    });
+  }
+
+  var empty_stop_point_ids = function() {
+    while(stop_point_ids.length > 0) {
+      stop_point_ids.pop();
+    }
+    $('#stop_points input[type="hidden"][class="stop_point_id"]').map(function() {
+      stop_point_ids.push( $(this).val());
+    });
+    // console.log(  "before-remove");
+    // console.log(  stop_point_ids);
   };
 
   $('#stop_points').sortable({
@@ -42,7 +68,11 @@ $(document).ready( function() {
       items: '.stop_point',
       opacity: 0.4,
       scroll: true,
+      start: function( event, ui ) {
+        empty_stop_point_ids();
+      },
       update: function( event, ui ) {
+        write_stop_point_ids();
         order_position();
       }
   });
@@ -74,3 +104,4 @@ $(document).ready( function() {
 
 
 </script>
+
