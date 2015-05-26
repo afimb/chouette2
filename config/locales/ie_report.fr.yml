@@ -18,7 +18,7 @@ fr:
             lines: "Lignes"
             connection_links: "Correspondances"
             time_tables: "Calendriers"
-            stop_areas: "Zones d'arrèt"
+            stop_areas: "Arrèts"
             access_points: "Accès"
             vehicle_journeys: "Courses"
             journey_patterns: "Missions"
