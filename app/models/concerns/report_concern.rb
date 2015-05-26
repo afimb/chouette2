@@ -44,8 +44,6 @@ module ReportConcern
   end
   
   def step_progress
-    return 100 if progression.current_step == progression.steps_count
-
     percentage( current_step.realized, current_step.total )
   end
   

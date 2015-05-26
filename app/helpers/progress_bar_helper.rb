@@ -23,7 +23,7 @@ module ProgressBarHelper
       end
     
       progress += content_tag :div, :class => "progress" do 
-        concat(content_tag( :div, :class => div_class, role: "progressbar", :'aria-valuenow' => "#{report.step_progress}", :'aria-valuemin' => "0", :'aria-valuemax' => "100", :style => "width: 100%;" ) do
+        concat(content_tag( :div, :class => div_class, role: "progressbar", :'aria-valuenow' => "#{report.step_progress}", :'aria-valuemin' => "0", :'aria-valuemax' => "100", :style => "width: #{report.step_progress}%;" ) do
              end)
         concat( content_tag(:span, t("progress_bar.step"), :class => "progress-type") )
         concat( content_tag(:span, "#{report.current_step.realized}/#{report.current_step.total}", :class => "progress-completed") )
