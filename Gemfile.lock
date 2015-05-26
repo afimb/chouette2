@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/afimb/ninoxe.git
-  revision: 88d0a167d8f5a11f88bc5e3903aaad81a68755b5
+  revision: 09250286f4615e58a1ff180811ebbef3e54eedee
   branch: rails4
   specs:
     ninoxe (1.1.5)
@@ -142,7 +142,6 @@ GEM
       faraday (>= 0.7.4, < 0.10)
     fastercsv (1.5.5)
     ffi (1.9.8)
-    ffi (1.9.8-java)
     ffi-geos (1.0.0)
       ffi (>= 1.0.0)
     font-awesome-sass (4.2.2)

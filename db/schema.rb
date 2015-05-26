@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413071835) do
+ActiveRecord::Schema.define(version: 20150526081746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -195,17 +195,6 @@ ActiveRecord::Schema.define(version: 20150413071835) do
     t.integer "line_id",          limit: 8
   end
 
-  create_table "jobs", force: true do |t|
-    t.string   "action"
-    t.datetime "created"
-    t.string   "filename"
-    t.string   "path"
-    t.string   "referential"
-    t.string   "status"
-    t.string   "type"
-    t.datetime "updated"
-  end
-
   create_table "journey_patterns", force: true do |t|
     t.integer  "route_id",                limit: 8
     t.string   "objectid",                          null: false
@@ -252,14 +241,6 @@ ActiveRecord::Schema.define(version: 20150413071835) do
 
   add_index "lines", ["objectid"], name: "lines_objectid_key", unique: true, using: :btree
   add_index "lines", ["registration_number"], name: "lines_registration_number_key", unique: true, using: :btree
-
-  create_table "links", id: false, force: true do |t|
-    t.integer "job_id", limit: 8, null: false
-    t.string  "href"
-    t.string  "method"
-    t.string  "rel"
-    t.string  "type"
-  end
 
   create_table "networks", force: true do |t|
     t.string   "objectid",            null: false
@@ -568,9 +549,8 @@ ActiveRecord::Schema.define(version: 20150413071835) do
   add_foreign_key "lines", "companies", name: "line_company_fkey", dependent: :nullify
   add_foreign_key "lines", "networks", name: "line_ptnetwork_fkey", dependent: :nullify
 
-  add_foreign_key "links", "jobs", name: "fk_n5ypxycc1stckgkm6ust2l6on"
-
   add_foreign_key "routes", "lines", name: "route_line_fkey", dependent: :delete
+  add_foreign_key "routes", "routes", name: "route_opposite_route_fkey", column: "opposite_route_id", dependent: :nullify
 
   add_foreign_key "routing_constraints_lines", "lines", name: "routingconstraint_line_fkey", dependent: :delete
   add_foreign_key "routing_constraints_lines", "stop_areas", name: "routingconstraint_stoparea_fkey", dependent: :delete

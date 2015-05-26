@@ -1,5 +1,7 @@
 class RemoveHubRestrictionsFromReferentials < ActiveRecord::Migration
   def change
-    remove_column :referentials, :hub_restrictions
+	 if column_exists? :referentials, :hub_restrictions
+      remove_column :referentials, :hub_restrictions
+	 end
   end
 end
