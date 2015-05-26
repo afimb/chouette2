@@ -12,6 +12,11 @@ class ApiKeysController < ChouetteController
   def destroy
     destroy! { referential_path(@referential) }
   end
+
+  private
+  def api_key_params
+    params.require(:api_key).permit( :name )
+  end  
   
 end
 
