@@ -10,14 +10,14 @@
     <%= form.input :objectid, :required => !@route.new_record?, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.route.objectid")} %>
   <% end %>
 	<div id="stop_points">
-		<%= form.semantic_fields_for :stop_points, :include_id => false, :label => "TOTO" do |p| %>
-          <%= render "stop_point_fields",  :f => p, :test1 => "oiuoiu" %>
+		<%= form.semantic_fields_for :stop_points, :include_id => false do |p| %>
+      <%= render "stop_point_fields",  :f => p %>
 		<% end %>
-      <div class="links">
+    <div class="links">
 	    <%= link_to_add_association t("routes.actions.add_stop_point"), form, :stop_points, :class => 'add_stop_point add' %>
       <br/>
-        <%= link_to t('routes.actions.new_stop_point'), new_referential_stop_area_path(@referential), {:class => "add", :target => "_blank"} %>
-      </div>
+      <%= link_to t('routes.actions.new_stop_point'), new_referential_stop_area_path(@referential), {:class => "add", :target => "_blank"} %>
+    </div>
 	</div>
 
    <%= form.actions do %>
@@ -38,8 +38,6 @@ $(document).ready( function() {
 
   var write_stop_point_ids = function(){
     $('#stop_points input[type="hidden"][class~="stop_point_id"]').each(function(index,element) {
-
-
       // soit le parent a la classe added_stop_point
         if ( $(element).hasClass("added_stop_point") ){
           $(this).attr("value", "");
@@ -50,11 +48,8 @@ $(document).ready( function() {
   }
 
   var empty_stop_point_ids = function() {
-    while(stop_point_ids.length > 0) {
-      stop_point_ids.pop();
-    }
-    $('#stop_points input[type="hidden"][class="stop_point_id"]').map(function() {
-      stop_point_ids.push( $(this).val());
+    stop_point_ids = $.map($('#stop_points input[type="hidden"][class="stop_point_id"]'), function(element, index) {
+      return $(element).val();
     });
     // console.log(  "before-remove");
     // console.log(  stop_point_ids);
@@ -104,4 +99,3 @@ $(document).ready( function() {
 
 
 </script>
-
