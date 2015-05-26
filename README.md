@@ -91,6 +91,9 @@ Configure for Generating URLs in Action Mailer Views.
 * Edit [production.rb](./config/environments/production.rb) and change ```config.action_mailer.default_url_options```
 * see [Action Mailer Configuration documentation](http://guides.rubyonrails.org/action_mailer_basics.html)
 
+Configure assets access (Must be true if you use Webrick or false if you use Apache or Nginx).
+* Edit [production.rb](./config/environments/production.rb) and change ```config.serve_static_assets```
+
 Configure SMTP settings.
 * Edit [production.rb](./config/environments/production.rb) and change ```ActionMailer::Base.smtp_settings```
 * see [Action Mailer Configuration documentation](http://guides.rubyonrails.org/action_mailer_basics.html)
