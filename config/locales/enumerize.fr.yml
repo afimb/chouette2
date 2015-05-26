@@ -19,8 +19,8 @@ fr:
       network: "Réseaux"
       line: "Lignes"
       company: "Transporteurs"
-      groupofline: "Groupe de lignes"
-      stoparea: "Arrêts"
+      group_of_line: "Groupe de lignes"
+      stop_area: "Arrêts"
     data_format:
       neptune: "Profil Neptune"
       gtfs: "GTFS"

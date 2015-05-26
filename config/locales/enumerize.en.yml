@@ -19,8 +19,8 @@ en:
       network: "Networks"
       line: "Lines"
       company: "Companies"
-      groupofline: "Group of lines"
-      stoparea: "Stop areas"
+      group_of_line: "Group of lines"
+      stop_area: "Stop areas"
     data_format:
       neptune: "Neptune"
       gtfs: "GTFS (General Transit Feed Specification)"
