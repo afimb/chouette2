@@ -9,7 +9,9 @@ Rails.application.configure do
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
-  #config.action_controller.relative_url_root = "/chouette2"
+
+  # Must add sub uri for controllers.
+  # config.action_controller.relative_url_root = "/chouette2"
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
@@ -27,7 +29,10 @@ Rails.application.configure do
   config.assets.compile = false
 
   # Generate digests for assets URLs.
-  config.assets.digest = true
+  config.assets.digest = false
+
+  # Must add sub uri for assets. Same as config.action_controller.relative_url_root
+  # config.assets.prefix = "/chouette2"
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
