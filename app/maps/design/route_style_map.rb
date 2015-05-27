@@ -7,12 +7,12 @@ class Design::RouteStyleMap < Design::GenericStyleMap
   end
 
   def select_style
-    default_style.merge :externalGraphic => @helpers.assets_path_patch( "icons/stop_area_hover.png")
+    default_style.merge :externalGraphic => @helpers.assets_path_patch( "map/stop_area_hover.png")
   end
   def default_style
     {
       :label => "${label}",
-      :fontColor => "black", 
+      :fontColor => "black",
       :fontSize => "11px",
       :fontWeight => "bold",
       :labelAlign => "ct",
@@ -23,10 +23,10 @@ class Design::RouteStyleMap < Design::GenericStyleMap
       :strokeWidth => 3,
       :strokeLineCap => "round",
       :strokeDashstyle => "solid",
-      :externalGraphic => @helpers.assets_path_patch( "icons/${positionType}.png"),
+      :externalGraphic => @helpers.assets_path_patch( "map/${positionType}.png"),
       :graphicWidth => 12,
-      :graphicHeight => 12, 
-      :graphicOpacity => 1,	
+      :graphicHeight => 12,
+      :graphicOpacity => 1,
       :graphicXOffset => -6,
       :graphicYOffset => -6,
       :display => true
@@ -34,9 +34,9 @@ class Design::RouteStyleMap < Design::GenericStyleMap
   end
 
   def context
-    context = { 
-      :label => :" function(feature) {if(feature.layer.map.getZoom() > 13) { return feature.attributes.name;} else {return '';}} ", 
-      :positionType => :" function(feature) { if (feature.attributes.departure != undefined) { return 'stop_area_green'; } else if (feature.attributes.arrival != undefined) { return 'stop_area_red'; } else { return 'stop_area_black'; }} " 
+    context = {
+      :label => :" function(feature) {if(feature.layer.map.getZoom() > 13) { return feature.attributes.name;} else {return '';}} ",
+      :positionType => :" function(feature) { if (feature.attributes.departure != undefined) { return 'stop_area_green'; } else if (feature.attributes.arrival != undefined) { return 'stop_area_red'; } else { return 'stop_area_black'; }} "
     }
   end
 
@@ -45,4 +45,3 @@ class Design::RouteStyleMap < Design::GenericStyleMap
   end
 
 end
-
