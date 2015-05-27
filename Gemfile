@@ -82,12 +82,12 @@ gem "breadcrumbs_on_rails"
 gem "modernizr-rails", "~> 2.0.6"
 
 # Javascript
-source 'https://rails-assets.org' do 
+source 'https://rails-assets.org' do
   gem 'rails-assets-morrisjs', "~> 0.5.1"
   gem 'rails-assets-raphael', "~> 2.1.3"
 
   # Use twitter bootstrap resources
-  gem 'rails-assets-bootstrap-sass-official', '~> 3.3.0'  
+  gem 'rails-assets-bootstrap-sass-official', '~> 3.3.0'
   gem 'rails-assets-tagmanager', '~> 3.0.1.0'
   gem 'rails-assets-typeahead.js', '~> 0.10.5'
   gem 'rails-assets-typeahead.js-bootstrap3.less'
@@ -152,5 +152,3 @@ group :production do
    gem "SyslogLogger", :require => "syslog/logger"
    gem "daemons"
 end
-
-

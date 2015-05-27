@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/afimb/ninoxe.git
-  revision: 09250286f4615e58a1ff180811ebbef3e54eedee
+  revision: 50da03899e56131197c0d163db30e0881368ef5b
   branch: rails4
   specs:
     ninoxe (1.1.5)
@@ -275,7 +275,7 @@ GEM
       spoon (~> 0.0)
     rabl (0.11.6)
       activesupport (>= 2.3.14)
-    rack (1.5.2)
+    rack (1.5.3)
     rack-contrib (1.2.0)
       rack (>= 0.9.1)
     rack-test (0.6.3)

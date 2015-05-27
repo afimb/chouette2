@@ -22,10 +22,10 @@ class VehicleJourneysController < ChouetteController
     create!(:alert => t('activerecord.errors.models.vehicle_journey.invalid_times'))
   end
 
-  def update    
+  def update
     update!(:alert => t('activerecord.errors.models.vehicle_journey.invalid_times'))
   end
-  
+
   def index
     index! do
       @matrix ||= matrix
@@ -48,10 +48,15 @@ class VehicleJourneysController < ChouetteController
   alias_method :vehicle_journey, :resource
 
   def collection
-    @vehicle_filter = VehicleFilter.new( adapted_params)
-    @q = @vehicle_filter.vehicle_journeys.search( @vehicle_filter.filtered_params)
-    @vehicle_journeys ||= @q.result( :distinct => true ).order( "vehicle_journey_at_stops.departure_time").paginate(:page => params[:page], :per_page => 8)
+    unless @vehicle_journeys
+      @vehicle_filter = VehicleFilter.new adapted_params
+      @q = @vehicle_filter.vehicle_journeys.search @vehicle_filter.filtered_params
+      @vehicle_journeys = @q.result( :distinct => false ).paginate(:page => params[:page], :per_page => 8)
+    end
+
+    @vehicle_journeys
   end
+  alias_method :vehicle_journeys, :collection
 
   def adapted_params
     params.tap do |adapted_params|
@@ -70,8 +75,7 @@ class VehicleJourneysController < ChouetteController
 
   def matrix
     {}.tap do |hash|
-      Chouette::VehicleJourney.find( @vehicle_journeys.map { |v| v.id } ).
-        each do |vj|
+      vehicle_journeys.each do |vj|
         vj.vehicle_journey_at_stops.each do |vjas|
           hash[ "#{vj.id}-#{vjas.stop_point_id}"] = vjas
         end
