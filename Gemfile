@@ -123,6 +123,7 @@ gem "acts_as_tree", '~> 2.1.0', :require => "acts_as_tree"
 gem 'rabl'
 
 gem 'delayed_job_active_record'
+gem 'devise-async'
 gem 'apartment', "~> 1.0.0"
 
 gem 'newrelic_rpm'

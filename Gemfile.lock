@@ -117,6 +117,8 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise-async (0.9.0)
+      devise (~> 3.2)
     devise-encryptable (0.2.0)
       devise (>= 2.1.0)
     devise-i18n (0.11.4)
@@ -474,6 +476,7 @@ DEPENDENCIES
   database_cleaner
   delayed_job_active_record
   devise (~> 3.4.0)
+  devise-async
   devise-encryptable
   devise-i18n
   devise_invitable
