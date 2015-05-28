@@ -23,27 +23,27 @@ class AccessLinksController < ChouetteController
       format.html {build_breadcrumb :show}
     end
   end
-  
-  def new 
+
+  def new
     @access_point = Chouette::AccessPoint.find(params[:access_point_id])
     data=params[:access_link]
     @stop_area = Chouette::StopArea.find(data[:stop_area_id])
     @orientation = data[:link_orientation_type]
     name=data[:name]
     if name.nil? || name.empty?
-      if @orientation == "access_point_to_stop_area" 
+      if @orientation == "access_point_to_stop_area"
         name = "#{@access_point.name} -> #{@stop_area.name}"
       else
-        name = "#{@stop_area.name} -> #{@access_point.name}"        
+        name = "#{@stop_area.name} -> #{@access_point.name}"
       end
       data[:name] = name
     end
-    @access_link = Chouette::AccessLink.new(data)
+    @access_link = Chouette::AccessLink.new(data.permit!)
     new! do
       build_breadcrumb :new
     end
   end
-  
+
   def create
     @access_point = Chouette::AccessPoint.find(params[:access_point_id])
     data=params[:access_link]
@@ -51,7 +51,7 @@ class AccessLinksController < ChouetteController
     @orientation = data[:link_orientation_type]
     create!
   end
-  
+
   def edit
     @access_point = Chouette::AccessPoint.find(params[:access_point_id])
     @access_link = Chouette::AccessLink.find(params[:id])
@@ -62,26 +62,26 @@ class AccessLinksController < ChouetteController
     end
   end
 
-  
+
   protected
-  
+
   alias_method :access_link, :resource
 
   def collection
     @q = parent.access_links.search(params[:q])
-    @access_links ||= 
+    @access_links ||=
       begin
         access_links = @q.result(:distinct => true).order(:name)
         access_links = access_links.paginate(:page => params[:page]) if @per_page.present?
         access_links
       end
   end
-  
+
 
   private
-  
+
   def access_link_params
-    params.require(:access_link).permit( :access_link_type,:access_point_id, :stop_area_id, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :link_distance, :link_type, :default_duration, :frequent_traveller_duration, :occasional_traveller_duration, :mobility_restricted_traveller_duration, :mobility_restricted_suitability, :stairs_availability, :lift_availability, :int_user_needs, :link_orientation, :link_orientation_type, :stop_area )
+    params.require(:access_link).permit(:access_link_type,:access_point_id, :stop_area_id, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :link_distance, :link_type, :default_duration, :frequent_traveller_duration, :occasional_traveller_duration, :mobility_restricted_traveller_duration, :mobility_restricted_suitability, :stairs_availability, :lift_availability, :int_user_needs, :link_orientation, :link_orientation_type, :stop_area )
   end
 
 end
