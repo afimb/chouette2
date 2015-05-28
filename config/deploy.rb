@@ -54,6 +54,7 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/"
     run "ln -nfs #{shared_path}/config/production.rb #{release_path}/config/environments/"
     run "ln -nfs #{shared_path}/config/secrets.yml #{release_path}/config/"
+    run "ln -nfs #{shared_path}/config/newrelic.yml #{release_path}/config/"
   end
 
   desc "Install chouette command"
