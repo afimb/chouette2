@@ -14,7 +14,7 @@ end
 
 platforms :ruby do
   gem 'therubyracer', '~> 0.10.2'
-  gem 'pg', '~> 0.11.0'
+  gem 'pg', '~> 0.14'
   gem 'sqlite3'
 end
 
