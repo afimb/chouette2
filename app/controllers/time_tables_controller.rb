@@ -91,6 +91,6 @@ class TimeTablesController < ChouetteController
   private
   
   def time_table_params
-    params.require(:time_table).permit( :objectid, :object_version, :creation_time, :creator_id, :version, :comment, :int_day_types, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday, :start_date, :end_date, :dates_attributes, :periods_attributes, :tag_list, :tag_search )
+    params.require(:time_table).permit( :objectid, :object_version, :creation_time, :creator_id, :version, :comment, :int_day_types, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday, :start_date, :end_date, { :dates_attributes => [:date, :in_out, :id, :_destroy] }, { :periods_attributes => [:period_start, :period_end, :_destroy, :id] }, :tag_list, :tag_search )
   end
 end
