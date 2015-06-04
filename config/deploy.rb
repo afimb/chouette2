@@ -24,6 +24,7 @@ after "deploy:update", "deploy:cleanup", "deploy:group_writable"
 after "deploy:update_code", "deploy:symlink_shared", "deploy:chouette_command", "deploy:gems"
 # ugly workaround for bug https://github.com/capistrano/capistrano/issues/81
 before "deploy:assets:precompile", "deploy:symlink_shared"
+after "deploy:restart", "delayed_job:restart"
 
 # If you want to use command line options, for example to start multiple workers,
 # define a Capistrano variable delayed_job_args:
@@ -91,4 +92,10 @@ namespace :deploy do
     end
   end
 
+end
+
+namespace :delayed_job do
+  task :restart do
+    run "sudo /etc/init.d/chouette2 restart"
+  end
 end

@@ -81,7 +81,7 @@ RAILS_ENV=production bundle exec rake db:create db:migrate
 
 Prepare static resources (assets)
 ```sh
-RAILS_ENV=production bundle exec rake assets:clean assets:precompile
+RAILS_ENV=production bundle exec rake assets:clobber assets:precompile
 ```
 
 Configuration
@@ -116,9 +116,18 @@ Configure IGN Géoportail Key.
 * Edit [secrets.yml](./config/secrets.yml) and uncomment and set```geoportail_api_key```
 * see [API Géoportail documentation](http://api.ign.fr/accueil)
 
+Configure the way that it sends email.
+* Edit [devise_async.rb](./config/initializer/devise_async.rb) and uncomment and set```Devise::Async.enabled``` ( true if you want to use asynchronously and false otherwise )
+* see [Devise Async specification](https://github.com/mhfs/devise-async)
 
 Run
 ---
+
+Launch the task if you want to send mail asynchronously (See previous chapter to desactivate it)
+```sh
+RAILS_ENV=production bundle exec rake jobs:work
+```
+This task may be added in system start up configuration
 
 Launch rails server with [WEBrick](http://guides.rubyonrails.org/command_line.html#server-with-different-backends) ( default RoR web server, note: running on default port 3000)
 ```sh
@@ -152,7 +161,7 @@ API Documentation
 The description of the restful API is described in :
 * [User manual file](./doc/interfaces/Chouette_API_REST_v1.2.pdf)
 * [XSD file](./doc/interfaces/api_rest_v1.xsd)
-* [Chouette Web Service IEV](https://github.com/afimb/chouette)
+* [Chouette Web Service IEV](https://github.com/afimb/chouette/blob/master/doc/interface/Chouette-API%20serveur%20IEV-1.0.pdf)
 
 
 License

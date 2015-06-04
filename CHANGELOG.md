@@ -4,6 +4,7 @@
   * Prise en compte d'une barre de progression lorsqu'un import, un export ou une validation est lancé
   * Mise en valeur du format des données importées ou exportées
   * Affichage d'une synthèse de la validation effectuée par lignes de transport
+  * Envoi de mail en asynchrone avec DelayedJob en option
 
 # Version 2.5.3
 * Nouvelles fonctionnalités
