@@ -135,6 +135,7 @@ group :development do
   gem 'guard-rspec'
   gem 'rails-erd'
   gem 'meta_request'
+  gem 'letter_opener'
 end
 
 group :test, :development do
