@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/afimb/ninoxe.git
-  revision: 50da03899e56131197c0d163db30e0881368ef5b
+  revision: 5eb3f53d63e22055b939bd96da586020bd176514
   branch: rails4
   specs:
     ninoxe (1.1.5)
@@ -151,6 +151,7 @@ GEM
       faraday (>= 0.7.4, < 0.10)
     fastercsv (1.5.5)
     ffi (1.9.8)
+    ffi (1.9.8-java)
     ffi-geos (1.0.0)
       ffi (>= 1.0.0)
     font-awesome-sass (4.2.2)
@@ -559,3 +560,6 @@ DEPENDENCIES
   warbler
   will_paginate (~> 3.0.7)
   will_paginate-bootstrap (~> 1.0.1)
+
+BUNDLED WITH
+   1.10.3

@@ -17,14 +17,14 @@ class VehicleFilter
   end
   def vehicles_passing_time_filtered
     if without_any_passing_time?
-      route.vehicle_journeys.joins(:vehicle_journey_at_stops).where(vehicle_journey_at_stops: { id: nil})
+      route.vehicle_journeys.without_any_passing_time
     else
       route.sorted_vehicle_journeys
     end
   end
   def vehicle_journeys
     if without_any_time_table?
-      vehicles_passing_time_filtered.joins(:time_tables).where(:time_tables => { :id => nil})
+      vehicles_passing_time_filtered.without_any_time_table
     elsif time_table_ids.empty?
       vehicles_passing_time_filtered
     else
