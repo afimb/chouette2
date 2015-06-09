@@ -1,6 +1,8 @@
 ChouetteIhm::Application.routes.draw do
 
-  devise_for :users, :controllers => { :registrations => "registrations", :invitations => 'invitations' }
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations', :invitations => 'users/invitations'
+  }
 
   devise_scope :user do
     authenticated :user do
