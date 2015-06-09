@@ -137,8 +137,11 @@ group :development do
   gem 'meta_request'
   gem 'letter_opener'
   gem 'quiet_assets',             '~> 1.0'
-  gem 'better_errors', :require => RUBY_VERSION.to_f >= 2
-  gem "binding_of_caller", :require => RUBY_VERSION.to_f >= 2
+
+  platforms :ruby_20, :ruby_21, :ruby_22 do
+    gem 'better_errors'
+    gem 'binding_of_caller'
+  end
 end
 
 group :test, :development do
