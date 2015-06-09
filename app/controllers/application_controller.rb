@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
 
   # Load helpers in rails engine
   helper LanguageEngine::Engine.helpers
- 
+
   def set_locale
     I18n.locale = session[:language] || I18n.default_locale
   end
-  
+
   protected
 
   def current_organisation
@@ -25,6 +25,5 @@ class ApplicationController < ActionController::Base
   # Overwriting the sign_out redirect path method
   def after_sign_out_path_for(resource_or_scope)
     new_user_session_path
-  end 
-  
+  end
 end

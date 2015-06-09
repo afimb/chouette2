@@ -21,8 +21,11 @@ class User < ActiveRecord::Base
     self.password_confirmation ||= self.password
   end
 
-  # remove organisation and referentials if last user of it
   after_destroy :check_destroy_organisation
+
+  private
+
+  # remove organisation and referentials if last user of it
   def check_destroy_organisation
     if organisation.users.empty?
       organisation.destroy
