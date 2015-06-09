@@ -40,7 +40,7 @@ module ReportConcern
   end
 
   def current_step
-    datas.progression.steps[progression.current_step]
+    datas.progression.steps[ progression.current_step - 1]
   end
   
   def step_progress
