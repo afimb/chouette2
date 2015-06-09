@@ -49,10 +49,12 @@ describe TimeTableCombination, :type => :model do
         source.reload
       end
       it "should intersect combined to source" do
-        expect(source.periods.size).to eq(1)
-        expect(source.periods[0].period_start).to eq(Date.new(2014,8,15))
-        expect(source.periods[0].period_end).to eq(Date.new(2014,8,31))
-      end
+        expect(source.int_day_types).to eq(0)
+        expect(source.periods.size).to eq(0)
+		  expect(source.dates.size).to eq(17)
+		  expect(source.dates[0].date).to eq(Date.new(2014,8,15))
+ 		  expect(source.dates[16].date).to eq(Date.new(2014,8,31))
+     end
     end
     context "when operation is disjoin" do
       before(:each) do
@@ -73,9 +75,11 @@ describe TimeTableCombination, :type => :model do
         source.reload
       end
       it "should disjoin combined to source" do
-        expect(source.periods.size).to eq(1)
-        expect(source.periods[0].period_start).to eq(Date.new(2014,8,1))
-        expect(source.periods[0].period_end).to eq(Date.new(2014,8,14))
+        expect(source.int_day_types).to eq(0)
+        expect(source.periods.size).to eq(0)
+		  expect(source.dates.size).to eq(14)
+		  expect(source.dates[0].date).to eq(Date.new(2014,8,1))
+ 		  expect(source.dates[13].date).to eq(Date.new(2014,8,14))
       end
     end
  end
