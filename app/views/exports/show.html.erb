@@ -1,5 +1,10 @@
-<div class="test">
-  <%= title_tag job_status_title(@export) %>
+<div class="title row">
+  <div class="col-md-8">
+    <%= title_tag job_status_title(@export) %>
+  </div>
+  <div class="col-md-4">
+    <%= export_attributes_tag(@export) %>
+  </div>
 </div>
 <% if @export.report.failure_code? %>
 <div class="alert alert-danger">
