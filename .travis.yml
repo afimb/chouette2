@@ -19,7 +19,7 @@ matrix:
     - rvm:  2.1.6
       jdk: openjdk7
     - rvm:  2.2.2
-      jdk: openjdk7      
+      jdk: openjdk7
 notifications:
   email:
     - mflorisson@cityway.fr
@@ -31,6 +31,7 @@ notifications:
 before_install:
   - sudo apt-get update
   - sudo apt-get install build-essential ruby-dev libproj-dev libgeos-dev libffi-dev libsparsehash-dev zlib1g-dev libxslt1-dev libxml2-dev libbz2-dev
+  - gem update bundler
 before_script:
   - "bundle exec rake ci:db_travis_config"
   - "bundle exec rake db:create"
