@@ -3,7 +3,7 @@ addons:
   postgresql: "9.3"
 rvm:
   - 1.9.3
-  - 2.1.5  
+  - 2.1.5
   - 2.1.6
   - jruby-1.7.19
 jdk:
@@ -14,16 +14,17 @@ matrix:
     - rvm:  1.9.3
       jdk: openjdk7
     - rvm:  2.1.5
-      jdk: openjdk7              
+      jdk: openjdk7
     - rvm:  2.1.6
-      jdk: openjdk7        
+      jdk: openjdk7
 notifications:
-  email:        
+  email:
     - mflorisson@cityway.fr
     - ldonnet@cityway.fr
     - metienne@cityway.fr
     - zbouziane@cityway.fr
     - alban.peignier@af83.com
+    - anicet.rohee@af83.com
 before_install:
   - sudo apt-get update
   - sudo apt-get install build-essential ruby-dev libproj-dev libgeos-dev libffi-dev libsparsehash-dev zlib1g-dev libxslt1-dev libxml2-dev libbz2-dev
