@@ -6,29 +6,44 @@
             width: initial !important;
         }
     }
-    
-    .front_bg{        
+
+    .front_bg{
         background: url(image-path('welcome.jpg')) no-repeat center center;
         background-size: cover;
-        
+
         #devise_middle{
             min-height: 620px;
             padding: 30px 20px 0px 20px;
-            
+
+            #registrations_new{
+
+                .error {
+                    input {
+                        border: 1px solid #d43f3a;
+                    }
+                }
+
+                span.help-block {
+                    margin-left: 5px;
+                    color: #d43f3a;
+                    font-size: 15px;
+                }
+            }
+
             #sessions_new{
 
                 .btn{
                     font-weight: bold;
                 }
-                
+
                 .product_summary{
                     padding: 30px 60px 0 60px;
-                    
+
                     color: white;
                     text-shadow: 0 0 1px rgba(0,0,0,.6);
 
                     p{
-                        font-size: 21px;                        
+                        font-size: 21px;
                     }
 
                     ul > li{ font-size: 21px; }
@@ -36,30 +51,30 @@
 
                 .login{
                     padding-top: 30px;
-                    
+
                     .form-group{
                         margin-bottom: 5px;
                     }
-                    
+
                     .options{
                         .new_password{
                             padding-top: 7px;
                         }
-                        
+
                         .checkbox{
                             font-weight: normal;
-                            
+
                             input[type="checkbox"]{
                                 margin-left: 0px !important;
                                 position: relative;
                                 margin: 0px 4px 0px 0px;
                             }
                         }
-                        
+
                         .form-group{
                             margin-bottom: 0px;
                         }
-                        
+
                         font-size: 12px;
                     }
                 }
