@@ -136,9 +136,12 @@ group :development do
   gem 'rails-erd'
   gem 'meta_request'
   gem 'letter_opener'
+  gem 'quiet_assets',             '~> 1.0'
+  gem 'better_errors',            '~> 2.0'
 end
 
 group :test, :development do
+  gem 'pry-rails'
   gem "rspec-rails", "~> 3.1.0"
   gem "fakeweb"
   gem 'capybara', "~> 2.4.0"
