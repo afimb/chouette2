@@ -42,16 +42,9 @@
           <% test.errors.first(10).each do |error| %>
             <p class="detail_error">
 	      <% if error["source"].present? %>		
-                <% if error["source"].objectid.present? %>
-	          <% data_content_1 = t("activemodel.attributes.compliance_check_result." + test.test_id) + ". " +
-		     t("compliance_check_result.details.detail_" + error[:error_id], object_labels_hash(error) ) %>
-	          <% data_title_1 = t("activemodel.attributes.compliance_check_result.detail") %>
-                  |- <button data-content='<%= data_content_1 %>' data-title='<%= data_title_1 %>' data-toggle="popover" class="notice btn btn-info btn-xs"><i class="fa fa-info"></i></button>
-                <% else %>
-		  <% data_content_2 = ValidationReport.human_attribute_name(validation_result.test_id) + t("validation_result.details." + error[:error_id] ) %>
-	          <% data_title_2 = t("activemodel.attributes.validation_result.detail") %>
-                  |- <button data-content='<%= data_content_2 %>' data-title='<%= data_title_2 %>' data-toggle="popover" class="notice btn btn-info btn-xs"><i class="fa fa-info"></i></button>
-                <% end %>
+	        <% data_content = t("activemodel.attributes.compliance_check_result." + test.test_id) + " " + t("compliance_check_result.details.detail_" + error[:error_id], object_labels_hash(error) ) %>
+	        <% data_title = t("activemodel.attributes.compliance_check_result.detail") %>
+                |- <button data-content='<%= data_content %>' data-title='<%= data_title %>' data-toggle="popover" class="notice btn btn-info btn-xs"><i class="fa fa-info"></i></button>
 		  
 		<% if error[:source].object_path.present? %>
 		  <% if error[:source].label.present? %>
