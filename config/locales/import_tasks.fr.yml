@@ -42,6 +42,7 @@ fr:
           attributes:
             resources:
               maximum_file_size: "Le fichier ne peut dépasser %{maximum_file_size} (%{file_size} soumis)"
+              invalid_mime_type: "Le fichier n'utilise pas le format attendu (%{mime_type} soumis)"
 
   formtastic:
     titles:

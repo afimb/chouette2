@@ -67,6 +67,8 @@ gem "map_layers", "0.0.4"
 gem "georuby-ext", "0.0.5"
 gem "georuby", "2.3.0" # Fix version for georuby-ext because api has changed
 
+gem 'mimemagic'
+
 # User interface
 gem 'language_engine', '0.0.6'
 gem 'calendar_helper', "0.2.5"

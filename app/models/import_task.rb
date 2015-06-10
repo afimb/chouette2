@@ -20,7 +20,7 @@ class ImportTask
   validates_presence_of :user_name
   validates_presence_of :name
 
-  validate :validate_file_size
+  validate :validate_file_size, :validate_file_content
 
   def initialize( params = {} )
     params.each {|k,v| send("#{k}=",v)}
@@ -129,6 +129,25 @@ class ImportTask
 
     if File.size(resources.path) > maximum_file_size
       message = I18n.t("activemodel.errors.models.import_task.attributes.resources.maximum_file_size", file_size:   ActionController::Base.helpers.number_to_human_size(File.size(resources.path)), maximum_file_size: ActionController::Base.helpers.number_to_human_size(maximum_file_size))
+      errors.add(:resources, message)
+    end
+  end
+
+  @@valid_mime_types = {
+    neptune: %w{application/zip application/xml},
+    netex: %w{application/zip},
+    gtfs: %w{application/zip  text/plain}
+  }
+  cattr_accessor :valid_mime_types
+
+  def validate_file_content
+    return unless resources.present? and resources.path.present? and File.exists? resources.path
+
+    mime_type = (File.open(resources.path) { |f| MimeMagic.by_magic f }).try :type
+    expected_mime_types = valid_mime_types[data_format.to_sym]
+
+    unless expected_mime_types.include? mime_type
+      message = I18n.t("activemodel.errors.models.import_task.attributes.resources.invalid_mime_type", mime_type: mime_type)
       errors.add(:resources, message)
     end
   end

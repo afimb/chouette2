@@ -245,6 +245,7 @@ GEM
       railties (>= 3.0.0, < 5.0.0)
     method_source (0.8.2)
     mime-types (2.4.3)
+    mimemagic (0.3.0)
     mini_portile (0.6.2)
     minitest (5.6.1)
     modernizr-rails (2.0.6)
@@ -521,6 +522,7 @@ DEPENDENCIES
   letter_opener
   map_layers (= 0.0.4)
   meta_request
+  mimemagic
   modernizr-rails (~> 2.0.6)
   newrelic_rpm
   ninoxe!

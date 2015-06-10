@@ -42,6 +42,7 @@ en:
           attributes:
             resources:
               maximum_file_size: "File should smaller than %{maximum_file_size} (%{file_size} sent)"
+              invalid_mime_type: "File doesn't use the expected format (%{mime_type} sent)"
   formtastic:
     titles:
       import_task:
