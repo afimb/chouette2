@@ -2,7 +2,8 @@
 
 <div class="compliance_check_show">
   <div class="links">
-    <% if @compliance_check.class == Import  %>
+    <%= link_to(font_awesome_classic_tag('fa-eye') + t("compliance_checks.index.title"), referential_compliance_check_path(@referential, @compliance_check.id)) %>
+    <% if @compliance_check.class == Import %>
       <%= link_to font_awesome_classic_tag("fa-external-link") + t("compliance_checks.rule_parameter_set"), rule_parameter_set_referential_import_path(@referential, @compliance_check.id) if @compliance_check.rule_parameter_set? %>
     <% else %>
       <%= link_to font_awesome_classic_tag("fa-external-link") + t("compliance_checks.rule_parameter_set"), rule_parameter_set_referential_compliance_check_path(@referential, @compliance_check.id) if @compliance_check.rule_parameter_set? %>
