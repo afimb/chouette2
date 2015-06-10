@@ -67,6 +67,6 @@ class ExportsController < ChouetteController
   end
 
   def collection
-    @exports ||= export_service.all.paginate(:page => params[:page])
+    @exports ||= export_service.all.sort_by{ |export| export.created_at }.reverse.paginate(:page => params[:page])
   end
 end

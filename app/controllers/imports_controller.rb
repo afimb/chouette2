@@ -97,7 +97,7 @@ class ImportsController < ChouetteController
   end
 
   def collection
-    @imports ||= import_service.all.paginate(:page => params[:page])
+    @imports ||= import_service.all.sort_by{ |import| import.created_at }.reverse.paginate(:page => params[:page])
   end
 
 end

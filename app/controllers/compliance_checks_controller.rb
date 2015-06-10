@@ -76,7 +76,7 @@ class ComplianceChecksController < ChouetteController
   end
 
   def collection
-    @compliance_checks ||= compliance_check_service.all.paginate(:page => params[:page])
+    @compliance_checks ||= compliance_check_service.all.sort_by{ |compliance_check| compliance_check.created_at }.reverse.paginate(:page => params[:page])
   end
 
 end
