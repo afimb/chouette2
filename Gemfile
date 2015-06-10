@@ -48,7 +48,7 @@ platforms :jruby do
 end
 
 platforms :ruby do
-  gem 'therubyracer', '~> 0.10.2'
+  gem 'therubyracer', '~> 0.12'
   gem 'pg'
   gem 'sqlite3'
 end
