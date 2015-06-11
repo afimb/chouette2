@@ -11,7 +11,7 @@ fr:
       report: "Rapport"
       imported_file: "Fichier source"
       rule_parameter_set: "Jeu de paramètres"
-      compliance_check: "Validation"
+      compliance_check: "Rapport de validation"
       compliance_check_of: "Validation de l'import : "
       import_of_validation: "L'import de la validation"
     compliance_check_task: "Validation"

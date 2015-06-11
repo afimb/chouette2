@@ -11,7 +11,7 @@ en:
       report: "Report"
       imported_file: "Original file"
       rule_parameter_set: "Rule parameter set"
-      compliance_check: "Validation"
+      compliance_check: "Validation report"
       compliance_check_of: "Validation of import: "
       import_of_validation: "Import of the validation"
     compliance_check_task: "Validate Report"
