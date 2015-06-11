@@ -1,9 +1,7 @@
-GIT
-  remote: https://github.com/afimb/ninoxe.git
-  revision: 5eb3f53d63e22055b939bd96da586020bd176514
-  branch: rails4
+PATH
+  remote: ~/dev/ninoxe
   specs:
-    ninoxe (1.1.5)
+    ninoxe (1.2.0)
       activerecord (~> 4.1.1)
       acts-as-taggable-on (>= 3)
       acts_as_list (>= 0.1.6)
