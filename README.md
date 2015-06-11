@@ -25,6 +25,7 @@ Requirements
 
 This code has been run and tested on [Travis](http://travis-ci.org/afimb/chouette2?branch=master) with :
 * Ruby 1.9.3 and 2.1.6
+* Bundler 1.10.3
 * Java 7
 * Postgres 9.3
 * Proj 4.8.0
@@ -40,6 +41,11 @@ Install ruby 2.1.6
 ```sh
 rvm  install ruby-2.1.6
 rvm --default use 2.1.6
+```
+
+Install bundler 1.10.3
+```sh
+gem install bundler -v 1.10.3
 ```
 
 On Debian/Ubuntu/Kubuntu OS : assume depot contains the correct version
@@ -69,7 +75,6 @@ cd chouette2
 ```
 Download gem librairies
 ```sh
-gem install bundler
 bundle install
 ```
 Create [Postgres database user] (./doc/install/postgresql.md)
