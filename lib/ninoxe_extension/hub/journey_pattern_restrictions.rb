@@ -8,12 +8,15 @@ module NinoxeExtension::Hub
 
       with_options if: :hub_restricted? do |jp|
         # HUB-39
-        jp.validates_format_of :objectid, :with => %r{\A\w+:\w+:[\w]{1,30}\z}
+        jp.validate :specific_objectid
         # HUB-40
         jp.validates :registration_number, :numericality => { :less_than => 10 ** 8 }
         # HUB-41
         jp.validates_format_of :name, :with => %r{\A[\w]{0,75}\z}
       end
+    end
+    def specific_objectid
+      validate_specific_objectid( 30)
     end
   end
 end
