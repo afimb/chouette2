@@ -54,7 +54,7 @@ Rails.application.configure do
   # AFIMB
   config.company_name = "afimb"
   config.company_theme = "#61970b" # AFIMB color
-  config.company_contact = "http://www.chouette.mobi/contact-support/"
+  config.company_contact = "http://www.chouette.mobi/club-utilisateurs/contact-support/"
   config.accept_user_creation = true
 
   # CITYWAY
@@ -67,7 +67,7 @@ Rails.application.configure do
   config.demo_data = "tmp/demo.zip"
 
   # link to validation specification pages
-  config.validation_spec = "http://www.chouette.mobi/neptune-validation/v20/"
+  config.validation_spec = "http://www.chouette.mobi/neptune-validation/v21/"
 
   config.i18n.available_locales = [:fr, :en]
 end

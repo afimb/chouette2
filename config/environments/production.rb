@@ -2,7 +2,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.eager_load = true
-  
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -48,7 +48,7 @@ Rails.application.configure do
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
-  
+
   # Use a different logger for distributed setups.
   #if ENV['OS'] == 'Windows_NT'
   #  # args = log_path,number of files,file sizes
@@ -83,13 +83,13 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  
+
   if ENV['CHOUETTE_BASE_URL'].nil?
     config.action_mailer.default_url_options = { :host => 'my-domain-name.com' }
   else
     config.action_mailer.default_url_options = { :host => ENV['CHOUETTE_BASE_URL'] }
-  end  
-  
+  end
+
   # Configure the e-mail address which will be shown in Devise::Maile
   if ENV['CHOUETTE_MAIL_SENDER'].nil?
     config.mailer_sender = "chouette-production@my-domain-name.com"
@@ -111,28 +111,28 @@ Rails.application.configure do
         :user_name      => ENV['CHOUETTE_SMTP_USER'],
         :password       => ENV['CHOUETTE_SMTP_PASSWORD'],
         :authentication => ENV['CHOUETTE_SMTP_AUTH']    }
-    end  
-  #end 
+    end
+  #end
 
   # Specific theme for each company
   # AFIMB
-  config.company_name = "afimb"  
+  config.company_name = "afimb"
   config.company_theme = "#61970b" # AFIMB color
-  config.company_contact = "http://www.chouette.mobi/contact-support/"
-  config.accept_user_creation = true  
+  config.company_contact = "http://www.chouette.mobi/club-utilisateurs/contact-support/"
+  config.accept_user_creation = true
 
   # CITYWAY
   # config.company_name = "cityway"
   # config.company_theme = "#32adb0"
   # config.company_contact = "http://www.cityway.fr/contact/?rub_code=14"
-  # config.accept_user_creation = false  
-  
+  # config.accept_user_creation = false
+
   # file to data for demo
   config.demo_data = ENV['CHOUETTE_DEMO_DATA'].nil? ? "/path/to/demo.zip" : ENV['CHOUETTE_DEMO_DATA']
-  
+
   # link to validation specification pages
-  config.validation_spec = "http://www.chouette.mobi/neptune-validation/v20/"
-  
+  config.validation_spec = "http://www.chouette.mobi/neptune-validation/v21/"
+
   # paths for external resources
   config.to_prepare do
     Devise::Mailer.layout "mailer"
