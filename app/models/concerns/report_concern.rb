@@ -67,11 +67,19 @@ module ReportConcern
   end
 
   def line_items
-    [].tap do |line_items|
+    @line_items ||= [].tap do |line_items|
       datas.lines.each do |line|
         line_items << LineItem.new(line)
       end if datas.lines?
     end
+  end
+
+  def saved_lines
+    line_items.map(&:status).count(true)
+  end
+
+  def unsaved_lines
+    line_items.map(&:status).count(false)
   end
 
   def lines
