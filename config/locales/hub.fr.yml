@@ -1,5 +1,6 @@
 fr:
   hub:
+    invalid: "est invalide"
     routes:
       wayback_code_exclusive: "Une autre séquence existe déjà dans le même sens (Aller ou Retour)"
       max_by_line: "Le format HUB n'autorise que 2 séquences d'arrêts au plus pour une ligne"

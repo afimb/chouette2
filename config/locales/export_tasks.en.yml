@@ -7,7 +7,7 @@ en:
       all: "All"
       flash: "Export task on queue, refresh page to see progression"
       fields_gtfs_export:
-        warning: "Filter on stop areas export only GTFS stops and transfers files, these may contain extra attributes"    
+        warning: "Filter on stop areas export only GTFS stops and transfers files, these may contain extra attributes"
   activemodel:
     models:
       export_task:
@@ -35,10 +35,10 @@ en:
         end_date_less_than: "End date must be less than or equal to %{tt_ed_date}."
         end_date_greater_than_start_date: "End date must be greater than start date"
         extensions: "Extensions"
-        created_at: "Created on"        
+        created_at: "Created on"
         status: "Status"
-        references_type: "Subset"
-        reference_ids: "Subset ids"
+        references_type: "Associated Data Type"
+        reference_ids: "Associated Data"
         object_id_prefix: "Neptune Id prefix"
         max_distance_for_commercial: "Max distance for commercial stop"
         max_distance_for_connection_link: "Max distance for connection link"

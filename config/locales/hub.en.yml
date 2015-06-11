@@ -1,5 +1,6 @@
 en:
   hub:
+    invalid: "is invalid"
     routes:
       wayback_code_exclusive: "Waybak already used for another route"
       max_by_line: "HUB format allows a maximum of 2 routes for a line"
