@@ -131,15 +131,15 @@ gem 'apartment', "~> 1.0.0"
 gem 'newrelic_rpm'
 
 group :development do
-  gem 'capistrano', '2.13.5'
+  gem 'capistrano',        '2.13.5'
   gem 'capistrano-ext'
   gem 'guard'
   gem 'guard-rspec'
   gem 'rails-erd'
   gem 'meta_request'
   gem 'letter_opener'
-  gem 'quiet_assets',             '~> 1.0'
-
+  gem 'quiet_assets',      '~> 1.0'
+  gem 'simplecov',         '~> 0.10.0'
   platforms :ruby_20, :ruby_21, :ruby_22 do
     gem 'better_errors'
     gem 'binding_of_caller'

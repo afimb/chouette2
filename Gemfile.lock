@@ -118,6 +118,7 @@ GEM
       actionmailer (>= 3.2.6, < 5)
       devise (>= 3.2.0)
     diff-lcs (1.2.5)
+    docile (1.1.5)
     dr-ffi-proj4 (0.0.3)
       ffi (>= 1.0.0)
     enumerize (0.10.1)
@@ -401,6 +402,11 @@ GEM
     simple_form (3.1.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
+    simplecov (0.10.0)
+      docile (~> 1.1.0)
+      json (~> 1.8)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     slop (3.6.0)
     spoon (0.0.4)
       ffi
@@ -547,6 +553,7 @@ DEPENDENCIES
   sawyer (~> 0.6.0)
   sdoc (~> 0.4.0)
   simple_form (~> 3.1.0)
+  simplecov (~> 0.10.0)
   spring
   sqlite3
   squeel
