@@ -2,14 +2,14 @@ $(".imports.show, .exports.show, .compliance_checks.show").ready ->
 
   get_export_results = (html_container, html_element) ->
     html_container.children().each ->
-      if( $( this ).is(html_element) )
-        $( this ).show()
+      if($(this).is(html_element))
+        $(this).show()
       else
-        $( this ).hide()
+        $(this).hide()
 
-  if $( "#files_statistics" ).length
+  getFileStatistics = (id)->
     Morris.Donut({
-      element: 'files_statistics',
+      element: id,
       data: [
         {
           label: $(".files_error").data('label'),
@@ -27,31 +27,27 @@ $(".imports.show, .exports.show, .compliance_checks.show").ready ->
       colors: [ "#e22b1b", "#898e7f", "#8fc861" ]
     }).on('click', update = (i, row) ->
       switch i
-        when 0 then get_export_results( $(".report"), $(".files_error"))
-        when 1 then get_export_results( $(".report"), $(".files_ignored"))
-        when 2 then get_export_results( $(".report"), $(".files_ok")) )
+        when 0 then get_export_results($(".report"), $(".files_error"))
+        when 1 then get_export_results($(".report"), $(".files_ignored"))
+        when 2 then get_export_results($(".report"), $(".files_ok"))
+    )
+    get_export_results($(".report"), $(".files_error"))
 
-  Morris.Bar({
-    element: 'objects_statistics',
-    data: [
-      { object: $("th.lines").text(), value: $(".lines table").data("total-lines")  },
-      { object: $("th.routes").text(), value: $(".lines table").data("total-routes")  },
-      { object: $("th.connection_links").text(), value: $(".lines table").data("total-connection_links") },
-      { object: $("th.time_tables").text(), value: $(".lines table").data("total-time_tables") },
-      { object: $("th.stop_areas").text(), value: $(".lines table").data("total-stop_areas") },
-      { object: $("th.access_points").text(), value: $(".lines table").data("total-access_points") },
-      { object: $("th.vehicle_journeys").text(), value: $(".lines table").data("total-vehicle_journeys") },
-      { object: $("th.journey_patterns").text(), value: $(".lines table").data("total-journey_patterns") },
-    ],
-    xkey: 'object',
-    ykeys: ['value'],
-    labels: [$(".lines table").data('label')]
-    xLabelAngle: 40,
-    xAxisLabelTopPadding: 7,
-    padding: 40,
-    hideHover: true
-  }).on('click', update = (i, row) ->
-    get_export_results( $(".report"), $("div.lines")) )
+  if $( "#files_statistics" ).length
+    getFileStatistics('files_statistics')
+
+  $('#ie_tab a.ie_tab_file').click (e) ->
+    e.preventDefault()
+    $('#ie_tab_line').hide()
+    $(this).tab('show')
+    $('#files_statistics, .caption').show()
+    get_export_results($(".report"), $(".files_error"))
+
+  $('#ie_tab a.ie_tab_line').click (e) ->
+    e.preventDefault()
+    $(this).tab('show')
+    $('#files_statistics, .caption').hide()
+    get_export_results( $(".report"), $("div.lines"))
 
   refreshInterval = $(".report").data("refresh-interval")
   if refreshInterval > 0

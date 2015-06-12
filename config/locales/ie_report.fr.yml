@@ -2,6 +2,9 @@ fr:
   shared:
     ie_report:
       html:
+        tab:
+          file: 'file'
+          line: 'line'
         graph:
           files:
             title_default: "Résultat d'%{job} du fichier %{extension}"

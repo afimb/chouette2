@@ -1,6 +1,6 @@
 .status {
   margin-left: 10px;
-}   
+}
 
 .status_aborted,.status_canceled { color: #a94442;}
 .status_started { color: #31708f;}
@@ -56,13 +56,11 @@
 
   div.lines{
     display: none;
-    
     th, td{
       text-align: center;
       }
 
     .fa-check{ color: $brand-success; }
-    .fa-times{ color: $brand-danger; }  
-        
+    .fa-times{ color: $brand-danger; }
   }
-}  
+}

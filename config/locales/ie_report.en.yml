@@ -1,7 +1,10 @@
 en:
   shared:
-    ie_report:      
+    ie_report:
       html:
+        tab:
+          file: 'file'
+          line: 'line'
         graph:
           files:
             title_default: "%{job} result for %{extension} file"
@@ -10,7 +13,7 @@ en:
             ok: "Success"
           lines:
             title: "Data size by object types"
-            objects_label: "Objects count"      
+            objects_label: "Objects count"
         table:
           line:
             save: "Save"
@@ -25,4 +28,3 @@ en:
             not_saved: "Not saved"
             saved: "Saved"
             save_error: "Save error"
-          

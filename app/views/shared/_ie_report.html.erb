@@ -1,13 +1,44 @@
 <div class="resume row">
-  <% if job.respond_to?(:file_path) %>
-  <div class="col-md-4">
-    <div class="caption"><%= t(".graph.files.title_default", {:job => job.class.model_name.human, :extension => job.filename_extension} ) %></div>
-    <div id="files_statistics"></div>
-  </div>
-  <% end %>
-  <div class="col-md-8">
-    <div class="caption"><%= t ".graph.lines.title" %></div>
-    <div id="objects_statistics"></div>
+  <ul class="nav nav-tabs" role="tablist" id="ie_tab">
+    <% if job.respond_to?(:file_path) %>
+      <li role="presentation" class="active">
+        <a href="#ie_tab_file" class="ie_tab_file" aria-controls="ie_tabe_file" role="tab" data-toggle="tab">
+          <%=t('.tab.file')%>
+        </a>
+      </li>
+    <% end %>
+    <li role="presentation">
+      <a href="#ie_tab_line" class="ie_tab_line"  aria-controls="ie_tab_line" role="tab" data-toggle="tab">
+        <%=t('.tab.line')%>
+      </a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <% if job.respond_to?(:file_path) %>
+      <div role="tabpanel" class="tab-pane active" id="ie_tabe_file">
+        <div class="caption"><%= t(".graph.files.title_default", {:job => job.class.model_name.human, :extension => job.filename_extension} ) %></div>
+        <div id="files_statistics"></div>
+      </div>
+    <% end %>
+    <div role="tabpanel" class="tab-pane" id="ie_tab_line">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>nombre de lignes lues</th>
+            <th>nombre de lignes sauvegardés</th>
+            <th>nombre de lignes non-sauvegardées (A-B ...)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= job.report.lines %></td>
+            <td><%= job.report.saved_lines %></td>
+            <td><%= job.report.unsaved_lines %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
