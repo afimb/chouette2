@@ -1,12 +1,11 @@
-<div class="resume row">
-  <ul class="nav nav-tabs" role="tablist" id="ie_tab">
-    <% if job.respond_to?(:file_path) %>
+<div class="resume">
+  <% if job.respond_to?(:file_path) %>
+  <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active">
-        <a href="#ie_tab_file" class="ie_tab_file" aria-controls="ie_tabe_file" role="tab" data-toggle="tab">
+        <a href="#ie_tab_file" class="ie_tab_file" aria-controls="ie_tab_file" role="tab" data-toggle="tab">
           <%=t('.tab.file')%>
         </a>
       </li>
-    <% end %>
     <li role="presentation">
       <a href="#ie_tab_line" class="ie_tab_line"  aria-controls="ie_tab_line" role="tab" data-toggle="tab">
         <%=t('.tab.line')%>
@@ -15,85 +14,14 @@
   </ul>
 
   <div class="tab-content">
-    <% if job.respond_to?(:file_path) %>
-      <div role="tabpanel" class="tab-pane active" id="ie_tabe_file">
-        <div class="caption"><%= t(".graph.files.title_default", {:job => job.class.model_name.human, :extension => job.filename_extension} ) %></div>
-        <div id="files_statistics"></div>
+      <div role="tabpanel" class="tab-pane active" id="ie_tab_file">
+        <%= render partial: 'shared/ie_report_file', locals: { job: job } %>
       </div>
-    <% end %>
     <div role="tabpanel" class="tab-pane" id="ie_tab_line">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>nombre de lignes lues</th>
-            <th>nombre de lignes sauvegardés</th>
-            <th>nombre de lignes non-sauvegardées (A-B ...)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><%= job.report.lines %></td>
-            <td><%= job.report.saved_lines %></td>
-            <td><%= job.report.unsaved_lines %></td>
-          </tr>
-        </tbody>
-      </table>
+        <%= render partial: 'shared/ie_report_line', locals: { job: job } %>
     </div>
   </div>
-</div>
-
-<div class="report" data-refresh-interval="<%= job_refresh_interval(job) %>">
-  <div class="files files_error" data-label="<%= t('.graph.files.error') %>">
-    <% job.report.error_files.each_with_index do |file, index| %>
-      <div class="col-md-6">
-        <%= image_tag "icons/file_xml_md.png" %><span class="file_name" title='<%= file.name %>'><%= truncate(file.name, :length => 40) %></span>
-      </div>
-    <% end %>
-  </div>
-  <div class="files files_ignored" data-label="<%= t('.graph.files.ignored') %>">
-    <% job.report.ignored_files.each_with_index do |file, index| %>
-      <div class="col-md-6">
-        <%= image_tag "icons/file_xml_md.png" %><span class="file_name" title='<%= file.name %>'><%= truncate(file.name, :length => 40) %></span>
-      </div>
-    <% end %>
-  </div>
-  <div class="files files_ok" data-label="<%= t('.graph.files.ok') %>">
-    <% job.report.ok_files.each_with_index do |file, index| %>
-      <div class="col-md-6">
-        <%= image_tag "icons/file_xml_md.png" %><span class="file_name" title='<%= file.name %>'><%= truncate(file.name, :length => 40) %></span>
-      </div>
-    <% end %>
-  </div>
-  <div class="lines">
-    <table class="table table-hover table-striped" data-label="<%= t('.graph.lines.objects_label') %>" data-total-lines="<%= job.report.lines %>" data-total-routes="<%= job.report.routes %>" data-total-connection_links="<%= job.report.connection_links %>", data-total-time_tables="<%= job.report.time_tables %>" data-total-stop_areas="<%= job.report.stop_areas %>" data-total-access_points="<%= job.report.access_points %>" data-total-vehicle_journeys="<%= job.report.vehicle_journeys %>" data-total-journey_patterns="<%= job.report.journey_patterns %>" >
-      <thead>
-        <tr>
-	  <th class="save"><%= t(".table.line.save") %></th>
-          <th class="lines"><%= t(".table.line.lines") %></th>
-          <th class="routes"><%= t(".table.line.routes") %></th>
-          <th class="connection_links"><%= t(".table.line.connection_links") %></th>
-          <th class="time_tables"><%= t(".table.line.time_tables") %></th>
-          <th class="stop_areas"><%= t(".table.line.stop_areas") %></th>
-          <th class="access_points"><%= t(".table.line.access_points") %></th>
-          <th class="vehicle_journeys"><%= t(".table.line.vehicle_journeys") %></th>
-          <th class="journey_patterns"><%= t(".table.line.journey_patterns") %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% job.report.line_items.each_with_index do |line_item, index| %>
-          <tr>
-	    <td><%= line_item.status ? font_awesome_classic_tag("fa-check") : font_awesome_classic_tag("fa-times")  %></td>
-            <td><%= line_item.name %></td>
-            <td><%= line_item.routes %></td>
-            <td><%= line_item.connection_links %></td>
-            <td><%= line_item.time_tables %></td>
-            <td><%= line_item.stop_areas %></td>
-            <td><%= line_item.access_points %></td>
-            <td><%= line_item.vehicle_journeys %></td>
-            <td><%= line_item.journey_patterns %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+  <% else %>
+    <%= render partial: 'shared/ie_report_line', locals: { job: job } %>
+  <% end %>
 </div>

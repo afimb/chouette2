@@ -1,0 +1,26 @@
+<div class="caption"><%= t(".graph.files.title_default", {:job => job.class.model_name.human, :extension => job.filename_extension} ) %></div>
+<div id="files_statistics"></div>
+
+<div class="report results" data-refresh-interval="<%= job_refresh_interval(job) %>">
+  <div class="files files_error" data-label="<%= t('.graph.files.error') %>">
+    <% job.report.error_files.each_with_index do |file, index| %>
+      <div class="col-md-6">
+        <%= image_tag "icons/file_xml_md.png" %><span class="file_name" title='<%= file.name %>'><%= truncate(file.name, :length => 40) %></span>
+      </div>
+    <% end %>
+  </div>
+  <div class="files files_ignored" data-label="<%= t('.graph.files.ignored') %>">
+    <% job.report.ignored_files.each_with_index do |file, index| %>
+      <div class="col-md-6">
+        <%= image_tag "icons/file_xml_md.png" %><span class="file_name" title='<%= file.name %>'><%= truncate(file.name, :length => 40) %></span>
+      </div>
+    <% end %>
+  </div>
+  <div class="files files_ok" data-label="<%= t('.graph.files.ok') %>">
+    <% job.report.ok_files.each_with_index do |file, index| %>
+      <div class="col-md-6">
+        <%= image_tag "icons/file_xml_md.png" %><span class="file_name" title='<%= file.name %>'><%= truncate(file.name, :length => 40) %></span>
+      </div>
+    <% end %>
+  </div>
+</div>

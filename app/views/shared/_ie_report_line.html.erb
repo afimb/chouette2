@@ -1,0 +1,37 @@
+<p class="lead">
+  <p><b><%=t('.read_lines') %></b> : <%= job.report.lines %></p>
+  <p><b><%=t('.saved_lines') %></b> : <%= job.report.saved_lines %></p>
+  <p><b><%=t('.unsaved_lines') %></b> : <%= job.report.unsaved_lines %></p>
+</p>
+<div class="report" data-refresh-interval="<%= job_refresh_interval(job) %>">
+   <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th class="save"><%= t(".table.line.save") %></th>
+        <th class="lines"><%= t(".table.line.lines") %></th>
+        <th class="routes"><%= t(".table.line.routes") %></th>
+        <th class="connection_links"><%= t(".table.line.connection_links") %></th>
+        <th class="time_tables"><%= t(".table.line.time_tables") %></th>
+        <th class="stop_areas"><%= t(".table.line.stop_areas") %></th>
+        <th class="access_points"><%= t(".table.line.access_points") %></th>
+        <th class="vehicle_journeys"><%= t(".table.line.vehicle_journeys") %></th>
+        <th class="journey_patterns"><%= t(".table.line.journey_patterns") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% job.report.line_items.each_with_index do |line_item, index| %>
+        <tr>
+          <td><%= line_item.status ? font_awesome_classic_tag("fa-check") : font_awesome_classic_tag("fa-times")  %></td>
+          <td><%= line_item.name %></td>
+          <td><%= line_item.routes %></td>
+          <td><%= line_item.connection_links %></td>
+          <td><%= line_item.time_tables %></td>
+          <td><%= line_item.stop_areas %></td>
+          <td><%= line_item.access_points %></td>
+          <td><%= line_item.vehicle_journeys %></td>
+          <td><%= line_item.journey_patterns %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
