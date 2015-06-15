@@ -30,8 +30,9 @@ class ExportTask
   end
 
   def period_validation
-    st_date = Date.parse(start_date) unless start_date.blank?
-    ed_date = Date.parse(end_date) unless end_date.blank?
+    st_date = start_date.is_a?(String) ? Date.parse(start_date) : start_date
+    ed_date = end_date.is_a?(String) ? Date.parse(end_date) : end_date
+
     unless  Chouette::TimeTable.start_validity_period.nil? || st_date.nil?
       tt_st_date = Chouette::TimeTable.start_validity_period
       errors.add(:start_date, ExportTask.human_attribute_name("start_date_greater_than" , {:tt_st_date => tt_st_date})) unless tt_st_date <= st_date
@@ -101,6 +102,18 @@ class ExportTask
   def params_io
     file = StringIO.new( params.to_json )
     Faraday::UploadIO.new(file, "application/json", "parameters.json")
+  end
+
+  def self.optional_attributes(references_type)
+    []
+  end
+
+  def optional_attributes
+    self.class.optional_attributes(references_type.to_s)
+  end
+
+  def optional_attribute?(attribute)
+    optional_attributes.include? attribute.to_sym
   end
 
 end

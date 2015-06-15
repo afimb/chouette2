@@ -1,12 +1,12 @@
 class GtfsExport < ExportTask
 
-  validates_presence_of :time_zone
+  validates_presence_of :time_zone, unless: Proc.new { |e| e.optional_attribute? :time_zone }
   attr_accessor :object_id_prefix, :time_zone
 
   enumerize :references_type, in: %w( network line company group_of_line stop_area )
-  
+
   after_initialize :init_params
-  
+
   def init_params
     if time_zone.nil?
       self.time_zone = "Paris"
@@ -32,6 +32,12 @@ class GtfsExport < ExportTask
         "end_date" => end_date
       }
     }
+  end
+
+  def self.optional_attributes(references_type)
+    super.tap do |optional_attributes|
+      optional_attributes.push :time_zone, :start_date, :end_date if references_type == "stop_area"
+    end
   end
 
   def data_format

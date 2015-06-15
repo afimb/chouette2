@@ -1,6 +1,6 @@
 <%= title_tag t(".title") %>
 <ul class="nav nav-pills">
-  <% ExportTask.data_formats.each do |format| %>  
+  <% ExportTask.data_formats.each do |format| %>
   <li role="presentation"><a href="#<%= format %>" class='<%= @export_task.data_format == format ? "#{format} active" : "#{format}" %>' title='<%= t(:"enumerize.data_format_detail.#{format}")%>' data-toggle="tab"><%= t(:"enumerize.data_format.#{format}") %></a></li>
   <% end %>
 </ul>
@@ -8,23 +8,22 @@
 <div class="tab-content">
 <% @available_exports.each do |export_task| %>
   <%= semantic_form_for [@referential, export_task], :as => :export_task, :url => referential_export_tasks_path(@referential), :namespace => export_task.data_format ,:html => { :id => "#{export_task.data_format}", :class => "tab-pane highlight"} do |form| %>
-        <%= form.inputs do %>
+  <%= form.inputs do %>
 	  <%= form.input :user_name, :as => :hidden, :input_html => { :value => current_user.name } %>
 	  <%= form.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
 	  <%= form.input :data_format, :as => :hidden %>
-	  <%= form.input :referential_id, :as => :hidden, :input_html => { :value => @referential.id } %>	  
-          <%= form.input :name %>  
-          <%= form.input :references_type, :as => :select, :include_blank => t(".all") %>
+	  <%= form.input :referential_id, :as => :hidden, :input_html => { :value => @referential.id } %>
+    <%= form.input :name %>
+    <%= form.input :references_type, as: :select, include_blank: t(".all"), collection: export_task.class.references_type.options.map { |o| o << {data:{"hidden-attributes": export_task.class.optional_attributes(o.second).join(',') }} }  %>
 	  <% export_task.class.references_types.each do |type| %>
-	      <%= form.input :reference_ids, :as => :reference_ids, :json => references_referential_export_tasks_path(@referential, :format => :json) + "?filter=#{type}", :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'), :id => "#{export_task.data_format}_#{type}_reference_ids", :input_html => { :id => "#{export_task.data_format}_#{type}_reference_ids" }, :wrapper_html => { :style => "display:none;", :id => "#{export_task.data_format}_#{type}", :"data-type" => "#{type}" } %>
-	   <% end %>
-          <% end %>
+	    <%= form.input :reference_ids, :as => :reference_ids, :json => references_referential_export_tasks_path(@referential, :format => :json) + "?filter=#{type}", :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'), :id => "#{export_task.data_format}_#{type}_reference_ids", :input_html => { :id => "#{export_task.data_format}_#{type}_reference_ids" }, :wrapper_html => { style: "display:none;", "data-type": type.to_s } %>
+	  <% end %>
+  <% end %>
 
-	  <%= form.input :start_date, :as => :date_picker, :input_html => { :title => t("formtastic.titles.export_task.start_date")} %>
-	  <%= form.input :end_date, :as => :date_picker, :input_html => { :title => t("formtastic.titles.export_task.end_date")} %>
+  <%= form.input :start_date, :as => :date_picker, :input_html => { :title => t("formtastic.titles.export_task.start_date")} %>
+  <%= form.input :end_date, :as => :date_picker, :input_html => { :title => t("formtastic.titles.export_task.end_date")} %>
 
-    
-        <%= render partial: "fields_#{export_task.data_format}_export", :locals => { :form => form } %>
+  <%= render partial: "fields_#{export_task.data_format}_export", :locals => { :form => form } %>
 
 	<%= form.actions do %>
 	  <%= form.action :submit, :as => :button , :label => t( 'formtastic.export' ) %>
@@ -36,4 +35,3 @@
 </div>
 
 <%= javascript_include_tag new_referential_export_task_path(@referential, :format => :js) %>
- 
