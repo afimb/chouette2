@@ -11,7 +11,7 @@ en:
       unsaved_lines: 'Unsaved lines'
       table:
         line:
-          save: "Save"
+          state: "State"
           routes: "Routes"
           lines: "Lines"
           connection_links: "Connection links"

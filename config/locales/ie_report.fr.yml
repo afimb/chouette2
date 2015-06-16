@@ -11,7 +11,7 @@ fr:
       unsaved_lines: 'Lignes non-sauvegardés'
       table:
         line:
-          save: "Sauvegarde"
+          state: "Etat"
           routes: "Séquences d'arrêts"
           lines: "Lignes"
           connection_links: "Correspondances"
