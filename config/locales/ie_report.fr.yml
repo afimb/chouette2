@@ -1,9 +1,10 @@
 fr:
   shared:
     ie_report:
-      tab:
-        file: 'File'
-        line: 'Line'
+      html:
+        tab:
+          file: 'Fichiers'
+          line: 'Lignes'
     ie_report_line:
       read_lines: 'Lignes lues'
       saved_lines: 'Lignes sauvegardés'

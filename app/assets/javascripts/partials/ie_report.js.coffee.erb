@@ -1,41 +1,5 @@
 $(".imports.show, .exports.show, .compliance_checks.show").ready ->
 
-  getFileResults = (html_container, html_element) ->
-    html_container.children().each ->
-      if($(this).is(html_element))
-        $(this).show()
-      else
-        $(this).hide()
-
-  getFileStatistics = (id)->
-    Morris.Donut({
-      element: id,
-      data: [
-        {
-          label: $(".files_error").data('label'),
-          value: $('.files_error span.file_name').size()
-        },
-        {
-          label: $(".files_ignored").data('label'),
-          value: $('.files_ignored span.file_name').size()
-        },
-        {
-          label: $(".files_ok").data('label'),
-          value: $('.files_ok span.file_name').size()
-        }
-      ],
-      colors: [ "#e22b1b", "#898e7f", "#8fc861" ]
-    }).on('click', update = (i, row) ->
-      switch i
-        when 0 then getFileResults($(".results"), $(".files_error"))
-        when 1 then getFileResults($(".results"), $(".files_ignored"))
-        when 2 then getFileResults($(".results"), $(".files_ok"))
-    )
-    getFileResults($(".results"), $(".files_error"))
-
-  if $( "#files_statistics" ).length
-    getFileStatistics('files_statistics')
-
   refreshInterval = $(".report").data("refresh-interval")
   if refreshInterval > 0
     reloadPage = () -> window.location.reload()

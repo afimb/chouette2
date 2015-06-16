@@ -51,7 +51,7 @@ module ReportConcern
   end
 
   def files
-    datas.files || []
+    @files ||= datas.files || []
   end
 
   def error_files

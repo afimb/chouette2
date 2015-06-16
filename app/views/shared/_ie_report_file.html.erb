@@ -1,26 +1,23 @@
-<div class="caption"><%= t(".graph.files.title_default", {:job => job.class.model_name.human, :extension => job.filename_extension} ) %></div>
-<div id="files_statistics"></div>
-
+<p class="lead">
+<p class="caption"><%= t(".graph.files.title_default", {:job => job.class.model_name.human, :extension => job.filename_extension} ) %></p>
+</p>
 <div class="report results" data-refresh-interval="<%= job_refresh_interval(job) %>">
-  <div class="files files_error" data-label="<%= t('.graph.files.error') %>">
-    <% job.report.error_files.each_with_index do |file, index| %>
-      <div class="col-md-6">
-        <%= image_tag "icons/file_xml_md.png" %><span class="file_name" title='<%= file.name %>'><%= truncate(file.name, :length => 40) %></span>
-      </div>
-    <% end %>
-  </div>
-  <div class="files files_ignored" data-label="<%= t('.graph.files.ignored') %>">
-    <% job.report.ignored_files.each_with_index do |file, index| %>
-      <div class="col-md-6">
-        <%= image_tag "icons/file_xml_md.png" %><span class="file_name" title='<%= file.name %>'><%= truncate(file.name, :length => 40) %></span>
-      </div>
-    <% end %>
-  </div>
-  <div class="files files_ok" data-label="<%= t('.graph.files.ok') %>">
-    <% job.report.ok_files.each_with_index do |file, index| %>
-      <div class="col-md-6">
-        <%= image_tag "icons/file_xml_md.png" %><span class="file_name" title='<%= file.name %>'><%= truncate(file.name, :length => 40) %></span>
-      </div>
-    <% end %>
-  </div>
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th class="state"><%= t(".table.line.state") %></th>
+        <th class="name"><%= t(".table.line.name") %></th>
+        <th class="error"><%= t(".table.line.error") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% job.report.files.each do |file| %>
+        <tr class="<%= file.status == 'ERROR' ? 'danger' : nil %>">
+          <td><%= t(".graph.files.#{file.status.downcase}") %></td>
+          <td><%= file.name %></td>
+          <td><%= file.errors.map{|e| "#{e.code} : #{e.description}"}.join(' | ') if file.errors.present? %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
