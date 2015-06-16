@@ -5,4 +5,6 @@ $(".imports.show, .exports.show, .compliance_checks.show").ready ->
     reloadPage = () -> window.location.reload()
     setInterval(reloadPage,refreshInterval * 1000)
 
-  $('.data-table').DataTable();
+
+  $('.data-table').DataTable language:
+    url: "/assets/data_table/i18n/#{$('html').attr('lang')}.json"
