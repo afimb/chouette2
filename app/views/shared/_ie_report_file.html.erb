@@ -2,7 +2,7 @@
 <p class="caption"><%= t(".graph.files.title_default", {:job => job.class.model_name.human, :extension => job.filename_extension} ) %></p>
 </p>
 <div class="report results" data-refresh-interval="<%= job_refresh_interval(job) %>">
-  <table class="table table-hover table-striped">
+  <table class="table table-hover table-striped data-table">
     <thead>
       <tr>
         <th class="state"><%= t(".table.line.state") %></th>

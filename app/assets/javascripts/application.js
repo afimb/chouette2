@@ -18,6 +18,7 @@
 //= require moment/locale/fr
 //= require eonasdan-bootstrap-datetimepicker
 //= require tagmanager
+//= require datatables
 //= require_directory ./plugins
 //= require_directory .
 //= require_directory ./stop_areas

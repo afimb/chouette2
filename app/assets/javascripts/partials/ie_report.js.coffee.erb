@@ -4,3 +4,5 @@ $(".imports.show, .exports.show, .compliance_checks.show").ready ->
   if refreshInterval > 0
     reloadPage = () -> window.location.reload()
     setInterval(reloadPage,refreshInterval * 1000)
+
+  $('.data-table').DataTable();
