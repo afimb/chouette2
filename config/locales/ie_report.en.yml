@@ -24,9 +24,10 @@ en:
           saved: "Saved"
           save_error: "Save error"
     ie_report_file:
-      graph:
-        files:
-          title_default: "%{job} result for %{extension} file"
-          error: "Errors"
-          ignored: "Ignored"
-          ok: "Success"
+      title_default: "%{job} result for %{extension} file"
+      table:
+        state: 'State'
+        name: 'Filename'
+        error: "Error"
+        ignored: "Ignored"
+        ok: "Success"
