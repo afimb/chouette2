@@ -85,9 +85,9 @@ gem "modernizr-rails", "~> 2.0.6"
 
 # Javascript
 source 'https://rails-assets.org' do
-  gem 'rails-assets-morrisjs', "~> 0.5.1"
-  gem 'rails-assets-raphael', "~> 2.1.3"
-  gem 'rails-assets-datatables'
+  gem 'rails-assets-morrisjs',   '~> 0.5.1'
+  gem 'rails-assets-raphael',    '~> 2.1.3'
+  gem 'rails-assets-footable',   '~> 2.0.3'
 
   # Use twitter bootstrap resources
   gem 'rails-assets-bootstrap-sass-official', '~> 3.3.0'

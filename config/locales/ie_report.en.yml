@@ -2,6 +2,7 @@ en:
   shared:
     ie_report:
       html:
+        search: 'Search'
         tab:
           file: 'Files'
           line: 'Lines'

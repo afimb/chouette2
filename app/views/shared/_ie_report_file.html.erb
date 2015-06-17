@@ -2,7 +2,24 @@
 <p class="caption"><%= t(".title_default", {:job => job.class.model_name.human, :extension => job.filename_extension} ) %></p>
 </p>
 <div class="report results" data-refresh-interval="<%= job_refresh_interval(job) %>">
-  <table class="table table-hover table-striped data-table">
+  <p>
+    <form class="form-inline">
+      <div class="form-group">
+        <label><%= t("shared.ie_report.html.search") %></label>
+        <input id="filter-file" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label><%= t(".table.state") %></label>
+        <select class="filter-file-status form-control">
+          <option></option>
+          <option value="ok"><%=t(".table.ok")%></option>
+          <option value="error"><%=t(".table.error")%></option>
+          <option value="ignored"><%=t(".table.ignored")%></option>
+        </select>
+      </div>
+    </form>
+  </p>
+  <table id="table-file" class="table table-hover table-striped data-table" data-filter="#filter-file" data-page-size="20">
     <thead>
       <tr>
         <th class="state"><%= t(".table.state") %></th>
@@ -13,11 +30,16 @@
     <tbody>
       <% job.report.files.each do |file| %>
         <tr class="<%= file.status == 'ERROR' ? 'danger' : nil %>">
-          <td><%= t(".table.#{file.status.downcase}") %></td>
+          <td data-value="<%= file.status.downcase %>"><%= t(".table.#{file.status.downcase}") %></td>
           <td><%= file.name %></td>
           <td><%= file.errors.map{|e| "#{e.code} : #{e.description}"}.join(' | ') if file.errors.present? %></td>
         </tr>
       <% end %>
     </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="5"><ul class="pagination pagination-centered"></ul></td>
+      </tr>
+    </tfoot>
   </table>
 </div>

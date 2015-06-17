@@ -1,27 +1,48 @@
-<p class="lead">
-  <p><b><%=t('.read_lines') %></b> : <%= job.report.lines %></p>
-  <p><b><%=t('.saved_lines') %></b> : <%= job.report.saved_lines %></p>
-  <p><b><%=t('.unsaved_lines') %></b> : <%= job.report.unsaved_lines %></p>
+<p class='lead'>
+  <dl class="inline">
+    <dt><%=t('.read_lines') %> :</dt>
+    <dd><%= job.report.lines %></dd>
+    <dt><%=t('.saved_lines') %> :</dt>
+    <dd><%= job.report.saved_lines %></dd>
+    <dt><%=t('.unsaved_lines') %> :</dt>
+    <dd><%= job.report.unsaved_lines %></dd>
+  </dl>
 </p>
 <div class="report" data-refresh-interval="<%= job_refresh_interval(job) %>">
-   <table class="table table-hover table-striped data-table">
+  <p>
+    <form class="form-inline">
+      <div class="form-group">
+        <label><%= t("shared.ie_report.html.search") %></label>
+        <input id="filter-line" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label><%= t(".table.line.state") %></label>
+        <select class="filter-line-status form-control">
+          <option></option>
+          <option value="true"><%=t('.saved_lines') %></option>
+          <option value="false"><%=t('.unsaved_lines') %></option>
+        </select>
+      </div>
+    </form>
+  </p>
+  <table id="table-line" class="table table-hover table-striped data-table" data-filter="#filter-line" data-page-size="20">
     <thead>
       <tr>
-        <th class="state"><%= t(".table.line.state") %></th>
-        <th class="lines"><%= t(".table.line.lines") %></th>
-        <th class="routes"><%= t(".table.line.routes") %></th>
-        <th class="connection_links"><%= t(".table.line.connection_links") %></th>
-        <th class="time_tables"><%= t(".table.line.time_tables") %></th>
-        <th class="stop_areas"><%= t(".table.line.stop_areas") %></th>
-        <th class="access_points"><%= t(".table.line.access_points") %></th>
-        <th class="vehicle_journeys"><%= t(".table.line.vehicle_journeys") %></th>
-        <th class="journey_patterns"><%= t(".table.line.journey_patterns") %></th>
+        <th><%= t(".table.line.state") %></th>
+        <th data-toggle="true"><%= t(".table.line.lines") %></th>
+        <th data-hide="all"><%= t(".table.line.routes") %></th>
+        <th data-hide="all"><%= t(".table.line.connection_links") %></th>
+        <th data-hide="all"><%= t(".table.line.time_tables") %></th>
+        <th data-hide="all"><%= t(".table.line.stop_areas") %></th>
+        <th data-hide="all"><%= t(".table.line.access_points") %></th>
+        <th data-hide="all"><%= t(".table.line.vehicle_journeys") %></th>
+        <th data-hide="all"><%= t(".table.line.journey_patterns") %></th>
       </tr>
     </thead>
     <tbody>
       <% job.report.line_items.each_with_index do |line_item, index| %>
         <tr>
-          <td><%= line_item.status ? font_awesome_classic_tag("fa-check") : font_awesome_classic_tag("fa-times")  %></td>
+          <td data-value="<%=line_item.status%>"><%= line_item.status ? font_awesome_classic_tag("fa-check") : font_awesome_classic_tag("fa-times")  %></td>
           <td><%= line_item.name %></td>
           <td><%= line_item.routes %></td>
           <td><%= line_item.connection_links %></td>
@@ -33,5 +54,10 @@
         </tr>
       <% end %>
     </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="5"><ul class="pagination pagination-centered"></ul></td>
+      </tr>
+    </tfoot>
   </table>
 </div>

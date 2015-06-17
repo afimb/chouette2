@@ -23,10 +23,27 @@
     text-align :center;
     font-weight: bold;
   }
+
+  dl.inline dd {
+    display: inline;
+    margin: 0;
+  }
+  dl.inline dd:after{
+    display: block;
+    content: '';
+  }
+  dl.inline dt{
+    display: inline-block;
+    min-width: 180px;
+  }
 }
 
 .report {
   margin-top: 20px;
+
+  .form-group {
+    margin-right: 20px;
+  }
 
   .files {
     img {

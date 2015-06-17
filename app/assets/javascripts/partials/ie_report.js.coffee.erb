@@ -5,6 +5,17 @@ $(".imports.show, .exports.show, .compliance_checks.show").ready ->
     reloadPage = () -> window.location.reload()
     setInterval(reloadPage,refreshInterval * 1000)
 
+  footableFilter = (parent, el) ->
+    $(parent).footable().bind 'footable_filtering', (e) ->
+      selected =  $("select#{el} option:selected").val()
+      if selected and selected.length > 0
+        e.filter += if e.filter and e.filter.length > 0 then ' ' + selected else selected
+        e.clear = !e.filter
+      return
+    $("select#{el}").change (e) ->
+      e.preventDefault()
+      $(parent).trigger 'footable_filter', filter: $("select#{el} option:selected").val()
+      return
 
-  $('.data-table').DataTable language:
-    url: "/assets/data_table/i18n/#{$('html').attr('lang')}.json"
+  footableFilter('#table-file', '.filter-file-status')
+  footableFilter('#table-line', '.filter-line-status')
