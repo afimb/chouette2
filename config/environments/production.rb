@@ -29,7 +29,7 @@ Rails.application.configure do
   config.assets.compile = false
 
   # Generate digests for assets URLs.
-  config.assets.digest = false
+  config.assets.digest = true
 
   # Must add sub uri for assets. Same as config.action_controller.relative_url_root
   # config.assets.prefix = "/chouette2"
