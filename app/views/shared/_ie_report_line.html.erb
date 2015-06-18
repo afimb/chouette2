@@ -25,11 +25,12 @@
       </div>
     </form>
   </p>
-  <table id="table-line" class="table table-hover table-striped data-table" data-filter="#filter-line" data-page-size="20">
+  <table id="table-line" class="table table-hover table-striped data-table toggle-circle toggle-medium" data-filter="#filter-line" data-page-size="20">
     <thead>
       <tr>
         <th><%= t(".table.line.state") %></th>
-        <th data-toggle="true"><%= t(".table.line.lines") %></th>
+        <th><%= t(".table.line.lines") %></th>
+        <th data-toggle="true" data-sort-ignore="true"><%= t(".table.line.details") %></th>
         <th data-hide="all"><%= t(".table.line.routes") %></th>
         <th data-hide="all"><%= t(".table.line.connection_links") %></th>
         <th data-hide="all"><%= t(".table.line.time_tables") %></th>
@@ -44,6 +45,7 @@
         <tr>
           <td data-value="<%=line_item.status%>"><%= line_item.status ? font_awesome_classic_tag("fa-check") : font_awesome_classic_tag("fa-times")  %></td>
           <td><%= line_item.name %></td>
+          <td></td>
           <td><%= line_item.routes %></td>
           <td><%= line_item.connection_links %></td>
           <td><%= line_item.time_tables %></td>

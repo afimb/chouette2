@@ -15,6 +15,7 @@ en:
           state: "State"
           routes: "Routes"
           lines: "Lines"
+          details: "Details"
           connection_links: "Connection links"
           time_tables: "Timetables"
           stop_areas: "Stop Areas"
