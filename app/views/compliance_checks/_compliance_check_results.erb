@@ -1,78 +1,90 @@
-<table class="table table-hover" data-title-nok="<%= t 'nok', :scope => 'compliance_check_result.statuses' %>", data-title-uncheck="<%= t 'uncheck', :scope => 'compliance_check_result.statuses' %>", data-title-ok="<%= t 'ok', :scope => 'compliance_check_result.statuses' %>" >
+<p>
+<form class="form-inline">
+  <div class="form-group">
+    <label><%= t("shared.ie_report.html.search") %></label>
+    <input id="filter" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label><%=ComplianceCheckResult.human_attribute_name(:status)%></label>
+    <select class="filter-status form-control">
+      <option></option>
+      <option value="status-ok"><%= t("compliance_check_result.statuses.ok") %></option>
+      <option value="status-nok"><%= t("compliance_check_result.statuses.nok") %></option>
+      <option value="status-uncheck"><%= t("compliance_check_result.statuses.uncheck") %></option>
+    </select>
+  </div>
+</form>
+</p>
+<table class="table table-hover"
+       data-filter="#filter"
+       data-page-size="20"
+       data-title-nok="<%=t('nok', scope: 'compliance_check_result.statuses') %>"
+       data-title-uncheck="<%=t('uncheck', scope: 'compliance_check_result.statuses') %>"
+       data-title-ok="<%=t('ok', scope: 'compliance_check_result.statuses') %>">
   <thead>
     <tr>
       <th><%= ComplianceCheckResult.human_attribute_name(:status) %></th>
       <th><%= ComplianceCheckResult.human_attribute_name(:severity) %></th>
       <th><%= ComplianceCheckResult.human_attribute_name(:rule_code) %></th>
-      <th><%= ComplianceCheckResult.human_attribute_name(:detail) %></th>
+      <th data-sort-ignore="true"><%= ComplianceCheckResult.human_attribute_name(:detail) %></th>
     </tr>
   </thead>
   <tbody>
     <% compliance_check_validation_report.tests.each_with_index do |test, index| %>
     <tr class='<%= "#{test.result}_#{test.severity}" %>'>
-      <td><%= status_icon( test.result, test.severity ) %> </td>
-      <td><%= t("compliance_check_result.severities." + test.severity + "_txt") %></td>
-      <td>
-	<% data_content = t ( "activemodel.attributes.compliance_check_result." + test.test_id ) %>
-	<% data_title = t ( "activemodel.attributes.compliance_check_result.title" ) %>
-        <button data-content='<%= data_content %>' data-title='<%= data_title %>' rel="popover" data-toggle="popover" class="notice btn btn-info btn-xs" ><i class="fa fa-info"></i></button>
-        <%= link_to test.test_id, test_definition(test.test_id), :title => ComplianceCheckResult.human_attribute_name(test.test_id), :target => "compliance_check" %></td>
+      <td data-value="<%="status-#{test.result}"%>"><%= status_icon( test.result, test.severity ) %> </td>
+      <td data-value="<%="severity-#{test.severity}"%>"><%= t("compliance_check_result.severities.#{test.severity}_txt") %></td>
+      <td data-value="<%= "#{test.result}_#{test.severity}" %>">
+        <button data-content='<%=t("activemodel.attributes.compliance_check_result.#{test.test_id}")%>'
+                data-title='<%=t("activemodel.attributes.compliance_check_result.title")%>'
+                rel="popover"
+                data-toggle="popover"
+                class="notice btn btn-info btn-xs">
+          <i class="fa fa-info"></i>
+        </button>
+        <%= link_to test.test_id, test_definition(test.test_id), title: ComplianceCheckResult.human_attribute_name(test.test_id), target: "compliance_check" %>
+      </td>
       <td class="td_error">
         <% if test.errors.present? %>
-        <span class="title_error">
-          <i class="fa fa-plus-square"></i><%= test.error_count.to_s + " " + ComplianceCheckResult.human_attribute_name(:violation_count) %>
-        </span>
-
-
-<!-- error : 1    error_id (string) 
-             0..1 source :
-                  0..1 file :
-                       1    filename (string)
-                       0..1 line_number (int)
-                       0..1 column_number (int)
-                  0..1 objectid (string)
-                  0..1 label (string)
-                  0..  object_path :
-                       1 type : {"network", "company", etc...}
-                       1 id (long)
-             0..  target : (same as source)
-             0..1 error_value (string)
-             0..1 reference_value (striung) -->
-        <div class="details_error">
-          <% test.errors.first(10).each do |error| %>
-            <p class="detail_error">
-	      <% if error["source"].present? %>		
-	        <% data_content = t("activemodel.attributes.compliance_check_result." + test.test_id) + " " + t("compliance_check_result.details.detail_" + error[:error_id], object_labels_hash(error) ) %>
-	        <% data_title = t("activemodel.attributes.compliance_check_result.detail") %>
-                |- <button data-content='<%= data_content %>' data-title='<%= data_title %>' data-toggle="popover" class="notice btn btn-info btn-xs"><i class="fa fa-info"></i></button>
-		  
-		<% if error[:source].object_path.present? %>
-		  <% if error[:source].label.present? %>
-	            <%= link_to error[:source].label, object_url(@referential.id, error) %>
-		  <% else %>
-	            <%= link_to "#{error[:source].object_path.type} (#{error[:source].object_path.id})", object_url(@referential.id, error) %>
-		  <% end %>
-		<% end %>
-		<% if error[:source].file.present? %>
-		  <% if error[:source].objectid.present? %>
-		    <%= "#{error[:source].objectid}" %>		    
-		  <% end %>
-		  <p class="file_error">
-		  <%= error[:source].file.filename  %>
-		  <% if error[:source].file.line_number.present?  %>
-		    <%= ", li: #{error[:source].file.line_number}" %>
-		  <% end %>
-		  <% if error[:source].file.column_number.present?  %>
-		    <%= ", co: #{error[:source].file.column_number}" %>
-		  <% end %>
-		  </p> 
-		<% end %>		  
-	      <% end %>              
-          <% end %>             
-        </div>
+          <span class="title_error">
+            <i class="fa fa-plus-square"></i><%="#{test.error_count} #{ComplianceCheckResult.human_attribute_name(:violation_count)}" %>
+          </span>
+          <div class="details_error">
+            <% test.errors.first(10).each do |error| %>
+              <p class="detail_error">
+	              <% if error["source"].present? %>
+                  |- <button data-content='<%=t("activemodel.attributes.compliance_check_result.#{test.test_id}") + " "+ t("compliance_check_result.details.detail_#{error[:error_id]}", object_labels_hash(error)) %>'
+                             data-title='<%=t("activemodel.attributes.compliance_check_result.detail")%>'
+                             data-toggle="popover"
+                             class="notice btn btn-info btn-xs">
+                       <i class="fa fa-info"></i>
+                     </button>
+		              <% if error[:source].object_path.present? %>
+		                <% if error[:source].label.present? %>
+	                    <%= link_to error[:source].label, object_url(@referential.id, error) %>
+		                <% else %>
+	                    <%= link_to "#{error[:source].object_path.type} (#{error[:source].object_path.id})", object_url(@referential.id, error) %>
+		                <% end %>
+		              <% end %>
+		              <% if error[:source].file.present? %>
+                    <%= "#{error[:source].objectid}" if error[:source].objectid.present? %>
+		                <p class="file_error">
+                      <%= error[:source].file.filename  %>
+                        <%= ", li: #{error[:source].file.line_number}" if error[:source].file.line_number.present?  %>
+                        <%= ", co: #{error[:source].file.column_number}" if error[:source].file.column_number.present?  %>
+		                </p>
+		              <% end %>
+	            <% end %>
+            <% end %>
+          </div>
         <% end %>
       </td>
     </tr>
-  <% end %>
+    <% end %>
   </tbody>
+  <tfoot class="hide-if-no-paging">
+    <tr>
+      <td colspan="5"><ul class="pagination pagination-centered"></ul></td>
+    </tr>
+  </tfoot>
 </table>

@@ -1,39 +1,29 @@
-$(".compliance_checks.report, .imports.compliance_check").ready ->
+$(".compliance_checks.report, .imports.compliance_check, #sidebar.compliance_checks_sidebar").ready ->
 
-  get_compliance_check_results = (html_container, css_class) ->
-    html_container.each ->
-      if( $( this ).hasClass(css_class) )
-        $( this ).show()
-      else
-        $( this ).hide()
+  showSeverityDonut = (severity) ->
+    $("##{severity}").empty()
+    console.log $("##{severity}").val()
+    Morris.Donut({
+      element: severity,
+      data: [
+        { label: $(".table").data('title-nok'), value: $("tr.nok_#{severity}").size() },
+        { label: $(".table").data('title-uncheck'), value: $("tr.uncheck_#{severity}").size() },
+        { label: $(".table").data('title-ok'), value: $("tr.ok_#{severity}").size() }
+      ],
+      colors: [ "#e22b1b", "#898e7f", "#8fc861" ]
+    }).on('click', update = (i, row) ->
+      switch i
+        when 0 then $('.table').trigger 'footable_filter', filter: "nok_#{severity}"
+        when 1 then $('.table').trigger 'footable_filter', filter: "uncheck_#{severity}"
+        when 2 then $('.table').trigger 'footable_filter', filter: "ok_#{severity}"
+    )
 
-  Morris.Donut({
-    element: 'error',
-    data: [
-      { label: $(".table").data('title-nok'), value: $("tr.nok_error").size() },
-      { label: $(".table").data('title-uncheck'), value: $("tr.uncheck_error").size() },
-      { label: $(".table").data('title-ok'), value: $("tr.ok_error").size() }
-    ],
-    colors: [ "#e22b1b", "#898e7f", "#8fc861" ]
-  }).on('click', update = (i, row) ->
-    switch i
-      when 0 then get_compliance_check_results( $(".report tbody tr"), "nok_error")
-      when 1 then get_compliance_check_results( $(".report tbody tr"), "uncheck_error")
-      when 2 then get_compliance_check_results( $(".report tbody tr"), "ok_error") )
+  $('table').footable().trigger 'footable_filter', filter: 'severity-error'
+  $('a.severities_warning').on 'click', (e) ->
+    $('table').footable().trigger 'footable_filter', filter: 'severity-warning'
 
-  Morris.Donut({
-    element: 'warning',
-    data: [
-      { label: $(".table").data('title-nok'), value: $("tr.nok_warning").size() },
-      { label: $(".table").data('title-uncheck'), value: $("tr.uncheck_warning").size() },
-      { label: $(".table").data('title-ok'), value: $("tr.ok_warning").size() }
-    ],
-    colors: [ "#ffbd2b", "#898e7f", "#8fc861" ]
-  }).on('click', update = (i, row) ->
-    switch i
-      when 0 then get_compliance_check_results( $(".report tbody tr"), "nok_warning")
-      when 1 then get_compliance_check_results( $(".report tbody tr"), "uncheck_warning")
-      when 2 then get_compliance_check_results( $(".report tbody tr"), "ok_warning") )
+  $('a.severities_error').on 'click', (e) ->
+    $('table').footable().trigger 'footable_filter', filter: 'severity-error'
 
   $(".notice").popover({ container: "body", html: false, trigger: "focus", placement: "bottom" })
   # Hide and show error details
@@ -46,3 +36,18 @@ $(".compliance_checks.report, .imports.compliance_check").ready ->
   if refreshInterval > 0
     reloadPage = () -> window.location.reload()
     setInterval(reloadPage,refreshInterval * 1000)
+
+  footableFilter = (parent, el) ->
+    $(parent).footable().bind 'footable_filtering', (e) ->
+      selected =  $("select#{el} option:selected").val()
+      if selected and selected.length > 0
+        e.filter += if e.filter and e.filter.length > 0 then ' ' + selected else selected
+        e.clear = !e.filter
+      return
+    $("select#{el}").change (e) ->
+      e.preventDefault()
+      $(parent).trigger 'footable_filter', filter: $("select#{el} option:selected").val()
+      return
+
+  footableFilter('table', '.filter-status')
+  footableFilter('table', '.filter-severity')
