@@ -63,7 +63,22 @@
 
     .report{
         .table { margin-top: 20px; }
-
+        dl.inline {
+          width: 100%;
+          overflow: hidden;
+        }
+        dl.inline dt {
+          float: left;
+          width: 20%;
+          padding-top: 10px;
+          border-top: 1px solid #eee;
+        }
+        dl.inline dd {
+          float: left;
+          width: 80%;
+          padding-top: 10px;
+          border-top: 1px solid #eee;
+        }
     }
 
     .severity__improvment, .severity_warning, .severity_error {
