@@ -5,6 +5,14 @@
     <input id="filter" type="text" class="form-control">
   </div>
   <div class="form-group">
+    <label><%=ComplianceCheckResult.human_attribute_name(:severity)%></label>
+    <select class="filter-severity form-control">
+      <option></option>
+      <option value="severity-error"><%= t("compliance_check_result.severities.error") %></option>
+      <option value="severity-warning"><%= t("compliance_check_result.severities.warning") %></option>
+    </select>
+  </div>
+  <div class="form-group">
     <label><%=ComplianceCheckResult.human_attribute_name(:status)%></label>
     <select class="filter-status form-control">
       <option></option>

@@ -23,19 +23,6 @@
        </ul>
      </div>
    </div>
-
-   <ul class="nav nav-tabs" role="tablist">
-     <li role="presentation" class="active">
-       <a href="#severities_error" class="severities_error"  aria-controls="severities_error" role="tab" data-toggle="tab">
-         <%=t("compliance_check_result.severities.error")%>
-       </a>
-     </li>
-     <li role="presentation">
-       <a href="#severities_warning" class="severities_warning" aria-controls="severities_warning" role="tab" data-toggle="tab">
-         <%=t("compliance_check_result.severities.warning")%>
-       </a>
-     </li>
-   </ul>
    <div class="report" data-refresh-interval="<%= job_refresh_interval(@compliance_check) %>">
      <%= render :partial => "compliance_checks/compliance_check_results", :locals => { :compliance_check_validation_report => @compliance_check.compliance_check_validation_report } %>
    </div>
@@ -50,13 +37,8 @@
     </li>
   </ul>
   <%= history_tag(@compliance_check) %>
-  <div class="tab-content compliance_checks_sidebar">
-    <div role="tabpanel" class="tab-pane active" id="severities_error">
-      <div class="graph" id="error"></div>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="severities_warning">
-      <div class="graph" id="warning"></div>
-    </div>
+  <div id="error" class="graph"></div>
+  <div id="warning" class="graph"></div>
   </div>
 
 <% end %>
