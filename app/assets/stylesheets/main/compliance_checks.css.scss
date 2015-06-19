@@ -69,13 +69,21 @@
         }
         dl.inline dt {
           float: left;
-          width: 20%;
-          padding-top: 10px;
+          clear: left;
+          width: 35%;
+          padding-top: 5px;
           border-top: 1px solid #eee;
+          -ms-word-break: break-all;
+          word-break: break-all;
+          word-break: break-word;
+          -webkit-hyphens: auto;
+          -moz-hyphens: auto;
+          -ms-hyphens: auto;
+          hyphens: auto;
         }
         dl.inline dd {
           float: left;
-          width: 80%;
+          width: 65%;
           padding-top: 10px;
           border-top: 1px solid #eee;
         }
@@ -154,24 +162,8 @@
         background-color: #ff9a0c;
     }
 
-    .td_error {
-        width: 30%;
-
-        .title_error i { margin-right: 5px; }
-
-        div.details_error{
-            margin: 0px 0px 0px 3px !important;
-            display: none;
-
-            p.detail_error{
-                margin: 0px 0px 5px 0px !important;
-            }
-
-            .file_error{
-                margin-left: 26px;
-                font-size: 10px;
-                color: #898e7f;
-            }
-        }
+    .file_error{
+      font-size: 14px;
+      color: #898e7f;
     }
 }

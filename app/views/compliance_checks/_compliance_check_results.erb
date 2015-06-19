@@ -51,9 +51,10 @@
         <%= ("#{test.error_count || 0} #{ComplianceCheckResult.human_attribute_name(:violation_count)}") if test.errors.present? %>
       </td>
       <td>
-        <dl class="inline">
-          <p><b><%=t("activemodel.attributes.compliance_check_result.#{test.test_id}")%></b></p>
+        <p><b><%=t("activemodel.attributes.compliance_check_result.#{test.test_id}")%></b></p>
+        <% if test.errors.present? %>
           <% test.errors.first(10).each do |error| %>
+            <dl class="inline">
             <dt>
               <% if error["source"].present? %>
                 <% if error[:source].object_path.present? %>
@@ -64,18 +65,21 @@
                   <% end %>
                 <% end %>
                 <% if error[:source].file.present? %>
-                  <%= "#{error[:source].objectid}" if error[:source].objectid.present? %>
-                  <p class="file_error">
-                    <%= error[:source].file.filename  %>
-                    <%= ", li: #{error[:source].file.line_number}" if error[:source].file.line_number.present?  %>
-                    <%= ", co: #{error[:source].file.column_number}" if error[:source].file.column_number.present?  %>
-                  </p>
+                  <%= error[:source].objectid if error[:source].objectid.present? %>
                 <% end %>
               <% end %>
             </dt>
             <dd><%=t("compliance_check_result.details.detail_#{error[:error_id]}", object_labels_hash(error))%></dd>
-          <% end if test.errors.present? %>
-        </dl>
+            </dl>
+            <% if error[:source].file.present? %>
+              <p class="file_error">
+              <%= error[:source].file.filename  %>
+                <%= ", li: #{error[:source].file.line_number}" if error[:source].file.line_number.present?  %>
+                <%= ", co: #{error[:source].file.column_number}" if error[:source].file.column_number.present?  %>
+              </p>
+            <% end %>
+          <% end %>
+        <% end %>
       </td>
       <td>
         <button data-content='<%=t("activemodel.attributes.compliance_check_result.#{test.test_id}")%>'
