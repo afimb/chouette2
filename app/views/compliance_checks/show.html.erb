@@ -13,12 +13,12 @@
   <div class="links">
     <%= link_to font_awesome_classic_tag("fa-external-link") + t("compliance_checks.actions.report"), report_referential_compliance_check_path(@referential, @compliance_check.id) if @compliance_check.compliance_check_validation_report? %>
   </div>
-  <%= render( :partial => "shared/ie_report.html", :locals => { :referential => @referential, :job => @compliance_check} ) %>
+  <%= render(partial: "shared/ie_report.html", locals: { job: @compliance_check, type: :validation } ) %>
 </div>
 
 <% content_for :sidebar do %>
   <ul class="actions">
-    <li><%= link_to t('compliance_checks.actions.destroy'), referential_compliance_check_path(@referential, @compliance_check.id), :method => :delete, :data => {:confirm => t('compliance_checks.actions.destroy_confirm')}, :class => "remove" %></li>
+    <li><%= link_to t('compliance_checks.actions.destroy'), referential_compliance_check_path(@referential, @compliance_check.id), method: :delete, data: {confirm: t('compliance_checks.actions.destroy_confirm')}, class: "remove" %></li>
   </ul>
 
   <%= history_tag(@compliance_check) %>

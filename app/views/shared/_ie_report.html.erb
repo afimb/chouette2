@@ -15,13 +15,13 @@
 
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="ie_tab_line">
-        <%= render partial: 'shared/ie_report_line', locals: { job: job } %>
+        <%= render partial: 'shared/ie_report_line', locals: { job: job, type: (defined?(type) ? type : :default) } %>
     </div>
     <div role="tabpanel" class="tab-pane" id="ie_tab_file">
       <%= render partial: 'shared/ie_report_file', locals: { job: job } %>
     </div>
   </div>
   <% else %>
-    <%= render partial: 'shared/ie_report_line', locals: { job: job } %>
+    <%= render partial: 'shared/ie_report_line', locals: { job: job, type: (defined?(type) ? type : :default) } %>
   <% end %>
 </div>

@@ -7,6 +7,13 @@ fr:
           file: 'Fichiers'
           line: 'Lignes'
     ie_report_line:
+      state:
+        default:
+          valid: 'Lignes sauvegardés'
+          invalid: 'Lignes non-sauvegardés'
+        validation:
+          valid: 'Lignes valides'
+          invalid: 'Lignes invalides'
       read_lines: 'Lignes lues'
       saved_lines: 'Lignes sauvegardés'
       unsaved_lines: 'Lignes non-sauvegardés'

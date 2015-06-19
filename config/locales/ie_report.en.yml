@@ -7,6 +7,13 @@ en:
           file: 'Files'
           line: 'Lines'
     ie_report_line:
+      state:
+        default:
+          valid: 'Saved lines'
+          invalid: 'Unsaved lines'
+        validation:
+          valid: 'Valid lines'
+          invalid: 'Invalid lines'
       read_lines: 'Read lines'
       saved_lines: 'Saved lines'
       unsaved_lines: 'Unsaved lines'

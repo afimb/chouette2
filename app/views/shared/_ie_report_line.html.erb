@@ -19,8 +19,8 @@
         <label><%= t(".table.line.state") %></label>
         <select class="filter-line-status form-control">
           <option></option>
-          <option value="true"><%=t('.saved_lines') %></option>
-          <option value="false"><%=t('.unsaved_lines') %></option>
+          <option value="true"><%=t(".state.#{type}.valid") %></option>
+          <option value="false"><%=t(".state.#{type}.invalid") %></option>
         </select>
       </div>
     </form>
