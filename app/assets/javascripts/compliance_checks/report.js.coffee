@@ -17,7 +17,10 @@ $(".compliance_checks.report, .imports.compliance_check, #sidebar.compliance_che
       return
 
   insertSeverityDonut = (type) ->
-    Morris.Donut({
+    triggerFilter = (type,state) ->
+      $("select.filter-status option[value='status-#{state}']").prop('selected', true)
+      $('.table').trigger 'footable_filter', filter: "#{state}_#{type}"
+    momo = Morris.Donut({
       element: type,
       data: [
         { label: $(".table").data('title-nok'), value: $("tr.nok_#{type}").size() },
@@ -27,10 +30,15 @@ $(".compliance_checks.report, .imports.compliance_check, #sidebar.compliance_che
       colors: [ "#e22b1b", "#898e7f", "#8fc861" ]
     }).on('click', update = (i, row) ->
       switch i
-        when 0 then $('.table').trigger 'footable_filter', filter: "nok_#{type}"
-        when 1 then $('.table').trigger 'footable_filter', filter: "uncheck_#{type}"
-        when 2 then $('.table').trigger 'footable_filter', filter: "ok_#{type}"
+        when 0 then triggerFilter(type,'nok')
+        when 1 then triggerFilter(type,'uncheck')
+        when 2 then triggerFilter(type,'ok')
     )
+    $('select.filter-status').change (e)->
+      switch $('select.filter-status option:selected').val()
+        when 'status-nok' then momo.select(0)
+        when 'status-uncheck' then momo.select(1)
+        when 'status-ok' then momo.select(2)
     $("##{type}").hide()
 
   insertSeverityDonut('error')
