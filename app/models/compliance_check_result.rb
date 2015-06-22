@@ -2,9 +2,9 @@ class ComplianceCheckResult
   extend ActiveModel::Naming
   extend ActiveModel::Translation
   include ActiveModel::Model
-  
+
   attr_accessor :datas
-  
+
   def initialize(response)
     @datas = response.validation_report
   end
@@ -14,44 +14,40 @@ class ComplianceCheckResult
   end
 
   def ok_error
-    tests? ? tests.select { |test| (test.result == "OK" && test.severity == "ERROR") } : []
+    all('ok', 'error')
   end
-  
+
   def nok_error
-    tests? ? tests.select { |test| (test.result == "NOK" && test.severity == "ERROR")} : []
+    all('nok', 'error')
   end
-  
+
   def na_error
-    tests? ? tests.select { |test| (test.result == "UNCHECK" && test.severity == "ERROR")} : []
+    all('uncheck', 'error')
   end
 
   def ok_warning
-    tests? ? tests.select { |test| (test.result == "OK" && test.severity == "WARNING")} : []
+    all('ok', 'warning')
   end
-  
+
   def nok_warning
-    tests? ? tests.select { |test| (test.result == "NOK" && test.severity == "WARNING")} : []
+    all('nok', 'warning')
   end
-  
+
   def na_warning
-    tests? ? tests.select { |test| (test.result == "UNCHECK" && test.severity == "WARNING")} : []
+    all('uncheck', 'warning')
   end
-  
+
   def all(status, severity)
-    tests? ? tests.select { |test| ( test.result == status && test.severity == severity ) } : []
+    tests? ? tests.select { |test| test.result == status.downcase && test.severity == severity.downcase } : []
   end
 
   def tests
-    [].tap do |tests|
-      datas.tests.each do |test|
-        tests << Test.new(test)
-      end if datas.tests?
-    end
+    @tests ||= tests? ? datas.tests.map{ |test| Test.new(test) } : []
   end
 
   class Test
     attr_reader :options
-    
+
     def initialize( options )
       @options = options
     end
@@ -59,7 +55,7 @@ class ComplianceCheckResult
     def test_id
       options.test_id if options.test_id?
     end
-    
+
     def severity
       options.severity.downcase if options.severity?
     end
@@ -76,5 +72,5 @@ class ComplianceCheckResult
       options.error_count if options.error_count?
     end
   end
-  
+
 end
