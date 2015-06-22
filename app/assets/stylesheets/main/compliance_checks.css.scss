@@ -9,6 +9,10 @@
   @import "../modules/links";
 }
 
+#validation_success{
+  margin-top: 15px;
+}
+
 #workspace.compliance_checks.report, #workspace.imports.compliance_check{
   @import "../modules/job_status_colors";
   @import "../modules/job_status_title";

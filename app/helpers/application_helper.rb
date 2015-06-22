@@ -1,18 +1,15 @@
 module ApplicationHelper
 
-  def font_awesome_classic_tag(name, size = "")
-    if name == "fa-file-csv-o"
-      name = "fa-file-text-o"
-    elsif name == "fa-file-xml-o"
-      name = "fa-file-code-o"
-    end
-    "<i class='fa #{name} #{size}'></i>".html_safe
+  def font_awesome_classic_tag(name)
+    name = "fa-file-text-o" if name == "fa-file-csv-o"
+    name = "fa-file-code-o" if name == "fa-file-xml-o"
+    content_tag(:id, nil, {class: "fa #{name}"})
   end
-  
+
   def stop_area_picture_url(stop_area)
     image_path("map/#{stop_area.area_type.underscore}.png")
   end
-  
+
   def selected_referential?
     @referential.present? and not @referential.new_record?
   end
@@ -29,13 +26,13 @@ module ApplicationHelper
     relative_url_root = Rails.application.config.relative_url_root
     relative_url_root && !source.starts_with?("#{relative_url_root}/") ? "#{relative_url_root}#{source}" : source
   end
-  
+
   def assets_path_patch( source)
     relative_url_root = Rails.application.config.relative_url_root
     return "/assets/#{source}" unless relative_url_root
     "#{relative_url_root}/assets/#{source}"
   end
-  
+
 
   def help_page?
     controller_name == "help"
@@ -83,9 +80,9 @@ module ApplicationHelper
     else
       ""
     end
-    
+
     url_for(:controller => "/help", :action => "show") + '/' + target
   end
-  
-  
+
+
 end
