@@ -84,35 +84,19 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 
-  if ENV['CHOUETTE_BASE_URL'].nil?
-    config.action_mailer.default_url_options = { :host => 'my-domain-name.com' }
-  else
-    config.action_mailer.default_url_options = { :host => ENV['CHOUETTE_BASE_URL'] }
-  end
+  config.action_mailer.default_url_options = { :host => 'my-domain-name.com' }
 
   # Configure the e-mail address which will be shown in Devise::Maile
-  if ENV['CHOUETTE_MAIL_SENDER'].nil?
-    config.mailer_sender = "chouette-production@my-domain-name.com"
-  else
-    config.mailer_sender = ENV['CHOUETTE_MAIL_SENDER']
-  end
+  config.mailer_sender = "chouette-production@my-domain-name.com"
 
-  #if mailer == "smtp"
-    if ENV['CHOUETTE_SMTP_USER'].nil?
-      ActionMailer::Base.smtp_settings = {
-        :address        => ENV['CHOUETTE_SMTP_ADDRESS'].nil? ? "smtp.sample.com" : ENV['CHOUETTE_SMTP_ADDRESS'],
-        :port           => ENV['CHOUETTE_SMTP_PORT'].nil? ? 25 : ENV['CHOUETTE_SMTP_PORT'].to_i,
-        :domain         => ENV['CHOUETTE_SMTP_DOMAIN'].nil? ? "sample.com" : ENV['CHOUETTE_SMTP_DOMAIN']   }
-    else
-      ActionMailer::Base.smtp_settings = {
-        :address        => ENV['CHOUETTE_SMTP_ADDRESS'],
-        :port           => ENV['CHOUETTE_SMTP_PORT'].nil? ? 25 : ENV['CHOUETTE_SMTP_PORT'].to_i,
-        :domain         => ENV['CHOUETTE_SMTP_DOMAIN'],
-        :user_name      => ENV['CHOUETTE_SMTP_USER'],
-        :password       => ENV['CHOUETTE_SMTP_PASSWORD'],
-        :authentication => ENV['CHOUETTE_SMTP_AUTH']    }
-    end
-  #end
+  ActionMailer::Base.smtp_settings = {
+    :address        => "smtp.sample.com",
+    :port           => 25,
+    :domain         => "sample.com",
+    :user_name      => "smtp_user",
+    :password       => "smtp_password",
+    :authentication => :login
+  }
 
   # Specific theme for each company
   # AFIMB
@@ -128,7 +112,7 @@ Rails.application.configure do
   # config.accept_user_creation = false
 
   # file to data for demo
-  config.demo_data = ENV['CHOUETTE_DEMO_DATA'].nil? ? "/path/to/demo.zip" : ENV['CHOUETTE_DEMO_DATA']
+  # config.demo_data = "/path/to/demo.zip"
 
   # link to validation specification pages
   config.validation_spec = "http://www.chouette.mobi/neptune-validation/v21/"
