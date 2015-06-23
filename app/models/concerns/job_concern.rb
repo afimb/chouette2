@@ -3,8 +3,8 @@ module JobConcern
   extend ActiveModel::Naming
   extend ActiveModel::Translation
   include ActiveModel::Model
-  
-  included do    
+
+  included do
     attr_reader :datas
   end
 
@@ -13,9 +13,9 @@ module JobConcern
 
   def links
     {}.tap do |links|
-      datas.links.each do |link|
-        links[link["rel"]] = link["href"] 
-      end    
+      datas['links'].each do |link|
+        links[link["rel"]] = link["href"]
+      end
     end
   end
 
@@ -32,9 +32,9 @@ module JobConcern
   end
 
   def cache_expiration
-    started? ? 10.seconds : 1.hours 
+    started? ? 10.seconds : 1.hours
   end
-  
+
   def id
     datas.id
   end
@@ -46,16 +46,16 @@ module JobConcern
   def referential_name
     datas.referential
   end
-  
+
   def name
     datas.action_parameters.name
   end
-  
-  def user_name    
+
+  def user_name
     datas.action_parameters.user_name
   end
-  
-  def created_at    
+
+  def created_at
     Time.at(datas.created.to_i / 1000) if datas.created
   end
 
@@ -66,5 +66,4 @@ module JobConcern
   def format
     datas.type
   end
-  
 end
