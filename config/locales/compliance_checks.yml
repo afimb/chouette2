@@ -14,6 +14,8 @@ en:
       processing: "[ In progress... ]"
       export: "Download test report"
       export_csv: "CSV format"
+    report:
+      validation_success: "Validation successfully passed."
     actions:
       destroy_confirm: "Do you confirm to destroy this validation ?"
       destroy: "Destroy this validation"
@@ -83,6 +85,8 @@ fr:
       processing: "[ En progression... ]"
       export: "Télécharger les résultats"
       export_csv: "Format CSV"
+    report:
+      validation_success: "La validation est passé avec succès."
     actions:
       destroy_confirm: "Voulez-vous supprimer ce résultat de validation ?"
       destroy: "Supprimer cette validation"

@@ -8,27 +8,33 @@
     <% else %>
       <%= link_to font_awesome_classic_tag("fa-external-link") + t("compliance_checks.rule_parameter_set"), rule_parameter_set_referential_compliance_check_path(@referential, @compliance_check.id) if @compliance_check.rule_parameter_set? %>
     <% end %>
-     <div class="btn-group pull-right">
-       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-         <%= t("compliance_checks.show.export") %> <span class="caret"></span>
-       </button>
-       <ul class="dropdown-menu" role="menu">
-         <li>
-	   <% if @compliance_check.class == Import  %>
-	     <%= link_to t("compliance_checks.show.export_csv"), export_referential_import_path(@referential, @compliance_check.id) %>
-	   <% else %>
-	     <%= link_to t("compliance_checks.show.export_csv"), export_referential_compliance_check_path(@referential, @compliance_check.id) %>
-	   <% end %>
-	 </li>
-       </ul>
-     </div>
-   </div>
-   <div class="report" data-refresh-interval="<%= job_refresh_interval(@compliance_check) %>">
-     <%= render :partial => "compliance_checks/compliance_check_results", :locals => { :compliance_check_validation_report => @compliance_check.compliance_check_validation_report } %>
-   </div>
+    <div class="btn-group pull-right">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        <%= t("compliance_checks.show.export") %> <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <% if @compliance_check.class == Import  %>
+            <%= link_to t("compliance_checks.show.export_csv"), export_referential_import_path(@referential, @compliance_check.id) %>
+          <% else %>
+            <%= link_to t("compliance_checks.show.export_csv"), export_referential_compliance_check_path(@referential, @compliance_check.id) %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="report" data-refresh-interval="<%= job_refresh_interval(@compliance_check) %>">
+    <%= render :partial => "compliance_checks/compliance_check_results", locals: { compliance_check_validation_report: @compliance_check.compliance_check_validation_report } %>
+  </div>
 </div>
 
 <% content_for :sidebar do %>
+  <% if @compliance_check.compliance_check_validation_report.nok_error.blank? %>
+    <div class="row">
+      <%=font_awesome_classic_tag('fa-thumbs-up fa-5x col-md-3')%>
+      <p class='col-md-7' id='validation_success'><%=t('.validation_success')%></p>
+    </div>
+  <% end %>
   <ul class="actions">
     <li>
       <% if @compliance_check.class != Import %>
@@ -39,6 +45,4 @@
   <%= history_tag(@compliance_check) %>
   <div id="error" class="graph"></div>
   <div id="warning" class="graph"></div>
-  </div>
-
 <% end %>
