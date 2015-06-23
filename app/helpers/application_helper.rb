@@ -3,7 +3,7 @@ module ApplicationHelper
   def font_awesome_classic_tag(name)
     name = "fa-file-text-o" if name == "fa-file-csv-o"
     name = "fa-file-code-o" if name == "fa-file-xml-o"
-    content_tag(:id, nil, {class: "fa #{name}"})
+    content_tag(:i, nil, {class: "fa #{name}"})
   end
 
   def stop_area_picture_url(stop_area)
