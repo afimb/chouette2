@@ -66,4 +66,17 @@ module JobConcern
   def format
     datas.type
   end
+
+  def organisation_name
+    datas.action_parameters.organisation_name
+  end
+
+  def no_save
+    datas.action_parameters.no_save
+  end
+  alias_method :no_save?, :no_save
+
+  def clean_repository
+    datas.action_parameters.clean_repository
+  end
 end

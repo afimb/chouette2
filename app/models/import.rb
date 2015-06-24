@@ -84,10 +84,4 @@ class Import
   def filename_extension
     File.extname(filename).gsub(".", "") if filename
   end
-
-  def no_save
-    datas.action_parameters.no_save
-  end
-  alias_method :no_save?, :no_save
-
 end
