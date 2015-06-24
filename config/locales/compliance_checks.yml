@@ -87,11 +87,12 @@ fr:
       export_csv: "Format CSV"
     report:
       validation_success: "La validation est passé avec succès."
+      action_report: "Rapport d'action"
     actions:
       destroy_confirm: "Voulez-vous supprimer ce résultat de validation ?"
       destroy: "Supprimer cette validation"
       edit: "Editer cette validation"
-      report: "Rapport"
+      report: "Test de conformité"
       rule_parameter_set: "Jeu de paramètres"
       download: "Télécharger"
     statuses:

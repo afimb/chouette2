@@ -23,7 +23,7 @@
   </div>
 </form>
 </p>
-<table class="table table-hover toggle-square"
+<table class="table table-hover toggle-circle toggle-medium"
        data-filter="#filter"
        data-page-size="20"
        data-title-nok="<%=t('compliance_check_result.statuses.nok') %>"
@@ -31,12 +31,12 @@
        data-title-ok="<%=t('compliance_check_result.statuses.ok') %>">
   <thead>
     <tr>
-      <th class="col-md-1" data-sort-ignore="true"><%= ComplianceCheckResult.human_attribute_name(:status) %></th>
+      <th data-sort-ignore="true"><%= ComplianceCheckResult.human_attribute_name(:status) %></th>
       <th class="col-md-1" data-sort-ignore="true"><%= ComplianceCheckResult.human_attribute_name(:severity) %></th>
-      <th class="col-md-2"><%= ComplianceCheckResult.human_attribute_name(:rule_code) %></th>
-      <th class="col-md-2" data-toggle="true" data-sort-ignore="true"><%= ComplianceCheckResult.human_attribute_name(:detail) %></th>
+      <th class="col-md-3"><%= ComplianceCheckResult.human_attribute_name(:rule_code) %></th>
+      <th class="col-md-2"><%=t('compliance_check_results.errors') %></th>
+      <th class="col-md-6" data-toggle="true" data-sort-ignore="true"><%= ComplianceCheckResult.human_attribute_name(:detail) %></th>
       <th data-hide="all" data-sort-ignore="true"></th>
-      <th class="col-md-6" data-sort-ignore="true"></th>
     </tr>
   </thead>
   <tbody>
@@ -49,6 +49,9 @@
       </td>
       <td>
         <%= ("#{test.error_count || 0} #{ComplianceCheckResult.human_attribute_name(:violation_count)}") if test.errors.present? %>
+      </td>
+      <td>
+        <%= truncate(t("activemodel.attributes.compliance_check_result.#{test.test_id}"), length: 50)%>
       </td>
       <td>
         <p><b><%=t("activemodel.attributes.compliance_check_result.#{test.test_id}")%></b></p>
@@ -80,16 +83,6 @@
             <% end %>
           <% end %>
         <% end %>
-      </td>
-      <td>
-        <button data-content='<%=t("activemodel.attributes.compliance_check_result.#{test.test_id}")%>'
-                data-title='<%=t("activemodel.attributes.compliance_check_result.title")%>'
-                rel="popover"
-                data-toggle="popover"
-                class="notice btn btn-info btn-xs">
-          <i class="fa fa-info"></i>
-        </button>
-        <%= truncate(t("activemodel.attributes.compliance_check_result.#{test.test_id}"), length: 59)%>
       </td>
     </tr>
     <% end %>

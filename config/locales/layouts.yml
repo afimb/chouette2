@@ -2,7 +2,7 @@ en:
   layouts:
     back_to_dashboard: "Back to Dashboard"
     help: "Help"
-    home: "Home"          
+    home: "Home"
     user:
       profile: "My Profile"
       sign_out: "Sign out"
@@ -13,15 +13,20 @@ en:
       return_to_dashboard: "Return to Dashboard"
       referential_datas: "Datas"
     history_tag:
-      title: "Metadatas"  
+      title: "Metadatas"
       created_at: "Created at"
       updated_at: "Updated at"
       user_name: "User"
+      name: "Name"
+      organisation_name: "Organisation name"
+      referential_name: "Referential name"
+      clean_repository: "Clean Repository"
+      no_save: "No save"
     flash_messages:
       success: "Success"
       error: "Error"
       alert: "Alert"
-      notice: "Info"      
+      notice: "Info"
     footer:
       support:
         title: "Support"
@@ -35,16 +40,16 @@ en:
         user_group: "User group"
       contact:
         title: "Contact"
-        mail: "Contact us"      
-        newsletter: "Newsletter"    
-        forum: "Forum"         
+        mail: "Contact us"
+        newsletter: "Newsletter"
+        forum: "Forum"
 fr:
   layouts:
     back_to_dashboard: "Retour au Tableau de Bord"
     help: "Aide"
     home: "Accueil"
     user:
-      profile: "Mon Profil"      
+      profile: "Mon Profil"
       sign_out: "Déconnexion"
     navbar:
       return_to_referentials: "Retour à la liste des espaces de données"
@@ -53,10 +58,15 @@ fr:
       return_to_dashboard: "Retour au Tableau de Bord"
       referential_datas: "Données"
     history_tag:
-      title: "Métadonnées"    
+      title: "Métadonnées"
       created_at: "Créé le"
       updated_at: "Mise à jour le"
       user_name: "Auteur"
+      name: "Name"
+      organisation_name: "Organisation name"
+      referential_name: "Referential name"
+      clean_repository: "Clean Repository"
+      no_save: "No save"
     flash_messages:
       success: "Succès"
       error: "Erreur"
@@ -75,19 +85,19 @@ fr:
         user_group: "Club utilisateur"
       contact:
         title: "Contact"
-        mail: "Contactez nous"      
-        newsletter: "Lettre d'information"    
-        forum: "Forum"               
+        mail: "Contactez nous"
+        newsletter: "Lettre d'information"
+        forum: "Forum"
   true: "oui"
   false: "non"
   or: "ou"
   back: "Revenir"
   today: "Aujourd'hui"
   yesterday: "Hier"
-  edit_periods: "Editer Périodes"   
-  delete_periods: "Supprimer Périodes" 
+  edit_periods: "Editer Périodes"
+  delete_periods: "Supprimer Périodes"
   attributes:
     author: "Modifié par"
     created_at: "Créé le"
     updated_at: "Modifié le"
-      
+
