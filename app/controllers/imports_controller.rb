@@ -23,7 +23,9 @@ class ImportsController < ChouetteController
 
   def show
     begin
-      show!
+      show! do
+        build_breadcrumb :show
+      end
     rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t('iev.exception.default')

@@ -1,6 +1,6 @@
 module BreadcrumbHelper
 
-  def build_breadcrumb(action)
+   def build_breadcrumb(action)
     case resource_class.to_s
     when "Chouette::Network"
       network_breadcrumb action
@@ -137,8 +137,12 @@ module BreadcrumbHelper
   def import_breadcrumb (action)
     referential_breadcrumb
     add_breadcrumb Referential.human_attribute_name("imports"), referential_imports_path(@referential) unless action == :index
-    add_breadcrumb @rule_parameter_set.import.name, compliance_check_referential_import_path(@referential, @rule_parameter_set.import.id) if action == :rule_parameter_set
-    add_breadcrumb @compliance_check.name, referential_import_path(@referential, @compliance_check.id) if action == :compliance_check
+
+    add_breadcrumb @import.name, referential_import_path(@referential, @import.id) if @import
+
+    #add_breadcrumb @rule_parameter_set.import.name, compliance_check_referential_import_path(@referential, @rule_parameter_set.import.id) if action == :rule_parameter_set
+
+    #add_breadcrumb "Tests de conformité", compliance_check_referential_import_path(@referential, @compliance_check.id) if @compliance_check
   end
 
   def export_breadcrumb (action)
