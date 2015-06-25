@@ -1,5 +1,5 @@
 en:
-  simple_form:  
+  simple_form:
     include_blanks:
       defaults:
         for_boarding: "Undefined"
@@ -9,7 +9,7 @@ en:
       normal: "Regularly scheduled pickup"
       forbidden: "No pickup available"
       request_stop: "Pickup if requested"
-      is_flexible: "Booking requested for pickup"        
+      is_flexible: "Booking requested for pickup"
     for_alighting:
       normal: "Regularly scheduled drop off"
       forbidden: "No drop off available"
@@ -22,9 +22,9 @@ en:
       group_of_line: "Group of lines"
       stop_area: "Stop areas"
     data_format:
-      neptune: "Neptune"
-      gtfs: "GTFS (General Transit Feed Specification)"
-      netex: "NeTEx"
+      neptune: "Neptune profile"
+      gtfs: "GTFS"
+      netex: "NeTEx profile"
       hub: "HUB 1.3"
       kml: "KML"
     data_format_detail:
@@ -32,4 +32,4 @@ en:
       gtfs: "General Transit Feed Specification"
       netex: "Experimental"
       hub: "Specific Transdev Format"
-      kml: "line, route, ... drawings on Keyhole Markup Language format"    
+      kml: "line, route, ... drawings on Keyhole Markup Language format"
