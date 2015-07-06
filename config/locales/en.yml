@@ -1,4 +1,6 @@
 en:
+  "true": "Yes"
+  "false": "No"
   time:
     formats:
       hour: "%Hh%M"

@@ -17,11 +17,7 @@ en:
       created_at: "Created at"
       updated_at: "Updated at"
       user_name: "User"
-      name: "Name"
-      organisation_name: "Organisation name"
-      referential_name: "Referential name"
-      clean_repository: "Clean Repository"
-      no_save: "No save"
+      no_save: "No backup"
     flash_messages:
       success: "Success"
       error: "Error"
@@ -62,11 +58,7 @@ fr:
       created_at: "Créé le"
       updated_at: "Mise à jour le"
       user_name: "Auteur"
-      name: "Name"
-      organisation_name: "Organisation name"
-      referential_name: "Referential name"
-      clean_repository: "Clean Repository"
-      no_save: "No save"
+      no_save: "Pas de sauvergarde"
     flash_messages:
       success: "Succès"
       error: "Erreur"
@@ -100,4 +92,3 @@ fr:
     author: "Modifié par"
     created_at: "Créé le"
     updated_at: "Modifié le"
-
