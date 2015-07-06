@@ -154,7 +154,7 @@ bundle exec rake spec
 More Information
 ----------------
 
-More information can be found on the [project website](http://www.chouette.mobi/developpeurs)
+More information can be found on the [project website](http://www.chouette.mobi/developpeurs).
 There is extensive usage documentation available [on the wiki](../../wiki).
 
 API Documentation
