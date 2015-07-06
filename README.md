@@ -7,7 +7,7 @@ Chouette2 is an open source web project in Ruby/Rails to edit and view transport
 * [Import, Export and Validate transport data asynchronously](http://github.com/afimb/chouette)
 * Use [multi-tenancy database](http://en.wikipedia.org/wiki/Multitenancy)
 
-It uses java library from another git project to import, export and validate various transport data [chouette](http://github.com/afimb/chouette)
+It uses Rest Web Service API from another git project to import, export and validate various transport data [chouette](http://github.com/afimb/chouette)
 
 Feel free to test and access to the free SaaS web site at [http://appli.chouette.mobi](http://appli.chouette.mobi/chouette2/users/sign_in). Two types of access are granted :
 * A demo organisation with a set of data
