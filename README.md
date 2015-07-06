@@ -24,15 +24,28 @@ Requirements
 ------------
 
 This code has been run and tested on [Travis](http://travis-ci.org/afimb/chouette2?branch=master) with :
-* Ruby 1.9.3 and 2.1.6
+* Ruby 1.9.3 or 2.1.6
 * Bundler 1.10.3
-* Java 7
-* Postgres 9.3
 * Proj 4.8.0
-* [Chouette Web Service IEV](https://github.com/afimb/chouette) 3.X
+* [Chouette Web Service IEV](https://github.com/afimb/chouette) 3.X (that requires Postgres and Java)
 
 External Deps
 -------------
+
+Install Chouette Web Service IEV [see how to](https://github.com/afimb/chouette/readme.md) 3.X.
+Next steps assumes that :
+* a Chouette Web Service IEV is running (on localhot port 8080)
+* a Postres database exists (chouette2 on localhot, port 5432) with a postgres user (chouette, with password chouette)
+
+On Debian/Ubuntu/Kubuntu OS : assume depot contains the correct version
+```sh
+sudo apt-get install libpq-dev
+sudo apt-get install git
+sudo apt-get install unzip
+sudo apt-get install proj-bin
+sudo apt-get install libproj-dev
+sudo apt-get install make
+```
 
 If Linux distribution does't publish RVM package,
 install [RVM from sources](./doc/install/rvm.md)
@@ -46,18 +59,6 @@ rvm --default use 2.1.6
 Install bundler 1.10.3
 ```sh
 gem install bundler -v 1.10.3
-```
-
-On Debian/Ubuntu/Kubuntu OS : assume depot contains the correct version
-```sh
-sudo apt-get install postgresql-9.3
-sudo apt-get install libpq-dev
-sudo apt-get install openjdk-7-jdk
-sudo apt-get install git
-sudo apt-get install unzip
-sudo apt-get install proj-bin
-sudo apt-get install libproj-dev
-sudo apt-get install make
 ```
 
 Installation
@@ -77,13 +78,10 @@ Download gem librairies
 ```sh
 bundle install
 ```
-Create [Postgres database user] (./doc/install/postgresql.md)
-
-Create database and its schema
+Update database schema
 ```sh
-RAILS_ENV=production bundle exec rake db:create db:migrate
+RAILS_ENV=production bundle exec rake db:migrate
 ```
-
 Prepare static resources (assets)
 ```sh
 RAILS_ENV=production bundle exec rake assets:clobber assets:precompile
@@ -110,7 +108,7 @@ Configure Rails secret key.
 * Edit [secrets.yml](./config/secrets.yml) and uncomment and set```secret_key_base```
 * see [Rails documentation](http://guides.rubyonrails.org/4_1_release_notes.html#config-secrets-yml)
 
-Configure API Endpoint for Chouette Web Service IEV
+Configure address to Chouette Web Service IEV.
 * Edit [secrets.yml](./config/secrets.yml) and uncomment and set```api_endpoint```
 
 Configure Google Analytics Key.
@@ -188,3 +186,4 @@ Credits
 -------
 
 Thanks to Ingolf for his [photo](https://www.flickr.com/photos/ingolfbln/7663851694) under CC BY-SA 2.0 license
+
