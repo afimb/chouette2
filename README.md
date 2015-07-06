@@ -23,11 +23,10 @@ The release notes can be found in [CHANGELOG](./CHANGELOG.md) file
 Requirements
 ------------
 
-This code has been run and tested on [Travis](http://travis-ci.org/afimb/chouette2?branch=master) with :
+* [Chouette Web Service IEV](https://github.com/afimb/chouette) 3.X (that requires Postgres and Java)
 * Ruby 1.9.3 or 2.1.6
 * Bundler 1.10.3
 * Proj 4.8.0
-* [Chouette Web Service IEV](https://github.com/afimb/chouette) 3.X (that requires Postgres and Java)
 
 External Deps
 -------------
