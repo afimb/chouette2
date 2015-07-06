@@ -163,8 +163,6 @@ API Documentation
 The description of the restful API is described in :
 * [User manual file](./doc/interfaces/Chouette_API_REST_v1.2.pdf)
 * [XSD file](./doc/interfaces/api_rest_v1.xsd)
-* [Chouette Web Service IEV](https://github.com/afimb/chouette/blob/master/doc/interface/Chouette-API%20serveur%20IEV-1.0.pdf)
-
 
 License
 -------
