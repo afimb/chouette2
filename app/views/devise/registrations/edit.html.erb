@@ -6,7 +6,7 @@
   <div class="form-inputs">
     <%= f.input :email, required: true, autofocus: true %>
     <%= f.input :name, required: true %>
-    
+
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
@@ -18,7 +18,6 @@
 
   <div class="form-actions">
     <%= f.button :submit %>
+    <%= link_to t("cancel"), :back %>
   </div>
 <% end %>
-
-
