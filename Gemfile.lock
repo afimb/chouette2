@@ -566,6 +566,3 @@ DEPENDENCIES
   warbler
   will_paginate (~> 3.0.7)
   will_paginate-bootstrap (~> 1.0.1)
-
-BUNDLED WITH
-   1.10.3

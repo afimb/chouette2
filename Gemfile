@@ -139,7 +139,7 @@ group :development do
   gem 'letter_opener'
   gem 'quiet_assets',             '~> 1.0'
 
-  platforms :ruby_20, :ruby_21, :ruby_22 do
+  platforms :ruby_20, :ruby_21 do
     gem 'better_errors'
     gem 'binding_of_caller'
   end
