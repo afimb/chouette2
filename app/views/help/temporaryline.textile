@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Itinéraires valables le temps d'une saison
+title: Itinéraire valables le temps d'une saison
 ---
 
 h3. Nouvelle ligne ou nouvelle séquence d'arrêts
@@ -10,11 +10,11 @@ Certains réseaux mettent parfois en œuvre des lignes spécifiques à un évén
 * Il s'agit d'une ligne à part entière disposant de son propre nom
 * Il s'agit d'un service rattaché à une ligne commerciale existante, même si l'itinéraire est différent.
 
-Le traitement de cette nouvelle ligne se fera en accord avec le type de cas rencontré. Dans le premier cas, une nouvelle ligne devra être créée avec des calendriers adaptés. Ce faisant, il faudra anticiper l'emploi de la base de donnée dans les systèmes situés en aval de CHOUETTE. S'il s'agit par exemple d'un site internet, une nouvelle ligne, dotée d'identifiants Neptune spécifiques nécessitera une prise en compte dans le site internet avec probablement un macaron spécifique. 
+Le traitement de cette nouvelle ligne se fera en accord avec le type de cas rencontré. Dans le premier cas, une nouvelle ligne devra être créée avec des calendriers adaptés. Ce faisant, il faudra anticiper l'emploi de la base de donnée dans les systèmes situés en aval de CHOUETTE. S'il s'agit par exemple d'un site internet, une nouvelle ligne, dotée d'identifiants neptune spécifique nécessitera une prise en compte dans le site internet avec probablement un macaron spécifique. 
 
-Dans le second cas, la définition d'une séquence d'arrêts spécifique permettra de traiter le cas particulier au sein d'une même ligne, même si les itinéraires sont très différents des trajets commerciaux. Créer une séquence d'arrêts spécifique est préférable à la création d'une nouvelle ligne qui porterait un suffixe "été" par exemple, car les identifiants de la ligne seront les mêmes et l'intégration de ce nouveau parcours au sein de la ligne dans les systèmes exploitant la base de données se fera plus facilement.
+Dans le second cas, la définition d'une séquence d'arrêts spécifique permettra de traiter le cas particulier au sein d'une même ligne, même si les itinéraires sont très différents des trajets commerciaux. Créer une séquence d'arrêt spécifique est préférable à la création d'une nouvelle ligne qui porterait un suffixe "été" par exemple car les identifiants de la ligne seront les mêmes et l'intégration de ce nouveau parcours au sein de la ligne dans les systèmes exploitant la base de données se fera plus facilement.
 
-L'avantage de pouvoir définir autant de séquences d'arrêts que nécessaire est de pouvoir traiter tous les cas spécifiques sans alourdir les données du cas standard. 
+L'avantage de pouvoir définir autant de séquences d'arrêts que nécessaire, est de pouvoir traiter tous les cas spécifiques sans alourdir les données du cas standard. 
 
 h3. Création de calendriers spécifiques
 

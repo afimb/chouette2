@@ -5,7 +5,7 @@ title: Créer un réseau à partir de zéro
 
 h3. Créer un nouvel espace de données
 
-Chaque réseau est généralement intégré dans un espace de données spécifique. Dans le cas où l'on cherche à créer une nouvelle ligne par exemple, on devra créer les éléments dans l'espace de données correspondant. 
+Chaque réseau est généralement intégré dans un espace de donnée spécifique. Dans le cas où l'on cherche à créer une nouvelle ligne par exemple, on devra créer les éléments dans l'espace de données correspondant. 
 
 h3. Définir les attributs du réseau
 
@@ -21,21 +21,21 @@ Navigation au sein de l'application CHOUETTE
 
 h3. Création des calendriers
 
-Les calendriers sont associés aux courses. Ils devront donc être créés avant l'étape de création des courses. Ils nécessitent généralement un travail de mise à plat en fonction des horaires tels qu'ils ont été conçus. Un calendrier étant une série de dates permettant de couvrir à la fois les plages de dates et les jours de la semaine auxquels la course fonctionne, il n'est pas rare que la création d'un nouveau réseau nécessite un nombre important de calendriers. Les fonctions d'étiquettes permettent de mieux les organiser dans CHOUETTE, toutefois, une étape préalable de conception des calendriers est généralement nécessaire pour saisir un nouveau réseau avec rigueur. 
+Les calendriers sont associés aux courses. Ils devront donc être créés avant l'étape de création des courses. Ils nécessitent généralement un travail de mise à plat en fonction des horaires tels qu'ils ont été conçus. Un calendrier étant une série de date permettant de couvrir à la fois les plages de dates et les jours de la semaine auxquels la course fonctionne, il n'est pas rare que la création d'un nouveau réseau nécessite un nombre important de calendriers. Les fonctions d'étiquettes permettent de mieux les organiser dans CHOUETTE, toutefois, une étape préalable de conception des calendriers est généralement nécessaire pour saisir un nouveau réseau avec rigueur. 
 
 h3. Création des arrêts et des correspondances
 
-Les arrêts du réseaux peuvent ensuite être créés, soit directement par saisie dans le formulaire de CHOUETTE, soit par import. Dans l'hypothèse où le nouvel espace de données reprend des arrêts déjà existants dans un autre espace de données, il est possible de les exporter, de les compléter pour les réimporter ensuite. 
+Les arrêts du réseaux peuvent ensuite être créés, soit directement par saisie dans le formulaire de CHOUETTE,soit par import. Dans l'hypothèse où le nouvel espace de donnée reprend des arrêts déjà existants dans un autre espace de données, il est possible de les exporter, de les compléter pour les réimporter ensuite. 
 
-Les correspondances étant des liens entre deux arrêts, il est possible de les déclarer dès l'étape de création des arrêts. 
+Les correspondances étant des liens entre deux arrêts il est possible de les déclarer dès l'étape de création des arrêts. 
 
 h3. Création des lignes 
 
-La création des lignes permet de définir les grands paramètres généraux de la ligne, notamment son nom. Les arrêts proprement dits sont définis dans les séquences d'arrêts. 
+La création des lignes permet de définir les grands paramétres généraux de la ligne, notamment son nom. Les arrêts proprement dits sont définis dans les séquences d'arrêts. 
 
 h4. Séquences d'arrêts
 
-A l'intérieur de l'écran pour la ligne, l'étape suivante consiste à définir les séquences d'arrêts . Celles-ci sont constituées d'un ensemble d'arrêts ordonnés qui permettront de déterminer une ou plusieurs missions , c'est à dire un sous-ensemble de la séquence d'arrêts comportant tout ou partie de ses arrêts.
+A l'intérieur de l'interface de ligne, l'étape suivante consiste à définir les séquences d'arrêts . Celles-ci sont constituées d'un ensemble d'arrêts ordonnés qui permettront de déterminer une ou plusieurs missions , c'est à dire un sous-ensemble de la séquence d'arrêts comportant tout ou partie de ses arrêts.
 
 Typiquement, une ligne aura deux séquences d'arrêts, une par sens de circulation. Il est tout à fait possible d'en créer d'autres, y compris avec des arrêts totalement différents d'une séquence à l'autre.  
 
@@ -43,17 +43,17 @@ h4. Missions
 
 Les missions définissent des trajets effectifs réalisés par les véhicules. Elles se définissent à l'intérieur de l'interface de gestion des séquences d'arrêts, elle-même étant un sous-élément de l'interface des lignes.
 
-On peut créer autant de missions que nécessaire au sein d'une séquence d'arrêts. Chaque mission est néanmoins contrainte par les arrêts composant la séquence d'arrêts, à la fois en ce qui concerne les arrêts eux-mêmes que l'ordre dans lequel ils sont agencés. 
+On peut créer autant de mission que nécessaire au sein d'une séquence d'arrêts. Chaque mission est néanmoins contrainte par les arrêts composant la séquence d'arrêts, à la fois en ce qui concerne les arrêts eux-mêmes que l'ordre dans lequel ils sont agencés. 
 
 h3. Horaires
 
-Les horaires ne peuvent être définis qu'à la condition d'avoir paramétré les éléments précédents. L'interface de consultation et de saisie des horaires se situe au niveau de la mission. Pour retrouver les horaires, il convient donc de sélectionner Ligne>Séquence d'arrêts>Horaire des courses.
+Les horaires ne peuvent être définis qu'à la condition d'avoir paramétré les autres critères. L'interface de consultation et de saisie des horaires se situe au niveau de la mission. Pour retrouver les horaires, il convient donc de sélectionner Ligne>Séquence d'arrêts>horaire des courses.
 
-Les horaires des courses peuvent être saisis directement dans l'interface Chouette ou bien encore être édités dans un tableau par le biais d'une fonction "d'import / export" spécifique. Disponible depuis l'interface des horaires, elle ne concerne que ceux-ci. Il ne faut pas la confondre avec les imports / export de base de données dans le système. Il s'agit d'une fonction qui permet l'édition externe et les copier/coller massifs depuis un tableur. 
+Les horaires des courses peuvent être saisis directement dans l'interface Chouette ou bien encore être édité dans un tableau par le biais d'une fonction "d'import / export" spécifique. Disponible depuis l'interface des horaires, elle ne concerne que ceux-ci. Il ne faut pas la confondre avec les imports / export de base de données dans le système. Il s'agit d'une fonction qui permet l'édition externe et les copier/coller massifs depuis un tableur. 
 
 A noter que l'édition directement dans CHOUETTE peut se faire au clavier. Le curseur placé dans le premier champ, la saisie sur le pavé numérique permet de saisir la valeur voulue. La touche tabulation permet passer du champ heure au champ minute puis de renseigner la suite de la fiche en colonne. Les liens _"Copier  arrivées vers départs"_ ou inversement permettent de dupliquer les données saisies dans le cas le plus fréquent où les horaires de départ et d'arrivé à l'arrêt sont confondus. 
 
-L'export se fait au format .zip et comporte des fichiers CSV (.csv) des calendriers et des courses. Les versions modifiées doivent être uploadées en retour individuellement au format CSV. Il convient de ne surtout pas changer la structure des fichiers et de s'assurer que le format CSV n'ait pas été modifié par le tableur. Les saisies manuelles augmentant le risque d'erreur de saisie, il est fortement recommandé de valider les données après un import CSV dans le menu _"Validations"_. 
+L'export se fait au format .zip et comporte des fichier .csv des calendriers et des courses. Les versions modifiées doivent être uploadées en retour individuellement au format .csv. Il convient de ne surtout pas changer la structure des fichiers et de s'assurer que le format .csv n'ait pas été modifié par le tableur. Les saisies manuelles augmentant le risque d'erreur de saisie, il est fortement recommandé de valider les données après un import .csv dans le menu _"Validations"_. 
 
 h3. Groupe de lignes
 

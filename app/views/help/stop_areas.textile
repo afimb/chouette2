@@ -9,19 +9,22 @@ Le référentiel des arrêts constitue un maillon essentiel du réseau, et se co
 
 On recense tout d'abord les arrêts physiques, qualifiés de _"point d'embarquement"_ ou de _"quai"_.  
 
-Du fait de l'existence de deux concepts dans le schéma TRIDENT, cet arrêt physique sera considéré par l'application comme une _"zone d'arrêt de premier niveau"_. Cette notion est nécessaire pour gérer les _"points d'arrêt sur itinéraire"_ utilisés par certains réseaux. 
+Du fait de l'existence de deux concepts dans le schéma TRIDENT, cet arrêt physique sera considéré par l'application comme une _"zone d'arrêt de premier niveau"_. Cette notion est nécessaire pour gérer les _"points d'arrêts sur itinéraire"_ utilisés par certains réseaux. 
 
-L'application gère ensuite les points d'arrêt sur itinéraire à partir de ces arrêts physiques, en assurant le regroupement des points d'arrêt sur itinéraire dans un arrêt physique. Cela permet notamment de prendre en compte les cas de plusieurs lignes passant par le même arrêt physique.
+L'application gère ensuite les points d'arrêts sur itinéraire à partir de ces arrêts physiques, en assurant le regroupement des points d'arrêt sur itinéraire dans un arrêt physique. Cela permet notamment de prendre en compte les cas de plusieurs lignes passant par le même arrêt physique.
 
-Par la suite, on peut regrouper deux (ou plus) arrêts physiques au sein d'un _"arrêt commercial"_. Cela permet par exemple de regrouper les points d'arrêt physiques correspondant à deux poteaux d'arrêt de la même ligne situés de part et d'autre d'une chaussée mais aussi de regrouper l'ensemble des points d'arrêt physiques d'une gare routière, pour lesquels on considère que le temps de correspondance est nul. Un tel cas correspond à une _"zone d'arrêt"_, avec qualification _"arrêt commercial"_, de deuxième niveau.
+Par la suite, on peut regrouper deux (ou plus) arrêts physiques au sein d'un _"arrêt commercial"_. Cela permet par exemple de regrouper les points d'arrêt physiques correspondant à deux poteaux d'arrêt de la même ligne situés de part et d'autre d'une chaussée mais aussi de regrouper l'ensemble des points d'arrêt physiques d'une gare routière pour lesquels on considère que le temps de correspondance est nul. Un tel cas correspond à une _"zone d'arrêt"_, avec qualification _"arrêt commercial"_, de deuxième niveau.
 
 CHOUETTE offre la possibilité de regrouper les lieux d'arrêt agglomérés ainsi créés au sein d'une _"zone d'arrêt de troisième niveau_" pour constituer des _"Pôles d'échange"_.
 
-Un dernier regroupement est *l'ITL*. L'interdiction de trafic local* est l'interdiction faite à un service routier de prendre et de laisser un même voyageur à l'intérieur du périmètre des transports urbains (cf. Décret n°49-1473 du 14 novembre 1949).
+Un dernier regroupement est *l'ITL*. L'interdiction de trafic local* est l'interdiction faite à un service routier de prendre et de laisser un même voyageur à l'intérieur du périmètre des transports urbains (cf. Décret n°49-1473 du 14 novembre 1949) .
 
-Ainsi dans CHOUETTE, une ITL est un regroupement d'arrêts représentant le périmètre d'interdiction. Une ITL est associée à une ou plusieurs lignes. Il ne s'agit pas à proprement parler d'un type d'arrêt mais bien d'un regroupement d'arrêts.
+Ainsi dans CHOUETTE une ITL est un regroupement d'arrêts représentant le périmètre d'interdiction. Une ITL est associée à une ou plusieurs lignes. Il ne s'agit pas à proprement parler d'un type d'arrêt mais bien d'un regroupement d'arrêts. [pourquoi ne pas le traiter dans les groupes d'arrêts du coup ?]
 
-Des pictogrammes permettent d'identifier les différents types d'arrêts.
+!navigation.png!
+Enchaînement des pages de CHOUETTE
+
+Des pictogrammes permettent d'identifier les différents types de d'arrêts.
 
 * !boardingposition.png! point d'embarquement
 * !quay.png! quai
@@ -45,7 +48,7 @@ Saisir l'adresse postale de l'arrêt proposera une géolocalisation qu'il sera t
 
 h3. Consultation et édition d'un arrêt
 
-Le nombre d'arrêts étant la plupart du temps assez important, il est probable que tous les arrêts ne puissent pas s'afficher sur la page des lignes. Des fonctions de recherche situées en haut de la page permettent de faire une recherche par le nom. Cliquer sur _"recherche avancée"_ permet de sélectionner des critères de recherche spécifiques par code postal et type d'arrêt.
+Le nombre d'arrêts étant la plus part du temps assez important, il est probable que tous les arrêts ne puissent pas s'afficher sur la page des lignes. Des fonctions de recherche situées en haut de la page permettent de faire une recherche par le nom. Cliquer sur _"recherche avancée"_ permet de sélectionner des critères de recherche spécifiques par code postal et type d'arrêt.
 
 Pour afficher un arrêt existant, il suffit de cliquer sur le nom de l'arrêt depuis la liste des lignes existantes.
 
@@ -57,7 +60,7 @@ Une fois sur la page d'un arrêt, les arrêts de niveau hiérarchique différent
 !2014-10-30_180536.png! 
 Hiérarchie des arrêts
 
-On retrouve également en bas de la page, un lien _"Liens entre arrêts"_ qui affiche les liens hiérarchiques entre l'arrêt consulté et les autres arrêts auquel il est lié. Cet affichage permet d'accéder aux autres arrêts liés en cliquant les arrêts. Dans le cas d'un arrêt physique, il affiche également la séquence d'arrêts à laquelle il est rattaché. 
+On retrouve également en bas de la page, un lien _"Liens entre arrêts"_ qui affiche les liens hiérarchiques entre l'arrêt consulté et les autres arrêts auquel il est lié. Cet affichage permet d'accéder aux autres arrêts liés en cliquant les arrêts. Dans le cas d'un arrêt physique, il affiche également la séquence d'arrêt à laquelle il est rattaché. 
 
 h4. Modifier un arrêt
 
@@ -83,7 +86,7 @@ h3. Attributs d'un arrêt
 * Position X : coordonnée horizontale de l'arrêt dans le référentiel de projection de l'espace de données
 * Position Y : coordonnée verticale de l'arrêt dans le référentiel de projection de l'espace de données
 * Longitude : longitude de l'arrêt dans le référentiel WGS84
-* Latitude : latitude de l'arrêt dans le référentiel WGS84
+* latitude : latitude de l'arrêt dans le référentiel WGS84
 
 
 

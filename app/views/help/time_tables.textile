@@ -41,7 +41,7 @@ h3. Attributs
 * Étiquettes : Marqueurs caractérisant le calendrier (pour simplifier la recherche). Afin d'être enregistrées, les étiquettes doivent être saisies séparées par une ',' (virgule) et la touche 'tab' permet d'activer la dernière. Un assistant propose les étiquettes déjà saisies sur d'autres calendriers.
 * Périodes d'application : périodes calendaires durant lesquelles le calendrier est applicable
 * Jours d'application : jours de la semaine effectivement applicables dans le cas où des périodes sont définies dans le calendrier
-* Dates particulières : dates spécifiques pour lesquelles le calendrier est applicable ; ces dates peuvent être ajoutées dans ou en dehors des périodes calendaires. Un calendrier peut n'avoir que des dates calendaires, auquel cas les jours d'application n'ont pas de signification.
+* Dates particulières : dates spécifiques pour lesquelles le calendrier est applicable ; ces dates peuvent être ajoutées dans ou en dehors des périodes calendaires. Un calendrier peut n'avoir que des dates calendaires, auquel cas les jours d'applications n'ont pas de signification.
 * Dates exclues : dates spécifiques à retirer des dates définies par les périodes et les jours d'application ; une même date calendaire ne peut pas être à la fois particulière et exclue;
 une date exclue hors périodes et jours d'application n'a aucun effet.
 

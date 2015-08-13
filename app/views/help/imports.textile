@@ -7,14 +7,14 @@ title: Imports
 * "Validation":#val
 * "l’onglet IMPORTS":#imp
 * "Nouvel Import":#new
-* "Paramètres de validation":#pvl
+* "Paramètres de validation":pvl
 * "Consultation des résultats":#res
 * "Résultats de validation":#rvl
 
 
 h3(#rol). Rôle
 
-p. L’import permet d’enregistrer dans la base un jeu de données d'offre TC, selon un format au choix. Des tests de validation des données sont exécutés avant l'import en base de données (plus détaillées dans le cas du format Neptune). Il est possible d'importer sans sauver en base, uniquement pour jouer les tests de vérification de conformité. Dans ce cas, les tests en base de données (auxquels sont associés les jeux de paramètres) ne seront pas exécutés (et donc aucun test ne sera exécuté, pour des données CSV, GTFS, ou Netex).
+p. L’import permet d’enregistrer dans la base un jeu de données d'offre TC, selon un format au choix. Des tests de validation des données sont exécutés avant l'import en base de données (plus détaillées dans le cas du format Neptune). Il est possible d'importer sans sauver en base, uniquement pour jouer les tests de vérification de conformité.
 
 p=. !2014-10-31_151613.png! 
 Page des imports
@@ -27,37 +27,54 @@ p. Lors de l'import, des tests sont effectués :
 # sur la complétude et la cohérence des relations exprimées dans le format d'échange
 # optionnellement sur la qualité des données en vue de son exploitation dans une centrale de mobilité
 
-p(olnext). - la validation nécessite la fourniture d'un jeu de paramètres définissant les seuils (cf "Validation":validations) 
+p(olnext). - nécessite la fourniture d'un jeu de paramètres définissant les seuils (cf "Validation":validations) 
 
-p(note). Les tests de niveau 1 et 2 ne sont actuellement implémentés que pour le format Neptune.
+p(note). Les tests de niveau 1 et 2 ne sont actuellement implémentés que pour le format Neptune
 
 
 h3(#imp). l'onglet IMPORTS
 
 p. L'onglet IMPORTS contient les objets Import de l'espace de données courant.
 
-p. Chaque objet Import est représenté par une vignette comprenant : sa date, l'utilisateur qui l'a créé, son état (blanc: en attente, bleu : en cours ; vert : terminé correctement ; rouge : terminé en échec), un lien pour télécharger le fichier importé, un lien vers le détail de l'objet, un lien vers l'objet Validation associé).
-
-p=. !import.png!
+p. Chaque objet Import est représenté par une vignette comprenant : sa date, l'utilisateur qui l'a créé, le type de profil importé, son état (blanc: en attente, bleu : en cours ; vert : terminé correctement ; rouge : terminé en échec), un lien pour télécharger le fichier importé, un lien vers le détail de l'objet, un lien vers l'objet Validation associé).
 
 p. Comme les fichiers importés restent stockés en base, il est opportun que  l'utilisateur supprime périodiquement les objets Imports devenus inutiles. La suppression supprimera aussi les objets Validation associés.
 
 p. Dans la partie droite de l'écran, 
 
-* Créer un nouvel Import
+* créer un nouvel Import
 * Jeu de paramètres
 
 h3(#new). Nouvel Import
 
-p. Il est possible de modifier le jeu de paramètres par défaut ou de créer un nouveau Jeu de paramètres. Il est possible de ne choisir aucun jeu de paramètres.
+p. La page d'un nouvel import donne le choix entre trois profils d'import : Neptune, Netex et GTFS. Chacun de ces profils est accessible par un onglet dédié. Les formulaires Neptune et Netex sont identiques. 
 
-p. L’import est lancé en différé, son résultat n'est pas immédiat. Le résultat est conservé tant que l’import n’est pas supprimé. L'import lance également la validation (avec ou sans jeu de paramètres associés), ce qui crée un objet Validation associé. La suppression d’un import supprime également l'objet Validation associé à cet import ; néanmoins si les données ont été sauvegardées en base, elles seront conservées.
+p=. !2015-07-23_152040.png! 
+Page d'un nouvel import
+
+* La case à cocher "Pas de sauvegarde" permet de tester la base sans l'importer. 
+* Il est également possible de sélectionner un autre jeu de validation. Il est possible de ne choisir aucun jeu de paramètres.
+
+p. Le profil GTFS contient des champs spécifiques. 
+
+p=. !2015-07-23_152615.png! 
+Page d'import GTFS
+
+* Le choix d'un sous-ensemble permet de n'importer qu'une partie de la base, comme par exemple les arrêts.
+* Le préfixe d'identifiants est renseigné par défaut et peut-être laissé en l'état.
+* Distance max pour créer les zones : Distance maximale en mètres de regroupement des points d'arrêts dont le nom est identique au sein d'un même arrêt commercial. Si la valeur est à 0, aucun regroupement n'est fait. 
+* Case à cocher "ignorer le dernier mot" : Permet d'ignorer le dernier mot d'un nom d'arrêt pour faciliter le regroupement de plusieurs arrêts physiques dont le nom serait légèrement différent au sein d'un même arrêt commercial
+* Ignorer les n derniers caractères : Même fonctionnalité qu'ignorer le dernier mot mais un certain nombre de caractères. 
+* Distance max pour créer les correspondances : la valeur en mètres en dessous de laquelle deux arrêts sont automatiquement considérés en correspondance.
+
+p. L’import est lancé en différé, son résultat n'est pas immédiat. Le résultat est conservé tant que l’import n’est pas supprimé. L'import lance également la validation (avec ou sans jeu de paramètres associés), ce qui crée un objet Validation associé. La suppression d’un import également l'objet Validation associé à cet import ; néanmoins si les données ont été sauvegardées en base, elles seront conservées.
 
 p. Si les données ne sont pas sauvées en base, il faut relancer un import avec sauvegarde si on souhaite effectivement importer ces données en base après une première validation « à blanc ».
 
+
 h3(#pvl). Paramètres de validation
 
-p. Il est possible de modifier le jeu de paramètres par défaut, ou de créer un nouveau Jeu de paramètres. Les paramètres de vitesses et durée entre arrêts successifs sont définis mode par mode.
+p. Il est possible de modifier le jeu de paramètres par défaut ou de créer un nouveau Jeu de paramètres. Les paramètres de vitesses et durée entre arrêts successifs sont définis mode par mode.
 
 h3(#res). Consultation des résultats : détail de l'objet Import
 
@@ -65,28 +82,14 @@ p=. !import_result.png!
 
 p. Le résultat d'import fournit 2 synthèses : 
 
-# Synthèse des fichiers analysés (à gauche)
-# Synthèse des lignes lues (à droite)
+* Synthèse des lignes lues (onglet lignes)
+* Synthèse des fichiers analysés (onglet fichiers)
 
-p. Le bouton « Fichier Importé » permet de télécharger le fichier sur son poste.
+p. Le bouton « Fichier source » permet de télécharger le fichier sur son poste.
 
-p. Le bouton « Validation » permet de basculer vers la validation des données.
+p. Le bouton « Rapport de validation » permet de basculer vers la validation des données.
 
-p. _1 - La synthèse des fichiers analysés affiche 3 secteurs_
-
-p(border_image). !import_file_result.png!
-
-* en vert les fichiers correctement traités 
-* en rouge les fichiers comportant des erreurs qui empêche leur traitement
-* en gris les fichiers ignorés
-
-p. En passant la souris sur chaque partie, le nombre de fichiers correspondant est affiché.
-
-p. La sélection (clic souris) d'un des secteurs affiche la liste des fichiers concernés :
-
-p(border_image). !import_file_detail.png!
-
-p. _2 - La synthèse des lignes lues affiche le compte des objets extraits des fichiers correctement traités_
+p. _1 - La synthèse des lignes lues affiche le compte des objets extraits des fichiers correctement traités_
 
 p(border_image). !import_line_result.png!
 
@@ -99,13 +102,13 @@ p(border_image). !import_line_result.png!
 * courses
 * missions
 
-p. La sélection de l'histogramme (clic) affiche le détail des lignes lues :
+p. Dérouler une ligne en cliquant sur le pictogramme "+" permet d'afficher le détail des éléments importés sur la ligne :
 
 p(border_image). !import_line_detail.png!
 
-p. Un survol affiche le nombre de données concernées par type.
+p. _2 - La synthèse des fichiers analysés affiche la liste des fichiers importés ainsi que les erreurs constatées_
 
-p. La sélection du graphique affiche le détail par ligne.
+p(border_image). !import_file_detail.png!
 
 h3(#rvl). Résultats de validation
 

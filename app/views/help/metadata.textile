@@ -5,7 +5,7 @@ title: Métadonnées
 
 Tous les éléments définis dans CHOUETTE sont identifiés par des métadonnées Neptune spécifiques. Ces métadonnées peuvent être générées automatiquement à la création de l'objet de telle sorte qu'il n'est pas nécessaire de les renseigner. Il reste toutefois possible de leur attribuer une valeur manuellement si nécessaire. 
 
-Chaque type est identifié par une clé qui permet de déterminer quel est sa nature (arrêt, ligne, transporteur etc...). La norme propose des clés types qui sont résumées dans le tableau ci-dessous.
+Chaque type est identifié par une clé qui permet de déterminer quel est sa nature (arrêt, ligne, transporteur etc...). La norme suggère des clés types qui sont résumées dans le tableau ci-dessous.
 
 h3. Métadonnées d'un transporteur
 
@@ -17,8 +17,7 @@ h3. Métadonnées d'un transporteur
 * Version : version de l'objet (auto incrémenté à chaque modification)
 * Créé par : compte utilisateur ayant procédé à la dernière modification
 
-!2014-10-30_175715.png! 
-Exemple d'identifiant Neptune
+!2014-10-30_175715.png! Exemple d'identifiant Neptune
 
 h3. Clés
 
