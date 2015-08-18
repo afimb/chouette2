@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 module ComplianceChecksHelper
-  
+
   def fields_for_compliance_check_format(form)
     begin
       render :partial => compliance_check_partial_name(form), :locals => { :form => form }
@@ -8,11 +8,11 @@ module ComplianceChecksHelper
       ""
     end
   end
-  
+
   def compliance_check_partial_name(form)
     "fields_#{form.object.format.underscore}_compliance_check"
   end
-  
+
   def compliance_icon( compliance_check)
     return nil unless compliance_check.compliance_check_validation_report
     compliance_check.compliance_check_validation_report.tap do |cct|
@@ -33,19 +33,24 @@ module ComplianceChecksHelper
       ("<i class='fa fa-times status_" + compliance_check_result_status + "_" + compliance_check_result_severity  + "'></i>").html_safe
     end
   end
-  
+
   def test_definition (compliance_check_result_code)
     Rails.application.config.validation_spec + I18n.locale.to_s + "/" + compliance_check_result_code +".html"
   end
-  
+
   def object_url (referential_id, error)
     location = "/referentials/" + referential_id.to_s
     object_path = error[:source].object_path
     if object_path.first[:type] == "vehicle_journey"
       object_path.delete_at 1
     end
-    object_path.reverse.each { |sub_path| location = location + "/" + sub_path[:type].to_s.pluralize + "/" + sub_path[:id].to_s }
-    return location
+
+    types, identifiers = object_path.reverse.map { |resource| [ resource[:type], resource[:id] ] }.transpose
+
+    method_name = (['referential'] + types + ['path']).join('_')
+    identifiers.unshift referential_id
+
+    return send method_name, *identifiers
   end
 
   def object_labels_hash (error)
@@ -71,7 +76,7 @@ module ComplianceChecksHelper
       object_labels_hash[:line_number] = error[:source].file.line_number if error[:source].file.line_number.present?
       object_labels_hash[:column_number] = error[:source].file.column_number if error[:source].file.column_number.present?
     end
-    
+
     if error[:target].present?
       error[:target].each_with_index do |target, index|
         object_labels_hash["target_#{index}_objectid".to_sym] = target[:objectid] if target[:objectid]
@@ -86,6 +91,6 @@ module ComplianceChecksHelper
     end
     return object_labels_hash
   end
-  
-  
+
+
 end
