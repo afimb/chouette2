@@ -28,12 +28,12 @@ h3. Sommaire
 ## "Missions":journey_patterns
 ## "Courses et horaires":vehicle_journeys
 ## "Correspondances":connection_links
-## "Calendriers":time_tables
+## "Calendrier":time_tables
 # Imports
 ## "Imports":imports
 ## "Formats d'import":import_formats
 # Exports
-## "Formats d'export normalisé":export_format
+## "Formats d'export":export_format
 ## "Export de données":exports
 # Validations
 ## "Paramètres de validation":parametersets
@@ -41,7 +41,6 @@ h3. Sommaire
 # Annexes
 ## "Créer un réseau à partir de zéro":startingfromscratch
 ## "Modification des arrêts d'une ligne":stopsmanagement
-## "Itinéraires valables le temps d'une saison":temporaryline
+## "Itinéraire valables le temps d'une saison":temporaryline
 ## "Contraintes de l'export HUB":hubexport
-## "Format CSV chouette":csv
 ## "Glossaire":terms

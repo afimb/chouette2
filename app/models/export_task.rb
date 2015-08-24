@@ -12,7 +12,7 @@ class ExportTask
 
   enumerize :data_format, in: %w( neptune netex gtfs hub kml )
   attr_accessor :referential_id, :user_id, :user_name, :references_type, :data_format, :name, :projection_type, :reference_ids
-  
+
   validates_presence_of :referential_id
   validates_presence_of :user_id
   validates_presence_of :user_name
@@ -22,16 +22,17 @@ class ExportTask
   validate :period_validation
 
   after_initialize :init_period
-  
+
   def initialize( params = {} )
     run_callbacks :initialize do
       params.each {|k,v| send("#{k}=",v)}
     end
   end
-  
+
   def period_validation
-    st_date = Date.parse(start_date) unless start_date.blank? 
-    ed_date = Date.parse(end_date) unless end_date.blank? 
+    st_date = start_date.is_a?(String) ? Date.parse(start_date) : start_date
+    ed_date = end_date.is_a?(String) ? Date.parse(end_date) : end_date
+
     unless  Chouette::TimeTable.start_validity_period.nil? || st_date.nil?
       tt_st_date = Chouette::TimeTable.start_validity_period
       errors.add(:start_date, ExportTask.human_attribute_name("start_date_greater_than" , {:tt_st_date => tt_st_date})) unless tt_st_date <= st_date
@@ -44,7 +45,7 @@ class ExportTask
       errors.add(:end_date, ExportTask.human_attribute_name("end_date_less_than", {:tt_ed_date => tt_ed_date})) unless ed_date <= tt_ed_date
     end
   end
-  
+
   def init_period
     unless Chouette::TimeTable.start_validity_period.nil?
       if start_date.nil?
@@ -65,14 +66,12 @@ class ExportTask
   end
 
   def save
-    puts self.errors.inspect
-    puts self.errors.size
     if self.valid?
       # Call Iev Server
-      begin 
+      begin
         Ievkit.create_job( referential.slug, "exporter", data_format, {
                              :file1 => params_io,
-                           } )     
+                           } )
       rescue Exception => exception
         raise exception
       end
@@ -95,14 +94,26 @@ class ExportTask
       h["parameters"] = action_params
     end
   end
-  
+
   def action_params
     {}
   end
-  
+
   def params_io
     file = StringIO.new( params.to_json )
     Faraday::UploadIO.new(file, "application/json", "parameters.json")
+  end
+
+  def self.optional_attributes(references_type)
+    []
+  end
+
+  def optional_attributes
+    self.class.optional_attributes(references_type.to_s)
+  end
+
+  def optional_attribute?(attribute)
+    optional_attributes.include? attribute.to_sym
   end
 
 end

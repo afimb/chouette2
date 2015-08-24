@@ -26,10 +26,10 @@ Rails.application.configure do
   config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs.
-  config.assets.digest = false
+  config.assets.digest = true
 
   # Must add sub uri for assets. Same as config.action_controller.relative_url_root
   # config.assets.prefix = "/chouette2"

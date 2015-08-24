@@ -11,28 +11,28 @@ h3. Formats disponibles
 
 * Neptune : format d'échange de données de transport en commun pour la France (cf ["Normalisation":http://www.normes-donnees-tc.org/format-dechange/donnees-theoriques/])
 * NeTEx : format d'échange de données de transport en commun expérimental sur la future norme européenne ["NeTEx":http://www.normes-donnees-tc.org/format-dechange/donnees-theoriques/] mais limité au sous-ensemble des données définies dans le format Neptune
-* CSV : format tabulaire spécifique à Chouette (cf "CSV":csv)
 * GTFS : format destiné à ["Google Transit":https://developers.google.com/transit/gtfs/?hl=fr] ; les données exportées en GTFS sont explicités ["ICI":http://www.normes-donnees-tc.org/format-dechange/autres-normes/]
-* KML : format contenant l'ensemble des données cartographiées pouvant ainsi être importées dans un SIG
-* HUB : format tabulaire interne Transdev
+* KML : format contenant l'ensemble des données cartographiées pouvant ainsi être importée dans un SIG
+* HUB : format tabulaire interne Transdev dans sa version 1.3
 
 h3. Options des formats
 
 Les options des différents formats apparaissent en fonction de celui qui a été choisi.
 
+!2015-07-23_162747.png! 
+
+p=. Formulaire pour un nouvel export Neptune
+
 * *tout format* : 
-** Type de données incluses :sélection des lignes exportées. Le choix porte sur toutes, les lignes d'une sélection de réseaux, de transporteurs ou directement sélectionnées ;
+** Type de données incluses : sélection des lignes exportées. Le choix porte sur toutes, les lignes d'une sélection de réseaux, de transporteurs ou directement sélectionnées :
 ** Données incluses : liste des données selon le type choisi; ce champs n'apparait pas pour le choix 'toutes' la sélection propose dès le premier caractère saisi la liste des objets dont le nom contient le texte.
-* *Neptune* :
 ** Début de période : permet d'exporter uniquement les courses circulant à partir de cette date
 ** Fin de période : permet d'exporter uniquement les courses circulant jusqu'à cette date
+* *Neptune* : pas d'option particulière
 * *GTFS* :
-** Préfixe d'identifiant Neptune à ignorer : lorsque ce préfixe est rencontré dans l'identifiant Neptune, celui-ci n'est pas utilisé pour générer l'identifiant GTFS . La valeur proposée par défaut est celle de l'espace de données.
+** Préfixe d'identifiant Neptune à ignorer : Lorsque ce préfixe est rencontré dans l'identifiant Neptune, celui-ci n'est pas utilisé pour générer l'identifiant GTFS . La valeur proposée par défaut est celle de l'espace de données.
 ** Fuseau horaire : fixe le fuseau horaire (paramètre obligatoire des données GTFS). La valeur proposée par défaut est celle de l'espace de données.
 ** Données incluses (complément) : le choix des arrêts permet de n'exporter que les fichiers d'arrêts (stops.txt) et de correspondances (transfers.txt). 3 champs sont alors ajoutés : l'adresse, la localité et le code postal; ceux-ci seront exploités en retour sur l'import GTFS d'arrêts.
 * *NeTex* : pas d'option particulière
-* *CSV* : pas d'option particulière
 * *HUB* :
-** Début de période : permet d'exporter uniquement les courses circulant à partir de cette date.
-** Fin de période : permet d'exporter uniquement les courses circulant jusqu'à cette date.
 ** Fuseau horaire : fixe le fuseau horaire, la valeur proposée par défaut est celle de l'espace de données.

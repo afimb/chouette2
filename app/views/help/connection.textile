@@ -13,9 +13,10 @@ h3. Utilisateurs et organisations
 
 Lorsqu’un utilisateur s’enregistre dans l’application, une organisation qui lui appartient est créée.
 
-Il peut ensuite inviter des personnes à y accéder en les y associant dans l’onglet Organisation.
+Il peut ensuite inviter des personnes à y accéder en les y associant dans l’onglet Organisation. 
 
 !2014-10-30_173033.png! 
+
 Accès au menu organisation
 
 Inviter d'autres utilisateurs dans son organisation permet de leur accorder un accès à ses espaces de données. Les invités ont les mêmes droits sur les éléments partagés que le titulaire de l'organisation. Il peut également être invité par d'autres utilisateurs et accéder ainsi à leurs données.
@@ -26,15 +27,16 @@ Un invité dans un espace de données peut également éditer la liste des invit
 
 h3. Identification
 
-L'accès à CHOUETTE se fait par une identification par identifiant / mot de passe. 
+L'accès à CHOUETTE se fait par une identification par identifiant / mot de passe. L'identifiant est l'adresse mail de l'utilisateur.
 
-Une fois identifié, l’utilisateur accède à un écran organisé autour des données qu'il peut gérer. Ces données sont organisées sous la forme d'un <<espace de données>>. A l'intérieur de chaque espace de données, des menus permettent de gérer (créer, modifier, supprimer) chaque type de données. 
+Une fois identifié, l’utilisateur accède à un écran organisé autour des données qu'il peut gérer. Chacune d'entre-elle se présente sous la forme d'un espace de données. A l'intérieur de chaque espace de données, des menus permettent de gérer (créer, modifier, supprimer) chaque type de données. 
 
 L’application est disponible également en version anglaise et comprend le glossaire du présent manuel en ligne.
 
 h3. Mot de passe perdu
 
-Dans l'hypothèse où un utilisateur a perdu son mot de passe, il peut en récupérer un nouveau en cliquant sur le lien _"mot de passe oublié"_ au niveau de la page d'identification. Un mail de remise à zéro du mot de passe lui sera envoyé sur l'adresse mail rentrée sur son profil.
+Dans l'hypothèse où un utilisateur a perdu son mot de passe, il peut en récupérer un nouveau en cliquant sur le lien _"mot de passe oublié"_ au niveau de la page d'identification. Un mail de remise à zéro du mot de passe lui sera envoyé sur l'adresse mail rentrée sur son profil. Il est nécessaire de cliquer le lien 
 
 !2014-12-01_151637.png!
+
 Réinitialisation du mot de passe

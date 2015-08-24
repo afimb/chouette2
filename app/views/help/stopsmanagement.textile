@@ -5,15 +5,15 @@ title: Modification des arrêts d'une ligne
 
 h3. Nouvel arrêt ou modification d'arrêt existant 
 
-Avec le temps, un ou plusieurs arrêts sont susceptibles de changer au sein d'une même ligne. Il est conseillé de faire la distinction entre les nouveaux arrêts et les arrêts modifiés. Si un arrêt est retiré d'une ligne et remplacé par un autre arrêt, il est conseillé de créer un nouvel arrêt correspondant et de faire la substitution dans la ligne. Il serait certes plus rapide de simplement changer le nom et la géolocalisation de l'arrêt désormais obsolète, mais la modification sera plus difficile à suivre et à comprendre. Il est également possible que cet arrêt resserve ultérieurement ou bien encore qu'il apparaisse dans d'autres bases de données exploitées par d'autres systèmes. Une simple modification de nom générerait alors une ambiguïté et des problèmes potentiels d'exploitations de ces données.
+Avec le temps, un ou plusieurs arrêts sont susceptibles de changer au sein d'une même ligne. Il est conseillé de faire la distinction entre les nouveaux arrêts et les arrêts modifiés. Si un arrêt est retiré d'une ligne et remplacé par un autre arrêt, il est conseillé de créer un nouvel arrêt correspondant et de faire la substitution dans la ligne. Il serait certes plus rapide de simplement changer le nom et la géolocalisation de l'arrêt désormais obsolète, mais la modification sera plus difficile à suivre et à comprendre. Il est également possible que cet arrêt resserve ultérieurement ou bien encore qu'il apparaisse dans d'autres bases de données exploitées par d'autres systèmes. Une simple modification de nom générerait alors de l’ambiguïté et des problèmes potentiels d'exploitations de ces données.
 
 Dans le cas où il s'agit bien du même arrêt mais qui change soit de nom, soit de localisation, la modification est effectivement la marche à suivre. Il est conseillé de noter ces modifications en commentaire. En effet, il n'est pas rare qu'un même arrêt partagé par plusieurs réseaux possède plusieurs noms commerciaux et qu'un changement de nom ne soit pas connu de tous les partenaires transports. Annoter les modifications dans CHOUETTE facilitera la levée des ambiguïtés. 
 
 h3. Vérifier la cohérence des données de géolocalisation
 
-Les erreurs les plus fréquentes sont les erreurs de géolocalisation. Dès lors qu'un arrêt fait partie d'une ligne, des vérifications automatiques seront menées, notamment pour vérifier que l'arrêt est effectivement géolocalisé et qu'il n'y a pas de distance aberrante entre deux arrêts. Une vérification visuelle permet également de vérifier la cohérence des données :
+L'une des erreurs les plus fréquentes sont les erreurs de géolocalisation. Dès lors qu'un arrêt fait partie d'une ligne, des vérifications automatiques seront menées, notamment pour vérifier que l'arrêt est effectivement géolocalisé et qu'il n'y a pas de distance aberrante entre deux arrêts. Une vérification visuelle permet également de vérifier la cohérence des données :
 
 * L'arrêt est-il bien placé sur une voirie sur le fond cartographique ?
 * Les arrêts sont-ils bien placés sur la bonne commune ?
-* La séquence d'arrêts visible depuis l'interface des lignes dessine-t-elle un trajet cohérent ? 
+* La séquence d'arrêt visible depuis l'interface des lignes dessine-t-elle un trajet cohérent ? 
 

@@ -116,9 +116,8 @@ gem 'squeel'
 gem 'enumerize', '~> 0.10.0'
 
 #gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git', :branch => "rails4"
-#gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git'
-#gem 'ninoxe',:path => '~/Projets/cityway/ninoxe'
-gem 'ninoxe', '1.2.0'
+gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git'
+#gem 'ninoxe', '1.2.0'
 
 gem 'acts_as_list', '~> 0.6.0'
 gem "acts_as_tree", '~> 2.1.0', :require => "acts_as_tree"
@@ -160,6 +159,7 @@ group :test, :development do
   gem 'rb-fsevent', :require => RUBY_PLATFORM.include?('darwin') && 'rb-fsevent'
   gem 'transpec'
   gem 'database_cleaner'
+  gem 'shoulda-matchers'
 end
 
 group :production do

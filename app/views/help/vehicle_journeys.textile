@@ -28,7 +28,7 @@ Un bouton _"séquence d'arrêts"_ est positionné au-dessus de la liste des arr�
 
 h4. Consulter le détail d'une course
 
-Dans le tableau des courses, le lien en en-tête de colonne permet de sélectionner une autre séquence d'arrêt de la ligne ce qui permet de passer d'une séquence à l'autre directement sans avoir besoin de revenir à la page de la séquence d'arrêts. Cela permet par exemple d'accéder directement à la séquence d'arrêts retour.
+Dans le tableau des courses, le lien en en-tête de colonne permet de sélectionner une autre séquence d'arrêt de la ligne ce qui permet de passer d'une séquence à l'autre directement sans avoir besoin de revenir à la page de la séquence d'arrêt. Cela permet par exemple d'accéder directement à la séquence d'arrêt retour.
 
 L'en-tête de chaque course propose un bouton qui permet d'accéder à des fonctions relative à la course :
 
@@ -91,13 +91,13 @@ Saisie d'horaire dans un tableur.
 
 L'export fournit un fichier .zip comprenant le fichier des horaires et les calendriers.
 
-L'import, en retour, ne concerne que le fichier .csv proprement dit. Importer un fichier .zip identique au fichier exporté générera une erreur. 
+L'import en retour ne concerne que le fichier .csv proprement dit. Importer un fichier .zip identique au fichier exporté, génèrera une erreur. 
 
 h4. Cloner une course
 
-Depuis la page d'une course, il est possible de cloner la course en cliquant dans le menu latéral sur _"Cloner la course"_. Une boite de dialogue s'affiche et permet de choisir les paramètres de clonage. Le clonage n'est pas une duplication à l'identique. Il ne permet pas de créer une deuxième course en tout point identique mais de créer une course ayant les mêmes paramètres, les mêmes temps de trajet inter-arrêts, *mais à un horaire différent*, comme le fait la fonction de décalage présente au-dessus des horaires de la course.
+Depuis la page d'une course, il est possible de cloner la course en cliquant dans le menu latéral sur _"Cloner la course"_. Une boite de dialogue s'affiche et permet de choisir les paramètres de clonage. Le clonage n'est pas une duplication à l'identique. Il ne permet pas de créer une deuxième course en tout point identique mais de créer une course ayant les mêmes paramètres, les mêmes temps de trajet inter-arrêts mais à un horaire différent comme le fait la fonction de décalage présente au-dessus des horaires de la course.
 
-Contrairement au décalage qui modifie les horaires de la course existante, le clonage crée une nouvelle course avec des horaires différents. Le premier paramètre permet de choisir si on clone la nouvelle course en fonction de l'horaire de départ ou de l'horaire d'arrivée, puis de choisir l'horaire exact de clonage.
+Contrairement au décalage qui modifie les horaires de la course existante, le clonage crée une nouvelle course avec des horaires différents. Le premier paramètre permet de choisir si on clone la nouvelle course en fonction de l'horaire de départ ou de l'horaire d'arrivée puis de choisir l'horaire exact de clonage.
 
 Deux autres paramètres facultatifs permettent de répéter l'opération "en rafale" sur des bases régulières en définissant l’intervalle entre deux courses et le nombre de copies à effectuer selon cette modalité.
 
@@ -115,8 +115,6 @@ h3. Attributs
 * Mode de transport : mode de transport pour la course; par défaut, c'est le mode de transport de la ligne qui est appliqué
 * Accessibilité PMR	: précise si la course est équipée PMR
 * Transport à la demande : précise si la course est en exploitation à la demande ou pas
-* État de trafic : état de trafic
-* Équipement : équipement
 * Type d'identifiant du véhicule : type d'identifiant du véhicule
 
 
