@@ -5,6 +5,7 @@
   * Mise en valeur du format des données importées ou exportées
   * Affichage d'une synthèse de la validation effectuée par lignes de transport
   * Envoi de mail en asynchrone avec DelayedJob en option
+  * Suppression de l'import CSV : l'import CSV peut être fait uniquement désormais au niveau des horaires des séquences d'arrêts
 
 # Version 2.5.3
 * Nouvelles fonctionnalités
