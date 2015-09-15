@@ -2,7 +2,7 @@
   <%= form.inputs do %> 
     <%= form.input :name %>
     <% unless @api_key.new_record? %>
-      <%= form.input :token, :input_html => { :disabled => true } %>  
+      <%= form.input :token, :input_html => { :readonly => true } %>  
     <% end %>
   <% end %>
 

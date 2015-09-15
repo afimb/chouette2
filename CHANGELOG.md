@@ -1,4 +1,8 @@
-# Version 3.0.0 (en cours)
+# Version 3.0.1 (en cours)
+* Corrections
+  * mise en place d'un formulaire de consultation des clés de l'API V1
+
+# Version 3.0.0 (20/08/15)
 * Nouvelles fonctionnalités
   * Mise à jour des briques logicielles utilisées ( Rails 4 et plugins associées ) et version du langage Ruby ( 1.9.3 -> 2.1.6 en restant compatible 1.9.3 )
   * Prise en compte d'une barre de progression lorsqu'un import, un export ou une validation est lancé

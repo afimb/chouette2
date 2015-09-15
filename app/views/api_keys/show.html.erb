@@ -1,0 +1,24 @@
+<%= title_tag t('api_keys.show.title') %>
+
+<div class="api_keys_show">
+  
+  <div class="summary">
+    <p>
+      <label><%= @api_key.class.human_attribute_name("name") %>: </label>
+      <%= @api_key.name %>
+    </p>
+    <p>
+      <label><%= @api_key.class.human_attribute_name("token") %>: </label>
+      <%= @api_key.token %> 
+    </p>
+  </div>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('api_keys.actions.new'), new_referential_api_key_path(@referential), :class => "add" %></li>
+  <li><%= link_to t('api_keys.actions.edit'), edit_referential_api_key_path(@referential, @api_key), :class => "edit" %></li>
+  <li><%= link_to t('api_keys.actions.destroy'), referential_api_key_path(@referential, @api_key), :method => :delete,  :data => {:confirm =>  t('api_keys.actions.destroy_confirm')}, :class => "remove" %></li>
+  <br>
+</ul>
+<% end %>
