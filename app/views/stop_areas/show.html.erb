@@ -52,15 +52,27 @@
     <% if !manage_itl %>
 	    <p>
 	      <label><%= @stop_area.human_attribute_name("mobility_restricted_suitability") %>: </label>
-	      <%= t((@stop_area.mobility_restricted_suitability == true).to_s) %>
+	      <% if (!@stop_area.mobility_restricted_suitability.nil?) %>
+	        <%= t((@stop_area.mobility_restricted_suitability == true).to_s) %>
+	      <% else %>
+	         <%=t("unknown") %>
+	      <% end %>
 	    </p>
 	    <p>
 	      <label><%= @stop_area.human_attribute_name("stairs_availability") %>: </label>
-	      <%= t((@stop_area.stairs_availability == true).to_s) %>
+	      <% if (!@stop_area.stairs_availability.nil?) %>
+	         <%= t((@stop_area.stairs_availability == true).to_s) %>
+	      <% else %>
+	         <%=t("unknown") %>
+	      <% end %>
 	    </p>
 	    <p>
 	      <label><%= @stop_area.human_attribute_name("lift_availability") %>: </label>
-	      <%= t((@stop_area.lift_availability == true).to_s) %>
+	      <% if (!@stop_area.lift_availability.nil?) %>
+	         <%= t((@stop_area.lift_availability == true).to_s) %>
+	      <% else %>
+	         <%=t("unknown") %>
+	      <% end %>
 	    </p>
 	    <p> <label><%= t('stop_areas.show.geographic_data') %> </label></p>
 	    <% if @stop_area.long_lat_type == nil %>

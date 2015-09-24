@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/afimb/ninoxe.git
-  revision: 0c548adb266659e7aacd9a7b055e6eb9e21baf66
+  revision: 766d2293bde741d34a5b9f23da21e5dc8d66bb2f
   specs:
-    ninoxe (1.2.0)
+    ninoxe (1.2.1)
       activerecord (~> 4.1.1)
       acts-as-taggable-on (>= 3)
       acts_as_list (>= 0.1.6)
@@ -106,7 +106,7 @@ GEM
     coffee-script-source (1.9.1)
     daemons (1.1.9)
     database_cleaner (1.4.1)
-    dbf (2.0.9)
+    dbf (2.0.10)
       fastercsv (~> 1.5)
     debug_inspector (0.0.2)
     deep_cloneable (2.0.2)
@@ -150,9 +150,9 @@ GEM
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
     fastercsv (1.5.5)
-    ffi (1.9.8)
-    ffi (1.9.8-java)
-    ffi-geos (1.0.0)
+    ffi (1.9.10)
+    ffi (1.9.10-java)
+    ffi-geos (1.1.0)
       ffi (>= 1.0.0)
     font-awesome-sass (4.2.2)
       sass (~> 3.2)
@@ -219,8 +219,8 @@ GEM
     jruby-rack (1.1.18)
     jruby-rack-worker (0.10.0)
       jruby-rack (>= 1.1.10)
-    json (1.8.2)
-    json (1.8.2-java)
+    json (1.8.3)
+    json (1.8.3-java)
     language_engine (0.0.6)
       rails (~> 4.1.1)
     launchy (2.4.3)
@@ -247,9 +247,9 @@ GEM
     mime-types (2.4.3)
     mimemagic (0.3.0)
     mini_portile (0.6.2)
-    minitest (5.6.1)
+    minitest (5.8.1)
     modernizr-rails (2.0.6)
-    multi_json (1.11.0)
+    multi_json (1.11.2)
     multipart-post (2.0.0)
     nenv (0.2.0)
     net-scp (1.2.1)
@@ -365,7 +365,7 @@ GEM
     ref (1.0.5)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
-    rgeo (0.3.20)
+    rgeo (0.4.0)
     roo (1.13.2)
       nokogiri
       rubyzip
@@ -576,3 +576,6 @@ DEPENDENCIES
   warbler
   will_paginate (~> 3.0.7)
   will_paginate-bootstrap (~> 1.0.1)
+
+BUNDLED WITH
+   1.10.6

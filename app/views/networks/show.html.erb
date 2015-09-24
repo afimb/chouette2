@@ -26,6 +26,12 @@
       <%= @network.source_name %>
     </p>
     <p>
+      <label><%= Chouette::Network.human_attribute_name("source_type_name") %>: </label>
+      <% if @network.source_type_name.present? %>
+        <%= t("source_types.label.#{@network.source_type_name}") %>
+      <% end %>
+    </p>
+    <p>
       <label><%= Chouette::Network.human_attribute_name("source_identifier") %>: </label>
       <%= @network.source_identifier %>
     </p>

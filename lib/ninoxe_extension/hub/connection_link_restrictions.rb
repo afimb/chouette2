@@ -6,9 +6,9 @@ module NinoxeExtension::Hub
     included do
       include ObjectidRestrictions
 
-      with_options if: :hub_restricted? do |jp|
+      with_options if: :hub_restricted? do |cl|
         # HUB-34
-        jp.validates :link_distance, :numericality => { :max => 10000.0 }
+        cl.validates :link_distance, :numericality => { :max => 10000.0 }
       end
     end
   end

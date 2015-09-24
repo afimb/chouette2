@@ -6,11 +6,12 @@ module NinoxeExtension::Hub
     included do
       include ObjectidRestrictions
 
-      with_options if: :hub_restricted? do |jp|
+      with_options if: :hub_restricted? do |tt|
         # HUB-44
-        jp.validate :specific_objectid
+        tt.validate :specific_objectid
         # HUB-45
-        jp.validates_format_of :comment, :with => %r{\A[\w]{0,75}\z}
+        #tt.validates_format_of :comment, :with => %r{\A[\w ]{0,75}\z}
+        tt.validates_length_of :comment, :maximum => 75, :allow_blank => true, :allow_nil => true
       end
     end
     def specific_objectid

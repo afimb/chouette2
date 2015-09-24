@@ -7,8 +7,8 @@ module NinoxeExtension::Hub
       include ObjectidRestrictions
 
       # HUB-42
-      with_options if: :hub_restricted? do |jp|
-        jp.validate :specific_objectid
+      with_options if: :hub_restricted? do |vj|
+        vj.validate :specific_objectid
       end
     end
     def specific_objectid

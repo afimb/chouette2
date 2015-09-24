@@ -46,7 +46,7 @@
       <% if @vehicle_journey.flexible_service.nil? %>
       <%= @vehicle_journey.human_attribute_name("unspecified_fs") %>
       <% elsif @vehicle_journey.flexible_service? %>
-      <%= @vehicle_journey.human_attribute_name("on_demaond_fs") %>
+      <%= @vehicle_journey.human_attribute_name("on_demand_fs") %>
       <% else %>
       <%= @vehicle_journey.human_attribute_name("regular_fs") %>
       <% end %>

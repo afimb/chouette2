@@ -7,7 +7,7 @@
     <%= form.input :comment %>
     <%= form.input :transport_mode_name, :as => :select, :collection => Chouette::Line.transport_modes, :include_blank => true, :member_label => Proc.new { |mode| t("transport_modes.label.#{mode}") }  %>
     <%= form.input :mobility_restricted_suitability, :as => :select, :collection => [[@vehicle_journey.human_attribute_name("accessible"), true], [@vehicle_journey.human_attribute_name("not_accessible"), false]], :include_blank => true %>
-    <%= form.input :flexible_service, :as => :select, :collection => [[@vehicle_journey.human_attribute_name("on_demaond_fs"), true], [@vehicle_journey.human_attribute_name("regular_fs"), false]], :include_blank => true %>
+    <%= form.input :flexible_service, :as => :select, :collection => [[@vehicle_journey.human_attribute_name("on_demand_fs"), true], [@vehicle_journey.human_attribute_name("regular_fs"), false]], :include_blank => true %>
     <%= form.input :status_value %>
     <%= form.input :facility %>
     <%= form.input :vehicle_type_identifier%>

@@ -1,6 +1,14 @@
+# Version 3.1.0 (en cours)
+* Nouvelles fonctionnalités
+  * Validation GTFS lors de l'import
+* Améliorations
+  * présentation des rapports d'import/export et validation
+
 # Version 3.0.1 (en cours)
 * Corrections
-  * mise en place d'un formulaire de consultation des clés de l'API V1
+  * mise en place d'un formulaire de consultation des clés de l'API V1 (Mantis 38248) 
+  * restitution d'erreurs de clonage des arrêts sur clone invalide (Mantis 39159)
+  * corrections sur les restrictions hub 
 
 # Version 3.0.0 (20/08/15)
 * Nouvelles fonctionnalités

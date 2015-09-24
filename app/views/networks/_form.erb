@@ -6,6 +6,7 @@
     <%= form.input :version_date, :as => :date_picker %>
     <%= form.input :description %>              
     <%= form.input :source_name %>              
+    <%= form.input :source_type_name, :as => :select, :collection => Chouette::Network.source_type_names, :include_blank => true, :member_label => Proc.new { |mode| t("source_types.label.#{mode}") }  %>
     <%= form.input :source_identifier %>              
     <%= form.input :objectid, :required => !@network.new_record?, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.network.objectid")} %>  
   <% end %>

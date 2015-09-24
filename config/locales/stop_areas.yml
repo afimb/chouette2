@@ -111,7 +111,7 @@ en:
   formtastic:
     titles:
       stop_area:
-        name: "Only alphanumerical or underscore characters."
+        name: ""
         registration_number: "only alphanumerical or underscore characters" 
         objectid: "[prefix]:StopArea:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
         nearest_topic_name: ""
@@ -122,7 +122,7 @@ en:
         projection_xy: "x,y in secondary referential, dot for decimal separator"
       neptune:
         stop_area:
-          name: "Only alphanumerical or underscore characters."
+          name: ""
           registration_number: "only alphanumerical or underscore characters" 
           objectid: "[prefix]:StopArea:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
           nearest_topic_name: ""
@@ -133,7 +133,7 @@ en:
           projection_xy: "x,y in secondary referential, dot for decimal separator"
       netex:
         stop_area:
-          name: "Only alphanumerical or underscore characters."
+          name: ""
           registration_number: "only alphanumerical or underscore characters" 
           objectid: "[prefix]:StopArea:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
           nearest_topic_name: ""
@@ -144,7 +144,7 @@ en:
           projection_xy: "x,y in secondary referential, dot for decimal separator"
       gtfs:
         stop_area:
-          name: "Only alphanumerical or underscore characters."
+          name: ""
           registration_number: "only alphanumerical or underscore characters" 
           objectid: "[prefix]:StopArea:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
           nearest_topic_name: ""
@@ -155,13 +155,13 @@ en:
           projection_xy: "x,y in secondary referential, dot for decimal separator"
       hub:
         stop_area:
-          name: "Only alphanumerical or underscore characters. Maximum length = 75."
+          name: "Maximum length = 255."
           registration_number: "Positif integer, unique key, of no more than 8 digits. Mandatory for physical stops." 
           objectid: "[prefix]:StopArea:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character. Maximum length of the unique key = 12."
-          nearest_topic_name: "Only alphanumerical or underscore characters. Maximum length = 255 for logical stops and 60 for physical stops."
-          city_name: "Only alphanumerical or underscore characters. Mandatory for physical stops. Maximum length = 75."
+          nearest_topic_name: "Maximum length = 255 for logical stops and 60 for physical stops."
+          city_name: "Mandatory for physical stops. Maximum length = 75."
           zip_code: "Positif integer 5 digits. Mandatory for physical stops." 
-          comment: "Only alphanumerical or underscore characters. Maximum length = 255."
+          comment: "Maximum length = 255."
           coordinates: "Coordinates are mandatory."
           projection_xy: "x,y in secondary referential, dot for decimal separator"
 
@@ -280,7 +280,7 @@ fr:
   formtastic:
     titles:
       stop_area:
-        name: "Caractères autorisés : alphanumériques et 'souligné'."
+        name: ""
         registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
         objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
         nearest_topic_name: ""
@@ -291,7 +291,7 @@ fr:
         projection_xy: "x,y dans le référentiel secondaire, le séparateur de décimales est 'point'"
       neptune:
         stop_area:
-          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          name: ""
           registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
           objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
           nearest_topic_name: ""
@@ -302,7 +302,7 @@ fr:
           projection_xy: "x,y dans le référentiel secondaire, le séparateur de décimales est 'point'"
       netex:
         stop_area:
-          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          name: ""
           registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
           objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
           nearest_topic_name: ""
@@ -313,7 +313,7 @@ fr:
           projection_xy: "x,y dans le référentiel secondaire, le séparateur de décimales est 'point'"
       gtfs:
         stop_area:
-          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          name: ""
           registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
           objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
           nearest_topic_name: ""
@@ -324,13 +324,13 @@ fr:
           projection_xy: "x,y dans le référentiel secondaire, le séparateur de décimales est 'point'"
       hub:
         stop_area:
-          name: "Caractères autorisés : alphanumériques et 'souligné'. Longueur maximale = 75."
+          name: "Longueur maximale = 75."
           registration_number: "Entier positif, clé unique, d'un maximum de 8 chiffres. Obligatoire pour les arrêts physiques." 
           objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'. Longueur maximale de la clé unique = 12."
-          nearest_topic_name: "Caractères autorisés : alphanumériques et 'souligné'. Longueur maximale = 255 pour les arrêts logiques et 60 pour les arrêts physiques."
-          city_name: "Caractères autorisés : alphanumériques et 'souligné'. Obligatoire pour les arrêts physiques. Longueur maximale = 80."
+          nearest_topic_name: "Longueur maximale = 255 pour les arrêts logiques et 60 pour les arrêts physiques."
+          city_name: "Obligatoire pour les arrêts physiques. Longueur maximale = 80."
           zip_code: "Entier positif de 8 chiffres. Obligatoire pour les arrêts physiques." 
-          comment: "Caractères autorisés : alphanumériques et 'souligné'. Longueur maximale = 255."
+          comment: "Longueur maximale = 255."
           coordinates: "Les coordonnées sont obligatoires."
           projection_xy: "x,y dans le référentiel secondaire, le séparateur de décimales est 'point'"
 

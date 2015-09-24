@@ -56,7 +56,7 @@ class StopAreaCopy
     { :name => self.source.name, # TODO: change ninoxe to avoid that !!!
       :area_type => self.area_type.camelcase,
       :registration_number => nil,
-      :parent_id => copy_is_source_child? ? self.source_id : self.copy.parent_id
+      :parent_id => copy_is_source_child? ? self.source_id : nil
     }
   end
 
@@ -71,11 +71,18 @@ class StopAreaCopy
       if self.valid?
         Chouette::StopArea.transaction do
           copy.update_attributes copy_modfied_attributes
-          unless source_modified_attributes.empty?
-            source.update_attributes source_modified_attributes
-          end
+          if copy.valid?
+            unless source_modified_attributes.empty?
+              source.update_attributes source_modified_attributes
+            end
+            true
+          else
+            copy.errors.full_messages.each do |m| 
+              errors.add :base, m
+            end
+            false
+          end  
         end
-        true
       else
         false
       end

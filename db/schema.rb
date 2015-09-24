@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150526081746) do
+ActiveRecord::Schema.define(version: 20150922095511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 20150526081746) do
   end
 
   add_index "companies", ["objectid"], name: "companies_objectid_key", unique: true, using: :btree
-  add_index "companies", ["registration_number"], name: "companies_registration_number_key", unique: true, using: :btree
+  add_index "companies", ["registration_number"], name: "companies_registration_number_key", using: :btree
 
   create_table "connection_links", force: true do |t|
     t.integer  "departure_id",                           limit: 8
@@ -237,10 +237,11 @@ ActiveRecord::Schema.define(version: 20150526081746) do
     t.string   "url"
     t.string   "color",                           limit: 6
     t.string   "text_color",                      limit: 6
+    t.string   "stable_id"
   end
 
   add_index "lines", ["objectid"], name: "lines_objectid_key", unique: true, using: :btree
-  add_index "lines", ["registration_number"], name: "lines_registration_number_key", unique: true, using: :btree
+  add_index "lines", ["registration_number"], name: "lines_registration_number_key", using: :btree
 
   create_table "networks", force: true do |t|
     t.string   "objectid",            null: false
@@ -258,7 +259,7 @@ ActiveRecord::Schema.define(version: 20150526081746) do
   end
 
   add_index "networks", ["objectid"], name: "networks_objectid_key", unique: true, using: :btree
-  add_index "networks", ["registration_number"], name: "networks_registration_number_key", unique: true, using: :btree
+  add_index "networks", ["registration_number"], name: "networks_registration_number_key", using: :btree
 
   create_table "organisations", force: true do |t|
     t.string   "name"

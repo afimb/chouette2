@@ -23,7 +23,7 @@
     <p>
       <label><%= @connection_link.human_attribute_name("connection_link_type") %>: </label>
       <% if @connection_link.connection_link_type.blank? %>
-        <%= t("connection_link_types.label.undefined") %>
+        <%=t("unknown") %>
       <% else %>
         <%= t("connection_link_types.label.#{@connection_link.connection_link_type}") %>
       <% end %>
@@ -65,15 +65,27 @@
     </p>
     <p>
       <label><%= @connection_link.human_attribute_name("mobility_restricted_suitability") %>: </label>
-      <%= t((@connection_link.mobility_restricted_suitability == true).to_s) %>
+      <% if (!@connection_link.mobility_restricted_suitability.nil?) %>
+        <%= t((@connection_link.mobility_restricted_suitability == true).to_s) %>
+      <% else %>
+         <%=t("unknown") %>
+      <% end %>
     </p>
     <p>
       <label><%= @connection_link.human_attribute_name("stairs_availability") %>: </label>
-      <%= t((@connection_link.stairs_availability == true).to_s) %>
+      <% if (!@connection_link.stairs_availability.nil?) %>
+         <%= t((@connection_link.stairs_availability == true).to_s) %>
+      <% else %>
+         <%=t("unknown") %>
+      <% end %>
     </p>
     <p>
       <label><%= @connection_link.human_attribute_name("lift_availability") %>: </label>
-      <%= t((@connection_link.lift_availability == true).to_s) %>
+      <% if (!@connection_link.lift_availability.nil?) %>
+         <%= t((@connection_link.lift_availability == true).to_s) %>
+      <% else %>
+         <%=t("unknown") %>
+      <% end %>
     </p>
   </div>
 </div>

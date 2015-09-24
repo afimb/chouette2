@@ -48,6 +48,11 @@
       <%= t("transport_modes.label.#{@line.transport_mode}") %>
     </p>
     <p>
+      <label><%= @line.human_attribute_name("stable_id") %>: </label>
+      <%= @line.stable_id %>
+    </p>
+
+    <p>
       <label><%= @line.human_attribute_name("url") %>: </label>
       <%= @line.url %>
     </p>

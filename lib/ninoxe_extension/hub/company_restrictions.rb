@@ -9,7 +9,8 @@ module NinoxeExtension::Hub
         # HUB-7
         g.validate :specific_objectid
         # HUB-8
-        g.validates_format_of :name, :with => %r{\A[\w]{1,75}\z}
+        #g.validates_format_of :name, :with => %r{\A[\w ]{1,75}\z}
+        g.validates_length_of :name, :minimum => 1, :maximum => 75
         # HUB-9
         g.validates_format_of :registration_number, :with => %r{\A[\d]{1,8}\z}
         g.validates_uniqueness_of :registration_number

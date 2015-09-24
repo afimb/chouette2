@@ -14,7 +14,8 @@ module NinoxeExtension::Hub
         # HUB-16
         l.validates_format_of :number, :with => %r{\A[\w]{1,6}\z}
         # HUB-17
-        l.validates_format_of :name, :with => %r{\A[\w]{0,75}\z}
+        #l.validates_format_of :name, :with => %r{\A[\w ]{0,75}\z}
+        l.validates_length_of :name, :maximum => 75
         # HUB-21
         l.validates :registration_number, :numericality => { :less_than => 10 ** 8 }
         # HUB-22

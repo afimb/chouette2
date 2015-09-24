@@ -6,7 +6,11 @@
   <div class="summary">
     <p>
       <label><%= @access_link.human_attribute_name("access_link_type") %>: </label>
-      <%= t("connection_link_types.label.#{@access_link.access_link_type}") %>
+      <% if @access_link.access_link_type.present? %>
+        <%= t("connection_link_types.label.#{@access_link.access_link_type}") %>
+      <% else %>
+         <%=t("unknown") %>
+      <% end %>
     </p>
     <p>
       <label><%= @access_link.human_attribute_name("comment") %>: </label>
@@ -39,21 +43,33 @@
     </p>
     <p>
       <label class='duration'><%= @access_link.human_attribute_name("mobility_restricted_traveller_duration") %>: </label>
-      <% if (@access_link.mobility_restricted_traveller_duration.present?) %>
+      <% if (!@access_link.mobility_restricted_traveller_duration.nil?) %>
          <%= @access_link.mobility_restricted_traveller_duration.strftime('%Hh %Mm %Ss') %>
       <% end %>
     </p>
     <p>
       <label><%= @access_link.human_attribute_name("mobility_restricted_suitability") %>: </label>
-      <%= t((@access_link.mobility_restricted_suitability == true).to_s) %>
+      <% if (!@access_link.mobility_restricted_suitability.nil?) %>
+        <%= t((@access_link.mobility_restricted_suitability == true).to_s) %>
+      <% else %>
+         <%=t("unknown") %>
+      <% end %>
     </p>
     <p>
       <label><%= @access_link.human_attribute_name("stairs_availability") %>: </label>
-      <%= t((@access_link.stairs_availability == true).to_s) %>
+      <% if (!@access_link.stairs_availability.nil?) %>
+         <%= t((@access_link.stairs_availability == true).to_s) %>
+      <% else %>
+         <%=t("unknown") %>
+      <% end %>
     </p>
     <p>
       <label><%= @access_link.human_attribute_name("lift_availability") %>: </label>
-      <%= t((@access_link.lift_availability == true).to_s) %>
+      <% if (!@access_link.lift_availability.nil?) %>
+         <%= t((@access_link.lift_availability == true).to_s) %>
+      <% else %>
+         <%=t("unknown") %>
+      <% end %>
     </p>
   </div>
 </div>

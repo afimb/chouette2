@@ -84,23 +84,23 @@ en:
   formtastic:
     titles:
       time_table:
-        comment: "Only alphanumerical or underscore characters."
+        comment: ""
         objectid: "[prefix]:Timetable:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
       neptune:
         time_table:
-          comment: "Only alphanumerical or underscore characters."
+          comment: ""
           objectid: "[prefix]:Timetable:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
       netex:
         time_table:
-          comment: "Only alphanumerical or underscore characters."
+          comment: ""
           objectid: "[prefix]:Timetable:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
       gtfs:
         time_table:
-          comment: "Only alphanumerical or underscore characters."
+          comment: ""
           objectid: "[prefix]:Timetable:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
       hub:
         time_table:
-          comment: "Only alphanumerical or underscore characters. Maximum length = 75."
+          comment: "Maximum length = 75."
           objectid: "[prefix]:Timetable:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character. Maximum length of the unique key = 6."
     placeholders:
       time_table:
@@ -196,23 +196,23 @@ fr:
   formtastic:
     titles:
       time_table:
-        comment: "Caractères autorisés : alphanumériques et 'souligné'."
+        comment: ""
         objectid: "[prefixe]:Timetable:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
       neptune:
         time_table:
-          comment: "Caractères autorisés : alphanumériques et 'souligné'."
+          comment: ""
           objectid: "[prefixe]:Timetable:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
       netex:
         time_table:
-          comment: "Caractères autorisés : alphanumériques et 'souligné'."
+          comment: ""
           objectid: "[prefixe]:Timetable:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
       gtfs:
         time_table:
-          comment: "Caractères autorisés : alphanumériques et 'souligné'."
+          comment: ""
           objectid: "[prefixe]:Timetable:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
       hub:
         time_table:
-          comment: "Caractères autorisés : alphanumériques et 'souligné'. Longueur maximale = 75."
+          comment: "Longueur maximale = 75."
           objectid: "[prefixe]:Timetable:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'. Longueur maximale de la clé unique = 6."
     placeholders:
       time_table:

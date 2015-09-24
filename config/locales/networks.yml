@@ -27,7 +27,7 @@ en:
         comment: "Comments"
         version_date: "Date of this network's version"
         description: "Description"
-        source_type: "Source type"
+        source_type_name: "Source type"
         source_name: "Source name"
         source_identifier: "Source identifier"
         objectid: "Neptune identifier"
@@ -37,29 +37,29 @@ en:
   formtastic:
     titles:
       network:
-        name: "Only alphanumerical or underscore characters."
+        name: ""
         registration_number: "only alphanumerical or underscore characters"
-        objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+        objectid: "[prefix]:PTNetwork:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
       neptune:
         network:
-          name: "Only alphanumerical or underscore characters."
+          name: ""
           registration_number: "only alphanumerical or underscore characters"
-          objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+          objectid: "[prefix]:PTNetwork:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
       netex:
         network:
-          name: "Only alphanumerical or underscore characters."
+          name: ""
           registration_number: "only alphanumerical or underscore characters"
-          objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+          objectid: "[prefix]:PTNetwork:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
       gtfs:
         network:
-          name: "Only alphanumerical or underscore characters."
+          name: ""
           registration_number: "only alphanumerical or underscore characters"
-          objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+          objectid: "[prefix]:PTNetwork:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
       hub:
         network:
-          name: "Only alphanumerical or underscore characters. Maximum length = 75."
+          name: "maximum 75 characters"
           registration_number: "Positif integer, unique key, of no more than 8 digits." 
-          objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character. Maximum length of the unique key = 3."
+          objectid: "[prefix]:PTNetwork:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character. Maximum length of the unique key = 3."
 
 fr:
   networks:
@@ -90,7 +90,7 @@ fr:
         comment: "Commentaire"
         version_date: "Date de version"
         description: "Description"
-        source_type: "Type de système origine"
+        source_type_name: "Type de système origine"
         source_name: "Nom du système origine"
         source_identifier: "Identifiant du système origine"        
         objectid: "Identifiant Neptune"
@@ -100,27 +100,27 @@ fr:
   formtastic:
     titles:
       network:
-        name: "Caractères autorisés : alphanumériques et 'souligné'."
+        name: ""
         registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
-        objectid: "[prefixe]:GroupOfLine:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+        objectid: "[prefixe]:PTNetwork:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
       neptune:
         network:
-          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          name: ""
           registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
-          objectid: "[prefixe]:GroupOfLine:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          objectid: "[prefixe]:PTNetwork:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
       netex:
         network:
-          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          name: ""
           registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
-          objectid: "[prefixe]:GroupOfLine:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          objectid: "[prefixe]:PTNetwork:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
       gtfs:
         network:
-          name: "Caractères autorisés : alphanumériques et 'souligné'."
+          name: ""
           registration_number: "caractères autorisés : alphanumériques et 'souligné'" 
-          objectid: "[prefixe]:GroupOfLine:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          objectid: "[prefixe]:PTNetwork:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
       hub:
         network:
-          name: "Caractères autorisés : alphanumériques et 'souligné'. Longueur maximale = 75."
+          name: "maximum 75 caractères"
           registration_number: "Entier positif, clé unique, d'un maximum de 8 chiffres." 
-          objectid: "[prefixe]:GroupOfLine:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'. Longueur maximale de la clé unique = 3."
+          objectid: "[prefixe]:PTNetwork:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'. Longueur maximale de la clé unique = 3."
 

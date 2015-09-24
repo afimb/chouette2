@@ -22,7 +22,7 @@ module NinoxeExtension::Hub::ObjectidRestrictions
       return unless hub_restricted?
 
       return true unless third_part_objectid
-      likes = Chouette::Line.where( "objectid LIKE ?", "%:#{self.third_part_objectid}" )
+      likes = self.class.where( "objectid LIKE ?", "%:#{self.third_part_objectid}" )
       likes.size.zero? || ( likes.size==1 && likes.first.id==self.id)
     end
 end
