@@ -26,15 +26,15 @@ fr:
       
       ## GTFS
       detail_1_gtfs_csv_1: "le fichier %{filename} est inexploitable"
-      detail_1-GTFS-CSV-2: "le fichier %{filename} est inexploitable"
-      detail_1-GTFS-CSV-3: "le fichier %{filename} contient un enête vide"
-      detail_1-GTFS-CSV-4: "le fichier %{filename} contient des entêtes en double"
-      detail_1-GTFS-CSV-5: "la ligne du fichier %{filename} ne respecet pas la syntaxe CSV"
-      detail_1-GTFS-CSV-6: "le fichier %{filename} contient des balises HTML"
-      detail_1-GTFS-CSV-7: "la valeur '%{error_value}' contient des espaces aux extrémités"
+      detail_1_gtfs_csv_2: "le fichier %{filename} est inexploitable"
+      detail_1_gtfs_csv_3: "le fichier %{filename} contient un entête vide"
+      detail_1_gtfs_csv_4: "le fichier %{filename} contient des entêtes en double"
+      detail_1_gtfs_csv_5: "la ligne du fichier %{filename} ne respecet pas la syntaxe CSV"
+      detail_1_gtfs_csv_6: "le fichier %{filename} contient des balises HTML"
+      detail_1_gtfs_csv_7: "la valeur '%{error_value}' contient des espaces aux extrémités"
       
       detail_1_gtfs_common_1: "le fichier %{filename} est obligatoire"
-      detail_1_gtfs_common_2: "l'un des deux fichiers calendar.txt ou calendar_dates.txt est obligatoire"
+      detail_1_gtfs_common_2: "l'un des fichiers calendar.txt ou calendar_dates.txt est obligatoire"
       detail_1_gtfs_common_3: "le fichier %{filename} optionnel n'est pas présent"
       detail_1_gtfs_common_4: "le fichier %{filename} n'est pas traité"
         
@@ -47,18 +47,18 @@ fr:
       detail_1_gtfs_common_10: "la colonne agency_id devrait être présente dans le fichier %{filename}"
       detail_1_gtfs_common_11: "la colonne %{error_value} n'est pas exploitée dans le fichier %{filename}"
         
-      detail_1_gtfs_common_12: "Contrôle de la présence des données obligatoires"
+      detail_1_gtfs_common_12: "la valeur de la colonne %{error_value} n'est pas renseignée"
         # 1-GTFS-Common-4-2: "Contrôle de l'affectation d'au moins un jour à un calendrier"
-      detail_1_gtfs_common_13: "Contrôle de la présence de la colonne agency_id si plusieurs agences sont définies"
-      detail_1_gtfs_common_14: "Contrôle de la présence de la colonne agency_id même si une seule agence est définie"
+      detail_1_gtfs_common_13: "la colonne agency_id doit être présente dans le fichier %{filename}"
+      detail_1_gtfs_common_14: "la colonne agency_id est absente dans le fichier %{filename}"
         #1-GTFS-Common-4-5: "Contrôle de la présence du binôme horaires départ et arrivées"
       detail_1_gtfs_common_15: "Contrôle de la présence d'une donnée sur valeur d'une autre"
         #1-GTFS-Common-4-7: "Contrôle de la valeur d'une donnée sur valeur d'une autre"
         
-      detail_1_gtfs_common_16: "Contrôle du type des données"
+      detail_1_gtfs_common_16: "la valeur %{error_value} n'est pas autorisée pour le champs %{reference_value} "
 
-      detail_1_gtfs_route_1: "les colonnes ne sont pas définies"
-      detail_1_gtfs_route_2: "Contrôle de la présence de données dans route_long_name ou route_short_name"
+      detail_1_gtfs_route_1: "les colonnes route_long_name et route_short_name ne sont pas définies"
+      detail_1_gtfs_route_2: "les valeurs des champs route_long_name et route_short_name ne sont pas renseignées"
       
       #### level 2
       ## NEPTUNE
@@ -355,7 +355,7 @@ fr:
         2-NEPTUNE-StopPoint-4: "Vérification du modèle de projection de référence utilisé."
         2-NEPTUNE-Timetable-1: "Utilité des calendriers."
         2-NEPTUNE-Timetable-2: "Utilité des calendriers."
-        2-NEPTUNE-Timetable-2: "Validité des dates de début et de fin des périodes des calendriers"
+        2-NEPTUNE-Timetable-3: "Validité des dates de début et de fin des périodes des calendriers"
         2-NEPTUNE-VehicleJourney-1: "Existence de la séquence d'arrêt <ChouetteRoute> référencée par la course <VehicleJourney>."
         2-NEPTUNE-VehicleJourney-2: "Existence de la mission <JourneyPattern> référencée par la course <VehicleJourney>."
         2-NEPTUNE-VehicleJourney-3: "Existence de la ligne <Line> référencée par la course <VehicleJourney>."
