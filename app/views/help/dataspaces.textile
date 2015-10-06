@@ -5,44 +5,45 @@ title: Espace de données
 
 h3. Définition
 
-Un espace de données est le lieu de stockage d’un ensemble de données de transport connectées entre elles. Un espace de données correspond généralement à un territoire géographique homogène, partageant notamment tout ou partie de ses arrêts sur un ou plusieurs réseaux. 
+Un espace de données est le lieu de stockage d’un ensemble de données de transport connectées entre elles. Un espace de données correspond généralement à un territoire géographique homogène, partageant notamment tout ou partie de ses arrêts sur un ou plusieurs réseaux.
 
 Plusieurs attributs sont définis au niveau d’un espace de données.
 
-!2014-10-30_174529.png! 
+!2014-10-30_174529.png!
 Espace de données
 
 h3. Créer un nouvel espace de données
 
 A l'issue de l'identification, la page d'accueil listant tous les espaces de données s'affichent. Cette même page est accessible en cliquant sur le pictogramme Chouette situé en haut de la page. Cliquer sur le lien _"Ajouter un espace de données"_ situé dans le menu latéral affiche le formulaire de création d'un espace de données.
 
-h3. Modifier un espace de données. 
+h3. Modifier un espace de données.
 
 Pour modifier un espace de données, il convient de cliquer sur le pictogramme en forme de crayon de l'espace de données.
 
-Il est également possible de le modifier depuis la page d'accueil de l'espace de données proprement dit en cliquant sur le lien _"Modifier cet espace de données"_ situé dans le menu latéral droit. 
+Il est également possible de le modifier depuis la page d'accueil de l'espace de données proprement dit en cliquant sur le lien _"Modifier cet espace de données"_ situé dans le menu latéral droit.
 
 Sur la page d'un espace de données, deux fonctions spécifiques sont disponibles :
 
 * Ajouter une clé d'accès API : La clé API permet à une application tierce de récupérer des données directement dans l'application pour les exploiter pour son propre fonctionnement. La clé, fournie par le prestataire chargé de la maintenance du système, permet au système tiers de s'identifier auprès de CHOUETTE.
-* Purge des données obsolètes : Cette fonction permet de supprimer tous les calendriers échus avant la date renseignée. Une fois les calendriers supprimés, CHOUETTE supprimera toutes les courses dépourvues de calendrier, puis les missions dépourvues de courses, etc. Cela permet de nettoyer la base de toutes ses informations obsolètes. Il est possible de ne pas supprimer certaines catégories d'objets en cliquant sur les options correspondantes, notamment dans les cas où la modification est saisonnière et où les objets conservés seront utilisés ultérieurement. Purger les données permet de conserver une base de taille raisonnable. Autrement, toutes les données obsolètes resteront dans la base sans pour autant être utiles. 
+* Purge des données obsolètes : Cette fonction permet de supprimer tous les calendriers échus avant la date renseignée. Une fois les calendriers supprimés, CHOUETTE supprimera toutes les courses dépourvues de calendrier, puis les missions dépourvues de courses, etc. Cela permet de nettoyer la base de toutes ses informations obsolètes. Il est possible de ne pas supprimer certaines catégories d'objets en cliquant sur les options correspondantes, notamment dans les cas où la modification est saisonnière et où les objets conservés seront utilisés ultérieurement. Purger les données permet de conserver une base de taille raisonnable. Autrement, toutes les données obsolètes resteront dans la base sans pour autant être utiles.
 
 h3. Supprimer un espace de données
 
 Pour supprimer un espace de données, il convient de cliquer sur le pictogramme en forme de poubelle de l'espace de données.
 
-Il est également possible de le supprimer depuis la page d'accueil de l'espace de données proprement dit en cliquant sur le lien _"Supprimer cet espace de données"_ situé dans le menu latéral droit. 
+Il est également possible de le supprimer depuis la page d'accueil de l'espace de données proprement dit en cliquant sur le lien _"Supprimer cet espace de données"_ situé dans le menu latéral droit.
 
 h3. Attributs d'un espace de données
 
-Tous les champs sont obligatoires. 
+Tous les champs sont obligatoires.
 
 * Nom : nom de l’espace de données
 * Code : code de l’espace de données
 * Préfixe Neptune : préfixe utilisé par défaut lors la génération de nouveaux identifiants Neptune
 * Projection géographique : référentiel de projection des coordonnées cartographiques en complément du WGS84
 * Fuseau horaire : fuseau horaire applicable pour les horaires des courses.
-* Emprise par défaut : emprise (en WGS84) utilisée pour positionner les cartes lorsqu’il n’y a pas d’élément à afficher. Lors de la création, chacun des points défini un carré pour l'affichage par défaut de la cartographie.
+* Emprise par défaut : emprise (en WGS84) utilisée pour positionner les cartes lorsqu’il n’y a pas d’élément à afficher. Lors de la création, chacun des points définit un carré pour l'affichage par défaut de la cartographie.
+* Format d'export privilégié : les formulaires de saisie intègrent les exigences particulières du format sélectionné. Le choix de ce format privilégié facilite la validité de l'export des données saisies.
 
 h3. Choix du référentiel de projection géographique
 
