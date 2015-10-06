@@ -44,8 +44,9 @@ module NinoxeExtension::Hub
         #sa.validates_format_of :nearest_topic_name, :with => %r{\A[\w ]{0,60}\z}
         sa.validates_length_of :nearest_topic_name, :maximum => 60, :allow_blank => true, :allow_nil => true
         # HUB-28
-        sa.validates_presence_of :longitude
-        sa.validates_presence_of :latitude
+        sa.validates_presence_of :coordinates
+        # sa.validates_presence_of :longitude
+        # sa.validates_presence_of :latitude
         # HUB-29
         #sa.validates_format_of :city_name, :with => %r{\A[\w ]{1,80}\z}
         sa.validates_length_of :city_name, :minimum => 1, :maximum => 80

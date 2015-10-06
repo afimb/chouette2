@@ -16,12 +16,12 @@ module NinoxeExtension::Hub
       # HUB-37
       def max_instance_limitation
         return unless hub_restricted?
-        errors.add( :flash, I18n.t('hub.routes.max_by_line'))
+        errors.add( :flash, I18n.t('hub.routes.max_by_line')) if 2 < line.routes.size
       end
 
       # HUB-38
       with_options if: :hub_restricted? do |route|
-        route.validates_format_of :objectid, :with => %r{\A\w+:\w+:[\w]{1,8}\z}
+        route.validates_format_of :objectid, :with => %r{\A\w+:\w+:([\w]{1,8}|__pending_id__\d+)\z}
       end
     end
   end
