@@ -142,7 +142,7 @@ fr:
       detail_2_neptune_facility_5: "L'équipement %{source_objectid} référence un point d'arrêt (stopPointId = %{error_value} inexistant"
       detail_2_neptune_facility_6: "L'équipement %{source_objectid} utilise un référentiel géographique (longLatType = %{error_value}) invalide"
       ## GTFS
-      detail_2_gtfs_common_1: "Identifiant trop long : %{source_objectid}"
+      detail_2_gtfs_common_1: "Identifiant inconnu : %{error_value}"
       detail_2_gtfs_common_2: "Le champ () ne devrait pas dépasser une longeur de ()"
       detail_2_gtfs_common_3: "Le champ () ne devrait pas dépasser une longeur de ()"
       detail_2_gtfs_common_4: "Le couple de champs () est en doublon"
@@ -379,7 +379,7 @@ fr:
         1-GTFS-Calendar-1: "Contrôle de la présence d'au moins un jour d'application "
         1-GTFS-Calendar-2: "Contrôle de la chronologie des dates de début et fin de période"
 
-        2-GTFS-Common-1: "Contrôle de la taille des valeurs d'identifiant"
+        2-GTFS-Common-1: "Contrôle de la présence des objets référencés"
         2-GTFS-Common-2: "Contrôle de la taille des valeurs des textes courts"
         2-GTFS-Common-3: "Contrôle de la taille des valeurs des textes longs"
         2-GTFS-Common_4: "Contrôle de l'unicité d'un couple de données"
