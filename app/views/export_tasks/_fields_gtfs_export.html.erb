@@ -1,2 +1,2 @@
-<%= form.input :time_zone, :as => :time_zone, :input_html => { :title => t("formtastic.titles.export_task.time_zone")} %>
+<%= form.input :time_zone, :as => :time_zone, :input_html => { :value => @referential.time_zone ,:title => t("formtastic.titles.export_task.time_zone")} %>
 <%= form.input :object_id_prefix, :input_html => { :value => @referential.prefix ,:title => t("formtastic.titles.export_task.object_id_prefix")} %>
