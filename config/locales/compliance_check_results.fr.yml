@@ -42,8 +42,8 @@ fr:
       detail_1_gtfs_common_6: "l'un des deux fichiers calendar.txt ou calendar_dates.txt doit définir au moins une entrée"
       detail_1_gtfs_common_7: "le fichier %{filename} optionnel ne contient aucune entrée"
         
-      detail_1_gtfs_common_8: "la valeur %{error_value} est définie plusieurs fois pour la colonne "
-      detail_1_gtfs_common_9: "la colonne est obligatoire"
+      detail_1_gtfs_common_8: "la valeur %{error_value} est définie plusieurs fois pour la colonne %{reference_value}"
+      detail_1_gtfs_common_9: "la colonne %{error_value} est obligatoire"
       detail_1_gtfs_common_10: "la colonne agency_id devrait être présente dans le fichier %{filename}"
       detail_1_gtfs_common_11: "la colonne %{error_value} n'est pas exploitée dans le fichier %{filename}"
         
@@ -149,7 +149,7 @@ fr:
       detail_2_gtfs_common_5: "Les valeurs des champs () et () sont identiques : "
       detail_2_gtfs_stop_1: "L'arrêt () ne peut appartenir à un parent de type "
       detail_2_gtfs_stop_2: "La colonne location_type n'est pas renseignée"
-      detail_2_gtfs_stop_3: "L'arrêt () partage les mêmes nom et descriptions que l'arrêt ()"
+      detail_2_gtfs_stop_3: "Le nom et la description de l'arrêt '%{error_value}' sont identiques"
       detail_2_gtfs_stop_4: "L'arrêt () appartient à un parent inexistant ()"
       detail_2_gtfs_route_1: "La route () partage le couple de valeurs (route_short_name,route_long_name) avec la route ()"
       detail_2_gtfs_route_2: "La route () réutilise la valeur de route_short_name () dans route_long_name ()"
