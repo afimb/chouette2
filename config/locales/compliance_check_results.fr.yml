@@ -29,7 +29,7 @@ fr:
       detail_1_gtfs_csv_2: "le fichier %{filename} est inexploitable"
       detail_1_gtfs_csv_3: "le fichier %{filename} contient un entête vide"
       detail_1_gtfs_csv_4: "le fichier %{filename} contient des entêtes en double"
-      detail_1_gtfs_csv_5: "la ligne du fichier %{filename} ne respecet pas la syntaxe CSV"
+      detail_1_gtfs_csv_5: "la ligne du fichier %{filename} ne respecte pas la syntaxe CSV"
       detail_1_gtfs_csv_6: "le fichier %{filename} contient des balises HTML"
       detail_1_gtfs_csv_7: "la valeur '%{error_value}' contient des espaces aux extrémités"
       
@@ -52,7 +52,9 @@ fr:
       detail_1_gtfs_common_13: "la colonne agency_id doit être présente dans le fichier %{filename}"
       detail_1_gtfs_common_14: "la colonne agency_id est absente dans le fichier %{filename}"
         #1-GTFS-Common-4-5: "Contrôle de la présence du binôme horaires départ et arrivées"
-      detail_1_gtfs_common_15: "Contrôle de la présence d'une donnée sur valeur d'une autre"
+      detail_1_gtfs_common_15_1: "la valeur arrival_time est obligatoire en présence d'une valeur pour departure_time"
+      detail_1_gtfs_common_15_2: "la valeur departure_time est obligatoire en présence d'une valeur pour arrival_time"
+      detail_1_gtfs_common_15_3: "la valeur min_transfer_time est obligatoire quand transfer_type=2"
         #1-GTFS-Common-4-7: "Contrôle de la valeur d'une donnée sur valeur d'une autre"
         
       detail_1_gtfs_common_16: "la valeur %{error_value} n'est pas autorisée pour le champs %{reference_value} "
