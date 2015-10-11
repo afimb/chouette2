@@ -1,0 +1,33 @@
+---
+layout: default
+title: Supression des courses obsolètes parmis d'autres valides
+---
+
+La purge des données ne supprime que les courses des lignes entièrement osbolètes. Dans le cas où seules certaines courses d'une mission sont obsolètes, il convient de les supprimer manuellement. 
+
+Cette suppression peut se faire directement dans l'interface de Chouette mais elle est relativement laborieuse car il faut supprimer les courses une à une en plusieurs clics à chaque fois. 
+
+Dans les cas où de nombreuses courses doivent être supprimées, il est préférable d'employer la fonction d'export/import des horaires au format CSV. Cela permet d'éditer les horaires massivement dans un tableur et de réimporter les données dans CHOUETTE pour leur prise en compte. 
+
+h3. Export des arrêts
+
+La première étape consiste à exporter les données horaires de la séquence d'arrêt. Cet export CSV se fait au niveau des horaires, il est distinct d'un export de base proprement dit. 
+!2014-10-31_114422.png!
+
+Le fichier téléchargé comprend trois fichiers :
+* Calendrier qui permet de faire la correspondance entre le nom des calendriers et les codes utilisés dans les horaires. 
+* Course comportant les horaires proprement dits. C'est ce fichier qu'il faudra mettre à jour et réimporter dans l'application.
+* Notes : qui reprend les commentaires éventuellement associés aux lignes
+
+h3. Edition du fichier des horaires
+
+Après l'ouverture du fichier des horaires, Il faut dans un premier temps identifier toutes les courses auxquelles sont affectés des calendriers obsolètes. Ensuite, les données horaires doivent être supprimées. Il faut en revanche bien conserver l'identifiant de course (Id Course) présent sur la première ligne. C'est sa présence qui permettra lors de l'import du fichier édité, de transformer une course dotée d'horaires en course vide qui sera ensuite effacée par le système.
+!2014-10-31_114639.png!
+
+Le séparateur retenu pour le fichier .csv est le point-virgule et le format des caractères est l'UTF8.
+
+h3. Import du fichier horaire
+
+L'import ne concerne que le fichier horaire, il n'est pas nécessaire de l'importer dans un fichier .zip. 
+Comme pour l'export des horaires, l'import se fait depuis la page horaire. 
+Son import avec des courses qui ont conservé leur identifiant mais qui ne contiennent plus d'horaire effacera ces données de CHOUETTE.

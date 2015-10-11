@@ -29,6 +29,8 @@ Les arrêts du réseaux peuvent ensuite être créés, soit directement par sais
 
 Les correspondances étant des liens entre deux arrêts il est possible de les déclarer dès l'étape de création des arrêts. 
 
+Une descrption détaillée de la façon de créer les arrêts et les correspondances massivement depuis en important des fichiers GTFS est disponible dans l'annexe "Importer massivement des arrêts depuis un fichier GTFS":GTFS_stops_import.
+
 h3. Création des lignes 
 
 La création des lignes permet de définir les grands paramétres généraux de la ligne, notamment son nom. Les arrêts proprement dits sont définis dans les séquences d'arrêts. 
@@ -43,13 +45,16 @@ h4. Missions
 
 Les missions définissent des trajets effectifs réalisés par les véhicules. Elles se définissent à l'intérieur de l'interface de gestion des séquences d'arrêts, elle-même étant un sous-élément de l'interface des lignes.
 
-On peut créer autant de mission que nécessaire au sein d'une séquence d'arrêts. Chaque mission est néanmoins contrainte par les arrêts composant la séquence d'arrêts, à la fois en ce qui concerne les arrêts eux-mêmes que l'ordre dans lequel ils sont agencés. 
+On peut créer autant de missions que nécessaire au sein d'une séquence d'arrêts. Chaque mission est néanmoins contrainte par les arrêts composant la séquence d'arrêts, à la fois par ce qui concerne les arrêts eux-mêmes que par l'ordre dans lequel ils sont agencés. 
 
 h3. Horaires
 
-Les horaires ne peuvent être définis qu'à la condition d'avoir paramétré les autres critères. L'interface de consultation et de saisie des horaires se situe au niveau de la mission. Pour retrouver les horaires, il convient donc de sélectionner Ligne>Séquence d'arrêts>horaire des courses.
+Les horaires ne peuvent être définis qu'à la condition d'avoir paramétré les autres critères préalablement. L'interface de consultation et de saisie des horaires se situe au niveau de la mission. Pour retrouver les horaires, il convient donc de sélectionner Ligne>Séquence d'arrêts>horaire des courses.
 
-Les horaires des courses peuvent être saisis directement dans l'interface Chouette ou bien encore être édité dans un tableau par le biais d'une fonction "d'import / export" spécifique. Disponible depuis l'interface des horaires, elle ne concerne que ceux-ci. Il ne faut pas la confondre avec les imports / export de base de données dans le système. Il s'agit d'une fonction qui permet l'édition externe et les copier/coller massifs depuis un tableur. 
+Les horaires des courses peuvent être saisis directement dans l'interface Chouette ou bien encore être édité dans un tableau par le biais de la fonction "d'import / export" spécifique. Disponible depuis l'interface des horaires, elle ne concerne que ceux-ci. Il ne faut pas la confondre avec les imports / exports de base de données dans le système. Il s'agit d'une fonction qui permet l'édition externe et les copier/coller massifs depuis un tableur. 
+!2014-10-31_114422.png!
+
+Pour plus d'informations sur l'import/export des horaires, consulter le chapitre "Courses et horaires":vehicle_journeys ainsi que l'annexe "Exporter et importer des horaires en .csv":vehicle_journeys_import_export.
 
 A noter que l'édition directement dans CHOUETTE peut se faire au clavier. Le curseur placé dans le premier champ, la saisie sur le pavé numérique permet de saisir la valeur voulue. La touche tabulation permet passer du champ heure au champ minute puis de renseigner la suite de la fiche en colonne. Les liens _"Copier  arrivées vers départs"_ ou inversement permettent de dupliquer les données saisies dans le cas le plus fréquent où les horaires de départ et d'arrivé à l'arrêt sont confondus. 
 
@@ -57,5 +62,5 @@ L'export se fait au format .zip et comporte des fichier .csv des calendriers et 
 
 h3. Groupe de lignes
 
-Les groupes de lignes sont facultatifs et peuvent être créés dès lors que des lignes existent.
+Les groupes de lignes sont facultatifs et peuvent être créés dès lors que des lignes existent. Ils sont obligatoires dès lors que la base doit être exportée au format HUB. Pour plus d'informations sur les contraintes liées à l'export HUB, reportez vous au chapitre correspondant.
 

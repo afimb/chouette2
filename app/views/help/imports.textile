@@ -4,6 +4,7 @@ title: Imports
 ---
 
 * "Rôle":#rol
+* "Horaires":#hor
 * "Validation":#val
 * "l’onglet IMPORTS":#imp
 * "Nouvel Import":#new
@@ -19,6 +20,11 @@ p. L’import permet d’enregistrer dans la base un jeu de données d'offre TC,
 p=. !2014-10-31_151613.png! 
 Page des imports
 
+h3 (#hor). Import des horaires
+Une seconde fonction d'import export est disponible au niveau des horaires. Cette fonction est différente de l'import/export de base, elle vise à simplfiier la saisie des horaires en permettant des échanges entre CHOUETTE et un tableur. Les données sont téléchargeable au format CSV puis réimportées après modification, toujours au niveau des lignes. Cette fonction d'import/export spécifique n'intègre pas d'étape de test et de validation. 
+
+Pour plus d'informations sur l'import/export des horaires, consulter le chapitre "Courses et horaires":vehicle_journeys ainsi que l'annexe "Exporter et importer des horaires en .csv":vehicle_journeys_import_export.
+
 h3(#val). Validation
 
 p. Lors de l'import, des tests sont effectués : 
@@ -29,7 +35,7 @@ p. Lors de l'import, des tests sont effectués :
 
 p(olnext). - nécessite la fourniture d'un jeu de paramètres définissant les seuils (cf "Validation":validations) 
 
-p(note). Les tests de niveau 1 et 2 ne sont actuellement implémentés que pour le format Neptune
+p(note). Les tests de niveau 1 et 2 ne sont actuellement implémentés que pour les formats Neptune et GTFS
 
 
 h3(#imp). l'onglet IMPORTS
@@ -52,7 +58,7 @@ p. La page d'un nouvel import donne le choix entre trois profils d'import : Nept
 p=. !2015-07-23_152040.png! 
 Page d'un nouvel import
 
-* La case à cocher "Pas de sauvegarde" permet de tester la base sans l'importer. 
+* La case à cocher "Pas de sauvegarde" permet de tester les données à importer sans modifier la base. 
 * Il est également possible de sélectionner un autre jeu de validation. Il est possible de ne choisir aucun jeu de paramètres.
 
 p. Le profil GTFS contient des champs spécifiques. 

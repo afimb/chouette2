@@ -44,7 +44,7 @@ On peut modifier un groupe de lignes en cliquant sur le bouton de suppression di
 
 h3. Attributs d'un groupe de lignes
 
-* Nom : nom du groupe de lignes 
+* Nom : nom du groupe de lignes, les caractères alphanumériques et le signe "_" (underscore ou tiret du 8) sont autorisés.
 * Commentaire : Champs de saisie libre pour identifier l'usage du groupe de lignes.
 * Numéro d'enregistrement : Le numéro d'enregistrement est unique. Aucune règle de nommage ne s'applique sur ce numéro. Celui-ci doit être unique sur l'ensemble des groupes de lignes.
 
