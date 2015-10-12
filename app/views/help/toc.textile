@@ -41,7 +41,6 @@ h3. Sommaire
 # Annexes
 ## "Créer un réseau à partir de zéro":startingfromscratch
 ## "Importer massivement des arrêts depuis un fichier GTFS":GTFS_stops_import
-## "Exporter et importer des horaires en .csv":vehicle_journeys_import_export
 ## "Modification des arrêts d'une ligne":stopsmanagement
 ## "Supression des courses obsolètes parmis d'autres valides":vehicle_journeys_cleaning
 ## "Itinéraire valables le temps d'une saison":temporaryline
