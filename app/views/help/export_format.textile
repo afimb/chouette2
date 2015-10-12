@@ -15,6 +15,8 @@ h3. Formats disponibles
 * KML : format contenant l'ensemble des données cartographiées pouvant ainsi être importée dans un SIG
 * HUB : format tabulaire interne Transdev dans sa version 1.3
 
+p. Note : le format CSV de Chouette a été supprimé, en effet, celui-ci était limité à des lignes définissant un unique aller simple ou aller/retour. Ce format est remplacé par l'import/export d'horaires disponible dans les formulaires de séquences d'arrêt. Il convient de se reporter à la rubrique "Exporter et importer des horaires en .csv":vehicle_journeys_import_export pour plus de détails. 
+
 h3. Options des formats
 
 Les options des différents formats apparaissent en fonction de celui qui a été choisi.

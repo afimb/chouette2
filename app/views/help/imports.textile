@@ -20,10 +20,11 @@ p. L’import permet d’enregistrer dans la base un jeu de données d'offre TC,
 p=. !2014-10-31_151613.png! 
 Page des imports
 
-h3 (#hor). Import des horaires
-Une seconde fonction d'import export est disponible au niveau des horaires. Cette fonction est différente de l'import/export de base, elle vise à simplfiier la saisie des horaires en permettant des échanges entre CHOUETTE et un tableur. Les données sont téléchargeable au format CSV puis réimportées après modification, toujours au niveau des lignes. Cette fonction d'import/export spécifique n'intègre pas d'étape de test et de validation. 
+h3(#hor). Import des horaires
 
-Pour plus d'informations sur l'import/export des horaires, consulter le chapitre "Courses et horaires":vehicle_journeys ainsi que l'annexe "Exporter et importer des horaires en .csv":vehicle_journeys_import_export.
+p. Une seconde fonction d'import export est disponible au niveau des horaires. Cette fonction est différente de l'import/export de base, elle vise à simplfiier la saisie des horaires en permettant des échanges entre CHOUETTE et un tableur. Les données sont téléchargeable au format CSV puis réimportées après modification, toujours au niveau des lignes. Cette fonction d'import/export spécifique n'intègre pas d'étape de test et de validation. 
+
+p. Pour plus d'informations sur l'import/export des horaires, consulter le chapitre "Courses et horaires":vehicle_journeys ainsi que l'annexe "Exporter et importer des horaires en .csv":vehicle_journeys_import_export.
 
 h3(#val). Validation
 
@@ -54,6 +55,7 @@ p. Dans la partie droite de l'écran,
 h3(#new). Nouvel Import
 
 p. La page d'un nouvel import donne le choix entre trois profils d'import : Neptune, Netex et GTFS. Chacun de ces profils est accessible par un onglet dédié. Les formulaires Neptune et Netex sont identiques. 
+
 
 p=. !2015-07-23_152040.png! 
 Page d'un nouvel import
