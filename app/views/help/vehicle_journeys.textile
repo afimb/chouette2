@@ -59,16 +59,7 @@ Dès lors que la mission est sélectionnée, la liste des arrêts à desservir s
 
 h4. Ajouter une course par import .csv
 
-L'import d'une ou plusieurs courses par un fichier .csv permet d'ajouter des courses éditées dans un tableur. La forme du tableau étant très spécifique, il convient de récupérer le modèle en cliquant sur _"Export des horaires aux arrêts"_ puis de compléter les horaires dans le tableur. Le séparateur retenu pour le fichier .csv est le point-virgule. L'export fournit un fichier .zip comprenant le fichier des horaires et les calendriers.
-
-Le fichier calendrier permet de connaître le code de chaque calendrier et de le reporter dans le fichier des horaires dans la ligne _"calendriers"_. Dans le cas où plusieurs calendriers doivent être associés à une course, le code de chaque calendrier doit être séparé par une virgule. 
-
-!2014-10-31_114422.png! 
-Import des horaires au format .csv
-
-Les données horaires peuvent être rajoutées dans le fichier .csv, en revanche, il convient de laisser le champ _"id course"- vide. CHOUETTE se chargera de lui attribuer un numéro valide lors de l'import. 
-
-L'import du fichier .csv ne concerne que le fichier .csv proprement dit. Importer un fichier .zip identique au fichier exporté, génèrera une erreur. 
+L'export/import de données horaire au format .csv est possible depuis l'interface des horaires. Voir le chapitre ""Exporter et importer des horaires en .csv":vehicle_journeys_import_export
 
 h3. Modifier une course
 

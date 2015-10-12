@@ -7,6 +7,8 @@ h3(#rol). Rôle
 
 p. L'export permet d'extraire de la base un ensemble de données selon un format 
 
+
+
 h3(#opt). Options des formats
 
 Les options des différents formats apparaissent en fonction de celui qui a été choisi.

@@ -1,0 +1,22 @@
+---
+layout: default
+title: Exporter et importer des horaires en .csv
+---
+
+L'import d'une ou plusieurs courses par un fichier .csv permet d'ajouter des courses éditées dans un tableur. La forme du tableau étant très spécifique, il convient de récupérer le modèle en cliquant sur _"Export des horaires aux arrêts"_ puis de compléter les horaires dans le tableur. Le séparateur retenu pour le fichier .csv est le point-virgule. L'export fournit un fichier .zip comprenant le fichier des horaires et les calendriers.
+
+Le fichier calendrier permet de connaître le code de chaque calendrier et de le reporter dans le fichier des horaires dans la ligne _"calendriers"_. Dans le cas où plusieurs calendriers doivent être associés à une course, le code de chaque calendrier doit être séparé par une virgule. 
+
+Le fichier notes permet de connaître le code de chaque note de bas de page créée sur la ligne et de le reporter dans le fichier des horaires dans la ligne _"notes de bas de page"_. Dans le cas où plusieurs notes de bas de page doivent être associées à une course, le code de chaque notes de bas de page doit être séparé par une virgule. 
+
+
+!2014-10-31_114422.png! 
+Import des horaires au format .csv
+
+Les données horaires peuvent être rajoutées dans le fichier .csv, en revanche, il convient de laisser le champ _"id course"- vide. CHOUETTE se chargera de lui attribuer un numéro valide lors de l'import. 
+
+Il est également possible de modifier une course déjà existante dans le fichier. Il convient dans ce cas de conserver l'identifiant de la course et de l'éditer. Les informations relatives à cette course seront modiifés lors de l'import. 
+
+La suppression d'une course existante se fait en conservant l'identifiant de la course mais en effaçant toutes les données de la course. Lors de l'import, la course vide sera alors supprimée. 
+
+L'import du fichier .csv ne concerne que le fichier horaire .csv proprement dit. Importer un fichier .zip identique au fichier exporté, génèrera une erreur. 
