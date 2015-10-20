@@ -21,12 +21,14 @@ class ComplianceCheckExport
     begin
       Dir.mktmpdir("#{I18n.t('compliance_check_results.file.zip_name_prefix')}_#{@referential_id}_#{@compliance_check.id}_", Dir.tmpdir) { |temp_dir|
         
-        File.open(temp_dir + "/#{I18n.t('compliance_check_results.file.summary_errors_file_prefix')}" , "a") do |f|
+        File.open(temp_dir + "/#{I18n.t('compliance_check_results.file.summary_errors_file_prefix')}" , "a:utf-8") do |f|
+          f.write("\ufeff")
           f.write(render)
           f.flush
         end
         
-        File.open(temp_dir + "/#{I18n.t('compliance_check_results.file.detailed_errors_file_prefix')}" , "a") do |f|
+        File.open(temp_dir + "/#{I18n.t('compliance_check_results.file.detailed_errors_file_prefix')}" , "a:utf-8") do |f|
+          f.write("\ufeff")
           f.write(detailed_errors_render)
           f.flush
         end
