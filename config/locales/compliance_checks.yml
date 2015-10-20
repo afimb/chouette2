@@ -86,7 +86,7 @@ fr:
       export: "Télécharger les résultats"
       export_csv: "Format CSV"
     report:
-      validation_success: "La validation est passé avec succès."
+      validation_success: "La validation est passée avec succès."
       action_report: "Rapport d'action"
     actions:
       destroy_confirm: "Voulez-vous supprimer ce résultat de validation ?"
