@@ -1,0 +1,5 @@
+$('.journey_pattern_dependent_list').html('<%= escape_javascript(
+  render(:partial => "vehicle_journeys_frequencies/vehicle_journey_at_stop_fields",
+         :collection => @vehicle_journey.vehicle_journey_at_stops,
+         :as => :vehicle_journey_at_stop,
+         :locals => { :vehicle_journey_at_stops_size => @vehicle_journey.vehicle_journey_at_stops.size })).html_safe %>');

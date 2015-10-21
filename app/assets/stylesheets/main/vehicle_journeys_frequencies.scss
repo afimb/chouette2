@@ -1,0 +1,43 @@
+#workspace {
+  .ce-TimeBandFormTable {
+    border-left: 1px solid #616161;
+  }
+  .ce-TimeBandFormTable tr:hover td {
+    background-color: #eee;
+  }
+  .ce-TimeBandFormTable td {
+    padding: 0 20px 8px 20px;
+    vertical-align: top;
+  }
+  .ce-TimeBandFormTable tr:last-child td {
+    padding-bottom: 0;
+  }
+  .ce-TimeBandFormTable td:last-child {
+    text-align: right;
+  }
+  .ce-TimeBandFormTable-circleLine {
+    position: relative;
+  }
+  .ce-TimeBandFormTable-line:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    margin-left: -1px;
+    background-color: #61970b;
+  }
+  .ce-TimeBandFormTable-circle {
+    position: relative;
+    z-index: 999;
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    background-color: #4d7809;
+  }
+  .ce-TimeBandFormTable-subList {
+
+  }
+}

@@ -70,7 +70,7 @@ ChouetteIhm::Application.routes.draw do
             get 'new_vehicle_journey'
           end
         end
-        resources :vehicle_journeys do
+        resources :vehicle_journeys, :vehicle_journeys_frequencies do
           get 'select_journey_pattern', :on => :member
           resources :vehicle_translations
           resources :time_tables

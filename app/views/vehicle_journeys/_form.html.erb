@@ -1,5 +1,6 @@
-<%= semantic_form_for [@referential, @line, @route, @vehicle_journey] do |form| %>
+<%= semantic_form_for @vehicle_journey, url: form_url do |form| %>
   <%= form.inputs do %>
+    <%= form.input :is_frequency, as: :hidden %>
     <%= form.input :journey_pattern, :as => :select, :collection => @route.journey_patterns, :member_label => Proc.new { |jp| journey_name(jp) }  %>
     <%= form.input :number %>
     <%= form.input :published_journey_name %>
@@ -18,52 +19,14 @@
 	    <%= form.label @vehicle_journey.human_attribute_name(:vehicle_journey_at_stop_ids), :class => "label" %>
     </li>
 
-    <% unless @vehicle_journey.vehicle_journey_at_stops.empty? ||
-       @vehicle_journey.vehicle_journey_at_stops.any? { |vjas| vjas.departure_time.nil? } %>    <div class="vehicle_journey_at_stops">
-      <div class="well">
-        <span class="title"><%= t(".slide_title") %></span>
-        <div>
-          <span><%= t(".set") %></span> <%= select_tag "", options_for_select( [ [t('.slide_departure'), "departure"], [t('.slide_arrival'), "arrival"] ] ), :class => "departure_or_arrival" %> <span><%= t(".to") %></span>
-          <%= select_hour(@vehicle_journey.vehicle_journey_at_stops.first.departure_time.hour) %>
-          <%= select_minute(@vehicle_journey.vehicle_journey_at_stops.first.departure_time.min) %>
-          <a class="slide btn btn-default"><%= t(".slide") %></a>
-        </div>
-      </div>
-    <% end %>
-
-    <table class="table table-hover table-striped">
-	    <thead>
-	      <tr>
-	        <th class="hour title"><%= t('.arrival') %></th>
-	        <th class="stop title" ><%= t('.stop_title') %></th>
-	        <th class="hour title"><%= t('.departure') %></th>
-	      </tr>
-	    </thead>
-	    <tfoot>
-	      <tr>
-	        <td class="title"> <a class="to_departures"><%= t('.to_departures') %></a></td>
-	        <td class="title" ></td>
-	        <td class="title"><a class="to_arrivals"><%= t('.to_arrivals') %></a></td>
-	      </tr>
-	    </tfoot>
-	    <tbody class="journey_pattern_dependent_list">
-	      <%= render :partial => "vehicle_journeys/vehicle_journey_at_stop_fields",
-	      :collection => @vehicle_journey.vehicle_journey_at_stops, :as => :vehicle_journey_at_stop, :locals => { :vehicle_journey_at_stops_size => @vehicle_journey.vehicle_journey_at_stops.size } %>
-
-      </tbody>
-    </table>    
+    <%= render 'form_vehicle_journey_at_stops' %>
 
   <% end %>
 
   <%= form.actions do %>
-    <%= form.action :submit, :as => :button %>
-    <%= form.action :cancel, :as => :link %>
+    <%= form.action :submit, as: :button, label: t(".submit#{'_frequency' if @vehicle_journey.is_frequency}") %>
+    <%= form.action :cancel, as: :link %>
   <% end %>
 <% end %>
 
-<% if @vehicle_journey.new_record? %>
-  <%= javascript_include_tag new_referential_line_route_vehicle_journey_path(@referential, @line, @route, :format => :js) %>
-<% else %>
-  <%= javascript_include_tag edit_referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey, :format => :js) %>
-<% end %>
-
+<%= render 'form_footer' %>

@@ -16,6 +16,8 @@ module BreadcrumbHelper
       journey_pattern_breadcrumb action
     when "Chouette::VehicleJourney"
       vehicle_journey_breadcrumb action
+    when "Chouette::VehicleJourneysFrequency"
+      vehicle_journeys_frequency_breadcrumb action
     when "VehicleJourneyImport"
       vehicle_journey_import_breadcrumb action
     when "Chouette::StopArea"
@@ -123,6 +125,12 @@ module BreadcrumbHelper
     add_breadcrumb I18n.t("breadcrumbs.vehicle_journeys"), referential_line_route_vehicle_journeys_path(@referential, @line,@route) unless action == :index
     add_breadcrumb breadcrumb_label(@vehicle_journey), referential_line_route_vehicle_journey_path(@referential, @line,@route,@vehicle_journey),:title => breadcrumb_tooltip(@vehicle_journey) if action == :edit
   end
+
+   def vehicle_journeys_frequency_breadcrumb(action)
+     route_breadcrumb :edit
+     add_breadcrumb I18n.t("breadcrumbs.vehicle_journeys_frequencies"), referential_line_route_vehicle_journeys_frequencies_path(@referential, @line, @route) unless action == :index
+     add_breadcrumb breadcrumb_label(@vehicle_journey), referential_line_route_vehicle_journeys_frequency_path(@referential, @line,@route, @vehicle_journey),:title => breadcrumb_tooltip(@vehicle_journey) if action == :edit
+   end
 
   def vehicle_journey_import_breadcrumb (action)
     route_breadcrumb :edit

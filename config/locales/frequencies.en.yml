@@ -1,0 +1,7 @@
+en:
+  frequencies:
+    time_band: Time band
+    first_departure: First departure
+    last_departure: Last departure
+    scheduled_headway_interval: Interval
+    exact_time: Exact?

@@ -1,0 +1,7 @@
+fr:
+  frequencies:
+    time_band: Plages horaires
+    first_departure: Premier départ
+    last_departure: Dernier départ
+    scheduled_headway_interval: Intervalle
+    exact_time: Exact ?

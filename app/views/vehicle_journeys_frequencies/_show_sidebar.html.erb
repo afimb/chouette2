@@ -1,0 +1,16 @@
+<% content_for :sidebar do %>
+  <ul class="actions">
+    <li><%= link_to t('vehicle_journeys.actions.new'), new_referential_line_route_vehicle_journey_path(@referential, @line, @route), :class => "add" %></li>
+    <li><%= link_to t('vehicle_journeys.actions.new_frequency'), new_referential_line_route_vehicle_journeys_frequency_path(@referential, @line, @route), :class => "add" %></li>
+    <li><%= link_to t('vehicle_journeys.actions.edit_frequency'), edit_referential_line_route_vehicle_journeys_frequency_path(@referential, @line, @route, @vehicle_journey), :class => "edit" %></li>
+    <li><%= link_to t('vehicle_journeys.actions.destroy'), referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey), :method => :delete, :data => {:confirm =>  t('vehicle_journeys.actions.destroy_confirm')}, :class => "remove" %></li>
+    <% unless @vehicle_journey.vehicle_journey_at_stops.empty? %>
+      <li>
+        <i class="fa fa-cubes fa-fw" style="color:#D98F3B;"></i>
+        TODO
+        <%# link_to t('vehicle_journeys.show.translation_form'), new_referential_line_route_vehicle_journey_vehicle_translation_path(@referential, @line, @route, @vehicle_journey), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal_translation', :class => "with_fa" } %>
+      </li>
+    <% end %>
+  </ul>
+  <%= creation_tag(@vehicle_journey) %>
+<% end %>
