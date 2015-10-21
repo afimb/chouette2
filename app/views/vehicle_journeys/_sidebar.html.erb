@@ -1,6 +1,7 @@
-  <ul class="actions">
-    <li><%= link_to t('vehicle_journeys.actions.new'), new_referential_line_route_vehicle_journey_path(@referential, @line, @route), :class => "add" %></li>
-	<li><%= link_to t('vehicle_journey_imports.new.title'), new_referential_line_route_vehicle_journey_import_path( @referential, @line, @route ), :class => "import" %></li>
-    <li><%= link_to t('vehicle_journey_exports.new.title'), referential_line_route_vehicle_journey_exports_path(@referential, @line, @route, :format => :zip), :class => "export" %></li>
-  </ul>
+<ul class="actions">
+  <li><%= link_to t('vehicle_journeys.actions.new'), new_referential_line_route_vehicle_journey_path(@referential, @line, @route), :class => "add" %></li>
+  <li><%= link_to t('vehicle_journeys.actions.new_frequency'), new_referential_line_route_vehicle_journeys_frequency_path(@referential, @line, @route), :class => "add" %></li>
+  <li><%= link_to t('vehicle_journey_imports.new.title'), new_referential_line_route_vehicle_journey_import_path( @referential, @line, @route ), :class => "import" %></li>
+  <li><%= link_to t('vehicle_journey_exports.new.title'), referential_line_route_vehicle_journey_exports_path(@referential, @line, @route, :format => :zip), :class => "export" %></li>
+</ul>
 

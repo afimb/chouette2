@@ -27,7 +27,7 @@ class BreadcrumbController < InheritedResources::Base
   end
 
   def new
-    new! do 
+    new! do
       build_breadcrumb :new
     end
   end

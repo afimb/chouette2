@@ -1,0 +1,5 @@
+<% if @vehicle_journey.new_record? %>
+  <%= javascript_include_tag new_referential_line_route_vehicle_journeys_frequency_path(@referential, @line, @route, :format => :js) %>
+<% else %>
+  <%= javascript_include_tag edit_referential_line_route_vehicle_journeys_frequency_path(@referential, @line, @route, @vehicle_journey, :format => :js) %>
+<% end %>

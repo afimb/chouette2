@@ -1,0 +1,5 @@
+fr:
+  frequencies:
+    time_band: Plages horaires
+    form:
+      add_frequency_line: Ajouter une ligne

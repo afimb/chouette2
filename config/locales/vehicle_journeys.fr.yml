@@ -1,0 +1,118 @@
+fr:
+  vehicle_journeys:
+    vehicle_journeys:
+      line_routes: "Séquences d'arrêts de la ligne"
+    vehicle_journey:
+      title_stopless: "Course %{name}"
+      title: "Course partant de %{stop} à %{time}"
+    actions:
+      index: "Horaires des courses"
+      new: "Ajouter une course"
+      new_frequency: "Ajouter une course à fréquence"
+      edit: "Modifier cette course"
+      edit_frequency: "Modifier cette course à fréquence"
+      destroy: "Supprimer cette course"
+      destroy_confirm: "Etes vous sûr de supprimer cette course ?"
+    new:
+      title: "Ajouter une course"
+      title_frequency: "Ajouter une course à fréquence"
+    edit:
+      title_stopless: "Modifier la course %{name}"
+      title: "Modifier la course partant de %{stop} à %{time}"
+    form:
+      stop_title: "Arrêt"
+      departure: "Départ"
+      arrival: "Arrivée"
+      to_arrivals: "Copie départs vers arrivées"
+      to_departures: "Copie arrivées vers départs"
+      time_tables: "Calendriers associés à la course"
+      slide: "Décaler"
+      slide_title: "Décaler l'ensemble des horaires de course"
+      set: "Fixer"
+      to: "à"
+      slide_departure: "horaire de départ au 1° arrêt à"
+      slide_arrival: "horaire d'arrivée au 1° arrêt à"
+      submit: "Créer course"
+      submit_frequency: "Créer course à fréquence"
+    timeless:
+      title: "Courses sans horaire"
+      vehicle_journeys: "Courses ayant des horaires"
+      vehicles_list: "Liste des courses"
+    show:
+      title: "Course au départ de %{stop} à %{time} sur la séquence %{route}"
+      stop_title: "Arrêt"
+      departure: "Départ"
+      arrival: "Arrivée"
+      time_tables: "Liste des calendriers"
+      bounding: "De %{start} à %{end}"
+      translation_form: "Cloner la course"
+    index:
+      title: "Horaires de la séquence d'arrêts %{route}"
+      vehicle_journeys: "Horaires de départ aux arrêts"
+      selection: "Filtrer sur"
+      selection_all: "Tous"
+      select_journey_patterns: "Sélectionner une mission"
+      select_time_tables: "Saisir un calendrier"
+      time_range: "Seuil horaire au départ"
+      advanced_search: "Recherche avancée"
+    time_filter:
+      time_range_filter: "Filtrer"
+    sidebar:
+      timeless: "Courses sans horaire"
+  activerecord:
+    models:
+      vehicle_journey:
+        zero:  "course"
+        one:   "course"
+        other: "courses"
+    attributes:
+      vehicle_journey:
+        line: "Ligne"
+        route: "Séquence d'arrêt"
+        journey_pattern: "Mission"
+        time_tables: "Calendriers"
+        time_slot: "Fréquence"
+        company: "Transporteur"
+        number: "Numéro"
+        comment: "Commentaires"
+        status_value: "Etat de trafic"
+        transport_mode_name: "Mode de transport"
+        mobility_restricted_suitability: "Accessibilité PMR"
+        flexible_service: "Transport à la demande"
+        unspecified_mrs: "Non spécifié"
+        accessible: "Accessible"
+        not_accessible: "Non accessible"
+        unspecified_fs: "Non spécifié"
+        on_demand_fs: "Service à la demande"
+        regular_fs: "Service régulier"
+        published_journey_name: "Nom public"
+        published_journey_identifier: "Identifiant public"
+        facility: "Equipement"
+        vehicle_type_identifier: "Type d'identifiant du véhicule"
+        time_table_ids: "Liste des calendriers"
+        vehicle_journey_at_stop_ids: "Liste des horaires"
+        objectid: "Identifiant Neptune"
+        object_version: "Version"
+        creation_time: "Créé le"
+        creator_id: "Créé par"
+        footnote_ids: "Notes de bas de page"
+    errors:
+      models:
+        vehicle_journey:
+          invalid_times: "Horaires invalides"
+  formtastic:
+    titles:
+      vehicle_journey:
+        objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      neptune:
+        vehicle_journey:
+          objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      netex:
+        vehicle_journey:
+          objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      gtfs:
+        vehicle_journey:
+          objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+      hub:
+        vehicle_journey:
+          objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'. Longueur maximale de la clé unique = 8."

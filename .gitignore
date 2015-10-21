@@ -24,3 +24,6 @@ chouette2.war
 vendor/bundle
 .ruby-version
 coverage
+
+# IDE
+.idea

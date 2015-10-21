@@ -1,4 +1,5 @@
 <%= title_tag edit_vehicle_title(@vehicle_journey) %>
 
-<%= render "form" %>
+<%= render 'form', form_url: referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey) %>
+
 

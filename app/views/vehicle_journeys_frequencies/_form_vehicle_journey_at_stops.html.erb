@@ -1,0 +1,17 @@
+<li class="input">
+  <label class="label">Durée d'intervalle du trajet</label>
+  <table class="journey_pattern_dependent_list ce-TimeBandFormTable">
+    <%= render :partial => 'vehicle_journey_at_stop_fields',
+               :collection => @vehicle_journey.vehicle_journey_at_stops, :as => :vehicle_journey_at_stop,
+               :locals => { :vehicle_journey_at_stops_size => @vehicle_journey.vehicle_journey_at_stops.size } %>
+  </table>
+</li>
+
+<% form.semantic_fields_for :frequencies do |frequency| %>
+  <%= render 'frequency_fields', f: frequency %>
+<% end %>
+
+<li class="input">
+  <label class="label"></label>
+  <%= link_to_add_association t('frequencies.form.add_frequency_line'), form, :frequencies, class: 'btn btn-primary' %>
+</li>
