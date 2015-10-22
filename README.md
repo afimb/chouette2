@@ -70,7 +70,7 @@ Install web application
 Get git source code :
 ```sh
 cd
-git clone -b V3_0 git://github.com/afimb/chouette2
+git clone -b V3_1 git://github.com/afimb/chouette2
 cd chouette2
 ```
 Download gem librairies

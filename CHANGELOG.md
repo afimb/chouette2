@@ -3,8 +3,9 @@
   * Validation GTFS lors de l'import
 * Améliorations
   * présentation des rapports d'import/export et validation
+  * mise en adéquation de Chouette sur Neptune (hors courses à fréquences)
 
-# Version 3.0.1 (en cours)
+# Version 3.0.1
 * Corrections
   * mise en place d'un formulaire de consultation des clés de l'API V1 (Mantis 38248) 
   * restitution d'erreurs de clonage des arrêts sur clone invalide (Mantis 39159)
