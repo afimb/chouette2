@@ -56,7 +56,7 @@ module NinoxeExtension::Hub
         # HUB-31
         # sa.validates_format_of :comment, :with => %r{\A[\w ]{0,255}\z}
         sa.validates_length_of :comment, :maximum => 255, :allow_blank => true, :allow_nil => true
-        sa.validates_format_of :registration_number, :with => %r{\A[\w]{1,8}\z}, :allow_blank => true, :allow_nil => true
+        sa.validates :registration_number, :numericality => { :less_than => 10 ** 8 }, :allow_blank => true, :allow_nil => true
       end
     end
     def specific_objectid

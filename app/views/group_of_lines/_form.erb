@@ -3,7 +3,7 @@
     <%= form.input :name, :input_html => {  :title => I18n.t("formtastic.titles#{format_restriction_for_locales(@referential)}.group_of_line.name") } %>
     <%= form.input :registration_number, :input_html => {  :title => I18n.t("formtastic.titles#{format_restriction_for_locales(@referential)}.group_of_line.registration_number") } %>
     <%= form.input :comment %>
-    <%= form.input :objectid, :required => !@group_of_line.new_record?, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.group_of_line.objectid") } %>
+    <%= form.input :objectid, :required => !@group_of_line.new_record?, :input_html => {  :title => I18n.t("formtastic.titles#{format_restriction_for_locales(@referential)}.group_of_line.objectid") } %>
   <% end %>
 
   <%= form.inputs do %>

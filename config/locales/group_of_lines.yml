@@ -55,7 +55,7 @@ en:
           registration_number: "Positif integer." 
           objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
       hub:
-        group_of_lines:
+        group_of_line:
           name: "maximum 75 characters"
           registration_number: "Positif integer, unique key, of no more than 8 digits." 
           objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character. Maximum length of the unique key = 6."
@@ -117,7 +117,7 @@ fr:
           registration_number: "Entier positif." 
           objectid: "[prefixe]:GroupOfLine:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
       hub:
-        group_of_lines:
+        group_of_line:
           name: "maximum 75 caractères"
           registration_number: "Entier positif, clé unique, d'un maximum de 8 chiffres." 
           objectid: "[prefixe]:GroupOfLine:[clé_unique] caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'. Longueur maximale de la clé unique = 6."

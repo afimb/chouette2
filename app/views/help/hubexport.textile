@@ -43,7 +43,7 @@ Les arrêts de type pôle d'échange ne sont pas pris en charge par le format HU
 h4. Contraintes sur les champs :
 
 * Troisième composante de l'identifiant technique : 6 caractères maximum
-* Nom de l'arrêt : 75 arrêts maximum
+* Nom de l'arrêt : 75 caractères maximum
 * Point d'intérêt le plus proche : ce champs est facultatif. S'il est rempli, il ne doit pas contenir plus de 255 caractères pour les arrêts commerciaux et plus de 60 caractères pour les arrêts physiques.
 * Géolocalisation : obligatoire et au format WGS84
 * Commune : 80 caractères maximum

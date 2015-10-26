@@ -144,7 +144,7 @@ fr:
         exports: "Exports"
         compliance_checks: "Validations"
         rule_parameter_sets: "Jeux de paramètres"
-        data_format_restrictions: "Appliquer les contraintes de format des données"
+        data_format_restrictions: "Format d'export privilégié"
         data_format: "Format d'export privilégié"
   formtastic:
     titles:
