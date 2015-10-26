@@ -49,8 +49,8 @@ h4. Contraintes sur les champs :
 * Commune : 80 caractères maximum
 * Code INSEE : obligatoire
 * Commentaire : champs facultatif, 255 caractères maximum si rempli
-* Identifiant Neptune : 6 caractères maximum
-* Numéro d'enregistrement : 8 chiffres au maximum (obligatoire ?)
+* Identifiant Neptune : 6 caractères maximum. L'identifiant est obligatoire pour les arrêts physiques. Il correspond au code de l'arrêt dans le format HUB. Chaque identifiant doit être unique.
+* Numéro d'enregistrement : 8 chiffres au maximum. Le n° d'enregistrement est obligatoire. Il est numérique uniquement et correspond au n° IDAP dans le format HUB.
 
 h3. Correspondances
 
@@ -59,7 +59,7 @@ CHOUETTE permet de faire des correspondances entre différents types d'arrêts. 
 h4. Contraintes sur les champs :
 
 * Distance : 4 chiffres maximum
-* Identifiant Neptune : (non exporté ?)
+* Identifiant Neptune : non exporté dans le HUB
 * Temps de parcours : 4 chiffres maximum (minutes et secondes)
 
 h3. Groupe de lignes
