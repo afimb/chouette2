@@ -52,7 +52,7 @@ module NinoxeExtension::Hub
         sa.validates_length_of :city_name, :minimum => 1, :maximum => 80
 
         # HUB-30
-        sa.validates_format_of :zip_code, :with => %r{\A[\d]{5}\z}
+        sa.validates_format_of :country_code, :with => %r{\A[\d]{5}\z}
         # HUB-31
         # sa.validates_format_of :comment, :with => %r{\A[\w ]{0,255}\z}
         sa.validates_length_of :comment, :maximum => 255, :allow_blank => true, :allow_nil => true
