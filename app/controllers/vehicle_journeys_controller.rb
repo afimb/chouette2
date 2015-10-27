@@ -99,8 +99,7 @@ class VehicleJourneysController < ChouetteController
                                                                                                       :is_frequency] },
                                              { frequencies_attributes: [ :scheduled_headway_interval, :first_departure_time,
                                                                          :last_departure_time,
-                                                                         :exact_time ] },
-                                             :is_frequency )
+                                                                         :exact_time ] } )
   end
 
 end

@@ -3,3 +3,7 @@ en:
     time_band: Time band
     form:
       add_frequency_line: Add a line
+    first_departure: First departure
+    last_departure: Last departure
+    scheduled_headway_interval: Interval
+    exact_time: Exact?
