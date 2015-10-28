@@ -69,6 +69,8 @@ module ApplicationHelper
       "connection_links"
     when path.include?("/time_tables")
       "time_tables"
+    when path.include?("/timebands")
+      "timebands"
     when path.include?("/rule_parameter_set")
       "parametersets"
     when path.include?("/import_tasks")

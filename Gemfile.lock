@@ -1,5 +1,6 @@
-PATH
-  remote: ../ninoxe
+GIT
+  remote: https://github.com/afimb/ninoxe.git
+  revision: 766d2293bde741d34a5b9f23da21e5dc8d66bb2f
   specs:
     ninoxe (1.2.1)
       activerecord (~> 4.1.1)
@@ -256,7 +257,7 @@ GEM
     net-ssh (2.9.2)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
-    newrelic_rpm (3.9.6.257)
+    newrelic_rpm (3.11.2.286)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     nokogiri (1.6.6.2-java)

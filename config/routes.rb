@@ -133,6 +133,8 @@ ChouetteIhm::Application.routes.draw do
       resources :time_table_combinations
     end
 
+    resources :timebands
+
     resources :access_points do
        resources :access_links
     end

@@ -68,6 +68,7 @@ en:
         rule_parameter_sets: "Rule parameters sets"
         data_format_restrictions: "Data format constraint"
         data_format: "Favorite format for export"
+        timebands: "Time bands"
   formtastic:
     titles:
       referential:
@@ -146,6 +147,7 @@ fr:
         rule_parameter_sets: "Jeux de paramètres"
         data_format_restrictions: "Appliquer les contraintes de format des données"
         data_format: "Format d'export privilégié"
+        timebands: "Plages horaires"
   formtastic:
     titles:
       referential:
