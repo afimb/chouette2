@@ -1,4 +1,7 @@
-<% unless @vehicle_journey.vehicle_journey_at_stops.empty? || @vehicle_journey.vehicle_journey_at_stops.any? { |vjas| vjas.departure_time.nil? } %>
+<li class="input">
+  <%= form.label vehicle_journey.human_attribute_name(:vehicle_journey_at_stop_ids), :class => "label" %>
+</li>
+<% unless vehicle_journey.vehicle_journey_at_stops.empty? || vehicle_journey.vehicle_journey_at_stops.any? { |vjas| vjas.departure_time.nil? } %>
   <div class="vehicle_journey_at_stops">
     <div class="well">
       <span class="title"><%= t('vehicle_journeys.form.slide_title') %></span>
@@ -6,8 +9,8 @@
         <span><%= t('vehicle_journeys.form.set') %></span>
         <%= select_tag '', options_for_select( [ [t('vehicle_journeys.form.slide_departure'), "departure"], [t('vehicle_journeys.form.slide_arrival'), "arrival"] ] ), :class => "departure_or_arrival" %>
         <span><%= t('vehicle_journeys.form.to') %></span>
-        <%= select_hour(@vehicle_journey.vehicle_journey_at_stops.first.departure_time.hour) %>
-        <%= select_minute(@vehicle_journey.vehicle_journey_at_stops.first.departure_time.min) %>
+        <%= select_hour(vehicle_journey.vehicle_journey_at_stops.first.departure_time.hour) %>
+        <%= select_minute(vehicle_journey.vehicle_journey_at_stops.first.departure_time.min) %>
         <a class="slide btn btn-default"><%= t('vehicle_journeys.form.slide') %></a>
       </div>
     </div>
@@ -24,14 +27,23 @@
   </thead>
   <tfoot>
     <tr>
-      <td class="title"><a class="to_departures"><%= t('vehicle_journeys.form.to_departures') %></a></td>
+      <td class="title">
+        <%= button_tag 'data-ce-action' => 'to_departures', class: 'ce-hide btn btn-primary' do %>
+          <%= t('vehicle_journeys.form.to_departures').html_safe %>
+          <i class="fa fa-angle-double-right"></i>
+        <% end %>
       <td class="title"></td>
-      <td class="title"><a class="to_arrivals"><%= t('vehicle_journeys.form.to_arrivals') %></a></td>
+      <td class="title">
+        <%= button_tag 'data-ce-action' => 'to_arrivals', class: 'ce-hide btn btn-primary' do %>
+          <i class="fa fa-angle-double-left"></i>
+          <%= t('vehicle_journeys.form.to_arrivals').html_safe %>
+        <% end %>
+      </td>
     </tr>
   </tfoot>
   <tbody class="journey_pattern_dependent_list">
     <%= render :partial => "vehicle_journeys/vehicle_journey_at_stop_fields",
-               :collection => @vehicle_journey.vehicle_journey_at_stops, :as => :vehicle_journey_at_stop,
-               :locals => { :vehicle_journey_at_stops_size => @vehicle_journey.vehicle_journey_at_stops.size } %>
+               :collection => vehicle_journey.vehicle_journey_at_stops, :as => :vehicle_journey_at_stop,
+               :locals => { :vehicle_journey_at_stops_size => vehicle_journey.vehicle_journey_at_stops.size } %>
   </tbody>
 </table>

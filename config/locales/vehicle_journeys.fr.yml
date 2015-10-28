@@ -7,14 +7,14 @@ fr:
       title: "Course partant de %{stop} à %{time}"
     actions:
       index: "Horaires des courses"
-      new: "Ajouter une course"
+      new: "Ajouter une course à horaire"
       new_frequency: "Ajouter une course à fréquence"
-      edit: "Modifier cette course"
+      edit: "Modifier cette course à horaire"
       edit_frequency: "Modifier cette course à fréquence"
       destroy: "Supprimer cette course"
       destroy_confirm: "Etes vous sûr de supprimer cette course ?"
     new:
-      title: "Ajouter une course"
+      title: "Ajouter une course à horaire"
       title_frequency: "Ajouter une course à fréquence"
     edit:
       title_stopless: "Modifier la course %{name}"
@@ -32,7 +32,7 @@ fr:
       to: "à"
       slide_departure: "horaire de départ au 1° arrêt à"
       slide_arrival: "horaire d'arrivée au 1° arrêt à"
-      submit: "Créer course"
+      submit_timed: "Créer course"
       submit_frequency: "Créer course à fréquence"
     timeless:
       title: "Courses sans horaire"
@@ -91,6 +91,7 @@ fr:
         vehicle_type_identifier: "Type d'identifiant du véhicule"
         time_table_ids: "Liste des calendriers"
         vehicle_journey_at_stop_ids: "Liste des horaires"
+        journey_frequency_ids: "Durée d'intervalle du trajet"
         objectid: "Identifiant Neptune"
         object_version: "Version"
         creation_time: "Créé le"

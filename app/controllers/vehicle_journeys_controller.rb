@@ -1,5 +1,5 @@
 class VehicleJourneysController < ChouetteController
-  defaults :resource_class => Chouette::VehicleJourneyTimed
+  defaults :resource_class => Chouette::VehicleJourney
 
   respond_to :js, :only => [:select_journey_pattern, :edit, :new, :index]
 

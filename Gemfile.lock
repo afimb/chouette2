@@ -1,6 +1,5 @@
-GIT
-  remote: https://github.com/afimb/ninoxe.git
-  revision: 766d2293bde741d34a5b9f23da21e5dc8d66bb2f
+PATH
+  remote: ../ninoxe
   specs:
     ninoxe (1.2.1)
       activerecord (~> 4.1.1)
@@ -106,8 +105,7 @@ GEM
     coffee-script-source (1.9.1)
     daemons (1.1.9)
     database_cleaner (1.4.1)
-    dbf (2.0.10)
-      fastercsv (~> 1.5)
+    dbf (3.0.0)
     debug_inspector (0.0.2)
     deep_cloneable (2.0.2)
       activerecord (>= 3.1.0, < 5.0.0)
@@ -149,7 +147,6 @@ GEM
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
-    fastercsv (1.5.5)
     ffi (1.9.10)
     ffi (1.9.10-java)
     ffi-geos (1.1.0)
@@ -247,7 +244,7 @@ GEM
     mime-types (2.4.3)
     mimemagic (0.3.0)
     mini_portile (0.6.2)
-    minitest (5.8.1)
+    minitest (5.8.2)
     modernizr-rails (2.0.6)
     multi_json (1.11.2)
     multipart-post (2.0.0)

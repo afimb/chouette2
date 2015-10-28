@@ -1,7 +1,7 @@
 # This migration comes from ninoxe_engine (originally 20151015143707)
-class CreateFrequencies < ActiveRecord::Migration
+class CreateJourneyFrequencies < ActiveRecord::Migration
   def change
-    create_table :frequencies do |t|
+    create_table :journey_frequencies do |t|
       t.references :vehicle_journey, index: true
       t.time :scheduled_headway_interval, null: false
       t.time :first_departure_time, null: false

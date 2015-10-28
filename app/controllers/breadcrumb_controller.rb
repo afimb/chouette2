@@ -1,26 +1,26 @@
 class BreadcrumbController < InheritedResources::Base
 
   include BreadcrumbHelper
-  
+
   def show
-    show! do 
+    show! do
       build_breadcrumb :show
     end
   end
-  
+
   def index
-    index! do 
+    index! do
       build_breadcrumb :index
     end
   end
-    
+
   def edit
     edit! do
       build_breadcrumb :edit
     end
   end
 
-  def update 
+  def update
     update! do |success, failure|
       build_breadcrumb :edit
     end
@@ -31,7 +31,7 @@ class BreadcrumbController < InheritedResources::Base
       build_breadcrumb :new
     end
   end
-  
+
   def create
     create! do |success, failure|
       build_breadcrumb :new

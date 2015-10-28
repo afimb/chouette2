@@ -51,7 +51,7 @@ module ApplicationHelper
       "group_of_lines"
     when path.include?("/vehicle_journeys")
       "vehicle_journeys"
-    when path.include?("/vehicle_journeys_frequencies")
+    when path.include?("/vehicle_journey_frequencies")
       "vehicle_journeys"
     when path.include?("/journey_patterns")
       "journey_patterns"

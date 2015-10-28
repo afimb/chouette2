@@ -1,9 +1,0 @@
-fr:
-  frequencies:
-    time_band: Plages horaires
-    form:
-      add_frequency_line: Ajouter une ligne
-    first_departure: Premier départ
-    last_departure: Dernier départ
-    scheduled_headway_interval: Intervalle
-    exact_time: Exact ?

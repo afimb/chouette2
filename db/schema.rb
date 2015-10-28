@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151015150300) do
+ActiveRecord::Schema.define(version: 20151022150419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -191,18 +191,6 @@ ActiveRecord::Schema.define(version: 20151015150300) do
     t.integer "footnote_id",        limit: 8
   end
 
-  create_table "frequencies", force: true do |t|
-    t.integer  "vehicle_journey_id"
-    t.time     "scheduled_headway_interval",                 null: false
-    t.time     "first_departure_time",                       null: false
-    t.time     "last_departure_time"
-    t.boolean  "exact_time",                 default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "frequencies", ["vehicle_journey_id"], name: "index_frequencies_on_vehicle_journey_id", using: :btree
-
   create_table "group_of_lines", force: true do |t|
     t.string   "objectid",            null: false
     t.integer  "object_version"
@@ -219,6 +207,18 @@ ActiveRecord::Schema.define(version: 20151015150300) do
     t.integer "group_of_line_id", limit: 8
     t.integer "line_id",          limit: 8
   end
+
+  create_table "journey_frequencies", force: true do |t|
+    t.integer  "vehicle_journey_id"
+    t.time     "scheduled_headway_interval",                 null: false
+    t.time     "first_departure_time",                       null: false
+    t.time     "last_departure_time"
+    t.boolean  "exact_time",                 default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "journey_frequencies", ["vehicle_journey_id"], name: "index_journey_frequencies_on_vehicle_journey_id", using: :btree
 
   create_table "journey_patterns", force: true do |t|
     t.integer  "route_id",                limit: 8
@@ -549,7 +549,7 @@ ActiveRecord::Schema.define(version: 20151015150300) do
     t.integer  "number",                          limit: 8
     t.boolean  "mobility_restricted_suitability"
     t.boolean  "flexible_service"
-    t.integer  "vehicle_journey_type",                      default: 0, null: false
+    t.integer  "journey_category",                          default: 0, null: false
   end
 
   add_index "vehicle_journeys", ["objectid"], name: "vehicle_journeys_objectid_key", unique: true, using: :btree

@@ -1,0 +1,12 @@
+fr:
+  journey_frequencies:
+    time_band: Plages horaires
+    form:
+      add_line: Ajouter une ligne
+  activerecord:
+    attributes:
+      journey_frequency:
+        first_departure_time: Premier départ
+        last_departure_time: Dernier départ
+        scheduled_headway_interval: Intervalle
+        exact_time: Exact ?

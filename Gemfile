@@ -115,9 +115,9 @@ gem 'squeel'
 
 gem 'enumerize', '~> 0.10.0'
 
-gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git'
+# gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git'
 #gem 'ninoxe', '1.2.2'
-#gem 'ninoxe',:path => '~/workspace/chouette/ninoxe'
+gem 'ninoxe', path: '../ninoxe'
 
 gem 'acts_as_list', '~> 0.6.0'
 gem "acts_as_tree", '~> 2.1.0', :require => "acts_as_tree"
@@ -127,8 +127,6 @@ gem 'rabl'
 gem 'delayed_job_active_record'
 gem 'devise-async'
 gem 'apartment', "~> 1.0.0"
-
-gem 'newrelic_rpm'
 
 group :development do
   gem 'capistrano',        '2.13.5'
@@ -163,6 +161,7 @@ group :test, :development do
 end
 
 group :production do
+   gem 'newrelic_rpm'
    gem "SyslogLogger", :require => "syslog/logger"
    gem "daemons"
 end

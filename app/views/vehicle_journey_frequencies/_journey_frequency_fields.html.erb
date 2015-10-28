@@ -1,0 +1,15 @@
+<div class="nested-fields">
+  <ul class="ce-FrequencyFormFields">
+    <li>...</li>
+    <%= f.input :first_departure_time, label: false %>
+    <%= f.input :last_departure_time, label: false %>
+    <%= f.input :scheduled_headway_interval, label: false %>
+    <%= f.input :exact_time, label: t('activerecord.attributes.journey_frequency.exact_time') %>
+    <li>
+      <label class="label"></label>
+      <%= link_to_remove_association f do %>
+        <i class="fa fa-trash"></i>
+      <% end %>
+    </li>
+  </ul>
+</div>
