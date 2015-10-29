@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023101306) do
+ActiveRecord::Schema.define(version: 20151028105423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -216,8 +216,10 @@ ActiveRecord::Schema.define(version: 20151023101306) do
     t.boolean  "exact_time",                 default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "timeband_id"
   end
 
+  add_index "journey_frequencies", ["timeband_id"], name: "index_journey_frequencies_on_timeband_id", using: :btree
   add_index "journey_frequencies", ["vehicle_journey_id"], name: "index_journey_frequencies_on_vehicle_journey_id", using: :btree
 
   create_table "journey_patterns", force: true do |t|

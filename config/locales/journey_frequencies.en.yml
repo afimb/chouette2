@@ -10,3 +10,4 @@ en:
         last_departure_time: Last departure
         scheduled_headway_interval: Interval
         exact_time: Exact?
+        timeband: Time bands

@@ -1,26 +1,19 @@
 #workspace {
   .ce-TimeBandFormTable {
-    display: none;
-  }
-  .ce-TimeBandFormTable {
     .btn {
       white-space: normal;
       width: 130px;
     }
   }
   .ce-TimeBandFormTable th {
-    text-align: center;
-    padding-bottom: 10px;
+    text-align: left;
+    padding: 6px 20px 6px 20px;
   }
   .ce-TimeBandFormTable td {
     padding: 6px 20px 6px 20px;
   }
   .ce-TimeBandFormTable td {
     vertical-align: middle;
-  }
-  .ce-TimeBandFormTable td:last-child {
-    text-align: right;
-    padding-right: 4px;
   }
   .ce-TimeBandFormTable-circleLine {
     position: relative;
@@ -35,10 +28,10 @@
     margin-left: -1px;
     background-color: #61970b;
   }
-  .ce-TimeBandFormTable tr:first-child td .ce-TimeBandFormTable-line:after {
+  tr:first-child td .ce-TimeBandFormTable-line:after {
     top: 50%;
   }
-  .ce-TimeBandFormTable tr:last-child td .ce-TimeBandFormTable-line:after {
+  tr:last-child td .ce-TimeBandFormTable-line:after {
     bottom: 50%;
   }
   .ce-TimeBandFormTable-circle {
@@ -50,7 +43,7 @@
     border-radius: 8px;
     background-color: #4d7809;
   }
-  .ce-TimeBandFormTable tr:hover .ce-TimeBandFormTable-circle {
+  tr:hover .ce-TimeBandFormTable-circle {
     background-color: #fff;
     border: 2px solid #61970b;
   }
@@ -91,7 +84,7 @@
       }
     }
   }
-  form.vehicle_journey_frequency {
+  &.vehicle_journey_frequencies {
     .actions-add-fields {
       clear: both;
       padding-left: 25%;

@@ -10,3 +10,4 @@ fr:
         last_departure_time: Dernier départ
         scheduled_headway_interval: Intervalle
         exact_time: Exact ?
+        timeband: Plage horaires

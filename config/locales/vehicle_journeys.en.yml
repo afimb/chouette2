@@ -46,6 +46,7 @@ en:
       time_tables: "Calendars list"
       bounding: "From %{start} to %{end}"
       translation_form: "Vehicle journey translations"
+      journey_frequencies: "Interval time duration"
     index:
       title: "Vehicle journeys on route %{route}"
       vehicle_journeys: "Departure's times"

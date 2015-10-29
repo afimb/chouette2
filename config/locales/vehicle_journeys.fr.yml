@@ -46,6 +46,7 @@ fr:
       time_tables: "Liste des calendriers"
       bounding: "De %{start} à %{end}"
       translation_form: "Cloner la course"
+      journey_frequencies: "Durée d'intervalle du trajet"
     index:
       title: "Horaires de la séquence d'arrêts %{route}"
       vehicle_journeys: "Horaires de départ aux arrêts"

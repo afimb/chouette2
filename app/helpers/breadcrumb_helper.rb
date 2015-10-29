@@ -137,7 +137,7 @@ module BreadcrumbHelper
    def vehicle_journey_frequency_breadcrumb(action)
      route_breadcrumb :edit
      add_breadcrumb I18n.t("breadcrumbs.vehicle_journey_frequencies"), referential_line_route_vehicle_journey_frequencies_path(@referential, @line, @route) unless action == :index
-     add_breadcrumb breadcrumb_label(@vehicle_journey), referential_line_route_vehicle_journey_frequency_path(@referential, @line,@route, @vehicle_journey),:title => breadcrumb_tooltip(@vehicle_journey) if action == :edit
+     add_breadcrumb breadcrumb_label(@vehicle_journey_frequency), referential_line_route_vehicle_journey_frequency_path(@referential, @line,@route, @vehicle_journey_frequency),:title => breadcrumb_tooltip(@vehicle_journey_frequency) if action == :edit
    end
 
   def vehicle_journey_import_breadcrumb (action)
