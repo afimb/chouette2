@@ -5,6 +5,9 @@ fr:
     vehicle_journey:
       title_stopless: "Course %{name}"
       title: "Course partant de %{stop} à %{time}"
+    vehicle_journey_frequency:
+      title_stopless: "Course à fréquence %{name}"
+      title: "Course à fréquence partant de %{stop} à %{time}"
     actions:
       index: "Horaires des courses"
       new: "Ajouter une course à horaire"

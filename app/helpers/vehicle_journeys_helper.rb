@@ -23,9 +23,9 @@ module VehicleJourneysHelper
   end
   
   def vehicle_title( vehicle)
-    return t('vehicle_journeys.vehicle_journey.title_stopless', :name => vehicle_name( vehicle)) if vehicle.vehicle_journey_at_stops.empty?
+    return t("vehicle_journeys.vehicle_journey#{'_frequency' if vehicle.frequency?}.title_stopless", :name => vehicle_name( vehicle)) if vehicle.vehicle_journey_at_stops.empty?
     first_vjas = vehicle.vehicle_journey_at_stops.first
-    t('vehicle_journeys.vehicle_journey.title', 
+    t("vehicle_journeys.vehicle_journey#{'_frequency' if vehicle.frequency?}.title",
           :stop => first_vjas.stop_point.stop_area.name,
           :time => vehicle_departure(vehicle))
   end

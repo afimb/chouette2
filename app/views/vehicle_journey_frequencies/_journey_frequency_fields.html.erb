@@ -1,6 +1,6 @@
 <div class="nested-fields">
   <ul class="ce-FrequencyFormFields">
-    <%= f.input :timeband, collection: Chouette::Timeband.all, label: false %>
+    <%= f.input :timeband, collection: Chouette::Timeband.all.map{ |timeband| [timeband.fullname, timeband.id] }, label: false %>
     <%= f.input :first_departure_time, label: false %>
     <%= f.input :last_departure_time, label: false %>
     <%= f.input :scheduled_headway_interval, label: false %>

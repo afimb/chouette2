@@ -5,6 +5,9 @@ en:
     vehicle_journey:
       title_stopless: "Vehicle journey %{name}"
       title: "Vehicle journey leaving from %{stop} at %{time}"
+    vehicle_journey_frequency:
+      title_stopless: "Vehicle journey frequency %{name}"
+      title: "Vehicle journey frequency leaving from %{stop} at %{time}"
     actions:
       index: "Vehicle time's board"
       new: "Add a new timed vehicle journey"
