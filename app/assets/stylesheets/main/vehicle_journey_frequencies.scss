@@ -51,12 +51,18 @@
     display: table;
     width: 100%;
     padding-left: 25%;
+    .inline-errors {
+      margin: 0;
+    }
     > li {
       display: table-cell;
       width: 21%;
       vertical-align: top;
       padding:0 ;
       margin: 0;
+      &:first-child select {
+        width: 160px;
+      }
       &:nth-last-child(2), &:last-child {
         width: 8%;
       }
