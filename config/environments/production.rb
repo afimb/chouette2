@@ -115,7 +115,7 @@ Rails.application.configure do
   # config.demo_data = "/path/to/demo.zip"
 
   # link to validation specification pages
-  config.validation_spec = "http://www.chouette.mobi/neptune-validation/v21/"
+  config.validation_spec = "http://www.chouette.mobi/neptune-validation/v22/"
 
   # paths for external resources
   config.to_prepare do
