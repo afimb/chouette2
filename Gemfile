@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.10'
+gem 'rails', '~> 4.1.10'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -36,13 +36,13 @@ gem 'spring', group: :development
 # gem 'debugger', group: [:development, :test]
 
 # API Rest
-gem 'sawyer', "~> 0.6.0"
+gem 'sawyer', '~> 0.6.0'
 gem 'faraday_middleware', '~> 0.9.1'
 
 platforms :jruby do
   gem 'activerecord-jdbcpostgresql-adapter', '~> 1.3.3'
   gem 'jruby-openssl'
-  gem "jruby-rack-worker"
+  gem 'jruby-rack-worker'
   gem 'warbler'
   gem 'therubyrhino'
 end
@@ -63,41 +63,22 @@ gem 'devise-encryptable'
 gem 'devise_invitable'
 
 # Map, Geolocalization
-gem "map_layers", "0.0.4"
-gem "georuby-ext", "0.0.5"
-gem "georuby", "2.3.0" # Fix version for georuby-ext because api has changed
+gem 'map_layers', '0.0.4'
+gem 'georuby-ext', '0.0.5'
+gem 'georuby', '2.3.0' # Fix version for georuby-ext because api has changed
 
 gem 'mimemagic'
 
 # User interface
 gem 'language_engine', '0.0.6'
-gem 'calendar_helper', "0.2.5"
+gem 'calendar_helper', '0.2.5'
 gem 'cocoon'
-gem 'formtastic', "2.3.1"
+gem 'formtastic', '2.3.1'
 gem 'RedCloth'
 gem 'simple_form', '~> 3.1.0'
 gem 'font-awesome-sass', '~> 4.2.0'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
-gem "breadcrumbs_on_rails"
-
-# TODO : Move these resources to rails assets
-gem "modernizr-rails", "~> 2.0.6"
-
-# Javascript
-source 'https://rails-assets.org' do
-  gem 'rails-assets-morrisjs',   '~> 0.5.1'
-  gem 'rails-assets-raphael',    '~> 2.1.3'
-  gem 'rails-assets-footable',   '~> 2.0.3'
-
-  # Use twitter bootstrap resources
-  gem 'rails-assets-bootstrap-sass-official', '~> 3.3.0'
-  gem 'rails-assets-tagmanager', '~> 3.0.1.0'
-  gem 'rails-assets-typeahead.js', '~> 0.10.5'
-  gem 'rails-assets-typeahead.js-bootstrap3.less'
-  gem 'rails-assets-respond'
-  gem 'rails-assets-eonasdan-bootstrap-datetimepicker', '~> 3.1.3'
-  gem 'rails-assets-jquery-tokeninput', '~> 1.7.0'
-end
+gem 'breadcrumbs_on_rails'
 
 # Format Output
 gem 'json'
@@ -115,20 +96,17 @@ gem 'squeel'
 
 gem 'enumerize', '~> 0.10.0'
 
-gem 'ninoxe', :git => 'https://github.com/afimb/ninoxe.git'
-#gem 'ninoxe', '1.2.2'
+gem 'ninoxe', github: 'afimb/ninoxe'
 #gem 'ninoxe', path: '../ninoxe'
 
 gem 'acts_as_list', '~> 0.6.0'
-gem "acts_as_tree", '~> 2.1.0', :require => "acts_as_tree"
+gem 'acts_as_tree', '~> 2.1.0', require: 'acts_as_tree'
 
 gem 'rabl'
 
 gem 'delayed_job_active_record'
 gem 'devise-async'
-gem 'apartment', "~> 1.0.0"
-
-gem 'newrelic_rpm'
+gem 'apartment', '~> 1.0.0'
 
 group :development do
   gem 'capistrano',        '2.13.5'
@@ -148,21 +126,40 @@ end
 
 group :test, :development do
   gem 'pry-rails'
-  gem "rspec-rails", "~> 3.1.0"
-  gem "fakeweb"
-  gem 'capybara', "~> 2.4.0"
+  gem 'rspec-rails', '~> 3.1.0'
+  gem 'fakeweb'
+  gem 'capybara', '~> 2.4.0'
   gem 'poltergeist'
   gem 'launchy'
   gem 'factory_girl_rails', '~> 4.0'
   # gem 'i18n-tasks'
-  gem 'rb-inotify', :require => RUBY_PLATFORM.include?('linux') && 'rb-inotify'
-  gem 'rb-fsevent', :require => RUBY_PLATFORM.include?('darwin') && 'rb-fsevent'
+  gem 'rb-inotify', require: RUBY_PLATFORM.include?('linux') && 'rb-inotify'
+  gem 'rb-fsevent', require: RUBY_PLATFORM.include?('darwin') && 'rb-fsevent'
   gem 'transpec'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
 end
 
 group :production do
-   gem "SyslogLogger", :require => "syslog/logger"
-   gem "daemons"
+  gem 'SyslogLogger', require: 'syslog/logger'
+  gem 'daemons'
+  gem 'newrelic_rpm'
+end
+
+# Rails Assets
+source 'https://rails-assets.org' do
+  gem 'rails-assets-morrisjs',   '~> 0.5.1'
+  gem 'rails-assets-raphael',    '~> 2.1.3'
+  gem 'rails-assets-footable',   '~> 2.0.3'
+
+  # Use twitter bootstrap resources
+  gem 'rails-assets-bootstrap-sass-official', '~> 3.3.0'
+  gem 'rails-assets-tagmanager', '~> 3.0.1.0'
+  gem 'rails-assets-typeahead.js', '~> 0.10.5'
+  gem 'rails-assets-typeahead.js-bootstrap3.less'
+  gem 'rails-assets-respond'
+  gem 'rails-assets-eonasdan-bootstrap-datetimepicker', '~> 3.1.3'
+  gem 'rails-assets-jquery-tokeninput', '~> 1.7.0'
+
+  gem 'rails-assets-modernizr', '~> 2.0.6'
 end
