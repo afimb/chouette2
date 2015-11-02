@@ -1,3 +1,13 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+(($) ->
+  $ ->
+    $('.ce-VehicleJourneyFrequencyTableBlock').dataTable
+      searching: false,
+      ordering: false,
+      paging: false,
+      scrollX: true,
+      fixedColumns: true,
+      bInfo: false
+    window.setTimeout('$( ".dataTables_scrollBody" ).animate({scrollLeft: 100}, 500).animate({scrollLeft: 0}, 500)', 1000)
+    return
+  return
+) jQuery

@@ -16,18 +16,21 @@ module VehicleJourneysHelper
     return "missing" if (is_present && is_present.departure_time.nil?)
   end
   
-  def vehicle_departure(vehicle)
-    first_vjas = vehicle.vehicle_journey_at_stops.first
-    return "" unless first_vjas.departure_time
-    l(first_vjas.departure_time, :format => :hour).gsub( /  /, ' ') 
+  def vehicle_departure(vehicle, departure_time=nil)
+    unless departure_time
+      first_vjas = vehicle.vehicle_journey_at_stops.first
+      return '' unless first_vjas.departure_time
+      departure_time = first_vjas.departure_time
+    end
+    l(departure_time, :format => :hour).gsub( /  /, ' ')
   end
   
-  def vehicle_title( vehicle)
+  def vehicle_title(vehicle, departure_time=nil)
     return t("vehicle_journeys.vehicle_journey#{'_frequency' if vehicle.frequency?}.title_stopless", :name => vehicle_name( vehicle)) if vehicle.vehicle_journey_at_stops.empty?
     first_vjas = vehicle.vehicle_journey_at_stops.first
     t("vehicle_journeys.vehicle_journey#{'_frequency' if vehicle.frequency?}.title",
           :stop => first_vjas.stop_point.stop_area.name,
-          :time => vehicle_departure(vehicle))
+          :time => vehicle_departure(vehicle, departure_time))
   end
   
   def edit_vehicle_title( vehicle)

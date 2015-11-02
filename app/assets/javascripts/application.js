@@ -23,6 +23,8 @@
 //= require footable/footable.paginate
 //= require footable/footable.sort
 //= require tools
+//= require datatables
+//= require datatables-fixedcolumns
 //= require_directory ./plugins
 //= require_directory .
 //= require_directory ./stop_areas

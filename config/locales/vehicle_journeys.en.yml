@@ -1,6 +1,6 @@
 en:
   vehicle_journeys:
-    vehicle_journeys:  
+    vehicle_journeys_matrix:
       line_routes: "Line's routes"      
     vehicle_journey:
       title_stopless: "Vehicle journey %{name}"

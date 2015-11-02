@@ -1,0 +1,6 @@
+fr:
+  vehicle_journey_frequencies:
+    vehicle_journeys_matrix:
+      line_routes: Séquences d'arrêts de la ligne
+    vehicle_journeys_page_info:
+      with_matrix_size: "générant %{matrix_size} courses à fréquences"

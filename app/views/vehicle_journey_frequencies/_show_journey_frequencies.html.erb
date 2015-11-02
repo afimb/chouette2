@@ -15,7 +15,7 @@
       <tr class="<%= cycle :odd, :even %>">
         <td>
           <%= link_to journey_frequency.timeband.fullname,
-                      referential_timeband_path(@referential, journey_frequency.timeband) %>
+                      referential_timeband_path(@referential, journey_frequency.timeband) if journey_frequency.timeband %>
         </td>
         <td><%= l(journey_frequency.first_departure_time, format: :hour) %></td>
         <td><%= l(journey_frequency.last_departure_time, format: :hour) %></td>

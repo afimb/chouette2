@@ -162,4 +162,6 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-jquery-tokeninput', '~> 1.7.0'
 
   gem 'rails-assets-modernizr', '~> 2.0.6'
+  gem 'rails-assets-datatables'
+  gem 'rails-assets-datatables-fixedcolumns'
 end

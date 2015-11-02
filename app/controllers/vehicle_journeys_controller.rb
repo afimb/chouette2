@@ -28,7 +28,6 @@ class VehicleJourneysController < ChouetteController
 
   def index
     index! do
-      @matrix ||= matrix
       if collection.out_of_bounds?
         redirect_to params.merge(:page => 1)
       end
@@ -50,10 +49,11 @@ class VehicleJourneysController < ChouetteController
   def collection
     unless @vehicle_journeys
       @vehicle_filter = VehicleFilter.new adapted_params
+      @vehicle_filter.journey_category_model = resource_class.model_name.route_key
       @q = @vehicle_filter.vehicle_journeys.search @vehicle_filter.filtered_params
       @vehicle_journeys = @q.result( :distinct => false ).paginate(:page => params[:page], :per_page => 8)
     end
-
+    matrix
     @vehicle_journeys
   end
   alias_method :vehicle_journeys, :collection
@@ -74,15 +74,8 @@ class VehicleJourneysController < ChouetteController
   end
 
   def matrix
-    {}.tap do |hash|
-      vehicle_journeys.each do |vj|
-        vj.vehicle_journey_at_stops.each do |vjas|
-          hash[ "#{vj.id}-#{vjas.stop_point_id}"] = vjas
-        end
-      end
-    end
+    @matrix = resource_class.matrix(@vehicle_journeys)
   end
-
 
   private
 
