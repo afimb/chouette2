@@ -103,4 +103,51 @@
   .ce-VehicleJourneyFrequencyTableBlock {
     margin: 0 !important;
   }
+  .ce-VehicleJourneyFrequenciesMatrix {
+    margin: 0;
+    padding: 0;
+    > li {
+      background-color: #eee;
+      height: 22px;
+      margin-bottom: 20px;
+      position: relative;
+      > ul {
+        margin: 0;
+        padding: 0;
+        > li {
+          cursor: pointer;
+          position: absolute;
+          padding: 0 2px;
+          top: 0;
+          bottom: 0;
+          background-color: $brand-primary;
+          border-left: 1px solid #000;
+          border-right: 1px solid #000;
+          &:hover {
+            z-index: 9999;
+            background-color: #4d7809;
+            top: -2px;
+            bottom: -2px;
+            > span {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+  .ce-VehicleJourneyFrequenciesMatrix-firstDepartureTime,
+  .ce-VehicleJourneyFrequenciesMatrix-lastDepartureTime {
+    display: none;
+    position: absolute;
+    top: -13px;
+    font-size: 11px;
+    color: #262626;
+  }
+  .ce-VehicleJourneyFrequenciesMatrix-firstDepartureTime {
+    left: -32px;
+  }
+  .ce-VehicleJourneyFrequenciesMatrix-lastDepartureTime {
+    right: -32px;
+  }
 }

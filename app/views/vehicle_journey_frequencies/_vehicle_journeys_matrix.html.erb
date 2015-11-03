@@ -1,41 +1,22 @@
-<table class="table table-hover table-striped ce-VehicleJourneyFrequencyTableBlock">
-  <thead>
-    <tr>
-      <th class="title">
-        <button data-style="primary" data-container="body" rel="popover" data-toggle="popover" title='<%= t(".line_routes") %>'
-                data-placement="top" data-content='<%= render( partial: "vehicle_journeys/route_popover", :locals => { :selected_route => @route }) %>'
-                class="route_popover btn btn-default btn-sm">
-          <i class='fa fa-search'></i>
-          <%= Chouette::Route.model_name.human.capitalize %>
-        </button>
-      </th>
-      <% @matrix.each do |departure_time, vj| %>
-        <th class="vehicle_journey">
-          <button data-style="primary" data-container="body" rel="popover" data-toggle="popover"
-                  data-title='<%= link_to(vehicle_title(vj, departure_time), [@referential, @line, @route, vj] ) %>
-                  <%= link_to('<span class="fa fa-pencil"></span>'.html_safe,
-                              send("edit_referential_line_route_vehicle_journey#{'_frequency' if vj.frequency?}_path", @referential, @line, @route, vj),
-                              :class => "btn btn-default btn-sm" ) %>'
-                  data-placement= "top"
-                  data-content='<%= render( partial: "vehicle_journeys/show_popover", :locals => { :vehicle_journey => vj }) %>'
-                  class="vehicle_journey_popover btn btn-default btn-sm">
-            <i class='fa fa-search'></i>
-          </button>
-        </th>
+<ul class="ce-VehicleJourneyFrequenciesMatrix">
+<% @vehicle_journeys.each do |vj| %>
+  <li>
+    <ul>
+      <% vj.journey_frequencies.each do |jf| %>
+        <% left, width = journey_frequency_percent(jf) %>
+        <li style="left:<%= left %>%;width:<%= width %>%"
+            data-style="primary" data-container="body" rel="popover" data-toggle="popover"
+            data-title='<%= link_to(vehicle_title(vj, jf), [@referential, @line, @route, vj] ) %>
+                        <%= link_to('<span class="fa fa-pencil"></span>'.html_safe,
+                                    send("edit_referential_line_route_vehicle_journey#{'_frequency' if vj.frequency?}_path", @referential, @line, @route, vj),
+                                    :class => "btn btn-default btn-sm" ) %>'
+            data-placement= "top"
+            data-content='<%= render 'vehicle_journeys/show_popover', { vehicle_journey: vj } %>'>
+          <span class="ce-VehicleJourneyFrequenciesMatrix-firstDepartureTime"><%= l(jf.first_departure_time, format: :hour) %></span>
+          <span class="ce-VehicleJourneyFrequenciesMatrix-lastDepartureTime"><%= l(jf.last_departure_time, format: :hour) %></span>
+        </li>
       <% end %>
-    </tr>
-  </thead>
-  <tbody>
-    <% @matrix_interval = Chouette::VehicleJourneyFrequency.matrix_interval(@matrix) %>
-    <% @route.stop_points.each do |sp| %>
-      <tr class="<%= cycle('odd', 'even') %>">
-        <td class="stop_area"><%= sp.stop_area.name %></td>
-        <% @matrix.each do |departure_time, vj| %>
-          <% next unless @matrix_interval[sp.id] %>
-          <% vjas = @matrix_interval[sp.id][departure_time.to_i] %>
-          <td><%= (vjas && vjas.departure_time) ? l( vjas.departure_time, format: :hour) : '--' %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    </ul>
+  </li>
+<% end %>
+</ul>

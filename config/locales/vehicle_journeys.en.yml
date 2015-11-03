@@ -8,6 +8,7 @@ en:
     vehicle_journey_frequency:
       title_stopless: "Vehicle journey frequency %{name}"
       title: "Vehicle journey frequency leaving from %{stop} at %{time}"
+      title_frequency: "Vehicle journey frequency with %{interval}min leaving from %{stop} at %{time_first} to %{time_last}"
     actions:
       index: "Vehicle time's board"
       new: "Add a new timed vehicle journey"
