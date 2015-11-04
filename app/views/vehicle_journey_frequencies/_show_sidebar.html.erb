@@ -1,0 +1,23 @@
+<% content_for :sidebar do %>
+  <ul class="actions">
+    <li>
+      <%= link_to t('vehicle_journeys.actions.new'),
+                  new_referential_line_route_vehicle_journey_path(@referential, @line, @route), class: "add" %>
+    </li>
+    <li>
+      <%= link_to t('vehicle_journeys.actions.new_frequency'),
+                  new_referential_line_route_vehicle_journey_frequency_path(@referential, @line, @route), class: "add" %>
+    </li>
+    <li>
+      <%= link_to t('vehicle_journeys.actions.edit_frequency'),
+                  edit_referential_line_route_vehicle_journey_frequency_path(@referential, @line, @route, @vehicle_journey_frequency),
+                  class: "edit" %>
+    </li>
+    <li>
+      <%= link_to t('vehicle_journeys.actions.destroy'),
+                  referential_line_route_vehicle_journey_path(@referential, @line, @route, @vehicle_journey_frequency),
+                  method: :delete, data: { confirm: t('vehicle_journeys.actions.destroy_confirm') }, class: "remove" %>
+    </li>
+  </ul>
+  <%= creation_tag(@vehicle_journey_frequency) %>
+<% end %>

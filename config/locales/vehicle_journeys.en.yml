@@ -1,0 +1,125 @@
+en:
+  vehicle_journeys:
+    vehicle_journeys_matrix:
+      line_routes: "Line's routes"      
+    vehicle_journey:
+      title_stopless: "Vehicle journey %{name}"
+      title: "Vehicle journey leaving from %{stop} at %{time}"
+    vehicle_journey_frequency:
+      title_stopless: "Vehicle journey frequency %{name}"
+      title: "Vehicle journey frequency leaving from %{stop} at %{time}"
+      title_frequency: "Vehicle journey frequency with %{interval}min leaving from %{stop} at %{time_first} to %{time_last}"
+    actions:
+      index: "Vehicle time's board"
+      new: "Add a new timed vehicle journey"
+      new_frequency: "Add a new frequency vehicle journey"
+      edit: "Edit this timed vehicle journey"
+      edit_frequency: "Edit this frequency vehicle journey"
+      destroy: "Remove this vehicle journey"
+      destroy_confirm: "Are you sure you want destroy this vehicle journey?"
+      show: "Show timed vehicle journeys"
+    new:
+      title: "Add a new vehicle journey"
+      title_frequency: "Add a new frequency vehicle journey"
+    edit:
+      title_stopless: "Update vehicle journey %{name}"
+      title: "Update vehicle journey %{name} leaving from %{stop} at %{time}"
+    form:
+      stop_title: "Stop"
+      departure: "Departure"
+      arrival: "Arrival"
+      to_arrivals: "Copy departures to arrivals"
+      to_departures: "Copy arrivals to departures"
+      time_tables: "Associated calendars to vehicle journey"
+      slide: "Shift"
+      slide_title: "Shift all vehicle passing times"
+      set: "Set"
+      to: "at"
+      slide_departure: "departure time at first stop"
+      slide_arrival: "arrival time at first stop"
+      submit_timed: "Create vehicle journey"
+      submit_frequency: "Create frequency vehicle journey"
+    timeless:
+      title: "Timeless vehicle journeys"
+      vehicle_journeys: "Vehicle journeys with times at stop"
+      vehicles_list: "Vehicle journeys list"
+    show:
+      title: "Vehicle Journey %{vehicle journey}"
+      stop_title: "Stop"
+      departure: "Departure"
+      arrival: "Arrival"
+      time_tables: "Calendars list"
+      bounding: "From %{start} to %{end}"
+      translation_form: "Vehicle journey translations"
+      journey_frequencies: "Interval time duration"
+    index:
+      title: "Vehicle journeys on route %{route}"
+      vehicle_journeys: "Departure's times"
+      selection: "Filter on"
+      selection_all: "All"
+      select_journey_patterns: "Select journey pattern"
+      select_time_tables: "Enter a timetable"
+      time_range: "Departure time threshold"
+      advanced_search: "Advanced Search"
+    sidebar:
+      timeless: "Timeless vehicle journeys"
+    time_filter:
+      time_range_filter: "Filter"
+  activerecord:
+    models:
+      vehicle_journey:
+        zero:  "vehicle journey"
+        one:   "vehicle journey"
+        other: "vehicle journeys"
+    attributes:
+      vehicle_journey:
+        line: "Line"
+        route: "Route"
+        journey_pattern: "Journey Pattern"
+        time_tables: "Calendars"
+        time_slot: "Time Slot"
+        company: "Company"
+        number: "Number"
+        comment: "Comments"
+        status_value: "Status Value"
+        transport_mode_name: "Transport Mode"
+        mobility_restricted_suitability: "PRM accessibility"
+        flexible_service: "On demond transportation"
+        unspecified_mrs: "Not specified"
+        accessible: "Accessible"
+        not_accessible: "Not accessible"
+        unspecified_fs: "Not specified"
+        on_demand_fs: "On demand service"
+        regular_fs: "Regular service"
+        published_journey_name: "Published Name"
+        published_journey_identifier: "Published Identifier"
+        facility: "Facility"
+        vehicletypeidentifier: "Vehicle Type Identifier"
+        time_table_ids: "Calendar list"
+        vehicle_journey_at_stop_ids: "Time list"
+        journey_frequency_ids: "Interval time duration"
+        objectid: "Neptune identifier"
+        object_version: "Version"
+        creation_time: "Created on"
+        creator_id: "Created by"
+        footnote_ids: "Footnotes"
+    errors:
+      models:
+        vehicle_journey:
+          invalid_times: "Invalid times"
+  formtastic:
+    titles:
+      vehicle_journey:
+        objectid: "[prefix]:VehicleJourney:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      neptune:
+        vehicle_journey:
+          objectid: "[prefix]:VehicleJourney:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      netex:
+        vehicle_journey:
+          objectid: "[prefix]:VehicleJourney:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      gtfs:
+        vehicle_journey:
+          objectid: "[prefix]:VehicleJourney:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      hub:
+        vehicle_journey:
+          objectid: "[prefix]:VehicleJourney:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character. Maximum length of the unique key = 8."

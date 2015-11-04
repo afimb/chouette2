@@ -94,7 +94,7 @@ gem 'enumerize', '~> 0.10.0'
 
 gem 'ninoxe', '1.2.3'
 #gem 'ninoxe', github: 'afimb/ninoxe'
-#gem 'ninoxe', path: '~/workspace/chouette/ninoxe'
+#gem 'ninoxe', path: '../ninoxe'
 
 gem 'acts_as_list', '~> 0.6.0'
 gem 'acts_as_tree', '~> 2.1.0', require: 'acts_as_tree'

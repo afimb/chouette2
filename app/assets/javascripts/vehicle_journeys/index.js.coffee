@@ -4,4 +4,3 @@ $(".vehicle_journeys.index").ready ->
   .on("show.bs.popover", (event)->
     $(event.target).data("bs.popover").tip().css("maxWidth", "350px"))
 
-       

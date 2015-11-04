@@ -1,6 +1,6 @@
 jQuery ->
   swap_hour_minute = ( from, to) ->
-    rows =  $('.vehicle_journeys tbody.journey_pattern_dependent_list tr.time')
+    rows =  $('tbody.journey_pattern_dependent_list tr.time')
     for row in rows
       do (row) ->
         $(row).find( to).find('.hour')[0].value = $(row).find( from).find('.hour')[0].value
@@ -8,15 +8,15 @@ jQuery ->
 
   copy_departures_to_arrivals = (event) ->
     event.preventDefault()
-    swap_hour_minute( '.departure_time', '.arrival_time')
+    swap_hour_minute('.departure_time', '.arrival_time')
 
-  $(document).on("click", '.vehicle_journeys a.to_arrivals', copy_departures_to_arrivals)
+  $(document).on('click', '[data-ce-action="to_arrivals"]', copy_departures_to_arrivals)
 
   copy_arrivals_to_departures = (event) ->
     event.preventDefault()
-    swap_hour_minute( '.arrival_time', '.departure_time')
+    swap_hour_minute('.arrival_time', '.departure_time')
 
-  $(document).on("click", '.vehicle_journeys a.to_departures', copy_arrivals_to_departures)
+  $(document).on('click', '[data-ce-action="to_departures"]', copy_arrivals_to_departures)
 
   switch_vehicle_journey_at_stops = (event) ->
     event.preventDefault()

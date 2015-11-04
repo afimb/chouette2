@@ -79,6 +79,10 @@ class Referential < ActiveRecord::Base
     Chouette::TimeTable.all
   end
 
+  def timebands
+    Chouette::Timeband.all
+  end
+
   def connection_links
     Chouette::ConnectionLink.all
   end

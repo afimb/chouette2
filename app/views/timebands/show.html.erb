@@ -1,0 +1,12 @@
+<%= title_tag t( 'timebands.show.title', timeband: @timeband.name )%>
+
+<div class="summary">
+  <p>
+    <label><%= @timeband.name %>: </label>
+    <%= l(@timeband.start_time, format: :hour) %>
+    -
+    <%= l(@timeband.end_time, format: :hour) %>
+  </p>
+</div>
+
+<%= render 'sidebar' %>

@@ -1,0 +1,153 @@
+#workspace {
+  .ce-TimeBandFormTable {
+    .btn {
+      white-space: normal;
+      width: 130px;
+    }
+  }
+  .ce-TimeBandFormTable th {
+    text-align: left;
+    padding: 6px 20px 6px 20px;
+  }
+  .ce-TimeBandFormTable td {
+    padding: 6px 20px 6px 20px;
+  }
+  .ce-TimeBandFormTable td {
+    vertical-align: middle;
+  }
+  .ce-TimeBandFormTable-circleLine {
+    position: relative;
+  }
+  .ce-TimeBandFormTable-line:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    margin-left: -1px;
+    background-color: #61970b;
+  }
+  tr:first-child td .ce-TimeBandFormTable-line:after {
+    top: 50%;
+  }
+  tr:last-child td .ce-TimeBandFormTable-line:after {
+    bottom: 50%;
+  }
+  .ce-TimeBandFormTable-circle {
+    position: relative;
+    z-index: 999;
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    background-color: #4d7809;
+  }
+  tr:hover .ce-TimeBandFormTable-circle {
+    background-color: #fff;
+    border: 2px solid #61970b;
+  }
+  .ce-FrequencyFormFields {
+    display: table;
+    width: 100%;
+    padding-left: 25%;
+    .inline-errors {
+      margin: 0;
+    }
+    > li {
+      display: table-cell;
+      width: 21%;
+      vertical-align: top;
+      padding:0 ;
+      margin: 0;
+      &:first-child select {
+        width: 160px;
+      }
+      &:nth-last-child(2), &:last-child {
+        width: 8%;
+      }
+      label {
+        font-size: 13px;
+        padding-left: 0;
+      }
+      legend {
+        position: relative;
+        width: auto;
+        float: none;
+        border: 0;
+        label {
+          position: relative;
+        }
+      }
+      .fragments-group {
+        float: none;
+        width: auto;
+        padding: 0;
+        > li {
+          display: inline-block;
+          vertical-align: top;
+        }
+      }
+    }
+  }
+  &.vehicle_journey_frequencies {
+    .actions-add-fields {
+      clear: both;
+      padding-left: 25%;
+      margin-top: 10px;
+    }
+  }
+  td.ce-VehicleJourneyBlock-frequency {
+    background-color: rgba(95, 95, 95, 0.2);
+  }
+  .ce-VehicleJourneyFrequencyTableBlock {
+    margin: 0 !important;
+  }
+  .ce-VehicleJourneyFrequenciesMatrix {
+    margin: 0;
+    padding: 0;
+    > li {
+      background-color: #eee;
+      height: 22px;
+      margin-bottom: 20px;
+      position: relative;
+      > ul {
+        margin: 0;
+        padding: 0;
+        > li {
+          cursor: pointer;
+          position: absolute;
+          padding: 0 2px;
+          top: 0;
+          bottom: 0;
+          background-color: $brand-primary;
+          border-left: 1px solid #000;
+          border-right: 1px solid #000;
+          &:hover {
+            z-index: 9999;
+            background-color: #4d7809;
+            top: -2px;
+            bottom: -2px;
+            > span {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+  .ce-VehicleJourneyFrequenciesMatrix-firstDepartureTime,
+  .ce-VehicleJourneyFrequenciesMatrix-lastDepartureTime {
+    display: none;
+    position: absolute;
+    top: -13px;
+    font-size: 11px;
+    color: #262626;
+  }
+  .ce-VehicleJourneyFrequenciesMatrix-firstDepartureTime {
+    left: -32px;
+  }
+  .ce-VehicleJourneyFrequenciesMatrix-lastDepartureTime {
+    right: -32px;
+  }
+}
