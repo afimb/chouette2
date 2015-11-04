@@ -17,6 +17,7 @@ en:
       edit_frequency: "Edit this frequency vehicle journey"
       destroy: "Remove this vehicle journey"
       destroy_confirm: "Are you sure you want destroy this vehicle journey?"
+      show: "Show timed vehicle journeys"
     new:
       title: "Add a new vehicle journey"
       title_frequency: "Add a new frequency vehicle journey"

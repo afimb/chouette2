@@ -1,4 +1,7 @@
 en:
   vehicle_journey_frequencies:
     vehicle_journeys_matrix:
-      line_routes: "Séquences d'arrêts de la ligne"
+      line_routes: "Line's routes"
+    actions:
+      index: "Vehicle journey frequency"
+      show: "Show frequency vehicle journey"

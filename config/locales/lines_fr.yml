@@ -37,7 +37,7 @@ fr:
       deselect_all: "Tout désélectionner"
       unset: "non défini"
       advanced_search: "Recherche avancée"
-      color: "Couleurs"
+      color: "Couleur"
     form:
       group_of_lines: "Groupes de lignes associés"
       no_group_of_line: "Aucun groupe de lignes"

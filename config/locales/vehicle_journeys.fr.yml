@@ -6,7 +6,7 @@ fr:
       title_stopless: "Course %{name}"
       title: "Course partant de %{stop} à %{time}"
     vehicle_journey_frequency:
-      title_stopless: "Course à fréquence %{name}"
+      title_stopless: "Course à fréquences %{name}"
       title: "Course à fréquence partant de %{stop} à %{time}"
       title_frequency: "Course à fréquence de %{interval}min partant de %{stop} de %{time_first} à %{time_last}"
     actions:
@@ -17,6 +17,7 @@ fr:
       edit_frequency: "Modifier cette course à fréquence"
       destroy: "Supprimer cette course"
       destroy_confirm: "Etes vous sûr de supprimer cette course ?"
+      show: "Voir les courses à horaire"
     new:
       title: "Ajouter une course à horaire"
       title_frequency: "Ajouter une course à fréquence"

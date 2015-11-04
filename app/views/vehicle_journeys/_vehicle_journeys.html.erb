@@ -1,6 +1,14 @@
 <div class="page_info">
   <span class="search"><%= t("will_paginate.page_entries_info.search") %></span>
   <%= page_entries_info @vehicle_journeys %>
+  <span class="pull-right">
+    <i class="fa fa-clock-o"></i>
+    <% if controller_name == 'vehicle_journey_frequencies' %>
+      <%= link_to t("vehicle_journeys.actions.show"), referential_line_route_vehicle_journeys_path(@referential, @line, @route) %>
+    <% else %>
+      <%= link_to t("vehicle_journey_frequencies.actions.show"), referential_line_route_vehicle_journey_frequencies_path(@referential, @line, @route) %>
+    <% end %>
+  </span>
 </div>
 <div class="pagination">
   <%= will_paginate @vehicle_journeys, :container => false, renderer: RemoteBootstrapPaginationLinkRenderer %>
