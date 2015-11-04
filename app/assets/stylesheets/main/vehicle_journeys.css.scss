@@ -1,21 +1,30 @@
-// Place all the styles related to the routes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-#workspace.vehicle_journeys.edit, #workspace.vehicle_journeys.update, #workspace.vehicle_journeys.create, #workspace.vehicle_journeys.new {
+#workspace.vehicle_journeys.edit,
+#workspace.vehicle_journeys.update,
+#workspace.vehicle_journeys.create,
+#workspace.vehicle_journeys.new,
+#workspace.vehicle_journey_frequencies.edit,
+#workspace.vehicle_journey_frequencies.update,
+#workspace.vehicle_journey_frequencies.create,
+#workspace.vehicle_journey_frequencies.new {
     #route_color{
         width: 100px;
         color: white;
         font-weight: bold;
     }
 
+    .btn {
+      padding: 6px 12px;
+    }
+
     .time_table_list { padding-left: 25%; }
 
-    #vehicle_journey_footnote_ids_input {
+    #vehicle_journey_footnote_ids_input,
+    #vehicle_journey_frequency_footnote_ids_input {
         min-height: 3em;
     }
 
-    .vehicle_journey_at_stops {
+    .vehicle_journey_at_stops,
+    .vehicle_journey_frequency_at_stops {
         margin-left: 25%;
 
         thead, tbody, tfoot{
@@ -56,7 +65,8 @@
     }
 }
 
-#workspace.vehicle_journeys.index
+#workspace.vehicle_journeys.index,
+#workspace.vehicle_journey_frequencies.index
 {
     #search{
 
@@ -95,39 +105,44 @@
 
 }
 
-#workspace.vehicle_journeys.show, #workspace.vehicle_journeys.edit, #workspace.vehicle_journeys.update, #workspace.vehicle_journeys.create, #workspace.vehicle_journeys.new {
-
-    .to_departures {
-        cursor: pointer;
-    }
-
-    .to_arrivals {
-        cursor: pointer;
-    }
+#workspace.vehicle_journeys.show,
+#workspace.vehicle_journeys.edit,
+#workspace.vehicle_journeys.update,
+#workspace.vehicle_journeys.create,
+#workspace.vehicle_journeys.new,
+#workspace.vehicle_journey_journey.show,
+#workspace.vehicle_journey_journey.edit,
+#workspace.vehicle_journey_journey.update,
+#workspace.vehicle_journey_journey.create,
+#workspace.vehicle_journey_journey.new {
 
     .slide {
         cursor: pointer;
     }
 }
 
-#workspace.vehicle_journeys.show
+#workspace.vehicle_journeys.show,
+#workspace.vehicle_journey_frequencies.show
 {
     .summary p label {
         font-weight: bold;
     }
 }
 
-#workspace.vehicle_journeys.timeless
+#workspace.vehicle_journeys.timeless,
+#workspace.vehicle_journey_frequencies.timeless
 {
     .summary p label {
         font-weight: bold;
     }
 
-    .vehicle_journeys {
+    .vehicle_journeys,
+    .vehicle_journey_frequencies {
         margin-top: 20px;
     }
 
-    .vehicle_journey {
+    .vehicle_journey,
+    .vehicle_journey_frequency {
 
         span.included_day_type {
             font-weight: bolder;

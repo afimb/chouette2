@@ -1,10 +1,12 @@
 en:
   breadcrumbs:
     vehicle_journeys: "Passing times"
+    vehicle_journey_frequencies: "Times bands"
     referentials: "Home"
     users: "Users"
 fr:
   breadcrumbs:
     vehicle_journeys: "Horaires"
+    vehicle_journey_frequencies: "Plages horaires"
     referentials: "Accueil"
     users: "Utilisateurs"

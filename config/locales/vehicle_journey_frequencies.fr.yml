@@ -1,0 +1,7 @@
+fr:
+  vehicle_journey_frequencies:
+    vehicle_journeys_matrix:
+      line_routes: Séquences d'arrêts de la ligne
+    actions:
+      index: "Courses à fréquence"
+      show: "Voir les courses à fréquence"

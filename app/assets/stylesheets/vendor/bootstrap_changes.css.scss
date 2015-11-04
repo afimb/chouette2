@@ -11,6 +11,7 @@
 
     span.included_day_type {
         color: black;
+        font-weight: bold;
     }
     span.excluded_day_type {
     }
@@ -31,4 +32,27 @@
     .validity_regular {
         color: $brand-success;
     }
+}
+.popover-title {
+  display: table;
+  width: 100%;
+  > a {
+    display: table-cell;
+    vertical-align: top;
+    &:first-child {
+      padding-right: 10px;
+    }
+    &:last-child {
+      width: 32px;
+    }
+  }
+}
+.popover-content {
+  > ul {
+    margin: 0;
+    padding: 0;
+    > li {
+      list-style: none !important;
+    }
+  }
 }

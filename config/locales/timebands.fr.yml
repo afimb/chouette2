@@ -1,0 +1,26 @@
+fr:
+  timebands:
+    actions:
+      new: "Ajouter une plage horaire"
+      edit: "Modifier cette plage horaire"
+      destroy: "Supprimer cette plage horaire"
+      destroy_confirm: "Merci de confirmer la suppression de cette plage horaire."
+    new:
+      title: "Ajouter une plage horaire"
+    edit:
+      title: "Modifier la plage horaire %{timeband}"
+    show:
+      title: Plage horaire %{timeband}
+    index:
+      title: "Plages horaires"
+  activerecord:
+    models:
+      timeband:
+        zero:  "plage horaire"
+        one:   "plage horaire"
+        other: "plages horaires"
+    attributes:
+      timeband:
+        name: "Titre"
+        start_time: "Heure de début"
+        end_time: "Heure de fin"

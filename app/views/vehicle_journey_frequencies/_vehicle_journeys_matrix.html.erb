@@ -1,0 +1,22 @@
+<ul class="ce-VehicleJourneyFrequenciesMatrix">
+<% @vehicle_journeys.each do |vj| %>
+  <li>
+    <ul>
+      <% vj.journey_frequencies.each do |jf| %>
+        <% left, width = journey_frequency_percent(jf) %>
+        <li style="left:<%= left %>%;width:<%= width %>%"
+            data-style="primary" data-container="body" rel="popover" data-toggle="popover"
+            data-title='<%= link_to(vehicle_title(vj, jf), [@referential, @line, @route, vj] ) %>
+                        <%= link_to('<span class="fa fa-pencil"></span>'.html_safe,
+                                    send("edit_referential_line_route_vehicle_journey#{'_frequency' if vj.frequency?}_path", @referential, @line, @route, vj),
+                                    :class => "btn btn-default btn-sm" ) %>'
+            data-placement= "top"
+            data-content='<%= render 'vehicle_journeys/show_popover', { vehicle_journey: vj } %>'>
+          <span class="ce-VehicleJourneyFrequenciesMatrix-firstDepartureTime"><%= l(jf.first_departure_time, format: :hour) %></span>
+          <span class="ce-VehicleJourneyFrequenciesMatrix-lastDepartureTime"><%= l(jf.last_departure_time, format: :hour) %></span>
+        </li>
+      <% end %>
+    </ul>
+  </li>
+<% end %>
+</ul>

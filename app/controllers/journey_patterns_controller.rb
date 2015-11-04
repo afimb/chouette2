@@ -36,7 +36,8 @@ class JourneyPatternsController < ChouetteController
   def new_vehicle_journey
     @vehicle_journey = Chouette::VehicleJourney.new(:route_id => route.id)
     @vehicle_journey.update_journey_pattern(resource)
-    render "vehicle_journeys/select_journey_pattern"
+    vehicle_journey_category = params[:journey_category] ? "vehicle_journey_#{params[:journey_category]}" : 'vehicle_journey'
+    render "#{vehicle_journey_category.pluralize}/select_journey_pattern"
   end
 
   # overwrite inherited resources to use delete instead of destroy

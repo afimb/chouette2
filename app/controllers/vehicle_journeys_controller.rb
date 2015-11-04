@@ -28,7 +28,6 @@ class VehicleJourneysController < ChouetteController
 
   def index
     index! do
-      @matrix ||= matrix
       if collection.out_of_bounds?
         redirect_to params.merge(:page => 1)
       end
@@ -50,10 +49,11 @@ class VehicleJourneysController < ChouetteController
   def collection
     unless @vehicle_journeys
       @vehicle_filter = VehicleFilter.new adapted_params
+      @vehicle_filter.journey_category_model = resource_class.model_name.route_key
       @q = @vehicle_filter.vehicle_journeys.search @vehicle_filter.filtered_params
       @vehicle_journeys = @q.result( :distinct => false ).paginate(:page => params[:page], :per_page => 8)
     end
-
+    matrix
     @vehicle_journeys
   end
   alias_method :vehicle_journeys, :collection
@@ -74,20 +74,21 @@ class VehicleJourneysController < ChouetteController
   end
 
   def matrix
-    {}.tap do |hash|
-      vehicle_journeys.each do |vj|
-        vj.vehicle_journey_at_stops.each do |vjas|
-          hash[ "#{vj.id}-#{vjas.stop_point_id}"] = vjas
-        end
-      end
-    end
+    @matrix = resource_class.matrix(@vehicle_journeys)
   end
-
 
   private
 
   def vehicle_journey_params
-    params.require(:vehicle_journey).permit( { footnote_ids: [] } , :journey_pattern_id, :number, :published_journey_name, :published_journey_identifier, :comment, :transport_mode_name, :mobility_restricted_suitability, :flexible_service, :status_value, :facility, :vehicle_type_identifier, :objectid, :time_table_tokens, { date: [ :hour, :minute ] }, :button, :referential_id, :line_id, :route_id, :id, { vehicle_journey_at_stops_attributes: [ :arrival_time, :id, :_destroy, :stop_point_id, :departure_time ] } )
+    params.require(:vehicle_journey).permit( { footnote_ids: [] } , :journey_pattern_id, :number, :published_journey_name,
+                                             :published_journey_identifier, :comment, :transport_mode_name,
+                                             :mobility_restricted_suitability, :flexible_service, :status_value,
+                                             :facility, :vehicle_type_identifier, :objectid, :time_table_tokens,
+                                             { date: [ :hour, :minute ] }, :button, :referential_id, :line_id,
+                                             :route_id, :id, { vehicle_journey_at_stops_attributes: [ :arrival_time,
+                                                                                                      :id, :_destroy,
+                                                                                                      :stop_point_id,
+                                                                                                      :departure_time] } )
   end
 
 end

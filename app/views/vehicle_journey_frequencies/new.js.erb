@@ -1,0 +1,13 @@
+$(document).ready(function() {
+  $("#vehicle_journey_frequency_journey_pattern_id").change(
+    function(){
+      var vehicle_journey_journey_pattern_id = $("#vehicle_journey_frequency_journey_pattern_input select option:selected").attr("value");
+      if (vehicle_journey_journey_pattern_id > 0) {
+        var url = "<%= referential_line_route_journey_patterns_path(@referential.id,@line.id,@route.id) %>";
+        url = url + "/" + vehicle_journey_journey_pattern_id +
+            "/new_vehicle_journey?journey_category=frequency";
+        $.get(url);
+      }
+    }
+  );
+});

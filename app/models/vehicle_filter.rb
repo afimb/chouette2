@@ -1,6 +1,7 @@
 class VehicleFilter
   attr_accessor :route
   attr_accessor :q
+  attr_accessor :journey_category_model
 
   def initialize(attributes = {})
     attributes.each do |name, value|
@@ -17,9 +18,9 @@ class VehicleFilter
   end
   def vehicles_passing_time_filtered
     if without_any_passing_time?
-      route.vehicle_journeys.without_any_passing_time
+      route.send(journey_category_model).without_any_passing_time
     else
-      route.sorted_vehicle_journeys
+      route.sorted_vehicle_journeys(journey_category_model)
     end
   end
   def vehicle_journeys

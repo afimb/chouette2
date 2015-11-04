@@ -1,0 +1,87 @@
+<%= title_tag vehicle_title(vehicle_journey) %>
+
+<div id="modal_translation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel"><%= t('vehicle_journeys.show.translation_form') %></h4>
+        <div id="translate_form"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="vehicle_journey">
+  <div class="summary">
+    <p>
+      <label><%= vehicle_journey.human_attribute_name(:journey_pattern) %>: </label>
+      <%= link_to journey_name(vehicle_journey.journey_pattern), [@referential, @line, @route, vehicle_journey.journey_pattern] %>
+    </p>
+    <p>
+      <label><%= vehicle_journey.human_attribute_name("number") %>: </label>
+      <%= vehicle_journey.number %>
+    </p>
+    <p>
+      <label><%= vehicle_journey.human_attribute_name("published_journey_name") %>: </label>
+      <%= vehicle_journey.published_journey_name %>
+    </p>
+    <p>
+      <label><%= vehicle_journey.human_attribute_name("published_journey_identifier") %>: </label>
+      <%= vehicle_journey.published_journey_identifier %>
+    </p>
+
+    <p>
+      <label><%= vehicle_journey.human_attribute_name("mobility_restricted_suitability") %>: </label>
+      <% if vehicle_journey.mobility_restricted_suitability.nil? %>
+        <%= vehicle_journey.human_attribute_name("unspecified_mrs") %>
+      <% elsif vehicle_journey.mobility_restricted_suitability? %>
+        <%= vehicle_journey.human_attribute_name("accessible") %>
+      <% else %>
+        <%= vehicle_journey.human_attribute_name("not_accessible") %>
+      <% end %>
+    </p>
+    <p>
+      <label><%= vehicle_journey.human_attribute_name("flexible_service") %>: </label>
+      <% if vehicle_journey.flexible_service.nil? %>
+        <%= vehicle_journey.human_attribute_name("unspecified_fs") %>
+      <% elsif vehicle_journey.flexible_service? %>
+        <%= vehicle_journey.human_attribute_name("on_demand_fs") %>
+      <% else %>
+        <%= vehicle_journey.human_attribute_name("regular_fs") %>
+      <% end %>
+    </p>
+
+    <p>
+      <label><%= vehicle_journey.human_attribute_name("comment") %>: </label>
+      <%= vehicle_journey.comment %>
+    </p>
+    <p>
+      <label><%= vehicle_journey.human_attribute_name("status_value") %>: </label>
+      <%= vehicle_journey.status_value %>
+    </p>
+    <p>
+      <label><%= vehicle_journey.human_attribute_name("facility") %>: </label>
+      <%= vehicle_journey.facility %>
+    </p>
+    <p>
+      <label><%= vehicle_journey.human_attribute_name("vehicle_type_identifier") %>: </label>
+      <%= vehicle_journey.vehicle_type_identifier %>
+    </p>
+    <p>
+      <label><%= vehicle_journey.human_attribute_name("footnote_ids") %>: </label>
+    <ul>
+      <% vehicle_journey.footnotes.each do |footnote| %>
+        <li><%= footnote.code %> : <%= footnote.label %></li>
+      <% end %>
+    </ul>
+    </p>
+  </div>
+</div>
+<h3><%= vehicle_journey.human_attribute_name(:vehicle_journey_at_stop_ids) %></h3>
+<%= render 'show_vehicle_journey_at_stops' %>
+
+<h3><%= t('vehicle_journeys.show.time_tables') %></h3>
+<div class="time_tables paginated_content">
+  <%= paginated_content vehicle_journey.time_tables, "time_tables/time_table", :delete => false %>
+</div>

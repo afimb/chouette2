@@ -51,6 +51,8 @@ module ApplicationHelper
       "group_of_lines"
     when path.include?("/vehicle_journeys")
       "vehicle_journeys"
+    when path.include?("/vehicle_journey_frequencies")
+      "vehicle_journeys"
     when path.include?("/journey_patterns")
       "journey_patterns"
     when path.include?("/routes")
@@ -67,6 +69,8 @@ module ApplicationHelper
       "connection_links"
     when path.include?("/time_tables")
       "time_tables"
+    when path.include?("/timebands")
+      "timebands"
     when path.include?("/rule_parameter_set")
       "parametersets"
     when path.include?("/import_tasks")
