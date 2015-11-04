@@ -92,7 +92,7 @@ gem 'squeel'
 
 gem 'enumerize', '~> 0.10.0'
 
-gem 'ninoxe', '1.2.3'
+gem 'ninoxe', '1.2.4'
 #gem 'ninoxe', github: 'afimb/ninoxe'
 #gem 'ninoxe', path: '../ninoxe'
 
