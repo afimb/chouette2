@@ -23,7 +23,7 @@ matrix:
 notifications:
   email:
     - mflorisson@cityway.fr
-    - ldonnet@cityway.fr
+    - bruno@atnos.com
     - metienne@cityway.fr
     - zbouziane@cityway.fr
     - alban.peignier@af83.com
