@@ -1,12 +1,24 @@
+sudo: false
 language: ruby
 addons:
   postgresql: "9.3"
+  apt:
+    packages:
+    - build-essential
+    - ruby-dev
+    - libproj-dev
+    - libgeos-dev
+    - libffi-dev
+    - libsparsehash-dev
+    - zlib1g-dev
+    - libxslt1-dev
+    - libxml2-dev
+    - libbz2-dev
 rvm:
   - 1.9.3
-  - 2.1.5
-  - 2.1.6
-  - 2.2.2
-  - jruby-1.7.19
+  - 2.1.7
+  - 2.2.3
+  - jruby-19mode
 jdk:
   - oraclejdk7
   - openjdk7
@@ -14,11 +26,9 @@ matrix:
   exclude:
     - rvm:  1.9.3
       jdk: openjdk7
-    - rvm:  2.1.5
+    - rvm:  2.1.7
       jdk: openjdk7
-    - rvm:  2.1.6
-      jdk: openjdk7
-    - rvm:  2.2.2
+    - rvm:  2.2.3
       jdk: openjdk7
 notifications:
   email:
@@ -29,8 +39,6 @@ notifications:
     - alban.peignier@af83.com
     - anicet.rohee@af83.com
 before_install:
-  - sudo apt-get update
-  - sudo apt-get install build-essential ruby-dev libproj-dev libgeos-dev libffi-dev libsparsehash-dev zlib1g-dev libxslt1-dev libxml2-dev libbz2-dev
   - gem update bundler
 before_script:
   - "bundle exec rake ci:db_travis_config"
