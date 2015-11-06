@@ -152,7 +152,7 @@
 	     <li><%= link_to t('stop_areas.actions.clone_as_parent'), new_referential_stop_area_stop_area_copy_path(@referential, @stop_area, :hierarchy => "parent"), :class => "clone" %></li>
        <% end %>
        <% if manage_children %>
-		  <li></i></font><%= link_to t('stop_areas.actions.add_children'), add_children_referential_stop_area_path(@referential, @stop_area), :class => "children" %></li>
+		  <li><%= link_to t('stop_areas.actions.add_children'), add_children_referential_stop_area_path(@referential, @stop_area), :class => "children" %></li>
 		  <li><%= link_to t('stop_areas.actions.clone_as_child'), new_referential_stop_area_stop_area_copy_path(@referential, @stop_area, :hierarchy => "child"), :class => "clone" %></li>
        <% end %>
 	</ul>
