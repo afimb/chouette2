@@ -1,7 +1,7 @@
 class AutocompleteStopAreasController < InheritedResources::Base
   respond_to :json, :only => [:index, :children, :parent, :physicals]
   
-  before_filter :switch_referential
+  before_action :switch_referential
   
   def switch_referential
     Apartment::Tenant.switch!(referential.slug)

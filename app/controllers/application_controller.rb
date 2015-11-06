@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   # TODO : Delete hack to authorize Cross Request for js and json get request from javascript
   protect_from_forgery unless: -> { request.get? && (request.format.json? || request.format.js?) }
-  before_filter :authenticate_user!
-  before_filter :set_locale
+  before_action :authenticate_user!
+  before_action :set_locale
 
   # Load helpers in rails engine
   helper LanguageEngine::Engine.helpers
