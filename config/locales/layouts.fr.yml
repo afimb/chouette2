@@ -1,0 +1,53 @@
+fr:
+  layouts:
+    back_to_dashboard: "Retour au Tableau de Bord"
+    help: "Aide"
+    home: "Accueil"
+    user:
+      profile: "Mon Profil"
+      sign_out: "Déconnexion"
+    navbar:
+      return_to_referentials: "Retour à la liste des espaces de données"
+      select_referential: "Sélection de l'espace de données"
+      select_referential_datas: "Sélection des données"
+      return_to_dashboard: "Retour au Tableau de Bord"
+      referential_datas: "Données"
+    history_tag:
+      title: "Métadonnées"
+      created_at: "Créé le"
+      updated_at: "Mise à jour le"
+      user_name: "Auteur"
+      no_save: "Pas de sauvergarde"
+    flash_messages:
+      success: "Succès"
+      error: "Erreur"
+      alert: "Alerte"
+      notice: "Info"
+    footer:
+      support:
+        title: "Support"
+        technical_support: "Support technique"
+        help: "Aide"
+        good_practices: "Bonnes pratiques"
+      product:
+        title: "Produit"
+        licence: "Licence"
+        source_code: "Code Source"
+        user_group: "Club utilisateur"
+      contact:
+        title: "Contact"
+        mail: "Contactez nous"
+        newsletter: "Lettre d'information"
+        forum: "Forum"
+  true: "oui"
+  false: "non"
+  or: "ou"
+  back: "Revenir"
+  today: "Aujourd'hui"
+  yesterday: "Hier"
+  edit_periods: "Editer Périodes"
+  delete_periods: "Supprimer Périodes"
+  attributes:
+    author: "Modifié par"
+    created_at: "Créé le"
+    updated_at: "Modifié le"

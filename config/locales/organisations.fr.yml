@@ -1,0 +1,18 @@
+fr:
+  organisations:
+    actions:
+      edit: "Modifier votre organisation"
+    edit:
+      title: "Modifier votre organisation"
+      key_registered: "Clé enregistrée"
+      key_not_registered: "Pas de clé"
+    show:
+      users: "Utilisateurs"
+      rule_parameter_sets: "Jeux de paramètres"
+  activerecord:
+    attributes:
+      organisation:
+        name: "Nom"
+        data_format_restrictions_by_default: "Appliquer les contraintes format des données par defaut"
+        data_format: "Format de données"
+        geoportail_key: "Clé de l'API du Geoportail IGN"

@@ -1,0 +1,80 @@
+fr:
+  connection_links:
+    actions:
+      new: "Ajouter une correspondance"
+      edit: "Modifier cette correspondance"
+      destroy: "Supprimer cette correspondance"
+      destroy_confirm: "Etes vous sûr de supprimer cette correspondance ?"
+      select_areas: "Modifier les départs/arrivées"
+    new:
+      title: "Ajouter une correspondance"
+    edit:
+      title: "Modifier la correspondance %{connection_link}"
+    show:
+      title: "Correspondance %{connection_link}"
+      durations: "Durées (hh mm ss) :"
+    connection_link:
+      from: "De"
+      to: "vers"
+    index:
+      name: "Recherche par nom"
+      title: "Correspondances"
+      departure: "Arrêt de départ"
+      arrival: "Arrêt d'arrivée"
+      selection: "Sélection"
+      selection_all: "Tous"
+    select_departure:
+      title: "Sélection de l'arrêt de départ de %{connection_link}"
+    select_arrival:
+      title: "Sélection de l'arrêt d'arrivée de %{connection_link}"
+    select_areas:
+      title: "Sélection des arrêts de départ et d'arrivée de %{connection_link}"
+  activerecord:
+    models:
+      connection_link:
+        zero:  "correspondance"
+        one:   "correspondance"
+        other: "correspondances"
+    attributes:
+      connection_link:
+        departure: "Arrêt de départ"
+        arrival: "Arrêt d'arrivée"
+        departure_id: "Arrêt de départ"
+        arrival_id: "Arrêt d'arrivée"
+        undefined: "non défini"
+        name: "Nom"
+        comment: "Commentaire"
+        link_distance: "Distance (m)"
+        connection_link_type: "Type"
+        default_duration: "moyenne"
+        frequent_traveller_duration: "pour un habitué"
+        occasional_traveller_duration: "pour un voyageur occasionnel"
+        mobility_restricted_traveller_duration: "pour un voyageur à mobilité réduite"
+        mobility_restricted_suitability: "Accès pour voyageur à mobilité réduite"
+        stairs_availability: "Escalator"
+        lift_availability: "Ascenseur"
+        objectid: "Identifiant Neptune"
+        object_version: "Version"
+        creation_time: "Créé le"
+        creator_id: "Créé par"
+  formtastic:
+    titles:
+      connection_link:
+        objectid: "[prefixe]:ConnectionLink:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+        link_distance: ""
+      neptune:
+        connection_link:
+          objectid: "[prefixe]:ConnectionLink:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          link_distance: ""
+      netex:
+        connection_link:
+          objectid: "[prefixe]:ConnectionLink:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          link_distance: ""
+      gtfs:
+        connection_link:
+          objectid: "[prefixe]:ConnectionLink:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          link_distance: ""
+      hub:
+        connection_link:
+          objectid: "[prefixe]:ConnectionLink:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          link_distance: "Au plus 10000.0 mètres."

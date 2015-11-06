@@ -1,0 +1,78 @@
+en:
+  rule_parameter_sets:
+    actions:
+      new: "Add a new parameter set"
+      edit: "Edit this parameter set"
+      index: "Rule parameter sets"
+      destroy: "Remove this rule parameter set"
+      destroy_confirm: "Are you sure you want destroy this rule parameter set ?"
+    new:
+      title: "Add a new parameter set"
+    destroy:
+      last_rps_protected: "Delete refused. Last rule parameter set in current referential can't be destroyed."
+    edit:
+      title: "Update parameter set %{rule_parameter_set}"
+    form:
+      add_mode_parameter_set: "Add mode specific parameter set"
+    show:
+      title: "Parameter Set %{rule_parameter_set}"
+      max_distance: "Maximum distance between "
+      min_distance: "Minimum distance between "
+      walk_speed: "Maximum walk speed for travellers"
+      inter_stop_area_distance_min: "2 stop areas having different parent"
+      parent_stop_area_distance_max: "a stop area and its own parent"
+      inter_access_point_distance_min: "2 access with different names on a same stop area"
+      inter_connection_link_distance_max: "stop areas in a connection link"
+      walk_default_speed_max: "a regular one"
+      walk_occasional_traveller_speed_max: "an occasional one"
+      walk_frequent_traveller_speed_max: "a frequent one"
+      walk_mobility_restricted_traveller_speed_max: "a mobility restricted one"
+      inter_access_link_distance_max: "an access point and a linked stop area"
+      inter_stop_duration_max: "Maximum duration between the moment when a vehicle is arriving at a stop and the moment when the vehicle is leaving"
+      facility_stop_area_distance_max: "a stop area and a facility"
+      rule_parameter_by_mode: "Parameters by mode"
+      modes_allowed: " (only for allowed ones)"
+    index:
+      title: "Parameter sets"
+    labels:
+      columns_restrictions: "Check model objects atributes"
+      attribute: "attribute"
+      free_char: "free"
+      num_char: "number only"
+      alpha_char: "character only"
+      lower_char: "lowercase only"
+      upper_char: "uppercase only"
+  activerecord:
+    models:
+      rule_parameter_set:  "Parameter Set for Conformity Rules"
+    attributes:
+      rule_parameter_set:
+        name: "Name"
+        inter_stop_area_distance_min: "Minimum distance between 2 stop areas having different parent"
+        parent_stop_area_distance_max: "Maximum distance between a stop area and its own parent"
+        stop_areas_area: "Geographic stop area envelop"
+        inter_access_point_distance_min: "Minimum distance between 2 access having different name for a commun stop area"
+        inter_connection_link_distance_max: "Maximum distance between stop area departure and stop area arrival in a connection link"
+        walk_default_speed_max: "Maximum walk speed for a regular traveller"
+        walk_occasional_traveller_speed_max: "Maximum walk speed for an occasional traveller"
+        walk_frequent_traveller_speed_max: "Maximum walk speed for a frequent traveller"
+        walk_mobility_restricted_traveller_speed_max: "Maximum walk speed for a mobility restricted traveller"
+        inter_access_link_distance_max: "Access link maximum distance"
+        inter_stop_duration_max: "Maximum duration for a stopping time"
+        facility_stop_area_distance_max: "Maximum distance between a stop area and a facility"
+        inter_stop_area_distance_min: "Maximum distance between 2 stop areas"
+        inter_stop_area_distance_max: "Maximum distance between 2 stop areas"
+        speed_min: "Minimum speed"
+        speed_max: "Maximum speed"
+        inter_stop_duration_variation_max: "Maximum duration gap between 2 vehicle journeys and between 2 following stops"
+        check_lines_in_groups: "check if each line belongs scrictly to one group of line"
+        check_line_routes:  "check if each line have 1 route or 2 routes coupled"
+        check_stop_parent:  "check if all physical stop areas are owned by a commercial stop point"
+        check_connection_link_on_physical: "check if connection links connect only physical stops"
+        check_allowed_transport_modes: "Check transport modes"
+        allowed_transport: "Allowed"
+        attribute: "attribute"
+        unique: "uniqness"
+        string_type: "allowed characters"
+        min_size: "minimal size or value"
+        max_size: "maximal  size or value"

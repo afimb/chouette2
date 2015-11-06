@@ -1,0 +1,15 @@
+fr:
+  directions:
+    label:
+      straight_forward: "aller"
+      backward: "retour"
+      clock_wise: "sens horaire"
+      counter_clock_wise: "sens anti horaire"
+      north: "nord"
+      north_west: "nord ouest"
+      west: "ouest"
+      south_west: "sud ouest"
+      south: "sud"
+      south_east: "sud est"
+      east: "est"
+      north_east: "nord est"

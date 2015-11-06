@@ -1,0 +1,8 @@
+en:
+  area_types:
+    label:
+      boarding_position: "Boarding Position"
+      quay: "Quay"
+      commercial_stop_point: "Commercial Stop Point"
+      stop_place: "Stop Place"
+      itl: "Restriction Constraint"

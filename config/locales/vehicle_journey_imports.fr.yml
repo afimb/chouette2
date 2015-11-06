@@ -1,0 +1,24 @@
+fr:
+  vehicle_journey_imports:
+    new:
+      title: "Import des horaires aux arrêts"
+      export_vehicle_journeys: "Exporter les horaires existants"
+      success: "L'import des données est un succès"
+      tooltip:
+        file: "Sélectionner un fichier CSV ou Excel"
+    errors:
+      import_aborted: "Des erreurs ont empéché le bon déroulement de l'import: "
+      not_same_stop_points: "Erreur colonne 1 : Pas les mêmes points d'arrêt que sur l'itinéraire %{route}"
+      one_stop_point_used: "Erreur colonne %{column} : un seul arrêt desservi"
+      invalid_vehicle_journey_at_stop: "Erreur colonne %{column} ligne %{line} : horaire à l'arrêt invalide %{time}"
+      invalid_vehicle_journey: "Erreur colonne %{column}, la course est invalide : %{message}"
+      exception: "Le fichier est invalide, vous devez fournir un fichier csv, xls ou xlsx valide"
+    success:
+      created_jp_count: "%{count} mission(s) ajoutée(s)"
+      created_vj_count: "%{count} course(s) ajoutée(s)"
+      updated_vj_count: "%{count} course(s) mise(s) à jour"
+      deleted_vj_count: "%{count} course(s) supprimée(s)"
+  activemodel:
+    attributes:
+      vehicle_journey_import:
+        file: "Fichier"

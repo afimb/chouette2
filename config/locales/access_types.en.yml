@@ -1,0 +1,6 @@
+en:
+  access_types:
+    label:
+      in: "Entrance"
+      out: "Exit"
+      in_out: "Both ways"

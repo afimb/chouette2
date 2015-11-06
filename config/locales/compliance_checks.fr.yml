@@ -1,0 +1,89 @@
+fr:
+  compliance_checks:
+    index:
+      title: "Validation"
+      warning: ""
+    edit:
+      title: "Editer la validation"
+    show:
+      title: "Validation Neptune"
+      summary: "Rapport de conformité à la norme NEPTUNE"
+      details: "Détails"
+      parameters: "Paramètres des tests"
+      completed: "[ Terminé ]"
+      failed: "[ Echoué ]"
+      pending: "[ En file d'attente ]"
+      processing: "[ En progression... ]"
+      export: "Télécharger les résultats"
+      export_csv: "Format CSV"
+    report:
+      validation_success: "La validation est passée avec succès."
+      action_report: "Rapport d'action"
+    actions:
+      destroy_confirm: "Voulez-vous supprimer ce résultat de validation ?"
+      destroy: "Supprimer cette validation"
+      edit: "Editer cette validation"
+      report: "Test de conformité"
+      rule_parameter_set: "Jeu de paramètres"
+      download: "Télécharger"
+    statuses:
+      pending: "En attente ..."
+      processing: "En cours ..."
+      completed: "Achevé"
+      failed: "Echoué"
+      started: "En file d'attente..."
+      scheduled: "En cours..."
+      terminated: "Achevé"
+      canceled: "Annulé"
+      aborted: "Echoué"
+    uncheck_count:
+      zero: "aucun inapplicable"
+      one: "un inapplicable"
+      other: "%{count} inapplicables"
+    ok_count:
+      zero: "aucun test réussi"
+      one: "un test réussi"
+      other: "%{count} tests réussis"
+    warning_count:
+      zero: "aucun warning"
+      one: "un warning"
+      other: "%{count} warnings"
+    error_count:
+      zero: "aucune erreur"
+      one: "une erreur"
+      other: "%{count} erreurs"
+    fatal_count:
+      zero: "aucune erreur fatale"
+      one: "une erreur fatale"
+      other: "%{count} erreurs fatales"
+    import: "Import"
+    rule_parameter_set: "Jeu de paramètres"
+  file_validation_log_messages:
+    messages:
+      undefined: "%{key} non défini"
+      TooMuchDetails: "( %{0} erreurs / warnings supplémentaires )"
+    severities:
+      uncheck: "Non testé"
+      ok: "Ok"
+      warning: "Alerte"
+      error: "Erreur"
+      fatal: "Fatal"
+  activemodel:
+    models:
+      compliance_check:
+        zero:  "Validation"
+        one:   "Validation"
+        other: "Validations"
+    attributes:
+      compliance_check:
+        created_at: "Exécuté le"
+        references_type: "Type de données incluses"
+        reference_ids: "Données incluses"
+        rule_parameter_set_id: "Jeu de paramètres"
+        resources: "Fichier à valider"
+        status: "Status"
+        file_name: "Jeu de données"
+      compliance_check_log_message:
+        created_at: "Date"
+        position: "N."
+        full_message: "Message"

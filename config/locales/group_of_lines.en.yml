@@ -1,0 +1,61 @@
+en:
+  group_of_lines:
+    actions:
+      new: "Add a new group of lines"
+      edit: "Edit this group of lines"
+      destroy: "Remove this group of lines"
+      destroy_confirm: "Are you sure you want destroy this group of lines?"
+    new:
+      title: "Add a new group of lines"
+    edit:
+      title: "Update group of lines %{group_of_line}"
+    show:
+      title: "Group of lines %{group_of_line}"
+      lines: "Lines list"
+    index:
+      title: "Group of Lines"
+      name: "Search by name"
+    form:
+      lines: "Associated lines" 
+  activerecord:
+    models:
+      group_of_line: 
+        zero:  "group of line"
+        one:   "group of line"
+        other: "groups of lines"
+    attributes:
+      group_of_line:
+        name: "Name"
+        registration_number: "Registration number"
+        comment: "Comments"
+        line_count: "Number of lines"
+        objectid: "Neptune identifier"
+        object_version: "Version"
+        creation_time: "Created on"
+        creator_id: "Created by" 
+  formtastic:
+    titles:
+      group_of_line:
+        name: ""
+        registration_number: "Positif integer." 
+        objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      neptune:
+        group_of_line:
+          name: ""
+          registration_number: "Positif integer." 
+          objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      netex:
+        group_of_line:
+          name: ""
+          registration_number: "Positif integer." 
+          objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      gtfs:
+        group_of_line:
+          name: ""
+          registration_number: "Positif integer." 
+          objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      hub:
+        group_of_line:
+          name: "maximum 75 characters"
+          registration_number: "Positif integer, unique key, of no more than 8 digits." 
+          objectid: "[prefix]:GroupOfLine:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character. Maximum length of the unique key = 6."

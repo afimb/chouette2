@@ -1,0 +1,13 @@
+fr:
+  source_types:
+    name: "Type de source"
+    label:
+      public_and_private_utilities: "Service public ou privé"
+      road_authorities: "Autorité routière"
+      transit_operator: "Exploitant de transport public"
+      public_transport: "Transport public"
+      passenger_transport_coordinating_authority: "Autorité organisatrice de transport public"
+      travel_information_service_provider: "Opérateur de voyage (voyagiste/tour operator ...)"
+      travel_agency: "Agence de voyage"
+      individual_subject_of_travel_itinerary: "Voyageur individuel"
+      other_information: "Autre source d'information"

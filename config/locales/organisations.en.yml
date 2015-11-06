@@ -1,0 +1,18 @@
+en:
+  organisations:
+    actions:
+      edit: "Edit your organisation"
+    edit:
+      title: "Update your organisation"
+      key_registered: "Key registered"
+      key_not_registered: "No key registered"
+    show:
+      users: "Users"
+      rule_parameter_sets: "Rule parameter sets"
+  activerecord:
+    attributes:
+      organisation:
+        name: "Name"
+        data_format_restrictions_by_default: "Data format constraint by default"
+        data_format: "Data format"
+        geoportail_key: "IGN Geoportail Key"

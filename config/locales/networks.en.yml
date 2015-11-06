@@ -1,0 +1,62 @@
+en:
+  networks:
+    actions:
+      new: "Add a new network"
+      edit: "Edit this network"
+      destroy: "Remove this network"
+      destroy_confirm: "Are you sure you want destroy this network?"
+    new:
+      title: "Add a new network"
+    edit:
+      title: "Update network %{network}"
+    show:
+      title: "Network"
+    index:
+      title: "Networks"
+      name: "Search by name"
+  activerecord:
+    models:
+      network: 
+        zero:  "network"
+        one:   "network"
+        other: "networks"
+    attributes:
+      network:
+        registration_number: "Registration number"
+        name: "Name"
+        comment: "Comments"
+        version_date: "Date of this network's version"
+        description: "Description"
+        source_type_name: "Source type"
+        source_name: "Source name"
+        source_identifier: "Source identifier"
+        objectid: "Neptune identifier"
+        object_version: "Version"
+        creation_time: "Created on"
+        creator_id: "Created by "
+  formtastic:
+    titles:
+      network:
+        name: ""
+        registration_number: "only alphanumerical or underscore characters"
+        objectid: "[prefix]:PTNetwork:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      neptune:
+        network:
+          name: ""
+          registration_number: "only alphanumerical or underscore characters"
+          objectid: "[prefix]:PTNetwork:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      netex:
+        network:
+          name: ""
+          registration_number: "only alphanumerical or underscore characters"
+          objectid: "[prefix]:PTNetwork:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      gtfs:
+        network:
+          name: ""
+          registration_number: "only alphanumerical or underscore characters"
+          objectid: "[prefix]:PTNetwork:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      hub:
+        network:
+          name: "maximum 75 characters"
+          registration_number: "Positif integer, unique key, of no more than 8 digits." 
+          objectid: "[prefix]:PTNetwork:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character. Maximum length of the unique key = 3."

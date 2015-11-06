@@ -1,0 +1,82 @@
+en:
+  routes:
+    actions:
+      new: "Add a new route"
+      edit: "Edit this route"
+      edit_boarding_alighting: "Stop alighting and boarding"
+      destroy: "Remove this route"
+      destroy_confirm: "Are you sure you want destroy this route?"
+      export_kml: "Export KML route"
+      export_kml_all: "Export KML routes"
+      export_hub: "Export HUB route"
+      export_hub_all: "Export HUB routes"
+      add_stop_point: "Add stop point"
+      new_stop_point: "Create new stop"
+    new:
+      title: "Add a new route"
+    edit:
+      title: "Update route %{route}"
+    show:
+      title: "Route %{route}"
+      stop_points: "Stop point on route list" 
+      journey_patterns: "Route journey patterns list" 
+      no_opposite_route: "No reversed route associated"
+      undefined: "Undefined"
+    index:
+      title: "Routes"
+      selection: "Selection"
+      selection_all: "All"
+    edit_boarding_alighting:
+      title: "Stop alighting and boarding properties"
+      stop_area_name: "Stop area name"
+      for_boarding: "Boarding"
+      for_alighting: "Alighting"
+    route:
+      no_journey_pattern: "No Journey pattern"
+      wayback: 
+        positive: "forward"
+        negative: "backward"
+      opposite: "Opposite route"
+      no_opposite: "No opposite route"
+  activerecord:        
+    models:        
+      route: 
+        zero:  "route"
+        one:   "route"
+        other: "routes"
+    attributes:
+      route:
+        wayback: 
+          positive: "forward"
+          negative: "backward"
+        line: "Line"
+        vehicle_journeys: "Vehicle journeys"
+        journey_patterns: "Journey patterns"
+        name: "Name"
+        published_name: "Published name"        
+        comment: "Comments"
+        number: "Number"
+        direction_code: "Direction"
+        wayback_code: "Wayback"
+        opposite_route: "Reversed route"
+        objectid: "Neptune identifier"
+        object_version: "Version"
+        creation_time: "Created on"
+        creator_id: "Created by"
+        no_journey_pattern: "No journey pattern"        
+  formtastic:
+    titles:
+      route:
+        objectid: "[prefix]:Route:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      neptune:
+        route:
+          objectid: "[prefix]:Route:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      netex:
+        route:
+          objectid: "[prefix]:Route:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      gtfs:
+        route:
+          objectid: "[prefix]:Route:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      hub:
+        route:
+          objectid: "[prefix]:Route:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character. Maximum length of the unique key = 8."
