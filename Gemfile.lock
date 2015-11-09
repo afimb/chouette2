@@ -137,7 +137,7 @@ GEM
     enumerize (0.10.1)
       activesupport (>= 3.2)
     erubis (2.7.0)
-    execjs (2.4.0)
+    execjs (2.6.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.5.0)
@@ -202,16 +202,9 @@ GEM
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jdbc-postgres (9.4.1200)
-    jquery-rails (3.1.2)
+    jquery-rails (3.1.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-ui-rails (4.0.3)
-      jquery-rails
-      railties (>= 3.1.0)
-    jquery-ui-sass-rails (4.0.3.0)
-      jquery-rails
-      jquery-ui-rails (= 4.0.3)
-      railties (>= 3.1.0)
     jruby-jars (1.7.19)
     jruby-openssl (0.9.7-java)
     jruby-rack (1.1.18)
@@ -290,7 +283,7 @@ GEM
       railties (>= 3.1, < 5.0)
     rabl (0.11.6)
       activesupport (>= 2.3.14)
-    rack (1.5.3)
+    rack (1.5.5)
     rack-contrib (1.2.0)
       rack (>= 0.9.1)
     rack-test (0.6.3)
@@ -318,6 +311,8 @@ GEM
     rails-assets-jquery (2.1.4)
     rails-assets-jquery-tokeninput (1.7.0)
       rails-assets-jquery (>= 1.5)
+    rails-assets-jquery-ui (1.11.4)
+      rails-assets-jquery (>= 1.6)
     rails-assets-mocha (1.17.1)
     rails-assets-modernizr (2.0.6)
     rails-assets-moment (2.10.3)
@@ -457,7 +452,7 @@ GEM
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (2.7.1)
+    uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     warbler (1.4.5)
@@ -519,8 +514,7 @@ DEPENDENCIES
   guard-rspec
   inherited_resources
   jbuilder (~> 2.0)
-  jquery-rails
-  jquery-ui-sass-rails
+  jquery-rails (~> 3.1.4)
   jruby-openssl
   jruby-rack-worker
   json
@@ -542,6 +536,7 @@ DEPENDENCIES
   rails-assets-eonasdan-bootstrap-datetimepicker (~> 3.1.3)!
   rails-assets-footable (~> 2.0.3)!
   rails-assets-jquery-tokeninput (~> 1.7.0)!
+  rails-assets-jquery-ui (~> 1.11.4)!
   rails-assets-modernizr (~> 2.0.6)!
   rails-assets-morrisjs (~> 0.5.1)!
   rails-assets-raphael (~> 2.1.3)!
@@ -570,7 +565,7 @@ DEPENDENCIES
   therubyrhino
   transpec
   turbolinks
-  uglifier (>= 1.3.0)
+  uglifier (~> 2.7.2)
   warbler
   will_paginate (~> 3.0.7)
   will_paginate-bootstrap (~> 1.0.1)

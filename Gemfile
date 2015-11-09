@@ -6,13 +6,12 @@ gem 'rails', '~> 4.1.10'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier', '~> 2.7.2'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
-gem 'jquery-ui-sass-rails'
+gem 'jquery-rails', '~> 3.1.4' # Update to v4 for Rails 4.2
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -162,4 +161,5 @@ source 'http://rails-assets.org' do
   gem 'rails-assets-jquery-tokeninput', '~> 1.7.0'
 
   gem 'rails-assets-modernizr', '~> 2.0.6'
+  gem 'rails-assets-jquery-ui', '~> 1.11.4'
 end
