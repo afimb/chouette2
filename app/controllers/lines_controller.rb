@@ -52,12 +52,12 @@ class LinesController < ChouetteController
 
   def filtered_lines_maps
     filtered_lines.collect do |line|
-      { :id => line.id, :name => line.published_name }
+      { :id => line.id, :name => (line.published_name ? line.published_name : line.name) }
     end
   end
 
   def filtered_lines
-    referential.lines.select{ |t| t.published_name =~ /#{params[:q]}/i  }
+    referential.lines.select{ |t| [t.name, t.published_name].find { |e| /#{params[:q]}/i =~ e }  }
   end
 
   def collection
