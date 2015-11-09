@@ -104,6 +104,8 @@ gem 'delayed_job_active_record'
 gem 'devise-async'
 gem 'apartment', '~> 1.0.0'
 
+gem 'newrelic_rpm'
+
 group :development do
   gem 'capistrano', '2.13.5'
   gem 'capistrano-ext'
@@ -138,7 +140,6 @@ end
 group :production do
   gem 'SyslogLogger', require: 'syslog/logger'
   gem 'daemons'
-  gem 'newrelic_rpm'
 end
 
 # I18n
