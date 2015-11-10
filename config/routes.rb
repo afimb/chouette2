@@ -46,6 +46,7 @@ ChouetteIhm::Application.routes.draw do
     resources :api_keys
     resources :autocomplete_stop_areas
     resources :autocomplete_time_tables
+    resources :autocomplete_timebands
     resources :group_of_lines do
       collection do
         get 'name_filter'

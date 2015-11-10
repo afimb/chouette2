@@ -51,13 +51,16 @@
     display: table;
     width: 100%;
     padding-left: 25%;
+    .token-input-list {
+      width: 80%;
+    }
     .inline-errors {
       margin: 0;
     }
     > li {
       display: table-cell;
       width: 21%;
-      vertical-align: top;
+      vertical-align: middle;
       padding:0 ;
       margin: 0;
       &:first-child select {
