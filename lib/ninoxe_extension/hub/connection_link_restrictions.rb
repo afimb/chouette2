@@ -8,7 +8,7 @@ module NinoxeExtension::Hub
 
       with_options if: :hub_restricted? do |cl|
         # HUB-34
-        cl.validates :link_distance, :numericality => { :max => 10000.0 }
+        cl.validates :link_distance, numericality: { less_than_or_equal_to: 10000.to_f }
       end
     end
   end
