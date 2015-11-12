@@ -96,6 +96,10 @@ class ImportsController < ChouetteController
 
   def resource
     @import ||= import_service.find( params[:id] )
+    @line_items = @import.report.line_items
+    if @line_items.size > 500
+      @line_items = @line_items.paginate(page: params[:page], per_page: 20)
+    end
   end
 
   def collection

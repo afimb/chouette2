@@ -25,7 +25,7 @@
       </div>
     </form>
   </p>
-  <table id="table-line" class="table table-hover table-striped data-table toggle-circle toggle-medium" data-filter="#filter-line" data-page-size="20">
+  <table class="table table-hover table-striped data-table toggle-circle toggle-medium" data-filter="#filter-line"<% unless line_items.respond_to?(:total_pages) %> id="table-line" data-page-size="20"<% end %>>
     <thead>
       <tr>
         <th><%= t(".table.line.state") %></th>
@@ -41,7 +41,7 @@
       </tr>
     </thead>
     <tbody>
-      <% job.report.line_items.each_with_index do |line_item, index| %>
+      <% line_items.each_with_index do |line_item, index| %>
         <tr>
           <td data-value="<%=line_item.status%>"><%= line_item.status ? font_awesome_classic_tag("fa-check") : font_awesome_classic_tag("fa-times")  %></td>
           <td><%= line_item.name %></td>
@@ -58,7 +58,13 @@
     </tbody>
     <tfoot>
       <tr>
-        <td colspan="5"><ul class="pagination pagination-centered"></ul></td>
+        <td colspan="10">
+          <% if line_items.respond_to?(:total_pages) %>
+            <%= will_paginate line_items, renderer: BootstrapPagination::Rails %>
+          <% else %>
+            <ul class="pagination pagination-centered"></ul>
+          <% end %>
+        </td>
       </tr>
     </tfoot>
   </table>
