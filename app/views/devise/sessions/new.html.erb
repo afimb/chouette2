@@ -1,13 +1,5 @@
 <div id="sessions_new" class="row">
-  <div class="col-md-8 product_summary">
-    <h2><%= t(".welcome") %></h2>
-    <p><%= t(".introduction1") %></p>
-    <p><%= t(".introduction2") %></p>
-    <ul>
-      <li>- <%= t(".introduction_item1") %></li>
-      <li>- <%= t(".introduction_item2") %></li>
-    </ul>
-  </div>
+  <%= render 'devise/shared/intro' %>
   <div class="col-md-4 login">
     <div class="panel panel-default">
       <div class="panel-body">
@@ -29,6 +21,10 @@
             </div>
             <div class="col-md-6 new_password">
               <%= link_to t("devise.links.new_password"), new_password_path(resource_name) %>
+              <% if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+                <br>
+                <%= link_to t("devise.links.new_confirmation"), new_confirmation_path(resource_name) %>
+              <% end %>
             </div>
           </div>
         <% end %>
