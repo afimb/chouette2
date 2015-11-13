@@ -14,9 +14,10 @@ describe "/timebands/edit", :type => :view do
   describe "form" do
     it "should render input for timeband" do
       render
-      expect(rendered).to have_selector("form") do
-        with_tag "input[type=text][name='timeband[name]'][value=?]", timeband.name
-      end
+      expect(rendered).to have_field('timeband[name]')
+      expect(rendered).to have_field('timeband[start_time(4i)]')
+      expect(rendered).to have_field('timeband[start_time(5i)]')
+      expect(rendered).to have_selector('button[type=submit]')
     end
 
   end
