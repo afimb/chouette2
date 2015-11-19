@@ -2,33 +2,39 @@
 
 <ul class="nav nav-pills">
   <% ImportTask.data_formats.each do |format| %>  
-  <li role="presentation"><a href="#<%= format %>" class='<%= @import_task.data_format == format ? "#{format} active" : "#{format}" %>' title='<%= t(:"enumerize.data_format_detail.#{format}")%>' data-toggle="tab"><%= t(:"enumerize.data_format.#{format}") %></a></li>
+    <li role="presentation">
+      <a href="#<%= format %>" class='<%= @import_task.data_format == format ? "#{format} active" : "#{format}" %>'
+                               title='<%= t(:"enumerize.data_format_detail.#{format}")%>'
+                               data-toggle="tab"><%= t(:"enumerize.data_format.#{format}") %>
+      </a>
+    </li>
   <% end %>
 </ul>
 
 <div class="tab-content">
-<% @available_imports.each do |import_task| %>
-  <%= semantic_form_for [@referential, import_task], :as => :import_task, :url => referential_import_tasks_path(@referential), :namespace => import_task.data_format ,:html => { :id => "#{import_task.data_format}", :class => "tab-pane highlight"} do |form| %>
-	<%= form.inputs do %>
-	  <%= form.input :user_name, :as => :hidden, :input_html => { :value => current_user.name } %>      <%= form.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
-	  <%= form.input :data_format, :as => :hidden %>
-	  <%= form.input :referential_id, :as => :hidden, :input_html => { :value => @referential.id } %>	      
-          <%= form.input :name %>
-	  <%= form.input :no_save, :as => :boolean %>    
-	  <%= form.input :rule_parameter_set_id, :as => :select,
-        :collection =>  @referential.organisation.rule_parameter_sets.map { |rps| [ rps.name, rps.id ] }, :include_blank => true %>
-	  <%= form.input :resources, :as => :file %>
-        <% end %>
-    
-        <%= render partial: "fields_#{import_task.data_format}_import", :locals => { :form => form } %>
-
-	<%= form.actions do %>
-	  <%= form.action :submit, :as => :button , :label => t( 'formtastic.import' ) %>
-	  <%= form.action :cancel, :as => :link %>
-	<% end %>
-
+  <% @available_imports.each do |import_task| %>
+    <%= semantic_form_for [@referential, import_task], :as => :import_task, :url => referential_import_tasks_path(@referential),
+                          :namespace => import_task.data_format, :html => { :id => "#{import_task.data_format}",
+                                                                            :class => "tab-pane highlight" } do |form| %>
+      <%= form.inputs do %>
+        <%= form.input :user_name, :as => :hidden, :input_html => { :value => current_user.name } %>
+        <%= form.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+        <%= form.input :data_format, :as => :hidden %>
+        <%= form.input :referential_id, :as => :hidden, :input_html => { :value => @referential.id } %>
+        <%= form.input :name %>
+        <%= form.input :no_save, :as => :boolean %>
+        <%= form.input :rule_parameter_set_id, :as => :select,
+                       :collection =>  @referential.organisation.rule_parameter_sets.map { |rps| [ rps.name, rps.id ] },
+                       :include_blank => true %>
+        <%= form.input :resources, :as => :file %>
+      <% end %>
+      <%= render partial: "fields_#{import_task.data_format}_import", :locals => { :form => form } %>
+      <%= form.actions do %>
+        <%= form.action :submit, :as => :button , :label => t( 'formtastic.import' ) %>
+        <%= form.action :cancel, :as => :link %>
+      <% end %>
+    <% end %>
   <% end %>
-<% end %>
 </div>
 
 <%= javascript_include_tag new_referential_import_task_path(@referential, :format => :js) %>
