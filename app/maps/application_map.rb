@@ -73,7 +73,7 @@ class ApplicationMap
 
   def to_html(options = {})
     if not respond_to?(:ready?) or ready?
-      "<div id=\"#{id}\" class=\"#{default_class}\"></div> #{map.to_html(options)}".html_safe
+      "<div id=\"#{id}\" class=\"#{default_class}\"><button data-ce-id=\"#{id}\" data-ce-action=\"map-fullscreen\" class=\"ce-MapExpandBlock\"><i class=\"fa fa-expand\"></i></button></div> #{map.to_html(options)}".html_safe
     end
   end
 

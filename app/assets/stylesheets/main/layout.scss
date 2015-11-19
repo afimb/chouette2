@@ -22,6 +22,7 @@ ol.breadcrumb{
 }
 
 #middle{
+    position: relative;
     min-height: 500px;
     -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, .2);
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, .2);
@@ -41,7 +42,15 @@ ol.breadcrumb{
         height: 100%;
         padding-top: 20px;
         border-left: 1px solid $gray-lighter;
-        
+
+        &.ce-SidebarFloatBlock {
+          position: absolute;
+          height: auto;
+          right: 0;
+          background-color: #fff;
+          top: 45px;
+        }
+
         label {
             color: #555555;
             font-weight: normal;
