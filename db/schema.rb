@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028105423) do
+ActiveRecord::Schema.define(version: 20151124145300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "postgis"
 
   create_table "access_links", force: true do |t|
     t.integer  "access_point_id",                        limit: 8
@@ -224,7 +225,7 @@ ActiveRecord::Schema.define(version: 20151028105423) do
 
   create_table "journey_patterns", force: true do |t|
     t.integer  "route_id",                limit: 8
-    t.string   "objectid",                          null: false
+    t.string   "objectid",                                       null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
@@ -234,9 +235,11 @@ ActiveRecord::Schema.define(version: 20151028105423) do
     t.string   "published_name"
     t.integer  "departure_stop_point_id", limit: 8
     t.integer  "arrival_stop_point_id",   limit: 8
+    t.integer  "route_section_ids",                 default: [],              array: true
   end
 
   add_index "journey_patterns", ["objectid"], name: "journey_patterns_objectid_key", unique: true, using: :btree
+  add_index "journey_patterns", ["route_section_ids"], name: "index_journey_patterns_on_route_section_ids", using: :gin
 
   create_table "journey_patterns_stop_points", id: false, force: true do |t|
     t.integer "journey_pattern_id", limit: 8
@@ -325,6 +328,9 @@ ActiveRecord::Schema.define(version: 20151028105423) do
     t.string   "user_name"
     t.string   "data_format"
   end
+
+# Could not dump table "route_sections" because of following StandardError
+#   Unknown type 'shared_extensions.geometry(LineString,4326)' for column 'input_geometry'
 
   create_table "routes", force: true do |t|
     t.integer  "line_id",           limit: 8
@@ -425,20 +431,6 @@ ActiveRecord::Schema.define(version: 20151028105423) do
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
-  create_table "time_slots", force: true do |t|
-    t.string   "objectid",                     null: false
-    t.integer  "object_version"
-    t.datetime "creation_time"
-    t.string   "creator_id"
-    t.string   "name"
-    t.time     "beginning_slot_time"
-    t.time     "end_slot_time"
-    t.time     "first_departure_time_in_slot"
-    t.time     "last_departure_time_in_slot"
-  end
-
-  add_index "time_slots", ["objectid"], name: "time_slots_objectid_key", unique: true, using: :btree
-
   create_table "time_table_dates", force: true do |t|
     t.integer "time_table_id", limit: 8, null: false
     t.date    "date"
@@ -534,9 +526,6 @@ ActiveRecord::Schema.define(version: 20151028105423) do
     t.string  "boarding_alighting_possibility"
     t.time    "arrival_time"
     t.time    "departure_time"
-    t.time    "waiting_time"
-    t.time    "elapse_duration"
-    t.time    "headway_frequency"
     t.string  "for_boarding"
     t.string  "for_alighting"
   end
