@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20151124145300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "postgis"
 
   create_table "access_links", force: true do |t|
     t.integer  "access_point_id",                        limit: 8
@@ -135,19 +134,6 @@ ActiveRecord::Schema.define(version: 20151124145300) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
-  create_table "exports", force: true do |t|
-    t.integer  "referential_id",  limit: 8
-    t.string   "status"
-    t.string   "type"
-    t.string   "options"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "references_type"
-    t.string   "reference_ids"
-  end
-
-  add_index "exports", ["referential_id"], name: "index_exports_on_referential_id", using: :btree
-
   create_table "facilities", force: true do |t|
     t.integer  "stop_area_id",       limit: 8
     t.integer  "line_id",            limit: 8
@@ -225,7 +211,7 @@ ActiveRecord::Schema.define(version: 20151124145300) do
 
   create_table "journey_patterns", force: true do |t|
     t.integer  "route_id",                limit: 8
-    t.string   "objectid",                                       null: false
+    t.string   "objectid",                          null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
@@ -235,11 +221,9 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.string   "published_name"
     t.integer  "departure_stop_point_id", limit: 8
     t.integer  "arrival_stop_point_id",   limit: 8
-    t.integer  "route_section_ids",                 default: [],              array: true
   end
 
   add_index "journey_patterns", ["objectid"], name: "journey_patterns_objectid_key", unique: true, using: :btree
-  add_index "journey_patterns", ["route_section_ids"], name: "index_journey_patterns_on_route_section_ids", using: :gin
 
   create_table "journey_patterns_stop_points", id: false, force: true do |t|
     t.integer "journey_pattern_id", limit: 8
@@ -328,9 +312,6 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.string   "user_name"
     t.string   "data_format"
   end
-
-# Could not dump table "route_sections" because of following StandardError
-#   Unknown type 'shared_extensions.geometry(LineString,4326)' for column 'input_geometry'
 
   create_table "routes", force: true do |t|
     t.integer  "line_id",           limit: 8
