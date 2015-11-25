@@ -517,7 +517,6 @@ ActiveRecord::Schema.define(version: 20151124145300) do
   create_table "vehicle_journeys", force: true do |t|
     t.integer  "route_id",                        limit: 8
     t.integer  "journey_pattern_id",              limit: 8
-    t.integer  "time_slot_id",                    limit: 8
     t.integer  "company_id",                      limit: 8
     t.string   "objectid",                                              null: false
     t.integer  "object_version"
