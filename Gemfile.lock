@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/afimb/ninoxe.git
-  revision: 427e887260845b8dc24b40831021caeebf34ab32
+  revision: 6cce5eca49c9c136604d9c24427a96725788dace
   specs:
     ninoxe (1.2.4)
       activerecord (~> 4.1.1)
@@ -106,7 +106,7 @@ GEM
     coffee-script-source (1.9.1)
     daemons (1.1.9)
     database_cleaner (1.4.1)
-    dbf (3.0.0)
+    dbf (3.0.1)
     debug_inspector (0.0.2)
     deep_cloneable (2.0.2)
       activerecord (>= 3.1.0, < 5.0.0)
@@ -238,7 +238,7 @@ GEM
     mime-types (2.4.3)
     mimemagic (0.3.0)
     mini_portile (0.6.2)
-    minitest (5.8.2)
+    minitest (5.8.3)
     multi_json (1.11.2)
     multipart-post (2.0.0)
     nenv (0.2.0)
