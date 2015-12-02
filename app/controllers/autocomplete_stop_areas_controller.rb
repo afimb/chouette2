@@ -26,7 +26,7 @@ class AutocompleteStopAreasController < InheritedResources::Base
     else
       result = referential.stop_areas
     end
-    @stop_areas = result.select{ |p| p.name =~ /#{params[:q]}/i  }
+    @stop_areas = result.select{ |p| [p.name, p.registration_number, p.objectid].grep(/#{params[:q]}/i).any?  }
     @stop_areas
   end
 
