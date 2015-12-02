@@ -20,7 +20,7 @@
   <% end %>
 
   <%= form.actions do %>
-    <%= form.action :submit, as: :button, label: t(".submit_#{vehicle_journey.journey_category}") %>
+    <%= form.action :submit, as: :button, label: t(".submit_#{vehicle_journey.journey_category}#{'_edit' unless form.object.new_record?}") %>
     <%= form.action :cancel, as: :link %>
   <% end %>
 <% end %>

@@ -39,6 +39,8 @@ fr:
       slide_arrival: "horaire d'arrivée au 1° arrêt à"
       submit_timed: "Créer course"
       submit_frequency: "Créer course à fréquence"
+      submit_timed_edit: "Modifier course"
+      submit_frequency_edit: "Modifier course à fréquence"
     timeless:
       title: "Courses sans horaire"
       vehicle_journeys: "Courses ayant des horaires"
