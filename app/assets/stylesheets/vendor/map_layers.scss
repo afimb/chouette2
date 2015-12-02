@@ -18,6 +18,12 @@ p.after_map {
   height: 21px;
   right: -1px;
   color: white;
+  padding: 2px 6px !important;
+}
+#map.ce-MapBlock-fullWidth {
+  width: 100% !important;
+  display: block;
+  float: inherit;
 }
 #ce-SidebarNavBlock {
   position: absolute;
