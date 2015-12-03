@@ -21,15 +21,7 @@ class RouteSectionsSelector
     save
   end
 
-  # def persisted?
-  #   false
-  # end
-
   delegate :stop_points, to: :itinerary
-
-  def route_sections
-    @route_sections ||= itinerary.route_sections.to_a
-  end
 
   def sections
     @sections ||= create_sections
@@ -38,7 +30,9 @@ class RouteSectionsSelector
   def create_sections
     [].tap do |sections|
       stop_points.each_cons(2).each_with_index do |(departure, arrival), index|
-        sections << Section.new(departure.stop_area, arrival.stop_area, route_sections[index])
+        journey_pattern_section = Chouette::JourneyPatternSection.find_by(journey_pattern: @itinerary, rank: index)
+        route_section = journey_pattern_section ? journey_pattern_section.route_section : nil
+        sections << Section.new(departure.stop_area, arrival.stop_area, route_section, index)
       end
     end
   end
@@ -51,16 +45,18 @@ class RouteSectionsSelector
   end
 
   def save
-    itinerary.update_attribute :route_section_ids, sections.map(&:route_section_id)
+    sections.each do |s|
+      Chouette::JourneyPatternSection.update_by_journey_pattern_rank(itinerary.id, s.route_section_id, s.rank)
+    end
   end
 
   class Section
     extend ActiveModel::Translation
 
-    attr_accessor :departure, :arrival, :route_section_id
+    attr_accessor :departure, :arrival, :rank, :route_section_id
 
-    def initialize(departure, arrival, route_section = nil)
-      @departure, @arrival = departure, arrival
+    def initialize(departure, arrival, route_section = nil, rank = nil)
+      @departure, @arrival, @rank = departure, arrival, rank
 
       self.route_section = route_section
     end

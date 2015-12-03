@@ -36,14 +36,14 @@ class @RouteSectionMap
     if id
       features = route_section_geometry.getFeaturesByAttribute('id', id.toString())
       if features.length > 0
-        feature = features[0]
-        style = null
-        if !erase
-          style =
-            strokeWidth: 3
-            strokeColor: 'green'
-        feature.style = style
-        feature.layer.redraw()
+        $.each features, (key, feature) ->
+          style = null
+          if !erase
+            style =
+              strokeWidth: 3
+              strokeColor: 'green'
+          feature.style = style
+          feature.layer.redraw()
 
   @changeStyle = (el) ->
     id = $(el).val()
@@ -54,6 +54,7 @@ class @RouteSectionMap
       RouteSectionMap.featureStyle value, true
       return
     RouteSectionMap.featureStyle id, false
+    RouteSectionMap.editRoute el
 
 jQuery ->
   $route_sections_selector = $('[name^="route_sections_selector[sections_attributes]"]')
@@ -77,7 +78,6 @@ jQuery ->
 
   $('#new_route_sections_selector select').on 'change', ->
     RouteSectionMap.changeStyle this
-    RouteSectionMap.editRoute this
 
   $('form.route_section').find('button[type="submit"]').on 'click', (e) ->
     e.preventDefault();

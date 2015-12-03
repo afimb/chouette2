@@ -26,7 +26,6 @@ class StopAreaMap < ApplicationMap
         if stop_area.new_record?
           page << <<EOF
           var createStyleMap = function() {
-            var defProp = {strokeColor: "red"};
             var defProp = {strokeColor: "black", strokeOpacity: 1, strokeWidth: 2, fillColor: "white", fillOpacity: 1};
             var defStyle = OpenLayers.Util.applyDefaults(defProp, OpenLayers.Feature.Vector.style["default"]);
             return new OpenLayers.StyleMap({'default': defStyle});
