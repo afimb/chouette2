@@ -1,7 +1,7 @@
 <%= title_tag t('.title', journey_pattern: journey_name(@journey_pattern)) %>
 
 <div class = "large-map">
-  <%= @map.to_html %>
+  <%= @map.to_html(no_fullscreen: true) %>
 </div>
 
 <%= semantic_form_for resource, url: referential_line_route_journey_pattern_route_sections_selector_path(@referential, @line, @route, @journey_pattern), method: :put do |form| %>
