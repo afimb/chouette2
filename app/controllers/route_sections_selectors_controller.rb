@@ -18,6 +18,11 @@ class RouteSectionsSelectorsController < ChouetteController
     @map = RouteSectionSelectorMap.new(resource).with_helpers(self)
   end
 
+  def update
+    update!
+    parent.control_route_sections
+  end
+
   def selection
     parent
 

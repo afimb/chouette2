@@ -30,6 +30,7 @@
       <th><%= Chouette::RouteSection.human_attribute_name :arrival %></th>
       <th class="distance"><%= Chouette::RouteSection.human_attribute_name :distance %></th>
       <th class="points"><%= Chouette::RouteSection.human_attribute_name :points %></th>
+      <th class="points"><%= Chouette::RouteSection.human_attribute_name :quantity %></th>
       <th class="actions"></th>
     </tr>
   </thead>
@@ -40,6 +41,7 @@
       <td><%= route_section.arrival.name %> <%= link_to content_tag(:i, "", class: "fa fa-external-link"), referential_stop_area_path(@referential, route_section.arrival) %></td>
       <td class="distance"><%= route_section.distance.to_i if route_section.distance %></td>
       <td class="points"><%= route_section.via_count if route_section.via_count > 0 %></td>
+      <td class="journey_patterns"><%= route_section.journey_pattern_sections.count(:journey_pattern_id, distinct: true) %></td>
       <td class="actions">
         <%= link_to t('.actions.show'), referential_route_section_path(@referential, route_section), class: "view" %>
         <%= link_to t('.actions.edit'), edit_referential_route_section_path(@referential, route_section), class: "edit" %>
