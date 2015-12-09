@@ -45,9 +45,10 @@ notifications:
     - alban.peignier@af83.com
     - anicet.rohee@af83.com
 before_install:
-  - "gem update bundler"
+  - gem update bundler
 before_script:
-  - "bundle exec rake ci:db_travis_config"
-  - "bundle exec rake db:create"
-  - "bundle exec rake db:migrate"
-script: "bundle exec rake spec"
+  - export JRUBY_OPTS="-J-XX:MaxPermSize=128m"
+  - bundle exec rake ci:db_travis_config
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+script: bundle exec rake spec
