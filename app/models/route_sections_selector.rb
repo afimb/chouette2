@@ -6,8 +6,8 @@ class RouteSectionsSelector
 
   attr_reader :itinerary
 
-  def initialize(route_or_journey_pattern, attributes = {})
-    @itinerary = route_or_journey_pattern
+  def initialize(journey_pattern, attributes = {})
+    @itinerary = journey_pattern
 
     self.attributes = attributes
   end
@@ -32,7 +32,7 @@ class RouteSectionsSelector
       stop_points.each_cons(2).each_with_index do |(departure, arrival), index|
         journey_pattern_section = Chouette::JourneyPatternSection.find_by(journey_pattern: @itinerary, rank: index)
         route_section = journey_pattern_section ? journey_pattern_section.route_section : nil
-        sections << Section.new(departure.stop_area, arrival.stop_area, route_section, index)
+        sections << Section.new(departure.stop_area, arrival.stop_area, route_section)
       end
     end
   end
@@ -53,10 +53,10 @@ class RouteSectionsSelector
   class Section
     extend ActiveModel::Translation
 
-    attr_accessor :departure, :arrival, :rank, :route_section_id
+    attr_accessor :departure, :arrival, :route_section_id
 
-    def initialize(departure, arrival, route_section = nil, rank = nil)
-      @departure, @arrival, @rank = departure, arrival, rank
+    def initialize(departure, arrival, route_section = nil)
+      @departure, @arrival = departure, arrival
 
       self.route_section = route_section
     end
