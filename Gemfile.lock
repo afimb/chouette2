@@ -1,15 +1,17 @@
 GIT
   remote: https://github.com/afimb/ninoxe.git
-  revision: 6cce5eca49c9c136604d9c24427a96725788dace
+  revision: 9965ecc87a4b0971ee2bb558437d2ea096409480
   specs:
     ninoxe (1.2.4)
       activerecord (~> 4.1.1)
+      activerecord-postgis-adapter
       acts-as-taggable-on (>= 3)
       acts_as_list (>= 0.1.6)
       acts_as_tree (>= 1.1.0)
       deep_cloneable (~> 2.0.0)
       enumerize (~> 0.10.0)
-      foreigner (= 1.6.0)
+      foreigner (~> 1.7.4)
+      georuby (= 2.3.0)
       georuby-ext (= 0.0.5)
 
 GEM
@@ -156,7 +158,7 @@ GEM
       ffi (>= 1.0.0)
     font-awesome-sass (4.2.2)
       sass (~> 3.2)
-    foreigner (1.6.0)
+    foreigner (1.7.4)
       activerecord (>= 3.0.0)
     formatador (0.2.5)
     formtastic (2.3.1)

@@ -108,6 +108,7 @@ gem 'devise-async'
 gem 'apartment', '~> 1.0.0'
 
 gem 'newrelic_rpm'
+gem 'letter_opener'
 
 group :development do
   gem 'capistrano', '2.13.5'
@@ -117,7 +118,6 @@ group :development do
   gem 'rails-erd'
   # MetaRequest is incompatible with rgeo-activerecord
   # gem 'meta_request'
-  gem 'letter_opener'
   gem 'quiet_assets', '~> 1.0'
   gem 'simplecov', '~> 0.10.0'
   platforms :ruby_20, :ruby_21, :ruby_22 do
