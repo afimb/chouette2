@@ -68,6 +68,7 @@ class ExportsController < ChouetteController
     if @line_items.size > 500
       @line_items = @line_items.paginate(page: params[:page], per_page: 20)
     end
+    @export
   end
 
   def collection
