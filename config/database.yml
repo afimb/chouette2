@@ -3,7 +3,7 @@ default: &default
   encoding: unicode
   pool: 5
   port: 5432
-  host: localhost
+  host: chouettedb
   schema_search_path: "public"
   username: chouette
   password: chouette

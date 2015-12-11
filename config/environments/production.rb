@@ -19,7 +19,7 @@ Rails.application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = false
+  config.serve_static_assets = true
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -84,17 +84,17 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 
-  config.action_mailer.default_url_options = { :host => 'my-domain-name.com' }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # Configure the e-mail address which will be shown in Devise::Maile
   config.mailer_sender = "chouette-production@my-domain-name.com"
 
   ActionMailer::Base.smtp_settings = {
-    :address        => "smtp.sample.com",
+    :address        => "smtp.gmail.com",
     :port           => 25,
-    :domain         => "sample.com",
-    :user_name      => "smtp_user",
-    :password       => "smtp_password",
+    :domain         => "scienta.no",
+    :user_name      => "en@scienta.no",
+    :password       => "ffsevsgxpadhlysq",
     :authentication => :login
   }
 
