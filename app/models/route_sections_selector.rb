@@ -31,7 +31,13 @@ class RouteSectionsSelector
     [].tap do |sections|
       stop_points.each_cons(2).each_with_index do |(departure, arrival), index|
         journey_pattern_section = Chouette::JourneyPatternSection.find_by(journey_pattern: @itinerary, rank: index)
-        route_section = journey_pattern_section ? journey_pattern_section.route_section : nil
+
+        if journey_pattern_section
+          route_section = journey_pattern_section ? journey_pattern_section.route_section : nil
+        else
+          route_section = Chouette::RouteSection.find_by(departure: departure.stop_area, arrival: arrival.stop_area)
+        end
+
         sections << Section.new(departure.stop_area, arrival.stop_area, route_section)
       end
     end
