@@ -91,6 +91,10 @@ class Referential < ActiveRecord::Base
     Chouette::VehicleJourney.all
   end
 
+  def vehicle_journey_frequencies
+    Chouette::VehicleJourneyFrequency.all
+  end
+
   def route_sections
     Chouette::RouteSection.all
   end
