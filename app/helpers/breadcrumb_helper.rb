@@ -1,6 +1,7 @@
 module BreadcrumbHelper
 
-   def build_breadcrumb(action)
+  def build_breadcrumb(action)
+    action = action.to_sym
     case resource_class.to_s
     when "Chouette::Network"
       network_breadcrumb action
@@ -30,6 +31,8 @@ module BreadcrumbHelper
       connection_link_breadcrumb action
     when "Chouette::TimeTable"
       time_table_breadcrumb action
+    when "Chouette::RouteSection"
+      route_section_breadcrumb action
     when "Chouette::Timeband"
       timeband_breadcrumb action
     when "StopAreaCopy"
@@ -104,6 +107,12 @@ module BreadcrumbHelper
     referential_breadcrumb
     add_breadcrumb Chouette::TimeTable.model_name.human(:count => 2), referential_time_tables_path(@referential) unless action == :index
     add_breadcrumb breadcrumb_label(@time_table), referential_time_table_path(@referential, @time_table),:title => breadcrumb_tooltip(@time_table) if action == :edit
+  end
+
+  def route_section_breadcrumb(action)
+    referential_breadcrumb
+    add_breadcrumb Chouette::RouteSection.model_name.human.pluralize, referential_route_sections_path(@referential)
+    add_breadcrumb breadcrumb_label(resource), referential_route_section_path(@referential, resource),:title => breadcrumb_tooltip(resource) if action.in?([:show, :edit])
   end
 
   def timeband_breadcrumb(action)

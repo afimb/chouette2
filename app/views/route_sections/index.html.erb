@@ -1,0 +1,56 @@
+<%= title_tag t('.title') %>
+
+<%= form_for search, url: referential_route_sections_path(@referential), method: :get, class: "form-inline" do |form| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="col-md-6">
+        <%= form.text_field :departure_name, class: 'form-control', placeholder: Chouette::RouteSection.human_attribute_name(:departure) %>
+      </div>
+
+      <div class="input-group col-md-6">
+        <%= form.text_field :arrival_name, class: 'form-control', placeholder: Chouette::RouteSection.human_attribute_name(:arrival) %>
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-body">
+      <div class="col-md-4">
+        <%= form.select :line_id, @referential.lines.order(:name).pluck(:name, :id), { include_blank: t('.all_lines')}, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <th><%= Chouette::RouteSection.human_attribute_name :departure %></th>
+      <th><%= Chouette::RouteSection.human_attribute_name :arrival %></th>
+      <th class="distance"><%= Chouette::RouteSection.human_attribute_name :distance %></th>
+      <th class="points"><%= Chouette::RouteSection.human_attribute_name :points %></th>
+      <th class="actions"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @route_sections.each do |route_section| %>
+    <tr>
+      <td><%= route_section.departure.name %> <%= link_to content_tag(:i, "", class: "fa fa-external-link"), referential_stop_area_path(@referential, route_section.departure) %></td>
+      <td><%= route_section.arrival.name %> <%= link_to content_tag(:i, "", class: "fa fa-external-link"), referential_stop_area_path(@referential, route_section.arrival) %></td>
+      <td class="distance"><%= route_section.distance.to_i if route_section.distance %></td>
+      <td class="points"><%= route_section.via_count if route_section.via_count > 0 %></td>
+      <td class="actions">
+        <%= link_to t('.actions.show'), referential_route_section_path(@referential, route_section), class: "view" %>
+        <%= link_to t('.actions.edit'), edit_referential_route_section_path(@referential, route_section), class: "edit" %>
+        <%= link_to t('.actions.destroy'), referential_route_section_path(@referential, route_section), method: :delete, data: { confirm: t('route_sections.actions.destroy_confirm') }, class: "remove" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
+<div class="pagination">
+  <%= will_paginate @route_sections, :container => false, renderer: RemoteBootstrapPaginationLinkRenderer %>
+</div>

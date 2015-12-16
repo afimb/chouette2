@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124145300) do
+ActiveRecord::Schema.define(version: 20151203132113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "postgis"
 
   create_table "access_links", force: true do |t|
     t.integer  "access_point_id",                        limit: 8
@@ -38,7 +39,7 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.string   "link_orientation"
   end
 
-  add_index "access_links", ["objectid"], name: "access_links_objectid_key", unique: true, using: :btree
+  add_index "access_links", ["objectid"], :name => "access_links_objectid_key", :unique => true
 
   create_table "access_points", force: true do |t|
     t.string   "objectid"
@@ -64,7 +65,7 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.string   "city_name"
   end
 
-  add_index "access_points", ["objectid"], name: "access_points_objectid_key", unique: true, using: :btree
+  add_index "access_points", ["objectid"], :name => "access_points_objectid_key", :unique => true
 
   create_table "api_keys", force: true do |t|
     t.integer  "referential_id"
@@ -92,8 +93,8 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.string   "time_zone"
   end
 
-  add_index "companies", ["objectid"], name: "companies_objectid_key", unique: true, using: :btree
-  add_index "companies", ["registration_number"], name: "companies_registration_number_key", using: :btree
+  add_index "companies", ["objectid"], :name => "companies_objectid_key", :unique => true
+  add_index "companies", ["registration_number"], :name => "companies_registration_number_key"
 
   create_table "connection_links", force: true do |t|
     t.integer  "departure_id",                           limit: 8
@@ -116,7 +117,7 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.integer  "int_user_needs"
   end
 
-  add_index "connection_links", ["objectid"], name: "connection_links_objectid_key", unique: true, using: :btree
+  add_index "connection_links", ["objectid"], :name => "connection_links_objectid_key", :unique => true
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0
@@ -132,7 +133,20 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.datetime "updated_at"
   end
 
-  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "exports", force: true do |t|
+    t.integer  "referential_id",  limit: 8
+    t.string   "status"
+    t.string   "type"
+    t.string   "options"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "references_type"
+    t.string   "reference_ids"
+  end
+
+  add_index "exports", ["referential_id"], :name => "index_exports_on_referential_id"
 
   create_table "facilities", force: true do |t|
     t.integer  "stop_area_id",       limit: 8
@@ -158,7 +172,7 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.string   "contained_in"
   end
 
-  add_index "facilities", ["objectid"], name: "facilities_objectid_key", unique: true, using: :btree
+  add_index "facilities", ["objectid"], :name => "facilities_objectid_key", :unique => true
 
   create_table "facilities_features", id: false, force: true do |t|
     t.integer "facility_id", limit: 8
@@ -188,7 +202,7 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.string   "registration_number"
   end
 
-  add_index "group_of_lines", ["objectid"], name: "group_of_lines_objectid_key", unique: true, using: :btree
+  add_index "group_of_lines", ["objectid"], :name => "group_of_lines_objectid_key", :unique => true
 
   create_table "group_of_lines_lines", id: false, force: true do |t|
     t.integer "group_of_line_id", limit: 8
@@ -206,8 +220,20 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.integer  "timeband_id"
   end
 
-  add_index "journey_frequencies", ["timeband_id"], name: "index_journey_frequencies_on_timeband_id", using: :btree
-  add_index "journey_frequencies", ["vehicle_journey_id"], name: "index_journey_frequencies_on_vehicle_journey_id", using: :btree
+  add_index "journey_frequencies", ["timeband_id"], :name => "index_journey_frequencies_on_timeband_id"
+  add_index "journey_frequencies", ["vehicle_journey_id"], :name => "index_journey_frequencies_on_vehicle_journey_id"
+
+  create_table "journey_pattern_sections", force: true do |t|
+    t.integer  "journey_pattern_id", limit: 8,             null: false
+    t.integer  "route_section_id",   limit: 8,             null: false
+    t.integer  "rank",               null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "journey_pattern_sections", ["journey_pattern_id", "route_section_id", "rank"], :name => "index_jps_on_journey_pattern_id_and_route_section_id_and_rank", :unique => true
+  add_index "journey_pattern_sections", ["journey_pattern_id"], :name => "index_journey_pattern_sections_on_journey_pattern_id"
+  add_index "journey_pattern_sections", ["route_section_id"], :name => "index_journey_pattern_sections_on_route_section_id"
 
   create_table "journey_patterns", force: true do |t|
     t.integer  "route_id",                limit: 8
@@ -223,14 +249,14 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.integer  "arrival_stop_point_id",   limit: 8
   end
 
-  add_index "journey_patterns", ["objectid"], name: "journey_patterns_objectid_key", unique: true, using: :btree
+  add_index "journey_patterns", ["objectid"], :name => "journey_patterns_objectid_key", :unique => true
 
   create_table "journey_patterns_stop_points", id: false, force: true do |t|
     t.integer "journey_pattern_id", limit: 8
     t.integer "stop_point_id",      limit: 8
   end
 
-  add_index "journey_patterns_stop_points", ["journey_pattern_id"], name: "index_journey_pattern_id_on_journey_patterns_stop_points", using: :btree
+  add_index "journey_patterns_stop_points", ["journey_pattern_id"], :name => "index_journey_pattern_id_on_journey_patterns_stop_points"
 
   create_table "lines", force: true do |t|
     t.integer  "network_id",                      limit: 8
@@ -254,8 +280,8 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.string   "stable_id"
   end
 
-  add_index "lines", ["objectid"], name: "lines_objectid_key", unique: true, using: :btree
-  add_index "lines", ["registration_number"], name: "lines_registration_number_key", using: :btree
+  add_index "lines", ["objectid"], :name => "lines_objectid_key", :unique => true
+  add_index "lines", ["registration_number"], :name => "lines_registration_number_key"
 
   create_table "networks", force: true do |t|
     t.string   "objectid",            null: false
@@ -272,8 +298,8 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.string   "comment"
   end
 
-  add_index "networks", ["objectid"], name: "networks_objectid_key", unique: true, using: :btree
-  add_index "networks", ["registration_number"], name: "networks_registration_number_key", using: :btree
+  add_index "networks", ["objectid"], :name => "networks_objectid_key", :unique => true
+  add_index "networks", ["registration_number"], :name => "networks_registration_number_key"
 
   create_table "organisations", force: true do |t|
     t.string   "name"
@@ -295,7 +321,7 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.decimal  "link_distance",              precision: 19, scale: 2
   end
 
-  add_index "pt_links", ["objectid"], name: "pt_links_objectid_key", unique: true, using: :btree
+  add_index "pt_links", ["objectid"], :name => "pt_links_objectid_key", :unique => true
 
   create_table "referentials", force: true do |t|
     t.string   "name"
@@ -313,6 +339,19 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.string   "data_format"
   end
 
+  create_table "route_sections", force: true do |t|
+    t.integer  "departure_id",       limit: 8
+    t.integer  "arrival_id",         limit: 8
+    t.string   "objectid",                                                       null: false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id"
+    t.spatial  "input_geometry",     limit: {:srid=>4326, :type=>"line_string"}
+    t.spatial  "processed_geometry", limit: {:srid=>4326, :type=>"line_string"}
+    t.float    "distance"
+    t.boolean  "no_processing"
+  end
+
   create_table "routes", force: true do |t|
     t.integer  "line_id",           limit: 8
     t.string   "objectid",                    null: false
@@ -328,7 +367,7 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.string   "wayback"
   end
 
-  add_index "routes", ["objectid"], name: "routes_objectid_key", unique: true, using: :btree
+  add_index "routes", ["objectid"], :name => "routes_objectid_key", :unique => true
 
   create_table "routing_constraints_lines", id: false, force: true do |t|
     t.integer "stop_area_id", limit: 8
@@ -370,8 +409,8 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.string   "time_zone"
   end
 
-  add_index "stop_areas", ["objectid"], name: "stop_areas_objectid_key", unique: true, using: :btree
-  add_index "stop_areas", ["parent_id"], name: "index_stop_areas_on_parent_id", using: :btree
+  add_index "stop_areas", ["objectid"], :name => "stop_areas_objectid_key", :unique => true
+  add_index "stop_areas", ["parent_id"], :name => "index_stop_areas_on_parent_id"
 
   create_table "stop_areas_stop_areas", id: false, force: true do |t|
     t.integer "child_id",  limit: 8
@@ -390,7 +429,7 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.string   "for_alighting"
   end
 
-  add_index "stop_points", ["objectid"], name: "stop_points_objectid_key", unique: true, using: :btree
+  add_index "stop_points", ["objectid"], :name => "stop_points_objectid_key", :unique => true
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
@@ -402,15 +441,15 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], :name => "taggings_idx", :unique => true
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
 
   create_table "tags", force: true do |t|
     t.string  "name"
     t.integer "taggings_count", default: 0
   end
 
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
+  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
 
   create_table "time_table_dates", force: true do |t|
     t.integer "time_table_id", limit: 8, null: false
@@ -419,7 +458,7 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.boolean "in_out"
   end
 
-  add_index "time_table_dates", ["time_table_id"], name: "index_time_table_dates_on_time_table_id", using: :btree
+  add_index "time_table_dates", ["time_table_id"], :name => "index_time_table_dates_on_time_table_id"
 
   create_table "time_table_periods", force: true do |t|
     t.integer "time_table_id", limit: 8, null: false
@@ -428,7 +467,7 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.integer "position",                null: false
   end
 
-  add_index "time_table_periods", ["time_table_id"], name: "index_time_table_periods_on_time_table_id", using: :btree
+  add_index "time_table_periods", ["time_table_id"], :name => "index_time_table_periods_on_time_table_id"
 
   create_table "time_tables", force: true do |t|
     t.string   "objectid",                   null: false
@@ -442,15 +481,15 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.date     "end_date"
   end
 
-  add_index "time_tables", ["objectid"], name: "time_tables_objectid_key", unique: true, using: :btree
+  add_index "time_tables", ["objectid"], :name => "time_tables_objectid_key", :unique => true
 
   create_table "time_tables_vehicle_journeys", id: false, force: true do |t|
     t.integer "time_table_id",      limit: 8
     t.integer "vehicle_journey_id", limit: 8
   end
 
-  add_index "time_tables_vehicle_journeys", ["time_table_id"], name: "index_time_tables_vehicle_journeys_on_time_table_id", using: :btree
-  add_index "time_tables_vehicle_journeys", ["vehicle_journey_id"], name: "index_time_tables_vehicle_journeys_on_vehicle_journey_id", using: :btree
+  add_index "time_tables_vehicle_journeys", ["time_table_id"], :name => "index_time_tables_vehicle_journeys_on_time_table_id"
+  add_index "time_tables_vehicle_journeys", ["vehicle_journey_id"], :name => "index_time_tables_vehicle_journeys_on_vehicle_journey_id"
 
   create_table "timebands", force: true do |t|
     t.string   "objectid",       null: false
@@ -496,9 +535,9 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.datetime "invitation_created_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   create_table "vehicle_journey_at_stops", force: true do |t|
     t.integer "vehicle_journey_id",             limit: 8
@@ -511,8 +550,8 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.string  "for_alighting"
   end
 
-  add_index "vehicle_journey_at_stops", ["stop_point_id"], name: "index_vehicle_journey_at_stops_on_stop_pointid", using: :btree
-  add_index "vehicle_journey_at_stops", ["vehicle_journey_id"], name: "index_vehicle_journey_at_stops_on_vehicle_journey_id", using: :btree
+  add_index "vehicle_journey_at_stops", ["stop_point_id"], :name => "index_vehicle_journey_at_stops_on_stop_pointid"
+  add_index "vehicle_journey_at_stops", ["vehicle_journey_id"], :name => "index_vehicle_journey_at_stops_on_vehicle_journey_id"
 
   create_table "vehicle_journeys", force: true do |t|
     t.integer  "route_id",                        limit: 8
@@ -535,9 +574,10 @@ ActiveRecord::Schema.define(version: 20151124145300) do
     t.integer  "journey_category",                          default: 0, null: false
   end
 
-  add_index "vehicle_journeys", ["objectid"], name: "vehicle_journeys_objectid_key", unique: true, using: :btree
-  add_index "vehicle_journeys", ["route_id"], name: "index_vehicle_journeys_on_route_id", using: :btree
+  add_index "vehicle_journeys", ["objectid"], :name => "vehicle_journeys_objectid_key", :unique => true
+  add_index "vehicle_journeys", ["route_id"], :name => "index_vehicle_journeys_on_route_id"
 
+  Foreigner.load
   add_foreign_key "access_links", "access_points", name: "aclk_acpt_fkey", dependent: :delete
   add_foreign_key "access_links", "stop_areas", name: "aclk_area_fkey", dependent: :delete
 
@@ -549,6 +589,9 @@ ActiveRecord::Schema.define(version: 20151124145300) do
   add_foreign_key "group_of_lines_lines", "group_of_lines", name: "groupofline_group_fkey", dependent: :delete
   add_foreign_key "group_of_lines_lines", "lines", name: "groupofline_line_fkey", dependent: :delete
 
+  add_foreign_key "journey_pattern_sections", "journey_patterns", name: "journey_pattern_sections_journey_pattern_id_fk", dependent: :delete
+  add_foreign_key "journey_pattern_sections", "route_sections", name: "journey_pattern_sections_route_section_id_fk", dependent: :delete
+
   add_foreign_key "journey_patterns", "routes", name: "jp_route_fkey", dependent: :delete
   add_foreign_key "journey_patterns", "stop_points", name: "arrival_point_fkey", column: "arrival_stop_point_id", dependent: :nullify
   add_foreign_key "journey_patterns", "stop_points", name: "departure_point_fkey", column: "departure_stop_point_id", dependent: :nullify
@@ -558,6 +601,9 @@ ActiveRecord::Schema.define(version: 20151124145300) do
 
   add_foreign_key "lines", "companies", name: "line_company_fkey", dependent: :nullify
   add_foreign_key "lines", "networks", name: "line_ptnetwork_fkey", dependent: :nullify
+
+  add_foreign_key "route_sections", "stop_areas", name: "route_sections_arrival_id_fk", column: "arrival_id", dependent: :delete
+  add_foreign_key "route_sections", "stop_areas", name: "route_sections_departure_id_fk", column: "departure_id", dependent: :delete
 
   add_foreign_key "routes", "lines", name: "route_line_fkey", dependent: :delete
   add_foreign_key "routes", "routes", name: "route_opposite_route_fkey", column: "opposite_route_id", dependent: :nullify

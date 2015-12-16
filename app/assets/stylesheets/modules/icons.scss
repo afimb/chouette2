@@ -5,6 +5,11 @@ a:before {
     vertical-align: middle;
 }
 
+a.view:before { // fa-eye
+  content: "\f06e";
+  color: $brand-success;
+}
+
 a.add:before { // fa-plus-circle
                content: "\f055";
                color: $brand-success;

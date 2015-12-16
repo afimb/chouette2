@@ -57,6 +57,7 @@ fr:
         access_points: "points d'accès"
         time_tables: "Calendriers"
         connection_links: "Correspondances"
+        route_sections: "Sections de parcours"
         quays: "quais"
         boarding_positions: "points d'embarquement"
         commercial_stops: "arrêts commerciaux"

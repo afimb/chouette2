@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #workspace.lines.show
-{   
+{
 }
 
 #workspace.routes.edit, #workspace.routes.new, #workspace.routes.create, #workspace.routes.update
@@ -11,13 +11,13 @@
     #route_color{ width: 100px;
                  color: white;
                  font-weight: bold;}
-    
+
      #stop_points .nested-fields {
         ol {
             margin-left: 25%;
-            .handle { margin-left: 5px;}   
+            .handle { margin-left: 5px;}
 
-            .search_stop_area {            
+            .search_stop_area {
                 margin-bottom: 0px !important;
             }
 
@@ -31,7 +31,7 @@
 
      #stop_points .links {
          margin: 10px 0 15px 25%;
-     }       
+     }
 }
 
 #workspace.routes.edit_boarding_alighting{
@@ -39,10 +39,18 @@
     .stop_area{
         padding-top: 7px;
     }
-    
+
 }
 
 #workspace.routes.show
-{  
-}     
+{
+}
+.large-map {
+  width: 100%;
+  height: 600px;
+  #map {
+    width: 100%;
+    height: 100%;
+  }
+}
 

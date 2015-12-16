@@ -46,6 +46,7 @@ ChouetteIhm::Application.routes.draw do
     resources :api_keys
     resources :autocomplete_stop_areas
     resources :autocomplete_time_tables
+    resources :autocomplete_route_sections
     resources :autocomplete_timebands
     resources :group_of_lines do
       collection do
@@ -69,6 +70,9 @@ ChouetteIhm::Application.routes.draw do
         resources :journey_patterns do
           member do
             get 'new_vehicle_journey'
+          end
+          resource :route_sections_selector, path: 'sections' do
+            post 'selection'
           end
         end
         resources :vehicle_journeys, :vehicle_journey_frequencies do
@@ -164,6 +168,11 @@ ChouetteIhm::Application.routes.draw do
     end
     resources :clean_ups
 
+    resources :route_sections do
+      collection  do
+        get 'create_to_edit'
+      end
+    end
   end
   root :to => "referentials#index"
 

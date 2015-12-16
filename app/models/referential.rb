@@ -91,6 +91,10 @@ class Referential < ActiveRecord::Base
     Chouette::VehicleJourney.all
   end
 
+  def route_sections
+    Chouette::RouteSection.all
+  end
+
   after_initialize :define_default_attributes
 
   def define_default_attributes

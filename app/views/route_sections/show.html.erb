@@ -1,0 +1,28 @@
+<%= title_tag  t('.title') %>
+
+<div class="route_section">
+  <%= @map.to_html %>
+
+  <div class="summary">
+    <p>
+      <label><%= @route_section.human_attribute_name("departure") %>: </label>
+      <%= @route_section.departure.name %>
+    </p>
+    <p>
+      <label><%= @route_section.human_attribute_name("arrival") %>: </label>
+      <%= @route_section.arrival.name %>
+    </p>
+    <p>
+      <label><%= @route_section.human_attribute_name("distance") %>: </label>
+      <%= "#{@route_section.distance.round}m" if @route_section.distance %>
+    </p>
+  </div>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('route_sections.actions.edit'), edit_referential_route_section_path(@referential, @route_section), :class => "edit" %></li>
+  <li><%= link_to t('route_sections.actions.destroy'), referential_route_section_path(@referential, @route_section), :method => :delete, :data => {:confirm =>  t('route_sections.actions.destroy_confirm')}, :class => "remove" %></li>
+</ul>
+  <%= creation_tag(@route_section) %>
+<% end %>

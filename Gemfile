@@ -52,6 +52,9 @@ platforms :ruby do
   gem 'sqlite3'
 end
 
+gem 'activerecord-postgis-adapter'
+gem 'polylines'
+
 # Authentication
 gem 'devise', '~> 3.4.0'
 gem 'devise-encryptable'
@@ -112,7 +115,8 @@ group :development do
   gem 'guard'
   gem 'guard-rspec'
   gem 'rails-erd'
-  gem 'meta_request'
+  # MetaRequest is incompatible with rgeo-activerecord
+  # gem 'meta_request'
   gem 'letter_opener'
   gem 'quiet_assets', '~> 1.0'
   gem 'simplecov', '~> 0.10.0'

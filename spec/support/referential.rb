@@ -12,7 +12,7 @@ module ReferentialHelper
   end
 
   module ClassMethods
-    
+
     def assign_referential
       before(:each) do
         assign :referential, referential
@@ -34,7 +34,7 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     # Clean all tables to start
-    DatabaseCleaner.clean_with :truncation
+    DatabaseCleaner.clean_with :truncation, except: %w[spatial_ref_sys]
     # Truncating doesn't drop schemas, ensure we're clean here, first *may not* exist
     Apartment::Tenant.drop('first') rescue nil
     # Create the default tenant for our tests
@@ -49,7 +49,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each, :js => true) do
-    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.strategy = :truncation, { except: %w[spatial_ref_sys] }
   end
 
   config.before(:each) do
@@ -61,6 +61,6 @@ RSpec.configure do |config|
     Apartment::Tenant.reset
     # Rollback transaction
     DatabaseCleaner.clean
-  end 
+  end
 
 end
