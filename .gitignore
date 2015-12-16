@@ -23,6 +23,7 @@ public/assets/
 chouette2.war
 vendor/bundle
 .ruby-version
+start.sh
 coverage
 
 # IDE
