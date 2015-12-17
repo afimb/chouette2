@@ -55,8 +55,8 @@ jQuery ->
     hour = parseInt( $(".vehicle_journey_at_stops select#date_hour").val())
     minute = parseInt( $(".vehicle_journey_at_stops select#date_minute").val())
     departure_or_arrival = $(".departure_or_arrival option:selected").val()
-
-    selector_prefix = ".vehicle_journey_at_stops .journey_pattern_dependent_list"
+    console.log(hour)
+    selector_prefix = ".journey_pattern_dependent_list"
     if (departure_or_arrival == "departure")
       vjas_hour_selector = selector_prefix + " .departure_time select.hour"
       vjas_minute_selector = selector_prefix + " .departure_time select.minute"
@@ -66,9 +66,9 @@ jQuery ->
 
     vjas_hour = $( vjas_hour_selector).prop( "selectedIndex" )
     vjas_minute = $( vjas_minute_selector).prop( "selectedIndex" )
-
+    console.log(vjas_hour_selector)
     duration = (hour - vjas_hour) * 60 + (minute - vjas_minute)
-
+    console.log(duration)
     slide_to( '.departure_time', duration)
     slide_to( '.arrival_time', duration)
 
