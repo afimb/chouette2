@@ -49,6 +49,10 @@ module VehicleJourneysHelper
           :stop => first_vjas.stop_point.stop_area.name,
           :time => vehicle_departure(vehicle))
   end
+
+  def exist_vehicle_journeys?(route)
+    route.vehicle_journeys.count > 0
+  end
   
 end
 
