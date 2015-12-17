@@ -357,7 +357,7 @@ GEM
     ref (2.0.0)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
-    rgeo (0.5.2)
+    rgeo (0.4.0)
     rgeo-activerecord (1.2.0)
       activerecord (~> 4.0)
       rgeo (~> 0.3)
@@ -552,6 +552,7 @@ DEPENDENCIES
   ransack
   rb-fsevent
   rb-inotify
+  rgeo (~> 0.4.0)
   roo
   rspec-rails (~> 3.1.0)
   rubyzip (~> 1.1.7)
