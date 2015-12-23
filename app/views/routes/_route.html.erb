@@ -30,7 +30,7 @@
         <%= t('.no_journey_pattern')%>
       <% end%>
     </p>
-    <% if @line.vehicle_journey_frequencies? %>
+    <% if exist_vehicle_journey_frequencies?(route) %>
       <p>
         <i class="fa fa-clock-o"></i>
         <%= link_to t("vehicle_journey_frequencies.actions.index"), referential_line_route_vehicle_journey_frequencies_path(@referential, @line, route) %>

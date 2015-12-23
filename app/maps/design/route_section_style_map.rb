@@ -36,7 +36,7 @@ class Design::RouteSectionStyleMap < Design::GenericStyleMap
       :labelYOffset => -15,
       :strokeColor => "green",
       :strokeOpacity => 1,
-      :strokeWidth => 2,
+      :strokeWidth => 5,
       :strokeLineCap => "round",
       :strokeLineJoin => "round",
       :strokeDashstyle => "solid",

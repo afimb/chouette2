@@ -69,7 +69,7 @@ fr:
         rule_parameter_sets: "Jeux de paramètres"
         data_format_restrictions: "Format d'export privilégié"
         data_format: "Format d'export privilégié"
-        timebands: "Plages horaires"
+        timebands: "Créneaux horaires"
   formtastic:
     titles:
       referential:

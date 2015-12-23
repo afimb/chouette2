@@ -38,7 +38,7 @@ class RouteSectionsSelector
           route_section = Chouette::RouteSection.find_by(departure: departure.stop_area, arrival: arrival.stop_area)
         end
 
-        sections << Section.new(departure.stop_area, arrival.stop_area, route_section)
+        sections << Section.new(departure.stop_area, arrival.stop_area, index, route_section)
       end
     end
   end
@@ -59,10 +59,10 @@ class RouteSectionsSelector
   class Section
     extend ActiveModel::Translation
 
-    attr_accessor :departure, :arrival, :route_section_id
+    attr_accessor :departure, :arrival, :rank, :route_section_id
 
-    def initialize(departure, arrival, route_section = nil)
-      @departure, @arrival = departure, arrival
+    def initialize(departure, arrival, rank, route_section = nil)
+      @departure, @arrival, @rank = departure, arrival, rank
 
       self.route_section = route_section
     end

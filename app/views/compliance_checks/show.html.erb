@@ -13,7 +13,7 @@
   <div class="links">
     <%= link_to font_awesome_classic_tag("fa-external-link") + t("compliance_checks.actions.report"), report_referential_compliance_check_path(@referential, @compliance_check.id) if @compliance_check.compliance_check_validation_report? %>
   </div>
-  <%= render(partial: "shared/ie_report.html", locals: { job: @compliance_check, type: :validation } ) %>
+  <%= render(partial: "shared/ie_report", locals: { job: @compliance_check, type: :validation, line_items: @line_items } ) %>
 </div>
 
 <% content_for :sidebar do %>

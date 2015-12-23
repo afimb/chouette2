@@ -6,7 +6,8 @@ $(".imports.show, .exports.show, .compliance_checks.show").ready ->
     setInterval(reloadPage,refreshInterval * 1000)
 
   footableFilter = (parent, el) ->
-    $(parent).footable().bind 'footable_filtering', (e) ->
+    no_pagination = $(parent).data('no-pagination') != true
+    $(parent).footable( { paginate: no_pagination } ).bind 'footable_filtering', (e) ->
       selected =  $("select#{el} option:selected").val()
       if selected and selected.length > 0
         e.filter += if e.filter and e.filter.length > 0 then ' ' + selected else selected
