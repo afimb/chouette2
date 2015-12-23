@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/afimb/ninoxe.git
-  revision: d4f27eba2ddd02dfba2d514d4399a590c03d6ee2
+  revision: e9fbb755597e911e548377bb16082d957368bb50
   specs:
     ninoxe (1.2.5)
       activerecord (~> 4.1.1)
