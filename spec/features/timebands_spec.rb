@@ -28,7 +28,7 @@ describe "Timebands", :type => :feature do
   describe "new" do
     it "creates timeband and return to show" do
       visit referential_timebands_path(referential)
-      click_link "Ajouter une plage horaire"
+      click_link "Ajouter un créneau horaire"
       fill_in "Titre", :with => "Timeband 1"
 
       select '10', from: 'timeband_start_time_4i'
@@ -36,7 +36,7 @@ describe "Timebands", :type => :feature do
       select '11', from: 'timeband_end_time_4i'
       select '00', from: 'timeband_end_time_5i'
 
-      click_button("Créer plage horaire")
+      click_button("Créer créneau horaire")
       expect(page).to have_content("Timeband 1")
     end
   end
@@ -44,9 +44,9 @@ describe "Timebands", :type => :feature do
   describe "edit and return to show" do
     it "edit timeband" do
       visit referential_timeband_path(referential, subject)
-      click_link "Modifier cette plage horaire"
+      click_link "Modifier ce créneau horaire"
       fill_in "Titre", :with => "Timeband Modified"
-      click_button("Modifier plage horaire")
+      click_button("Modifier créneau horaire")
       expect(page).to have_content("Timeband Modified")
     end
   end

@@ -1,6 +1,6 @@
 fr:
   journey_frequencies:
-    time_band: Plages horaires
+    time_band: Créneaux horaires
     form:
       add_line: Ajouter une ligne
   activerecord:
@@ -10,4 +10,4 @@ fr:
         last_departure_time: Dernier départ
         scheduled_headway_interval: Intervalle
         exact_time: Exact ?
-        timeband: Plage horaires
+        timeband: Créneau horaire

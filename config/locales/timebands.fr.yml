@@ -1,24 +1,24 @@
 fr:
   timebands:
     actions:
-      new: "Ajouter une plage horaire"
-      edit: "Modifier cette plage horaire"
-      destroy: "Supprimer cette plage horaire"
-      destroy_confirm: "Merci de confirmer la suppression de cette plage horaire."
+      new: "Ajouter un créneau horaire"
+      edit: "Modifier ce créneau horaire"
+      destroy: "Supprimer ce créneau horaire"
+      destroy_confirm: "Merci de confirmer la suppression de ce créneau horaire."
     new:
-      title: "Ajouter une plage horaire"
+      title: "Ajouter un créneau horaire"
     edit:
-      title: "Modifier la plage horaire %{timeband}"
+      title: "Modifier le créneau horaire %{timeband}"
     show:
-      title: Plage horaire %{timeband}
+      title: "Créneau horaire %{timeband}"
     index:
-      title: "Plages horaires"
+      title: "Créneaux horaires"
   activerecord:
     models:
       timeband:
-        zero:  "plage horaire"
-        one:   "plage horaire"
-        other: "plages horaires"
+        zero:  "créneau horaire"
+        one:   "créneau horaire"
+        other: "créneaux horaires"
     attributes:
       timeband:
         name: "Titre"
