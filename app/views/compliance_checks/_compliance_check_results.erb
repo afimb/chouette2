@@ -40,51 +40,57 @@
     </tr>
   </thead>
   <tbody>
-    <% compliance_check_validation_report.tests.each_with_index do |test, index| %>
-    <tr class='<%= "#{test.result}_#{test.severity}" %>'>
-      <td data-value="<%="status-#{test.result}"%>"><%= status_icon( test.result, test.severity ) %> </td>
-      <td data-value="<%="severity-#{test.severity}"%>"><%= t("compliance_check_result.severities.#{test.severity}_txt") %></td>
-      <td data-value="<%= "#{test.result}_#{test.severity}" %>">
-        <%= link_to test.test_id, test_definition(test.test_id), title: ComplianceCheckResult.human_attribute_name(test.test_id), target: "compliance_check" %>
-      </td>
-      <td>
-        <%= ("#{test.error_count || 0} #{ComplianceCheckResult.human_attribute_name(:violation_count)}") if test.errors.present? %>
-      </td>
-      <td>
-        <%= truncate(t("activemodel.attributes.compliance_check_result.#{test.test_id}"), length: 50)%>
-      </td>
-      <td>
-        <p><b><%=t("activemodel.attributes.compliance_check_result.#{test.test_id}")%></b></p>
-        <% if test.errors.present? %>
-          <% test.errors.first(10).each do |error| %>
-            <dl class="inline">
-            <dt>
-              <% if error["source"].present? %>
-                <% if error[:source].object_path.present? %>
-                  <% if error[:source].label.present? %>
-                    <%= link_to error[:source].label, object_url(@referential.id, error), target: :_blank %>
-                  <% else %>
-                    <%= link_to "#{error[:source].object_path.type} (#{error[:source].object_path.id})", object_url(@referential.id, error), target: :_blank %>
+    <% if compliance_check_validation_report %>
+      <% compliance_check_validation_report.tests.each_with_index do |test, index| %>
+      <tr class='<%= "#{test.result}_#{test.severity}" %>'>
+        <td data-value="<%="status-#{test.result}"%>"><%= status_icon( test.result, test.severity ) %> </td>
+        <td data-value="<%="severity-#{test.severity}"%>"><%= t("compliance_check_result.severities.#{test.severity}_txt") %></td>
+        <td data-value="<%= "#{test.result}_#{test.severity}" %>">
+          <%= link_to test.test_id, test_definition(test.test_id), title: ComplianceCheckResult.human_attribute_name(test.test_id), target: "compliance_check" %>
+        </td>
+        <td>
+          <%= ("#{test.error_count || 0} #{ComplianceCheckResult.human_attribute_name(:violation_count)}") if test.errors.present? %>
+        </td>
+        <td>
+          <%= truncate(t("activemodel.attributes.compliance_check_result.#{test.test_id}"), length: 50)%>
+        </td>
+        <td>
+          <p><b><%=t("activemodel.attributes.compliance_check_result.#{test.test_id}")%></b></p>
+          <% if test.errors.present? %>
+            <% test.errors.first(10).each do |error| %>
+              <dl class="inline">
+              <dt>
+                <% if error["source"].present? %>
+                  <% if error[:source].object_path.present? %>
+                    <% if error[:source].label.present? %>
+                      <%= link_to error[:source].label, object_url(@referential.id, error), target: :_blank %>
+                    <% else %>
+                      <%= link_to "#{error[:source].object_path.type} (#{error[:source].object_path.id})", object_url(@referential.id, error), target: :_blank %>
+                    <% end %>
+                  <% end %>
+                  <% if error[:source].file.present? %>
+                    <%= error[:source].objectid if error[:source].objectid.present? %>
                   <% end %>
                 <% end %>
-                <% if error[:source].file.present? %>
-                  <%= error[:source].objectid if error[:source].objectid.present? %>
-                <% end %>
+              </dt>
+              <dd><%=t("compliance_check_result.details.detail_#{error[:error_id]}", object_labels_hash(error))%></dd>
+              </dl>
+              <% if error[:source].file.present? %>
+                <p class="file_error">
+                <%= error[:source].file.filename  %>
+                  <%= ", li: #{error[:source].file.line_number}" if error[:source].file.line_number.present?  %>
+                  <%= ", co: #{error[:source].file.column_number}" if error[:source].file.column_number.present?  %>
+                </p>
               <% end %>
-            </dt>
-            <dd><%=t("compliance_check_result.details.detail_#{error[:error_id]}", object_labels_hash(error))%></dd>
-            </dl>
-            <% if error[:source].file.present? %>
-              <p class="file_error">
-              <%= error[:source].file.filename  %>
-                <%= ", li: #{error[:source].file.line_number}" if error[:source].file.line_number.present?  %>
-                <%= ", co: #{error[:source].file.column_number}" if error[:source].file.column_number.present?  %>
-              </p>
             <% end %>
           <% end %>
-        <% end %>
-      </td>
-    </tr>
+        </td>
+      </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan="6"><%= t('compliance_check_results.in_progress') %></td>
+      </tr>
     <% end %>
   </tbody>
   <tfoot class="hide-if-no-paging">

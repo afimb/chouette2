@@ -30,7 +30,7 @@
 </div>
 
 <% content_for :sidebar do %>
-  <% if @compliance_check.compliance_check_validation_report.nok_error.blank? %>
+  <% if @compliance_check.compliance_check_validation_report && @compliance_check.compliance_check_validation_report.nok_error.blank? %>
     <div class="row">
       <%=font_awesome_classic_tag('fa-thumbs-up fa-5x col-md-3')%>
       <p class='col-md-7' id='validation_success'><%=t('.validation_success')%></p>
