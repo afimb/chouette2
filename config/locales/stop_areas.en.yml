@@ -32,7 +32,7 @@ en:
     new:
       title: "Add a new stop"
     form:
-      address: "15 rue du Louvre, Paris"
+      address: "246 Boulevard Saint-Germain, 75007 Paris"
       geolocalize: "Pinpoint "
     edit:
       title: "Update stop %{stop_area}"
