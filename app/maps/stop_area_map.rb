@@ -60,7 +60,7 @@ EOF
           for (var x in edit_stop_area_layer.features) {
               bounds.extend( edit_stop_area_layer.features[x].geometry.getBounds());
           }
-          map.zoomToExtent(bounds,true);
+          map.zoomToExtent(bounds.scale(2), true);
         };
         var transformedGeometry = function( geometry, origin, target ) {
           return geometry.clone().transform( new OpenLayers.Projection( origin ), new OpenLayers.Projection( target ));
