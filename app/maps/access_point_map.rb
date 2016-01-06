@@ -21,7 +21,7 @@ class AccessPointMap < ApplicationMap
       # TODO virer ce code inline       
       page << <<EOF
       edit_access_point_layer.events.on({ 
-                        'afterfeaturemodified': function(event) { 
+                        'featuremodified': function(event) {
                           geometry = event.feature.geometry.clone().transform(new OpenLayers.Projection("EPSG:900913"), new OpenLayers.Projection("EPSG:4326"));
                           $('#access_point_coordinates').val(geometry.y.toString()+ ","+ geometry.x.toString());
 
