@@ -33,7 +33,7 @@ fr:
     new:
       title: "Ajouter un arrêt"
     form:
-      address: "15 rue du Louvre, Paris"
+      address: "246 Boulevard Saint-Germain, 75007 Paris"
       geolocalize: "Géolocalisez "
     edit:
       title: "Modifier l'arrêt %{stop_area}"
