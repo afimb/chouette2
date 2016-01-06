@@ -133,6 +133,11 @@ div.olControlMousePosition {
     float:left;font-size:1.2em;
 }
 
+.olPopup {
+  border-radius: 5px;
+  box-shadow: 0 0 6px #AAA;
+}
+
 .olPopupContent {
     padding:5px;
     overflow: auto;
