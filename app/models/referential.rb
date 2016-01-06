@@ -102,7 +102,7 @@ class Referential < ActiveRecord::Base
   after_initialize :define_default_attributes
 
   def define_default_attributes
-    self.time_zone ||= Time.zone.name
+    self.time_zone ||= Time.zone.tzinfo.name
   end
 
   def switch
