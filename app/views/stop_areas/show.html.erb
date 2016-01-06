@@ -48,6 +48,7 @@
     <p>
       <label><%= @stop_area.human_attribute_name("stop_area_type") %>: </label>
       <%= t("area_types.label.#{@stop_area.stop_area_type}") %>
+      <i class="fa fa-info-circle" data-toggle="tooltip" data-placement="right" title="<%= t('.not_editable') %>"></i>
     </p>
     <% if !manage_itl %>
 	    <p>

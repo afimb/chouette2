@@ -1,3 +1,3 @@
 jQuery ->
-  $('input').tooltip()
+  $('[data-toggle="tooltip"]').tooltip()
   $('.progress').tooltip()

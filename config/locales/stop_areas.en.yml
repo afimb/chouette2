@@ -44,6 +44,7 @@ en:
       stop_managment: "Parent-Child links managment"
       access_managment: "Access Points and Links managment"
       access_points: "Access Points"
+      not_editable: "Le type d'arrêt est non modifiable"
     genealogical:
       genealogical: "Links between stop area"
       genealogical_routing: "Routing constraint's links"
