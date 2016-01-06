@@ -29,7 +29,7 @@ en:
         name: "Import name"
         no_save: "No save"
         resources: "File to import"
-        references_type: "subset"
+        references_type: "Data to be imported"
         rule_parameter_set_id: "Rule parameter set for compliance check"
         object_id_prefix: "Neptune Id prefix"
         max_distance_for_commercial: "Max distance for commercial stop"
