@@ -50,7 +50,7 @@ fr:
         created_at: "Créé le"
         status: "Status"
         no_save: "Pas de sauvegarde"
-        references_type: "Sous ensemble"
+        references_type: "Données à importer"
         rule_parameter_set_id: "Jeu de paramètres pour validation"
         object_id_prefix: "Préfixe d'identifiants"
         max_distance_for_commercial: "Distance max pour créer les zones"

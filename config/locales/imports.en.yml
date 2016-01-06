@@ -49,7 +49,7 @@ en:
         resources: "File to import"
         created_at: "Created on"
         status: "Status"
-        references_type: "subset"
+        references_type: "Data to be imported"
         no_save: "No save"
         rule_parameter_set_id: "Rule parameter set for compliance check"
         object_id_prefix: "Neptune Id prefix"
