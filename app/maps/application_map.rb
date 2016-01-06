@@ -137,10 +137,13 @@ class ApplicationMap
           var feature = e.feature ;
           if (feature.attributes.inactive != undefined)
             return;
+          var stop_area_type_label = '';
+          if (feature.attributes.stop_area_type_label != undefined)
+            stop_area_type_label = feature.attributes.stop_area_type_label;
           var popup = new OpenLayers.Popup.Anchored('chicken',
                                                  new OpenLayers.LonLat(feature.geometry.x, feature.geometry.y),
                                                  null,
-                                                 \"<div class='popup_hover'><p><b>\" + feature.attributes.name +\"</b><p>\" + feature.attributes.stop_area_type_label + \"</div> \", null, false, null);
+                                                 \"<div class='popup_hover'><p><b>\" + feature.attributes.name +\"</b></p>\" + stop_area_type_label + \"</div> \", null, false, null);
           popup.autoSize = true;
           popup.displayClass = 'popup_hover';
 
