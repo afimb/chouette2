@@ -45,6 +45,7 @@ fr:
       stop_managment: "Gestion des relations père-fils"
       access_managment: "Gestion des accès et liens associés"
       access_points: "Points d'accès"
+      not_editable: "Le type d'arrêt est non modifiable"
     genealogical:
       genealogical: "Lien entre arrêts"
       genealogical_routing: "Liens de l'ITL"
