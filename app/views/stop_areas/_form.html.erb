@@ -19,9 +19,9 @@
           <% end %>
           <%= form.input :coordinates, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.stop_area.coordinates")} %>
           <%= form.input :street_name %>
-          <%= form.input :country_code %>
+          <%= form.input :country_code, required: format_restriction_for_locales(@referential) == '.hub' %>
           <%= form.input :zip_code, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.stop_area.zip_code")} %>
-          <%= form.input :city_name, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.stop_area.city_name")} %>
+          <%= form.input :city_name, required: format_restriction_for_locales(@referential) == '.hub', :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.stop_area.city_name")} %>
         </div>
       <% end %>
     </div>
@@ -30,7 +30,7 @@
     <h3><%= t("stop_area.general") %></h3>
     <%= form.inputs do %>
       <%= form.input :objectid, :required => !@stop_area.new_record?, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.stop_area.objectid")} %>
-      <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.stop_area.registration_number")} %>
+      <%= form.input :registration_number, required: format_restriction_for_locales(@referential) == '.hub', :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.stop_area.registration_number")} %>
       <%= form.input :fare_code, :as => :number %>
       <%= form.input :nearest_topic_name, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.stop_area.nearest_topic_name")} %>
       <%= form.input :comment, :as => :text, :input_html => { :rows => 5,  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.stop_area.comment") } %>
