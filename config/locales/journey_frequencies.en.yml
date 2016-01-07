@@ -2,7 +2,7 @@ en:
   journey_frequencies:
     time_band: Time band
     form:
-      add_line: Add a line
+      add_line: Add a timeband
   activerecord:
     attributes:
       journey_frequency:

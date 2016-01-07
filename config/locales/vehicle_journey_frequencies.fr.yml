@@ -5,3 +5,5 @@ fr:
     actions:
       index: "Courses en fréquence"
       show: "Voir les courses en fréquence"
+  vehicle_journey_frequency:
+    require_at_least_one_frequency: "Vous devez spécifier au moins un créneau horaire"

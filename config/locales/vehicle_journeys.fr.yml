@@ -53,7 +53,7 @@ fr:
       time_tables: "Liste des calendriers"
       bounding: "De %{start} à %{end}"
       translation_form: "Cloner la course"
-      journey_frequencies: "Durée d'intervalle du trajet"
+      journey_frequencies: "Créneau horaire"
     index:
       title: "Horaires de la séquence d'arrêts %{route}"
       vehicle_journeys: "Horaires de départ aux arrêts"
@@ -99,7 +99,7 @@ fr:
         vehicle_type_identifier: "Type d'identifiant du véhicule"
         time_table_ids: "Liste des calendriers"
         vehicle_journey_at_stop_ids: "Liste des horaires"
-        journey_frequency_ids: "Durée d'intervalle du trajet"
+        journey_frequency_ids: "Créneau horaire"
         objectid: "Identifiant Neptune"
         object_version: "Version"
         creation_time: "Créé le"
