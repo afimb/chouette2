@@ -22,6 +22,9 @@ class OsrmRouteSectionProcessor
   rescue OpenURI::HTTPError => e
     Rails.logger.error "router.project-osrm.org failed: #{e}"
     nil
+  rescue IOError => e
+    Rails.logger.error "router.project-osrm.org failed: #{e}"
+    nil
   end
 
   def self.create_all

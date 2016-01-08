@@ -50,8 +50,9 @@
     <li></li>
     <li></li>
   </ul>
+  <% i = 0 %>
   <%= form.semantic_fields_for :journey_frequencies do |journey_frequency| %>
-    <%= render 'journey_frequency_fields', f: journey_frequency %>
+    <%= render 'journey_frequency_fields', f: journey_frequency, no_destroy: ((i += 1) == 1 ? true : false) %>
   <% end %>
   <div class="actions-add-fields">
     <%= link_to_add_association t('journey_frequencies.form.add_line'), form, :journey_frequencies, class: 'btn btn-primary' %>
