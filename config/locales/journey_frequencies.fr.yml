@@ -2,7 +2,7 @@ fr:
   journey_frequencies:
     time_band: Créneaux horaires
     form:
-      add_line: Ajouter une ligne
+      add_line: Ajouter un créneau
   activerecord:
     attributes:
       journey_frequency:

@@ -5,3 +5,5 @@ en:
     actions:
       index: "Vehicle journey frequency"
       show: "Show frequency vehicle journey"
+  vehicle_journey_frequency:
+    require_at_least_one_frequency: "You must specify at least one timeslot"

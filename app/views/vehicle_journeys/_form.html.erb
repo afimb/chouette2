@@ -1,4 +1,5 @@
 <%= semantic_form_for vehicle_journey, url: form_url do |form| %>
+  <%= render 'shared/form_messages', { errors: vehicle_journey.errors } %>
   <%= form.inputs do %>
     <%= form.input :journey_pattern, :as => :select, :collection => @route.journey_patterns, :member_label => Proc.new { |jp| journey_name(jp) }  %>
     <%= form.input :number %>
@@ -20,7 +21,7 @@
   <% end %>
 
   <%= form.actions do %>
-    <%= form.action :submit, as: :button, label: t(".submit_#{vehicle_journey.journey_category}#{'_edit' unless form.object.new_record?}") %>
+    <%= form.action :submit, as: :button, label: t(".submit_#{vehicle_journey.journey_category}#{'_edit' unless form.object.new_record?}"), button_html: { class: 'btn btn-primary' } %>
     <%= form.action :cancel, as: :link %>
   <% end %>
 <% end %>
