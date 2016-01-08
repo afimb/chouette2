@@ -134,7 +134,7 @@ class Referential < ActiveRecord::Base
       [ "Réunion RGR92 - UTM 40S (2975)", 2975 ],
       [ "Antilles Françaises RRAF1991 - UTM 20N - IGN (4559)", 4559 ],
       [ "Guyane RGFG95 - UTM 22N (2972)", 2972 ],
-      [ "Guyane RGFG95 - UTM 21N (2313)", 2313 ]
+      [ "Guyane RGFG95 - UTM 21N (3312)", 3312 ]
     ]
   end
 
