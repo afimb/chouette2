@@ -67,12 +67,16 @@ jQuery ->
     wtk_format = new OpenLayers.Format.WKT()
 
     user_geometry.events.on({
+      featureclick: (event) ->
+        $('circle[stroke-opacity="0.3"]').attr('stroke-opacity', '0.6').attr('fill-opacity', '0.6')
       afterfeaturemodified: (event) ->
-        wgs84_geometry = event.feature.geometry.transform(proj900913, projWGS84)
+        efg = event.feature.geometry
+        wgs84_geometry = efg.transform(proj900913, projWGS84)
         wgs84_feature = new OpenLayers.Feature.Vector(wgs84_geometry)
         ewtk = "SRID=4326;#{wtk_format.write(wgs84_feature)}"
 
         $('#route_section_editable_geometry').val(ewtk)
+        efg.transform(projWGS84, proj900913)
         return
     })
 

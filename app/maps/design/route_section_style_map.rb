@@ -36,7 +36,7 @@ class Design::RouteSectionStyleMap < Design::GenericStyleMap
       :labelYOffset => -15,
       :strokeColor => "green",
       :strokeOpacity => 1,
-      :strokeWidth => 5,
+      :strokeWidth => 4,
       :strokeLineCap => "round",
       :strokeLineJoin => "round",
       :strokeDashstyle => "solid",
@@ -49,10 +49,10 @@ class Design::RouteSectionStyleMap < Design::GenericStyleMap
       :graphicXOffset => -6,
       :graphicYOffset => -6,
       :display => true,
-      fillOpacity: 0.5,
-      fillColor: "lightblue",
+      fillOpacity: 0.8,
+      fillColor: "#ffffff",
       graphicName: "circle",
-      pointRadius: 6,
+      pointRadius: 7,
       pointerEvents: "visiblePainted",
       rotation: 90
     }
