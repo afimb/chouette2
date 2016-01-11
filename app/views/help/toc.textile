@@ -29,6 +29,7 @@ h3. Sommaire
 ## "Courses et horaires":vehicle_journeys
 ## "Correspondances":connection_links
 ## "Calendrier":time_tables
+## "Tracés":route_sections
 # Imports
 ## "Imports":imports
 ## "Formats d'import":import_formats
