@@ -23,6 +23,7 @@ fr:
       edit: "Modifier cette section"
       destroy: "Supprimer cette section"
       destroy_confirm: "Etes vous sûr de vouloir supprimer cette section de parcours ?"
+    unable_to_contact_server: "Le serveur OSRM n'est pas disponible pour le moment, merci de réessayer dans quelques instants."
   route_sections_selectors:
     edit:
       title: "Modification du parcours de la mission %{journey_pattern}"

@@ -23,6 +23,7 @@ en:
       edit: "Edit this section"
       destroy: "Delete this section"
       destroy_confirm: "Are you sure you want to delete this route section?"
+    unable_to_contact_server: 'Unable to contact OSRM server, please try again later.'
   route_sections_selectors:
     edit:
       title: "Changing the course of the mission %{journey_pattern}"

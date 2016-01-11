@@ -10,8 +10,9 @@ class OsrmRouteSectionProcessor
     Rails.logger.info "Invoke router.project-osrm.org for RouteSection StopArea:#{route_section.departure.id} -> StopArea:#{route_section.arrival.id}"
 
     response = open "http://router.project-osrm.org/viaroute?#{points_string}instructions=false"
-    geometry = JSON.parse(response.read.to_s)['route_geometry']
+    return nil unless response
 
+    geometry = JSON.parse(response.read.to_s)['route_geometry']
     if geometry
       decoded_geometry = Polylines::Decoder.decode_polyline(geometry, 1e6).map do |point|
         GeoRuby::SimpleFeatures::Point.from_x_y(point[1], point[0], 4326)
@@ -20,6 +21,9 @@ class OsrmRouteSectionProcessor
       GeoRuby::SimpleFeatures::LineString.from_points(decoded_geometry).try(:to_rgeo) if decoded_geometry.many?
     end
   rescue OpenURI::HTTPError => e
+    Rails.logger.error "router.project-osrm.org failed: #{e}"
+    nil
+  rescue IOError => e
     Rails.logger.error "router.project-osrm.org failed: #{e}"
     nil
   end

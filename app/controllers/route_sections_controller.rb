@@ -41,7 +41,12 @@ class RouteSectionsController < ChouetteController
 
   def create_to_edit
     route_section = Chouette::RouteSection.create(route_section_params)
-    redirect_to edit_referential_route_section_path(referential, route_section)
+    if route_section.id
+      redirect_to edit_referential_route_section_path(referential, route_section)
+    else
+      flash[:alert] = I18n.t('route_sections.unable_to_contact_server')
+      redirect_to :back
+    end
   end
 
   protected

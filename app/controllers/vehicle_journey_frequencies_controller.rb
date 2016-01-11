@@ -2,6 +2,12 @@ class VehicleJourneyFrequenciesController < VehicleJourneysController
 
   defaults resource_class: Chouette::VehicleJourneyFrequency
 
+  def new
+    new! do
+      vehicle_journey.journey_frequencies.build
+    end
+  end
+
   private
 
   def vehicle_journey_frequency_params
@@ -16,5 +22,5 @@ class VehicleJourneyFrequenciesController < VehicleJourneysController
                                                                                                       :departure_time] },
                                              { journey_frequencies_attributes: [ :id, :_destroy, :scheduled_headway_interval, :first_departure_time,
                                                                                  :last_departure_time, :exact_time, :timeband_id ] } )
-    end
+  end
 end
