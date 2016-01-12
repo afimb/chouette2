@@ -30,7 +30,6 @@ class RouteSectionMap < ApplicationMap
     else
       points = route_section.stop_areas.map{|point| OpenLayers::Geometry::Point.new(point.longitude, point.latitude).transform("EPSG:4326", "EPSG:900913")}
       geometry_editable_layer = OpenLayers::Layer::Vector.new("user_geometry", {:projection => projection("EPSG:4326"), :styleMap => Design::RouteSectionStyleMap.new(helpers).style_map})
-      #geometry_editable_layer = OpenLayers::Layer::Vector.new("user_geometry", {:projection => projection("EPSG:4326")})
       geometry_editable_features = OpenLayers::Feature::Vector.new(OpenLayers::Geometry::LineString.new(points))
       page.assign :geometry_editable_features, geometry_editable_features
     end
