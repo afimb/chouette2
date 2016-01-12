@@ -11,7 +11,7 @@ Les créneaux horaires définissent les plages horaires durant lesquelles les co
 
 h4. Création de Créneau horaire
 
-La création d'un nouveau créneau horaire se fait en cliquant sur la fonction ad-hoc dans le menu de droit dans la page des créneaux horaires. Elle se définie par des éléments simples :
+La création d'un nouveau créneau horaire se fait en cliquant sur la fonction ad-hoc dans le menu de droite dans la page des créneaux horaires. Elle se définit par des éléments simples :
 
 * Un titre
 * Une heure de début
