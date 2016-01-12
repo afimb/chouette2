@@ -5,7 +5,7 @@ If no package is available, install from sources
 Setup from sources
 ------------------
 
-follow procedure described by [that post](http://toddmahoney.com/post/65020455496/ubuntu-13-10-installing-rvm-ruby)
+follow procedure described by [this post](http://toddmahoney.com/post/65020455496/ubuntu-13-10-installing-rvm-ruby)
 
 ```sh
 sudo apt-get update
