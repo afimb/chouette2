@@ -122,6 +122,10 @@ Configure the way that Chouette2 sends e-mail.
 * Edit [devise_async.rb](./config/initializer/devise_async.rb) and uncomment and set```Devise::Async.enabled``` ( true if you want to use asynchronously and false otherwise )
 * see [Devise Async specification](https://github.com/mhfs/devise-async)
 
+Configure OSRM Backend URL
+* Edit [secrets.yml](./config/secrets.yml) and change```osrm_endpoint```
+* see [Project-OSRM](https://github.com/Project-OSRM/osrm-backend/wiki/Api-usage-policy)
+
 Run
 ---
 
@@ -168,6 +172,11 @@ License
 -------
 
 This project is licensed under the CeCILL-B license, a copy of which can be found in the [LICENSE](./LICENSE.md) file.
+
+Project-OSRM Licence
+-------------------------
+
+Project-OSRM is licensed under the [ODbL](http://opendatacommons.org/licenses/odbl/) licence.
 
 Release Notes
 -------------
