@@ -1,4 +1,10 @@
-# Version 3.1.0 (en cours)
+# Version 3.2.0 (en cours de recette)
+* Nouvelles fonctionnalités
+  * Gestion des courses en fréquences
+  * Gestion des tracés de missions
+  * Affichage des cartes en plein écran
+
+# Version 3.1.0 (28/10/15)
 * Nouvelles fonctionnalités
   * Validation GTFS lors de l'import
 * Améliorations
