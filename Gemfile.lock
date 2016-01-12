@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/afimb/ninoxe.git
-  revision: e9fbb755597e911e548377bb16082d957368bb50
+  revision: 98ca11f5ede4307a8f9930a3d2e63d6c2dbb8a27
   specs:
     ninoxe (1.2.5)
       activerecord (~> 4.1.1)
@@ -110,7 +110,7 @@ GEM
     coffee-script-source (1.9.1)
     daemons (1.1.9)
     database_cleaner (1.4.1)
-    dbf (3.0.2)
+    dbf (3.0.3)
     debug_inspector (0.0.2)
     deep_cloneable (2.0.2)
       activerecord (>= 3.1.0, < 5.0.0)
@@ -575,4 +575,4 @@ DEPENDENCIES
   will_paginate-bootstrap (~> 1.0.1)
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
