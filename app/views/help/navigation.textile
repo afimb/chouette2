@@ -41,6 +41,24 @@ Les fonctions d'édition des données proprement dites se situent à droite de l
 
 p=. Fonctions d'édition des arrêts
 
+h3. Cartographie
+
+Les éléments géolocalisés sont affichés sur une cartographie. Il est possible de naviguer dans la cartographie à l'aide de la souris avec un cliquer-glisser pour faire défiler la cartographie et avec la molette pour zoomer ou dé-zoomer. Ces fonctions sont également disponibles par les boutons affichés sur la cartographie.
+
+Le fond cartographique par défaut est la vue aérienne du géoportail mais il est possible de sélectionner un autre fond cartographique de son choix en cliquant sur le petit "_+_" situé à droite de la cartographie. 
+
+Il est possible d'afficher la cartographie en plein écran en cliquant sur le pictogramme correspondant. Il suffit de recliquer sur le pictogramme pour sortir de la vue plein écran. Cliquer sur l'une des ces fonctionnalités fait repasser la vue cartographique dans son format normal. 
+
+!2015-12-17_172522.png!
+
+p=. Affichage de la cartographie en plein écran.
+
+Lorsqu'on est en vue plein écran, les fonctionnalités habituellement présentes dans le bandeau latéral de gauche sont disponibles dans une menu spécifique qui s'affiche au clic.
+
+!2015-12-17_173615.png!
+
+p=. Affichage du menu des fonctions
+
 h3. Pointage et déplacement d'un objet sur la cartographie
 
 CHOUETTE permet de déplacer élément, arrêt ou accès par exemple, sur la cartographie. Pour cela il convient :

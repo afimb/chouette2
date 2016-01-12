@@ -96,11 +96,9 @@ EOF
   end
 
   def clean_route_section_line(line)
-    point_array = line.to_s.scan(/\d+[.]\d+\s\d+[.]\d+/)
-    proj = OpenLayers::Projection.new('proj')
-
+    point_array = line.to_s.scan(/-?\d+[.]\d+\s-?\d+[.]\d+/)
     point_array.map do |point|
-      point = point.scan(/\d+[.]\d+/)
+      point = point.scan(/-?\d+[.]\d+/)
       lat = point[0].to_f
       lng = point[1].to_f
       [lat, lng]
