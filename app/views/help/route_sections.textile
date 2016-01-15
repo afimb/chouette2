@@ -3,25 +3,25 @@ layout: default
 title: Tracés
 ---
 
-CHOUETTE permet d'éditer le tracé de ligne sur la cartographie. Le tracé est defini au niveau de la "mission":/journey_patterns . Chaque trajet entre deux arrêts est défini séparément. 
+CHOUETTE permet d'éditer le tracé de ligne sur la cartographie. Le tracé est defini au niveau de la "mission":/journey_patterns . Chaque trajet entre deux arrêts (ou "section de parcours") est défini séparément. 
 
-Les tracés définis entre deux arrêts pour une mission peuvent être récupérés pour une autre mission. Il est possible de définir autant de tracés entre deux arrêts que nécessaire. 
+Les sections de parcours (tracés définis entre deux arrêts) pour une mission peuvent être réutilisés pour une autre mission. Il est possible de définir autant de tracés entre deux arrêts que nécessaire. 
 
-L'application dispose d'un moteur de recherche d'itinéraire qui établi un trajet par défaut. Il peut également être utilisé pour faciliter le tracé manuel, l'utilisateur plaçant les principaux points de son tracé, le moteur se chargeant de les relier en suivant les voiries (et en tenant compte des sens de circulation).
+L'application utilise un "moteur de recherche d'itinéraire":http://project-osrm.org/ qui établit un trajet par défaut. Il peut également être utilisé pour faciliter le tracé manuel, l'utilisateur plaçant les principaux points de son tracé, le moteur se chargeant de les relier en suivant les voiries (et en tenant compte des sens de circulation).
 
-Il est à noter que seul le format GTFS sait gérer les tracés aussi bien en import et en export. 
+Il est à noter que seul le format GTFS sait gérer les tracés aussi bien en import et en export (ils sont stockés dans le fichier shapes.txt). 
 
 h3. Création d'un nouveau tracé
 
 h4. Accès à l'interface de tracé
 
-Créer un nouveau tracé se fait dans le menu d'une mission. Un lien de modification du tracé est disponible dans le menu latéral. Tant que le tracé n'est pas entièrement défini, le lien apparaît en orange avec un panneau d'alerte. 
+Créer un nouveau tracé se fait depuis la page d'édition d'une mission, en cliquant sur le lien "modifier le tracé" dans le menu droit. Tant que le tracé n'est pas entièrement défini, le lien apparaît en orange avec un panneau d'alerte. 
 
 !2016-01-08_163438.png!
 
 p=. Accès à la modification d'un tracé
 
-La page de modification d'un tracé liste toutes les sections de la mission. Il s'agit du trajet entre deux arrêts de la mission. Le tracé est entièrement défini à partir du moment où toutes les sections bénéficient d'un tracé. 
+La page de modification d'un tracé liste toutes les sections de la mission (c-à-d les trajets empruntés entre deux arrêts successifs de la mission). Le tracé de la mission est entièrement défini à partir du moment où toutes les sections bénéficient d'un tracé. 
 
 Pour chaque section, un menu déroulant liste les tracés disponibles avec la distance et éventuellement le nombre de _via_. Lorsque seule la distance est visible, cela signifie que le tracé a été généré automatiquement par le calculateur d'itinéraire. Si des vias sont indiqués, cela signifie que le tracé a été établi à partir de points définis par l'utilisateur. 
 
@@ -29,28 +29,28 @@ Pour chaque section, un menu déroulant liste les tracés disponibles avec la di
 
 p=. Liste des tracés
 
-Pour créer un tracé sur une section n'en disposant pas encore, il convient de cliquer sur _Ajouter une alternative_. A ce stade, le pictogramme en forme de crayon est grisé puisqu'il n'existe pas encore de tracé à modifier. 
+Pour une section sans tracé ("aucun parcours connu"), le pictogramme en forme de crayon est grisé puisqu'il n'existe pas encore de tracé à modifier. Cliquez sur _Ajouter une alternative_ pour créer le tracé de cette section. 
 
 h4. Choix du traitement de la géométrie
 
-Après avoir cliqué le lien d'ajout d'une alternative, la cartographie s'affiche avec le trajet proposé automatiquement par le calculateur d'itinéraire en bleu et une ligne droite entre les deux arrêts en vert. Côté menu, les poitns de départ et d'arrivée sont indiqués sur le côté et un menu déroulant permet de choisir le traitement de la géométrie. Deux options sont possibles :
+Après avoir cliqué sur "ajouter une alternative", la carte s'affiche avec le trajet proposé automatiquement par le calculateur d'itinéraire *en bleu* et une ligne droite entre les deux arrêts *en vert*. Les points de départ et d'arrivée sont affichés à côté de la carte. Pour le menu "traitement de la géométrie", deux options sont possibles :
 
-* Standard : Le calculateur d'itinéraire recherche le trajet le plus court en respectant le cas échéant les points définis par l'utilisateur.
+* Standard : le calculateur d'itinéraire recherche le trajet le plus court en respectant le cas échéant les points définis par l'utilisateur.
 * Pas de traitement : le calculateur n'est pas utilsé, le parcours correspondra très exactement au tracé fait manuellement par l'utilisateur. 
 
 h4. Création du tracé
 
 Lors de la création d'un nouveau tracé, la ligne bleue correspondant à la proposition du calculateur ne peut pas être éditée. Si le tracé calculé par défaut convient, il suffit de le valider sans éditer le moindre point. 
 
-Dans le cas contraire, il est possible de cliquer sur la ligne verte qui change alors de couleur pour devenir rouge. Chaque extrémité est marquée par un pictogramme rond de couleur verte qui signale une étape du tracé. Au centre du tracé se trouve un point identique mais semi-transparent que l'on peut faire glisser sur la carte pour raffiner le tracé. Chaque posistionnement du point fait automatiquement apparaître un nouveau point éditable de chaque côté de la section, ce qui permet de dessiner un tracé de plus en plus précis. 
+Dans le cas contraire, il est possible de cliquer sur la ligne verte qui change alors de couleur pour devenir rouge. Chaque extrémité est marquée par un pictogramme rond de couleur verte qui signale une étape du tracé. Au centre du tracé se trouve un point identique mais semi-transparent que l'on peut faire glisser sur la carte pour raffiner le tracé. Chaque positionnement du point fait automatiquement apparaître un nouveau point éditable de chaque côté de la section, ce qui permet de dessiner un tracé de plus en plus précis. 
 
 Il est recommandé de commencer son tracé sur les grosses étapes puis de raffiner le trajet en replaçant les points et en créant de nouvelles étapes afin d'avoir le prochain point du tracé à portée de souris.
 
-Le traitement de la géométrie permet de ne pas tracer le trajet dans le moindre détail. Il suffit de placer quelques points significatifs et de valider en conservant _standard_ comme traitement de géométrie pour que le trajet soit calculé en passant par les points définis. Attention, le calculateur cherche une solution en fonction des voiries auxquelles sont associés les points placés. Si l'un d'entre-eux est effectivement associé à une mauvaise voirie, le calculateur risque de faire faire de gros détours pour satisfaire la demande. En conséquence il est déconseillé de placer les points directement sur les carrefous pour éviter que le point soit associé à une voirie non désirée.
+Le traitement de la géométrie permet de ne pas tracer le trajet dans le moindre détail. Il suffit de placer quelques points significatifs et de valider en conservant _standard_ comme traitement de géométrie pour que le trajet soit calculé en passant par les points définis. Attention, le calculateur cherche une solution en fonction des voiries auxquelles sont associés les points placés. Si l'un d'entre-eux est effectivement associé à une mauvaise voirie ou inexistant dans OpenStreetMap, le calculateur risque de faire faire de gros détours pour satisfaire la demande. En conséquence il est déconseillé de placer les points directement sur les carrefours pour éviter que le point soit associé à une voirie non désirée.
 
-Dans le cas d'un tracé entièrement défini à la main, il convient de choisir _pas de traitement_ dans le menu de traitement de la géométrie.
+Pour définir le tracé entièrement à la main, choisissez _pas de traitement_ dans le menu de traitement de la géométrie.
 
-Finalier la sélection des tracés se fait en cliquant sur le bouton _modifier le parcours_ en bas de la page. 
+Pour finaliser la sélection des tracés se fait en cliquant sur le bouton _modifier le parcours_ en bas de la page. 
 
 !2016-01-08_165558.png!
 
@@ -58,12 +58,12 @@ p=. Placement des points d'un tracé.
 
 h3. Modifier un tracé
 
-Une fois le tracé créé, il est possible de sélectionner un autre tracé ou de modifier un tracé. Le menu déroulant sur la liste des sections permet de sélectionner le tracé que l'on va retenir, soit pour l'affecter, soit pour le modifier.
+Une fois le tracé créé, il est possible de sélectionner un autre tracé ou de modifier un tracé. Le menu déroulant sur la liste des sections permet de sélectionner le tracé que l'on va retenir, soit pour l'affecter à la section de parcours, soit pour le modifier.
 !2016-01-08_170524.png!
 
 p=. Séléction d'un tracé
 
-Dès lors qu'un tracé a été créé, il est possible de le modifier. Il suffit pour cela de cliquer sur le pictogramme représentant un crayon. Sur la page d'édition du tracé, il s'affiche dans une couleur violette. Double cliquer sur le tracé permet de le faire passer en mode édition. Il redevient bleu avec des cercles organges déplaçables correspondants à chacun des points du parcours. Lorsqu'on édite les points du tracé, le tracé intial reste visible en dessous en bleu. 
+Dès lors qu'un tracé a été créé, il est possible de le modifier. Il suffit pour cela de cliquer sur le pictogramme représentant un crayon. Sur la page d'édition du tracé, il s'affiche *en violet*. Double cliquer sur le tracé permet de le faire passer en mode édition. Il redevient bleu avec des cercles orange déplaçables correspondants à chacun des points du parcours. Lorsqu'on édite les points du tracé, le tracé initial reste visible en dessous *en bleu*. 
 
 !2016-01-08_175148.png!
 
@@ -79,13 +79,13 @@ Il est également possible de visualiser et de modifier un tracé en passant par
 
 h3. Supprimer un tracé
 
-La suppresion des tracés se fait dans un sous-menu spécifique du menu _données_. Il dispose de champs de recherche qui permettent de retrouver les sections à éditer pour les consulter, les modifier et les supprimer. 
+La suppression des tracés se fait dans le sous-menu "Sections de parcours" u menu _données_. On peut alors renseigner des champs de recherche pour retrouver les sections à consulter, modifier ou supprimer. 
 
 !2016-01-08_180432.png!
 
 p=. gestion des tracés par section. 
 
-La supression se fait en cliquant sur le pictogramme poubelle dans le tableau ou dans la page de détail de la section de parcours après avoir cliqué sur le bouton _Voir_.
+La suppression se fait en cliquant sur le pictogramme poubelle dans le tableau ou dans la page de détail de la section de parcours, après avoir cliqué sur le bouton _Voir_.
 
 !2016-01-08_180930.png!
 
