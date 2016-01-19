@@ -46,6 +46,8 @@ Dans le cas contraire, il est possible de cliquer sur la ligne verte qui change 
 
 Il est recommandé de commencer son tracé sur les grosses étapes puis de raffiner le trajet en replaçant les points et en créant de nouvelles étapes afin d'avoir le prochain point du tracé à portée de souris.
 
+Un point mal placé peut être supprimé en le sélectionnant puis en tapant sur la touche _Suppr_ du clavier. 
+
 Le traitement de la géométrie permet de ne pas tracer le trajet dans le moindre détail. Il suffit de placer quelques points significatifs et de valider en conservant _standard_ comme traitement de géométrie pour que le trajet soit calculé en passant par les points définis. Attention, le calculateur cherche une solution en fonction des voiries auxquelles sont associés les points placés. Si l'un d'entre-eux est effectivement associé à une mauvaise voirie ou inexistant dans OpenStreetMap, le calculateur risque de faire faire de gros détours pour satisfaire la demande. En conséquence il est déconseillé de placer les points directement sur les carrefours pour éviter que le point soit associé à une voirie non désirée.
 
 Pour définir le tracé entièrement à la main, choisissez _pas de traitement_ dans le menu de traitement de la géométrie.
