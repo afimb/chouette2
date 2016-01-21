@@ -33,7 +33,7 @@
     </li>
     <li class="list-group-item">
       <span class="badge"><%= @referential.route_sections.size %></span>
-      <%= link_to Referential.human_attribute_name("route_sections"), referential_route_sections_path(@referential)  %>
+      <%= Referential.human_attribute_name("route_sections") %>
     </li>
     <li class="list-group-item">
       <span class="badge"><%= @referential.stop_areas.size %></span>
