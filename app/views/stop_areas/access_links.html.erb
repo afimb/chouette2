@@ -1,46 +1,45 @@
 <%= title_tag t('stop_areas.access_links.title', :stop_area => @stop_area.name ) %>
 
 <div class="stop_area_show">
-
-<div class="panel-group" id="generic">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#generic" href="#generic_access_links">
-          <%= t('.generic_access_links') %>
-        </a>
-      </h4>
+  <div class="panel-group" id="generic">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#generic" href="#generic_access_links">
+            <%= t('.generic_access_links') %>
+          </a>
+        </h4>
+      </div>
+      <div id="generic_access_links" class="panel-collapse collapse in">
+        <div class="panel-body">
+          <div class="access_link_pairs">
+            <table>
+              <%= render :partial => "access_link_pairs/access_link_pair", :collection => access_links_pairs(@generic_access_links) %>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="generic_access_links" class="panel-collapse collapse in">
-      <div class="panel-body">
-		<div class="access_link_pairs">
-	      <table>
-		  <%= render :partial => "access_link_pairs/access_link_pair", :collection => access_links_pairs(@generic_access_links) %>
-	      </table>
-		</div>
+  </div>
+
+  <div class="panel-group" id="detail">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#detail" href="#detail_access_links">
+            <%= t('.detail_access_links') %>
+          </a>
+        </h4>
+      </div>
+      <div id="detail_access_links" class="panel-collapse collapse">
+        <div class="panel-body">
+          <div class="access_link_pairs">
+            <table>
+              <%= render :partial => "access_link_pairs/access_link_pair", :collection => access_links_pairs(@detail_access_links) %>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<div class="panel-group" id="detail">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#detail" href="#detail_access_links">
-          <%= t('.detail_access_links') %>
-        </a>
-      </h4>
-    </div>
-    <div id="detail_access_links" class="panel-collapse collapse">
-      <div class="panel-body">
-		<div class="access_link_pairs">
-	      <table>
-		  <%= render :partial => "access_link_pairs/access_link_pair", :collection => access_links_pairs(@detail_access_links) %>
-	      </table>
-		</div>
-      </div>
-    </div>
-  </div>
-</div>
-

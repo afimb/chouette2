@@ -145,7 +145,9 @@ ChouetteIhm::Application.routes.draw do
     end
 
     resources :stop_areas do
-      resources :access_points
+      resources :access_points do
+        resources :access_links
+      end
       resources :stop_area_copies
       resources :stop_area_routing_lines
       member do
