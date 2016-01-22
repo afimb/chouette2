@@ -100,16 +100,23 @@ Rails.application.configure do
 
   # Specific theme for each company
   # AFIMB
-  config.company_name = "afimb"
-  config.company_theme = "#61970b" # AFIMB color
-  config.company_contact = "http://www.chouette.mobi/club-utilisateurs/contact-support/"
-  config.accept_user_creation = true
+  #config.company_name = "afimb"
+  #config.company_theme = "#61970b" # AFIMB color
+  #config.company_contact = "http://www.chouette.mobi/club-utilisateurs/contact-support/"
+  #config.accept_user_creation = true
 
   # CITYWAY
   # config.company_name = "cityway"
   # config.company_theme = "#32adb0"
   # config.company_contact = "http://www.cityway.fr/contact/?rub_code=14"
   # config.accept_user_creation = false
+
+  # Rutebanken
+  config.company_name = "rutebanken"
+  config.company_theme = "#16c1f3" # Rutebanken color
+  config.company_contact = "http://www.nasjonalreiseplanlegger.com"
+  config.accept_user_creation = true
+
 
   # file to data for demo
   # config.demo_data = "/path/to/demo.zip"
@@ -122,6 +129,6 @@ Rails.application.configure do
     Devise::Mailer.layout "mailer"
   end
 
-  config.i18n.available_locales = [:fr, :en]
+  config.i18n.available_locales = [:en]
 
 end
