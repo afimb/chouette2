@@ -53,6 +53,11 @@ module VehicleJourneysHelper
   def exist_vehicle_journeys?(route)
     route.vehicle_journeys.count > 0
   end
+
+  def exist_vehicle_journies?(route, journey_pattern=nil)
+    where = journey_pattern ? { journey_pattern: journey_pattern } : nil
+    route.vehicle_journeys.where(where).count > 0
+  end
   
 end
 
