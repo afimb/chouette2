@@ -7,7 +7,7 @@ class VehicleJourneyExport
   include ActiveModel::Conversion
   extend  ActiveModel::Naming
 
-  attr_accessor :vehicle_journeys, :route
+  attr_accessor :vehicle_journeys, :route, :vehicle_journey_frequencies
 
   def initialize(attributes = {})    
     attributes.each { |name, value| send("#{name}=", value) }
@@ -23,6 +23,10 @@ class VehicleJourneyExport
 
   def column_names
     ["", label("vehicle_journey_id")] + vehicle_journeys.collect(&:id)
+  end
+
+  def frequency_column_names
+    ["", label("vehicle_journey_id")] + vehicle_journey_frequencies.collect(&:id)
   end
 
   # produce a map stop_id => departure time for a vehicle_journey
@@ -45,37 +49,81 @@ class VehicleJourneyExport
   def time_tables_array
     (vehicle_journeys.collect{ |vj| time_tables(vj).to_s[1..-2] } )
   end
+
+  def frequency_time_tables_array
+    (vehicle_journey_frequencies.collect{ |vjf| time_tables(vjf).to_s[1..-2] } )
+  end
   
   def footnotes_array
     (vehicle_journeys.collect{ |vj| footnotes(vj).to_s[1..-2] } )
   end
 
+  def frequency_footnotes_array
+    (vehicle_journey_frequencies.collect{ |vjf| footnotes(vjf).to_s[1..-2] } )
+  end
+
   def vehicle_journey_at_stops_array
     (vehicle_journeys.collect{ |vj| time_by_stops vj } )
+  end
+
+  def vehicle_journey_frequency_at_stops_array
+    (vehicle_journey_frequencies.collect{ |vjf| time_by_stops vjf } )
   end
   
   def boolean_code(b)
     b.nil? ? "" : label("b_"+b.to_s)
   end
 
+  def frequency_first_departure_times_array
+    (vehicle_journey_frequencies.collect{ |vjf| vjf.journey_frequencies ? (vjf.journey_frequencies.collect { |jf| jf.first_departure_time ? jf.first_departure_time.strftime("%H:%M").to_s : "" } ) : "" } )
+  end
+
+  def frequency_last_departure_times_array
+    (vehicle_journey_frequencies.collect{ |vjf| vjf.journey_frequencies ? (vjf.journey_frequencies.collect { |jf| jf.last_departure_time ? jf.last_departure_time.strftime("%H:%M").to_s : "" } ) : "" } )
+  end
+
+  def frequency_scheduled_headway_intervals_array
+    (vehicle_journey_frequencies.collect{ |vjf| vjf.journey_frequencies ? (vjf.journey_frequencies.collect { |jf| jf.scheduled_headway_interval ? jf.scheduled_headway_interval.strftime("%H:%M").to_s : "" } ) : "" } )
+  end
+      
   def number_array
     (vehicle_journeys.collect{ |vj| vj.number ?  vj.number.to_s : "" } )
+  end
+
+  def frequency_number_array
+    (vehicle_journey_frequencies.collect{ |vjf| vjf.number ?  vjf.number.to_s : "" } )
   end
 
   def published_journey_name_array
     (vehicle_journeys.collect{ |vj| vj.published_journey_name ?  vj.published_journey_name : "" } )
   end
 
+  def frequency_published_journey_name_array
+    (vehicle_journey_frequencies.collect{ |vjf| vjf.published_journey_name ?  vjf.published_journey_name : "" } )
+  end
+
   def flexible_service_array
     (vehicle_journeys.collect{ |vj| boolean_code vj.flexible_service  } )
+  end
+
+  def frequency_flexible_service_array
+    (vehicle_journey_frequencies.collect{ |vjf| boolean_code vjf.flexible_service  } )
   end
   
   def mobility_restricted_suitability_array
     (vehicle_journeys.collect{ |vj| boolean_code vj.mobility_restricted_suitability  } )
   end
+
+  def frequency_mobility_restricted_suitability_array
+    (vehicle_journey_frequencies.collect{ |vjf| boolean_code vjf.mobility_restricted_suitability  } )
+  end
   
   def empty_array
     (vehicle_journeys.collect{ |vj| "" } )
+  end
+
+  def frequency_empty_array
+    (vehicle_journey_frequencies.collect{ |vjf| "" } )
   end
 
   def times_of_stop(stop_id,vjas_array)
@@ -84,6 +132,28 @@ class VehicleJourneyExport
       a << (map[stop_id.to_s].present? ? map[stop_id.to_s] : "")
     end
     a
+  end
+
+  def frequencies_to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << frequency_column_names
+      csv << ["", label("number")] + frequency_number_array
+      csv << ["", label("published_journey_name")] + frequency_published_journey_name_array
+      csv << ["", label("mobility")] + frequency_mobility_restricted_suitability_array
+      csv << ["", label("flexible_service")] + frequency_flexible_service_array
+      csv << ["", label("time_table_ids")] + frequency_time_tables_array
+      # Add timeband ?
+      csv << ["", label("first_departure_times")] + frequency_first_departure_times_array
+      csv << ["", label("last_departure_times")] + frequency_last_departure_times_array
+      csv << ["", label("scheduled_headway_intervals")] + frequency_scheduled_headway_intervals_array
+      csv << ["", label("footnotes_ids")] + frequency_footnotes_array
+      csv << [label("stop_id"), label("stop_name")] + frequency_empty_array
+      vjas_array = vehicle_journey_frequency_at_stops_array
+      route.stop_points.each_with_index do |stop_point, index|        
+        times = times_of_stop(stop_point.id,vjas_array)
+        csv << [stop_point.id, stop_point.stop_area.name] + times
+      end
+    end
   end
   
   def to_csv(options = {})
@@ -189,6 +259,7 @@ class VehicleJourneyExport
     ::Zip::OutputStream.open(temp_file) { |zos| }
     ::Zip::File.open(temp_file.path, ::Zip::File::CREATE) do |zipfile|
       zipfile.get_output_stream(label("vj_filename")+route.id.to_s+".csv") { |f| f.puts to_csv(options) }
+      zipfile.get_output_stream(label("vjf_filename")+route.id.to_s+".csv") { |f| f.puts frequencies_to_csv(options) }
       zipfile.get_output_stream(label("tt_filename")+".csv") { |f| f.puts time_tables_to_csv(options) }
       zipfile.get_output_stream(label("ftn_filename")+".csv") { |f| f.puts footnotes_to_csv(options) }
     end    
