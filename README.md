@@ -163,6 +163,11 @@ More Information
 Complete docs (in French) can be found on the [project website](http://www.chouette.mobi/developpeurs).
 Some technical articles are available [on the wiki](../../wiki) too.
 
+FAQ
+---
+
+See the [FAQ](FAQ.md) for the answers to commonly asked questions.
+
 API Documentation
 -----------------
 
