@@ -22,14 +22,16 @@
     </div>                          
   </div>
   <div class="panel-body">
-    <p>
-      <% if route.journey_patterns.size > 0 %>
-        <i class="fa fa-clock-o"></i>
-        <%= link_to t("vehicle_journeys.actions.index"), referential_line_route_vehicle_journeys_path(@referential, @line, route) %>
-      <% else %>
-        <%= t('.no_journey_pattern')%>
-      <% end%>
-    </p>
+    <% if exist_vehicle_journeys?(route) %>
+      <p>
+        <% if route.journey_patterns.size > 0 %>
+          <i class="fa fa-clock-o"></i>
+          <%= link_to t("vehicle_journeys.actions.index"), referential_line_route_vehicle_journeys_path(@referential, @line, route) %>
+        <% else %>
+          <%= t('.no_journey_pattern')%>
+        <% end%>
+      </p>
+    <% end%>
     <% if exist_vehicle_journey_frequencies?(route) %>
       <p>
         <i class="fa fa-clock-o"></i>
