@@ -6,8 +6,8 @@ RGeo is not supported?
 If the command below in `rails console` return `false`
 
 ```
-> RGeo::Geos.supported?
-  => false
+RGeo::Geos.supported?
+=> false
 ```
 
 Remove previous rgeo installation
