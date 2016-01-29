@@ -9,13 +9,13 @@ p. L'export permet d'extraire de la base un ensemble de données selon plusieurs
 
 h3. Formats disponibles
 
-* Neptune : format d'échange de données de transport en commun pour la France (cf ["Normalisation":http://www.normes-donnees-tc.org/format-dechange/donnees-theoriques/])
-* NeTEx : format d'échange de données de transport en commun expérimental sur la future norme européenne ["NeTEx":http://www.normes-donnees-tc.org/format-dechange/donnees-theoriques/] mais limité au sous-ensemble des données définies dans le format Neptune
+* Neptune : format d'échange de données de transport en commun pour la France (cf. ["Normalisation":http://www.normes-donnees-tc.org/format-dechange/donnees-theoriques/])
+* NeTEx : format d'échange de données de transport en commun basé sur la norme européenne ["NeTEx":http://www.normes-donnees-tc.org/format-dechange/donnees-theoriques/] Attention ! Ce profil expérimental date de 2013 est limité au sous-ensemble des données définies dans le format Neptune, 3 profils sont en cours de définition au niveau des tranvaux de normalisation pour la France
 * GTFS : format destiné à ["Google Transit":https://developers.google.com/transit/gtfs/?hl=fr] ; les données exportées en GTFS sont explicités ["ICI":http://www.normes-donnees-tc.org/format-dechange/autres-normes/]
 * KML : format contenant l'ensemble des données cartographiées pouvant ainsi être importée dans un SIG
 * HUB : format tabulaire interne Transdev dans sa version 1.3
 
-p. Note : le format CSV de Chouette a été supprimé, en effet, celui-ci était limité à des lignes définissant un unique aller simple ou aller/retour. Ce format est remplacé par l'import/export d'horaires disponible dans les formulaires de séquences d'arrêt. Il convient de se reporter à la rubrique "Exporter et importer des horaires en .csv":vehicle_journeys_import_export pour plus de détails. 
+p. Note : le format CSV de Chouette a été supprimé: en effet, celui-ci était limité à des lignes définissant un unique aller simple ou aller/retour. Ce format est remplacé par l'import/export d'horaires disponible dans les formulaires de séquences d'arrêt. Il convient de se reporter à la rubrique "Exporter et importer des horaires en .csv":vehicle_journeys_import_export pour plus de détails. 
 
 h3. Options des formats
 
