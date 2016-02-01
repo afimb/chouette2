@@ -9,6 +9,6 @@
   <% end %>
   <%= form.actions do %>
     <%= form.action :submit, :as => :button , :label => t( 'formtastic.import' ) %> 
-    <%= form.action :cancel, :as => :link %>
+    <%= link_to t('cancel'), [@referential, @line, @route] %>
   <% end %>
 <% end %>
