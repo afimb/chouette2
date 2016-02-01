@@ -1,7 +1,8 @@
-External Dependencies
----------------------
+Chouette2 External Dependencies
+-------------------------------
 
-Install Chouette IEV 3.X Web Service  [see how to](https://github.com/afimb/chouette/blob/master/README.md)
+Install the Chouette IEV 3.X Web Service
+[see how to](https://github.com/afimb/chouette/blob/master/README.md)
 
 The next steps assume that :
 * a Chouette IEV Web Service is running (on localhost, port 8080)
@@ -26,8 +27,8 @@ Install bundler 1.10.x
 gem install bundler -v 1.10.x
 ```
 
-Installation
-------------
+Chouette2 Installation
+----------------------
 
 On Debian, chouette can also be installed as a package : see [debian packages](http://packages.chouette.cityway.fr/debian/chouette)
 
@@ -56,14 +57,14 @@ Prepare the static resources (assets)
 RAILS_ENV=production bundle exec rake assets:clobber assets:precompile
 ```
 
-Configuration
--------------
+Chouette2 Configuration
+-----------------------
 
 Configure for Generating URLs in Action Mailer Views.
 * Edit [production.rb](./config/environments/production.rb) and change ```config.action_mailer.default_url_options```
 * see [Action Mailer Configuration documentation](http://guides.rubyonrails.org/action_mailer_basics.html)
 
-Configure assets access (Must be True if you use Webrick, or False if you use Apache or Nginx).
+Configure asset access (Must be True if you use Webrick, or False if you use Apache or Nginx).
 * Edit [production.rb](./config/environments/production.rb) and change ```config.serve_static_assets```
 
 Configure SMTP settings.
@@ -96,8 +97,8 @@ Configure OSRM Backend URL
 * Edit [secrets.yml](./config/secrets.yml) and change```osrm_endpoint```
 * see [Project-OSRM](https://github.com/Project-OSRM/osrm-backend/wiki/Api-usage-policy)
 
-Run
----
+Run Chouette2
+-------------
 
 Launch the task if you want to send mail asynchronously (See previous section to de-activate it)
 ```sh
@@ -116,8 +117,8 @@ Instead of using WEBrick, the Rails application may be deployed on [Phusion Pass
 Apache like NGinx can serve static resources,
 so change parameter ```serve_static_assets``` to false in [production.rb](./config/environments/production.rb)
 
-Test
-----
+Test Chouette2
+--------------
 
 ```sh
 bundle exec rake db:create
