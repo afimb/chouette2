@@ -3,7 +3,7 @@
 RGeo is not supported?
 ---------------------
 
-If the command below in `rails console` return `false`
+If the command below in `rails console` returns `false`
 
 ```
 RGeo::Geos.supported?
