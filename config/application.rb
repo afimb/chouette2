@@ -19,10 +19,6 @@ module ChouetteIhm
     # custom exception pages
     config.exceptions_app = self.routes
 
-    # http://stackoverflow.com/questions/17668578/rails-changing-x-frame-options
-    # http://stackoverflow.com/questions/18445782/how-to-override-x-frame-options-for-a-controller-or-action-in-rails-4
-    config.action_dispatch.default_headers.merge!({'X-Frame-Options' => 'ALLOWALL'})
-
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     config.time_zone = 'Paris'
