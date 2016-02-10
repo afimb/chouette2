@@ -53,6 +53,5 @@ module VehicleJourneysHelper
   def exist_vehicle_journeys?(route)
     route.vehicle_journeys.count > 0
   end
-  
 end
 
