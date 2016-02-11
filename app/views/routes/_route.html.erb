@@ -1,7 +1,7 @@
 <div id="index_item" class="panel panel-default route">
   <div class="panel-heading">
     <div class="panel-title clearfix">
-      <span class="pull-right">                
+      <span class="pull-right">
         <%= link_to edit_referential_line_route_path(@referential, @line, route), :class => "btn btn-default btn-sm" do %>
           <span class="fa fa-pencil"></span>
         <% end %>
@@ -10,23 +10,23 @@
         <% end %>
       </span>
       <h5>
-        <%= link_to([@referential, @line, route], :class => "preview", :title => "#{Chouette::Route.model_name.human.capitalize} #{route.name}") do %>        
+        <%= link_to([@referential, @line, route], :class => "preview", :title => "#{Chouette::Route.model_name.human.capitalize} #{route.name}") do %>
         <span class="name">
           <% if ( route.wayback_code ) %>
           <%= fonticon_wayback(route.wayback) %>
           <% end %>
-          <%= truncate(route.name, :length => 20) %>
+          <%= truncate(route.name, :length => 50) %>
         </span>
         <% end %>
       </h5>
-    </div>                          
+    </div>
   </div>
   <div class="panel-body">
      <p>
   <% if route.journey_patterns.size > 0 %>
     <i class="fa fa-clock-o"></i><%= link_to t("vehicle_journeys.actions.index"), referential_line_route_vehicle_journeys_path(@referential, @line, route) %>
-  <% else %> 
-    <%= t('.no_journey_pattern')%>	
+  <% else %>
+    <%= t('.no_journey_pattern')%>
   <% end%>
   </p>
   <p>
@@ -40,7 +40,7 @@
     <% if ! route.direction.blank? %>
     <%= route.human_attribute_name('direction_code') %> : <%= t('directions.label.'+route.direction_code) %>
     <% else %>
-    <br>  
+    <br>
     <% end %>
   </p>
   </div>
