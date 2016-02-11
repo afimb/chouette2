@@ -12,7 +12,6 @@ Rails.application.configure do
 
   # Must add sub uri for controllers.
   # config.action_controller.relative_url_root = "/chouette2"
-  config.action_controller.relative_url_root = "/extapp/redigering"
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
@@ -34,7 +33,6 @@ Rails.application.configure do
 
   # Must add sub uri for assets. Same as config.action_controller.relative_url_root
   # config.assets.prefix = "/chouette2"
-  config.assets.prefix = "/extapp/redigering"
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
