@@ -41,7 +41,6 @@ notifications:
     - mflorisson@cityway.fr
     - bruno@atnos.com
     - metienne@cityway.fr
-    - zbouziane@cityway.fr
     - alban.peignier@af83.com
     - anicet.rohee@af83.com
 before_install:
