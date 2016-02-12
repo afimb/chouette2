@@ -2,9 +2,9 @@
 layout: default
 title: Import massif d'arrêt en GTFS
 ---
-Lors de l'intialisation d'un réseau dans CHOUETTE, la saisie manuelle de tous les arrêts est une tâche très laborieuse. Le format GTFS est relativement simple à éditer dans un tableur et permet de copier massivement les éléments pour les importer ensuite et s'épargner ainsi de longues heures de saisie et les erreurs qui peuvent en résulter.
+Lors de l'initialisation d'un réseau dans CHOUETTE, la saisie manuelle de tous les arrêts est une tâche très laborieuse. Le format GTFS est relativement simple à éditer dans un tableur et permet de copier massivement les éléments pour les importer ensuite et s'épargner ainsi de longues heures de saisie et les erreurs qui peuvent en résulter.
 
-Le format GTFS se présente sous la forme d'un ensemble de fichier texte (.txt). Ils contiennent en réalité des données de type CSV. La principale difficulté que représente de l'édition d'un fichier GTFS réside dans son séparateur qui correspond à une norme américaine. En effet, c'est la virgule "," qui fait office de séparateur alors que la norme en cours chez nous est le point virgule, voire la tabluation. 
+Le format GTFS se présente sous la forme d'un ensemble de fichier texte (.txt). Ils contiennent en réalité des données de type CSV. La principale difficulté que représente de l'édition d'un fichier GTFS réside dans son séparateur qui correspond à une norme américaine. En effet, c'est la virgule "," qui fait office de séparateur alors que la norme en cours chez nous est le point virgule, voire la tabulation. 
 
 Certaines version d'Excel ne permettent pas de choisir la virgule comme séparateur. Il faut donc contourner cette lacune fonctionnelle par des opérations manuelles. Le tableur de Libre Office n'a en revanche pas ces problèmes de gestion des séparateurs, l'opération est bien plus simple en l'utilisant. Les consignes pour Excel proposées ici correspondent à la version 2010.
 
@@ -48,25 +48,25 @@ h4. Fichier des arrêts (stops.txt)
 * stop_code : ce champs est facultatif et correspond à un éventuel code de désignation métier de l'arrêt. Il est très utile de renseigner ce code pour faire notamment la différence entre un arrêt aller et un arrêt retour dans CHOUETTE.
 * stop_name : le nom public de l'arrêt, cet élément est obligatoire pour identifier l'arrêt dans CHOUETTE par la suite.
 * stop_desc : la description de l'arrêt, l'information est facultative.
-* stop_lat : la lattitude de l'arrêt au format WGS84 ; ce champ est obligatoire. Il est important de conserver le point "." comme séparateur de décimale.
+* stop_lat : la latitude de l'arrêt au format WGS84 ; ce champ est obligatoire. Il est important de conserver le point "." comme séparateur de décimale.
 * stop_lon : la longitude de l'arrêt au format WGS84 ; ce champ est obligatoire. Il est important de conserver le point "." comme séparateur de décimale.
-* zone_id : le rattachement de l'arrêt à une zone. cette données est faculative
+* zone_id : le rattachement de l'arrêt à une zone. cette données est facultative
 * stop_url : une URL éventuellement attachée à l'arrêt. Cette donnée est facultative
 * location_type : le type d'arrêt. si le champs est vide ou contient la valeur 0, il s'agira d'un point d'arrêt, si la valeur est à 1, il s'agira d'un arrêt commercial. Le format GTFS ne prend pas en compte les types d'arrêts "quai d'embarquement" et "Pôle d'échange".
 * parent_station : ce champ est à remplir uniquement pour les arrêts physique  (location_type=0) et seul le stop_id d'un arrêt commercial peut y figurer. Il n'est pas obligatoire de rattacher un arrêt de type 0 à un arrêt de type 1 sauf si l'objectif est d'exporter au format HUB.
 * wheelchair_boarding  : ce champ facultatif indique si l'arrêt est accessible aux fauteuils roulants. Les valeurs sont :
 ** 0 (ou vide) : l'information d'accessibilité de l'arrêt est inconnue. Si l'arrêt dépend d'un arrêt commercial, il hérite de la valeur définie au niveau de l'arrêt commercial.
-** 1 : L'arrêt est accessible aux fauteils roulants.
+** 1 : L'arrêt est accessible aux fauteuils roulants.
 ** 2 : L'arrêt n'est pas accessible aux fauteuils roulants.
-* address_line : Ce champ faculatif est une extentions rajouté par CHOUETTE, il n'existe pas dans le GTFS au sens strict. Il s'agit du n° de voirie pour l'adresse postale.
-* locality : Ce champ faculatif est une extentions rajouté par CHOUETTE, il n'existe pas dans le GTFS au sens strict. Commune d'appartenance de l'arrêt.
-* postal_code : Ce champ faculatif est une extentions rajouté par CHOUETTE, il n'existe pas dans le GTFS au sens strict. Le code postal de la commune d'appartenance de l'arrêt.
+* address_line : Ce champ facultatif est une extension rajouté par CHOUETTE, il n'existe pas dans le GTFS au sens strict. Il s'agit du n° de voirie pour l'adresse postale.
+* locality : Ce champ facultatif est une extension rajouté par CHOUETTE, il n'existe pas dans le GTFS au sens strict. Commune d'appartenance de l'arrêt.
+* postal_code : Ce champ facultatif est une extension rajouté par CHOUETTE, il n'existe pas dans le GTFS au sens strict. Le code postal de la commune d'appartenance de l'arrêt.
 * stop_timezone : ce champ facultatif est à remplir si l'arrêt est dans un fuseau horaire différent de celui défini par défaut dans l'espace de données. 
 
 h4. Fichier des correspondances (transfers.txt)
 
 * from_stop_id : l'identifiant de l'arrêt de départ de la correspondance. L'identifiant peut concerner soit un arrêt commercial soit un arrêt physique. Si un arrêt commercial est sélectionné, la correspondance sera validée pour les arrêts physiques qui en dépendent. Le champ est obligatoire.
-* to_stop_id : l'identifiant de l'arrêt d'arivée de la correspondance. L'identifiant peut concerner soit un arrêt commercial soit un arrêt physique. Si un arrêt commercial est sélectionné, la correspondance sera validée pour les arrêts physiques qui en dépendent. Le champ est obligatoire.
+* to_stop_id : l'identifiant de l'arrêt d'arrivée de la correspondance. L'identifiant peut concerner soit un arrêt commercial soit un arrêt physique. Si un arrêt commercial est sélectionné, la correspondance sera validée pour les arrêts physiques qui en dépendent. Le champ est obligatoire.
 * transfer_type : Ce champ obligatoire permet de définir le type de correspondance entre les deux arrêts.
 ** 0 (ou vide) : correspondance possible entre deux arrêts sans délai.
 ** 1 : la correspondance est possible et garantie (attente du véhicule en correspondance)
@@ -81,20 +81,20 @@ Une fois les informations saisies dans les tableaux, il est nécessaire de les e
 h4. Enregistrement avec Excel
 
 # Enregistrer le fichier en .csv (séparateur point-virgule) : Grâce aux changement de paramétrage mené dans le panneau de configuration avant l'ouverture du fichier il est possible d'enregistrer chacun des fichier en CSV (séparateur point-virgule). Même si le nom du format d'enregistrement fait référence au point-virgule, c'est bien une virgule qui est retenue lors de l'enregistrement.
-# Modifier l'extension du fichier en .txt : le format duu GTFS est le format txt. Or l'enregistrement avec le bon séparateur n'est posssible qu'en CSV. Il convient donc de changer l'extension du fichier de .csv à .txt.
+# Modifier l'extension du fichier en .txt : le format du GTFS est le format txt. Or l'enregistrement avec le bon séparateur n'est possible qu'en CSV. Il convient donc de changer l'extension du fichier de .csv à .txt.
 # Ouvrir le fichier dans le bloc note et l'enregistrer en UTF8 : Excel a bien enregistré le fichier avec des séparateurs "," mais il ne respecte pas l'encodage en UTF8. En l'ouvrant dans le bloc-note, il est possible de le réencoder en UTF8.
 !2015-09-16_175925.png!
 
 h4.Enregistrement avec Libre Office
 
 Les modifications de préférences windows ne sont pas nécessaires avec Libre office. 
-# Faire enregistrer sous, séléctionner le format CSV
+# Faire enregistrer sous, sélectionner le format CSV
 # Au moment de l'enregistrement ou après, changer l'extension .csv en .txt
 !2015-09-16_180707.png!
 
 h3. Importer les données dans CHOUETTE
 
-Les fichiers doivent être zippés, qu'il y'en ai un ou deux. Ensuite au niveau de l'import :
+Les fichiers doivent être zippés, qu'il y en ai un ou deux. Ensuite au niveau de l'import :
 * Créer un nouvel import de type GTFS
 * Nommer l'import
 * Sélectionner "arrêts" dans la liste déroulante sous ensemble

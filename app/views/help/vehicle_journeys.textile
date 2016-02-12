@@ -75,9 +75,9 @@ Un cadre situé au-dessus de la liste des horaires offre une fonction supplémen
 
 h4. Modification d'une course par import .csv
 
-L'import d'un fichier .csv permet de modifier des courses éditées dans un tableur. Cliquer sur _"export des horaires aux arrêts"_  permet de récupérer le fichier des courses. Les modifications ou même les ajouts de courses seront pris en compte après import dans la base. Le séparateur retenu pour le fichier .csv est le point-virgule. Il ne faut pas saisir _"d'id de course"_ lorsque l'on saisit au travers d'un fichier .csv de nouvelles courses. CHOUETTE génèrera lui-même un numéro valide à l'import. Saisir un numéro fera échouer l'import.
+L'import d'un fichier .csv permet de modifier des courses éditées dans un tableur. Cliquer sur _"export des horaires aux arrêts"_  permet de récupérer le fichier des courses. Les modifications ou même les ajouts de courses seront pris en compte après import dans la base. Le séparateur retenu pour le fichier .csv est le point-virgule. Il ne faut pas saisir _"d'id de course"_ lorsque l'on saisit au travers d'un fichier .csv de nouvelles courses. CHOUETTE génrera lui-même un numéro valide à l'import. Saisir un numéro fera échouer l'import.
 
-Supprimer toute la colone d'une course du fichier n'aura aucun effet. En effet, la course n'apparaissant plus dans le fichier, son réimport n'aura aucune conséquence sur la course existante en base. 
+Supprimer toute la colonne d'une course du fichier n'aura aucun effet. En effet, la course n'apparaissant plus dans le fichier, son réimport n'aura aucune conséquence sur la course existante en base. 
 
 Pour supprimer une course depuis le fichier CSV, il convient de supprimer toutes les informations, sauf l'identifiant de la course (id_course).
 
@@ -88,7 +88,7 @@ Saisie d'horaire dans un tableur.
 
 L'export fournit un fichier .zip comprenant le fichier des horaires et les calendriers.
 
-L'import en retour ne concerne que le fichier .csv proprement dit. Importer un fichier .zip identique au fichier exporté, génèrera une erreur. 
+L'import en retour ne concerne que le fichier .csv proprement dit. Importer un fichier .zip identique au fichier exporté, générera une erreur. 
 
 h4. Cloner une course
 
