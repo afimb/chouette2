@@ -1,0 +1,9 @@
+en:
+  maps:
+    ign_map: "IGN scans"
+    ign_ortho: "IGN orthophotos"
+    ign_cadastre: "IGN parcels"
+    google_physical: "Google physical"
+    google_streets: "Google streets"
+    google_hybrid: "Google hybrid"
+    google_satellite: "Google orthophotos"

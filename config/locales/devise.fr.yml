@@ -39,8 +39,8 @@ norme Neptune (NFP 99 506)"
     links:
       sign_in: "Se connecter"
       sign_up: "S'inscrire"
-      new_password: "Mot de passe oublié?"
-      new_confirmation: "Vous n'avez pas reçu les instructions de confirmation ?"
+      new_password: "Mot de passe oublié ?"
+      new_confirmation: "Confirmer mon compte"
   simple_form:
     labels:
       user:

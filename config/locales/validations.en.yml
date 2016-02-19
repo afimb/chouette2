@@ -1,0 +1,100 @@
+en:
+  validations:
+    actions:
+      new: "New validation"
+      destroy: "Destroy"
+      destroy_confirm: "Are you sure you want destroy this validation?"
+    new:
+      title: "New validation"
+      all: "All"
+      flash: "Validation task on queue, refresh page to see progression"
+      fields_gtfs_validation:
+        warning: "Filter on stop areas validation only GTFS stops and transfers files, these may contain extra attributes"
+    index:
+      title: "Validations"
+      warning: ""
+    show:
+      report: "Report"
+      validated_file: "Validated file"
+      title: "Neptune Validation"
+      summary: "Rapport de conformité à la norme NEPTUNE"
+      completed: "[ Completed ]"
+      failed: "[ Failed ]"
+      pending: "[ In the treatment queue ]"
+      processing: "[ In progress... ]"
+      export: "Download test report"
+      export_csv: "CSV format"
+      graph:
+        files:
+          title_zip: "Validation results for files in zip"
+          title_default: "Validation result for %{extension} file"
+          error: "Errors"
+          ignored: "Ignored"
+          ok: "Success"
+        lines:
+          title: "Validated objects"
+          objects_label: "Objects count"
+          lines_stats: "Lines"
+          routes_stats: "Routes"
+          connection_links_stats: "Connection Links"
+          time_tables_stats: "Timetables"
+          stop_areas_stats: "Stop Areas"
+          access_points_stats: "Access Points"
+          vehicle_journeys_stats: "Vehicle Journeys"
+          journey_patterns_stats: "Journey Patterns"
+    statuses:
+      created: "Pending ..."
+      scheduled: "Processing ..."
+      terminated: "Completed"
+      canceled: "Canceled"
+      aborted: "Failed"
+    compliance_check_task: "Validate Report"
+    severities:
+      info: "Information"
+      uncheck: "Unchecked"
+      ok: "Ok"
+      warning: "Warning"
+      error: "Error"
+      fatal: "Fatal"
+  activemodel:
+    models:
+      validation:
+        zero:  "validation"
+        one:   "validation"
+        other: "validations"
+      neptune_validation:
+        zero:  "validation"
+        one:   "Neptune validation"
+        other: "validations"
+      csv_validation:
+        zero:  "validation"
+        one:   "CSV validation"
+        other: "validations"
+      gtfs_validation:
+        zero:  "validation"
+        one:   "GTFS validation"
+        other: "validations"
+      netex_validation:
+        zero:  "validation"
+        one:   "NeTEx validation"
+        other: "validations"
+    attributes:
+      validation:
+        resources: "File to validate"
+        created_at: "Created on"
+        status: "Status"
+        references_type: "subset"
+        no_save: "No save"
+        rule_parameter_set_id: "Rule parameter set for compliance check"
+        object_id_prefix: "Neptune Id prefix"
+        max_distance_for_commercial: "Max distance for commercial stop"
+        max_distance_for_connection_link: "Max distance for connection link"
+        ignore_last_word: "ignore last word"
+        ignore_end_chars: "ignore last chars"
+  formtastic:
+    titles:
+      validation:
+        max_distance_for_commercial: "Maximal distance to merge homonymous stops in commercial stop in meter"
+        max_distance_for_connection_link: "Maximal distance to link stops by connection link stop in meter"
+        ignore_last_word: "ignore last word on stop name in homonymous detection (inappliable when just one word occurs)"
+        ignore_end_chars: "ignore some chars at the end of stop names in homonymous detection"

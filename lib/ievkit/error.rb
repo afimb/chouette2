@@ -81,6 +81,14 @@ module Ievkit
       end
     end
 
+    def locale_for_error
+      if self.class.eql? Ievkit::NotFound
+        'iev.exception.unknown_job'
+      else
+        'iev.exception.default'
+      end
+    end
+
     private
 
     def data

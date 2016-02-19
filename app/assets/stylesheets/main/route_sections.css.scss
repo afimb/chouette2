@@ -1,0 +1,68 @@
+#workspace.route_sections_selectors.edit {
+    td.route_section {
+        .input {
+            padding: 0;
+            margin: 0;
+
+            select {
+                width: 100%;
+            }
+        }
+    }
+
+    a.edit-route-section {
+        background: url(image-path('icons/edit.png')) no-repeat 0% 50%;
+        text-indent: -9999px;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+
+        margin-right: 8px;
+
+        &.disabled {
+            background-image: url(image-path('icons/edit-disabled.png'));
+        }
+    }
+
+    #map-selection {
+        position: relative;
+        span {
+            display: inline-block;
+        }
+        .departure, .arrival {
+            width: 25%;
+        }
+        .actions {
+            width: 25%;
+            overflow: visible;
+            padding-left: 0;
+            position: absolute;
+            right: 0;
+        }
+    }
+}
+
+#workspace.route_sections.index {
+    th.distance, th.points {
+        text-align: center;
+    }
+
+    td.distance, td.points, td.actions {
+        text-align: center;
+    }
+}
+
+#workspace.route_sections.edit {
+    .formtastic {
+        .input .label {
+            width: 40%;
+        }
+        .actions {
+            padding-left: 19%;
+        }
+    }
+    #map {
+        width: 600px;
+        heigth: 600px;
+    }
+}

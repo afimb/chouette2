@@ -1,0 +1,48 @@
+en:
+  route_sections:
+    new:
+      title: "Add a new section"
+    show:
+      title: "Show this section"
+    edit:
+      title: "Edit this section"
+    form:
+      no_processing: "Geometry processing"
+      standard_processor: "Standard"
+      no_processor: "No treatment"
+      submit: "Submit"
+    index:
+      title: "Sections course"
+      all_lines: "All lines"
+      actions:
+        show: "Show"
+        edit: "Edit"
+        destroy: "Delete"
+        destroy_confirm: "Are you sure you want to delete this route section?"
+    actions:
+      edit: "Edit this section"
+      destroy: "Delete this section"
+      destroy_confirm: "Are you sure you want to delete this route section?"
+    unable_to_contact_server: 'Unable to contact OSRM server, please try again later.'
+  route_sections_selectors:
+    edit:
+      title: "Changing the course of the mission %{journey_pattern}"
+      route_section:
+        edit: "Edit this section"
+        new: "Add alternative"
+      no_candidate: "No known path"
+      no_selection: "No selection"
+      selection:
+        title: "Selected section"
+      form:
+        title: "Full course"
+      submit: "Change the route"
+  activerecord:
+    models:
+      route_section: "Section course"
+    attributes:
+      route_section:
+        departure: "Departure point"
+        arrival: "Arrival point"
+        points: "Via"
+        distance: "Distance"

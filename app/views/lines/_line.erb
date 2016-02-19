@@ -1,48 +1,48 @@
-<div id="index_item" class="panel panel-default line">
-  <div class="panel-heading">
-    <div class="panel-title clearfix">
-      <span class="pull-right">
-        <%= link_to edit_referential_line_path(@referential, line), :class => "btn btn-default btn-sm" do %>
+<div id="index_item" class="panel panel-default line ce-LineBlock">
+  <div class="panel-heading ce-LineBlock-header">
+    <ul class="ce-LineBlock-header-list">
+      <li>
+        <%= check_box_tag "ids[]", line.id, false, class: "multiple_selection", style: "display: none;" %>
+        <% if line.number && line.number.length <= 3 %>
+          <span class="label label-default line_number" style="<%= number_style(line) %>"><%= line.number %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to([@referential, line], class: 'preview', title: "#{Chouette::Line.model_name.human.capitalize} #{line.name}") do %>
+          <h5 class="ce-LineBlock-header-title"><%= truncate(line.name, length: 24) %></h5>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to edit_referential_line_path(@referential, line), class: 'btn btn-default btn-sm' do %>
           <span class="fa fa-pencil"></span>
-        <% end  if edit %>
-        <%= link_to referential_line_path(@referential, line), :method => :delete, :data => {:confirm =>  t('lines.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
+        <% end if edit %>
+        <%= link_to referential_line_path(@referential, line), method: :delete, data: { confirm:  t('lines.actions.destroy_confirm') }, class: 'btn btn-danger btn-sm' do %>
           <span class="fa fa-trash-o"></span>
         <% end if delete %>
-      </span>
-      <h5>
-        <%= check_box_tag "ids[]", line.id, false, :class => "multiple_selection", :style => "display: none;" %>
-        <% if line.number and line.number.length <= 3 %>
-           <span class="label label-default line_number" style="<%= number_style(line) %>"><%= line.number %></span>
-        <% end %>
-        <%= link_to([@referential, line], :class => "preview", :title => "#{Chouette::Line.model_name.human.capitalize} #{line.name}") do %>
-        <span class="name">
-          <%= truncate(line.name, :length => 50) %>          
-        </span>
-        <% end %>
-      </h5>
-    </div>
+      </li>
+    </ul>
   </div>
   <div class="panel-body">
     <p>
     <% if line.network.nil? %>
-    	<%= line.human_attribute_name('network') %> <%=  t('lines.index.unset') %>
+    	<%= line.human_attribute_name('network') %> <%=  t('lines.index.unset') %> 
   	<% else %>
        <%= line.human_attribute_name('network') %> <%= link_to_if line.network, line.network.name, referential_network_path(@referential, line.network), :title => "#{line.human_attribute_name('network')} #{line.network.name}" %>
     <% end %>
     </p>
     <p>
   	<% if line.company.nil? %>
-  	   <%= line.human_attribute_name('company') %> <%=  t('lines.index.unset') %>
+  	   <%= line.human_attribute_name('company') %> <%=  t('lines.index.unset') %> 
   	<% else %>
        <%= line.human_attribute_name('company') %> <%= link_to_if( line.company, line.company.name, referential_company_path(@referential, line.company), :title => "#{line.human_attribute_name('company')} #{line.company.name}" )  %>
     <% end %>
-    </p>
+    </p>   
     <p>
-    <% if line.group_of_lines.count == 0 %>
-        <%= t('lines.form.no_group_of_line') %>
+    <% if line.group_of_lines.count == 0 %> 
+        <br><%# t('lines.form.no_group_of_line') %>
     <% elsif line.group_of_lines.count == 1 %>
-        <%= line.human_attribute_name('group_of_line') %>
-        <%= link_to_if( line.group_of_lines.first, line.group_of_lines.first.name, referential_group_of_line_path(@referential, line.group_of_lines.first), :title => "#{line.human_attribute_name('group_of_line')} #{line.group_of_lines.first.name}") %>
+        <%= line.human_attribute_name('group_of_line') %>  
+        <%= link_to_if( line.group_of_lines.first, line.group_of_lines.first.name, referential_group_of_line_path(@referential, line.group_of_lines.first), :title => "#{line.human_attribute_name('group_of_line')} #{line.group_of_lines.first.name}") %> 
     <% else %>
        <%= t('lines.form.several_group_of_lines', :count => line.group_of_lines.count) %>
     <% end %>

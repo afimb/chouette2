@@ -39,7 +39,7 @@ validating conformance of data wrt Neptune (French standard NFP 99 506)."
       sign_in: "Sign in"
       sign_up: "Sign up"
       new_password: Forget your password ?
-      new_confirmation: "Didn't receive confirmation instructions?"
+      new_confirmation: "Confirm my account"
   simple_form:
     labels:
       user:

@@ -1,0 +1,20 @@
+en:
+  will_paginate:  
+    previous_label: "&#8592; Previous"
+    next_label: "Next &#8594;"
+    page_gap: "&hellip;"
+
+    page_entries_info:
+      search: "Results :"   
+      list: "Paginated list"   
+      single_page:
+        zero:  "No item found"
+        one:   "1 %{model} shown"
+        other: "%{count} %{model} shown"
+      single_page_html:
+        zero:  "No item found"
+        one:   "<b>1</b> %{model} shown"
+        other: "<b>%{count}</b> %{model} shown"
+
+      multi_page: "%{model} %{from} - %{to} of %{count} "
+      multi_page_html: "%{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> "

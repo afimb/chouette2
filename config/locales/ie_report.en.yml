@@ -1,11 +1,10 @@
 en:
   shared:
     ie_report:
-      html:
-        search: 'Search'
-        tab:
-          file: 'Files'
-          line: 'Lines'
+      search: 'Search'
+      tab:
+        file: 'Files'
+        line: 'Lines'
     ie_report_line:
       state:
         default:

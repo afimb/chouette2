@@ -1,0 +1,39 @@
+p.after_map {
+    clear: both;
+}
+
+#map {
+    position: relative;
+    float: right;
+    width: 400px;
+    height: 400px;
+    border: 1px solid gray;
+    margin-bottom: 20px !important;
+}
+.ce-MapExpandBlock {
+  position: absolute;
+  top: -22px;
+  background-color: $brand-primary;
+  border: none;
+  height: 21px;
+  right: -1px;
+  color: white;
+  padding: 2px 6px !important;
+}
+#map.ce-MapBlock-fullWidth {
+  width: 100% !important;
+  display: block;
+  float: inherit;
+}
+#ce-SidebarNavBlock {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  font-size: 20px;
+  height: 35px;
+  line-height: 35px;
+  padding: 0 10px;
+  border: none;
+  color: #fff;
+  background-color: $brand-primary;
+}

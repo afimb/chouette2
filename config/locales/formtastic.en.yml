@@ -1,0 +1,15 @@
+en:
+  formtastic:
+    yes: 'Yes'
+    no: 'No'
+    create: "Create %{model}"  
+    update: "Update %{model}"
+    submit: 'Apply %{model}'
+    cancel: 'Cancel'
+    reset: 'Reset %{model}'
+    required: 'required'
+    import: "Launch import"
+    export: "Launch export"
+    validate: "Launch validation"
+    duplicate: "Duplicate"
+    clone: "Clone"

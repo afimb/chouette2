@@ -65,6 +65,14 @@
                <span class="badge pull-right"><%= @referential.time_tables.size %></span><%= Referential.human_attribute_name("time_tables") %>
               <% end %>
             </li>
+            <li><%= link_to referential_route_sections_path(@referential) do %>
+               <span class="badge pull-right"><%= @referential.route_sections.size %></span><%= Referential.human_attribute_name("route_sections") %>
+              <% end %>
+            </li>
+            <li><%= link_to referential_timebands_path(@referential) do %>
+                <span class="badge pull-right"><%= @referential.timebands.size %></span><%= Referential.human_attribute_name("timebands") %>
+              <% end %>
+            </li>
           </ul>
         </li>
         <li><%= link_to Referential.human_attribute_name("imports"), referential_imports_path(@referential) %></li>

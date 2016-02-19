@@ -1,0 +1,22 @@
+<% no_destroy = false unless local_assigns[:no_destroy] %>
+<div class="nested-fields">
+  <ul class="ce-FrequencyFormFields">
+    <%= f.input :timeband_id, as: :search_timeband, json: referential_autocomplete_timebands_path(@referential, format: :json),
+                hint_text: t('search_hint'), no_result_text: t('no_result_text'), searching_text: t('searching_term'), label: false,
+                input_html: { :"data-pre" => Rabl::Renderer.new( 'autocomplete_timebands/index',
+                                                                 Chouette::Timeband.where(id: f.object.timeband_id), view_path: 'app/views',
+                                                                 format: :json, scope: :self ).render }  %>
+    <%= f.input :first_departure_time, label: false %>
+    <%= f.input :last_departure_time, label: false %>
+    <%= f.input :scheduled_headway_interval, label: false %>
+    <%= f.input :exact_time, label: t('activerecord.attributes.journey_frequency.exact_time') %>
+    <li>
+      <label class="label"></label>
+      <% unless no_destroy %>
+        <%= link_to_remove_association f do %>
+          <i class="fa fa-trash"></i>
+        <% end %>
+      <% end %>
+    </li>
+  </ul>
+</div>

@@ -9,8 +9,6 @@ class RuleParameterSet < ActiveRecord::Base
 
   serialize :parameters, JSON
 
-  #attr_accessible :name, :organisation_id
-
   def self.mode_attribute_prefixes
     %w( allowed_transport inter_stop_area_distance_min inter_stop_area_distance_max speed_max speed_min inter_stop_duration_variation_max)
   end
@@ -31,25 +29,23 @@ class RuleParameterSet < ActiveRecord::Base
   end
 
   def self.validable_object_names
-      ["network","company","group_of_line",
-        "stop_area","access_point","access_link","connection_link",
-        "time_table","line","route",
-        "journey_pattern","vehicle_journey"]
+    %w( network company group_of_line stop_area access_point access_link connection_link time_table line route
+        journey_pattern vehicle_journey )
   end
 
   def self.validable_columns
-      {"network" => ['objectid','name','registration_number'],
-        "company" => ['objectid','name','registration_number'],
-        "group_of_line" => ['objectid','name','registration_number'],
-        "stop_area" => ['objectid','name','registration_number','city_name','country_code','zip_code'],
-        "access_point" => ['objectid','name','city_name','country_code','zip_code'],
-        "access_link" => ['objectid','name','link_distance','default_duration'],
-        "connection_link" => ['objectid','name','link_distance','default_duration'],
-        "time_table" => ['objectid','comment','version'],
-        "line" => ['objectid','name','registration_number','number','published_name'],
-        "route" => ['objectid','name','number','published_name'],
-        "journey_pattern" => ['objectid','name','registration_number','published_name'],
-        "vehicle_journey" => ['objectid','published_journey_name','published_journey_identifier','number'] }
+      { 'network' => ['objectid','name','registration_number'],
+        'company' => ['objectid','name','registration_number'],
+        'group_of_line' => ['objectid','name','registration_number'],
+        'stop_area' => ['objectid','name','registration_number','city_name','country_code','zip_code'],
+        'access_point' => ['objectid','name','city_name','country_code','zip_code'],
+        'access_link' => ['objectid','name','link_distance','default_duration'],
+        'connection_link' => ['objectid','name','link_distance','default_duration'],
+        'time_table' => ['objectid','comment','version'],
+        'line' => ['objectid','name','registration_number','number','published_name'],
+        'route' => ['objectid','name','number','published_name'],
+        'journey_pattern' => ['objectid','name','registration_number','published_name'],
+        'vehicle_journey' => ['objectid','published_journey_name','published_journey_identifier','number'] }
   end
 
   def self.column_attribute_prefixes

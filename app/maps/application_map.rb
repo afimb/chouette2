@@ -73,7 +73,8 @@ class ApplicationMap
 
   def to_html(options = {})
     if not respond_to?(:ready?) or ready?
-      "<div id=\"#{id}\" class=\"#{default_class}\"></div> #{map.to_html(options)}".html_safe
+      expand = options[:no_fullscreen] ? '' : "<button type=\"button\" data-ce-id=\"#{id}\" data-ce-action=\"map-fullscreen\" class=\"ce-MapExpandBlock\"><i class=\"fa fa-expand\"></i></button>"
+      "<div id=\"#{id}\" class=\"#{default_class}\">#{expand}</div>#{map.to_html(options)}".html_safe
     end
   end
 
@@ -136,10 +137,13 @@ class ApplicationMap
           var feature = e.feature ;
           if (feature.attributes.inactive != undefined)
             return;
+          var stop_area_type_label = '';
+          if (feature.attributes.stop_area_type_label != undefined)
+            stop_area_type_label = feature.attributes.stop_area_type_label;
           var popup = new OpenLayers.Popup.Anchored('chicken',
                                                  new OpenLayers.LonLat(feature.geometry.x, feature.geometry.y),
                                                  null,
-                                                 \"<div class='popup_hover'><p><b>\" + feature.attributes.name +\"</b><p>\" + feature.attributes.stop_area_type_label + \"</div> \", null, false, null);
+                                                 \"<div class='popup_hover'><p><b>\" + feature.attributes.name +\"</b></p>\" + stop_area_type_label + \"</div> \", null, false, null);
           popup.autoSize = true;
           popup.displayClass = 'popup_hover';
 

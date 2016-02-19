@@ -4,9 +4,9 @@ module Api
       inherit_resources
       respond_to :json, :xml
       layout false
-      before_filter :authenticate
+      before_action :authenticate
 
-private
+      private
 
       def authenticate
         authenticate_or_request_with_http_token do |token, options|

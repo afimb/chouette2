@@ -1,6 +1,7 @@
 module BreadcrumbHelper
 
-   def build_breadcrumb(action)
+  def build_breadcrumb(action)
+    action = action.to_sym
     case resource_class.to_s
     when "Chouette::Network"
       network_breadcrumb action
@@ -16,6 +17,8 @@ module BreadcrumbHelper
       journey_pattern_breadcrumb action
     when "Chouette::VehicleJourney"
       vehicle_journey_breadcrumb action
+    when "Chouette::VehicleJourneyFrequency"
+      vehicle_journey_frequency_breadcrumb action
     when "VehicleJourneyImport"
       vehicle_journey_import_breadcrumb action
     when "Chouette::StopArea"
@@ -28,6 +31,10 @@ module BreadcrumbHelper
       connection_link_breadcrumb action
     when "Chouette::TimeTable"
       time_table_breadcrumb action
+    when "Chouette::RouteSection"
+      route_section_breadcrumb action
+    when "Chouette::Timeband"
+      timeband_breadcrumb action
     when "StopAreaCopy"
       stop_area_copy_breadcrumb action
     when "Import"
@@ -102,6 +109,18 @@ module BreadcrumbHelper
     add_breadcrumb breadcrumb_label(@time_table), referential_time_table_path(@referential, @time_table),:title => breadcrumb_tooltip(@time_table) if action == :edit
   end
 
+  def route_section_breadcrumb(action)
+    referential_breadcrumb
+    add_breadcrumb Chouette::RouteSection.model_name.human.pluralize, referential_route_sections_path(@referential)
+    add_breadcrumb breadcrumb_label(resource), referential_route_section_path(@referential, resource),:title => breadcrumb_tooltip(resource) if action.in?([:show, :edit])
+  end
+
+  def timeband_breadcrumb(action)
+    referential_breadcrumb
+    add_breadcrumb Chouette::Timeband.model_name.human(:count => 2), referential_timebands_path(@referential) unless action == :index
+    add_breadcrumb breadcrumb_label(@timeband), referential_timeband_path(@referential, @timeband),:title => breadcrumb_tooltip(@timeband) if action == :edit
+  end
+
   def line_breadcrumb(action)
     referential_breadcrumb
     add_breadcrumb Chouette::Line.model_name.human(:count => 2), referential_lines_path(@referential) unless action == :index
@@ -123,6 +142,12 @@ module BreadcrumbHelper
     add_breadcrumb I18n.t("breadcrumbs.vehicle_journeys"), referential_line_route_vehicle_journeys_path(@referential, @line,@route) unless action == :index
     add_breadcrumb breadcrumb_label(@vehicle_journey), referential_line_route_vehicle_journey_path(@referential, @line,@route,@vehicle_journey),:title => breadcrumb_tooltip(@vehicle_journey) if action == :edit
   end
+
+   def vehicle_journey_frequency_breadcrumb(action)
+     route_breadcrumb :edit
+     add_breadcrumb I18n.t("breadcrumbs.vehicle_journey_frequencies"), referential_line_route_vehicle_journey_frequencies_path(@referential, @line, @route) unless action == :index
+     add_breadcrumb breadcrumb_label(@vehicle_journey_frequency), referential_line_route_vehicle_journey_frequency_path(@referential, @line,@route, @vehicle_journey_frequency),:title => breadcrumb_tooltip(@vehicle_journey_frequency) if action == :edit
+   end
 
   def vehicle_journey_import_breadcrumb (action)
     route_breadcrumb :edit

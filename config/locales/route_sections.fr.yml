@@ -1,0 +1,48 @@
+fr:
+  route_sections:
+    new:
+      title: "Ajouter une section"
+    show:
+      title: "Détails d'une Section de parcours"
+    edit:
+      title: "Modifier une Section de parcours"
+    form:
+      no_processing: "Traitement de la géométrie"
+      standard_processor: "Standard"
+      no_processor: "Pas de traitement"
+      submit: "Valider"
+    index:
+      title: "Sections de parcours"
+      all_lines: "Tous les lignes"
+      actions:
+        show: "Voir"
+        edit: "Modifier"
+        destroy: "Supprimer"
+        destroy_confirm: "Etes vous sûr de vouloir supprimer cette section de parcours ?"
+    actions:
+      edit: "Modifier cette section"
+      destroy: "Supprimer cette section"
+      destroy_confirm: "Etes vous sûr de vouloir supprimer cette section de parcours ?"
+    unable_to_contact_server: "Le serveur OSRM n'est pas disponible pour le moment, merci de réessayer dans quelques instants."
+  route_sections_selectors:
+    edit:
+      title: "Modification du parcours de la mission %{journey_pattern}"
+      route_section:
+        edit: "Modifier cette section"
+        new: "Ajouter une alternative"
+      no_candidate: "Aucun parcours connu"
+      no_selection: "Aucune selection"
+      selection:
+        title: "Section sélectionnée"
+      form:
+        title: "Parcours complet"
+      submit: "Modifier le parcours"
+  activerecord:
+    models:
+      route_section: "Section du parcours"
+    attributes:
+      route_section:
+        departure: "Arrêt de départ"
+        arrival: "Arrêt d'arrivée"
+        points: "Via"
+        distance: "Distance"

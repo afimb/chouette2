@@ -8,6 +8,7 @@ fr:
     index:
       line: "Li"
       column: "Col"
+    in_progress: "Validation en cours..."
   compliance_check_result:
     severities:
       error: "Obligatoires"

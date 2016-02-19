@@ -34,9 +34,14 @@
 <ul class="actions">
   <li><%= link_to t('journey_patterns.actions.new'), new_referential_line_route_journey_pattern_path(@referential, @line, @route), :class => "add" %></li>
   <li><%= link_to t('journey_patterns.actions.edit'), edit_referential_line_route_journey_pattern_path(@referential, @line, @route, @journey_pattern), :class => "edit" %></li>
-  <li><%= link_to  t('journey_patterns.actions.destroy'), referential_line_route_journey_pattern_path(@referential, @line, @route, @journey_pattern), :method => :delete, :data => {:confirm => t('journey_patterns.actions.destroy_confirm')}, :class => "remove" %></li>
+  <li><%= link_to t('journey_patterns.actions.destroy'), referential_line_route_journey_pattern_path(@referential, @line, @route, @journey_pattern), :method => :delete, :data => {:confirm => t('journey_patterns.actions.destroy_confirm')}, :class => "remove" %></li>
+  <li>
+    <%= link_to edit_referential_line_route_journey_pattern_route_sections_selector_path(@referential, @line, @route, @journey_pattern), class: "edit#{' control-shape' if @journey_pattern.control?}" do %>
+      <%= t('journey_patterns.actions.edit_route_sections') %>
+      <% if @journey_pattern.control? %><i class="fa fa-exclamation-triangle"></i><% end %>
+    <% end %>
+  </li>
   <li><%= link_to t('journey_patterns.journey_pattern.vehicle_journey_at_stops'), referential_line_route_vehicle_journeys_path(@referential, @line, @route, :q => {:journey_pattern_id_eq => @journey_pattern.id}), :class => "clock" %></li>
 </ul>
   <%= creation_tag(@journey_pattern) %>
 <% end %>
-

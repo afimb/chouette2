@@ -1,0 +1,107 @@
+en:
+  time_tables:
+    duplicate_success: "duplication succeded"
+    time_table:
+      empty: "empty"
+      bounding: "from %{start} to %{end}"
+      periods_count: "periods: %{count}"
+      dates_count: "dates: %{count}"
+      periods_dates_count: "dates: %{dates_count}, periods: %{periods_count}"
+    actions:
+      new: "Add a new timetable"
+      edit: "Edit this timetable"
+      destroy: "Remove this timetable"
+      duplicate: "Duplicate this timetable"
+      combine: "Combine with another timetable"
+      destroy_confirm: "Are you sure you want destroy this timetable ?"
+      destroy_date_confirm: "Are you sure you want destroy this date ?"
+      destroy_period_confirm: "Are you sure you want destroy this period ?"
+      add_period: "Add a period"
+      add_date: "Add a peculiar date"
+      add_excluded_date: "Add an excluded date"
+    new:
+      title: "Add a new timetable"
+    edit:
+      title: "Update timetable %{time_table}"
+    show:
+      title: "Timetable %{time_table}"
+      dates: "Application dates"
+      periods: "Application periods"
+      from: "from"
+      to: "to"
+      add_period: "Add a period"
+      add_date: "Add a date"
+      combine_form: "Combinations"
+      combine: "Apply"
+    show_time_table:
+      resume: "From %{start_date} to %{end_date}"
+      resume_empty: "Empty timetable"
+      legend: "Legend : "
+      excluded_date: "Excluded date"
+      overlap_date: "Overlap date"
+      selected_date: "Date directly included"
+      selected_period: "Date included in period"
+    index:
+      title: "Timetables"
+      comment: "Search by name"
+      tag_search: "Tags : hollidays,public holliday"
+      from: "From : "
+      to: " to : "
+      selection: "Selection"
+      selection_all: "All"
+      advanced_search: "Advanced Search"
+  activerecord:
+    models:
+      time_table:
+        zero:  "timetable"
+        one:   "timetable"
+        other: "timetables"
+    attributes:
+      time_table:
+        comment: "Name"
+        version: "Short name"
+        day_types: "Period day types"
+        none: "none"
+        monday: "Monday"
+        tuesday: "Tuesday"
+        wednesday: "Wednesday"
+        thursday: "Thursday"
+        friday: "Friday"
+        saturday: "Saturday"
+        sunday: "Sunday"
+        objectid: "Neptune identifier"
+        object_version: "Version"
+        creation_time: "Created on"
+        creator_id: "Created by "
+        calendars: "Calendar view"
+        dates: "Peculiar dates"
+        date: "On"
+        excluded_dates: "Excluded dates"
+        periods: "Application periods"
+        period_start: "From"
+        period_end: "to"
+        tag_search: "Tags"
+  formtastic:
+    titles:
+      time_table:
+        comment: ""
+        objectid: "[prefix]:Timetable:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      neptune:
+        time_table:
+          comment: ""
+          objectid: "[prefix]:Timetable:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      netex:
+        time_table:
+          comment: ""
+          objectid: "[prefix]:Timetable:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      gtfs:
+        time_table:
+          comment: ""
+          objectid: "[prefix]:Timetable:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"
+      hub:
+        time_table:
+          comment: "Maximum length = 75."
+          objectid: "[prefix]:Timetable:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character. Maximum length of the unique key = 6."
+    placeholders:
+      time_table:
+        tag_search: "ex: Public hollidays,School holidays"

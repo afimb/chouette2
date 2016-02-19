@@ -1,0 +1,83 @@
+---
+layout: default
+title: Courses en Fréquence
+---
+
+Chouette permet la prise en charge des horaires à la fréquence. Un course à la fréquence se définit dans les horaires mais nécessite d'avoir préalablement créé un créneau horaire dans une page accessible dans le menu _Données>Créneaux horaires_. 
+
+h3. Créneaux horaires
+
+Les créneaux horaires définissent les plages horaires durant lesquelles les courses à la fréquence seront actives. 
+
+h4. Création de Créneau horaire
+
+La création d'un nouveau créneau horaire se fait en cliquant sur la fonction ad-hoc dans le menu de droite dans la page des créneaux horaires. Elle se définit par des éléments simples :
+
+* Un titre
+* Une heure de début
+* Une heure de fin
+
+!2016-01-12_170619.png!
+
+p=. Paramétrage d'un nouveau créneau horaire
+
+h4. Modification et suppression d'un créneau horaire
+
+L'édition en modification ou en suppression d'un créneau horaire peut se faire depuis le tableau récapitulatif des créneaux en cliquant respectivement sur les pictogrammes en forme de crayon ou de poubelle. Elle peut également se faire depuis la page du créneau proprement dite par le biais des fonctions du menu latéral.
+
+h3. Courses à fréquence
+
+h4. Création d'une course à fréquence
+
+La création d'une cours à fréquence se fait depuis la page des horaires (_dans Lignes<Séquence d'arrêts<Horaire des courses). Une fonction est disponible dans le menu latéral à la suite de la fonction de création d'une course conventionnelle. 
+
+!2016-01-12_171421.png!
+
+p=. Création d'une course à fréquence
+
+Le formulaire de description d'une course à fréquence est très proche de celui d'une course conventionnelle.
+
+Dans le champ calendrier, saisir quelques lettres du nom d'un calendrier à affecter à la ligne permet d'afficher des propositions issues de l'auto-complétion. L'opération peut être renouvelée autant que nécessaire pour affecter plusieurs calendriers à la course. 
+
+Dès lors que la mission est sélectionnée, la liste des arrêts à desservir s'affiche en bas de la page. Elle comprend deux rangées d'horaires, l'un pour le départ, l'autre pour l'arrivée. Pour faciliter la saisie, il est possible de passer d'un champ de saisie horaire avec la touche tabulation et de saisir les données horaires avec le pavé numérique du clavier. Dans le cas où les horaires de départ et d'arrivée à l'arrêt sont confondus, les liens _"Copier vers départs"_ et _"Copier vers arrivée"_ permettent de ne saisir les horaires qu'une seule fois. 
+
+Les horaires saisis permette de définir les temps de parcours et non plus l'heure exacte de passage aux arrêts. 
+
+Une fois les horaires saisis, il convient de rajouter un ou plusieurs créneaux horaire. La sélection des créneaux se fait au travers d'un champ de recherche par auto-complétion. Il est par conséquence important de choisir des noms explicites pour ses créneaux horaires. 
+
+!2016-01-12_172235.png!
+
+p=. Sélection d'un créneau horaire
+
+A l'intérieur de ce créneau horaire, on définit ensuite l'horaire du premier et du dernier départ. En effet, un créneau horaire ne signifie pas nécessairement que la course à fréquence démarrera pile sur l'horaire de début du créneau. L'intervale permet de définir la fréquence proprement dite entre deux départs. 
+
+Les horaires de premier et dernier départs doivent impérativement être inclus dans le créneau horaire. 
+
+La case à cochée _exact ?_ permet de gérer les cas où la durée de la dernière course dépasserait la plage horaire du créneau horaire. Cocher cette case permet de ne pas générer cette course.
+
+h4. Modification d'une course à fréquence
+
+Les courses à fréquence n'apparaissent pas dans le tableau récapitulatif des courses conventionnelles. Un lien, _voir les courses à fréquence_, situé juste au dessus permet d'accéder à la liste de ces courses. 
+
+!2016-01-12_173633.png!
+
+p=. Accès à la liste des courses à fréquence
+
+Un raccourci est également disponible au niveau de la liste des séquences d'arrêts.
+
+!2016-01-12_173924.png!
+
+p=. Accès à la liste des courses à fréquence depuis la liste des séquences d'arrêts
+
+Une représentation schématique où les plages horaires des courses sont affichées sur des bandeaux permet de visualiser toutes les course à fréquence. Placer le curseur au-dessus de la course à fréquence permet d'afficher ses horaires de début et de fin. 
+
+!2016-01-12_174725.png!
+
+p=. Liste des courses à frénquence
+
+Cliquer sur la plage horaire permet d'afficher une infobulle donnant des informations détaillées ainsi qu'un lien pour accéder à la page de la course ou de  la modifier directement. 
+
+h4. Suppression d'une course à fréquence
+
+Il est possible de supprimer une course à fréquence depuis la page de cette course. La fonction est disponible dans le menu latéral. 
+

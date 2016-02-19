@@ -1,0 +1,27 @@
+en:
+  clean_ups:
+    success_tm: "%{count} time tables deleted"
+    success_vj: "%{count} vehicle journeys deleted"
+    success_jp: "%{count} journey patterns deleted"
+    success_r: "%{count} routes deleted"
+    success_l: "%{count} lines deleted"
+    success_sa: "%{count} stop areas deleted"
+    success_c: "%{count} companies deleted"
+    success_n: "%{count} networks deleted"
+    success_g: "%{count} groups of lines deleted"
+    failure: "Fail when clean_up : %{error_message}"
+    actions:
+      clean_up: "clean up"
+      confirm: "Clean up will destroy time tables which ended on requested date\nand next recursively all object without any time table\nPlease confirm this action"
+  activemodel:
+    attributes:
+      clean_up:
+        expected_date: "Final date : "
+        keep_lines: "keep lines"
+        keep_stops: "keep stop areas"
+        keep_companies: "keep companies"
+        keep_networks: "keep networks"
+        keep_group_of_lines: "keep groups of lines"
+  titles:
+    clean_up:
+      expected_date: "value included in clean up"

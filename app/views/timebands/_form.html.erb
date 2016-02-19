@@ -1,0 +1,12 @@
+<%= semantic_form_for [@referential, @timeband] do |form| %>
+  <%= form.inputs do %>
+    <%= form.input :name %>
+    <%= form.input :start_time %>
+    <%= form.input :end_time %>
+  <% end %>
+
+  <%= form.actions do %>
+    <%= form.action :submit, :as => :button %>
+    <%= form.action :cancel, :as => :link %>
+  <% end %>
+<% end %>

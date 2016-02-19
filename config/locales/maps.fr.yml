@@ -1,0 +1,9 @@
+fr:
+  maps:
+    ign_map: "Scans IGN"
+    ign_ortho: "Orthophoto IGN"
+    ign_cadastre: "Cadastre IGN"
+    google_physical: "Relief Google"
+    google_streets: "Routier Google"
+    google_hybrid: "Hybride Google"
+    google_satellite: "Orthophoto Google"

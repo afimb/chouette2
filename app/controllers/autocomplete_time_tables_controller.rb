@@ -1,10 +1,10 @@
 class AutocompleteTimeTablesController < InheritedResources::Base
   respond_to :json, :only => [:index]
 
-  before_filter :switch_referential
+  before_action :switch_referential
 
   def switch_referential
-    Apartment::Database.switch(referential.slug)
+    Apartment::Tenant.switch!(referential.slug)
   end
 
   def referential

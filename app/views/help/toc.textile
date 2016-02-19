@@ -27,8 +27,10 @@ h3. Sommaire
 ## "Séquences d'arrêts":routes
 ## "Missions":journey_patterns
 ## "Courses et horaires":vehicle_journeys
+## "Courses en fréquence":timebands.textile
 ## "Correspondances":connection_links
 ## "Calendrier":time_tables
+## "Tracés":route_sections
 # Imports
 ## "Imports":imports
 ## "Formats d'import":import_formats

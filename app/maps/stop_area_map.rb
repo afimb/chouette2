@@ -26,7 +26,6 @@ class StopAreaMap < ApplicationMap
         if stop_area.new_record?
           page << <<EOF
           var createStyleMap = function() {
-            var defProp = {strokeColor: "red"};
             var defProp = {strokeColor: "black", strokeOpacity: 1, strokeWidth: 2, fillColor: "white", fillOpacity: 1};
             var defStyle = OpenLayers.Util.applyDefaults(defProp, OpenLayers.Feature.Vector.style["default"]);
             return new OpenLayers.StyleMap({'default': defStyle});
@@ -61,7 +60,7 @@ EOF
           for (var x in edit_stop_area_layer.features) {
               bounds.extend( edit_stop_area_layer.features[x].geometry.getBounds());
           }
-          map.zoomToExtent(bounds,true);
+          map.zoomToExtent(bounds.scale(2), true);
         };
         var transformedGeometry = function( geometry, origin, target ) {
           return geometry.clone().transform( new OpenLayers.Projection( origin ), new OpenLayers.Projection( target ));

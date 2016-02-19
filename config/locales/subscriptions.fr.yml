@@ -1,0 +1,19 @@
+fr:
+  subscriptions:
+    success: "Inscription enregistrée"
+    failure: "Inscription invalide"
+    new:
+      title: "Créer votre compte"
+    actions:
+      new: "Créer un compte"
+  activemodel:
+    models:
+      subscription: "compte"
+    attributes:
+      subscription:
+        organisation_name: "Organisation"
+        user_name: "Nom complet"
+        email: "Adresse mail"
+        password: "Mot de passe"
+        password_confirmation: "Confirmation du mot de passe"
+        current_password: "Mot de passe actuel"

@@ -11,7 +11,7 @@ class ComplianceCheckTasksController < ChouetteController
       new!
     rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
-      flash[:error] = t('iev.exception.default')
+      flash[:error] = t(error.locale_for_error)
       redirect_to referential_path(@referential)
     end
   end
@@ -23,7 +23,7 @@ class ComplianceCheckTasksController < ChouetteController
       end
     rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
-      flash[:error] = t('iev.exception.default')
+      flash[:error] = t(error.locale_for_error)
       redirect_to referential_path(@referential)
     end
   end

@@ -1,51 +1,54 @@
 <div class="container-fluid">
-  <div class="col-md-7">   
+  <% if @map %>
+    <%= @map.to_html %>
+  <% end %>
+  <%= semantic_form_for [@referential, @stop_area, @access_point] do |form| %>
+    <%= form.inputs do %>
+      <%= form.input :id, :as => :hidden %>
+      <%= form.input :name %>
+      <%= form.input :access_point_type, :as => :select,
+                     :input_html => {:disabled => !@access_point.new_record? },
+                     :collection => Chouette::AccessPoint.access_point_types,
+                     :include_blank => false,
+                     :member_label => Proc.new { |access_point_type| t("access_types.label.#{access_point_type}") }  %>
+      <%= form.input :street_name %>
+      <%= form.input :country_code %>
+      <%= form.input :zip_code %>
+      <%= form.input :city_name %>
+      <%= form.input :comment %>
+      <%= form.input :openning_time, :as => :time_picker,
+                     :input_html => { :class => "form-control input-sm timepicker_basic"},
+                     :wrapper_html => { :class => "input-append bootstrap-timepicker" } %>
+      <%= form.input :closing_time, :as => :time_picker,
+                     :input_html => { :class => "form-control input-sm timepicker_basic"},
+                     :wrapper_html => { :class => "input-append bootstrap-timepicker" } %>
+      <%= form.input :mobility_restricted_suitability,:as => :boolean %>
+      <%= form.input :stairs_availability,:as => :boolean %>
+      <%= form.input :lift_availability,:as => :boolean %>
+      <%= form.input :objectid, :required => !@access_point.new_record?,
+                     :input_html => { :title => t("formtastic.titles.access_point.objectid")}  %>
 
-    <%= semantic_form_for [@referential, @stop_area, @access_point] do |form| %>
-      <%= form.inputs do %> 
-        <%= form.input :id, :as => :hidden %>
-        <%= form.input :name %>
-        <%= form.input :access_point_type, :as => :select, :input_html => { :disabled => !@access_point.new_record? },
-    :collection => Chouette::AccessPoint.access_point_types, :include_blank => false, :member_label => Proc.new { |access_point_type| t("access_types.label.#{access_point_type}") }  %>
-        <%= form.input :street_name %>              
-        <%= form.input :country_code %>              
-        <%= form.input :zip_code %>              
-        <%= form.input :city_name %>              
-        <%= form.input :comment %>
-        <%= form.input :openning_time, :as => :time_picker, :input_html => { :class => "form-control input-sm timepicker_basic"}, :wrapper_html => { :class => "input-append bootstrap-timepicker" } %>
-        <%= form.input :closing_time, :as => :time_picker, :input_html => { :class => "form-control input-sm timepicker_basic"}, :wrapper_html => { :class => "input-append bootstrap-timepicker" } %>
-        <%= form.input :mobility_restricted_suitability,:as => :boolean %>
-        <%= form.input :stairs_availability,:as => :boolean %>
-        <%= form.input :lift_availability,:as => :boolean %>
-        <%= form.input :objectid, :required => !@access_point.new_record?, :input_html => { :title => t("formtastic.titles.access_point.objectid")}  %>
-        
-        <%= form.inputs :name => t('access_points.show.geographic_data') do %> 
-          <% if ! @referential.projection_type_label.empty? %>
-            <div class="panel panel-default">
-              <div class="panel-heading"><%= @referential.projection_type_label %></div>
-              <div class="panel-body">
-	              <%= form.input :projection_xy, :input_html => { :title => t("formtastic.titles.access_point.projection_xy")} %>
-              </div>
-            </div>	       
-          <% end %>
+      <%= form.inputs :name => t('access_points.show.geographic_data') do %>
+        <% if ! @referential.projection_type_label.empty? %>
           <div class="panel panel-default">
-            <div class="panel-heading">WGS84</div>
+            <div class="panel-heading"><%= @referential.projection_type_label %></div>
             <div class="panel-body">
-	            <%= form.input :coordinates, :input_html => { :title => t("formtastic.titles.access_point.coordinates")} %>
+              <%= form.input :projection_xy, :input_html => { :title => t("formtastic.titles.access_point.projection_xy")} %>
             </div>
-          </div>       
+          </div>
         <% end %>
+        <div class="panel panel-default">
+          <div class="panel-heading">WGS84</div>
+          <div class="panel-body">
+            <%= form.input :coordinates, :input_html => { :title => t("formtastic.titles.access_point.coordinates")} %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
 
     <%= form.actions do %>
-    <%= form.action :submit, :as => :button %>
-    <%= form.action :cancel, :as => :link %>
+      <%= form.action :submit, :as => :button %>
+      <%= form.action :cancel, :as => :link %>
     <% end %>
-    <% end %>
-  </div>
-  <div class="col-md-5">
-    <% if @map %>
-	  <%= @map.to_html %>
-    <% end %>
-  </div>
+  <% end %>
 </div>

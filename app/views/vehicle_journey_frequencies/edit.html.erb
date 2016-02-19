@@ -1,0 +1,7 @@
+<%= title_tag edit_vehicle_title(@vehicle_journey_frequency) %>
+
+<%= render 'vehicle_journeys/form', vehicle_journey: @vehicle_journey_frequency,
+           form_url: referential_line_route_vehicle_journey_frequency_path(@referential,
+                                                                           @line,
+                                                                           @route,
+                                                                           id: @vehicle_journey_frequency) %>

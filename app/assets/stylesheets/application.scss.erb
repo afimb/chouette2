@@ -1,0 +1,52 @@
+// First import journal variables
+$brand-primary: <%= ChouetteIhm::Application.config.company_theme %>;
+$navbar-default-bg: $brand-primary;
+$navbar-default-link-color: white;
+$body-bg: #eee;
+
+// Then bootstrap itself
+@import "bootstrap-sass-official/_bootstrap-sprockets.scss";
+@import "bootstrap-sass-official";
+
+// Whatever application styles you have go last
+// Modules and Variables
+@import "modules/search";
+@import "modules/index_item";
+@import "modules/icons";
+@import "modules/devise";
+@import "modules/progress_bars";
+
+// Partials
+@import "partials/base";
+@import "partials/header";
+@import "partials/footer";
+
+// Third-party
+@import "tagmanager/tagmanager";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "jquery-ui";
+@import "morrisjs";
+@import "formtastic";
+@import 'eonasdan-bootstrap-datetimepicker';
+@import 'footable';
+
+@import "vendor/openlayers_style";
+@import "vendor/openlayers_ie6-style";
+@import "vendor/openlayers_google";
+@import "vendor/openlayers_framedCloud";
+@import "vendor/formtastic_changes";
+@import "vendor/pagination";
+@import "vendor/map_layers";
+@import "vendor/token-input";
+@import "vendor/typeahead";
+@import "vendor/bootstrap_changes";
+@import "vendor/simple_form";
+
+// Main css
+@import "main/*";
+
+// Hack to make li simple
+li{
+  list-style: none;
+}

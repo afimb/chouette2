@@ -1,13 +1,23 @@
-<%= title_tag t('.title') %>
-
-<%= semantic_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |form| %>
-
-  <%= form.input :email %> 
-
-   <%= form.actions do %>
-     <%= form.action :submit, :as => :button, :label => t('.title') %>
-     <%= form.action :cancel, :as => :link %>
-  <% end %>
-<% end %>
-
-<%= render "links" %>
+<div id="sessions_new" class="row">
+  <%= render 'devise/shared/intro' %>
+  <div class="col-md-4 login">
+    <div class="panel panel-default">
+      <div class="panel-heading"><%= t('.title') %></div>
+      <div class="panel-body">
+        <%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :wrapper => "form_without_label", html: { :class => 'form-horizontal user', method: :post } ) do |form| %>
+          <%= form.input :email, :label => false, input_html: { :class => "form-control" } %>
+          <div class="row">
+            <div class="col-md-12">
+              <%= form.button :submit, t('.title'), :class => "btn-primary" %>
+            </div>
+          </div>
+          <div class="row options">
+            <div class="col-md-12 new_password">
+              <%= link_to t('devise.links.sign_in'), new_session_path(resource_name) %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

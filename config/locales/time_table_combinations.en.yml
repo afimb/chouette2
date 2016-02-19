@@ -1,0 +1,15 @@
+en:
+  time_table_combinations:
+    success: "operation applied on timetable"
+    failure: "operation failed on timetable"
+    operations:
+      union: "merge"
+      intersection: "intersect"
+      disjunction: "disjoin"
+    combine_form:
+      time_tables: "Time table to combine with"
+  activemodel:
+    attributes:
+      time_table_combination:
+        combined_id: "Time table id"
+        operation: "operation"

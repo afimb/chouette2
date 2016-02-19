@@ -10,8 +10,8 @@ module NinoxeExtension::Hub
         # HUB-44
         tt.validate :specific_objectid
         # HUB-45
-        #tt.validates_format_of :comment, :with => %r{\A[\w ]{0,75}\z}
-        tt.validates_length_of :comment, :maximum => 75, :allow_blank => true, :allow_nil => true
+        #tt.validates_length_of :comment, :maximum => 75, :allow_blank => true, :allow_nil => true
+        tt.validates :comment, length: { maximum: 75 }, allow_blank: true
       end
     end
     def specific_objectid

@@ -1,0 +1,26 @@
+fr:
+  timebands:
+    actions:
+      new: "Ajouter un créneau horaire"
+      edit: "Modifier ce créneau horaire"
+      destroy: "Supprimer ce créneau horaire"
+      destroy_confirm: "Merci de confirmer la suppression de ce créneau horaire."
+    new:
+      title: "Ajouter un créneau horaire"
+    edit:
+      title: "Modifier le créneau horaire %{timeband}"
+    show:
+      title: "Créneau horaire %{timeband}"
+    index:
+      title: "Créneaux horaires"
+  activerecord:
+    models:
+      timeband:
+        zero:  "créneau horaire"
+        one:   "créneau horaire"
+        other: "créneaux horaires"
+    attributes:
+      timeband:
+        name: "Titre"
+        start_time: "Heure de début"
+        end_time: "Heure de fin"

@@ -32,6 +32,10 @@
       <%= Referential.human_attribute_name("connection_links") %>
     </li>
     <li class="list-group-item">
+      <span class="badge"><%= @referential.route_sections.size %></span>
+      <%= Referential.human_attribute_name("route_sections") %>
+    </li>
+    <li class="list-group-item">
       <span class="badge"><%= @referential.stop_areas.size %></span>
       <%= Referential.human_attribute_name("stop_areas") %>
     </li>

@@ -11,7 +11,7 @@ class ExportTasksController < ChouetteController
       new!
     rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
-      flash[:error] = t('iev.exception.default')
+      flash[:error] = t(error.locale_for_error)
       redirect_to referential_path(@referential)
     end
   end
@@ -24,7 +24,7 @@ class ExportTasksController < ChouetteController
       end
     rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
-      flash[:error] = t('iev.exception.default')
+      flash[:error] = t(error.locale_for_error)
       redirect_to referential_path(@referential)
     end
   end
@@ -65,6 +65,7 @@ class ExportTasksController < ChouetteController
   def build_resource    
     @export_task ||= if params[:export_task].present?
                        export_task_parameters = params[:export_task]
+                       export_task_parameters[:reference_ids] = export_task_parameters[:reference_ids].to_s.split(',').map(&:to_i)
                        case export_task_parameters[:data_format]
                        when "neptune"
                          NeptuneExport.new(export_task_parameters)
@@ -80,7 +81,6 @@ class ExportTasksController < ChouetteController
                      else
                        NeptuneExport.new
                      end
-    
   end
   
 end

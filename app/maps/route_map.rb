@@ -8,7 +8,7 @@ class RouteMap < ApplicationMap
   end
 
   def customize_map(map, page)
-    layer = kml_layer([route.referential, route.line, route], :styleMap => Design::RouteStyleMap.new(helpers).style_map)
+    layer = kml_layer([route.referential, route.line, route], :styleMap => Design::RouteStyleMap.new(helpers, {context: context = {label: ""}}).style_map)
     page.assign "routeLayer", layer
     selectFeature = OpenLayers::Control::SelectFeature.new( :routeLayer)
 

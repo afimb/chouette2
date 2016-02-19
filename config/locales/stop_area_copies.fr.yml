@@ -1,0 +1,14 @@
+fr:
+  stop_area_copies:
+    new:
+      success: "Clonage réussi"
+      title:
+        child: "Cloner pour créer un fils"
+        parent: "Cloner pour créer un père"
+    errors:
+      copy_aborted: "Des erreurs ont empéchées le bon déroulement de la copie: "
+      exception: "erreur interne"
+  activemodel:
+    attributes:
+      stop_area_copy:
+        area_type: "Type d'arrêt"

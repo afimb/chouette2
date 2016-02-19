@@ -1,0 +1,48 @@
+<%= title_tag t('.title', journey_pattern: journey_name(@journey_pattern)) %>
+
+<div class = "large-map">
+  <%= @map.to_html(no_fullscreen: true) %>
+</div>
+
+<%= semantic_form_for resource, url: referential_line_route_journey_pattern_route_sections_selector_path(@referential, @line, @route, @journey_pattern), method: :put do |form| %>
+
+<h3><%= t('.selection.title') %></h3>
+
+<div id="map-selection" style="display: none">
+  <div>
+  </div>
+</div>
+
+<div id="empty-map-selection">
+  <%= t('.no_selection') %>
+</div>
+
+<h3><%= t('.form.title') %></h3>
+
+<table class="table table-hover table-striped">
+  <tbody>
+    <%= form.fields_for :sections do |section_form| %>
+    <tr>
+      <td><%= link_to section_form.object.departure.name, referential_stop_area_path(@referential, section_form.object.departure) %></td>
+      <td class="route_section">
+        <% if section_form.object.candidates.present? %>
+          <%= section_form.input :route_section_id, as: :select, label: false, collection: section_form.object.candidates, include_blank: t('.no_selection')  %>
+        <% else %>
+          <%= t('.no_candidate') %>
+        <% end %>
+      </td>
+      <td class="action">
+        <%= link_to_edit_route_section section_form.object.route_section %>
+        <%= link_to_create_route_section section_form.object.departure, section_form.object.arrival %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= form.actions do %>
+  <%= form.action :submit, as: :button, label: t('.submit') %>
+  <%= form.action :cancel, as: :link, url: referential_line_route_journey_pattern_path(@referential, @line, @route, @journey_pattern) %>
+<% end %>
+
+<% end %>

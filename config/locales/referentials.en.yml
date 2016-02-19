@@ -1,0 +1,78 @@
+en:
+  referentials:
+    edit:
+      title: "Edit the data space"
+    show:
+      lines: "lines"
+      networks: "networks"
+      vehicle_journeys: "vehicle journeys"
+      time_tables: "time tables"
+      title: "Data space"
+      clean_up: "Clean up"
+      api_keys: "Authentification keys for an API REST access"
+    counts:
+      objects: "Data space elements"
+      count: "count"
+    validity_out:
+      validity_out_time_tables: "Closed timetables"
+      validity_out_soon_time_tables: "Timetables closed in %{count} days"
+    new:
+      title: "Create a new data space"
+      submit: "Create a data space"
+    actions:
+      new: "Add a data space"
+      destroy_confirm: "Do you confirm to destroy this data space ?"
+      destroy: "Destroy this data space"
+      edit: "Edit this data space"
+    errors:
+      pg_excluded: "can't begins with pg_"
+      public_excluded: "public is a reserved value"
+      user_excluded: "%{user} is a reserved value"
+  activerecord:
+    models:
+      referential:
+        zero: "Data space"
+        one: "Data space"
+        other: "Data spaces"
+    attributes:
+      referential:
+        name: "Name"
+        slug: "Code"
+        prefix: "Neptune Object Id prefix"
+        projection_type: "Optional spatial reference system code (SRID)"
+        time_zone: "time zone"
+        upper_corner: "Top,Right corner for default bounding box"
+        lower_corner: "Bottom,Left corner for default bounding box"
+        resources: "Neptune Import File"
+        validity_period: "Validity period"
+        no_validity_period: "undefined"
+        start_validity_period: "from"
+        end_validity_period: "to"
+        networks: "Networks"
+        group_of_lines: "Group of lines"
+        lines: "Lines"
+        vehicle_journeys: "Vehicle journeys"
+        companies: "Companies"
+        stop_areas: "Stop Areas"
+        access_points: "Access Points"
+        time_tables: "Time tables"
+        connection_links: "Connection links"
+        quays: "quays"
+        boarding_positions: "boarding positions"
+        commercial_stops: "commercial stops"
+        stop_places: "stop places"
+        itls: "routing contraints"
+        imports: "Imports"
+        exports: "Exports"
+        compliance_checks: "Validations"
+        rule_parameter_sets: "Rule parameters sets"
+        data_format_restrictions: "Data format constraint"
+        data_format: "Favorite format for export"
+        timebands: "Time bands"
+  formtastic:
+    titles:
+      referential:
+        slug: "only lowercase alphanumerical or underscore characters, first character must be a letter"
+        prefix: "only alphanumerical or underscore characters"
+        upper_corner: "latitude,longitude in WGS84 referential, dot for decimal separator"
+        lower_corner: "latitude,longitude in WGS84 referential, dot for decimal separator"

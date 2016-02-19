@@ -1,0 +1,24 @@
+<%= semantic_form_for [@referential, @route_section] do |form| %>
+  <%= form.inputs do %>
+    <% if @route_section.new_record? %>
+      <%= form.input :departure, as: :select, collection: @stop_areas, include_blank: false %>
+      <%= form.input :arrival, as: :select, collection: @stop_areas, include_blank: false %>
+    <% else %>
+      <li class="input optional">
+        <label class="label"><%= @route_section.human_attribute_name("departure") %></label>
+        <%= @route_section.departure.name %>
+      </li>
+      <li class="input optional">
+        <label class="label"><%= @route_section.human_attribute_name("arrival") %></label>
+        <%= @route_section.arrival.name %>
+      </li>
+      <%= form.input :editable_geometry, as: :hidden %>
+    <% end %>
+
+    <%= form.input :no_processing, label: t('.no_processing'), as: :select, collection: { t('.standard_processor') => false, t('.no_processor') => true }, include_blank: false %>
+  <% end %>
+  <%= form.actions do %>
+    <%= form.action :submit, :as => :button, label: t('.submit') %>
+    <%= form.action :cancel, :as => :link %>
+  <% end %>
+<% end %>

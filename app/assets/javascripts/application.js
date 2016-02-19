@@ -6,7 +6,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.all
+//= require jquery-ui
 //= require modernizr
 //= require cocoon
 //= require raphael
@@ -22,10 +22,12 @@
 //= require footable/footable.filter
 //= require footable/footable.paginate
 //= require footable/footable.sort
+//= require tools
 //= require_directory ./plugins
 //= require_directory .
 //= require_directory ./stop_areas
 //= require_directory ./vehicle_journeys
+//= require_directory ./vehicle_journey_frequencies
 //= require_directory ./import_tasks
 //= require_directory ./compliance_check_tasks
 //= require_directory ./compliance_checks

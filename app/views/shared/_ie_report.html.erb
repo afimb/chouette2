@@ -3,25 +3,25 @@
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active">
       <a href="#ie_tab_line" class="ie_tab_line"  aria-controls="ie_tab_line" role="tab" data-toggle="tab">
-        <%=t('.tab.line')%>
+        <%=t('shared.ie_report.tab.line')%>
       </a>
     </li>
     <li role="presentation">
       <a href="#ie_tab_file" class="ie_tab_file" aria-controls="ie_tab_file" role="tab" data-toggle="tab">
-        <%=t('.tab.file')%>
+        <%=t('shared.ie_report.tab.file')%>
       </a>
     </li>
   </ul>
 
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="ie_tab_line">
-        <%= render partial: 'shared/ie_report_line', locals: { job: job, type: (defined?(type) ? type : :default) } %>
+        <%= render partial: 'shared/ie_report_line', locals: { job: job, line_items: line_items, type: (defined?(type) ? type : :default) } %>
     </div>
     <div role="tabpanel" class="tab-pane" id="ie_tab_file">
       <%= render partial: 'shared/ie_report_file', locals: { job: job } %>
     </div>
   </div>
   <% else %>
-    <%= render partial: 'shared/ie_report_line', locals: { job: job, type: (defined?(type) ? type : :default) } %>
+    <%= render partial: 'shared/ie_report_line', locals: { job: job, line_items: line_items, type: (defined?(type) ? type : :default) } %>
   <% end %>
 </div>

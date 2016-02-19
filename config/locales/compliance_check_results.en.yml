@@ -8,6 +8,7 @@ en:
     index:
       line: "Li"
       column: "Col"
+    in_progress: "Compliance check in progress..."
   compliance_check_result:
     severities:
       error: "Required"

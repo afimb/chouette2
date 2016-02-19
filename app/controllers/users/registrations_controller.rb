@@ -1,8 +1,8 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_filter :configure_sign_up_params, only: [:create]
-  before_filter :configure_account_update_params, only: [:update]
+  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_account_update_params, only: [:update]
 
-  prepend_before_filter :accept_user_creation, :only => [:new, :create]
+  prepend_before_action :accept_user_creation, only: [:new, :create]
 
   protected
 

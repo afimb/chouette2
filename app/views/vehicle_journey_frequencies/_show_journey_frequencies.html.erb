@@ -1,0 +1,28 @@
+<h3><%= t('vehicle_journeys.show.journey_frequencies') %></h3>
+<div class="journey_frequencies content">
+  <table class="table table-hover table-striped">
+    <thead>
+    <tr>
+      <th><%= t('activerecord.attributes.journey_frequency.timeband') %></th>
+      <th><%= t('activerecord.attributes.journey_frequency.first_departure_time') %></th>
+      <th><%= t('activerecord.attributes.journey_frequency.last_departure_time') %></th>
+      <th><%= t('activerecord.attributes.journey_frequency.scheduled_headway_interval') %></th>
+      <th><%= t('activerecord.attributes.journey_frequency.exact_time') %></th>
+    </tr>
+    <thead>
+    <tbody>
+    <% @vehicle_journey_frequency.journey_frequencies.each do |journey_frequency| %>
+      <tr class="<%= cycle :odd, :even %>">
+        <td>
+          <%= link_to journey_frequency.timeband.fullname,
+                      referential_timeband_path(@referential, journey_frequency.timeband) if journey_frequency.timeband %>
+        </td>
+        <td><%= l(journey_frequency.first_departure_time, format: :hour) %></td>
+        <td><%= l(journey_frequency.last_departure_time, format: :hour) %></td>
+        <td><%= l(journey_frequency.scheduled_headway_interval, format: :hour) %></td>
+        <td><%= '<i class="fa fa-check"></i>'.html_safe if journey_frequency.exact_time %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

@@ -19,7 +19,7 @@
     <%= link_to font_awesome_classic_tag("fa-file-#{@import.filename_extension}-o") + t("imports.show.imported_file"), imported_file_referential_import_path(@referential, @import.id) if @import.file_path? %>
     <%= link_to font_awesome_classic_tag("fa-external-link") + t("imports.show.compliance_check"), compliance_check_referential_import_path(@referential, @import.id) if @import.compliance_check? %>
   </div>
-  <%= render(partial: "shared/ie_report.html", locals: {job: @import}) %>
+  <%= render(partial: 'shared/ie_report', locals: {job: @import, line_items: @line_items}) %>
 </div>
 
 <% content_for :sidebar do %>

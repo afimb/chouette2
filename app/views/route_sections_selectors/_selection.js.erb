@@ -1,0 +1,28 @@
+<div>
+  <span class="departure">
+    <label><%= @route_section.human_attribute_name("departure") %>:</label>
+    <%= link_to @route_section.departure.name, referential_stop_area_path(@referential, @route_section.departure) %>
+  </span>
+
+  <span class="arrival">
+    <label><%= @route_section.human_attribute_name("arrival") %>:</label>
+    <%= link_to @route_section.arrival.name, referential_stop_area_path(@referential, @route_section.arrival) %>
+  </span>
+
+  <span class="distance">
+    <label><%= @route_section.human_attribute_name("distance") %>:</label>
+    <%= "#{@route_section.distance.to_i} m" if @route_section.distance > 0 %>
+  </span>
+
+  <% if @route_section.via_count > 0 %>
+  <span class="via_count">
+    <label><%= @route_section.human_attribute_name("via_count") %>:</label>
+    <%= @route_section.via_count if @route_section.via_count > 0 %>
+  </span>
+  <% end %>
+
+  <span class="actions">
+    <%= link_to_edit_route_section @route_section %>
+    <%= link_to_create_route_section @route_section.departure, @route_section.arrival %>
+  </span>
+</div>

@@ -15,7 +15,7 @@ class ExportsController < ChouetteController
       end
     rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
-      flash[:error] = t('iev.exception.default')
+      flash[:error] = t(error.locale_for_error)
       redirect_to referential_path(@referential)
     end
   end
@@ -27,7 +27,7 @@ class ExportsController < ChouetteController
       end
     rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
-      flash[:error] = t('iev.exception.default')
+      flash[:error] = t(error.locale_for_error)
       redirect_to referential_path(@referential)
     end
   end
@@ -37,7 +37,7 @@ class ExportsController < ChouetteController
       destroy!
     rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
-      flash[:error] = t('iev.exception.default')
+      flash[:error] = t(error.locale_for_error)
       redirect_to referential_path(@referential)
     end
   end
@@ -51,7 +51,7 @@ class ExportsController < ChouetteController
       send_file open(resource.file_path), { :type => "application/#{resource.filename_extension}", :disposition => "attachment", :filename => resource.filename }
     rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
-      flash[:error] = t('iev.exception.default')
+      flash[:error] = t(error.locale_for_error)
       redirect_to referential_path(@referential)
     end
   end
@@ -64,6 +64,11 @@ class ExportsController < ChouetteController
   
   def resource
     @export ||= export_service.find( params[:id] )
+    @line_items = @export.report.line_items
+    if @line_items.size > 500
+      @line_items = @line_items.paginate(page: params[:page], per_page: 20)
+    end
+    @export
   end
 
   def collection

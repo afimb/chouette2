@@ -26,7 +26,7 @@ Apartment.configure do |config|
   #config.use_sql = true
 
   # configure persistent schemas (E.g. hstore )
-  # config.persistent_schemas = %w{ hstore }
+  config.persistent_schemas = %w{ shared_extensions }
 
   # add the Rails environment to database names?
   # config.prepend_environment = true

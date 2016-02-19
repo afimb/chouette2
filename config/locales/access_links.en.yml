@@ -1,0 +1,45 @@
+en:
+  access_links:
+    actions:
+      new: "Add a new access link"
+      edit: "Edit this access link"
+      destroy: "Remove this access link"
+      destroy_confirm: "Are you sure you want destroy this access link?"
+    new:
+      title_access_point_to_stop_area: "Create an access link from access %{access_point} to stop area %{stop_area}"
+      title_stop_area_to_access_point: "Create an access link from stop area %{stop_area} to access %{access_point}" 
+    edit:
+      title_access_point_to_stop_area: "Update an access link from access %{access_point} to stop area %{stop_area}"
+      title_stop_area_to_access_point: "Update an access link from stop area %{stop_area} to access %{access_point} "
+    show:
+      title: "access link %{access_link}"
+      durations: "Durations (hh mm ss):"
+  activerecord:        
+    models:        
+      access_link: 
+        zero:  "access link"
+        one:   "access link"
+        other: "access links"
+    attributes:
+      access_link:
+        access_point: "Access Point"
+        stop_area: "Stop Area"
+        name: "Name"
+        comment: "Comment"
+        link_distance: "Distance (m)"
+        access_link_type: "Type"
+        default_duration: "Average"
+        frequent_traveller_duration: "Regular passenger"
+        occasional_traveller_duration: "Occasional passenger"
+        mobility_restricted_traveller_duration: "Mobility reduced passenger"
+        mobility_restricted_suitability: "Mobility reduced passenger suitable"
+        stairs_availability: "Escalator"
+        lift_availability: "Lift"
+        objectid: "Neptune identifier"
+        object_version: "Version"
+        creation_time: "Created on"
+        creatorid: "Created by "
+  formtastic:
+    titles:
+      access_link:
+        objectid: "[prefix]:AccessLink:[unique_key] : prefix contains only alphanumerical or underscore characters, unique_key accepts also minus character"

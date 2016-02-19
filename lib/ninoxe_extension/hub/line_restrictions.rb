@@ -12,14 +12,16 @@ module NinoxeExtension::Hub
         #l.validates_format_of :objectid, :with => %r{\A\w+:\w+:[\w]{1,14}\z}
         l.validate :specific_objectid
         # HUB-16
-        l.validates_format_of :number, :with => %r{\A[\w]{1,6}\z}
-        # HUB-17
-        #l.validates_format_of :name, :with => %r{\A[\w ]{0,75}\z}
-        l.validates_length_of :name, :maximum => 75
+        #l.validates_format_of :number, :with => %r{\A[\w]{1,6}\z}
+        l.validates :number, length: { in: 1..6 }, format: { with: /\A[\w]+\z/ }
+        # HUB-17 & HUB-22
+        #l.validates_length_of :name, :maximum => 75
+        l.validates :name, length: { maximum: 75 }, uniqueness: true, allow_blank: true
         # HUB-21
-        l.validates :registration_number, :numericality => { :less_than => 10 ** 8 }
+        #l.validates :registration_number, :numericality => { :less_than => 10 ** 8 }
+        l.validates :registration_number, presence: true, numericality: { less_than: 10 ** 8 }
         # HUB-22
-        l.validates_uniqueness_of :name, :allow_blank => true
+        #l.validates_uniqueness_of :name, :allow_blank => true
       end
     end
 
