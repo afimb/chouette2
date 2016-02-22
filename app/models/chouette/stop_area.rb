@@ -5,6 +5,9 @@ class Chouette::StopArea < Chouette::TridentActiveRecord
   # FIXME http://jira.codehaus.org/browse/JRUBY-6358
   self.primary_key = "id"
   include Geokit::Mappable
+  include ProjectionFields
+  include StopAreaRestrictions
+
   has_many :stop_points, :dependent => :destroy
   has_many :access_points, :dependent => :destroy
   has_many :access_links, :dependent => :destroy
@@ -152,7 +155,7 @@ class Chouette::StopArea < Chouette::TridentActiveRecord
 
   def default_position
     # for first StopArea ... the bounds is nil :(
-    Chouette::StopArea.bounds and Chouette::StopArea.bounds.center
+      Chouette::StopArea.bounds ? Chouette::StopArea.bounds.center : self.referential.envelope.center
   end
 
   def self.near(origin, distance = 0.3)

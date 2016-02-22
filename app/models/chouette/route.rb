@@ -1,4 +1,6 @@
 class Chouette::Route < Chouette::TridentActiveRecord
+  include RouteRestrictions
+
   # FIXME http://jira.codehaus.org/browse/JRUBY-6358
   self.primary_key = "id"
 

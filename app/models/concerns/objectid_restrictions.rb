@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-module NinoxeExtension::Hub::ObjectidRestrictions
+module ObjectidRestrictions
     extend ActiveSupport::Concern
 
     included do

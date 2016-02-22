@@ -1,6 +1,6 @@
 module Chouette
   class VehicleJourney < TridentActiveRecord
-
+    include VehicleJourneyRestrictions
     # FIXME http://jira.codehaus.org/browse/JRUBY-6358
     self.primary_key = "id"
 
@@ -42,6 +42,11 @@ module Chouette
     scope :without_any_passing_time, -> { joins('LEFT JOIN "vehicle_journey_at_stops" ON "vehicle_journey_at_stops"."vehicle_journey_id" = "vehicle_journeys"."id"').where(vehicle_journey_at_stops: { id: nil }) }
 
     accepts_nested_attributes_for :vehicle_journey_at_stops, :allow_destroy => true
+
+
+    def presenter
+      @presenter ||= ::VehicleJourneyPresenter.new( self)
+    end
 
     def transport_mode_name
       # return nil if transport_mode is nil

@@ -243,9 +243,9 @@ describe Chouette::StopArea, :type => :model do
 
   describe "#default_position" do
     
-    it "should return nil when StopArea.bounds is nil" do
+    it "should return referential center point when StopArea.bounds is nil" do
       allow(Chouette::StopArea).to receive_messages :bounds => nil
-      expect(subject.default_position).to be_nil
+      expect(subject.default_position).not_to be_nil
     end
 
     it "should return StopArea.bounds center" do

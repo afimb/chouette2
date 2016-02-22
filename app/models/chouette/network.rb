@@ -1,4 +1,5 @@
 class Chouette::Network < Chouette::TridentActiveRecord
+  include NetworkRestrictions
   # FIXME http://jira.codehaus.org/browse/JRUBY-6358
   self.primary_key = "id"
 

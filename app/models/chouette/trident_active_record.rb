@@ -12,10 +12,19 @@ class Chouette::TridentActiveRecord < Chouette::ActiveRecord
     def self.object_id_key
       model_name
     end
+
+    def referential
+      @referential ||= Referential.where(:slug => Apartment::Tenant.current).first!
+    end
+
+    def hub_restricted?
+      referential.data_format == "hub"
+    end
     
     def prefix
-      "NINOXE"
+      self.referential.prefix
     end
+
     def prepare_auto_columns
       # logger.info 'calling before_validation'
       # logger.info 'start before_validation : '+self.objectid.to_s

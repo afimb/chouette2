@@ -1,4 +1,5 @@
 class Chouette::TimeTable < Chouette::TridentActiveRecord
+  include TimeTableRestrictions
   # FIXME http://jira.codehaus.org/browse/JRUBY-6358
   self.primary_key = "id"
 
@@ -28,6 +29,10 @@ class Chouette::TimeTable < Chouette::TridentActiveRecord
   validates_presence_of :comment
   validates_associated :dates
   validates_associated :periods
+
+  def presenter
+    @presenter ||= ::TimeTablePresenter.new( self)
+  end
 
   def self.start_validity_period
     [Chouette::TimeTable.minimum(:start_date)].compact.min
@@ -445,6 +450,5 @@ class Chouette::TimeTable < Chouette::TridentActiveRecord
     tt.comment = I18n.t("activerecord.copy", :name => self.comment)
     tt
   end
-
 end
 
