@@ -7,14 +7,14 @@ describe Chouette::VehicleJourneyAtStop, :type => :model do
 
   describe "#exceeds_gap?" do
     it "should return false if gap < 1.hour" do
-      t1 = 1.minutes.ago
-      t2 = 1.minutes.ago + 4.hour
-      expect(subject.exceeds_gap?(t1, t2)).to be_truthy
+        t1 = Time.now
+        t2 = Time.now + 3.minutes
+        expect(subject.exceeds_gap?(t1, t2)).to be_falsey
     end
-    it "should return false if gap > 2.hour" do
-      t1 = 1.minutes.ago
-      t2 = 1.minutes.ago + 3.minutes
-      expect(subject.exceeds_gap?(t1, t2)).to be_falsey
+    it "should return true if gap > 4.hour" do
+      t1 = Time.now
+      t2 = Time.now + (4.hours + 1.minutes)
+      expect(subject.exceeds_gap?(t1, t2)).to be_truthy
     end
   end
 
