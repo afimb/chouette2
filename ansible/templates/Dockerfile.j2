@@ -13,9 +13,10 @@ RUN gem install bundler -v 1.10.3
 RUN wget --quiet https://github.com/Yelp/dumb-init/releases/download/v1.0.0/dumb-init_1.0.0_amd64.deb
 RUN dpkg -i dumb-init_*.deb
 
-COPY chouette2 /code
+COPY source /code
 WORKDIR /code
 
+RUN git log -n 1 --pretty=format:"%H" > /version
 RUN bundle install
 
 EXPOSE 3000
