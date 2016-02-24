@@ -1,6 +1,6 @@
 ---
-#- set_fact: build_home="/usr/src/jenkinsbuild/workspace/chouette2"
-- set_fact: build_home="/home/en/git/rutebanken/chouette2"
+- set_fact: build_home="/usr/src/jenkinsbuild/workspace/chouette2"
+#- set_fact: build_home="/home/en/git/rutebanken/chouette2"
 - set_fact: build_log_directory="/usr/src/log"
 - set_fact: logfile="{{build_log_directory}}/chouette2.log"
 
