@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN apt-get install -y libpq-dev git unzip libgeos-dev proj-bin libproj-dev make
 
-RUN apt-get install -y less
+RUN apt-get install -y less build-essential patch
 
 RUN gem install bundler -v 1.10.3
 
@@ -19,6 +19,10 @@ COPY source /code
 WORKDIR /code
 
 RUN git log -n 1 --pretty=format:"%H" > /version
+
+# Line below is to try to solve nokogiri build failure
+RUN bundle config build.nokogiri --use-system-libraries
+
 RUN bundle install
 
 EXPOSE 3000
