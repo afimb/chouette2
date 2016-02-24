@@ -1,5 +1,9 @@
 FROM ruby:2.1.7
 
+# https://github.com/Yelp/dumb-init
+RUN wget --quiet https://github.com/Yelp/dumb-init/releases/download/v1.0.0/dumb-init_1.0.0_amd64.deb
+RUN dpkg -i dumb-init_*.deb
+
 # Inspired by https://blog.codeship.com/running-rails-development-environment-docker/
 RUN apt-get update && apt-get install -y \
   build-essential \
@@ -7,11 +11,9 @@ RUN apt-get update && apt-get install -y \
 
 RUN apt-get install -y libpq-dev git unzip libgeos-dev proj-bin libproj-dev make
 
-RUN gem install bundler -v 1.10.3
+RUN apt-get install -y less
 
-# https://github.com/Yelp/dumb-init
-RUN wget --quiet https://github.com/Yelp/dumb-init/releases/download/v1.0.0/dumb-init_1.0.0_amd64.deb
-RUN dpkg -i dumb-init_*.deb
+RUN gem install bundler -v 1.10.3
 
 COPY source /code
 WORKDIR /code

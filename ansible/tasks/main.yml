@@ -17,7 +17,7 @@
   template: src=Dockerfile.j2 dest={{chouette2_root}}/Dockerfile mode=0755
 
 - name: Build the chouette2 docker image
-  shell: docker build --tag={{ chouette2_docker_image|quote }} --force-rm=true {{chouette2_root}} > {{logfile}} 2>&1
+  shell: docker build -q --tag={{ chouette2_docker_image|quote }} --force-rm=true {{chouette2_root}} > {{logfile}} 2>&1
   register: image
 
 #- name: Push chouette2 docker image if built
