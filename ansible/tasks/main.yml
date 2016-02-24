@@ -20,6 +20,6 @@
   shell: docker build --tag={{ chouette2_docker_image|quote }} --force-rm=true {{chouette2_root}} > {{logfile}} 2>&1
   register: image
 
-#- name: Push chouette2 docker image if built
-#  when: image.changed
-#  shell: docker push {{ chouette2_docker_image|quote }}
+- name: Push chouette2 docker image if built
+  when: image.changed
+  shell: docker push {{ chouette2_docker_image|quote }}
