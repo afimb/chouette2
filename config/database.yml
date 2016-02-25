@@ -17,7 +17,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: chouette_test
+  host: localhost
+  database: chouette-test
 
 production:
   <<: *default
