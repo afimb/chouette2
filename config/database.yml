@@ -8,9 +8,13 @@ default: &default
   password: chouette
   postgis_schema: 'shared_extensions'
 
+# NOTE: The the dev database set currently point at chouette-test. This is
+# to be able to build it in jenkins. Hopefully this will be sorted out 
 development:
   <<: *default
-  database: chouette_dev
+  host: localhost
+  database: chouette-test
+  #database: chouette-dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
