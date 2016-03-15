@@ -6,19 +6,19 @@ en:
     edit:
       title: "Edit the Validation"
     show:
-      title: "Neptune Validation"
-      summary: "Rapport de conformité à la norme NEPTUNE"
+      title: "Validation"
+      summary: "Conformance report"
       completed: "[ Completed ]"
       failed: "[ Failed ]"
-      pending: "[ In the treatment queue ]"
+      pending: "[ In the processing queue ]"
       processing: "[ In progress... ]"
       export: "Download test report"
       export_csv: "CSV format"
     report:
       validation_success: "Validation successfully passed."
     actions:
-      destroy_confirm: "Do you confirm to destroy this validation ?"
-      destroy: "Destroy this validation"
+      destroy_confirm: "Do you confirm the deletion of this validation ?"
+      destroy: "Delete this validation"
       edit: "Edit this validation"
       report: "Report"
       rule_parameter_set: "Rule parameter set"
@@ -36,10 +36,10 @@ en:
   file_validation_log_messages:
     messages:
       undefined: "%{key} undefined"
-      TooMuchDetails: ( %{0} erreurs / warnings supplémentaires )
-      ONE: "Catégorie 1 : Syntaxe"
+      TooMuchDetails: ( %{0} additional errors / warnings )
+      ONE: "Category 1 : Syntaxe"
     severities:
-      uncheck: "Unchecked"
+      uncheck: "Not tested"
       ok: "Ok"
       warning: "Warning"
       error: "Error"
@@ -57,11 +57,11 @@ en:
         created_at: "Executed at"
         references_type: "Associated Data Type"
         reference_ids: "Associated Data"
-        rule_parameter_set_id: "Rule parameters set"
+        rule_parameter_set_id: "Rule parameter set"
         resources: "File to validate"
         status: "Status"
         file_name: "Tested data"
-        projection_reference: "Système de projection de référence"
+        projection_reference: "Spatial Reference System"
       file_validation_log_message:
         created_at: "Date"
         position: "N."
