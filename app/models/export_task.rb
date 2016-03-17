@@ -30,8 +30,8 @@ class ExportTask
   end
 
   def period_validation
-    st_date = start_date.is_a?(String) ? Date.parse(start_date) : start_date
-    ed_date = end_date.is_a?(String) ? Date.parse(end_date) : end_date
+    st_date = start_date.present? && start_date.is_a?(String) ? Date.parse(start_date) : start_date
+    ed_date = end_date.present? && end_date.is_a?(String) ? Date.parse(end_date) : end_date
 
     unless  Chouette::TimeTable.start_validity_period.nil? || st_date.nil?
       tt_st_date = Chouette::TimeTable.start_validity_period
