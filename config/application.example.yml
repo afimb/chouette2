@@ -1,1 +1,5 @@
 deactivate_hub: true
+development:
+  smtp_delivery_method: :smtp
+  smtp_host: 'localhost'
+  smtp_port: 1025
