@@ -38,6 +38,8 @@ gem 'spring', '~> 1.6.4', group: :development
 gem 'sawyer', '~> 0.6.0'
 gem 'faraday_middleware', '~> 0.9.1'
 
+gem 'figaro', '~> 1.1.1'
+
 platforms :jruby do
   gem 'activerecord-jdbcpostgresql-adapter', '~> 1.3.3'
   gem 'jruby-openssl'
