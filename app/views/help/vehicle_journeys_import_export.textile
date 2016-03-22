@@ -15,8 +15,8 @@ Import des horaires au format .csv
 
 Les données horaires peuvent être rajoutées dans le fichier .csv, en revanche, il convient de laisser le champ _"id course"- vide. CHOUETTE se chargera de lui attribuer un numéro valide lors de l'import. 
 
-Il est également possible de modifier une course déjà existante dans le fichier. Il convient dans ce cas de conserver l'identifiant de la course et de l'éditer. Les informations relatives à cette course seront modiifés lors de l'import. 
+Il est également possible de modifier une course déjà existante dans le fichier. Il convient dans ce cas de conserver l'identifiant de la course et de l'éditer. Les informations relatives à cette course seront modifés lors de l'import. 
 
 La suppression d'une course existante se fait en conservant l'identifiant de la course mais en effaçant toutes les données de la course. Lors de l'import, la course vide sera alors supprimée. 
 
-L'import du fichier .csv ne concerne que le fichier horaire .csv proprement dit. Importer un fichier .zip identique au fichier exporté, génèrera une erreur. 
+L'import du fichier .csv ne concerne que le fichier horaire .csv proprement dit. Importer un fichier .zip identique au fichier exporté, générera une erreur. 

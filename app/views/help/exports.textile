@@ -21,7 +21,7 @@ Les options des différents formats apparaissent en fonction de celui qui a ét�
 sélection des lignes exportées
 le choix porte sur toutes, les lignes d'une sélection de réseaux, de transporteurs ou directement sélectionnées =:
 - Données incluses := 
-liste des données selon le type choisi; ce champs n'apparait pas pour le choix 'toutes'
+liste des données selon le type choisi; ce champs n'apparaît pas pour le choix 'toutes'
 la sélection propose dès le premier caractère saisi la liste des objets dont le nom contient le texte =:
 - Début de période := permet d'exporter uniquement les courses circulant à partir de cette date
 - Fin de période := permet d'exporter uniquement les courses circulant jusqu'à cette date

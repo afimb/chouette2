@@ -9,15 +9,15 @@ jQuery ->
     i.setAttribute('type', 'date')
     return if i.type != 'text'
     # affect datepicker on date input
-    $(element).datepicker({ 
-                              dateFormat: "dd/mm/y",
+    $(element).datepicker({
+                              dateFormat: "dd/mm/yy",
                               dayNamesShort: $.datepicker.regional[ $('html').attr('lang') ].dayNamesShort, 
                               dayNames: $.datepicker.regional[ $('html').attr('lang') ].dayNames, 
                               monthNamesShort: $.datepicker.regional[ $('html').attr('lang') ].monthNamesShort, 
                               monthNames: $.datepicker.regional[ $('html').attr('lang') ].monthNames
                           })
-    $(element).datepicker("setDate", $.datepicker.parseDate('dd/mm/y', $(element).val() ) ) if ($(element).val().indexOf('/') >= 0) 
-    $(element).datepicker("setDate", $.datepicker.parseDate('yy-mm-dd', $(element).val() ) ) if ($(element).val().indexOf('/') < 0) 
+    #$(element).datepicker("setDate", $.datepicker.parseDate('dd/mm/y', $(element).val() ) ) if ($(element).val().indexOf('/') >= 0)
+    #$(element).datepicker("setDate", $.datepicker.parseDate('yy-mm-dd', $(element).val() ) ) if ($(element).val().indexOf('/') < 0)
 
   after_inserts = ->
     $('input[type="date"]').each(tt_datepickerI18n)

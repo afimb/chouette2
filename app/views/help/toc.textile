@@ -27,7 +27,7 @@ h3. Sommaire
 ## "Séquences d'arrêts":routes
 ## "Missions":journey_patterns
 ## "Courses et horaires":vehicle_journeys
-## "Courses en fréquence":timebands.textile
+## "Courses en fréquence":timebands
 ## "Correspondances":connection_links
 ## "Calendrier":time_tables
 ## "Tracés":route_sections
@@ -45,7 +45,7 @@ h3. Sommaire
 ## "Importer massivement des arrêts depuis un fichier GTFS":GTFS_stops_import
 ## "Exporter et importer des horaires en .csv":vehicle_journeys_import_export
 ## "Modification des arrêts d'une ligne":stopsmanagement
-## "Supression des courses obsolètes parmis d'autres valides":vehicle_journeys_cleaning
+## "Suppression des courses obsolètes parmi d'autres valides":vehicle_journeys_cleaning
 ## "Itinéraire valables le temps d'une saison":temporaryline
 ## "Contraintes de l'export HUB":hubexport
 ## "Glossaire":terms

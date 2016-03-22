@@ -38,7 +38,7 @@ Le pictogramme en forme de poubelle en début de ligne permet de supprimer l'ét
 
 Le pictogramme en forme de flèches (dans les 4 directions) permet de modifier l'ordre des arrêts dans la séquence. Il faut bien entendu au moins deux arrêts pour pouvoir modifier l'ordre des arrêts. 
 
-Une fois qu'un arrêt est sélectionné, une petite croix apparait au bout de la zone contenant le nom de l'arrêt. Cliquer sur cette croix efface l'arrêt sélectionné et permet d'en saisir un nouveau. 
+Une fois qu'un arrêt est sélectionné, une petite croix apparaît au bout de la zone contenant le nom de l'arrêt. Cliquer sur cette croix efface l'arrêt sélectionné et permet d'en saisir un nouveau. 
 
 h3. Modifier une séquence d'arrêts
 
