@@ -1,5 +1,11 @@
-deactivate_hub: true
-development:
-  smtp_delivery_method: :smtp
-  smtp_host: 'localhost'
-  smtp_port: 1025
+deactivate_hub: # true|false
+secret_key_base: # Generate with `bundle exec rake secret`
+api_endpoint:
+google_analytic_tracker:
+geoportail_api_key:
+newrelic_licence_key:
+osrm_endpoint:
+smtp_delivery_method: # letter_opener|smtp
+smtp_host:
+smtp_port:
+
