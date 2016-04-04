@@ -1,5 +1,9 @@
 require 'capistrano/ext/multistage'
 require './config/boot'
+require 'figaro'
+
+Figaro.application = Figaro::Application.new(environment: 'development', path: './config/application.yml')
+Figaro.load
 
 set :stages, %w(sandbox unstable staging production sismo)
 set :application, "chouette2"
@@ -13,7 +17,7 @@ set :group_writable, true
 set :rake, "bundle exec rake"
 set :keep_releases, 4
 set :rails_env, "production" #added for delayed job
-set :user, "metienne"
+set :user, Figaro.env.capistrano_deploy_user
 set :deploy_via, :copy
 set :copy_via, :scp
 set :copy_exclude, ".git/*"

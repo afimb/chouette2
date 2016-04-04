@@ -8,4 +8,5 @@ osrm_endpoint:
 smtp_delivery_method: # letter_opener|smtp
 smtp_host:
 smtp_port:
-
+capistrano_deploy_user:
+app_version:
