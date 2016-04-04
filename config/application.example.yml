@@ -5,8 +5,13 @@ google_analytic_tracker:
 geoportail_api_key:
 newrelic_licence_key:
 osrm_endpoint:
+capistrano_deploy_user:
+app_version:
 smtp_delivery_method: # letter_opener|smtp
 smtp_host:
 smtp_port:
-capistrano_deploy_user:
-app_version:
+smtp_domain:
+smtp_user_name:
+smtp_password:
+smtp_authentication:
+
