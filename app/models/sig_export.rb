@@ -1,10 +1,10 @@
-class KmlExport < ExportTask
+class SigExport < ExportTask
 
   enumerize :references_type, in: %w( network line company group_of_line )
 
   def action_params
     {
-      "kml-export" => {
+      "sig-export" => {
         "name" => name,
         "references_type" => references_type,
         "reference_ids" => reference_ids,
@@ -18,7 +18,7 @@ class KmlExport < ExportTask
   end
   
   def data_format
-    "kml"
+    'sig'
   end
 
 end

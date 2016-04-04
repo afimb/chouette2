@@ -10,7 +10,7 @@ class ExportTask
 
   define_model_callbacks :initialize, only: :after
 
-  enumerize :data_format, in: %w( neptune netex gtfs hub kml )
+  enumerize :data_format, in: %w( neptune netex gtfs hub sig )
   attr_accessor :referential_id, :user_id, :user_name, :references_type, :data_format, :name, :projection_type, :reference_ids
 
   validates_presence_of :referential_id
