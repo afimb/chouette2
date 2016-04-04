@@ -56,9 +56,10 @@ namespace :deploy do
 
   desc "Symlinks shared configs and folders on each release"
   task :symlink_shared, :except => { :no_release => true }  do
+    run "ln -nfs #{shared_path}/config/application.yml #{release_path}/config/"
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/"
     run "ln -nfs #{shared_path}/config/production.rb #{release_path}/config/environments/"
-    run "ln -nfs #{shared_path}/config/secrets.yml #{release_path}/config/"
+    # run "ln -nfs #{shared_path}/config/secrets.yml #{release_path}/config/"
     run "ln -nfs #{shared_path}/config/newrelic.yml #{release_path}/config/"
     run "ln -nfs #{shared_path}/config/devise_async.rb #{release_path}/config/initializers/"
   end
