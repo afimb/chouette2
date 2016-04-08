@@ -83,7 +83,7 @@ class ImportTask
   end
 
   def self.data_formats
-    self.data_format.values
+    self.data_format.values.select{ |format| !ENV['deactivate_formats'].split(',').include?(format) }
   end
 
   def params_io
