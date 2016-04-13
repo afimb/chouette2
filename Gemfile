@@ -58,7 +58,7 @@ gem 'activerecord-postgis-adapter'
 gem 'polylines'
 
 # Authentication
-gem 'devise', '~> 3.4.0'
+gem 'devise', '~> 3.5.6'
 gem 'devise-encryptable'
 gem 'devise_invitable'
 
@@ -131,9 +131,9 @@ end
 
 group :test, :development do
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 3.1.0'
+  gem 'rspec-rails', '~> 3.4.2'
   gem 'fakeweb'
-  gem 'capybara', '~> 2.4.0'
+  gem 'capybara', '~> 2.7.0'
   gem 'poltergeist'
   gem 'launchy'
   gem 'factory_girl_rails', '~> 4.0'

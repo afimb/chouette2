@@ -31,4 +31,3 @@ coverage
 
 # Ignore application configuration
 /config/application.yml
-/config/initializers/smtp_settings.rb

@@ -53,9 +53,9 @@ Rails.application.configure do
   #if ENV['OS'] == 'Windows_NT'
   #  # args = log_path,number of files,file sizes
   #  config.logger = Logger.new("C:/chouette/logs/chouette2.log", 5, 10.megabytes)
-  config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new("rails/chouette2").tap do |syslog|
-                                                     syslog.level = Logger::INFO
-                                                   end)
+  config.logger = ActiveSupport::TaggedLogging.new(
+    Syslog::Logger.new("rails/chouette2").tap{ |syslog| syslog.level = Logger::INFO }
+  )
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -84,19 +84,12 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 
-  config.action_mailer.default_url_options = { :host => 'my-domain-name.com' }
+  config.action_mailer.default_url_options = { host: Rails.application.secrets.domain_name }
+
+  config.action_mailer.delivery_method = Rails.application.secrets.smtp_delivery_method.to_sym
 
   # Configure the e-mail address which will be shown in Devise::Maile
-  config.mailer_sender = "chouette-production@my-domain-name.com"
-
-  ActionMailer::Base.smtp_settings = {
-    :address        => "smtp.sample.com",
-    :port           => 25,
-    :domain         => "sample.com",
-    :user_name      => "smtp_user",
-    :password       => "smtp_password",
-    :authentication => :login
-  }
+  config.mailer_sender = Rails.application.secrets.smtp_mailer_sender
 
   # Specific theme for each company
   # AFIMB

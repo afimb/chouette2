@@ -19,7 +19,7 @@ feature 'User edit', :devise do
   #   Then I see an account updated message
   scenario 'user changes email address' do
     user = FactoryGirl.create(:user)
-    user.confirm!
+    user.confirm
     login_as(user, :scope => :user)
     visit edit_user_registration_path(user)
     fill_in 'user_email', :with => 'newemail@example.com'
@@ -35,9 +35,9 @@ feature 'User edit', :devise do
   #   Then I see my own 'edit profile' page
   scenario "user cannot cannot edit another user's profile", :me do
     me = FactoryGirl.create(:user)
-    me.confirm!
+    me.confirm
     other = FactoryGirl.create(:user, email: 'other@example.com')
-    other.confirm!
+    other.confirm
     login_as(me, :scope => :user)
     visit edit_user_registration_path(other)
     expect(page).to have_content 'Votre Profil'
