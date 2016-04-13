@@ -82,7 +82,7 @@ class ExportTask
   end
 
   def self.data_formats
-    self.data_format.values.select{ |format| !ENV['deactivate_formats'].split(',').include?(format) }
+    self.data_format.values.select{ |format| !ENV['deactivate_formats_export'].to_s.split(',').map(&:strip).include?(format) }
   end
 
   def self.references_types

@@ -1,4 +1,6 @@
-deactivate_formats: # For example: 'hub,sig,neptune'
+deactivate_formats_referential: # For example: 'hub,sig,neptune'
+deactivate_formats_import: # For example: 'hub,sig,neptune'
+deactivate_formats_export: # For example: 'hub,sig,neptune'
 secret_key_base: # Generate with `bundle exec rake secret`
 devise_secret_key: # Generate with `bundle exec rake secret`
 api_endpoint:
