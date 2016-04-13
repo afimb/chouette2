@@ -17,5 +17,5 @@ smtp_domain:
 smtp_user_name:
 smtp_password:
 smtp_authentication:
-smtp_mailer_sender: 'no-reply@chouette.mobi'
+mailer_sender: 'no-reply@chouette.mobi'
 capistrano_deploy_user:

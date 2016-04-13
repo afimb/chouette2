@@ -89,7 +89,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = Rails.application.secrets.smtp_delivery_method.to_sym
 
   # Configure the e-mail address which will be shown in Devise::Maile
-  config.mailer_sender = Rails.application.secrets.smtp_mailer_sender
+  config.mailer_sender = Rails.application.secrets.mailer_sender
 
   # Specific theme for each company
   # AFIMB
