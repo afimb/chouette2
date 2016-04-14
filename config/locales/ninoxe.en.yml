@@ -1,0 +1,23 @@
+en:
+  activerecord:
+    copy: "Copy of %{name}"
+    errors:
+      models:
+        trident:
+          invalid_object_id: "invalid syntax, expected as [A-Za-z0-9_]:%{type}:[A-Za-z0-9_-]"
+          invalid_object_id_type: invalid type, must be %{type}
+        time_table_period:
+          start_must_be_before_end: end date must be after start date
+        time_table_date: 
+          attributes:
+            date:
+              taken: dupplicate date for this timetable
+        vehicle_journey_at_stop:
+          arrival_must_be_before_departure: arrival time must be before departure time
+        timeband:
+          start_must_be_before_end: end date must be after start date
+        journey_frequency:
+          start_must_be_after_timeband: the date of departure must be greater or equal to the time bands
+          end_must_be_before_timeband: the end date must be less than or equal to the time bands
+          end_must_be_different_from_first: the end date must be different from first date
+          scheduled_headway_interval_greater_than_zero: interval must be greater than 0
