@@ -89,23 +89,23 @@ fr:
     titles:
       time_table:
         comment: ""
-        objectid: "[prefixe]:Timetable:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+        objectid: "[prefixe]:Timetable:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
       neptune:
         time_table:
           comment: ""
-          objectid: "[prefixe]:Timetable:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          objectid: "[prefixe]:Timetable:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
       netex:
         time_table:
           comment: ""
-          objectid: "[prefixe]:Timetable:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          objectid: "[prefixe]:Timetable:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
       gtfs:
         time_table:
           comment: ""
-          objectid: "[prefixe]:Timetable:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          objectid: "[prefixe]:Timetable:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
       hub:
         time_table:
           comment: "Longueur maximale = 75."
-          objectid: "[prefixe]:Timetable:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'. Longueur maximale de la clé unique = 6."
+          objectid: "[prefixe]:Timetable:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'. Longueur maximale de la clé unique = 6."
     placeholders:
       time_table:
         tag_search: "ex: Jours fériés,Vacances scolaires"

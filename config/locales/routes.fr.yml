@@ -67,16 +67,16 @@ fr:
   formtastic:
     titles:
       route:
-        objectid: "[prefixe]:Route:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+        objectid: "[prefixe]:Route:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
       neptune:
         route:
-          objectid: "[prefixe]:Route:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          objectid: "[prefixe]:Route:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
       netex:
         route:
-          objectid: "[prefixe]:Route:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          objectid: "[prefixe]:Route:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
       gtfs:
         route:
-          objectid: "[prefixe]:Route:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          objectid: "[prefixe]:Route:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
       hub:
         route:
-          objectid: "[prefixe]:Route:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'. Longueur maximale de la clé unique = 8."
+          objectid: "[prefixe]:Route:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'. Longueur maximale de la clé unique = 8."

@@ -60,21 +60,21 @@ fr:
   formtastic:
     titles:
       connection_link:
-        objectid: "[prefixe]:ConnectionLink:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+        objectid: "[prefixe]:ConnectionLink:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
         link_distance: ""
       neptune:
         connection_link:
-          objectid: "[prefixe]:ConnectionLink:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          objectid: "[prefixe]:ConnectionLink:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
           link_distance: ""
       netex:
         connection_link:
-          objectid: "[prefixe]:ConnectionLink:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          objectid: "[prefixe]:ConnectionLink:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
           link_distance: ""
       gtfs:
         connection_link:
-          objectid: "[prefixe]:ConnectionLink:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          objectid: "[prefixe]:ConnectionLink:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
           link_distance: ""
       hub:
         connection_link:
-          objectid: "[prefixe]:ConnectionLink:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          objectid: "[prefixe]:ConnectionLink:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
           link_distance: "Au plus 10000.0 mètres."

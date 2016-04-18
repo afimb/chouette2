@@ -112,16 +112,16 @@ fr:
   formtastic:
     titles:
       vehicle_journey:
-        objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+        objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
       neptune:
         vehicle_journey:
-          objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
       netex:
         vehicle_journey:
-          objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
       gtfs:
         vehicle_journey:
-          objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
       hub:
         vehicle_journey:
-          objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'. Longueur maximale de la clé unique = 8."
+          objectid: "[prefixe]:VehicleJourney:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'. Longueur maximale de la clé unique = 8."

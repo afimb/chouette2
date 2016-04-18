@@ -114,8 +114,8 @@ fr:
     titles:
       stop_area:
         name: ""
-        registration_number: "caractères autorisés : alphanumériques et 'souligné'"
-        objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+        registration_number: "caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)'"
+        objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
         nearest_topic_name: ""
         city_name: ""
         zip_code: ""
@@ -125,8 +125,8 @@ fr:
       neptune:
         stop_area:
           name: ""
-          registration_number: "caractères autorisés : alphanumériques et 'souligné'"
-          objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          registration_number: "caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)'"
+          objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
           nearest_topic_name: ""
           city_name: ""
           zip_code: ""
@@ -136,8 +136,8 @@ fr:
       netex:
         stop_area:
           name: ""
-          registration_number: "caractères autorisés : alphanumériques et 'souligné'"
-          objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          registration_number: "caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)'"
+          objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
           nearest_topic_name: ""
           city_name: ""
           zip_code: ""
@@ -147,8 +147,8 @@ fr:
       gtfs:
         stop_area:
           name: ""
-          registration_number: "caractères autorisés : alphanumériques et 'souligné'"
-          objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          registration_number: "caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)'"
+          objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
           nearest_topic_name: ""
           city_name: ""
           zip_code: ""
@@ -159,7 +159,7 @@ fr:
         stop_area:
           name: "Longueur maximale = 75."
           registration_number: "Entier positif, clé unique, d'un maximum de 8 chiffres. Obligatoire pour les arrêts physiques."
-          objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'. Longueur maximale de la clé unique = 12."
+          objectid: "[prefixe]:StopArea:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'. Longueur maximale de la clé unique = 12."
           nearest_topic_name: "Longueur maximale = 255 pour les arrêts logiques et 60 pour les arrêts physiques."
           city_name: "Obligatoire pour les arrêts physiques. Longueur maximale = 80."
           zip_code: "Entier positif de 8 chiffres. Obligatoire pour les arrêts physiques."

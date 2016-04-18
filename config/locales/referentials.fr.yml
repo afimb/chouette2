@@ -73,7 +73,7 @@ fr:
   formtastic:
     titles:
       referential:
-        slug: "caractères autorisés : alphanumériques minuscules et 'souligné' et doit commencer par une lettre"
-        prefix: "caractères autorisés : alphanumériques et 'souligné'"
+        slug: "caractères autorisés : alphanumériques minuscules et 'souligné (underscore ou tiret du 8)' et doit commencer par une lettre"
+        prefix: "caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)'"
         upper_corner: "latitude,longitude dans le référentiel WGS84, le séparateur de décimales est 'point'"
         lower_corner: "latitude,longitude dans le référentiel WGS84, le séparateur de décimales est 'point'"

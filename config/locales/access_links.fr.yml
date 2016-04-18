@@ -42,4 +42,4 @@ fr:
   formtastic:
     titles:
       access_link:
-        objectid: "[prefixe]:AccessLink:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+        objectid: "[prefixe]:AccessLink:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"

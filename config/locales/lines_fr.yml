@@ -88,30 +88,30 @@ fr:
     titles:
       line:
         name: ""
-        registration_number: "caractères autorisés : alphanumériques et 'souligné'"
-        objectid: "[prefixe]:Line:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+        registration_number: "caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)'"
+        objectid: "[prefixe]:Line:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
         number: ""
       neptune:
         line:
           name: ""
-          registration_number: "caractères autorisés : alphanumériques et 'souligné'"
-          objectid: "[prefixe]:Line:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          registration_number: "caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)'"
+          objectid: "[prefixe]:Line:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
           number: ""
       netex:
         line:
           name: ""
-          registration_number: "caractères autorisés : alphanumériques et 'souligné'"
-          objectid: "[prefixe]:Line:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          registration_number: "caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)'"
+          objectid: "[prefixe]:Line:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
           number: ""
       gtfs:
         line:
           name: ""
-          registration_number: "caractères autorisés : alphanumériques et 'souligné'"
-          objectid: "[prefixe]:Line:[clé_unique]  caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'"
+          registration_number: "caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)'"
+          objectid: "[prefixe]:Line:[clé_unique]  caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'"
           number: ""
       hub:
         line:
           name: "maximum 75 caractères"
           registration_number: "Entier positif, clé unique, d'un maximum de 8 chiffres." 
-          objectid: "[prefixe]:Line:[clé_unique] caractères autorisés : alphanumériques et 'souligné' pour le préfixe, la clé unique accepte en plus le 'moins'. Longueur maximale de la clé unique = 14."
-          number: "Caractères autorisés : alphanumériques et 'souligné'. Longueur maximale = 6."
+          objectid: "[prefixe]:Line:[clé_unique] caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)' pour le préfixe, la clé unique accepte en plus le 'moins'. Longueur maximale de la clé unique = 14."
+          number: "Caractères autorisés : alphanumériques et 'souligné (underscore ou tiret du 8)'. Longueur maximale = 6."
