@@ -113,6 +113,8 @@ gem 'newrelic_rpm'
 gem 'letter_opener'
 
 group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'capistrano', '2.13.5'
   gem 'capistrano-ext'
   gem 'guard'
