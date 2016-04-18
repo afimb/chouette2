@@ -13,7 +13,7 @@
         OpenLayers.ImgPath = "<%= polymorphic_path_patch("/assets/openlayers/") %>";
       </script>
     <% end %>
-    <%= analytics_init if Rails.env.production? %>
+    <%= analytics_init if Rails.application.secrets.google_analytics_tracker.present? && GoogleAnalytics.valid_tracker? && Rails.env.production? %>
     <%= csrf_meta_tag %>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />

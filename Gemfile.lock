@@ -159,7 +159,7 @@ GEM
       geokit (= 1.6.7)
       georuby (>= 1.9.8)
       rgeo (>= 0.3.20)
-    google-analytics-rails (0.0.6)
+    google-analytics-rails (1.1.0)
     guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
@@ -497,7 +497,7 @@ DEPENDENCIES
   formtastic (= 2.3.1)
   georuby (= 2.3.0)
   georuby-ext (= 0.0.5)
-  google-analytics-rails
+  google-analytics-rails (~> 1.1.0)
   guard
   guard-rspec
   inherited_resources

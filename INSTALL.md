@@ -62,7 +62,7 @@ cp config/application.example.yml config/application.yml
 3. Fill **secret_key_base** and **devise_secret_key** by executing `rake secret` in your terminal
    See [Rails documentation](http://guides.rubyonrails.org/4_1_release_notes.html#config-secrets-yml)
 4. Configure the Chouette IEV Web Service url `api_endpoint`
-5. Configure the Google Analytics Key `google_analytic_tracker`
+5. Configure the Google Analytics Key `google_analytics_tracker`
    See [Google Analytics](https://www.google.fr/intl/fr/analytics/)
 6. Configure the IGN Géoportail Key `geoportail_api_key`
    See [API Géoportail documentation](http://api.ign.fr/accueil)

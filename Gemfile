@@ -88,7 +88,7 @@ gem 'roo'
 
 # Controller
 gem 'inherited_resources'
-gem 'google-analytics-rails'
+gem 'google-analytics-rails', '~> 1.1.0'
 
 # Model
 gem 'will_paginate', '~> 3.0.7'

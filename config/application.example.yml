@@ -2,7 +2,7 @@ domain_name: 'chouette.mobi'
 secret_key_base: # Generate with `bundle exec rake secret`
 devise_secret_key: # Generate with `bundle exec rake secret`
 api_endpoint: 'http://localhost:8080/chouette_iev/'
-google_analytic_tracker:
+google_analytics_tracker:
 geoportail_api_key:
 newrelic_licence_key:
 osrm_endpoint: 'http://router.project-osrm.org'
