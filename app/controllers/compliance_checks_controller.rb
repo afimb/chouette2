@@ -73,6 +73,7 @@ class ComplianceChecksController < ChouetteController
 
   def resource
     @compliance_check ||= compliance_check_service.find(params[:id])
+    return @compliance_check unless @compliance_check.report
     @line_items = @compliance_check.report.line_items
     if @line_items.size > 500
       @line_items = @line_items.paginate(page: params[:page], per_page: 20)

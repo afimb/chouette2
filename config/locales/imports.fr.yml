@@ -14,6 +14,8 @@ fr:
       compliance_check: "Test de conformité"
       compliance_check_of: "Validation de l'import : "
       import_of_validation: "L'import de la validation"
+    statuses:
+      pending: "En attente ..."
     compliance_check_task: "Validation"
     severities:
       info: "Information"

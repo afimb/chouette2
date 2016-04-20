@@ -15,6 +15,7 @@ en:
       report: "Report"
       exported_file: "Exported file"
     statuses:
+      pending: "Pending ..."
       started: "Started"      
       scheduled: "Processing ..."
       terminated: "Completed"
