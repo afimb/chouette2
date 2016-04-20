@@ -22,7 +22,7 @@ class OsrmRouteSectionProcessor
 
       GeoRuby::SimpleFeatures::LineString.from_points(decoded_geometry).try(:to_rgeo) if decoded_geometry.many?
     end
-  rescue OpenURI::HTTPError => e
+  rescue OpenURI::HTTPError, Errno::EHOSTUNREACH => e
     Rails.logger.error "#{osrm_endpoint} failed: #{e}"
     nil
   rescue IOError => e

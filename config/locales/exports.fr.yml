@@ -15,6 +15,7 @@ fr:
       report: "Rapport"
       exported_file: "Fichier exporté"
     statuses:
+      pending: "En attente ..."
       started: "En file d'attente..."
       scheduled: "En cours..."
       terminated: "Achevé"

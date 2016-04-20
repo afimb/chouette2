@@ -6,19 +6,25 @@
     <%= export_attributes_tag(@export) %>
   </div>
 </div>
-<% if @export.report.failure_code? %>
-<div class="alert alert-danger">
-  <%= t("iev.failure.#{@export.report.failure_code}") %>
-</div>
+<% if @export.report %>
+  <% if @export.report.failure_code? %>
+  <div class="alert alert-danger">
+    <%= t("iev.failure.#{@export.report.failure_code}") %>
+  </div>
+  <% end %>
+  <div class="progress_bars">
+    <%= progress_bar_tag(@export) %>
+  </div>
 <% end %>
-<div class="progress_bars">
-  <%= progress_bar_tag(@export) %>
-</div>
 <div class="export_show">
   <div class="links">
     <%= link_to( font_awesome_classic_tag("fa-file-#{@export.filename_extension}-o") + t("exports.show.exported_file"), exported_file_referential_export_path(@referential, @export.id) ) if @export.file_path %>
   </div>
-  <%= render( partial: "shared/ie_report.html", locals: { job: @export, line_items: @line_items } ) %>
+  <% if @export.report %>
+    <%= render( partial: "shared/ie_report.html", locals: { job: @export, line_items: @line_items } ) %>
+  <% else %>
+    <p><%= t('exports.statuses.pending') %></p>
+  <% end %>
 </div>
 
 <% content_for :sidebar do %>
