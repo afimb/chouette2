@@ -58,7 +58,17 @@ en:
 
       detail_1_gtfs_calendar_1: "aucun jour d'application n'est activé"
       detail_1_gtfs_calendar_2: "la date de fin du calendrier est antérieur ou égale à la date début"
-      
+
+      ## RegTopp
+      detail_1_regtopp_file_tix: "Error reading file %{filename}."
+      detail_1_regtopp_file_tms: "Error reading file %{filename}."
+      detail_1_regtopp_file_hpl: "Error reading file %{filename}."
+      detail_1_regtopp_file_tda: "Error reading file %{filename}."
+      detail_1_regtopp_file_stp: "Error reading file %{filename}."
+      detail_1_regtopp_field_value_1: "%{reference_value}"
+      detail_1_regtopp_concistency_1: "%{reference_value}"
+      detail_1_regtopp_concistency_2: "%{reference_value}"
+
       #### level 2
       ## NEPTUNE
       detail_2_neptune_common_1: "L'élément %{source_objectid} a des attributs qui diffèrent entre les différents fichiers qui le définissent"
@@ -385,7 +395,17 @@ en:
         2-GTFS-Route-2: "Contrôle de la non inclusion de route_short_name dans route_long_name"
         2-GTFS-Route-3: "Contrôle du contraste des couleurs"
         2-GTFS-Route-4: "Contrôle de la non présence d'une route inversant les valeurs route_short_name et route_long_name d'une autre"
-        
+
+        ## RegTopp
+        1-REGTOPP-FILE-TIX: "RegTopp TIX file"
+        1-REGTOPP-FILE-TMS: "RegTopp TMS file"
+        1-REGTOPP-FILE-HPL: "RegTopp HPL file"
+        1-REGTOPP-FILE-TDA: "RegTopp TDA file"
+        1-REGTOPP-FILE-STP: "RegTopp STP file"
+        1-REGTOPP-FIELD-VALUE-1: "Invalid field value"
+        1-REGTOPP-CONCISTENCY-1: "Invalid mandatory ID reference"
+        1-REGTOPP-CONCISTENCY-2: "Invalid optional ID reference"
+
         ## COMMON
         3-StopArea-1: "Vérification de la géolocalisation de tous les arrêts hors ITL"
         3-StopArea-2: "Vérification que 2 arrêts de noms différents en dehors d'un même regroupement d'arrêts ne sont pas trop proches"
