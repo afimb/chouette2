@@ -34,4 +34,23 @@ class RegtoppImport < ImportTask
   def data_format
     "regtopp"
   end
+
+  def self.available_srids
+    [
+        [ "UTM zone 32N", "EPSG:32632" ],
+        [ "UTM zone 33N", "EPSG:32633" ],
+        [ "UTM zone 34N", "EPSG:32634" ],
+        [ "UTM zone 35N", "EPSG:32635" ],
+        [ "WGS 84 / Latlong", "EPSG:4326" ]
+    ]
+  end
+
+  def self.available_versions
+    [
+        [ "1.1D", "1.1D" ],
+        [ "1.2", "1.2" ],
+        [ "1.2Novus", "1.2Novus" ],
+        [ "1.3A", "1.3A" ]
+    ]
+  end
 end
