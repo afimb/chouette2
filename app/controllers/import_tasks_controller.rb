@@ -39,13 +39,15 @@ class ImportTasksController < ChouetteController
       @available_imports = [
         import_task_parameters[:data_format] == "neptune" ? build_resource : NeptuneImport.new(:referential_id => @referential.id ),
         import_task_parameters[:data_format] == "netex" ? build_resource : NetexImport.new(:referential_id => @referential.id ),
-        import_task_parameters[:data_format] == "gtfs" ? build_resource : GtfsImport.new(:referential_id => @referential.id )
+        import_task_parameters[:data_format] == "gtfs" ? build_resource : GtfsImport.new(:referential_id => @referential.id ),
+        import_task_parameters[:data_format] == "regtopp" ? build_resource : RegtoppImport.new(:referential_id => @referential.id )
       ]
     else      
       @available_imports = [
         NeptuneImport.new(:referential_id => @referential.id ),
         NetexImport.new(:referential_id => @referential.id ),
-        GtfsImport.new(:referential_id => @referential.id )
+        GtfsImport.new(:referential_id => @referential.id ),
+        RegtoppImport.new(:referential_id => @referential.id )
       ]
     end
   end
@@ -60,6 +62,8 @@ class ImportTasksController < ChouetteController
                          @import_task = NetexImport.new(import_task_parameters)
                        when "gtfs"
                          @import_task = GtfsImport.new(import_task_parameters)
+                       when "regtopp"
+                         @import_task = RegtoppImport.new(import_task_parameters)
                        end
                      else
                        @import_task = NeptuneImport.new
