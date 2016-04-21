@@ -4,6 +4,6 @@
 <%= form.input :ignore_last_word , :as => :boolean , :input_html => { :title => t("formtastic.titles.import_task.ignore_last_word"), :value => false }%>
 <%= form.input :ignore_end_chars  , :as => :number , :input_html => { :title => t("formtastic.titles.import_task.ignore_end_chars"), :value => 0 }%>
 <%= form.input :max_distance_for_connection_link  , :as => :number , :input_html => { :title => t("formtastic.titles.import_task.max_distance_for_connection_link"), :value => 0 }%>
-<%= form.input :coordinate_projection, :as => :select, :include_blank => false, :collection => RegtoppImport.available_srids %>
-<%= form.input :version, :as => :select, :include_blank => false, :collection => RegtoppImport.available_versions%>
+<%= form.input :coordinate_projection, :as => :select, :include_blank => false, :collection => RegtoppImport.available_srids, :selected  => "EPSG:"+@referential.projection_type %>
+<%= form.input :version, :as => :select, :collection => RegtoppImport.available_versions%>
 
