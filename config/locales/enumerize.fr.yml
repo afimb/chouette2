@@ -33,4 +33,5 @@ fr:
       gtfs: "General Transit Feed Specification défini par Google"
       netex: "Expérimental"
       hub: "Format spécifique Transdev"
-      kml: "Tracés de lignes, séquences d'arrêts, ...  en 'Keyhole Markup Language'"  
+      kml: "Tracés de lignes, séquences d'arrêts, ...  en 'Keyhole Markup Language'"
+      sig: "Export en KML et GeoJSON"

@@ -6,7 +6,7 @@ google_analytic_tracker:
 geoportail_api_key:
 newrelic_licence_key:
 osrm_endpoint: 'http://router.project-osrm.org'
-app_version: '3.3.0'
+prefix_application_version: '' # If you want to display a prefix before the application version
 deactivate_formats_referential: # For example: 'hub,sig,neptune'
 deactivate_formats_import: # For example: 'hub,sig,neptune'
 deactivate_formats_export: # For example: 'hub,sig,neptune'

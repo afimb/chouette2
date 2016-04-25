@@ -34,3 +34,4 @@ en:
       netex: "Experimental"
       hub: "Specific Transdev Format"
       kml: "line, route, ... drawings on Keyhole Markup Language format"
+      sig: "KML and GeoJSON export"
