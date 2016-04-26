@@ -48,6 +48,21 @@ class Export
 
   def filename_extension
     File.extname(filename).gsub(".", "") if filename
-  end 
-  
+  end
+
+  def rule_parameter_set?
+    links["validation_params"].present?
+  end
+
+  def compliance_check?
+    links["validation_report"].present?
+  end
+
+  def compliance_check_validation_report
+    Rails.cache.fetch("#{cache_key}/validation_report", expires_in: cache_expiration) do
+      compliance_check_path = links["validation_report"]
+      return nil unless compliance_check_path
+      ComplianceCheckResult.new(Ievkit.get(compliance_check_path))
+    end
+  end
 end

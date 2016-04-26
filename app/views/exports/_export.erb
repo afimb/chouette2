@@ -15,6 +15,7 @@
   </div>
   <div class="panel-body">
     <p><%= link_to( font_awesome_classic_tag("fa-file-#{export.filename_extension}-o") + t("exports.show.exported_file"), exported_file_referential_export_path(@referential, export.id) ) if export.file_path %></p>
+    <p><%= link_to font_awesome_classic_tag("fa-external-link") + t("exports.show.compliance_check"), compliance_check_referential_export_path(@referential, export.id) if export.compliance_check? %></p>
   </div>
   <div class="panel-footer">
     <%= export_attributes_tag(export) %>

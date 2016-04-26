@@ -5,6 +5,9 @@
     <% if @compliance_check.class == Import %>
       <%= link_to(font_awesome_classic_tag('fa-eye') + t("compliance_checks.report.action_report"), referential_import_path(@referential, @compliance_check.id)) %>
       <%= link_to font_awesome_classic_tag("fa-external-link") + t("compliance_checks.rule_parameter_set"), rule_parameter_set_referential_import_path(@referential, @compliance_check.id) if @compliance_check.rule_parameter_set? %>
+    <% elsif @compliance_check.class == Export %>
+      <%= link_to(font_awesome_classic_tag('fa-eye') + t("compliance_checks.report.action_report"), referential_export_path(@referential, @compliance_check.id)) %>
+      <%= link_to font_awesome_classic_tag("fa-external-link") + t("compliance_checks.rule_parameter_set"), rule_parameter_set_referential_export_path(@referential, @compliance_check.id) if @compliance_check.rule_parameter_set? %>
     <% else %>
       <%= link_to(font_awesome_classic_tag('fa-eye') + t("compliance_checks.report.action_report"), referential_compliance_check_path(@referential, @compliance_check.id)) %>
       <%= link_to font_awesome_classic_tag("fa-external-link") + t("compliance_checks.rule_parameter_set"), rule_parameter_set_referential_compliance_check_path(@referential, @compliance_check.id) if @compliance_check.rule_parameter_set? %>
@@ -17,6 +20,8 @@
         <li>
           <% if @compliance_check.class == Import %>
             <%= link_to t("compliance_checks.show.export_csv"), export_referential_import_path(@referential, @compliance_check.id) %>
+          <% elsif @compliance_check.class == Export %>
+            <%= link_to t("compliance_checks.show.export_csv"), export_referential_export_path(@referential, @compliance_check.id) %>
           <% else %>
             <%= link_to t("compliance_checks.show.export_csv"), export_referential_compliance_check_path(@referential, @compliance_check.id) %>
           <% end %>
@@ -38,8 +43,10 @@
   <% end %>
   <ul class="actions">
     <li>
-      <% if @compliance_check.class != Import %>
-        <%= link_to  t('compliance_checks.actions.destroy'), referential_compliance_check_path(@referential, @compliance_check.id), :method => :delete,  :data => {:confirm =>  t('compliance_checks.actions.destroy_confirm')}, :class => "remove" %>
+      <% unless [Import, Export].include? @compliance_check.class %>
+        <%= link_to  t('compliance_checks.actions.destroy'), referential_compliance_check_path(@referential, @compliance_check.id),
+                     :method => :delete,  :data => {:confirm =>  t('compliance_checks.actions.destroy_confirm')},
+                     :class => "remove" %>
       <% end %>
     </li>
   </ul>

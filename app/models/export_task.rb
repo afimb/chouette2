@@ -6,12 +6,12 @@ class ExportTask
   include ActiveModel::Validations
   include ActiveModel::Conversion
 
-  attr_accessor :start_date, :end_date
-
   define_model_callbacks :initialize, only: :after
 
   enumerize :data_format, in: %w( neptune netex gtfs hub sig )
-  attr_accessor :referential_id, :user_id, :user_name, :references_type, :data_format, :name, :projection_type, :reference_ids
+
+  attr_accessor :referential_id, :user_id, :user_name, :references_type, :data_format, :name, :projection_type,
+                :reference_ids, :valid_after_export, :start_date, :end_date
 
   validates_presence_of :referential_id
   validates_presence_of :user_id

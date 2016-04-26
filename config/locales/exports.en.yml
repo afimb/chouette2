@@ -14,6 +14,7 @@ en:
     show:
       report: "Report"
       exported_file: "Exported file"
+      compliance_check: "Validation report"
     statuses:
       pending: "Pending ..."
       started: "Started"      

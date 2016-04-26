@@ -44,6 +44,7 @@ fr:
         max_distance_for_connection_link: "Distance max pour créer les correspondances"
         ignore_last_word: "ignorer le dernier mot"
         ignore_end_chars: "ignorer les n derniers caractères"
+        valid_after_export: "Valider après export"
   formtastic:
     titles:
       export_task:

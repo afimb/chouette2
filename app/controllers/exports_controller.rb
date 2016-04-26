@@ -56,6 +56,24 @@ class ExportsController < ChouetteController
     end
   end
 
+  def export
+    respond_to do |format|
+      format.zip { send_file ComplianceCheckExport.new(resource, @referential.id, request).export, type: :zip }
+    end
+  end
+
+  def compliance_check
+    begin
+      @compliance_check = resource
+      build_breadcrumb :compliance_check
+      render "compliance_checks/report"
+    rescue Ievkit::Error, Faraday::Error => error
+      logger.error("Iev failure : #{error.message}")
+      flash[:error] = t(error.locale_for_error) if error.methods.include? :locale_for_error
+      redirect_to referential_path(@referential)
+    end
+  end
+
   protected
   
   def export_service

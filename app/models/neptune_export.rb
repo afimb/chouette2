@@ -15,7 +15,8 @@ class NeptuneExport < ExportTask
         "projection_type" => projection_type || "",
         "add_extension" => extensions,
         "start_date" => start_date,
-        "end_date" => end_date
+        "end_date" => end_date,
+        "valid_after_export" => valid_after_export
       }
     }
   end

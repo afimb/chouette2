@@ -173,6 +173,7 @@ module BreadcrumbHelper
   def export_breadcrumb (action)
     referential_breadcrumb
     add_breadcrumb Referential.human_attribute_name("exports"), referential_exports_path(@referential) unless action == :index
+    add_breadcrumb @export.name, referential_export_path(@referential, @export.id) if @export
   end
 
   def compliance_check_breadcrumb (action)
