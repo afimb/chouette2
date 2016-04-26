@@ -1,16 +1,16 @@
 class RegtoppImport < ImportTask
 
   enumerize :references_type, in: %w( stop_area )
-  
+
   attr_accessor :object_id_prefix, :max_distance_for_commercial, :ignore_last_word,  :ignore_end_chars, :max_distance_for_connection_link, :references_type, :coordinate_projection, :version
-  
+
   validates_presence_of :object_id_prefix, :coordinate_projection, :version
 
   def references_types
     self.references_type.values
   end
 
-  def action_params  
+  def action_params
     {
       "regtopp-import" => {
         "no_save" => no_save,
@@ -25,11 +25,11 @@ class RegtoppImport < ImportTask
         "max_distance_for_connection_link" => max_distance_for_connection_link,
         "references_type" => references_type,
         "coordinate_projection" => coordinate_projection,
-        "version" => version            
+        "version" => version
       }
     }
   end
-  
+
 
   def data_format
     "regtopp"
@@ -47,10 +47,10 @@ class RegtoppImport < ImportTask
 
   def self.available_versions
     [
-        [ "1.1D", "1.1D" ],
-        [ "1.2", "1.2" ],
-        [ "1.2Novus", "1.2Novus" ],
-        [ "1.3A", "1.3A" ]
+        [ "1.1D", "R11D" ],
+        [ "1.2", "R12" ],
+        [ "1.2Novus", "R12N" ],
+        [ "1.3A", "R13A" ]
     ]
   end
 end
