@@ -21,7 +21,6 @@ class OsrmRouteSectionProcessor
 
     routes = JSON.parse(response.read.to_s)
     if routes
-      puts "decoding geometry"
       decoded_geometry = nil
 
         routes["routes"].map do |legs|
