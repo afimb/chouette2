@@ -113,8 +113,6 @@ gem 'newrelic_rpm'
 gem 'letter_opener'
 
 group :development do
-  gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'capistrano', '2.13.5'
   gem 'capistrano-ext'
   gem 'guard'
@@ -124,7 +122,7 @@ group :development do
   # gem 'meta_request'
   gem 'quiet_assets', '~> 1.0'
   gem 'simplecov', '~> 0.10.0'
-  platforms :ruby_20, :ruby_21, :ruby_22 do
+  platforms :ruby_20, :ruby_21, :ruby_22, :ruby_23 do
     gem 'better_errors'
     gem 'binding_of_caller'
   end

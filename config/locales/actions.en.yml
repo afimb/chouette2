@@ -9,4 +9,6 @@ en:
   search_hint: "Type in a search term"
   no_result_text: "No Results"
   searching_term: "Searching..."
+  select_all: "Select all"
+  unselect_all: "Unselect all"
 

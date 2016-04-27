@@ -9,3 +9,5 @@ fr:
   search_hint: "Entrez un texte à rechercher"
   no_result_text: "Aucun résultat"
   searching_term: "Recherche en cours..."
+  select_all: "Tout cocher"
+  unselect_all: "Tout décocher"
