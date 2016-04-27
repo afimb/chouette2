@@ -37,7 +37,7 @@ fr:
     edit:
       title: "Modifier l'arrêt %{stop_area}"
     show:
-      title: "Arrêt %{stop_area}"
+      title: "Arrêt %{stop_area} - %{stop_area_type}"
       geographic_data: "Données géographiques"
       no_geographic_data: "Aucune"
       itl_managment: "Gestion des liens de l'ITL"

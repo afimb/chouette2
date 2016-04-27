@@ -37,7 +37,7 @@ en:
     edit:
       title: "Update stop %{stop_area}"
     show:
-      title: "Stop %{stop_area}"
+      title: "Stop %{stop_area} - %{stop_area_type}"
       geographic_data: "Geographic data"
       no_geographic_data: "None"
       itl_managment: "Routing constraint's links managment"
