@@ -28,14 +28,14 @@
           <%= f.check_box :vehicle_journey_at_stops_departure_time_not_eq %>
 
           <span class="vehicle_journey_at_stops_departure_time_gt">
-            <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(3i)]" %> type="hidden" value="1">
-            <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(2i)]" %> type="hidden" value="1">
-            <input name=<%= "q[vehicle_journey_at_stops_departure_time_gt(1i)]" %> type="hidden" value="2000">
+            <input name=<%= "q[vehicle_journey_at_stops_departure_time_gteq(3i)]" %> type="hidden" value="1">
+            <input name=<%= "q[vehicle_journey_at_stops_departure_time_gteq(2i)]" %> type="hidden" value="1">
+            <input name=<%= "q[vehicle_journey_at_stops_departure_time_gteq(1i)]" %> type="hidden" value="2000">
             <%= f.label :vehicle_journey_at_stops_departure_time_gt, t('.time_range') %>
-            <%= select_hour(@q.send( "vehicle_journey_at_stops_departure_time_gt") ? @q.send( "vehicle_journey_at_stops_departure_time_gt").hour : 0,
-                             :prefix => "q", :field_name => "vehicle_journey_at_stops_departure_time_gt(4i)") %>
-            <%= select_minute(@q.send( "vehicle_journey_at_stops_departure_time_gt") ? @q.send( "vehicle_journey_at_stops_departure_time_gt").min : 0,
-                               :prefix => "q", :field_name => "vehicle_journey_at_stops_departure_time_gt(5i)") %>
+            <%= select_hour(@q.send( "vehicle_journey_at_stops_departure_time_gteq") ? @q.send( "vehicle_journey_at_stops_departure_time_gteq").hour : 0,
+                             :prefix => "q", :field_name => "vehicle_journey_at_stops_departure_time_gteq(4i)") %>
+            <%= select_minute(@q.send( "vehicle_journey_at_stops_departure_time_gteq") ? @q.send( "vehicle_journey_at_stops_departure_time_gteq").min : 0,
+                               :prefix => "q", :field_name => "vehicle_journey_at_stops_departure_time_gteq(5i)") %>
           </span>
         </div>
       <% end %>
