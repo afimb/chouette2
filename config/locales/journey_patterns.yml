@@ -11,6 +11,7 @@ en:
       destroy: "Remove this journey pattern"
       destroy_confirm: "Are you sure you want destroy this journey pattern ?"
       edit_route_sections: "Edit Shape"
+      generate_route_sections: "Generate missing shapes"
     new:
       title: "Add a new journey pattern"
     edit:

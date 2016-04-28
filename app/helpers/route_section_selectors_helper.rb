@@ -20,4 +20,13 @@ module RouteSectionSelectorsHelper
             create_to_edit_referential_route_sections_path(@referential, route_section: {departure_id:departure.id, arrival_id: arrival.id}, return_to: return_to)
   end
 
+  def generate_all_route_sections
+    @route_sections_selector.sections.map do |section|
+      if section.route_section.nil?
+        section.route_section = section.create_candidate
+      end
+      section.route_section.process_geometry
+    end
+    true
+  end
 end
