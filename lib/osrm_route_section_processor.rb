@@ -6,38 +6,19 @@ class OsrmRouteSectionProcessor
     osrm_endpoint = Rails.application.secrets.osrm_endpoint
 
     points_string = (route_section.input_geometry || route_section.default_geometry).points.map do |point|
-      "#{point.x.to_f},#{point.y.to_f};"
+      "loc=#{point.y.to_f},#{point.x.to_f}"
     end.join
-
-    # Remove trailing ';'
-    points_string = points_string.chop
 
     Rails.logger.info "Invoke #{osrm_endpoint} for RouteSection StopArea:#{route_section.departure.id} -> StopArea:#{route_section.arrival.id}"
 
-    profile = 'car'
-
-    response = open "#{osrm_endpoint}/route/v1/#{profile}/#{points_string}?overview=false&steps=true&geometries=polyline"
+    response = open "#{osrm_endpoint}/viaroute?#{points_string}instructions=false"
     return nil unless response
 
-    routes = JSON.parse(response.read.to_s)
-    if routes
-      decoded_geometry = nil
-
-        routes["routes"].map do |legs|
-          legs["legs"].map do |steps|
-            steps["steps"].map do |geometry|
-              current_points = Polylines::Decoder.decode_polyline(geometry["geometry"], 1e5).map do |point|
-                GeoRuby::SimpleFeatures::Point.from_x_y(point[1], point[0], 4326)
-              end
-
-              if decoded_geometry.nil?
-                decoded_geometry = current_points
-              else
-                decoded_geometry.concat(current_points)
-              end
-            end
-          end
-        end
+    geometry = JSON.parse(response.read.to_s)['route_geometry']
+    if geometry
+      decoded_geometry = Polylines::Decoder.decode_polyline(geometry, 1e6).map do |point|
+        GeoRuby::SimpleFeatures::Point.from_x_y(point[1], point[0], 4326)
+      end
 
       GeoRuby::SimpleFeatures::LineString.from_points(decoded_geometry).try(:to_rgeo) if decoded_geometry.many?
     end
