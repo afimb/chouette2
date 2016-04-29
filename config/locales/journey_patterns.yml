@@ -81,6 +81,7 @@ fr:
       destroy: "Supprimer cette mission"
       destroy_confirm: "Etes vous sûr de vouloir détruire cette mission ?"
       edit_route_sections: "Modifier le tracé"
+      generate_route_sections: "Générer des traces"
     new:
       title: "Ajouter une mission"
     edit:
