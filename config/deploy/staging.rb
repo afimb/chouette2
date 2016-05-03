@@ -3,5 +3,5 @@ set :deploy_via, :copy
 set :copy_cache, true
 set :copy_via, :scp
 set :copy_exclude, ".git/*"
-set :branch, "V3_2"
+set :branch, "V3_3"
 set :gui_cmd, "3.0.0"
