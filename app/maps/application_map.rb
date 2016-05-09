@@ -134,31 +134,31 @@ class ApplicationMap
                                               :renderIntent => "temporary",
                                               :eventListeners => {
                                                 :featurehighlighted => JsExpr.new("function(e) {
-          var feature = e.feature ;
-          if (feature.attributes.inactive != undefined)
-            return;
-          var stop_area_type_label = '';
-          if (feature.attributes.stop_area_type_label != undefined)
-            stop_area_type_label = feature.attributes.stop_area_type_label;
-          var popup = new OpenLayers.Popup.Anchored('chicken',
-                                                 new OpenLayers.LonLat(feature.geometry.x, feature.geometry.y),
-                                                 null,
-                                                 \"<div class='popup_hover'><p><b>\" + feature.attributes.name +\"</b></p>\" + stop_area_type_label + \"</div> \", null, false, null);
-          popup.autoSize = true;
-          popup.displayClass = 'popup_hover';
-
-          feature.popup = popup;
-          map.addPopup(popup);
-        }"),
-                                                :featureunhighlighted => JsExpr.new("function(e) {
-          var feature = e.feature;
-          if (feature.attributes.inactive != undefined)
-            return;
-          map.removePopup(feature.popup);
-          feature.popup.destroy();
-          feature.popup = null;
-        }")
-                                              } } )
+                                                  var feature = e.feature ;
+                                                  if (feature.attributes.inactive != undefined)
+                                                    return;
+                                                  var stop_area_type_label = '';
+                                                  if (feature.attributes.stop_area_type_label != undefined)
+                                                    stop_area_type_label = feature.attributes.stop_area_type_label;
+                                                  var popup = new OpenLayers.Popup.Anchored('chicken',
+                                                                                         new OpenLayers.LonLat(feature.geometry.x, feature.geometry.y),
+                                                                                         null,
+                                                                                         \"<div class='popup_hover'><p><b>\" + feature.attributes.name +\"</b></p>\" + stop_area_type_label + \"</div> \", null, false, null);
+                                                  popup.autoSize = true;
+                                                  popup.displayClass = 'popup_hover';
+                                                  feature.popup = popup;
+                                                  map.addPopup(popup);
+                                                }"),
+                                                :featureunhighlighted => JsExpr.new('function(e) {
+                                                  var feature = e.feature;
+                                                  if (feature.attributes.inactive != undefined)
+                                                    return;
+                                                  map.removePopup(feature.popup);
+                                                  feature.popup.destroy();
+                                                  feature.popup = null;
+                                                }')
+                                              }
+    })
   end
 
   def kml_layer(url_or_object, options_or_url_options = {}, options = nil)

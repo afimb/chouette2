@@ -6,14 +6,25 @@
 	    <Placemark id="<%= child.id %>" >
 	      <name><%= child.name %></name>
 	      <stop_area_type><%= child.stop_area_type %></stop_area_type>
+        <stop_area_type_label><%= t("area_types.label.#{child.stop_area_type}") %></stop_area_type_label>
 	      <%= (child.position or child.default_position).kml_representation.html_safe %>
 	    </Placemark>
   	   <% end %>
+    <% elsif !params["parents"].nil? %>
+      <% @stop_area.parents.each do |parent| %>
+        <Placemark id="<%= parent.id %>" >
+          <name><%= parent.name %></name>
+          <stop_area_type><%= parent.stop_area_type %></stop_area_type>
+          <stop_area_type_label><%= t("area_types.label.#{parent.stop_area_type}") %></stop_area_type_label>
+          <%= (parent.position or parent.default_position).kml_representation.html_safe %>
+        </Placemark>
+      <% end %>
   	<% elsif !params["routing"].nil? %>
   	   <% @stop_area.routing_stops.each do |child| %>
 	    <Placemark id="<%= child.id %>" >
 	      <name><%= child.name %></name>
 	      <stop_area_type><%= child.stop_area_type %></stop_area_type>
+        <stop_area_type_label><%= t("area_types.label.#{child.stop_area_type}") %></stop_area_type_label>
 	      <%= (child.position or child.default_position).kml_representation.html_safe %>
 	    </Placemark>
   	   <% end %>
@@ -21,6 +32,7 @@
     <Placemark id="<%= @stop_area.id %>" >
       <name><%= @stop_area.name %></name>
       <stop_area_type><%= @stop_area.stop_area_type %></stop_area_type>
+      <stop_area_type_label><%= t("area_types.label.#{@stop_area.stop_area_type}") %></stop_area_type_label>
       <%= (@stop_area.position or @stop_area.default_position).kml_representation.html_safe %>
     </Placemark>
     <% end %>
