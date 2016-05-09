@@ -23,6 +23,10 @@ en:
       add_routing_lines: "Manage constraint's lines"
       add_routing_stops: "Manage constraint's stops"
       default_geometry: "Compute missing geometries"
+      default_geometry_confirm:
+        zero:  "No missing geometry, you can undo the action."
+        one:   "There is a missing geometry. Would you like to continue?"
+        other: "There are %{count} missing geometries. Would you like to continue?"
       export_kml_place: "Export KML places"
       export_kml_commercial: "Export KML commercial stop points"
       export_kml_physical: "Export KML physical"

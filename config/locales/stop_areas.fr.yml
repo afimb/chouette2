@@ -23,6 +23,10 @@ fr:
       manage_access_points: "Gérer les accès"
       manage_access_links: "Gérer les liens arrêt-accès"
       default_geometry: "Calculer les géométries manquantes"
+      default_geometry_confirm:
+        zero:  "Aucune géométrie manquante, vous pouvez annuler l'action."
+        one:   "Il y a une géométrie manquante. Souhaitez-vous continuer ?"
+        other: "Il y a %{count} géométries manquantes. Souhaitez-vous continuer ?"
       export_kml_place: "Export KML des pôles d'échange"
       export_kml_commercial: "Export KML des arrêts commerciaux"
       export_kml_physical: "Export KML des arrêts physiques"
