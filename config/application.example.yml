@@ -6,6 +6,7 @@ google_analytics_tracker:
 geoportail_api_key:
 newrelic_licence_key:
 osrm_endpoint: 'http://router.project-osrm.org'
+osrm_secondary_endpoint: # For example : 'http://localhost:5000'
 app_version: '3.3.0'
 deactivate_formats_referential: # For example: 'hub,sig,neptune'
 deactivate_formats_import: # For example: 'hub,sig,neptune'
