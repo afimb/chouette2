@@ -11,7 +11,7 @@
         <%= link_to([@referential, time_table], :class => "preview", :title => "#{Chouette::TimeTable.model_name.human.capitalize} #{time_table.comment}") do %>
         <span class="state-code <%= time_table.presenter.time_table_state_code %>"><i class="fa fa-certificate"></i></span>
         <span class="name">
-          <%= truncate(time_table.comment, :length => 20) %>
+          <%= truncate(time_table.comment, :length => 50) %>
         </span>
         <% end %>
       </h5>

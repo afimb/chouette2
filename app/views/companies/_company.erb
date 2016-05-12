@@ -1,7 +1,7 @@
 <div id="index_item" class="company panel panel-default">
   <div class="panel-heading">
     <div class="panel-title clearfix">
-      <span class="pull-right">                
+      <span class="pull-right">
         <%= link_to edit_referential_company_path(@referential, company), :class => "btn btn-default btn-sm" do %>
           <span class="fa fa-pencil"></span>
         <% end %>
@@ -10,17 +10,17 @@
         <% end %>
       </span>
       <h5>
-        <%= link_to([@referential, company], :class => "preview", :title => "#{Chouette::Company.model_name.human.capitalize} #{company.name}") do %>        
+        <%= link_to([@referential, company], :class => "preview", :title => "#{Chouette::Company.model_name.human.capitalize} #{company.name}") do %>
         <span class="name">
-          <%= truncate(company.name, :length => 20) %>          
+          <%= truncate(company.name, :length => 50) %>          
         </span>
         <% end %>
       </h5>
-    </div>                          
+    </div>
   </div>
   <div class="panel-body">
     <p>
-    <%= company.human_attribute_name('code') %> <%= company.code %> 
+    <%= company.human_attribute_name('code') %> <%= company.code %>
     </p>
   </div>
 </div>

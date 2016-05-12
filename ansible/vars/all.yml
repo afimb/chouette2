@@ -1,0 +1,5 @@
+---
+docker_build_root: /usr/src
+build_log_directory: /usr/src/log
+chouette2_root: "{{docker_build_root}}/chouette2"
+chouette2_docker_image: "dr.rutebanken.org/rutebanken/chouette2"

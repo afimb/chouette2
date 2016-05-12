@@ -139,7 +139,12 @@ class Referential < ActiveRecord::Base
       [ "Réunion RGR92 - UTM 40S (2975)", 2975 ],
       [ "Antilles Françaises RRAF1991 - UTM 20N - IGN (4559)", 4559 ],
       [ "Guyane RGFG95 - UTM 22N (2972)", 2972 ],
-      [ "Guyane RGFG95 - UTM 21N (3312)", 3312 ]
+      [ "Guyane RGFG95 - UTM 21N (3312)", 3312 ],
+      [ "UTM zone 32N", 32632 ],
+      [ "UTM zone 33N", 32633 ],
+      [ "UTM zone 34N", 32634 ],
+      [ "UTM zone 35N", 32635 ],
+      [ "WGS 84 / Latlong", 4326 ]
     ]
   end
 

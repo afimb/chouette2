@@ -73,7 +73,17 @@
                   <% end %>
                 <% end %>
               </dt>
-              <dd><%=t("compliance_check_result.details.detail_#{error[:error_id]}", object_labels_hash(error))%></dd>
+              <dd>
+                  <p>
+                    <%=t("compliance_check_result.details.detail_#{error[:error_id]}", object_labels_hash(error))%>
+                  </p>
+                  <% if error[:error_description].present? %>
+                      <p><%= "#{error[:error_description]}" if error[:error_description].present? %></p>
+                  <% end %>
+                  <% if error[:error_value].present? %>
+                      <p><%= "Errorcode: #{error[:error_value]}" if error[:error_value].present? %></p>
+                  <% end %>
+              </dd>
               </dl>
               <% if error[:source].file.present? %>
                 <p class="file_error">

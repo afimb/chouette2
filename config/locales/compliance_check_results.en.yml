@@ -24,7 +24,7 @@ en:
       ## NEPTUNE
       detail_1_neptune_xml_1: "%{source_label} : %{error_value}"
       detail_1_neptune_xml_2: "%{source_label} : %{error_value}"
-      
+
       ## GTFS
       detail_1_gtfs_csv_1: "File %{filename} is not readable"
       detail_1_gtfs_csv_2: "File %{filename} is not readable"
@@ -33,7 +33,7 @@ en:
       detail_1_gtfs_csv_5: "The line of file %{filename} does not comply to the CSV syntax"
       detail_1_gtfs_csv_6: "File %{filename} includes HTML tags"
       detail_1_gtfs_csv_7: "The string value '%{error_value}' of field %{reference_value} has header/trailer spaces"
-      
+
       detail_1_gtfs_common_1: "File %{filename} is required"
       detail_1_gtfs_common_2: "At least one file calendar.txt and/or calendar_dates.txt is required"
       detail_1_gtfs_common_3: "The optional file %{filename} is not present"
@@ -58,7 +58,62 @@ en:
 
       detail_1_gtfs_calendar_1: "No calendar day is defined"
       detail_1_gtfs_calendar_2: "The calendar end date is before the calendar start date"
-      
+
+      ## RegTopp
+      detail_1_regtopp_file_tix: "Error reading file %{filename}."
+      detail_1_regtopp_file_hpl: "Error reading file %{filename}."
+      detail_1_regtopp_file_dko: "Error reading file %{filename}."
+      detail_1_regtopp_file_gav: "Error reading file %{filename}."
+      detail_1_regtopp_file_tms: "Error reading file %{filename}."
+      detail_1_regtopp_file_dst: "Error reading file %{filename}."
+      detail_1_regtopp_file_mrk: "Error reading file %{filename}."
+      detail_1_regtopp_file_lin: "Error reading file %{filename}."
+      detail_1_regtopp_file_tda: "Error reading file %{filename}."
+      detail_1_regtopp_file_stp: "Error reading file %{filename}."
+      detail_1_regtopp_field_value_1: "%{reference_value}"
+      detail_1_regtopp_concistency_1: "%{reference_value}"
+      detail_1_regtopp_concistency_2: "%{reference_value}"
+      detail_2_regtopp_tix_1: "%{reference_value}"
+      detail_2_regtopp_tix_2: "%{reference_value}"
+      detail_2_regtopp_tix_3: "%{reference_value}"
+      detail_2_regtopp_tix_4: "%{reference_value}"
+      detail_2_regtopp_hpl_1: "%{reference_value}"
+      detail_2_regtopp_hpl_2: "%{reference_value}"
+      detail_2_regtopp_hpl_3: "%{reference_value}"
+      detail_2_regtopp_hpl_4: "%{reference_value}"
+      detail_2_regtopp_dko_1: "%{reference_value}"
+      detail_2_regtopp_dko_2: "%{reference_value}"
+      detail_2_regtopp_dko_3: "%{reference_value}"
+      detail_2_regtopp_dko_4: "%{reference_value}"
+      detail_2_regtopp_gav_1: "%{reference_value}"
+      detail_2_regtopp_gav_2: "%{reference_value}"
+      detail_2_regtopp_gav_3: "%{reference_value}"
+      detail_2_regtopp_gav_4: "%{reference_value}"
+      detail_2_regtopp_tms_1: "%{reference_value}"
+      detail_2_regtopp_tms_2: "%{reference_value}"
+      detail_2_regtopp_tms_3: "%{reference_value}"
+      detail_2_regtopp_tms_4: "%{reference_value}"
+      detail_2_regtopp_dst_1: "%{reference_value}"
+      detail_2_regtopp_dst_2: "%{reference_value}"
+      detail_2_regtopp_dst_3: "%{reference_value}"
+      detail_2_regtopp_dst_4: "%{reference_value}"
+      detail_2_regtopp_mrk_1: "%{reference_value}"
+      detail_2_regtopp_mrk_2: "%{reference_value}"
+      detail_2_regtopp_mrk_3: "%{reference_value}"
+      detail_2_regtopp_mrk_4: "%{reference_value}"
+      detail_2_regtopp_lin_1: "%{reference_value}"
+      detail_2_regtopp_lin_2: "%{reference_value}"
+      detail_2_regtopp_lin_3: "%{reference_value}"
+      detail_2_regtopp_lin_4: "%{reference_value}"
+      detail_2_regtopp_tda_1: "%{reference_value}"
+      detail_2_regtopp_tda_2: "%{reference_value}"
+      detail_2_regtopp_tda_3: "%{reference_value}"
+      detail_2_regtopp_tda_4: "%{reference_value}"
+      detail_2_regtopp_stp_1: "%{reference_value}"
+      detail_2_regtopp_stp_2: "%{reference_value}"
+      detail_2_regtopp_stp_3: "%{reference_value}"
+      detail_2_regtopp_stp_4: "%{reference_value}"
+
       #### level 2
       ## NEPTUNE
       detail_2_neptune_common_1: "L'élément %{source_objectid} a des attributs qui diffèrent entre les différents fichiers qui le définissent"
@@ -151,7 +206,7 @@ en:
       detail_2_gtfs_route_2: "Route (%{source_objectid}) route_short_name (%{error_value}) is included in its route_long_name (%{reference_value})"
       detail_2_gtfs_route_3: "Color contrast of route (%{source_objectid}) is not sufficient"
       detail_2_gtfs_route_4: "Route (%{source_objectid}) has same (route_short_name,route_long_name) than route (%{error_value}) "
-     
+
       #### level 3
       detail_3_stoparea_1: "Stop %{source_label} (%{source_objectid}) coordinates are missing"
       detail_3_stoparea_2: "Stop %{source_label} (%{source_objectid}) is too close from stop %{target_0_label} (%{target_0_objectid}) : distance %{error_value} < %{reference_value}"
@@ -262,15 +317,15 @@ en:
         ## Neptune
         1-NEPTUNE-XML-1: "Conformité à la syntaxe XML suivant les recommandations du W3C."
         1-NEPTUNE-XML-2: "Conformité au schéma défini par la XSD du profil TRIDENT/NEPTUNE."
-        
+
         2-NEPTUNE-Common-1: "Unicité des éléments objectId des différents objets d'un lot de fichiers Neptune."
         2-NEPTUNE-Common-2: "Unicité des éléments regitrationNumber des différents objets d'un lot de fichiers Neptune."
-        
+
         2-NEPTUNE-Network-1: "Référence à des lignes <Line> dans version du réseau <PTNetwork>."
         2-NEPTUNE-Network-2: "Valeur autorisée pour le type de source <SourceType> dans version du réseau <PTNetwork>."
-        
+
         2-NEPTUNE-GroupOfLine-1: "Référence à des lignes <Line> dans groupe de lignes <GroupOfLine>."
-        
+
         2-NEPTUNE-StopArea-1: "Référence à des arrêts <StopArea> et/ou à des points d'arrêt sur parcours <StopPoint> dans les arrêts <StopArea>."
         2-NEPTUNE-StopArea-2: "Référence à des arrêts <StopArea> dans les arrêts <StopArea> de type StopPlace."
         2-NEPTUNE-StopArea-3: "Référence à des arrêts <StopArea> dans les arrêts <StopArea> de type CommercialStopPoint."
@@ -288,7 +343,7 @@ en:
         2-NEPTUNE-AreaCentroid-2: "Modèle de projection de référence utilisé."
 
         2-NEPTUNE-ConnectionLink-1: "Référence aux arrêts <StopArea> définissant des tronçons de correspondance <ConnectionLink>."
-        
+
         2-NEPTUNE-AccessPoint-1: "Référence à un arrêt <StopArea> dans les accès <AccessPoint>."
         2-NEPTUNE-AccessPoint-2: "Référence à un arrêt <StopArea> dans les accès <AccessPoint>."
         2-NEPTUNE-AccessPoint-3: "Existence de liens d'accès <AccessLink> sur les accès <AccessPoint>."
@@ -296,17 +351,17 @@ en:
         2-NEPTUNE-AccessPoint-5: "Existence de liens d'accès <AccessLink> sur les accès <AccessPoint> sur les accès de type 'out'."
         2-NEPTUNE-AccessPoint-6: "Existence de liens d'accès <AccessLink> sur les accès <AccessPoint>  sur les accès de type 'inout'."
         2-NEPTUNE-AccessPoint-7: "Modèle de projection de référence utilisé."
-        
+
         2-NEPTUNE-AccessLink-1: "Référence aux arrêts <StopArea> et accès <AccessPoint> définissant des liens d'accès <AccessLink>."
         2-NEPTUNE-AccessLink-2: "Référence aux arrêts <StopArea> et accès <AccessPoint> définissant des liens d'accès <AccessLink>."
-        
+
         2-NEPTUNE-Line-1: "Référence au réseau dans l'objet ligne <Line>."
         2-NEPTUNE-Line-2: "Référence à un arrêt <StopArea> comme terminus de ligne <Line>."
         2-NEPTUNE-Line-3: "Référence à un arrêt <StopArea> de type BoardingPosition, Quay ou CommercialStopPoint comme terminus de ligne <Line>."
         2-NEPTUNE-Line-4: "Référence aux séquences d'arrêts <ChouetteRoute> dans l'objet ligne <Line>."
         2-NEPTUNE-Line-5: "Référence aux séquences d'arrêts <ChouetteRoute> dans l'objet ligne <Line>."
         2-NEPTUNE-Line-6: "Présence d'au moins une valeur parmi <name>,<number> ou <publishedName> dans l'objet ligne <Line>."
-        
+
         2-NEPTUNE-Route-1: "Existence des missions <JourneyPattern> référencées par la séquence d'arrêt <ChouetteRoute>."
         2-NEPTUNE-Route-2: "Existence des tronçons commerciaux <PtLink> référencés par la séquence d'arrêt <ChouetteRoute>."
         2-NEPTUNE-Route-3: "Existence de la séquence opposée <ChouetteRoute> référencée par la séquence d'arrêt <ChouetteRoute>."
@@ -319,22 +374,22 @@ en:
         2-NEPTUNE-Route-10: "Référence d'une séquence d'arrêts <ChouetteRoute> à une séquence d'arrêts opposée."
         2-NEPTUNE-Route-11: "Sens de la référence d'une séquence d'arrêts <ChouetteRoute> à une séquence d'arrêts opposée."
         2-NEPTUNE-Route-12: "Cohérence des terminus de la référence d'une séquence d'arrêts <ChouetteRoute> à une séquence d'arrêts opposée."
-        
+
         2-NEPTUNE-PtLink-1: "Existence des  arrêts <StopPoint> référencés par les  tronçons commerciaux <PTLink>."
-        
+
         2-NEPTUNE-JourneyPattern-1: "Existence de la séquence d'arrêt <ChouetteRoute> référencée par la mission <JourneyPattern>."
         2-NEPTUNE-JourneyPattern-2: "Existence des arrêts <StopPoint> référencés par la mission <JourneyPattern>."
         2-NEPTUNE-JourneyPattern-3: "Existence de la ligne <Line> référencée par la mission <JourneyPattern>."
-        
+
         2-NEPTUNE-StopPoint-1: "Existence de la ligne <Line> référencée par l'arrêt <StopPoint>."
         2-NEPTUNE-StopPoint-2: "Existence du réseau <PTNetwork> référence par l'arrêt <StopPoint>."
         2-NEPTUNE-StopPoint-3: "Existence de l'arrêt   <StopArea> référencé par l'arrêt <StopPoint>."
         2-NEPTUNE-StopPoint-4: "Modèle de projection de référence utilisé."
-        
+
         2-NEPTUNE-Timetable-1: "Utilité des calendriers."
         2-NEPTUNE-Timetable-2: "Affectation des courses à un calendrier."
         2-NEPTUNE-Timetable-3: "Date fin de période > date début de période."
-        
+
         2-NEPTUNE-VehicleJourney-1: "Existence de la séquence d'arrêt <ChouetteRoute> référencée par la course <VehicleJourney>."
         2-NEPTUNE-VehicleJourney-2: "Existence de la mission <JourneyPattern> référencée par la course <VehicleJourney>."
         2-NEPTUNE-VehicleJourney-3: "Existence de la ligne <Line> référencée par la course <VehicleJourney>."
@@ -343,19 +398,19 @@ en:
         2-NEPTUNE-VehicleJourney-6: "Cohérence entre la course, la mission et la séquence d'arrêts."
         2-NEPTUNE-VehicleJourney-7: "Utilité des missions"
         2-NEPTUNE-VehicleJourney-8: "Vérification de la mission par défaut"
-        
+
         2-NEPTUNE-VehicleJourneyAtStop-1: "Existence de l'arrêt <StopPoint> référencé par l'horaire <VehicleJourneyAtStop>."
         2-NEPTUNE-VehicleJourneyAtStop-2: "Existence de la course <VehicleJourney> référenceé par l'horaire <VehicleJourneyAtStop>."
         2-NEPTUNE-VehicleJourneyAtStop-3: "Adéquation des horaires de la course à la séquence d'arrêts."
         2-NEPTUNE-VehicleJourneyAtStop-4: "Adéquation des horaires de la course à la mission."
-        
+
         2-NEPTUNE-Facility-1: "Existence de l'arrêt <StopArea> référencé par l'équipement <Facility>."
         2-NEPTUNE-Facility-2: "Existence de l'arrêt <StopArea> référencé par l'équipement <Facility>."
         2-NEPTUNE-Facility-3: "Existence de la ligne <Line> référencée par l'équipement <Facility>."
         2-NEPTUNE-Facility-4: "Existence de la correspondance <ConnectionLink> référencée par l'équipement <Facility>."
         2-NEPTUNE-Facility-5: "Existence de l'arrêt <StopPoint> référencé par l'équipement <Facility>."
         2-NEPTUNE-Facility-6: "Modèle de projection de référence utilisé."
-        
+
         ## GTFS
         1-GTFS-CSV-1: "Valid .zip Archive and files"
         1-GTFS-CSV-2: "Valid UTF-8 CSV header line"
@@ -364,31 +419,31 @@ en:
         1-GTFS-CSV-5: "Valid UTF-8 CSV data line"
         1-GTFS-CSV-6: "No HTML tags"
         1-GTFS-CSV-7: "No header/trailer spaces"
-        
+
         1-GTFS-Common-1: "Required files are present"
         1-GTFS-Common-2: "Presence of calendar_dates and/or calendars"
         1-GTFS-Common-3: "Check for optional files"
         1-GTFS-Common-4: "Presence of other files"
-        
+
         1-GTFS-Common-5: "Presence of data in files"
         1-GTFS-Common-6: "Presence of data in calendar files"
         1-GTFS-Common-7: "Presence of data in optional files"
-        
+
         1-GTFS-Common-8: "Unique Identifiers"
         1-GTFS-Common-9: "Presence of Required columns"
         1-GTFS-Common-10: "Presence of agency_id"
         1-GTFS-Common-11: "Unknown columns"
-        
+
         1-GTFS-Common-12: "Data in Required columns"
         1-GTFS-Common-13: "Data in agency_id in case of several agencies"
         1-GTFS-Common-14: "Data in agency_id"
         1-GTFS-Common-15: "Conditional values for arrival and departure times, transfer_times"
-        
+
         1-GTFS-Common-16: "Valid data types"
 
         1-GTFS-Route-1: "Presence of column route_short_name or else route_long_name"
         1-GTFS-Route-2: "Presence of data for route_short_name or else route_long_name"
-        
+
         1-GTFS-Calendar-1: "At least one weekday"
         1-GTFS-Calendar-2: "end_date after start_data"
 
@@ -404,7 +459,79 @@ en:
         2-GTFS-Route-2: "Contrôle de la non inclusion de route_short_name dans route_long_name"
         2-GTFS-Route-3: "Contrast between colors"
         2-GTFS-Route-4: "No 2 routes have identical route_short_name and route_long_name values, but reversed"
-        
+
+        ## RegTopp
+        1-REGTOPP-FILE-1: "RegTopp file validation"
+        1-REGTOPP-FILE-NOENTRY-1: "Empty or missing file"
+        1-REGTOPP-FILE-MANDATORY-1: "Mandatory files missing"
+        1-REGTOPP-FIELD-ADMINCODES-1: "Multiple admin codes"
+
+        1-REGTOPP-TIX-1: "TIX file - validation"
+        1-REGTOPP-HPL-1: "HPL file - validation"
+        1-REGTOPP-DKO-1: "DKO file - validation"
+        1-REGTOPP-GAV-1: "GAV file - validation"
+        1-REGTOPP-TMS-1: "TMS file - validation"
+        1-REGTOPP-DST-1: "DST file - validation"
+        1-REGTOPP-MRK-1: "MRK file - validation"
+        1-REGTOPP-LIN-1: "LIN file - validation"
+        1-REGTOPP-TDA-1: "TDA file - validation"
+        1-REGTOPP-STP-1: "STP file - validation"
+
+        2-REGTOPP-TIX-1: "Invalid field value"
+        2-REGTOPP-TIX-2: "Invalid mandatory ID reference"
+        2-REGTOPP-TIX-3: "Invalid optional ID reference"
+        2-REGTOPP-TIX-4: "Duplicate key"
+
+        2-REGTOPP-HPL-1: "Invalid field value"
+        2-REGTOPP-HPL-2: "Invalid mandatory ID reference"
+        2-REGTOPP-HPL-3: "Invalid optional ID reference"
+        2-REGTOPP-HPL-4: "Duplicate key"
+
+        2-REGTOPP-DKO-1: "Invalid field value"
+        2-REGTOPP-DKO-2: "Invalid mandatory ID reference"
+        2-REGTOPP-DKO-3: "Invalid optional ID reference"
+        2-REGTOPP-DKO-4: "Duplicate key"
+
+        2-REGTOPP-GAV-1: "Invalid field value"
+        2-REGTOPP-GAV-2: "Invalid mandatory ID reference"
+        2-REGTOPP-GAV-3: "Invalid optional ID reference"
+        2-REGTOPP-GAV-4: "Duplicate key"
+
+        2-REGTOPP-TMS-1: "Invalid field value"
+        2-REGTOPP-TMS-2: "Invalid mandatory ID reference"
+        2-REGTOPP-TMS-3: "Invalid optional ID reference"
+        2-REGTOPP-TMS-4: "Duplicate key"
+
+        2-REGTOPP-DST-1: "Invalid field value"
+        2-REGTOPP-DST-2: "Invalid mandatory ID reference"
+        2-REGTOPP-DST-3: "Invalid optional ID reference"
+        2-REGTOPP-DST-4: "Duplicate key"
+
+        2-REGTOPP-MRK-1: "Invalid field value"
+        2-REGTOPP-MRK-2: "Invalid mandatory ID reference"
+        2-REGTOPP-MRK-3: "Invalid optional ID reference"
+        2-REGTOPP-MRK-4: "Duplicate key"
+
+        2-REGTOPP-LIN-1: "Invalid field value"
+        2-REGTOPP-LIN-2: "Invalid mandatory ID reference"
+        2-REGTOPP-LIN-3: "Invalid optional ID reference"
+        2-REGTOPP-LIN-4: "Duplicate key"
+
+        2-REGTOPP-TDA-1: "Invalid field value"
+        2-REGTOPP-TDA-2: "Invalid mandatory ID reference"
+        2-REGTOPP-TDA-3: "Invalid optional ID reference"
+        2-REGTOPP-TDA-4: "Duplicate key"
+
+        2-REGTOPP-STP-1: "Invalid field value"
+        2-REGTOPP-STP-2: "Invalid mandatory ID reference"
+        2-REGTOPP-STP-3: "Invalid optional ID reference"
+        2-REGTOPP-STP-4: "Duplicate key"
+
+        2-REGTOPP-VLP-1: "Invalid field value"
+        2-REGTOPP-VLP-2: "Invalid mandatory ID reference"
+        2-REGTOPP-VLP-3: "Invalid optional ID reference"
+        2-REGTOPP-VLP-4: "Duplicate key"
+
         ## COMMON
         3-StopArea-1: "All stops must have a location"
         3-StopArea-2: "2 stops with differing names and of differing parent stops shall be nearby"

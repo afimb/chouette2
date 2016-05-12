@@ -86,7 +86,7 @@
             <%= image_tag("language_engine/#{selected_language}_flag.png", { :'data-locale' => "#{selected_language}" } ) %><b class='caret'></b>
           </a>
           <ul class="dropdown-menu">
-            <li><%= link_to_language :fr, { :class => language_class( :fr ) } %></li>
+<!-- TODO make dynamic based on valid languages (config parameter)            <li><%= link_to_language :fr, { :class => language_class( :fr ) } %></li> -->
             <li><%= link_to_language :en, { :class => language_class( :en  ) } %></li>
           </ul>
         </li>

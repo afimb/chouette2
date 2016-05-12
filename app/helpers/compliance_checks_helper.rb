@@ -90,6 +90,12 @@ module ComplianceChecksHelper
     if error[:reference_value].present?
       object_labels_hash[:reference_value] = error[:reference_value]
     end
+    if error[:error_description].present?
+      object_labels_hash[:error_description] = error[:error_description]
+    end
+    if error[:error_value].present?
+      object_labels_hash[:error_value] = error[:error_value]
+    end
     return object_labels_hash
   end
 

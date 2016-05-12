@@ -1,7 +1,7 @@
 <div id="index_item" class="panel panel-default stop_area">
   <div class="panel-heading">
     <div class="panel-title clearfix">
-      <span class="pull-right">                
+      <span class="pull-right">
         <%= link_to edit_referential_stop_area_path(@referential, stop_area), :class => "btn btn-default btn-sm" do %>
           <span class="fa fa-pencil"></span>
         <% end %>
@@ -10,35 +10,35 @@
         <% end %>
       </span>
       <h5>
-        <%= link_to([@referential, stop_area], :class => "preview", :title => t("area_types.label.#{stop_area.stop_area_type}") + " #{stop_area.name}") do %>        
+        <%= link_to([@referential, stop_area], :class => "preview", :title => t("area_types.label.#{stop_area.stop_area_type}") + " #{stop_area.name}") do %>
         <span class="name">
-          <%= image_tag "map/" + stop_area.stop_area_type + ".png"   %> <%= truncate(stop_area.name, :length => 20) %>          
+          <%= image_tag "map/" + stop_area.stop_area_type + ".png"   %> <%= truncate(stop_area.name, :length => 50) %>          
         </span>
         <% end %>
       </h5>
-    </div>                          
+    </div>
   </div>
   <div class="panel-body">
-    <p>      
+    <p>
       <% unless stop_area.area_type == 'ITL' || stop_area.geometry %>
         <span class="warning"><%= t('.no_position') %></span>
       <% end %>
     </p>
-    <p>     
+    <p>
       <%= stop_area.human_attribute_name('registration_number') %> : <%= stop_area.registration_number.present? ? stop_area.registration_number : t(".no_object") %>
     </p>
     <p>
-      <%=  t('.address') %> : <%= (stop_area.zip_code.present? || stop_area.city_name.present?) ? "#{stop_area.zip_code} #{stop_area.city_name}"  : t(".no_object") %> 
+      <%=  t('.address') %> : <%= (stop_area.zip_code.present? || stop_area.city_name.present?) ? "#{stop_area.zip_code} #{stop_area.city_name}"  : t(".no_object") %>
     </p>
     <p>
       <% if stop_area.area_type == 'ITL' %>
       <%=  t('.lines') %> : <% if stop_area.routing_lines.blank? %>
           <%= t(".no_object") %>
-        <% else %>                               
+        <% else %>
           <% stop_area.routing_lines.each do |line| %>
             <span class="label label-default line"><%= line.number %></span>
           <% end %>
-        <% end %>    
+        <% end %>
       <% else %>
       <%= t('.lines') %> : <% if stop_area.lines.blank? %>
           <%= t(".no_object") %>
@@ -46,7 +46,7 @@
           <% stop_area.lines.each do |line| %>
             <span class="label label-default line"><%= line.number || truncate( line.name, :length => 4 ) %></span>
           <% end %>
-        <% end %>    
+        <% end %>
       <% end %>
     </p>
   </div>

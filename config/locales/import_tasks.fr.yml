@@ -24,6 +24,10 @@ fr:
         zero:  "import"
         one:   "import NeTEx"
         other: "imports"
+      regtopp_import:
+        zero:  "import"
+        one:   "import RegTopp"
+        other: "imports"
     attributes:
       import_task:
         name: "Nom de l'import"
