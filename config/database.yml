@@ -2,17 +2,14 @@ default: &default
   adapter: postgis
   encoding: unicode
   port: 5432
-  host: chouettedb
+  host: localhost
   schema_search_path: 'public,shared_extensions'
   username: chouette
   password: chouette
   postgis_schema: 'shared_extensions'
 
-# NOTE: The the dev database set currently point at chouette-test. This is
-# to be able to build it in jenkins. Hopefully this will be sorted out
 development:
   <<: *default
-  host: localhost
   database: chouette-dev
 
 # Warning: The database defined as "test" will be erased and
@@ -20,7 +17,6 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  host: localhost
   database: chouette-test
 
 production:
