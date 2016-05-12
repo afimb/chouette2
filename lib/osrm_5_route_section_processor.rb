@@ -13,7 +13,6 @@ class Osrm_5_RouteSectionProcessor
     points_string = points_string.chop
 
     Rails.logger.info "Invoke #{osrm_endpoint} for RouteSection StopArea:#{route_section.departure.id} -> StopArea:#{route_section.arrival.id}"
-puts '555555555555555'
     response = open "#{osrm_endpoint}/route/v1/driving/#{points_string}?overview=false&steps=true&geometries=polyline"
     return nil unless response
 
