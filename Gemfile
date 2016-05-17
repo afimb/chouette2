@@ -151,6 +151,8 @@ end
 # I18n
 gem 'rails-i18n', '~> 4.0.0'
 gem 'devise-i18n'
+gem 'chouette2-i18n', git: 'https://github.com/afimb/chouette2-i18n.git'
+gem 'chouette-projects-i18n', git: 'https://github.com/afimb/chouette-projects-i18n.git'
 
 # Rails Assets
 source 'http://rails-assets.org' do

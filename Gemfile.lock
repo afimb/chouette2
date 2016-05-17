@@ -1,3 +1,19 @@
+GIT
+  remote: https://github.com/afimb/chouette-projects-i18n.git
+  revision: 38046ea890b30a92be32c73ca7aff977bd71b1a4
+  specs:
+    chouette-projects-i18n (0.1.0)
+      i18n
+      railties
+
+GIT
+  remote: https://github.com/afimb/chouette2-i18n.git
+  revision: bfddbd34b1b1c8bba20872674db80ae7c92d496c
+  specs:
+    chouette2-i18n (0.1.0)
+      i18n
+      railties
+
 GEM
   remote: http://rubygems.org/
   remote: http://rails-assets.org/
@@ -476,6 +492,8 @@ DEPENDENCIES
   capistrano (= 2.13.5)
   capistrano-ext
   capybara (~> 2.7.0)
+  chouette-projects-i18n!
+  chouette2-i18n!
   cocoon
   coffee-rails (~> 4.0.0)
   daemons
@@ -559,4 +577,4 @@ DEPENDENCIES
   will_paginate-bootstrap (~> 1.0.1)
 
 BUNDLED WITH
-   1.11.2
+   1.12.1
