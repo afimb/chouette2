@@ -79,13 +79,13 @@
         });
 		$( "#q_journey_pattern_id_eq" ).tokenInput( '<%= referential_line_route_journey_patterns_path(@referential, @line, @route, :format => :json) %>', {
           crossDomain: false,
-          prePopulate: $('#q_journey_pattern_id_eq').data('pre'),
           minChars: 1,
           queryParam: 'q[name_cont]',
           propertyToSearch: 'name',
           hintText: '<%= t('search_hint') %>',
           noResultsText: '<%= t('no_result_text') %>',
           searchingText: '<%= t('searching_term') %>',
+          prePopulate: [ <%= "{ id: #{@vehicle_filter.journey_pattern.id}, name: '#{@vehicle_filter.journey_pattern.name}' }".html_safe if @vehicle_filter.journey_pattern %> ],
           resultsFormatter: function(item){ return '<li><div class=\"name\">' + item.name + ', (' + item.id + ') </div></li>' },
         });
         $( 'input[name="q[time_tables_id_not_eq]"]').change( function(){
