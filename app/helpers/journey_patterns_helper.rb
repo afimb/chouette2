@@ -1,14 +1,14 @@
 module JourneyPatternsHelper
 
-  def journey_name( journey_pattern)
+  def journey_name(journey_pattern, field_length = 30)
     unless journey_pattern.name.blank?
-      return truncate(journey_pattern.name, :length => 30)
+      return truncate(journey_pattern.name, :length => field_length)
     end
 
     unless journey_pattern.stop_points.empty?
       return truncate( t('journey_patterns.journey_pattern.from_to',
         :departure => journey_pattern.stop_points.first.stop_area.name,
-        :arrival => journey_pattern.stop_points.last.stop_area.name), :length => 30)
+        :arrival => journey_pattern.stop_points.last.stop_area.name), :length => field_length)
     end
 
     journey_pattern.id.to_s
