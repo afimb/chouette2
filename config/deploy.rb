@@ -5,7 +5,7 @@ require 'figaro'
 Figaro.application = Figaro::Application.new(environment: 'development', path: './config/application.yml')
 Figaro.load
 
-set :stages, %w(sandbox unstable staging production sismo)
+set :stages, %w(sandbox unstable staging production private)
 set :application, "chouette2"
 set :scm, :git
 set :repository,  "https://github.com/afimb/chouette2.git"
