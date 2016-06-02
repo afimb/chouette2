@@ -14,6 +14,7 @@ fr:
     show:
       report: "Rapport"
       exported_file: "Fichier exporté"
+      compliance_check: "Test de conformité"
     statuses:
       pending: "En attente ..."
       started: "En file d'attente..."

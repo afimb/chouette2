@@ -16,7 +16,7 @@ class ImportsController < ChouetteController
       end
     rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
-      flash[:error] = t(error.locale_for_error)
+      flash[:error] = t(error.locale_for_error) if error.methods.include? :locale_for_error
       redirect_to referential_path(@referential)
     end
   end
@@ -28,7 +28,7 @@ class ImportsController < ChouetteController
       end
     rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
-      flash[:error] = t(error.locale_for_error)
+      flash[:error] = t(error.locale_for_error) if error.methods.include? :locale_for_error
       redirect_to referential_path(@referential)
     end
   end
@@ -38,7 +38,7 @@ class ImportsController < ChouetteController
       destroy!
     rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
-      flash[:error] = t(error.locale_for_error)
+      flash[:error] = t(error.locale_for_error) if error.methods.include? :locale_for_error
       redirect_to referential_path(@referential)
     end
   end
@@ -52,7 +52,7 @@ class ImportsController < ChouetteController
       send_file open(resource.file_path), { :type => "application/#{resource.filename_extension}", :disposition => "attachment", :filename => resource.filename }
     rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
-      flash[:error] = t(error.locale_for_error)
+      flash[:error] = t(error.locale_for_error) if error.methods.include? :locale_for_error
       redirect_to referential_path(@referential)
     end
   end
@@ -64,7 +64,7 @@ class ImportsController < ChouetteController
       render "rule_parameter_sets/show"
     rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
-      flash[:error] = t(error.locale_for_error)
+      flash[:error] = t(error.locale_for_error) if error.methods.include? :locale_for_error
       redirect_to referential_path(@referential)
     end
   end
@@ -82,7 +82,7 @@ class ImportsController < ChouetteController
       render "compliance_checks/report"
     rescue Ievkit::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
-      flash[:error] = t(error.locale_for_error)
+      flash[:error] = t(error.locale_for_error) if error.methods.include? :locale_for_error
       redirect_to referential_path(@referential)
     end
   end

@@ -1,4 +1,4 @@
-$(".compliance_checks.report, .imports.compliance_check, #sidebar.compliance_checks_sidebar").ready ->
+$(".compliance_checks.report, .imports.compliance_check, .exports.compliance_check, #sidebar.compliance_checks_sidebar").ready ->
   refreshInterval = $(".report").data("refresh-interval")
   if refreshInterval > 0
     reloadPage = () -> window.location.reload()

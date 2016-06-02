@@ -19,6 +19,7 @@
 <div class="export_show">
   <div class="links">
     <%= link_to( font_awesome_classic_tag("fa-file-#{@export.filename_extension}-o") + t("exports.show.exported_file"), exported_file_referential_export_path(@referential, @export.id) ) if @export.file_path %>
+    <%= link_to font_awesome_classic_tag("fa-external-link") + t("exports.show.compliance_check"), compliance_check_referential_export_path(@referential, @export.id) if @export.compliance_check? %>
   </div>
   <% if @export.report %>
     <%= render( partial: "shared/ie_report.html", locals: { job: @export, line_items: @line_items } ) %>

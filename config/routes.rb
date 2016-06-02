@@ -103,6 +103,8 @@ ChouetteIhm::Application.routes.draw do
     resources :exports, :only => [:index, :show, :destroy]  do
       member do
         get "exported_file"
+        get "compliance_check"
+        get 'export', defaults: { format: 'zip' }
       end
     end
 

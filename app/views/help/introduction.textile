@@ -16,7 +16,7 @@ D'autres utilisateurs potentiels sont également identifiés : services de l'ét
 h3. Ce que vous trouverez dans ce manuel
 
 Vous trouverez dans ce document, toutes les informations nécessaires à la prise en main de l’application. 
-Le manuel couvre la version 3.3.0.
+Le manuel couvre la version 3.4.0.
 
 
 
