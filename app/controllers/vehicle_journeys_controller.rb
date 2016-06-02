@@ -61,7 +61,7 @@ class VehicleJourneysController < ChouetteController
   def adapted_params
     params.tap do |adapted_params|
       adapted_params.merge!( :route => parent)
-      hour_entry = "vehicle_journey_at_stops_departure_time_gt(4i)".to_sym
+      hour_entry = "vehicle_journey_at_stops_departure_time_gteq(4i)".to_sym
       if params[:q] && params[:q][ hour_entry]
         adapted_params[:q].merge! hour_entry => (params[:q][ hour_entry].to_i - utc_offset)
       end

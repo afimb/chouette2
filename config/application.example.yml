@@ -2,10 +2,12 @@ domain_name: 'chouette.mobi'
 secret_key_base: # Generate with `bundle exec rake secret`
 devise_secret_key: # Generate with `bundle exec rake secret`
 api_endpoint: 'http://localhost:8080/chouette_iev/'
-google_analytic_tracker:
+google_analytics_tracker:
 geoportail_api_key:
 newrelic_licence_key:
 osrm_endpoint: 'http://router.project-osrm.org'
+osrm_secondary_endpoint: # For example : 'http://localhost:5000'
+app_version: '3.3.0'
 prefix_application_version: '' # If you want to display a prefix before the application version
 deactivate_formats_referential: # For example: 'hub,sig,neptune'
 deactivate_formats_import: # For example: 'hub,sig,neptune'

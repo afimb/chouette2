@@ -3,15 +3,32 @@ require 'open-uri'
 class OsrmRouteSectionProcessor
 
   def call(route_section)
-    osrm_endpoint = Rails.application.secrets.osrm_endpoint
+    @osrm_endpoint = Rails.application.secrets.osrm_endpoint
 
-    points_string = (route_section.input_geometry || route_section.default_geometry).points.map do |point|
+    @points_string = (route_section.input_geometry || route_section.default_geometry).points.map do |point|
       "loc=#{point.y.to_f},#{point.x.to_f}"
     end.join
 
-    Rails.logger.info "Invoke #{osrm_endpoint} for RouteSection StopArea:#{route_section.departure.id} -> StopArea:#{route_section.arrival.id}"
+    execute_geometry
+  end
 
-    response = open "#{osrm_endpoint}/viaroute?#{points_string}instructions=false"
+  def self.create_all
+    Chouette::JourneyPattern.find_each do |journey_pattern|
+      selector = RouteSectionsSelector.new(journey_pattern)
+      selector.sections.each do |section|
+        section.create_candidate unless section.candidates.present?
+      end
+    end
+  end
+
+  protected
+
+  def execute_geometry(secondary = false)
+    if secondary && Rails.application.secrets.osrm_secondary_endpoint.present?
+      @osrm_endpoint = Rails.application.secrets.osrm_secondary_endpoint
+    end
+
+    response = open "#{@osrm_endpoint}/viaroute?#{@points_string}instructions=false"
     return nil unless response
 
     geometry = JSON.parse(response.read.to_s)['route_geometry']
@@ -22,21 +39,9 @@ class OsrmRouteSectionProcessor
 
       GeoRuby::SimpleFeatures::LineString.from_points(decoded_geometry).try(:to_rgeo) if decoded_geometry.many?
     end
-  rescue OpenURI::HTTPError, Errno::EHOSTUNREACH => e
-    Rails.logger.error "#{osrm_endpoint} failed: #{e}"
-    nil
-  rescue IOError => e
-    Rails.logger.error "#{osrm_endpoint} failed: #{e}"
-    nil
-  end
-
-  def self.create_all
-    Chouette::JourneyPattern.find_each do |journey_pattern|
-      selector = RouteSectionsSelector.new(journey_pattern)
-      selector.sections.each do |section|
-        section.create_candidate unless section.candidates.present?
-      end
-    end
+  rescue => e
+    Rails.logger.error "#{@osrm_endpoint} failed: #{e}"
+    return !secondary ? execute_geometry(true) : nil
   end
 
 end

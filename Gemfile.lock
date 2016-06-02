@@ -1,3 +1,19 @@
+GIT
+  remote: https://github.com/afimb/chouette-projects-i18n.git
+  revision: 38046ea890b30a92be32c73ca7aff977bd71b1a4
+  specs:
+    chouette-projects-i18n (0.1.0)
+      i18n
+      railties
+
+GIT
+  remote: https://github.com/afimb/chouette2-i18n.git
+  revision: 309aacc95e024f10c09ea2e3f3f31286c034ece3
+  specs:
+    chouette2-i18n (0.1.0)
+      i18n
+      railties
+
 GEM
   remote: http://rubygems.org/
   remote: http://rails-assets.org/
@@ -159,7 +175,7 @@ GEM
       geokit (= 1.6.7)
       georuby (>= 1.9.8)
       rgeo (>= 0.3.20)
-    google-analytics-rails (0.0.6)
+    google-analytics-rails (1.1.0)
     guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
@@ -221,7 +237,7 @@ GEM
     mime-types (2.99.1)
     mimemagic (0.3.0)
     mini_portile2 (2.0.0)
-    minitest (5.8.4)
+    minitest (5.9.0)
     multi_json (1.11.2)
     multipart-post (2.0.0)
     nenv (0.3.0)
@@ -477,6 +493,8 @@ DEPENDENCIES
   capistrano (= 2.13.5)
   capistrano-ext
   capybara (~> 2.7.0)
+  chouette-projects-i18n!
+  chouette2-i18n!
   cocoon
   coffee-rails (~> 4.0.0)
   daemons
@@ -498,7 +516,7 @@ DEPENDENCIES
   formtastic (= 2.3.1)
   georuby (= 2.3.0)
   georuby-ext (= 0.0.5)
-  google-analytics-rails
+  google-analytics-rails (~> 1.1.0)
   guard
   guard-rspec
   inherited_resources
@@ -561,4 +579,4 @@ DEPENDENCIES
   will_paginate-bootstrap (~> 1.0.1)
 
 BUNDLED WITH
-   1.12.4
+   1.12.1

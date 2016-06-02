@@ -59,5 +59,8 @@ module StopAreasHelper
     "#{access_link.access_point.id}-#{access_link.stop_area.id}"
   end
 
+  def confirm_count_missing_geometry
+    I18n.t('stop_areas.actions.default_geometry_confirm', { count: @referential.stop_areas.without_geometry.count })
+  end
 
 end

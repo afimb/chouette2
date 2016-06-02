@@ -15,7 +15,10 @@
                   data-title='<%= link_to(vehicle_title(vj), [@referential, @line, @route, vj] ) %>
                       <%= link_to('<span class="fa fa-pencil"></span>'.html_safe,
                                   send("edit_referential_line_route_vehicle_journey#{'_frequency' if vj.frequency?}_path", @referential, @line, @route, vj),
-                                  :class => "btn btn-default btn-sm" ) %>'
+                                  :class => "btn btn-default btn-sm" ) %>
+                      <%= link_to('<span class="fa fa-remove"></span>'.html_safe,
+                                  send("referential_line_route_vehicle_journey#{'_frequency' if vj.frequency?}_path", @referential, @line, @route, vj),
+                                  :class => "btn btn-danger btn-sm", :method => :delete, 'data-confirm' => t('vehicle_journeys.actions.destroy_confirm')) %>'
                   data-placement= "top"
                   data-content='<%= render( partial: "show_popover", :locals => { :vehicle_journey => vj }) %>'
                   class="vehicle_journey_popover btn btn-default btn-sm">
