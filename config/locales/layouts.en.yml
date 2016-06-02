@@ -39,3 +39,6 @@ en:
         mail: "Contact us"
         newsletter: "Newsletter"
         forum: "Forum"
+  day: "Day"
+  hour: "Hour"
+  minute: "Minute"

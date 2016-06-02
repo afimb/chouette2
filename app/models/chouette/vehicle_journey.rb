@@ -8,7 +8,7 @@ module Chouette
 
     default_scope { where(journey_category: journey_categories[:timed]) }
 
-    attr_accessor :transport_mode_name
+    attr_accessor :transport_mode_name, :recalculate_offset
     attr_reader :time_table_tokens
 
     def self.nullable_attributes
@@ -37,6 +37,8 @@ module Chouette
         self.number = 0
       end
     end
+
+    after_save :recalculate_day_offset
 
     scope :without_any_time_table, -> { joins('LEFT JOIN "time_tables_vehicle_journeys" ON "time_tables_vehicle_journeys"."vehicle_journey_id" = "vehicle_journeys"."id" LEFT JOIN "time_tables" ON "time_tables"."id" = "time_tables_vehicle_journeys"."time_table_id"').where(:time_tables => { :id => nil}) }
     scope :without_any_passing_time, -> { joins('LEFT JOIN "vehicle_journey_at_stops" ON "vehicle_journey_at_stops"."vehicle_journey_id" = "vehicle_journeys"."id"').where(vehicle_journey_at_stops: { id: nil }) }
@@ -114,6 +116,27 @@ module Chouette
         }
       end
     end
+      
+    def recalculate_day_offset
+      return unless recalculate_offset
 
+      vjass = self.vehicle_journey_at_stops
+      return unless vjass.present?
+
+      previous_vjas = arrival_offset = departure_offset = 0
+      vjass.each do |vjas|
+        if previous_vjas == 0
+          departure_offset += 1 if vjas.departure_time < vjas.arrival_time
+        else
+          arrival_offset += 1 if vjas.arrival_time < previous_vjas.arrival_time
+          departure_offset += 1 if vjas.departure_time < previous_vjas.departure_time
+        end
+        previous_vjas = vjas
+        next if arrival_offset == 0 && departure_offset == 0
+        vjas.arrival_day_offset = arrival_offset
+        vjas.departure_day_offset = departure_offset
+        vjas.save
+      end
+    end
   end
 end

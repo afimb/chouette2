@@ -190,6 +190,8 @@ fr:
       detail_3_vehiclejourney_2_3: "La course %{source_label} (%{source_objectid}) a une vitesse %{error_value} > %{reference_value} km/h entre les arrêts %{target_0_label} (%{target_0_objectid}) et %{target_1_label} (%{target_1_objectid})"
       detail_3_vehiclejourney_3: "Trop grande différence de durée de trajet entre les arrêts %{target_1_label} (%{target_1_objectid}) et %{target_2_label} (%{target_2_objectid}) pour la course %{source_label} (%{source_objectid}) par rapport à la course suivante %{target_0_label} (%{target_0_objectid}): %{error_value} > %{reference_value} (minutes)"
       detail_3_vehiclejourney_4: "La course %{source_label} (%{source_objectid}) n'a pas de calendrier d'application"
+      detail_3_vehiclejourney_5_1: "L'horaire de départ doit être supérieur à l'horaire d'arrivée pour l'arrêt %{target_0_label} (%{target_0_objectid})"
+      detail_3_vehiclejourney_5_2: "La course %{source_label} (%{source_objectid}) a des horaires ne respectant pas la chronologie entre les arrêts %{target_0_label} (%{target_0_objectid}) et %{target_1_label} (%{target_1_objectid})"
       detail_3_facility_1: "L'équipement %{source_label} (%{source_objectid}) n'est pas géolocalisé"
       detail_3_facility_2: "L'équipement %{source_label} (%{source_objectid}) est localisé trop loin de son parent %{areaName} (%{areaId}) : distance %{error_value} > %{reference_value} (mètres)"
 
@@ -443,6 +445,7 @@ fr:
         3-VehicleJourney-2: "La vitesse entre deux arrêts doit être dans une fourchette paramétrable"
         3-VehicleJourney-3: "Les vitesses entre 2 arrêts doivent être similaires pour toutes les courses d’une même mission"
         3-VehicleJourney-4: "Une course doit avoir au moins un calendrier d’application"
+        3-VehicleJourney-5: "Les horaires d'une course doivent respecter un ordre chronologique"
         
         3-Facility-1: "Tous les équipements doivent être géoréférencés"
         3-Facility-2: "Les équipements dovent être proches de leur arrêt de rattachement"

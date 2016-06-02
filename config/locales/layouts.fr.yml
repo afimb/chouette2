@@ -47,6 +47,9 @@ fr:
   yesterday: "Hier"
   edit_periods: "Editer Périodes"
   delete_periods: "Supprimer Périodes"
+  day: "Jour"
+  hour: "Heure"
+  minute: "Minute"
   attributes:
     author: "Modifié par"
     created_at: "Créé le"

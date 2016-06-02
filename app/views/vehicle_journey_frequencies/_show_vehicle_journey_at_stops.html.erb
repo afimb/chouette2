@@ -1,5 +1,5 @@
 <div class="vehicle_journey_at_stops content">
-  <table class="table-striped ce-TimeBandFormTable">
+  <table class="table-striped ce-VehicleJourneyAtStopFormTable">
     <thead>
       <tr>
         <th class="stop title" ><%= t('vehicle_journeys.show.stop_title') %></th>
@@ -12,9 +12,9 @@
       <% @vehicle_journey_frequency.vehicle_journey_at_stops.each do |vjas| %>
         <tr class="<%= cycle :odd, :even %>">
           <td><%= link_to vjas.stop_point.stop_area.name, [@referential, vjas.stop_point.stop_area] %></td>
-          <td class="ce-TimeBandFormTable-circleLine">
-            <span class="ce-TimeBandFormTable-circle"></span>
-            <span class="ce-TimeBandFormTable-line"></span>
+          <td class="ce-VehicleJourneyAtStopFormTable-circleLine">
+            <span class="ce-VehicleJourneyAtStopFormTable-circle"></span>
+            <span class="ce-VehicleJourneyAtStopFormTable-line"></span>
           </td>
           <td class="hour <%= 'missing' if vjas.arrival_time.nil? %>">
             <%= l(vjas.arrival_time, format: :hour) if vjas.arrival_time %>

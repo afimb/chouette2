@@ -217,6 +217,7 @@ GEM
       mime-types (>= 1.16, < 3)
     map_layers (0.0.4)
     method_source (0.8.2)
+    migration_data (0.2.1)
     mime-types (2.99.1)
     mimemagic (0.3.0)
     mini_portile2 (2.0.0)
@@ -510,6 +511,7 @@ DEPENDENCIES
   launchy
   letter_opener
   map_layers (= 0.0.4)
+  migration_data
   mimemagic
   newrelic_rpm
   pg
@@ -559,4 +561,4 @@ DEPENDENCIES
   will_paginate-bootstrap (~> 1.0.1)
 
 BUNDLED WITH
-   1.11.2
+   1.12.4

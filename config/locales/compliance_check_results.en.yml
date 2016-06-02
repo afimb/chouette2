@@ -192,6 +192,8 @@ en:
       detail_3_vehiclejourney_2_3: "Journey %{source_label} (%{source_objectid}) speed %{error_value} > %{reference_value} km/h between stops %{target_0_label} (%{target_0_objectid}) and %{target_1_label} (%{target_1_objectid})"
       detail_3_vehiclejourney_3: "Journey %{source_label} (%{source_objectid}) seems to vary too much between stops %{target_1_label} (%{target_1_objectid}) and %{target_2_label} (%{target_2_objectid}) %{error_value} > %{reference_value} when compared with the next journey pattern %{target_0_label} (%{target_0_objectid})"
       detail_3_vehiclejourney_4: "Journey %{source_label} (%{source_objectid}) has no calendar"
+      detail_3_vehiclejourney_5_1: "The starting time shall be over the ending time for the stop %{target_0_label} (%{target_0_objectid})"
+      detail_3_vehiclejourney_5_2: "The journey %{source_label} (%{source_objectid}) has times which don't respect time chronology between the stops %{target_0_label} (%{target_0_objectid}) and %{target_1_label} (%{target_1_objectid})"
       detail_3_facility_1: "Facility %{source_label} (%{source_objectid}) has no coordinates"
       detail_3_facility_2: "Facility %{source_label} (%{source_objectid}) is too far from its parent %{areaName} (%{areaId}) : distance %{error_value} > %{reference_value}"
 
@@ -436,6 +438,7 @@ en:
         3-VehicleJourney-2: "Travel speeds shall be neither too small nor too large"
         3-VehicleJourney-3: "Speeds between successive stops shall be similar for all journeys of the same mission"
         3-VehicleJourney-4: "Every vehicle journey shall reference at least one calendar"
+        3-VehicleJourney-5: "Journey times shall respect time chronology"
         3-Facility-1: "Every Facility must have a location"
         3-Facility-2: "Facilities shall be close enough to their parent stop"
         4-Network-1: "Contraintes de taille, de type et d'unicité sur les attributs de l'objet"

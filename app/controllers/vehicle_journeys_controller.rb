@@ -88,7 +88,9 @@ class VehicleJourneysController < ChouetteController
                                              :route_id, :id, { vehicle_journey_at_stops_attributes: [ :arrival_time,
                                                                                                       :id, :_destroy,
                                                                                                       :stop_point_id,
-                                                                                                      :departure_time] } )
+                                                                                                      :departure_time,
+                                                                                                      :departure_day_offset,
+                                                                                                      :arrival_day_offset] } )
   end
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215175635) do
+ActiveRecord::Schema.define(version: 20160525123021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -549,6 +549,8 @@ ActiveRecord::Schema.define(version: 20151215175635) do
     t.time    "departure_time"
     t.string  "for_boarding"
     t.string  "for_alighting"
+    t.integer "arrival_day_offset",                       default: 0, null: false
+    t.integer "departure_day_offset",                     default: 0, null: false
   end
 
   add_index "vehicle_journey_at_stops", ["stop_point_id"], :name => "index_vehicle_journey_at_stops_on_stop_pointid"

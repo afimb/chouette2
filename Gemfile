@@ -112,6 +112,8 @@ gem 'apartment', '~> 1.0.0'
 gem 'newrelic_rpm'
 gem 'letter_opener'
 
+gem 'migration_data'
+
 group :development do
   gem 'capistrano', '2.13.5'
   gem 'capistrano-ext'
