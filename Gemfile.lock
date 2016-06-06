@@ -15,8 +15,8 @@ GIT
       railties
 
 GEM
-  remote: http://rubygems.org/
-  remote: http://rails-assets.org/
+  remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     RedCloth (4.2.9)
     RedCloth (4.2.9-java)

@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.1.15'
@@ -157,7 +157,7 @@ gem 'chouette2-i18n', git: 'https://github.com/afimb/chouette2-i18n.git'
 gem 'chouette-projects-i18n', git: 'https://github.com/afimb/chouette-projects-i18n.git'
 
 # Rails Assets
-source 'http://rails-assets.org' do
+source 'https://rails-assets.org' do
   gem 'rails-assets-morrisjs', '~> 0.5.1'
   gem 'rails-assets-raphael', '~> 2.1.3'
   gem 'rails-assets-footable', '~> 2.0.3'
