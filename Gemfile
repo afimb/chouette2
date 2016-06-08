@@ -40,14 +40,6 @@ gem 'faraday_middleware', '~> 0.9.1'
 
 gem 'figaro', '~> 1.1.1'
 
-platforms :jruby do
-  gem 'activerecord-jdbcpostgresql-adapter', '~> 1.3.3'
-  gem 'jruby-openssl'
-  gem 'jruby-rack-worker'
-  gem 'warbler'
-  gem 'therubyrhino'
-end
-
 platforms :ruby do
   gem 'therubyracer', '~> 0.12'
   gem 'pg'
