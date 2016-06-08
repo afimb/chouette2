@@ -40,7 +40,7 @@ describe "Lines", :type => :feature do
       click_link "Ajouter une ligne"
       fill_in "line_name", :with => "Line 1"
       fill_in "Numéro d'enregistrement", :with => "1"
-      fill_in "Identifiant Neptune", :with => "test:Line:999"
+      fill_in "Identifiant Métier", :with => "test:Line:999"
       click_button("Créer ligne")
       expect(page).to have_content("Line 1")
     end
@@ -51,7 +51,7 @@ describe "Lines", :type => :feature do
       visit new_referential_line_path(referential)
       fill_in "line_name", :with => "Line 1"
       fill_in "Numéro d'enregistrement", :with => "1"
-      fill_in "Identifiant Neptune", :with => "test:Line:999"
+      fill_in "Identifiant Métier", :with => "test:Line:999"
       fill_in_token_input('line_group_of_line_tokens', :with => "#{group_of_line.name}")
       find_button("Créer ligne").trigger("click")
       expect(page).to have_text("Line 1")
