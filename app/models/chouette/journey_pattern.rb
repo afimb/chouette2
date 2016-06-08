@@ -48,7 +48,6 @@ class Chouette::JourneyPattern < Chouette::TridentActiveRecord
 
   def shortcuts_update_for_remove( stop_point)
     stop_points.delete( stop_point) if stop_points.include?( stop_point)
-
     ordered_stop_points = stop_points
     ordered_stop_points = ordered_stop_points.sort { |a,b| a.position <=> b.position} unless ordered_stop_points.empty?
 

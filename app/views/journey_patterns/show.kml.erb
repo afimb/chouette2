@@ -4,16 +4,16 @@
     <Placemark id="route_<%= @journey_pattern.id %>" >
       <name><%= @journey_pattern.name %></name>
       <inactive>true</inactive>
-      <%= @journey_pattern.route.geometry.kml_representation.html_safe %>
+      <%= @journey_pattern.route.geometry_jp(@journey_pattern).kml_representation.html_safe %>
     </Placemark>
     <% @journey_pattern.route.stop_points.each_with_index do |stop_point, index| %>
-      <% if stop_point.stop_area.geometry %>
+      <% if stop_point.stop_area.geometry && @journey_pattern.stop_points.include?(stop_point) %>
       <Placemark id="<%= stop_point.stop_area.id %>" >
         <name><%= "#{stop_point.stop_area.name} (#{index+1})" %></name>
         <stop><%= @journey_pattern.stop_points.include?( stop_point) ? "true" : "false" %></stop>
-        <% if stop_point.stop_area.id==@route.stop_areas.first.id %>
+        <% if stop_point.stop_area.id == @journey_pattern.stop_points.map(&:stop_area_id).first %>
         <departure>true</departure>
-        <% elsif stop_point.stop_area.id==@route.stop_areas.last.id %>
+        <% elsif stop_point.stop_area.id == @journey_pattern.stop_points.map(&:stop_area_id).last %>
         <arrival>true</arrival>
         <% end %>
         <iconCode><%= icon_code(stop_point, @journey_pattern)%></iconCode>
