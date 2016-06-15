@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525123021) do
+ActiveRecord::Schema.define(version: 20160615151211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -343,14 +343,14 @@ ActiveRecord::Schema.define(version: 20160525123021) do
   create_table "route_sections", force: true do |t|
     t.integer  "departure_id",       limit: 8
     t.integer  "arrival_id",         limit: 8
-    t.string   "objectid",                                                       null: false
+    t.string   "objectid",                                                                       null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
     t.spatial  "input_geometry",     limit: {:srid=>4326, :type=>"line_string"}
     t.spatial  "processed_geometry", limit: {:srid=>4326, :type=>"line_string"}
     t.float    "distance"
-    t.boolean  "no_processing"
+    t.boolean  "no_processing",                                                  default: false, null: false
   end
 
   create_table "routes", force: true do |t|
