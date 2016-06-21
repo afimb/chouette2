@@ -38,20 +38,6 @@
             }
         }
 
-        .journey_pattern_dependent_list {
-            tr.no_stop { display: none; }
-
-            td.departure_time, td.arrival_time{
-                &.missing{
-                    background-color: $brand-warning;
-                }
-
-                &.invalid_position{
-                    background-color: $brand-danger;
-                }
-            }
-        }
-
         .title{
             font-weight: bold;
             margin-bottom: 20px;
@@ -67,6 +53,19 @@
 
         }
     }
+  .journey_pattern_dependent_list {
+    tr.no_stop { display: none; }
+
+    td.departure_time, td.arrival_time{
+      &.missing{
+        background-color: $brand-warning;
+      }
+
+      &.invalid_position{
+        background-color: $brand-danger;
+      }
+    }
+  }
 }
 
 #workspace.vehicle_journeys.index,
