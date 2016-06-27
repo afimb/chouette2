@@ -2,9 +2,9 @@ class RegtoppImport < ImportTask
 
   enumerize :references_type, in: %w( stop_area )
 
-  attr_accessor :object_id_prefix, :references_type, :coordinate_projection, :version
+  attr_accessor :object_id_prefix, :references_type, :coordinate_projection, :version, :calendar_strategy
 
-  validates_presence_of :object_id_prefix, :coordinate_projection
+  validates_presence_of :object_id_prefix, :coordinate_projection, :calendar_strategy
 
   def references_types
     self.references_type.values
@@ -21,7 +21,8 @@ class RegtoppImport < ImportTask
         "object_id_prefix" => object_id_prefix,
         "references_type" => references_type,
         "coordinate_projection" => coordinate_projection,
-        "version" => version
+        "version" => version,
+        "calendar_strategy" => calendar_strategy
       }
     }
   end
@@ -47,6 +48,13 @@ class RegtoppImport < ImportTask
         [ "1.2", "R12" ],
         [ "1.2Novus", "R12N" ],
         [ "1.3A", "R13A" ]
+    ]
+  end
+
+  def self.calendar_strategy
+    [
+        [ "Update/overwrite", "UPDATE" ],
+        [ "Add using DKO-file start-date", "ADD" ]
     ]
   end
 end

@@ -2,3 +2,4 @@
 <%= form.input :object_id_prefix, :input_html => { :value => @referential.prefix } %>
 <%= form.input :coordinate_projection, :as => :select, :include_blank => false, :collection => RegtoppImport.available_srids, :selected  => "EPSG:"+@referential.projection_type %>
 <%= form.input :version, :as => :select, :collection => RegtoppImport.available_versions%>
+<%= form.input :calendar_strategy, :as => :select, :collection => RegtoppImport.calendar_strategy%>
