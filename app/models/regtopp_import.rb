@@ -4,7 +4,7 @@ class RegtoppImport < ImportTask
 
   attr_accessor :object_id_prefix, :references_type, :coordinate_projection, :version, :calendar_strategy
 
-  validates_presence_of :object_id_prefix, :coordinate_projection, :calendar_strategy
+  validates_presence_of :object_id_prefix, :coordinate_projection
 
   def references_types
     self.references_type.values
@@ -53,8 +53,8 @@ class RegtoppImport < ImportTask
 
   def self.calendar_strategy
     [
-        [ "Update/overwrite", "UPDATE" ],
-        [ "Add using DKO-file start-date", "ADD" ]
+        [ "Add using DKO-file start-date", "ADD" ],
+        [ "Update/overwrite whole adminCode", "UPDATE" ]
     ]
   end
 end
