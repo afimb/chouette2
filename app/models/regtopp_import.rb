@@ -2,7 +2,7 @@ class RegtoppImport < ImportTask
 
   enumerize :references_type, in: %w( stop_area )
 
-  attr_accessor :object_id_prefix, :references_type, :coordinate_projection, :version, :calendar_strategy
+  attr_accessor :object_id_prefix, :references_type, :coordinate_projection, :version, :charset_encoding, :calendar_strategy
 
   validates_presence_of :object_id_prefix, :coordinate_projection
 
@@ -22,6 +22,7 @@ class RegtoppImport < ImportTask
         "references_type" => references_type,
         "coordinate_projection" => coordinate_projection,
         "version" => version,
+        "charsetEncoding" => charset_encoding,
         "calendar_strategy" => calendar_strategy
       }
     }
@@ -48,6 +49,13 @@ class RegtoppImport < ImportTask
         [ "1.2", "R12" ],
         [ "1.2Novus", "R12N" ],
         [ "1.3A", "R13A" ]
+    ]
+  end
+
+  def self.charset_encoding
+    [
+        [ "CP865 / MS-DOS Nordic", "CP865" ],
+        [ "ISO-8859-1 / Latin1", "ISO-8859-1" ]
     ]
   end
 
