@@ -3,19 +3,16 @@ class Referential < ActiveRecord::Base
   include DataFormatEnumerations
 
   validates_presence_of :name
-  validates_presence_of :slug
   validates_presence_of :prefix
   validates_presence_of :time_zone
   validates_presence_of :upper_corner
   validates_presence_of :lower_corner
-  validates_uniqueness_of :slug
-  validates_uniqueness_of :name
-  validates_format_of :slug, :with => %r{\A[a-z][0-9a-z_]+\Z}
+  validates_uniqueness_of :name, scope: :organisation_id
   validates_format_of :prefix, :with => %r{\A[0-9a-zA-Z_]+\Z}
   validates_format_of :upper_corner, :with => %r{\A-?[0-9]+\.?[0-9]*\,-?[0-9]+\.?[0-9]*\Z}
   validates_format_of :lower_corner, :with => %r{\A-?[0-9]+\.?[0-9]*\,-?[0-9]+\.?[0-9]*\Z}
   validate :slug_excluded_values
-
+  
   attr_accessor :upper_corner
   attr_accessor :lower_corner
 
@@ -112,7 +109,7 @@ class Referential < ActiveRecord::Base
 
   def switch
     raise "Referential not created" if new_record?
-    Apartment::Tenant.switch!(slug)
+    Apartment::Tenant.switch!(self.slug)
     self
   end
 
@@ -152,21 +149,21 @@ class Referential < ActiveRecord::Base
     projection_type || ""
   end
 
-  before_create :create_schema
+  after_create :create_schema
   def create_schema
-    Apartment::Tenant.create slug
+    Apartment::Tenant.create "ch_#{self.id}"
   end
 
   before_destroy :destroy_schema
   def destroy_schema
-    Apartment::Tenant.drop slug
+    Apartment::Tenant.drop "ch_#{self.id}"
   end
 
   before_destroy :destroy_jobs
   def destroy_jobs
-    Ievkit.delete_jobs(slug)
+    Ievkit.delete_jobs("ch_#{self.id}")
     true
-  end
+  end 
 
   def upper_corner
     envelope.upper_corner
