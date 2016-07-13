@@ -149,9 +149,14 @@ class Referential < ActiveRecord::Base
     projection_type || ""
   end
 
-  after_create :create_schema
+  after_create :generate_slug, :create_schema
   def create_schema
     Apartment::Tenant.create "ch_#{self.id}"
+  end
+  
+  def generate_slug
+    self.slug = "ch_#{self.id}"
+    self.save
   end
 
   before_destroy :destroy_schema
@@ -202,5 +207,9 @@ class Referential < ActiveRecord::Base
   def envelope
     bounds = read_attribute(:bounds)
     GeoRuby::SimpleFeatures::Geometry.from_ewkt(bounds.present? ? bounds : default_bounds ).envelope
+  end
+  
+  def self.execute_sql(*sql_array)     
+    ActiveRecord::Base.connection.execute(send(:sanitize_sql_array, sql_array))
   end
 end

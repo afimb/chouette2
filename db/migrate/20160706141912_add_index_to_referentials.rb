@@ -3,7 +3,7 @@ class AddIndexToReferentials < ActiveRecord::Migration
     remove_index :referentials, :name if index_exists?(:referentials, :name)
     add_index(:referentials, [:name, :organisation_id], unique: true) unless index_exists?(:referentials, [:name, :organisation_id], unique: true)
   end
-  
+   
   def data
     execute %q{
       CREATE OR REPLACE FUNCTION update_chouette_schema_with_slug()
@@ -33,7 +33,7 @@ class AddIndexToReferentials < ActiveRecord::Migration
     ActiveRecord::Base.connection.execute("SELECT * from update_chouette_schema_with_slug()")
     ActiveRecord::Base.connection.execute("DROP FUNCTION IF EXISTS update_chouette_schema_with_slug()")
   end
-  
+
   def down
     remove_index :referentials, [:name, :organisation_id] if index_exists?(:referentials, [:name, :organisation_id], unique: true)
     add_index(:referentials, :name, unique: true) unless index_exists?(:referentials, :name)
