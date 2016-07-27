@@ -49,18 +49,30 @@ class ApplicationMap
 
   def map
     @map ||= MapLayers::Map.new(id, :projection => projection("EPSG:900913"), :controls => controls) do |map, page|
+
+      layers = {
+        osm: MapLayers::OSM_MAPNIK,
+        google_physical: google_physical,
+        google_streets: google_streets,
+        google_hybrid: google_hybrid,
+        google_satellite: google_satellite
+      }
+
       if self.geoportail_key
-        page << map.add_layer(geoportail_ortho_wmts)
-        page << map.add_layer(geoportail_scans_wmts)
-        page << map.add_layer(geoportail_cadastre_wmts)
+        layers[:geoportail_ortho] = geoportail_ortho_wmts
+        layers[:geoportail_scans] = geoportail_scans_wmts
+        layers[:geoportail_cadastre] = geoportail_cadastre_wmts
       end
 
-      page << map.add_layer(MapLayers::OSM_MAPNIK)
-      #page << map.add_layers([geoportail_scans, geoportail_ortho])
-      page << map.add_layer(google_physical)
-      page << map.add_layer(google_streets)
-      page << map.add_layer(google_hybrid)
-      page << map.add_layer(google_satellite)
+      if Rails.application.secrets.openlayers_default_map.present?
+        default_map = Rails.application.secrets.openlayers_default_map.to_sym
+        base_layer = layers.delete(default_map)
+        layers = { default_map => base_layer }.merge(layers)
+      end
+
+      layers.each do |_key, layer|
+        page << map.add_layer(layer)
+      end
 
       customize_map(map,page) if respond_to?( :customize_map)
     end

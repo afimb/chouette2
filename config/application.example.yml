@@ -20,3 +20,5 @@ smtp_password:
 smtp_authentication:
 mailer_sender: 'no-reply@chouette.mobi'
 capistrano_deploy_user:
+openlayers_default_map: # For example: 'osm' or 'google_stellite' or 'geoportail_ortho' or 'geoportail_scans' or 'geoportail_cadastre'
+restriction_format: # For example: 'hub'
