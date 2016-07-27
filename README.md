@@ -1,5 +1,7 @@
 # Chouette2 [![Build Status](https://travis-ci.org/afimb/chouette2.svg?branch=master)](https://travis-ci.org/afimb/chouette2) [![Dependency Status](https://gemnasium.com/afimb/chouette2.png)](https://gemnasium.com/afimb/chouette2) [![Code Climate](https://codeclimate.com/github/afimb/chouette2.png)](https://codeclimate.com/github/afimb/chouette2)
 
+[![Join the chat at https://gitter.im/afimb/chouette2](https://badges.gitter.im/afimb/chouette2.svg)](https://gitter.im/afimb/chouette2?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Chouette2 is an open source web project in Ruby/Rails for editing and viewing Public Transport data. 
 
 Chouette2 is designed as an [SaaS](http://en.wikipedia.org/wiki/Software_as_a_service) platform and can :
