@@ -9,7 +9,7 @@ class GtfsExport < ExportTask
 
   def init_params
     if time_zone.nil?
-      self.time_zone = "Paris"
+      self.time_zone = referential.time_zone
     end
   end
 
