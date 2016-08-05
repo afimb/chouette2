@@ -21,6 +21,8 @@ class LinesController < ChouetteController
 
   def show
     @map = LineMap.new(resource).with_helpers(self)
+    @refid = params["referential"]
+    @id = params["id"]
     @routes = @line.routes
     @group_of_lines = @line.group_of_lines
     show! do

@@ -33,5 +33,6 @@
 //= require_directory ./compliance_checks
 //= require_directory ./export_tasks
 //= require_directory ./exports
+//= require OpenLayers
 //= require_directory ./lines
 //= require_directory ./partials

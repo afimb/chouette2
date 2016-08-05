@@ -4,7 +4,12 @@
 <%= title_tag t('lines.show.title', :line => @line.name ) %>
 
 <div class="line_show">
+
   <%= @map.to_html %>
+  
+  <%= hidden_field_tag "refid", @referential.id, { :id => "refid" } %>
+
+  <%= hidden_field_tag "line_id", @line.id, { :id => "line_id" } %>
 
   <div class="summary">
     <% text_color = @line.text_color.blank? ? "black" : "##{@line.text_color}" %>
