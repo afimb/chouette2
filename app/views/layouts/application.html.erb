@@ -7,8 +7,8 @@
     <%= stylesheet_link_tag :application %>
     <%= javascript_include_tag :application %>
     <% if defined?( @map) %>
-      <script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
-      <script src="http://openlayers.org/api/OpenLayers.js"></script>
+    <script src="https://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
+    <script src="/assets/OpenLayers.js"></script>
       <script type="text/JavaScript">
         OpenLayers.ImgPath = "<%= polymorphic_path_patch("/assets/openlayers/") %>";
       </script>
