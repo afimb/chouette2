@@ -44,7 +44,7 @@ Rails.application.configure do
   # config.force_ssl = true
 
   # Set to :debug to see everything in the log.
-  # config.log_level = :info
+  config.log_level = :debug
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
@@ -53,9 +53,10 @@ Rails.application.configure do
   #if ENV['OS'] == 'Windows_NT'
   #  # args = log_path,number of files,file sizes
   #  config.logger = Logger.new("C:/chouette/logs/chouette2.log", 5, 10.megabytes)
-  config.logger = ActiveSupport::TaggedLogging.new(
-    Syslog::Logger.new("rails/chouette2").tap{ |syslog| syslog.level = Logger::INFO }
-  )
+  # config.logger = ActiveSupport::TaggedLogging.new(
+  #   Syslog::Logger.new("rails/chouette2").tap{ |syslog| syslog.level = Logger::INFO }
+  # )
+  config.logger = Logger.new(STDOUT)
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
