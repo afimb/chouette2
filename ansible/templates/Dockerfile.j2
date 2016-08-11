@@ -29,4 +29,5 @@ EXPOSE 3000
 
 ENV RAILS_ENV=production
 
-CMD [ "dumb-init", "bundle", "exec", "rails", "server"]
+# CMD [ "dumb-init", "bundle", "exec", "rails", "server"]
+CMD [ "dumb-init", "bundle", "exec", "passenger", "start"]
