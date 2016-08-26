@@ -24,6 +24,10 @@ en:
         zero:  "import"
         one:   "NeTEx import"
         other: "imports"
+      netexprofile_import:
+        zero:  "import"
+        one:   "NeTEx profile import"
+        other: "imports"
     attributes:
       import_task:
         name: "Import name"
@@ -51,3 +55,4 @@ en:
         ignore_last_word: "ignore last word on stop name in homonymous detection (inappliable when just one word occurs)"
         ignore_end_chars: "ignore some chars at the end of stop names in homonymous detection"
         references_type: "Filter on stop areas import only GTFS stops and transfers files, these may contain extra attributes"
+        profile: "NeTEx profile identifier to enforce. If left empty, profile id from shipment will be used"

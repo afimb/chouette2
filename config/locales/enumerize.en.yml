@@ -24,7 +24,8 @@ en:
     data_format:
       neptune: "Neptune profile"
       gtfs: "GTFS"
-      netex: "NeTEx profile"
+      netex: "NeTEx"
+      netexprofile: "NeTEx profile"
       hub: "HUB 1.3"
       kml: "KML"
       sig: "SIG"

@@ -52,3 +52,4 @@ fr:
         ignore_last_word: "Ignorer le dernier mot pour détecter l'homonymie des noms d'arrêt (inapplicable quand le nom ne comporte qu'un mot)"
         ignore_end_chars: "Ignorer les n derniers caractères du nom de l'arrêt pour détecter l'homonymie"
         references_type: "Le filtre sur arrêts importe uniquement les fichiers GTFS stops et transfers gtfs, ceux-ci pouvant contenir des attributs supplémentaires"
+        profile: "NeTEx profile identifier to enforce. If left empty, profile id from shipment will be used"
