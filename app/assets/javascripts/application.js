@@ -12,7 +12,7 @@
 //= require raphael
 //= require morrisjs
 //= require bootstrap-sass-official
-//= require typeahead.js
+//= require typeahead.js.js
 //= require jquery-tokeninput
 //= require moment
 //= require moment/locale/fr
