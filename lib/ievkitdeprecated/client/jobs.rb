@@ -1,4 +1,4 @@
-module Ievkit
+module Ievkitdeprecated
   class Client
     module Jobs
 

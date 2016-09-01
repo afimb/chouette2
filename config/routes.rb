@@ -179,6 +179,9 @@ ChouetteIhm::Application.routes.draw do
   end
   root :to => "referentials#index"
 
+  get '/statistics', :to => 'statistics#index'
+  get '/statistics/export', :to => 'statistics#export'
+
   get '/help/(*slug)' => 'help#show'
 
   get '/404', :to => 'errors#not_found'

@@ -12,7 +12,7 @@ class ComplianceChecksController < ChouetteController
       index! do
         build_breadcrumb :index
       end
-    rescue Ievkit::Error, Faraday::Error => error
+    rescue Ievkitdeprecated::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t(error.locale_for_error)
       redirect_to referential_path(@referential)
@@ -24,7 +24,7 @@ class ComplianceChecksController < ChouetteController
       show! do |format|
         build_breadcrumb :show
       end
-    rescue Ievkit::Error, Faraday::Error => error
+    rescue Ievkitdeprecated::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t(error.locale_for_error)
       redirect_to referential_path(@referential)
@@ -50,7 +50,7 @@ class ComplianceChecksController < ChouetteController
       @rule_parameter_set = resource.rule_parameter_set
       build_breadcrumb :rule_parameter_set
       render "rule_parameter_sets/show"
-    rescue Ievkit::Error, Faraday::Error => error
+    rescue Ievkitdeprecated::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t(error.locale_for_error)
       redirect_to referential_path(@referential)

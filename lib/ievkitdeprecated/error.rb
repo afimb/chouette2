@@ -1,33 +1,33 @@
-module Ievkit
+module Ievkitdeprecated
   # Custom error class for rescuing from all Iev errors
   class Error < StandardError
 
-    # Returns the appropriate Ievkit::Error subclass based
+    # Returns the appropriate Ievkitdeprecated::Error subclass based
     # on status and response message
     #
     # @param [Hash] response HTTP response
-    # @return [Ievkit::Error]
+    # @return [Ievkitdeprecated::Error]
     def self.from_response(response)
       status  = response[:status].to_i
       body    = response[:body].to_s
       headers = response[:response_headers]
 
       if klass =  case status
-                  when 400      then Ievkit::BadRequest
+                  when 400      then Ievkitdeprecated::BadRequest
                   when 401      then error_for_401(headers)
                   when 403      then error_for_403(body)
-                  when 404      then Ievkit::NotFound
-                  when 405      then Ievkit::MethodNotAllowed
-                  when 406      then Ievkit::NotAcceptable
-                  when 409      then Ievkit::Conflict
-                  when 415      then Ievkit::UnsupportedMediaType
-                  when 422      then Ievkit::UnprocessableEntity
-                  when 400..499 then Ievkit::ClientError
-                  when 500      then Ievkit::InternalServerError
-                  when 501      then Ievkit::NotImplemented
-                  when 502      then Ievkit::BadGateway
-                  when 503      then Ievkit::ServiceUnavailable
-                  when 500..599 then Ievkit::ServerError
+                  when 404      then Ievkitdeprecated::NotFound
+                  when 405      then Ievkitdeprecated::MethodNotAllowed
+                  when 406      then Ievkitdeprecated::NotAcceptable
+                  when 409      then Ievkitdeprecated::Conflict
+                  when 415      then Ievkitdeprecated::UnsupportedMediaType
+                  when 422      then Ievkitdeprecated::UnprocessableEntity
+                  when 400..499 then Ievkitdeprecated::ClientError
+                  when 500      then Ievkitdeprecated::InternalServerError
+                  when 501      then Ievkitdeprecated::NotImplemented
+                  when 502      then Ievkitdeprecated::BadGateway
+                  when 503      then Ievkitdeprecated::ServiceUnavailable
+                  when 500..599 then Ievkitdeprecated::ServerError
                   end
         klass.new(response)
       end
@@ -48,10 +48,10 @@ module Ievkit
     # Returns most appropriate error for 401 HTTP status code
     # @private
     def self.error_for_401(headers)
-      if Ievkit::OneTimePasswordRequired.required_header(headers)
-        Ievkit::OneTimePasswordRequired
+      if Ievkitdeprecated::OneTimePasswordRequired.required_header(headers)
+        Ievkitdeprecated::OneTimePasswordRequired
       else
-        Ievkit::Unauthorized
+        Ievkitdeprecated::Unauthorized
       end
     end
 
@@ -59,15 +59,15 @@ module Ievkit
     # @private
     def self.error_for_403(body)
       if body =~ /rate limit exceeded/i
-        Ievkit::TooManyRequests
+        Ievkitdeprecated::TooManyRequests
       elsif body =~ /login attempts exceeded/i
-        Ievkit::TooManyLoginAttempts
+        Ievkitdeprecated::TooManyLoginAttempts
       elsif body =~ /abuse/i
-        Ievkit::AbuseDetected
+        Ievkitdeprecated::AbuseDetected
       elsif body =~ /repository access blocked/i
-        Ievkit::RepositoryUnavailable
+        Ievkitdeprecated::RepositoryUnavailable
       else
-        Ievkit::Forbidden
+        Ievkitdeprecated::Forbidden
       end
     end
 
@@ -82,7 +82,7 @@ module Ievkit
     end
 
     def locale_for_error
-      if self.class.eql? Ievkit::NotFound
+      if self.class.eql? Ievkitdeprecated::NotFound
         'iev.exception.unknown_job'
       else
         'iev.exception.default'

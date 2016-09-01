@@ -161,7 +161,7 @@ class Referential < ActiveRecord::Base
 
   before_destroy :destroy_jobs
   def destroy_jobs
-    Ievkit.delete_jobs("ch_#{self.id}")
+    Ievkitdeprecated.delete_jobs("ch_#{self.id}")
     true
   end 
 

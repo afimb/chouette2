@@ -13,7 +13,7 @@ class Export
     Rails.cache.fetch("#{cache_key}/action_report", expires_in: cache_expiration) do
       report_path = links["action_report"]
       if report_path
-        response = Ievkit.get(report_path)
+        response = Ievkitdeprecated.get(report_path)
         ExportReport.new(response)
       else
         nil
@@ -26,9 +26,9 @@ class Export
     cancel_path = links["cancel"]
     
     if delete_path
-      Ievkit.delete(delete_path)
+      Ievkitdeprecated.delete(delete_path)
     elsif cancel_path
-      Ievkit.delete(cancel_path)
+      Ievkitdeprecated.delete(cancel_path)
     else
       nil
     end
@@ -62,7 +62,7 @@ class Export
     Rails.cache.fetch("#{cache_key}/validation_report", expires_in: cache_expiration) do
       compliance_check_path = links["validation_report"]
       return nil unless compliance_check_path
-      ComplianceCheckResult.new(Ievkit.get(compliance_check_path))
+      ComplianceCheckResult.new(Ievkitdeprecated.get(compliance_check_path))
     end
   end
 end

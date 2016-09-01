@@ -23,9 +23,9 @@ $(".compliance_checks.report, .imports.compliance_check, .exports.compliance_che
     momo = Morris.Donut({
       element: type,
       data: [
-        { label: $(".table").data('title-nok'), value: $("tr.nok_#{type}").size() },
-        { label: $(".table").data('title-uncheck'), value: $("tr.uncheck_#{type}").size() },
-        { label: $(".table").data('title-ok'), value: $("tr.ok_#{type}").size() }
+        { label: $(".table").data('title-nok'), value: $("tr.nok_#{type}").length },
+        { label: $(".table").data('title-uncheck'), value: $("tr.uncheck_#{type}").length },
+        { label: $(".table").data('title-ok'), value: $("tr.ok_#{type}").length }
       ],
       colors: [ "#e22b1b", "#898e7f", "#8fc861" ]
     }).on('click', update = (i, row) ->

@@ -8,13 +8,13 @@ class ExportService
 
   # Find an export whith his id
   def find(id)
-    Export.new( Ievkit.scheduled_job(referential.slug, id, { :action => "exporter" }) )
+    Export.new( Ievkitdeprecated.scheduled_job(referential.slug, id, { :action => "exporter" }) )
   end
 
   # Find all exports
   def all
     [].tap do |jobs|
-      Ievkit.jobs(referential.slug, { :action => "exporter" }).each do |job|
+      Ievkitdeprecated.jobs(referential.slug, { :action => "exporter" }).each do |job|
         jobs << Export.new( job )
       end
     end

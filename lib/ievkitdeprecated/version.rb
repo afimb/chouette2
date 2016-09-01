@@ -1,4 +1,4 @@
-module Ievkit
+module Ievkitdeprecated
   # Current major release.
   # @return [Integer]
   MAJOR = 0

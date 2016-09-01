@@ -9,7 +9,7 @@ class ComplianceCheckTasksController < ChouetteController
   def new
     begin
       new!
-    rescue Ievkit::Error, Faraday::Error => error
+    rescue Ievkitdeprecated::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t(error.locale_for_error)
       redirect_to referential_path(@referential)
@@ -21,7 +21,7 @@ class ComplianceCheckTasksController < ChouetteController
       create! do |success, failure|
         success.html { redirect_to referential_compliance_checks_path(@referential) }
       end
-    rescue Ievkit::Error, Faraday::Error => error
+    rescue Ievkitdeprecated::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t(error.locale_for_error)
       redirect_to referential_path(@referential)

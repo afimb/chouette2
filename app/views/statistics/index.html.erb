@@ -1,0 +1,38 @@
+<div class="ce-">
+<h2>Statistiques</h2>
+
+<%= link_to 'Exporter au format CSV', statistics_export_path, target: '_blank' %>
+
+<% if @stats.present? %>
+
+  <% @stats.each do |month, stat| %>
+    <h3><%= I18n.t('date.month_names')[month.to_i].capitalize %></h3>
+    <div class="ce-chartBlock">
+      <% stat.each do |format, actions| %>
+        <div>
+          <h3>Format <%=format.upcase %></h3>
+          <div id="<%= format %>-chart-<%= month %>" style="height: 250px;"></div>
+        </div>
+      <% end %>
+    </div>
+
+    <script>
+      $(document).ready( function() {
+        <% stat.each do |format, actions| %>
+          <% if actions.present? %>
+            Morris.Donut({
+              element: '<%= format %>-chart-<%= month %>',
+              data: [
+                <% actions.each do |action, count| %>
+                  {label: "<%= action %>", value: <%= count %>},
+                <% end %>
+              ]
+            });
+          <% else %>
+            $('#<%= format %>-chart-<%= month %>').text('Aucune statistique');
+          <% end %>
+        <% end %>
+      });
+    </script>
+  <% end %>
+<% end %>

@@ -1,18 +1,18 @@
 require 'faraday'
-require 'ievkit/error'
+require 'Ievkitdeprecated/error'
 
-module Ievkit
+module Ievkitdeprecated
   # Faraday response middleware
   module Response
 
-    # This class raises an Ievkit-flavored exception based
+    # This class raises an Ievkitdeprecated-flavored exception based
     # HTTP status codes returned by the API
     class RaiseError < Faraday::Response::Middleware
 
       private
 
       def on_complete(response)
-        if error = Ievkit::Error.from_response(response)
+        if error = Ievkitdeprecated::Error.from_response(response)
           raise error
         end        
       end

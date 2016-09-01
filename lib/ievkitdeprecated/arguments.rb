@@ -1,4 +1,4 @@
-module Ievkit
+module Ievkitdeprecated
 
   # Extracts options from method arguments
   # @private
