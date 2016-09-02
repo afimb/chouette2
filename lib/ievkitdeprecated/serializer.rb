@@ -1,7 +1,7 @@
 require 'date'
 require 'time'
 
-module Ievkit
+module Ievkitdeprecated
   class Serializer
     def self.any_json
       yajl || multi_json || json
@@ -40,7 +40,7 @@ module Ievkit
       def self.dump(data)
         data
       end
-      
+
       def self.load(data)
         data
       end
@@ -121,7 +121,7 @@ module Ievkit
             value
           end
         elsif value.is_a?(Integer) || value.is_a?(Float)
-          Time.at(value)          
+          Time.at(value)
         else
           value
         end

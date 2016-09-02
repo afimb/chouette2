@@ -1,4 +1,4 @@
-module Ievkit
+module Ievkitdeprecated
 
   # Configuration options for {Client}, defaulting to values
   # in {Default}
@@ -43,8 +43,8 @@ module Ievkit
 
     # Reset configuration options to default values
     def reset!
-      Ievkit::Configurable.keys.each do |key|
-        instance_variable_set(:"@#{key}", Ievkit::Default.options[key])
+      Ievkitdeprecated::Configurable.keys.each do |key|
+        instance_variable_set(:"@#{key}", Ievkitdeprecated::Default.options[key])
       end
       self
     end
@@ -74,7 +74,7 @@ module Ievkit
     private
 
     def options
-      Hash[Ievkit::Configurable.keys.map{|key| [key, instance_variable_get(:"@#{key}")]}]
+      Hash[Ievkitdeprecated::Configurable.keys.map{|key| [key, instance_variable_get(:"@#{key}")]}]
     end
 
     def fetch_client_id_and_secret(overrides = {})

@@ -1,26 +1,26 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.1.15'
+gem 'rails', '~> 4.2.6'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '~> 2.7.2'
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails', '~> 3.1.4' # Update to v4 for Rails 4.2
+gem 'jquery-rails', '~> 4.0.5' # Update to v4 for Rails 4.2
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+gem 'turbolinks', '~> 2.5.3'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring', '~> 1.6.4', group: :development
+gem 'spring', '~> 1.7.2', group: :development
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -36,7 +36,7 @@ gem 'spring', '~> 1.6.4', group: :development
 
 # API Rest
 gem 'sawyer', '~> 0.6.0'
-gem 'faraday_middleware', '~> 0.9.1'
+gem 'faraday_middleware', '~> 0.10.0'
 
 gem 'figaro', '~> 1.1.1'
 
@@ -46,7 +46,7 @@ platforms :ruby do
   gem 'sqlite3'
 end
 
-gem 'activerecord-postgis-adapter'
+gem 'activerecord-postgis-adapter', '~> 3.1.4'
 gem 'polylines'
 
 # Authentication
@@ -63,7 +63,7 @@ gem 'georuby', '2.3.0' # Fix version for georuby-ext because api has changed
 gem 'mimemagic'
 
 # User interface
-gem 'language_engine', '0.0.6'
+gem 'language_engine', github: 'Treize37/language_engine'
 gem 'calendar_helper', '0.2.5'
 gem 'cocoon'
 gem 'formtastic', '2.3.1'
@@ -83,12 +83,12 @@ gem 'inherited_resources'
 gem 'google-analytics-rails', '~> 1.1.0'
 
 # Model
-gem 'will_paginate', '~> 3.0.7'
+gem 'will_paginate', '~> 3.1.0'
 gem 'ransack'
 gem 'squeel'
 
 gem 'enumerize', '~> 0.10.0'
-gem 'foreigner', '~> 1.7.4'
+#gem 'foreigner', '~> 1.7.4'
 gem 'deep_cloneable', '~> 2.0.0'
 gem 'acts-as-taggable-on', '>= 3'
 
@@ -106,6 +106,8 @@ gem 'letter_opener'
 
 gem 'migration_data'
 
+gem 'responders', '~> 2.0'
+
 group :development do
   gem 'capistrano', '2.13.5'
   gem 'capistrano-ext'
@@ -116,6 +118,7 @@ group :development do
   # gem 'meta_request'
   gem 'quiet_assets', '~> 1.0'
   gem 'simplecov', '~> 0.10.0'
+  gem 'web-console', '~> 2.0'
   platforms :ruby_20, :ruby_21, :ruby_22, :ruby_23 do
     gem 'better_errors'
     gem 'binding_of_caller'
@@ -126,7 +129,7 @@ group :test, :development do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.4.2'
   gem 'fakeweb'
-  gem 'capybara', '~> 2.7.0'
+  gem 'capybara', '~> 2.8.1'
   gem 'poltergeist'
   gem 'launchy'
   gem 'factory_girl_rails', '~> 4.0'
@@ -141,6 +144,10 @@ group :production do
   gem 'SyslogLogger', require: 'syslog/logger'
   gem 'daemons'
 end
+
+# IEVKIT
+gem 'ievkit', git: 'https://github.com/afimb/ievkit.git', branch: 'develop'
+gem 'ievkit_views', git: 'https://github.com/afimb/ievkit_views.git', branch: 'develop'
 
 # I18n
 gem 'rails-i18n', '~> 4.0.0'

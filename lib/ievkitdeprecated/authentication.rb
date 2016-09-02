@@ -1,4 +1,4 @@
-module Ievkit
+module Ievkitdeprecated
 
   # Authentication methods for {Octokit::Client}
   module Authentication

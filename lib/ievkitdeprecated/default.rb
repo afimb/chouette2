@@ -1,7 +1,7 @@
-require 'ievkit/response/raise_error'
-require 'ievkit/version'
+require 'Ievkitdeprecated/response/raise_error'
+require 'Ievkitdeprecated/version'
 
-module Ievkit
+module Ievkitdeprecated
 
   # Default configuration options for {Client}
   module Default
@@ -10,7 +10,7 @@ module Ievkit
     API_ENDPOINT = "http://localhost:8080/chouette_iev/".freeze
 
     # Default User Agent header string
-    USER_AGENT   = "Ievkit Ruby Gem #{Ievkit::VERSION}".freeze
+    USER_AGENT   = "Ievkitdeprecated Ruby Gem #{Ievkitdeprecated::VERSION}".freeze
 
     # Default media type
     MEDIA_TYPE   =  "" # "application/vnd.iev.v1.0+json".freeze
@@ -28,7 +28,7 @@ module Ievkit
     MIDDLEWARE = RACK_BUILDER_CLASS.new do |builder|                  
       builder.use Faraday::Request::Multipart
       
-      builder.use Ievkit::Response::RaiseError
+      builder.use Ievkitdeprecated::Response::RaiseError
       builder.use FaradayMiddleware::FollowRedirects
       #builder.use Faraday::Response::Logger
       
@@ -40,7 +40,7 @@ module Ievkit
       # Configuration options
       # @return [Hash]
       def options
-        Hash[Ievkit::Configurable.keys.map{|key| [key, send(key)]}]
+        Hash[Ievkitdeprecated::Configurable.keys.map{|key| [key, send(key)]}]
       end
 
       # Default access token from ENV

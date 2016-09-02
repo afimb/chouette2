@@ -2,7 +2,7 @@ module Chouette
   class StopPoint < TridentActiveRecord
     include ForBoardingEnumerations
     include ForAlightingEnumerations
-    
+
     # FIXME http://jira.codehaus.org/browse/JRUBY-6358
     self.primary_key = "id"
 
@@ -16,7 +16,7 @@ module Chouette
     validates_presence_of :stop_area
     validate :stop_area_id_validation
 
-    scope :default_order, order("position")
+    scope :default_order, -> { order("position") }
 
     before_destroy :remove_dependent_journey_pattern_stop_points
     def remove_dependent_journey_pattern_stop_points
@@ -25,7 +25,7 @@ module Chouette
           jp.stop_point_ids = jp.stop_point_ids - [id]
         end
       end
-    end  
+    end
 
     def stop_area_id_validation
       if stop_area_id.nil?

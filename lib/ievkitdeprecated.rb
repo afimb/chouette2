@@ -1,17 +1,17 @@
-require 'ievkit/client'
-require 'ievkit/default'
+require 'ievkitdeprecated/client'
+require 'ievkitdeprecated/default'
 
 # Ruby toolkit for the GitHub API
-module Ievkit
+module Ievkitdeprecated
 
   class << self
-    include Ievkit::Configurable
+    include Ievkitdeprecated::Configurable
 
     # API client based on configured options {Configurable}
     #
-    # @return [Ievkit::Client] API wrapper
+    # @return [Ievkitdeprecated::Client] API wrapper
     def client
-      @client = Ievkit::Client.new(options) unless defined?(@client) && @client.same_options?(options)
+      @client = Ievkitdeprecated::Client.new(options) unless defined?(@client) && @client.same_options?(options)
       @client
     end
 
@@ -30,4 +30,4 @@ module Ievkit
   end
 end
 
-Ievkit.setup
+Ievkitdeprecated.setup

@@ -1,24 +1,24 @@
 require 'sawyer'
-require 'ievkit/arguments'
-require 'ievkit/configurable'
-require 'ievkit/client/jobs'
+require 'Ievkitdeprecated/arguments'
+require 'Ievkitdeprecated/configurable'
+require 'Ievkitdeprecated/client/jobs'
 
-module Ievkit
+module Ievkitdeprecated
 
   # Client for the Iev API  
   class Client
    
-    include Ievkit::Configurable
-    include Ievkit::Authentication
-    include Ievkit::Client::Jobs
+    include Ievkitdeprecated::Configurable
+    include Ievkitdeprecated::Authentication
+    include Ievkitdeprecated::Client::Jobs
 
     # Header keys that can be passed in options hash to {#get},{#head}
     CONVENIENCE_HEADERS = Set.new([:accept, :content_type])
 
     def initialize(options = {})
       # Use options passed in, but fall back to module defaults
-      Ievkit::Configurable.keys.each do |key|
-        instance_variable_set(:"@#{key}", options[key] || Ievkit.instance_variable_get(:"@#{key}"))
+      Ievkitdeprecated::Configurable.keys.each do |key|
+        instance_variable_set(:"@#{key}", options[key] || Ievkitdeprecated.instance_variable_get(:"@#{key}"))
       end
     end
 
@@ -150,7 +150,7 @@ module Ievkit
     #
     # @return [Sawyer::Agent]
     def multipart_agent      
-      @multipart_agent ||= Sawyer::Agent.new(api_endpoint, sawyer_options.merge({ :serializer => Ievkit::Serializer.multipart}) ) do |http|
+      @multipart_agent ||= Sawyer::Agent.new(api_endpoint, sawyer_options.merge({ :serializer => Ievkitdeprecated::Serializer.multipart}) ) do |http|
         http.headers[:accept] = default_media_type
         http.headers[:content_type] = "multipart/form-data"
         http.headers[:user_agent] = user_agent
@@ -205,13 +205,13 @@ module Ievkit
     # Duplicate client using client_id and client_secret as
     # Basic Authentication credentials.
     # @example
-    #   Ievkit.client_id = "foo"
-    #   Ievkit.client_secret = "bar"
+    #   Ievkitdeprecated.client_id = "foo"
+    #   Ievkitdeprecated.client_secret = "bar"
     #
     #   # GET https://api.github.com/?client_id=foo&client_secret=bar
-    #   Ievkit.get "/"
+    #   Ievkitdeprecated.get "/"
     #
-    #   Ievkit.client.as_app do |client|
+    #   Ievkitdeprecated.client.as_app do |client|
     #     # GET https://foo:bar@api.github.com/
     #     client.get "/"
     #   end
@@ -315,7 +315,7 @@ module Ievkit
     def boolean_from_response(method, path, options = {})
       request(method, path, options)
       @last_response.status == 204
-    rescue Ievkit::NotFound
+    rescue Ievkitdeprecated::NotFound
       false
     end
 
@@ -328,7 +328,7 @@ module Ievkit
       conn_opts[:builder] = @middleware if @middleware
       conn_opts[:proxy] = @proxy if @proxy
       opts[:faraday] = Faraday.new(conn_opts)
-      opts[:serializer] = Ievkit::Serializer.any_json
+      opts[:serializer] = Ievkitdeprecated::Serializer.any_json
 
       opts
     end

@@ -69,7 +69,7 @@ class ExportTask
     if self.valid?
       # Call Iev Server
       begin
-        Ievkit.create_job( referential.slug, "exporter", data_format, {
+        Ievkitdeprecated.create_job( referential.slug, "exporter", data_format, {
                              :file1 => params_io,
                            } )
       rescue Exception => exception
