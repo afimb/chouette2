@@ -8,31 +8,33 @@
   <% @stats.each do |month, stat| %>
     <h3><%= I18n.t('date.month_names')[month.to_i].capitalize %></h3>
     <div class="ce-chartBlock">
-      <% stat.each do |format, actions| %>
+      <% stat.each do |action, formats| %>
         <div>
-          <h3>Format <%=format.upcase %></h3>
-          <div id="<%= format %>-chart-<%= month %>" style="height: 250px;"></div>
+          <h3>Action <%=action.upcase %> (<%= formats.map{ |f, c| c }.reduce(&:+) %>)</h3>
+          <div id="<%= action %>-chart-<%= month %>" style="height: 250px;"></div>
         </div>
       <% end %>
     </div>
 
     <script>
       $(document).ready( function() {
-        <% stat.each do |format, actions| %>
-          <% if actions.present? %>
+        <% stat.each do |action, formats| %>
+          <% if formats.present? %>
             Morris.Donut({
-              element: '<%= format %>-chart-<%= month %>',
+              element: '<%= action %>-chart-<%= month %>',
               data: [
-                <% actions.each do |action, count| %>
-                  {label: "<%= action %>", value: <%= count %>},
+                <% formats.each do |format, count| %>
+                  {label: "<%= format %>", value: <%= count %>},
                 <% end %>
               ]
             });
           <% else %>
-            $('#<%= format %>-chart-<%= month %>').text('Aucune statistique');
+            $('#<%= action %>-chart-<%= month %>').text('Aucune statistique');
           <% end %>
         <% end %>
       });
     </script>
   <% end %>
+<% else %>
+  <p>Aucune statistique pour le moment</p>
 <% end %>

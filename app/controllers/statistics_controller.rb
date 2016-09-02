@@ -6,11 +6,11 @@ class StatisticsController < ApplicationController
 
   def export
     csv = CSV.generate(col_sep: ';') do |csv|
-      csv << %w(Mois Format Action Total)
+      csv << %w(Mois Action Format Total)
       @stats.each do |month, stat|
-        stat.each do |format, actions|
-          actions.each do |action, count|
-            csv << [I18n.t('date.month_names')[month.to_i].capitalize, format, action, count]
+        stat.each do |action, formats|
+          formats.each do |format, count|
+            csv << [I18n.t('date.month_names')[month.to_i].capitalize, action, format, count]
           end
         end
       end
@@ -30,11 +30,11 @@ class StatisticsController < ApplicationController
 
     dates.each do |d|
       @stats[d] ||= {}
-      formats.each do |f|
-        @stats[d][f] ||= {}
-        actions.each do |a|
+      actions.each do |a|
+        @stats[d][a] ||= {}
+        formats.each do |f|
           count = ievkit_stats['Stats'].count{ |s| s['date'].match("-#{d}-") && s['action'] == a && s['format'] == f }
-          @stats[d][f][a] = count if count > 0
+          @stats[d][a][f] = count if count > 0
         end
       end
     end
