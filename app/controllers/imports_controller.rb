@@ -1,5 +1,4 @@
 # coding: utf-8
-require 'will_paginate/array'
 require 'open-uri'
 
 class ImportsController < ChouetteController
@@ -99,13 +98,15 @@ class ImportsController < ChouetteController
     return @import unless @import.report
     @line_items = @import.report.line_items
     if @line_items.size > 500
-      @line_items = @line_items.paginate(page: params[:page], per_page: 20)
+      @line_items = Kaminari.paginate_array(@line_items).page(params[:page])
     end
     @import
   end
 
   def collection
-    @imports ||= import_service.all.sort_by{ |import| import.created_at }.reverse.paginate(:page => params[:page])
+    @imports ||= Kaminari.paginate_array(import_service.all.sort_by{ |import|
+        import.created_at
+      }.reverse).page(params[:page])
   end
 
 end

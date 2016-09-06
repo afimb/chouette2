@@ -119,6 +119,7 @@ ChouetteIhm::Application.routes.draw do
         get 'export', defaults: { format: 'zip' }
         get 'report'
         get 'rule_parameter_set'
+        get 'download_validation'
       end
       collection do
         get 'references'

@@ -1,16 +1,15 @@
-require 'will_paginate/array'
 require 'open-uri'
 
 class ExportsController < ChouetteController
   defaults :resource_class => Export
-  
+
   respond_to :html, :only => [:show, :index, :destroy, :exported_file]
   respond_to :js, :only => [:index]
   belongs_to :referential
 
   def index
     begin
-      index! do 
+      index! do
         build_breadcrumb :index
       end
     rescue Ievkitdeprecated::Error, Faraday::Error => error
@@ -22,7 +21,7 @@ class ExportsController < ChouetteController
 
   def show
     begin
-      show! do 
+      show! do
         build_breadcrumb :show
       end
     rescue Ievkitdeprecated::Error, Faraday::Error => error
@@ -32,7 +31,7 @@ class ExportsController < ChouetteController
     end
   end
 
-  def destroy    
+  def destroy
     begin
       destroy!
     rescue Ievkitdeprecated::Error, Faraday::Error => error
@@ -75,22 +74,24 @@ class ExportsController < ChouetteController
   end
 
   protected
-  
+
   def export_service
     ExportService.new(@referential)
   end
-  
+
   def resource
     @export ||= export_service.find( params[:id] )
     return @export unless @export.report
     @line_items = @export.report.line_items
     if @line_items.size > 500
-      @line_items = @line_items.paginate(page: params[:page], per_page: 20)
+      @line_items = Kaminari.paginate_array(@line_items).page(params[:page])
     end
     @export
   end
 
   def collection
-    @exports ||= export_service.all.sort_by{ |export| export.created_at }.reverse.paginate(:page => params[:page])
+    @exports ||= Kaminari.paginate_array(export_service.all.sort_by{ |export|
+        export.created_at
+      }.reverse).page(params[:page])
   end
 end

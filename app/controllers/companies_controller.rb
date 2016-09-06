@@ -7,23 +7,23 @@ class CompaniesController < ChouetteController
 
   belongs_to :referential, :parent_class => Referential
 
-  def index    
+  def index
 
     index! do |format|
       format.html {
-        if collection.out_of_bounds?
+        if collection.out_of_range?
           redirect_to params.merge(:page => 1)
         end
       }
       build_breadcrumb :index
-    end       
+    end
   end
-  
+
 
   protected
-  def collection    
+  def collection
     @q = referential.companies.search(params[:q])
-    @companies ||= @q.result(:distinct => true).order(:name).paginate(:page => params[:page])
+    @companies ||= @q.result(:distinct => true).order(:name).page(params[:page])
   end
 
 

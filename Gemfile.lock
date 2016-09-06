@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/afimb/chouette-projects-i18n.git
-  revision: 3805a2437a5897cd3424c07a6516a10793a98965
+  revision: 723853e15874c03c70e3f0bbea57beb1621f452f
   specs:
     chouette-projects-i18n (0.1.0)
       i18n
@@ -38,6 +38,8 @@ GIT
   branch: develop
   specs:
     ievkit_views (0.1.0)
+      kaminari (~> 0.16.3)
+      kaminari-i18n (~> 0.3.2)
       rails (~> 4.2.6)
 
 GEM
@@ -99,12 +101,11 @@ GEM
     astrolabe (1.3.0)
       parser (>= 2.2.0.pre.3, < 3.0)
     bcrypt (3.1.11)
-    better_errors (2.1.1)
-      coderay (>= 1.0.0)
-      erubis (>= 2.6.6)
-      rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-kaminari-views (0.0.5)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     breadcrumbs_on_rails (3.0.1)
     builder (3.2.2)
     calendar_helper (0.2.5)
@@ -240,6 +241,12 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
+    kaminari (0.16.3)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+    kaminari-i18n (0.3.2)
+      kaminari
+      rails
     launchy (2.4.3)
       addressable (~> 2.3)
     letter_opener (1.4.1)
@@ -319,9 +326,9 @@ GEM
       sprockets-rails
     rails-assets-bootstrap (3.1.1)
       rails-assets-jquery (>= 1.9.0)
-    rails-assets-bootstrap-sass-official (3.3.4)
-      rails-assets-jquery (>= 1.9.0)
-    rails-assets-eonasdan-bootstrap-datetimepicker (3.1.3)
+    rails-assets-bootstrap-sass-official (3.3.7)
+      rails-assets-jquery (>= 1.9.1, < 4)
+    rails-assets-eonasdan-bootstrap-datetimepicker (3.1.4)
       rails-assets-bootstrap (>= 3.0)
       rails-assets-jquery (>= 1.8.3)
       rails-assets-moment (>= 2.8.0)
@@ -334,7 +341,7 @@ GEM
       rails-assets-jquery (>= 1.6)
     rails-assets-mocha (1.17.1)
     rails-assets-modernizr (2.0.6)
-    rails-assets-moment (2.10.3)
+    rails-assets-moment (2.14.1)
     rails-assets-morrisjs (0.5.1)
       rails-assets-jquery (>= 2.1.0)
       rails-assets-mocha (~> 1.17.1)
@@ -449,7 +456,7 @@ GEM
     sprockets (3.7.0)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-rails (3.1.1)
+    sprockets-rails (3.2.0)
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
@@ -491,9 +498,6 @@ GEM
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
-    will_paginate (3.1.0)
-    will_paginate-bootstrap (1.0.1)
-      will_paginate (>= 3.0.3)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -508,8 +512,8 @@ DEPENDENCIES
   acts_as_list (~> 0.6.0)
   acts_as_tree (~> 2.1.0)
   apartment (~> 1.0.0)
-  better_errors
   binding_of_caller
+  bootstrap-kaminari-views (~> 0.0.5)
   breadcrumbs_on_rails
   calendar_helper (= 0.2.5)
   capistrano (= 2.13.5)
@@ -546,6 +550,8 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails (~> 4.0.5)
   json
+  kaminari (~> 0.16.3)
+  kaminari-i18n (~> 0.3.2)
   language_engine!
   launchy
   letter_opener
@@ -560,7 +566,7 @@ DEPENDENCIES
   quiet_assets (~> 1.0)
   rabl
   rails (~> 4.2.6)
-  rails-assets-bootstrap-sass-official (~> 3.3.0)!
+  rails-assets-bootstrap-sass-official (~> 3.3.7)!
   rails-assets-eonasdan-bootstrap-datetimepicker (~> 3.1.3)!
   rails-assets-footable (~> 2.0.3)!
   rails-assets-jquery-tokeninput (~> 1.7.0)!
@@ -596,8 +602,6 @@ DEPENDENCIES
   turbolinks (~> 2.5.3)
   uglifier (~> 2.7.2)
   web-console (~> 2.0)
-  will_paginate (~> 3.1.0)
-  will_paginate-bootstrap (~> 1.0.1)
 
 BUNDLED WITH
    1.12.5

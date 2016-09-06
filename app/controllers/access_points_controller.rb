@@ -7,16 +7,16 @@ class AccessPointsController < ChouetteController
 
   respond_to :html, :kml, :xml, :json
 
-  def index    
+  def index
     request.format.kml? ? @per_page = nil : @per_page = 12
 
     index! do |format|
       format.html {
-        if collection.out_of_bounds?
+        if collection.out_of_range?
           redirect_to params.merge(:page => 1)
         end
       }
-    end       
+    end
   end
 
   def show
@@ -26,14 +26,14 @@ class AccessPointsController < ChouetteController
     show! do |format|
       unless access_point.position or params[:default]
         format.kml {
-          render :nothing => true, :status => :not_found 
+          render :nothing => true, :status => :not_found
         }
-        
+
       end
       format.html {build_breadcrumb :show}
     end
   end
-  
+
 
   def edit
     access_point.position ||= access_point.default_position
@@ -45,7 +45,7 @@ class AccessPointsController < ChouetteController
 
 
   protected
-  
+
   alias_method :access_point, :resource
 
   def map
@@ -54,10 +54,10 @@ class AccessPointsController < ChouetteController
 
   def collection
     @q = parent.access_points.search(params[:q])
-    @access_points ||= 
+    @access_points ||=
       begin
         access_points = @q.result(:distinct => true).order(:name)
-        access_points = access_points.paginate(:page => params[:page]) if @per_page.present?
+        access_points = access_points.page(params[:page]) if @per_page.present?
         access_points
       end
   end

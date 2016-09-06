@@ -4,6 +4,4 @@
 <div class="compliance_checks paginated_content">
   <%= paginated_content @compliance_checks, "compliance_checks/compliance_check" %>
 </div>
-<div class="pagination">
-  <%= will_paginate @compliance_checks, :container => false, renderer: RemoteBootstrapPaginationLinkRenderer %>
-</div>
+<%= render 'shared/paginate', { datas: @compliance_checks } %>

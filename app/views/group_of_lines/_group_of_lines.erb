@@ -4,6 +4,4 @@
 <div class="group_of_lines paginated_content">
   <%= paginated_content(@group_of_lines) %>
 </div>
-<div class="pagination">
-  <%= will_paginate @group_of_lines, :container => false, renderer: RemoteBootstrapPaginationLinkRenderer %>
-</div>
+<%= render 'shared/paginate', { datas: @group_of_lines } %>

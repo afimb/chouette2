@@ -70,7 +70,7 @@ gem 'formtastic', '2.3.1'
 gem 'RedCloth'
 gem 'simple_form', '~> 3.1.0'
 gem 'font-awesome-sass', '~> 4.2.0'
-gem 'will_paginate-bootstrap', '~> 1.0.1'
+#gem 'will_paginate-bootstrap', '~> 1.0.1'
 gem 'breadcrumbs_on_rails'
 
 # Format Output
@@ -83,9 +83,12 @@ gem 'inherited_resources'
 gem 'google-analytics-rails', '~> 1.1.0'
 
 # Model
-gem 'will_paginate', '~> 3.1.0'
+#gem 'will_paginate', '~> 3.1.0'
 gem 'ransack'
 gem 'squeel'
+gem 'kaminari', '~> 0.16.3'
+gem 'bootstrap-kaminari-views', '~> 0.0.5'
+gem 'kaminari-i18n', '~> 0.3.2'
 
 gem 'enumerize', '~> 0.10.0'
 #gem 'foreigner', '~> 1.7.4'
@@ -120,7 +123,7 @@ group :development do
   gem 'simplecov', '~> 0.10.0'
   gem 'web-console', '~> 2.0'
   platforms :ruby_20, :ruby_21, :ruby_22, :ruby_23 do
-    gem 'better_errors'
+    #gem 'better_errors'
     gem 'binding_of_caller'
   end
 end
@@ -162,7 +165,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-footable', '~> 2.0.3'
 
   # Use twitter bootstrap resources
-  gem 'rails-assets-bootstrap-sass-official', '~> 3.3.0'
+  gem 'rails-assets-bootstrap-sass-official', '~> 3.3.7'
   gem 'rails-assets-tagmanager', '~> 3.0.1.0'
   gem 'rails-assets-typeahead.js', '~> 0.10.5'
   gem 'rails-assets-typeahead.js-bootstrap3.less'

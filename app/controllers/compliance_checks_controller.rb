@@ -1,6 +1,5 @@
-require 'will_paginate/array'
-
 class ComplianceChecksController < ChouetteController
+  helper IevkitViews::Engine.helpers
   defaults :resource_class => ComplianceCheck
 
   respond_to :html, :js
@@ -32,8 +31,23 @@ class ComplianceChecksController < ChouetteController
   end
 
   def report
-    resource
+    @job = IevkitJob.new(@referential, resource)
+    @job.search = params[:q][:search] if params[:q]
+    @transport_datas_selected = params[:type_td]
+    @default_view = params[:default_view] ? params[:default_view].to_sym : :tests
+    @download_page = download_validation_referential_compliance_check_path(
+      default_view: @default_view, referential_id: @referential.id, id: resource.id)
+    @result, @datas, @sum_report, @errors = @job.send("#{@default_view}_views", (@transport_datas_selected != 'all' ? @transport_datas_selected : nil ))
+    @elements_to_paginate = Kaminari.paginate_array(@datas)
+                                    .page(params[:page])
+
     build_breadcrumb :report
+  end
+
+  def download_validation
+    @job = IevkitJob.new(@referential, resource)
+    datas, args = @job.download_validation_report(params[:default_view])
+    send_data datas, args
   end
 
   def references
@@ -76,13 +90,15 @@ class ComplianceChecksController < ChouetteController
     return @compliance_check unless @compliance_check.report
     @line_items = @compliance_check.report.line_items
     if @line_items.size > 500
-      @line_items = @line_items.paginate(page: params[:page], per_page: 20)
+      @line_items = Kaminari.paginate_array(@line_items).page(params[:page])
     end
     @compliance_check
   end
 
   def collection
-    @compliance_checks ||= compliance_check_service.all.sort_by{ |compliance_check| compliance_check.created_at }.reverse.paginate(:page => params[:page])
+    @compliance_checks ||= Kaminari.paginate_array(compliance_check_service.all.sort_by{ |compliance_check|
+        compliance_check.created_at
+      }.reverse).page(params[:page])
   end
 
 end

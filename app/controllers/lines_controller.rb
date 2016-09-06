@@ -11,7 +11,7 @@ class LinesController < ChouetteController
   def index
     index! do |format|
       format.html {
-        if collection.out_of_bounds?
+        if collection.out_of_range?
           redirect_to params.merge(:page => 1)
         end
         build_breadcrumb :index
@@ -77,7 +77,7 @@ class LinesController < ChouetteController
     end
 
     @q = referential.lines.search(params[:q])
-    @lines ||= @q.result(:distinct => true).order(:number).paginate(:page => params[:page]).includes([:network, :company])
+    @lines ||= @q.result(:distinct => true).order(:number).page(params[:page]).includes([:network, :company])
   end
 
   private

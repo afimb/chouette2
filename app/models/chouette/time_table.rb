@@ -4,8 +4,8 @@ class Chouette::TimeTable < Chouette::TridentActiveRecord
   self.primary_key = "id"
 
   acts_as_taggable
-  
-  attr_accessor :monday,:tuesday,:wednesday,:thursday,:friday,:saturday,:sunday  
+
+  attr_accessor :monday,:tuesday,:wednesday,:thursday,:friday,:saturday,:sunday
   attr_accessor :tag_search
 
   def self.ransackable_attributes auth_object = nil
@@ -414,7 +414,7 @@ class Chouette::TimeTable < Chouette::TridentActiveRecord
   # remove dates form tt which aren't in another_tt
   def intersect!(another_tt)
     transaction do
-      
+
       # transform tt as effective dates and get common ones
       days = another_tt.intersects(self.effective_days) & self.intersects(another_tt.effective_days)
       self.dates.clear

@@ -29,9 +29,7 @@
 <div class="stop_points paginated_content" >
   <%= paginated_content @stop_points, "stop_points/stop_point" %>
 </div>
-<div class="pagination">
-  <%= will_paginate @stop_points, :container => false, renderer: BootstrapPagination::Rails %>
-</div>
+<%= render 'shared/paginate', { datas: @stop_points } %>
 
 <% content_for :sidebar do %>
 <ul class="actions">
