@@ -1,5 +1,5 @@
 require 'faraday'
-require 'Ievkitdeprecated/error'
+require 'ievkitdeprecated/error'
 
 module Ievkitdeprecated
   # Faraday response middleware
@@ -14,7 +14,7 @@ module Ievkitdeprecated
       def on_complete(response)
         if error = Ievkitdeprecated::Error.from_response(response)
           raise error
-        end        
+        end
       end
     end
   end

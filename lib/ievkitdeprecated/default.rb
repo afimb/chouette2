@@ -1,5 +1,5 @@
-require 'Ievkitdeprecated/response/raise_error'
-require 'Ievkitdeprecated/version'
+require 'ievkitdeprecated/response/raise_error'
+require 'ievkitdeprecated/version'
 
 module Ievkitdeprecated
 
@@ -25,13 +25,13 @@ module Ievkitdeprecated
     RACK_BUILDER_CLASS = defined?(Faraday::RackBuilder) ? Faraday::RackBuilder : Faraday::Builder
 
     # Default Faraday middleware stack
-    MIDDLEWARE = RACK_BUILDER_CLASS.new do |builder|                  
+    MIDDLEWARE = RACK_BUILDER_CLASS.new do |builder|
       builder.use Faraday::Request::Multipart
-      
+
       builder.use Ievkitdeprecated::Response::RaiseError
       builder.use FaradayMiddleware::FollowRedirects
       #builder.use Faraday::Response::Logger
-      
+
       builder.adapter Faraday.default_adapter
     end
 
