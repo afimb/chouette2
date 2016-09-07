@@ -15,7 +15,6 @@ addons:
     - libxml2-dev
     - libbz2-dev
 rvm:
-  - 1.9.3
   - 2.1.10
   - 2.2.5
   - 2.3.1

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "/timebands/index", :type => :view do
 
   assign_referential
-  let!(:timebands) { assign :timebands, Array.new(2){ create(:timeband) }.paginate }
+  let!(:timebands) { assign :timebands, Kaminari.paginate_array(Array.new(2){ create(:timeband) }).page(1) }
 
   it "should render a show link for each timeband" do
     render

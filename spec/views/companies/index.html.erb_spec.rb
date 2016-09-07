@@ -3,12 +3,12 @@ require 'spec_helper'
 describe "/companies/index", :type => :view do
 
   assign_referential
-  let!(:companies) { assign :companies, Array.new(2) { create(:company) }.paginate  }  
+  let!(:companies) { assign :companies, Kaminari.paginate_array(Array.new(2) { create(:company) }).page(1)  }
   let!(:search) { assign :q, Ransack::Search.new(Chouette::Company) }
 
-  it "should render a show link for each group" do        
-    render  
-    companies.each do |company|      
+  it "should render a show link for each group" do
+    render
+    companies.each do |company|
       expect(rendered).to have_selector(".company a[href='#{view.referential_company_path(referential, company)}']", :text => company.name)
     end
   end

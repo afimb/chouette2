@@ -1,7 +1,7 @@
 module ReferentialHelper
 
   def first_referential
-    Referential.where(:slug => "first").take!
+    Referential.where(:slug => "ch_1").take!
   end
 
   def self.included(base)
@@ -36,10 +36,10 @@ RSpec.configure do |config|
     # Clean all tables to start
     DatabaseCleaner.clean_with :truncation, except: %w[spatial_ref_sys]
     # Truncating doesn't drop schemas, ensure we're clean here, first *may not* exist
-    Apartment::Tenant.drop('first') rescue nil
+    Apartment::Tenant.drop('ch_1') rescue nil
     # Create the default tenant for our tests
     organisation = Organisation.create!(:name => "first")
-    Referential.create!(:prefix => "first", :name => "first", :slug => "first", :organisation => organisation)
+    Referential.create!(:prefix => "first", :name => "first", :slug => "ch_1", :organisation => organisation)
   end
 
   config.before(:each) do

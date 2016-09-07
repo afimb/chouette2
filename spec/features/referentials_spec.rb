@@ -14,29 +14,28 @@ describe "Referentials", :type => :feature do
     context "when several referentials exist" do
 
       def retrieve_referential_by_slug( slug)
-        @user.organisation.referentials.find_by_slug(slug) || 
+        @user.organisation.referentials.find_by_slug(slug) ||
           create(:referential, :slug => slug, :name => slug, :organisation => @user.organisation)
       end
-                                                
+
       let!(:referentials) { [ retrieve_referential_by_slug("aa"),
-                              retrieve_referential_by_slug("bb")] }  
+                              retrieve_referential_by_slug("bb")] }
 
       it "should show n referentials" do
         visit referentials_path
         expect(page).to have_content(referentials.first.name)
         expect(page).to have_content(referentials.last.name)
       end
-      
+
     end
 
   end
-  
+
   describe "create" do
-    
+
     it "should" do
       visit new_referential_path
       fill_in "Nom", :with => "Test"
-      fill_in "Code", :with => "test"
       fill_in "Point haut/droite de l'emprise par défaut", :with => "0.0, 0.0"
       fill_in "Point bas/gauche de l'emprise par défaut", :with => "1.0, 1.0"
       click_button "Créer Espace de Données"
@@ -48,7 +47,7 @@ describe "Referentials", :type => :feature do
   end
 
   describe "destroy" do
-    let(:referential) {  create(:referential, :organisation => @user.organisation) } 
+    let(:referential) {  create(:referential, :organisation => @user.organisation) }
 
     it "should remove referential" do
       visit referential_path(referential)
@@ -57,5 +56,5 @@ describe "Referentials", :type => :feature do
     end
 
   end
-  
+
 end

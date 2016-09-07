@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe "/lines/show", :type => :view do
-  
+
   assign_referential
   let!(:line) { assign :line, create(:line) }
-  let!(:routes) { assign :routes, Array.new(2) { create(:route, :line => line) }.paginate }
+  let!(:routes) { assign :routes, Kaminari.paginate_array(Array.new(2) { create(:route, :line => line) }) }
   let!(:map) { assign(:map, double(:to_html => '<div id="map"/>'.html_safe)) }
 
   it "should render h2 with the line name" do

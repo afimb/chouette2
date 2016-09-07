@@ -128,7 +128,7 @@ class StopAreasController < ChouetteController
     @stop_areas ||=
       begin
         stop_areas = @q.result(:distinct => true).order(:name)
-        stop_areas = stop_areas.page(params[:page], :per_page => @per_page) if @per_page.present?
+        stop_areas = stop_areas.page(params[:page]).per(@per_page) if @per_page.present?
         stop_areas
       end
   end

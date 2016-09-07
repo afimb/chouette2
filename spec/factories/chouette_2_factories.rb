@@ -6,7 +6,7 @@ FactoryGirl.define do
 
   factory :referential do
     sequence(:name) { |n| "Test #{n}" }
-    sequence(:slug) { |n| "test_#{n}" }
+    sequence(:slug) { |n| "ch_#{n}" }
     sequence(:prefix) { |n| "test_#{n}" }
     association :organisation
 
@@ -35,15 +35,15 @@ FactoryGirl.define do
     no_save false
     format "Neptune"
     resources { Rack::Test::UploadedFile.new 'spec/fixtures/neptune.zip', 'application/zip', false }
-    referential { Referential.find_by_slug("first") }
+    referential { Referential.find_by_slug("ch_1") }
   end
 
   factory :kml_export do
-    referential { Referential.find_by_slug("first") }
+    referential { Referential.find_by_slug("ch_1") }
   end
 
   factory :export do
-    referential { Referential.find_by_slug("first") }
+    referential { Referential.find_by_slug("ch_1") }
   end
 
   factory :export_log_message do
@@ -67,7 +67,7 @@ FactoryGirl.define do
     user_id 1
     user_name "Dummy"
     status "pending"
-    referential { Referential.find_by_slug("first") }
+    referential { Referential.find_by_slug("ch_1") }
   end
 
   factory :time_table_combination
