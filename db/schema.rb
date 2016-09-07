@@ -342,8 +342,18 @@ ActiveRecord::Schema.define(version: 20160706141912) do
 
   add_index "referentials", ["name", "organisation_id"], name: "index_referentials_on_name_and_organisation_id", unique: true, using: :btree
 
-# Could not dump table "route_sections" because of following StandardError
-#   Unknown type 'shared_extensions.geometry(LineString,4326)' for column 'input_geometry'
+  create_table "route_sections", id: :bigserial, force: :cascade do |t|
+    t.integer  "departure_id",       limit: 8
+    t.integer  "arrival_id",         limit: 8
+    t.string   "objectid",           limit: 255,                                                 null: false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id",         limit: 255
+    t.geometry "input_geometry",     limit: {:srid=>4326, :type=>"line_string"}
+    t.geometry "processed_geometry", limit: {:srid=>4326, :type=>"line_string"}
+    t.float    "distance"
+    t.boolean  "no_processing",                                                  default: false, null: false
+  end
 
   create_table "routes", id: :bigserial, force: :cascade do |t|
     t.integer  "line_id",           limit: 8

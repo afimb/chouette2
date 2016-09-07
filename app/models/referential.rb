@@ -12,7 +12,7 @@ class Referential < ActiveRecord::Base
   validates_format_of :upper_corner, :with => %r{\A-?[0-9]+\.?[0-9]*\,-?[0-9]+\.?[0-9]*\Z}
   validates_format_of :lower_corner, :with => %r{\A-?[0-9]+\.?[0-9]*\,-?[0-9]+\.?[0-9]*\Z}
   validate :slug_excluded_values
-  
+
   attr_accessor :upper_corner
   attr_accessor :lower_corner
 
@@ -22,8 +22,12 @@ class Referential < ActiveRecord::Base
   belongs_to :organisation
   validates_presence_of :organisation
 
+  def slug
+    "ch_#{id}"
+  end
+
   def slug_excluded_values
-    if ! slug.nil?
+    if slug.present?
       if slug.start_with? "pg_"
         errors.add(:slug,I18n.t("referentials.errors.pg_excluded"))
       end
@@ -163,7 +167,7 @@ class Referential < ActiveRecord::Base
   def destroy_jobs
     Ievkitdeprecated.delete_jobs("ch_#{self.id}")
     true
-  end 
+  end
 
   def upper_corner
     envelope.upper_corner
