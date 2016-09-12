@@ -5,19 +5,15 @@ class Osrm_5_RouteSectionProcessor
   def call(route_section)
     osrm_endpoint = Rails.application.secrets.osrm_endpoint
 
-    pointsArray = []
-
-    (route_section.input_geometry || route_section.default_geometry).points.map do |point|
-      pointsArray.append([point.x, point.y])
+    points_string = (route_section.input_geometry || route_section.default_geometry).points.map do |point|
+      "#{point.x.to_f},#{point.y.to_f};"
     end.join
 
-    polyline_string = Polylines::Encoder.encode_points(pointsArray, 1e5)
-
-    # URL-encode polyline
-    polyline_string = CGI::escape(polyline_string)
+    # Remove trailing ';'
+    points_string = points_string.chop
 
     Rails.logger.info "Invoke #{osrm_endpoint} for RouteSection StopArea:#{route_section.departure.id} -> StopArea:#{route_section.arrival.id}"
-    response = open "#{osrm_endpoint}/route/v1/driving/polyline(#{polyline_string})?overview=false&steps=true&geometries=polyline"
+    response = open "#{osrm_endpoint}/route/v1/driving/#{points_string}?overview=false&steps=true&geometries=polyline"
     return nil unless response
 
     routes = JSON.parse(response.read.to_s)
