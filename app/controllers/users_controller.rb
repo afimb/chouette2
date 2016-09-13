@@ -25,9 +25,24 @@ class UsersController < BreadcrumbController
     end
   end
 
+  def role_edit
+    return unless current_user.admin?
+    @user = User.find(params[:id])
+  end
+
+  def role_update
+    return unless current_user.admin?
+    update! do |success, failure|
+      success.html { redirect_to organisation_user_path(@user) }
+    end
+  end
+
   private
+
   def user_params
-    params.require(:user).permit( :id, :name, :email )
+    permit_params = [ :id, :name, :email ]
+    permit_params << :role if current_user.admin?
+    params.require(:user).permit( permit_params )
   end
 
 end
