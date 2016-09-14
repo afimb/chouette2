@@ -2,6 +2,7 @@
 require 'open-uri'
 
 class ImportsController < ChouetteController
+  helper IevkitViews::Engine.helpers
   defaults :resource_class => Import
 
   respond_to :html, :only => [:show, :index, :destroy, :imported_file, :rule_parameter_set, :compliance_check]
@@ -75,15 +76,17 @@ class ImportsController < ChouetteController
   end
 
   def compliance_check
-    begin
-      @compliance_check = resource
-      build_breadcrumb :compliance_check
-      render "compliance_checks/report"
-    rescue Ievkitdeprecated::Error, Faraday::Error => error
-      logger.error("Iev failure : #{error.message}")
-      flash[:error] = t(error.locale_for_error) if error.methods.include? :locale_for_error
-      redirect_to referential_path(@referential)
-    end
+    @job = IevkitJob.new(@referential, resource)
+    @job.search = params[:q][:search] if params[:q]
+    @transport_datas_selected = params[:type_td]
+    @default_view = params[:default_view] ? params[:default_view].to_sym : :tests
+    @download_page = download_validation_referential_compliance_check_path(
+      default_view: @default_view, referential_id: @referential.id, id: resource.id)
+    @result, @datas, @sum_report, @errors = @job.send("#{@default_view}_views", (@transport_datas_selected != 'all' ? @transport_datas_selected : nil ))
+    @elements_to_paginate = Kaminari.paginate_array(@datas)
+                                    .page(params[:page])
+    build_breadcrumb :compliance_check
+    render "compliance_checks/report"
   end
 
   protected
