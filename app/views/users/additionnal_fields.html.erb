@@ -1,0 +1,7 @@
+<%= simple_form_for @user, :url => save_additionnal_fields_path, html: {class: 'form-horizontal' } do |form| %>
+<%= form.input :organisation, label: 'Organisation', placeholder: 'Saisissez votre organisation' %>
+
+  <div class="form-actions">
+    <%= form.button :submit, :as => :button %>
+  </div>
+<% end %>
