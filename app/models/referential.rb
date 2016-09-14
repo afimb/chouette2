@@ -22,9 +22,7 @@ class Referential < ActiveRecord::Base
   belongs_to :organisation
   validates_presence_of :organisation
 
-  def slug
-    "ch_#{id}"
-  end
+  after_save :set_slug
 
   def slug_excluded_values
     if slug.present?
@@ -156,6 +154,10 @@ class Referential < ActiveRecord::Base
   after_create :create_schema
   def create_schema
     Apartment::Tenant.create "ch_#{self.id}"
+  end
+
+  def set_slug
+    self.update_column(:slug, "ch_#{id}")
   end
 
   before_destroy :destroy_schema

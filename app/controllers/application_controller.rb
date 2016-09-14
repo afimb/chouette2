@@ -14,6 +14,14 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def check_authorize
+    raise "not authorized" unless authorize :application, :write?
+  end
+
+  def check_authorize_admin
+    raise "not authorized" unless authorize :application, :admin?
+  end
+
   def current_organisation
     current_user.organisation if current_user
   end

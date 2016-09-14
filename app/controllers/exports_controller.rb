@@ -1,6 +1,8 @@
 require 'open-uri'
 
 class ExportsController < ChouetteController
+  before_action :check_authorize, except: [:show, :index, :exported_file, :export, :compliance_check]
+
   defaults :resource_class => Export
 
   respond_to :html, :only => [:show, :index, :destroy, :exported_file]

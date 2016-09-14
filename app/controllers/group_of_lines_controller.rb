@@ -1,4 +1,6 @@
 class GroupOfLinesController < ChouetteController
+  before_action :check_authorize, except: [:show, :index, :name_filter]
+
   defaults :resource_class => Chouette::GroupOfLine
   respond_to :html
   respond_to :xml

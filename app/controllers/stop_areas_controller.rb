@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 class StopAreasController < ChouetteController
+  before_action :check_authorize, except: [:show, :index, :default_geometry, :zip_codes]
+
   defaults :resource_class => Chouette::StopArea
 
   belongs_to :referential do

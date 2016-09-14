@@ -1,11 +1,13 @@
 <div id="index_item" class="panel panel-default">
   <div class="panel-heading">
     <div class="panel-title clearfix">
-      <span class="pull-right">
-        <%= link_to referential_compliance_check_path(@referential, compliance_check.id), :method => :delete, :data => {:confirm =>  t('compliance_checks.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
-          <span class="fa fa-trash-o"></span>
-        <% end %>
-      </span>
+      <% if policy(:application).write? %>
+        <span class="pull-right">
+          <%= link_to referential_compliance_check_path(@referential, compliance_check.id), :method => :delete, :data => {:confirm =>  t('compliance_checks.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
+            <span class="fa fa-trash-o"></span>
+          <% end %>
+        </span>
+      <% end %>
       <h5>
         <%= link_to( report_referential_compliance_check_path(@referential, compliance_check.id), :class => "preview", :title => "#{ComplianceCheck.model_name.human.capitalize} #{compliance_check.name}") do %>
 	  <%= job_status_title(compliance_check) %>

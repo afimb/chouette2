@@ -1,4 +1,6 @@
 class ComplianceChecksController < ChouetteController
+  before_action :check_authorize, except: [:show, :index, :report, :download_validation, :rule_parameter_set, :export]
+
   helper IevkitViews::Engine.helpers
   defaults :resource_class => ComplianceCheck
 

@@ -1,4 +1,6 @@
 class NetworksController < ChouetteController
+  before_action :check_authorize, except: [:show, :index]
+
   defaults :resource_class => Chouette::Network
   respond_to :html
   respond_to :xml

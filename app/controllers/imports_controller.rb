@@ -2,6 +2,8 @@
 require 'open-uri'
 
 class ImportsController < ChouetteController
+  before_action :check_authorize, except: [:show, :index, :imported_file, :rule_parameter_set, :export, :compliance_check]
+
   defaults :resource_class => Import
 
   respond_to :html, :only => [:show, :index, :destroy, :imported_file, :rule_parameter_set, :compliance_check]

@@ -1,4 +1,5 @@
 class UsersController < BreadcrumbController
+  before_action :check_authorize, except: [:show, :index]
 
   defaults :resource_class => User
 

@@ -1,23 +1,25 @@
 <div id="index_item" class="panel panel-default user">
   <div class="panel-heading">
     <div class="panel-title clearfix">
-      <span class="pull-right">
-        <% if current_user.admin? %>
-          <%= link_to user_role_edit_organisation_path(user), :class => "btn btn-default btn-sm" do %>
-            <span class="fa fa-eye-slash"></span>
+      <% if policy(:application).write? %>
+        <span class="pull-right">
+          <% if current_user.admin? %>
+            <%= link_to user_role_edit_organisation_path(user), :class => "btn btn-default btn-sm" do %>
+              <span class="fa fa-eye-slash"></span>
+            <% end %>
           <% end %>
-        <% end %>
-        <% if user == current_user %>
-          <%= link_to( edit_user_registration_path(user), :class => "btn btn-default btn-sm" ) do %>
-            <span class="fa fa-pencil"></span>
+          <% if user == current_user %>
+            <%= link_to( edit_user_registration_path(user), :class => "btn btn-default btn-sm" ) do %>
+              <span class="fa fa-pencil"></span>
+            <% end %>
           <% end %>
-        <% end %>
-        <% if current_user.admin? || user == current_user %>
-          <%= link_to organisation_user_path(user), :method => :delete, :data => {:confirm =>  t('users.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
-            <span class="fa fa-trash-o"></span>
+          <% if current_user.admin? || user == current_user %>
+            <%= link_to organisation_user_path(user), :method => :delete, :data => {:confirm =>  t('users.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
+              <span class="fa fa-trash-o"></span>
+            <% end %>
           <% end %>
-        <% end %>
-      </span>
+        </span>
+      <% end %>
       <h5>
         <%= link_to( organisation_user_path(user), :class => "preview", :title => "#{User.model_name.human.capitalize} #{user.email}") do %>
          <%= user_gravatar_image_tag(user, 20) %>
