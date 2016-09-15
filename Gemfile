@@ -53,6 +53,9 @@ gem 'polylines'
 gem 'devise', '~> 3.5.6'
 gem 'devise-encryptable'
 gem 'devise_invitable'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 
 # Map, Geolocalization
 gem 'map_layers', '0.0.4'

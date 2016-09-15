@@ -1,5 +1,5 @@
-class ReferentialsController < BreadcrumbController
-
+class ReferentialsController < ChouetteController
+  skip_before_action :switch_referential
   defaults :resource_class => Referential
 
   respond_to :html
@@ -28,7 +28,7 @@ class ReferentialsController < BreadcrumbController
   end
 
   protected
-
+  
   alias_method :referential, :resource
 
   def resource

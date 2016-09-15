@@ -13,7 +13,7 @@
               <%= form.button :submit, t("devise.sessions.new.commit"), :class => "btn-primary" %>
             </div>
           </div>
-          <div class="row options">
+          <div class="row options line_separator">
             <div class="col-md-6">
               <% if devise_mapping.rememberable? %>
                 <%= form.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
@@ -26,6 +26,15 @@
                 <%= link_to t("devise.links.new_confirmation"), new_confirmation_path(resource_name) %>
               <% end %>
             </div>
+          </div>
+          <div class= "row options">
+          <div class="col-md-6">
+          </div>
+          <div class="col-md-6">
+            <%= link_to "Se connecter avec Facebook", user_omniauth_authorize_path(:facebook) %>
+            <br/>
+            <%= link_to "Se connecter avec Google", user_omniauth_authorize_path(:google_oauth2) %>
+          </div>
           </div>
         <% end %>
       </div>

@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-
+  
   def current_organisation
     current_user.organisation if current_user
   end
