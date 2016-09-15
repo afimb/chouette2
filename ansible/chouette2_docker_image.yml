@@ -1,7 +1,0 @@
----
-- name: Create otp image
-  hosts: localhost
-  vars_files:
-    - vars/all.yml
-  tasks:
-    - include: tasks/main.yml
