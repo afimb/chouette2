@@ -14,7 +14,7 @@ sudo apt-get install libpq-dev git unzip libgeos-dev proj-bin libproj-dev make
 ```
 
 If your Linux distribution doesn't publish an RVM package,
-install [RVM from sources](./doc/install/rvm.md) 
+install [RVM from sources](./doc/install/rvm.md)
 
 Install ruby 2.1.x
 ```sh
@@ -68,6 +68,10 @@ cp config/application.example.yml config/application.yml
    See [API Géoportail documentation](http://api.ign.fr/accueil)
 7. Configure OSRM Backend URL `osrm_endpoint`
    See [Project-OSRM](https://github.com/Project-OSRM/osrm-backend/wiki/Api-usage-policy)
+8. If you want to enable Google oauth2 authentification `google_client_id` and `google_secret_id`
+   See [Google Oauth2](https://console.developers.google.com)
+9. If you want to enable Facebook oauth2 authentification `facebook_client_id` and `facebook_secret_id`
+   See [Facebook Oauth2](https://developers.facebook.com)
 
 Chouette2 database configuration
 --------------------------------

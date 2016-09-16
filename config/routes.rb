@@ -13,7 +13,7 @@ ChouetteIhm::Application.routes.draw do
       root :to => 'devise/sessions#new', as: :unauthenticated_root
     end
     get '/additionnal_fields', to: 'users#additionnal_fields'
-    patch 'save_additionnal_fields', to: 'users#save_additionnal_fields'
+    patch '/save_additionnal_fields', to: 'users#save_additionnal_fields'
   end
 
   namespace :api do
@@ -39,7 +39,7 @@ ChouetteIhm::Application.routes.draw do
       resources :vehicle_journeys, :only => :show
     end
   end
-  
+
   resource :organisation, :only => [:show, :edit, :update] do
     resources :users
     resources :rule_parameter_sets

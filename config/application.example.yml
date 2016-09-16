@@ -23,3 +23,7 @@ capistrano_deploy_user:
 openlayers_default_map: # For example: 'osm' or 'google_stellite' or 'geoportail_ortho' or 'geoportail_scans' or 'geoportail_cadastre'
 restriction_format: # For example: 'hub'
 iev_admin_key:
+facebook_client_id:
+facebook_secret_id:
+google_client_id:
+google_secret_id:

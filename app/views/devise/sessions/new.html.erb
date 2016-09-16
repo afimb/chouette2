@@ -27,16 +27,22 @@
               <% end %>
             </div>
           </div>
-          <div class= "row options">
-          <div class="col-md-6">
-          </div>
-          <div class="col-md-6">
-            <%= link_to "Se connecter avec Facebook", user_omniauth_authorize_path(:facebook) %>
-            <br/>
-            <%= link_to "Se connecter avec Google", user_omniauth_authorize_path(:google_oauth2) %>
-          </div>
-          </div>
         <% end %>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <% if Rails.application.secrets.facebook_client_id.present? && Rails.application.secrets.facebook_secret_id.present? %>
+              <%= link_to "S'authentifier avec Facebook", user_omniauth_authorize_path(:facebook) %>
+              <br/>
+            <% end %>
+            <% if Rails.application.secrets.google_client_id.present? && Rails.application.secrets.google_secret_id.present? %>
+              <%= link_to "S'authentifier avec Google", user_omniauth_authorize_path(:google_oauth2) %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
     <%= render partial: 'devise/shared/form_registration', locals: {

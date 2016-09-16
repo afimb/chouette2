@@ -1,7 +1,7 @@
 sudo: false
 language: ruby
 addons:
-  postgresql: "9.4"
+  postgresql: '9.4'
   apt:
     packages:
     - build-essential
@@ -24,6 +24,8 @@ notifications:
     - metienne@cityway.fr
     - alban.peignier@af83.com
     - anicet.rohee@af83.com
+  slack:
+    secure: htRE80xSy1PEwrzny5UQlQRE4McSzyVJ05E6nyCPCiZwExydyUgHBBEuI/62weL90uWxlFaC7MrbqlhlVUZd4p7l8FwhOdFvWVYpkUgXRYNldA/V+LdLe4P7npJmgGZarnFEeu0ktV7A4ozLyUrKUvbfPSjp+JyzIiBNLoBOwv4=
 before_install:
   - gem update bundler
 before_script:
