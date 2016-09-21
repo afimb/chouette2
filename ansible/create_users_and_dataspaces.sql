@@ -129,7 +129,7 @@ SELECT create_provider_schema('vkt','Vestfold Kollektivtrafikk','gtfs','Rutebank
 SELECT create_rutebanken_schema('rb_vkt','RB/Vestfold','gtfs','Rutebanken Admin',get_variable('organisation_id'), get_variable('user_id'),'VKT','32632','Paris','SRID=4326;POLYGON((3.0 57.0,3.0 62.0,10.0 62.0,10.0 57.0,3.0 57.0))');
 
 SELECT create_provider_schema('akt','Agder Kollektivtrafik','gtfs','Rutebanken Admin','admin+akt@rutebanken.org','Akt-bruker','akt@rutebanken.org','Agder Kollektivtrafik AS','AKT','32632','Paris','SRID=4326;POLYGON((3.0 57.0,3.0 62.0,10.0 62.0,10.0 57.0,3.0 57.0))');
-SELECT create_rutebanken_schema('rb_akt','RB/Ruter','gtfs','Rutebanken Admin',get_variable('organisation_id'), get_variable('user_id'),'RUT','32632','Paris','SRID=4326;POLYGON((3.0 57.0,3.0 62.0,10.0 62.0,10.0 57.0,3.0 57.0))');
+SELECT create_rutebanken_schema('rb_akt','RB/AkT','gtfs','Rutebanken Admin',get_variable('organisation_id'), get_variable('user_id'),'AKT','32632','Paris','SRID=4326;POLYGON((3.0 57.0,3.0 62.0,10.0 62.0,10.0 57.0,3.0 57.0))');
 
 SELECT create_provider_schema('kol','Kolumbus','gtfs','Rutebanken Admin','admin+kol@rutebanken.org','Kolumbus-bruker','kol@rutebanken.org','Kolumbus AS','KOL','32632','Paris','SRID=4326;POLYGON((3.0 57.0,3.0 62.0,10.0 62.0,10.0 57.0,3.0 57.0))');
 SELECT create_rutebanken_schema('rb_kol','RB/Kolumbus','gtfs','Rutebanken Admin',get_variable('organisation_id'), get_variable('user_id'),'KOL','32632','Paris','SRID=4326;POLYGON((3.0 57.0,3.0 62.0,10.0 62.0,10.0 57.0,3.0 57.0))');
