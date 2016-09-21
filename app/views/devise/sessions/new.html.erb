@@ -13,7 +13,7 @@
               <%= form.button :submit, t("devise.sessions.new.commit"), :class => "btn-primary" %>
             </div>
           </div>
-          <div class="row options line_separator">
+          <div class="row options">
             <div class="col-md-6">
               <% if devise_mapping.rememberable? %>
                 <%= form.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
@@ -33,13 +33,17 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12 social_button_alignment">
             <% if Rails.application.secrets.facebook_client_id.present? && Rails.application.secrets.facebook_secret_id.present? %>
-              <%= link_to "S'authentifier avec Facebook", user_omniauth_authorize_path(:facebook) %>
-              <br/>
+              <%= link_to image_tag('facebook-login-button', width: "200"), user_omniauth_authorize_path(:facebook) %>
             <% end %>
+            <br/><br/>
             <% if Rails.application.secrets.google_client_id.present? && Rails.application.secrets.google_secret_id.present? %>
-              <%= link_to "S'authentifier avec Google", user_omniauth_authorize_path(:google_oauth2) %>
+            <%= link_to image_tag('btn_google_signin_dark_normal_web', width: "200"), user_omniauth_authorize_path(:google_oauth2) %>
+            <% end %>
+            <br/><br/>
+            <% if Rails.application.secrets.openid_connect_client_id.present? && Rails.application.secrets.openid_connect_secret_id.present? %>
+                  <%= link_to image_tag('FCboutons-10', width: "200"), user_omniauth_authorize_path(:openid_connect) %>
             <% end %>
           </div>
         </div>

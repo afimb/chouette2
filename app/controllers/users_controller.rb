@@ -1,5 +1,5 @@
 class UsersController < BreadcrumbController
-
+  before_action :authenticate_user!, except: [:additionnal_fields, :save_additionnal_fields]
   skip_before_action :check_organisation
   defaults :resource_class => User
 
@@ -27,23 +27,27 @@ class UsersController < BreadcrumbController
   end
   
   def additionnal_fields
-    @user = current_user
+    @user = User.new
+    @user.organisation = Organisation.new
+    @user.email = session['user_stand_by_email'] if session['user_stand_by_email'].present?
   end
   
   def save_additionnal_fields
-    @user = current_user
+    @user = User.new
+    @user.provider = session['user_stand_by_provider']
+    @user.uid = session['user_stand_by_uid']
+    @user.password = Devise.friendly_token[0,20]
+    @user.email = params[:user][:email]
+    @user.name = session['user_stand_by_name']
     @user.organisation = Organisation.new
-    @user.organisation.name = params[:user][:organisation]
+    @user.organisation.name = params[:user][:organisation_attributes][:name]
     
-    if @user.organisation.name.present?
-      if @user.save(:validate => false)
-        redirect_to root_path
-      else
-        render :additionnal_fields
-      end
+    if @user.valid?
+      @user.confirm!
+      @user.save
+      sign_in @user
+      redirect_to root_path
     else
-      @user.organisation = nil
-      @user.errors.add(:organisation, "Le champ Organisation doit être rempli")
       render :additionnal_fields
     end
   end

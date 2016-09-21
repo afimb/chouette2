@@ -1,5 +1,6 @@
 require "omniauth-facebook"
 require "omniauth-google-oauth2"
+require "omniauth-openid-connect"
 
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
@@ -282,8 +283,30 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
-  config.omniauth :facebook, Rails.application.secrets.facebook_client_id, Rails.application.secrets.facebook_secret_id, :scope => 'public_profile, email', info_fields: 'email,name'
+  config.omniauth :facebook, Rails.application.secrets.facebook_client_id, Rails.application.secrets.facebook_secret_id, :scope => 'email', info_fields: 'email,name'
   config.omniauth :google_oauth2, Rails.application.secrets.google_client_id, Rails.application.secrets.google_secret_id
+  
+  config.omniauth :openid_connect, {
+    name: :openid_connect,
+    scope: [:openid, :profile],
+    response_type: :code,
+    state: true, # Requis par France connect
+    nonce: true, # Requis par France connect
+    issuer: 'https://fcp.integ01.dev-franceconnect.fr', # L'environnement d'intégration utilise à présent 'https'
+    client_auth_method: 'Custom', # France connect n'utilise pas l'authent "BASIC".
+    client_signing_alg: :HS256,   # Format de hashage France Connect
+    client_options: {
+      port: 443,
+      scheme: "https",
+      host: "fcp.integ01.dev-franceconnect.fr",
+      identifier: Rails.application.secrets.openid_connect_client_id,
+      secret: Rails.application.secrets.openid_connect_secret_id,
+      redirect_uri: "http://localhost:3000/users/auth/openid_connect/callback",
+      authorization_endpoint: '/api/v1/authorize',
+      token_endpoint: '/api/v1/token',
+      userinfo_endpoint: '/api/v1/userinfo'
+    },
+  }
 end
 
 Rails.application.config.to_prepare do

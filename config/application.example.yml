@@ -27,3 +27,5 @@ facebook_client_id:
 facebook_secret_id:
 google_client_id:
 google_secret_id:
+openid_connect_client_id:
+openid_connect_secret_id:

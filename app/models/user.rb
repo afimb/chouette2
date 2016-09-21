@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, :async, :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
+         :confirmable, :async, :omniauthable, :omniauth_providers => [:facebook, :google_oauth2, :openid_connect]
 
   # Setup accessible (or protected) attributes for your model
   # attr_accessible :email, :password, :current_password, :password_confirmation, :remember_me, :name, :organisation_attributes
@@ -25,20 +25,14 @@ class User < ActiveRecord::Base
   
   
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.password = Devise.friendly_token[0,20]
-      user.email = auth.info.email if auth.info.email.present?
-      user.name = auth.info.name
-      
-      if ["facebook"].include?(auth.provider)
-        user.save(:validate => false)
-      else
-        user.email = auth.info.email
-        user.save
-      end
-    end
+    user = User.find_by(provider: auth.provider, uid: auth.uid)
+    return user if user
+    user = User.new
+    user.provider = auth.provider
+    user.uid = auth.uid
+    user.email = auth.info.email if auth.info.email.present?
+    user.name = auth.info.name
+    return user
   end
   
 

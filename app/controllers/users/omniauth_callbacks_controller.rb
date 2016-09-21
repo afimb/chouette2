@@ -7,11 +7,21 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     processAuthentification
   end
 
+  def openid_connect
+    processAuthentification
+  end
+
   def processAuthentification
     @user = User.from_omniauth(request.env["omniauth.auth"])
-    @user.confirm! unless @user.confirmed?
-    sign_in @user
-    (@user.organisation.present?) ? (redirect_to root_path) : (redirect_to additionnal_fields_path)
+    if @user.new_record?
+      session['user_stand_by_provider'] = @user.provider
+      session['user_stand_by_uid'] = @user.uid
+      session['user_stand_by_name'] = @user.name
+      session['user_stand_by_email'] = @user.email if @user.email.present?
+    else
+      sign_in @user
+    end
+    (@user.organisation.present? && @user.email.present?) ? (redirect_to root_path) : (redirect_to additionnal_fields_path)
   rescue Exception => e
     logger.debug e.message
     if @user
