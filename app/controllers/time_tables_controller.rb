@@ -37,7 +37,7 @@ class TimeTablesController < ChouetteController
     index! do |format|
       format.html {
         if collection.out_of_range?
-          redirect_to params.merge(:page => 1)
+          redirect_to url_for params.merge(:page => 1)
         end
         build_breadcrumb :index
       }
