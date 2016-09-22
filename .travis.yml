@@ -22,8 +22,7 @@ notifications:
     - mflorisson@cityway.fr
     - bruno@atnos.com
     - metienne@cityway.fr
-    - alban.peignier@af83.com
-    - anicet.rohee@af83.com
+    - gjamot@cityway.fr
 before_install:
   - gem update bundler
 before_script:
