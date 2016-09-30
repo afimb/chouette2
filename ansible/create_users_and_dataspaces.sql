@@ -169,3 +169,6 @@ SELECT create_rutebanken_schema('rb_nri','RB/NRI','gtfs','Rutebanken Admin',get_
 
 SELECT create_provider_schema('norway','NOR-WAY Bussekspress','gtfs','Rutebanken Admin','admin+norway@rutebanken.org','NOR-WAY-bruker','norway@rutebanken.org','NOR-WAY Bussekspress AS','NORWAY','32632','Paris','SRID=4326;POLYGON((3.0 57.0,3.0 62.0,10.0 62.0,10.0 57.0,3.0 57.0))');
 SELECT create_rutebanken_schema('rb_norway','RB/NOR-WAY','gtfs','Rutebanken Admin',get_variable('organisation_id'), get_variable('user_id'),'NORWAY','32632','Paris','SRID=4326;POLYGON((3.0 57.0,3.0 62.0,10.0 62.0,10.0 57.0,3.0 57.0))');
+
+SELECT create_provider_schema('avinor','Avinor','gtfs','Rutebanken Admin','admin+avinor@rutebanken.org','Avinor-bruker','avinor@rutebanken.org','Avinor Flysikring AS','AVINOR','4326','Paris','SRID=4326;POLYGON((3.0 57.0,3.0 62.0,10.0 62.0,10.0 57.0,3.0 57.0))');
+SELECT create_rutebanken_schema('rb_avinor','RB/Avinor','gtfs','Rutebanken Admin',get_variable('organisation_id'), get_variable('user_id'),'AVI','4326','Paris','SRID=4326;POLYGON((3.0 57.0,3.0 62.0,10.0 62.0,10.0 57.0,3.0 57.0))');
