@@ -261,7 +261,7 @@ GEM
     lumberjack (1.0.10)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
-    map_layers (0.0.4)
+    map_layers (0.0.5)
     method_source (0.8.2)
     migration_data (0.2.1)
     mime-types (2.99.2)
@@ -555,7 +555,7 @@ DEPENDENCIES
   language_engine!
   launchy
   letter_opener
-  map_layers (= 0.0.4)
+  map_layers (= 0.0.5)
   migration_data
   mimemagic
   newrelic_rpm
@@ -604,4 +604,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.12.5
+   1.13.1
