@@ -193,7 +193,7 @@ class ApplicationMap
         helpers.polymorphic_path_patch( helpers.polymorphic_path([url_or_object.referential, url_or_object], url_options))
       end
 
-    protocol = OpenLayers::Protocol::HTTP.new :url => url, :format => kml
+    protocol = OpenLayers::Protocol.const_set('HTTP', Class.new(MapLayers::JsClass)).new :url => url, :format => kml
     OpenLayers::Layer::Vector.new name, {:projection => projection("EPSG:4326"), :strategies => [strategy_fixed], :protocol => protocol, :displayInLayerSwitcher => false}.merge(options)
   end
 
