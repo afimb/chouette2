@@ -19,7 +19,7 @@ class GroupOfLinesController < ChouetteController
   def index
     index! do |format|
       format.html {
-        if collection.out_of_range?
+        if collection.out_of_range? && params[:page].to_i > 1
           redirect_to url_for params.merge(:page => 1)
         end
         build_breadcrumb :index
