@@ -4,7 +4,7 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-//= require jquery
+//= require jquery2
 //= require jquery_ujs
 //= require jquery-ui
 //= require modernizr
@@ -31,7 +31,7 @@
 //= require_directory ./vehicle_journey_frequencies
 //= require_directory ./import_tasks
 //= require_directory ./compliance_check_tasks
-//= require_directory ./compliance_checks
+// require_directory ./compliance_checks
 //= require_directory ./export_tasks
 //= require_directory ./exports
 //= require_directory ./lines
