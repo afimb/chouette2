@@ -28,8 +28,9 @@ class VehicleJourneysController < ChouetteController
 
   def index
     index! do
-      if collection.out_of_range?
+      if collection.out_of_range? && params[:page].to_i > 1
         redirect_to url_for params.merge(:page => 1)
+        return
       end
       build_breadcrumb :index
     end
