@@ -1,6 +1,6 @@
 fr:
-  simple_form:  
-    include_blanks:     
+  simple_form:
+    include_blanks:
       defaults:
         for_boarding: "Non défini"
         for_alighting: "Non défini"
@@ -9,7 +9,7 @@ fr:
       normal: "Montée autorisée"
       forbidden: "Montée interdite"
       request_stop: "Montée sur demande au conducteur"
-      is_flexible: "Montée sur réservation"                
+      is_flexible: "Montée sur réservation"
     for_alighting:
       normal: "Descente autorisée"
       forbidden: "Descente interdite"
@@ -25,6 +25,7 @@ fr:
       neptune: "Profil Neptune"
       gtfs: "GTFS"
       netex: "Profil NeTEx"
+      netexprofile: "Profil NeTEx (new)"
       hub: "HUB 1.3"
       kml: "KML"
       sig: "SIG"
@@ -33,4 +34,4 @@ fr:
       gtfs: "General Transit Feed Specification défini par Google"
       netex: "Expérimental"
       hub: "Format spécifique Transdev"
-      kml: "Tracés de lignes, séquences d'arrêts, ...  en 'Keyhole Markup Language'"  
+      kml: "Tracés de lignes, séquences d'arrêts, ...  en 'Keyhole Markup Language'"
