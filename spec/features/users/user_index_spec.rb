@@ -19,7 +19,7 @@ feature 'User index page', :devise do
   #   Then I see my own email address
   scenario 'user sees own email address' do
     user = create(:user)
-    user.confirm!
+    user.confirm
     login_as(user, scope: :user)
     visit organisation_path
     expect(page).to have_content user.name.truncate(15)

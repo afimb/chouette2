@@ -43,7 +43,7 @@ h3. Attributs d'un espace de données
 
 Tous les champs sont obligatoires. 
 
-* Nom :  nom de l’espace de données, les caractères alphanumériques et le signe sousligné " _ " (underscore ou tiret du 8) sont autorisés.
+* Nom :  nom de l’espace de données, les caractères alphanumériques et le signe souligné " _ " (underscore ou tiret du 8) sont autorisés.
 * Code : code de l’espace de données
 * Préfixe Neptune : préfixe utilisé par défaut lors la génération de nouveaux identifiants Neptune
 * Projection géographique : référentiel de projection des coordonnées cartographiques en complément du WGS84

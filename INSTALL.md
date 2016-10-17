@@ -12,6 +12,10 @@ On Debian/Ubuntu/Kubuntu OS : assumes that the depot contains the correct versio
 ```sh
 sudo apt-get install libpq-dev git unzip libgeos-dev proj-bin libproj-dev make
 ```
+On OSX : assumes that the depot contains the correct version
+```sh
+brew install libffi geos proj
+```
 
 If your Linux distribution doesn't publish an RVM package,
 install [RVM from sources](./doc/install/rvm.md) 
@@ -44,6 +48,34 @@ Download gem librairies
 ```sh
 bundle install
 ```
+
+
+Chouette2 application config file
+---------------------------------
+
+Copy and fill application.yml
+```
+cp config/application.example.yml config/application.yml
+```
+
+1. Configure **domain_name** with your domain, for example: `domain_name: chouette.mobi`
+   See [Action Mailer Configuration documentation](http://guides.rubyonrails.org/action_mailer_basics.html)
+2. Configure SMTP settings with all lines started with `smtp_`
+   For using SMTP you must set **'smtp'** in `smtp_delivery_method`
+   See [Action Mailer Configuration documentation](http://guides.rubyonrails.org/action_mailer_basics.html)
+3. Fill **secret_key_base** and **devise_secret_key** by executing `rake secret` in your terminal
+   See [Rails documentation](http://guides.rubyonrails.org/4_1_release_notes.html#config-secrets-yml)
+4. Configure the Chouette IEV Web Service url `api_endpoint`
+5. Configure the Google Analytics Key `google_analytic_tracker`
+   See [Google Analytics](https://www.google.fr/intl/fr/analytics/)
+6. Configure the IGN Géoportail Key `geoportail_api_key`
+   See [API Géoportail documentation](http://api.ign.fr/accueil)
+7. Configure OSRM Backend URL `osrm_endpoint`
+   See [Project-OSRM](https://github.com/Project-OSRM/osrm-backend/wiki/Api-usage-policy)
+
+Chouette2 database configuration
+--------------------------------
+
 Add the PostGIS extension to your database
 ```
 RAILS_ENV=production bundle exec rake db:gis:setup
@@ -57,45 +89,15 @@ Prepare the static resources (assets)
 RAILS_ENV=production bundle exec rake assets:clobber assets:precompile
 ```
 
-Chouette2 Configuration
------------------------
-
-Configure for Generating URLs in Action Mailer Views.
-* Edit [production.rb](./config/environments/production.rb) and change ```config.action_mailer.default_url_options```
-* see [Action Mailer Configuration documentation](http://guides.rubyonrails.org/action_mailer_basics.html)
+Chouette2 others configuration
+------------------------------
 
 Configure asset access (Must be True if you use Webrick, or False if you use Apache or Nginx).
 * Edit [production.rb](./config/environments/production.rb) and change ```config.serve_static_assets```
 
-Configure SMTP settings.
-* Edit [production.rb](./config/environments/production.rb) and change ```ActionMailer::Base.smtp_settings```
-* see [Action Mailer Configuration documentation](http://guides.rubyonrails.org/action_mailer_basics.html)
-
-Configure the e-mail address visible on the e-mail sent when a user registers, re-initialises its password, ...
-* Edit [production.rb](./config/environments/production.rb) and change ```config.mailer_sender```
-
-Configure Rails secret key.
-* Edit [secrets.yml](./config/secrets.yml) and uncomment and set```secret_key_base```
-* see [Rails documentation](http://guides.rubyonrails.org/4_1_release_notes.html#config-secrets-yml)
-
-Configure the Chouette IEV Web Service url.
-* Edit [secrets.yml](./config/secrets.yml) and uncomment and set```api_endpoint```
-
-Configure the Google Analytics Key.
-* Edit [secrets.yml](./config/secrets.yml) and change```google_analytic_tracker```
-* see [Google Analytics](https://www.google.fr/intl/fr/analytics/)
-
-Configure the IGN Géoportail Key.
-* Edit [secrets.yml](./config/secrets.yml) and uncomment and set```geoportail_api_key```
-* see [API Géoportail documentation](http://api.ign.fr/accueil)
-
 Configure the way Chouette2 sends e-mail.
 * Edit [devise_async.rb](./config/initializer/devise_async.rb) and uncomment and set```Devise::Async.enabled``` ( true if you want to use asynchronously and false otherwise )
 * see [Devise Async specification](https://github.com/mhfs/devise-async)
-
-Configure OSRM Backend URL
-* Edit [secrets.yml](./config/secrets.yml) and change```osrm_endpoint```
-* see [Project-OSRM](https://github.com/Project-OSRM/osrm-backend/wiki/Api-usage-policy)
 
 Run Chouette2
 -------------

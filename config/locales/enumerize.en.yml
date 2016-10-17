@@ -28,6 +28,7 @@ en:
       hub: "HUB 1.3"
       kml: "KML"
       regtopp: "RegTopp"
+      sig: "SIG"
     data_format_detail:
       neptune: ""
       gtfs: "General Transit Feed Specification"

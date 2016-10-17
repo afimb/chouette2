@@ -19,7 +19,7 @@ Rails.application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = true
+  config.serve_static_assets = false
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -53,9 +53,9 @@ Rails.application.configure do
   #if ENV['OS'] == 'Windows_NT'
   #  # args = log_path,number of files,file sizes
   #  config.logger = Logger.new("C:/chouette/logs/chouette2.log", 5, 10.megabytes)
-  config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new("rails/chouette2").tap do |syslog|
-                                                     syslog.level = Logger::INFO
-                                                   end)
+  config.logger = ActiveSupport::TaggedLogging.new(
+    Syslog::Logger.new("rails/chouette2").tap{ |syslog| syslog.level = Logger::INFO }
+  )
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -84,26 +84,19 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: Rails.application.secrets.domain_name }
+
+  config.action_mailer.delivery_method = Rails.application.secrets.smtp_delivery_method.to_sym
 
   # Configure the e-mail address which will be shown in Devise::Maile
-  config.mailer_sender = "chouette-production@my-domain-name.com"
-
-  ActionMailer::Base.smtp_settings = {
-    :address        => "smtp.gmail.com",
-    :port           => 25,
-    :domain         => "scienta.no",
-    :user_name      => "en@scienta.no",
-    :password       => "ffsevsgxpadhlysq",
-    :authentication => :login
-  }
+  config.mailer_sender = Rails.application.secrets.mailer_sender
 
   # Specific theme for each company
   # AFIMB
-  #config.company_name = "afimb"
-  #config.company_theme = "#61970b" # AFIMB color
-  #config.company_contact = "http://www.chouette.mobi/club-utilisateurs/contact-support/"
-  #config.accept_user_creation = true
+  config.company_name = "afimb"
+  config.company_theme = "#61970b" # AFIMB color
+  config.company_contact = "http://www.chouette.mobi/club-utilisateurs/contact-support/"
+  config.accept_user_creation = true
 
   # CITYWAY
   # config.company_name = "cityway"
@@ -111,24 +104,14 @@ Rails.application.configure do
   # config.company_contact = "http://www.cityway.fr/contact/?rub_code=14"
   # config.accept_user_creation = false
 
-  # Rutebanken
-  config.company_name = "rutebanken"
-  config.company_theme = "#16c1f3" # Rutebanken color
-  config.company_contact = "http://www.nasjonalreiseplanlegger.com"
-  config.accept_user_creation = true
-
-
   # file to data for demo
   # config.demo_data = "/path/to/demo.zip"
 
-  # link to validation specification pages
-  config.validation_spec = "http://www.chouette.mobi/neptune-validation/v22/"
-
   # paths for external resources
   config.to_prepare do
-    Devise::Mailer.layout "mailer"
+    Devise::Mailer.layout 'mailer'
   end
 
-  config.i18n.available_locales = [:en]
+  config.i18n.available_locales = [:fr, :en]
 
 end

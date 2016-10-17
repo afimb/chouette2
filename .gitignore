@@ -28,3 +28,6 @@ coverage
 
 # IDE
 .idea
+
+# Ignore application configuration
+/config/application.yml

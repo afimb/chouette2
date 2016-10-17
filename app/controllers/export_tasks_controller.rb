@@ -49,7 +49,7 @@ class ExportTasksController < ChouetteController
         export_task_parameters[:data_format] == "netex" ? build_resource : NetexExport.new(:referential_id => @referential.id ),
         export_task_parameters[:data_format] == "gtfs" ? build_resource : GtfsExport.new(:referential_id => @referential.id ),
         export_task_parameters[:data_format] == "hub" ? build_resource : HubExport.new(:referential_id => @referential.id ),
-        export_task_parameters[:data_format] == "kml" ? build_resource : KmlExport.new(:referential_id => @referential.id )
+        export_task_parameters[:data_format] == "sig" ? build_resource : SigExport.new(:referential_id => @referential.id )
       ]
     else
       @available_exports = [
@@ -57,7 +57,7 @@ class ExportTasksController < ChouetteController
         NetexExport.new(:referential_id => @referential.id ),
         GtfsExport.new(:referential_id => @referential.id ),
         HubExport.new(:referential_id => @referential.id ),
-        KmlExport.new(:referential_id => @referential.id )
+        SigExport.new(:referential_id => @referential.id )
       ]
     end
   end
@@ -75,8 +75,8 @@ class ExportTasksController < ChouetteController
                          GtfsExport.new(export_task_parameters)
                        when "hub"
                          HubExport.new(export_task_parameters)
-                       when "kml"
-                         KmlExport.new(export_task_parameters)
+                       when "sig"
+                         SigExport.new(export_task_parameters)
                        end
                      else
                        NeptuneExport.new

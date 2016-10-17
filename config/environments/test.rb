@@ -55,9 +55,6 @@ Rails.application.configure do
   # file to data for demo
   config.demo_data = "tmp/demo.zip"
 
-  # link to validation specification pages
-  config.validation_spec = "http://www.chouette.mobi/neptune-validation/v21/"
-
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # Configure the e-mail address which will be shown in Devise::Maile

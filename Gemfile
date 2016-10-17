@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.1.14'
+gem 'rails', '~> 4.1.15'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring', group: :development
+gem 'spring', '~> 1.6.4', group: :development
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -37,6 +37,8 @@ gem 'spring', group: :development
 # API Rest
 gem 'sawyer', '~> 0.6.0'
 gem 'faraday_middleware', '~> 0.9.1'
+
+gem 'figaro', '~> 1.1.1'
 
 platforms :jruby do
   gem 'activerecord-jdbcpostgresql-adapter', '~> 1.3.3'
@@ -56,7 +58,7 @@ gem 'activerecord-postgis-adapter'
 gem 'polylines'
 
 # Authentication
-gem 'devise', '~> 3.4.0'
+gem 'devise', '~> 3.5.6'
 gem 'devise-encryptable'
 gem 'devise_invitable'
 
@@ -94,10 +96,9 @@ gem 'ransack'
 gem 'squeel'
 
 gem 'enumerize', '~> 0.10.0'
-
-#gem 'ninoxe', '1.2.4'
-gem 'ninoxe', git: 'https://github.com/afimb/ninoxe.git'
-#gem 'ninoxe', path: '../ninoxe'
+gem 'foreigner', '~> 1.7.4'
+gem 'deep_cloneable', '~> 2.0.0'
+gem 'acts-as-taggable-on', '>= 3'
 
 gem 'acts_as_list', '~> 0.6.0'
 gem 'acts_as_tree', '~> 2.1.0', require: 'acts_as_tree'
@@ -129,9 +130,9 @@ end
 
 group :test, :development do
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 3.1.0'
+  gem 'rspec-rails', '~> 3.4.2'
   gem 'fakeweb'
-  gem 'capybara', '~> 2.4.0'
+  gem 'capybara', '~> 2.7.0'
   gem 'poltergeist'
   gem 'launchy'
   gem 'factory_girl_rails', '~> 4.0'

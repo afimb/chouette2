@@ -6,8 +6,8 @@ fr:
     edit:
       title: "Editer la validation"
     show:
-      title: "Validation Neptune"
-      summary: "Rapport de conformité à la norme NEPTUNE"
+      title: "Validation"
+      summary: "Rapport de conformité"
       details: "Détails"
       parameters: "Paramètres des tests"
       completed: "[ Terminé ]"

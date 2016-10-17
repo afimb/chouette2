@@ -27,6 +27,7 @@ fr:
       netex: "Profil NeTEx"
       hub: "HUB 1.3"
       kml: "KML"
+      sig: "SIG"
     data_format_detail:
       neptune: ""
       gtfs: "General Transit Feed Specification défini par Google"

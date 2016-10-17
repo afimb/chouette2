@@ -10,7 +10,7 @@ class ExportTask
 
   define_model_callbacks :initialize, only: :after
 
-  enumerize :data_format, in: %w( neptune netex gtfs hub kml )
+  enumerize :data_format, in: %w( neptune netex gtfs hub sig )
   attr_accessor :referential_id, :user_id, :user_name, :references_type, :data_format, :name, :projection_type, :reference_ids
 
   validates_presence_of :referential_id
@@ -30,8 +30,8 @@ class ExportTask
   end
 
   def period_validation
-    st_date = start_date.is_a?(String) ? Date.parse(start_date) : start_date
-    ed_date = end_date.is_a?(String) ? Date.parse(end_date) : end_date
+    st_date = start_date.present? && start_date.is_a?(String) ? Date.parse(start_date) : start_date
+    ed_date = end_date.present? && end_date.is_a?(String) ? Date.parse(end_date) : end_date
 
     unless  Chouette::TimeTable.start_validity_period.nil? || st_date.nil?
       tt_st_date = Chouette::TimeTable.start_validity_period
@@ -82,7 +82,7 @@ class ExportTask
   end
 
   def self.data_formats
-    self.data_format.values
+    self.data_format.values.select{ |format| !ENV['deactivate_formats_export'].to_s.split(',').map(&:strip).include?(format) }
   end
 
   def self.references_types

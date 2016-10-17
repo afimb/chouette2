@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Supression des courses obsolètes parmis d'autres valides
+title: Suppression des courses obsolètes parmi d'autres valides
 ---
 
-La purge des données ne supprime que les courses des lignes entièrement osbolètes. Dans le cas où seules certaines courses d'une mission sont obsolètes, il convient de les supprimer manuellement. 
+La purge des données ne supprime que les courses des lignes entièrement obsolètes. Dans le cas où seules certaines courses d'une mission sont obsolètes, il convient de les supprimer manuellement. 
 
 Cette suppression peut se faire directement dans l'interface de Chouette mais elle est relativement laborieuse car il faut supprimer les courses une à une en plusieurs clics à chaque fois. 
 

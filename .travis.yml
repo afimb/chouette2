@@ -18,6 +18,7 @@ rvm:
   - 1.9.3
   - 2.1.7
   - 2.2.3
+  - 2.3.0
   - jruby-19mode
   - jruby-head
 jdk:
@@ -30,6 +31,8 @@ matrix:
     - rvm: 2.1.7
       jdk: openjdk7
     - rvm: 2.2.3
+      jdk: openjdk7
+    - rvm: 2.3.0
       jdk: openjdk7
   allow_failures:
     - rvm: jruby-head

@@ -1,5 +1,9 @@
 require 'capistrano/ext/multistage'
 require './config/boot'
+require 'figaro'
+
+Figaro.application = Figaro::Application.new(environment: 'development', path: './config/application.yml')
+Figaro.load
 
 set :stages, %w(sandbox unstable staging production sismo)
 set :application, "chouette2"
@@ -13,7 +17,7 @@ set :group_writable, true
 set :rake, "bundle exec rake"
 set :keep_releases, 4
 set :rails_env, "production" #added for delayed job
-set :user, "metienne"
+set :user, Figaro.env.capistrano_deploy_user
 set :deploy_via, :copy
 set :copy_via, :scp
 set :copy_exclude, ".git/*"
@@ -52,9 +56,10 @@ namespace :deploy do
 
   desc "Symlinks shared configs and folders on each release"
   task :symlink_shared, :except => { :no_release => true }  do
+    run "ln -nfs #{shared_path}/config/application.yml #{release_path}/config/"
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/"
     run "ln -nfs #{shared_path}/config/production.rb #{release_path}/config/environments/"
-    run "ln -nfs #{shared_path}/config/secrets.yml #{release_path}/config/"
+    # run "ln -nfs #{shared_path}/config/secrets.yml #{release_path}/config/"
     run "ln -nfs #{shared_path}/config/newrelic.yml #{release_path}/config/"
     run "ln -nfs #{shared_path}/config/devise_async.rb #{release_path}/config/initializers/"
   end
