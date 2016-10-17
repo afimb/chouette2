@@ -12,6 +12,10 @@ On Debian/Ubuntu/Kubuntu OS : assumes that the depot contains the correct versio
 ```sh
 sudo apt-get install libpq-dev git unzip libgeos-dev proj-bin libproj-dev make
 ```
+On OSX : assumes that the depot contains the correct version
+```sh
+brew install libffi geos proj
+```
 
 If your Linux distribution doesn't publish an RVM package,
 install [RVM from sources](./doc/install/rvm.md) 

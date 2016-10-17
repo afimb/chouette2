@@ -106,11 +106,10 @@ Rails.application.configure do
   # config.accept_user_creation = false
 
   # Rutebanken
-  config.company_name = "rutebanken"
-  config.company_theme = "#16c1f3" # Rutebanken color
-  config.company_contact = "http://www.nasjonalreiseplanlegger.com"
-  config.accept_user_creation = true
-
+   config.company_name = "rutebanken"
+   config.company_theme = "#16c1f3" # Rutebanken color
+   config.company_contact = "http://www.nasjonalreiseplanlegger.com"
+   config.accept_user_creation = true
 
   # file to data for demo
   # config.demo_data = "/path/to/demo.zip"
