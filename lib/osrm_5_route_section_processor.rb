@@ -12,8 +12,9 @@ class Osrm_5_RouteSectionProcessor
     # Remove trailing ';'
     points_string = points_string.chop
 
-    Rails.logger.info "Invoke #{osrm_endpoint} for RouteSection StopArea:#{route_section.departure.id} -> StopArea:#{route_section.arrival.id}"
-    response = open "#{osrm_endpoint}/route/v1/driving/#{points_string}?overview=false&steps=true&geometries=polyline"
+    path = "#{osrm_endpoint}/route/v1/driving/#{points_string}?overview=false&steps=true&geometries=polyline"
+    Rails.logger.info "Invoke #{path} for RouteSection StopArea:#{route_section.departure.id} -> StopArea:#{route_section.arrival.id}"
+    response = open path
     return nil unless response
 
     routes = JSON.parse(response.read.to_s)

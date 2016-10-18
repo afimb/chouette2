@@ -58,6 +58,11 @@ class Chouette::RouteSection < Chouette::TridentActiveRecord
       self.distance = processed_geometry.to_georuby.to_wgs84.spherical_distance if processed_geometry
     end
 
+    if self.input_geometry.nil? && !self.processed_geometry.nil?
+      # Accept processed geometry
+      self.no_processing = false
+    end
+
     true
   end
   before_validation :process_geometry
