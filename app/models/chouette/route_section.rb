@@ -60,7 +60,6 @@ class Chouette::RouteSection < Chouette::TridentActiveRecord
 
     if self.input_geometry.nil? && !self.processed_geometry.nil?
       # Accept processed geometry
-      self.input_geometry = self.processed_geometry
       self.no_processing = false
     end
 
