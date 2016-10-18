@@ -34,7 +34,7 @@ GIT
 
 GIT
   remote: https://github.com/afimb/ievkit_views.git
-  revision: 644372170fba9338f94452fa44a02c8b498328a4
+  revision: 9b548dbb6752fbef38b41755a2b4769cbbfa5274
   branch: develop
   specs:
     ievkit_views (0.1.0)
@@ -264,10 +264,10 @@ GEM
     map_layers (0.0.5)
     method_source (0.8.2)
     migration_data (0.2.1)
-    mime-types (2.99.2)
+    mime-types (2.99.3)
     mimemagic (0.3.2)
     mini_portile2 (2.1.0)
-    minitest (5.9.0)
+    minitest (5.9.1)
     multi_json (1.12.1)
     multipart-post (2.0.0)
     nenv (0.3.0)
@@ -280,9 +280,8 @@ GEM
       net-ssh (>= 2.6.5)
     netrc (0.11.0)
     newrelic_rpm (3.16.2.321)
-    nokogiri (1.6.8)
+    nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
-      pkg-config (~> 1.1.7)
     notiffany (0.1.0)
       nenv (~> 0.1)
       shellany (~> 0.0)
@@ -291,7 +290,6 @@ GEM
     parser (2.3.1.2)
       ast (~> 2.2)
     pg (0.18.4)
-    pkg-config (1.1.7)
     poltergeist (1.6.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -377,7 +375,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rainbow (2.1.0)
-    rake (11.2.2)
+    rake (11.3.0)
     ransack (1.6.3)
       actionpack (>= 3.0)
       activerecord (>= 3.0)
