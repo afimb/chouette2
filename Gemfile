@@ -63,7 +63,7 @@ gem 'georuby', '2.3.0' # Fix version for georuby-ext because api has changed
 gem 'mimemagic'
 
 # User interface
-gem 'language_engine', github: 'Treize37/language_engine'
+gem 'language_engine', git: 'https://github.com/Treize37/language_engine'
 gem 'calendar_helper', '0.2.5'
 gem 'cocoon'
 gem 'formtastic', '2.3.1'

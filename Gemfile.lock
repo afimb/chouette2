@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/Treize37/language_engine.git
+  remote: https://github.com/Treize37/language_engine
   revision: f26ac351b1c768f327887b5b61d8ad4606e1c16e
   specs:
     language_engine (0.0.6)
