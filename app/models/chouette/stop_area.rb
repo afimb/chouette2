@@ -11,8 +11,9 @@ class Chouette::StopArea < Chouette::TridentActiveRecord
   has_many :stop_points, :dependent => :destroy
   has_many :access_points, :dependent => :destroy
   has_many :access_links, :dependent => :destroy
-  has_and_belongs_to_many :routing_lines, :class_name => 'Chouette::Line', :foreign_key => "stop_area_id", :association_foreign_key => "line_id", :join_table => "routing_constraints_lines", :order => "lines.number"
-  has_and_belongs_to_many :routing_stops, :class_name => 'Chouette::StopArea', :foreign_key => "parent_id", :association_foreign_key => "child_id", :join_table => "stop_areas_stop_areas", :order => "stop_areas.name"
+  has_and_belongs_to_many :routing_constraints, join_table: :routing_constraints_stop_areas
+  #has_and_belongs_to_many :routing_lines, :class_name => 'Chouette::Line', :foreign_key => "stop_area_id", :association_foreign_key => "line_id", :join_table => "routing_constraints_lines", :order => "lines.number"
+  #has_and_belongs_to_many :routing_stops, :class_name => 'Chouette::StopArea', :foreign_key => "parent_id", :association_foreign_key => "child_id", :join_table => "stop_areas_stop_areas", :order => "stop_areas.name"
 
   acts_as_tree :foreign_key => 'parent_id',:order => "name"
 
@@ -83,7 +84,6 @@ class Chouette::StopArea < Chouette::TridentActiveRecord
       when "Quay" then []
       when "CommercialStopPoint" then Chouette::StopArea.where(:area_type => ['Quay', 'BoardingPosition']) - [self]
       when "StopPlace" then Chouette::StopArea.where(:area_type => ['StopPlace', 'CommercialStopPoint']) - [self]
-      when "ITL" then Chouette::StopArea.where(:area_type => ['Quay', 'BoardingPosition', 'StopPlace', 'CommercialStopPoint'])
     end
 
   end
@@ -123,10 +123,6 @@ class Chouette::StopArea < Chouette::TridentActiveRecord
 
   def self.physical
     where :area_type => [ "BoardingPosition", "Quay" ]
-  end
-
-  def self.itl
-    where :area_type => "ITL"
   end
 
   def to_lat_lng
@@ -191,9 +187,6 @@ class Chouette::StopArea < Chouette::TridentActiveRecord
 
   def stop_area_type=(stop_area_type)
     self.area_type = (stop_area_type ? stop_area_type.camelcase : nil)
-    if self.area_type == 'Itl'
-      self.area_type = 'ITL'
-    end
   end
 
   @@stop_area_types = nil

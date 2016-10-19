@@ -20,7 +20,7 @@ class StopAreaMap < ApplicationMap
         page << map.add_layer(:children_layer)
         page << map.add_control( hover_control_display_name(:children_layer) )
       end
-      if stop_area.routing_stops.present?
+      if false && stop_area.routing_stops.present?
         page.assign "routing_layer", kml_layer(stop_area, { :routing => true }, :style_map => Design::StopAreasStyleMap.new(helpers).style_map)
         page << map.add_layer(:routing_layer)
         page << map.add_control( hover_control_display_name(:routing_layer) )

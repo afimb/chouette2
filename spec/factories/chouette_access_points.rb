@@ -6,7 +6,6 @@ FactoryGirl.define do
     sequence(:name) { |n| "AccessPoint #{n}" }
     access_type "InOut"
     sequence(:objectid) { |n| "test:AccessPoint:#{n}" }
-    association :stop_area, :factory => :stop_area
   end
 
 end

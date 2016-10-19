@@ -1,0 +1,31 @@
+<%= semantic_form_for [@referential, @routing_constraint] do |form| %>
+  <%= form.inputs do %>
+    <%= form.input :name %>
+    <%= form.input :comment %>
+  <% end %>
+
+  <%= form.input :line_ids, as: :text, input_html: { 'data-pre': ( @routing_constraint.lines.map { |line| { id: line.id.to_s, name: "#{line.number} - #{line.name}" } } ).to_json } %>
+  <%= form.input :stop_area_ids, as: :search_stop_area, json:  referential_autocomplete_stop_areas_path(@referential, format: :json),
+                  hint_text: t('search_hint'), no_result_text: t('no_result_text'), searching_text: t('searching_term'),
+                  input_html: {
+                      'data-pre': Rabl::Renderer.new('autocomplete_stop_areas/index', @routing_constraint.stop_areas,
+                      view_path: 'app/views', format: :json, scope: self).render
+                    } %>
+  <%= form.actions do %>
+    <%= form.action :submit, as: :button %>
+    <%= form.action :cancel, as: :link %>
+  <% end %>
+<% end %>
+
+<script>
+	$(function() {
+		$( "#routing_constraint_line_ids" ).tokenInput('<%= referential_stop_area_stop_area_routing_lines_path(@referential, 0, format: :json) %>', {
+       crossDomain: false,
+       prePopulate: $('#routing_constraint_line_ids').data('pre'),
+       minChars: 1,
+       hintText: '<%= t('search_hint') %>',
+       noResultsText: '<%= t('no_result_text') %>',
+       searchingText: '<%= t('searching_term') %>'
+    });
+	});
+</script>

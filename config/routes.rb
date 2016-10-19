@@ -141,6 +141,7 @@ ChouetteIhm::Application.routes.draw do
     end
 
     resources :timebands
+    resources :routing_constraints
 
     resources :access_points do
        resources :access_links

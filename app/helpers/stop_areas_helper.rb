@@ -11,24 +11,18 @@ module StopAreasHelper
     ( "<img src='#{stop_area_picture_url(stop_area)}'/>" + " <span style='height:25px; line-height:25px; margin-left: 5px; '>" + name + " <small style='height:25px; line-height:25px; margin-left: 10px; color: #555;'>" + localization + "</small></span>").html_safe
   end
   
-  def genealogical_title
-    return t(".stop_areas.genealogical.genealogical_routing") if @stop_area.stop_area_type == 'itl'    
+  def genealogical_title 
     t("stop_areas.genealogical.genealogical")
   end
  
   def show_map?
-    manage_itl || @stop_area.long_lat_type != nil
+    @stop_area.long_lat_type != nil
   end  
 
   def manage_access_points
     @stop_area.stop_area_type == 'stop_place' || @stop_area.stop_area_type == 'commercial_stop_point'
   end
-  def manage_itl
-    @stop_area.stop_area_type == 'itl'
-  end
-  def manage_parent
-    @stop_area.stop_area_type != 'itl'
-  end
+
   def manage_children
     @stop_area.stop_area_type == 'stop_place' || @stop_area.stop_area_type == 'commercial_stop_point'
   end
