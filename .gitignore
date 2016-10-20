@@ -34,3 +34,4 @@ coverage
 /config/database.yml
 
 .localeapp
+locales
