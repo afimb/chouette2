@@ -1,5 +1,5 @@
 #workspace {
-  .ce-TimeBandFormTable {
+  .ce-VehicleJourneyAtStopFormTable {
     .btn {
       white-space: normal;
       width: 130px;
@@ -7,20 +7,29 @@
       padding: 2px 0;
     }
   }
-  .ce-TimeBandFormTable th {
+  .ce-VehicleJourneyAtStopFormTable-subLabel span {
+    margin-right: 11px;
+  }
+  .ce-VehicleJourneyAtStopFormTable-subLabel span:first-child {
+    margin-right: 19px;
+  }
+  .ce-VehicleJourneyAtStopFormTable-subLabel span:last-child {
+    margin-right: 0;
+  }
+  .ce-VehicleJourneyAtStopFormTable th {
     text-align: left;
     padding: 6px 20px 6px 20px;
   }
-  .ce-TimeBandFormTable td {
+  .ce-VehicleJourneyAtStopFormTable td {
     padding: 6px 20px 6px 20px;
   }
-  .ce-TimeBandFormTable td {
+  .ce-VehicleJourneyAtStopFormTable td {
     vertical-align: middle;
   }
-  .ce-TimeBandFormTable-circleLine {
+  .ce-VehicleJourneyAtStopFormTable-circleLine {
     position: relative;
   }
-  .ce-TimeBandFormTable-line:after {
+  .ce-VehicleJourneyAtStopFormTable-line:after {
     content: '';
     position: absolute;
     top: 0;
@@ -30,13 +39,13 @@
     margin-left: -1px;
     background-color: #61970b;
   }
-  tr:first-child td .ce-TimeBandFormTable-line:after {
+  tr:first-child td .ce-VehicleJourneyAtStopFormTable-line:after {
     top: 50%;
   }
-  tr:last-child td .ce-TimeBandFormTable-line:after {
+  tr:last-child td .ce-VehicleJourneyAtStopFormTable-line:after {
     bottom: 50%;
   }
-  .ce-TimeBandFormTable-circle {
+  .ce-VehicleJourneyAtStopFormTable-circle {
     position: relative;
     z-index: 999;
     display: block;
@@ -45,7 +54,7 @@
     border-radius: 8px;
     background-color: #4d7809;
   }
-  tr:hover .ce-TimeBandFormTable-circle {
+  tr:hover .ce-VehicleJourneyAtStopFormTable-circle {
     background-color: #fff;
     border: 2px solid #61970b;
   }

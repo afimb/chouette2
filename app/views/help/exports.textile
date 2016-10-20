@@ -39,9 +39,7 @@ le choix des arrêts permet de n'exporter que les fichiers d'arrêts (stops.txt)
 
 * *NeTex* : pas d'option particulière
 
-* *HUB* : pas d'option particulière
-
-* *KML* : pas d'option particulière
+* *SIG* : pas d'option particulière
 
 h3. Consultation des résultats
 

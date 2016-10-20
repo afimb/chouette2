@@ -67,8 +67,13 @@ jQuery ->
     wtk_format = new OpenLayers.Format.WKT()
 
     user_geometry.events.on({
+      # TODO : Find a way to add zoomend event
+      move: (event) ->
+        $('circle[stroke-opacity="0.3"]').attr('stroke-opacity', '0.7').attr('fill-opacity', '0.7')
       featureclick: (event) ->
-        $('circle[stroke-opacity="0.3"]').attr('stroke-opacity', '0.6').attr('fill-opacity', '0.6')
+        $('circle[stroke-opacity="0.3"]').attr('stroke-opacity', '0.7').attr('fill-opacity', '0.7')
+      featuremodified: (event) ->
+        $('circle[stroke-opacity="0.3"]').attr('stroke-opacity', '0.7').attr('fill-opacity', '0.7')
       afterfeaturemodified: (event) ->
         efg = event.feature.geometry
         wgs84_geometry = efg.transform(proj900913, projWGS84)

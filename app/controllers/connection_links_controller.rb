@@ -10,15 +10,16 @@ class ConnectionLinksController < ChouetteController
   respond_to :kml, :only => :show
   respond_to :js, :only => :index
 
-  def index    
+  def index
     index! do |format|
       format.html {
-        if collection.out_of_bounds?
-          redirect_to params.merge(:page => 1)
+        if collection.out_of_range? && params[:page].to_i > 1
+          redirect_to url_for params.merge(:page => 1)
+          return
         end
         build_breadcrumb :index
       }
-    end       
+    end
   end
 
   def show
@@ -36,12 +37,12 @@ class ConnectionLinksController < ChouetteController
   end
 
   protected
-  
+
   alias_method :connection_link, :resource
 
-  def collection    
+  def collection
     @q = referential.connection_links.search(params[:q])
-    @connection_links ||= @q.result(:distinct => true).order(:name).paginate(:page => params[:page])
+    @connection_links ||= @q.result(:distinct => true).order(:name).page(params[:page])
   end
 
   def resource_url(connection_link = nil)
@@ -53,7 +54,7 @@ class ConnectionLinksController < ChouetteController
   end
 
   private
-  
+
   def connection_link_params
     params.require(:connection_link).permit( :connection_link_type,:departure_id, :arrival_id, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :link_distance, :link_type, :default_duration, :frequent_traveller_duration, :occasional_traveller_duration, :mobility_restricted_traveller_duration, :mobility_restricted_suitability, :stairs_availability, :lift_availability, :int_user_needs )
   end

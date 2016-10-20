@@ -9,7 +9,6 @@ require 'capybara/rspec'
 require 'capybara/rails'
 require 'capybara/poltergeist'
 require 'georuby-ext'
-require 'will_paginate/array'
 require 'fakeweb'
 require 'simplecov'
 SimpleCov.start 'rails' do
@@ -42,7 +41,7 @@ RSpec.configure do |config|
   config.filter_run_excluding :js => true
   config.run_all_when_everything_filtered = true
   config.include TokenInputHelper, :type => :feature
-  
+
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:

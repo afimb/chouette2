@@ -15,22 +15,23 @@ class NetworksController < ChouetteController
     end
   end
 
-  def index    
+  def index
     index! do |format|
       format.html {
-        if collection.out_of_bounds?
-          redirect_to params.merge(:page => 1)
+        if collection.out_of_range? && params[:page].to_i > 1
+          redirect_to url_for params.merge(:page => 1)
+          return
         end
       }
       build_breadcrumb :index
-    end       
+    end
   end
 
   protected
 
-  def collection    
+  def collection
     @q = referential.networks.search(params[:q])
-    @networks ||= @q.result(:distinct => true).order(:name).paginate(:page => params[:page])
+    @networks ||= @q.result(:distinct => true).order(:name).page(params[:page])
   end
 
   def resource_url(network = nil)
@@ -44,5 +45,5 @@ class NetworksController < ChouetteController
   def network_params
     params.require(:network).permit(:objectid, :object_version, :creation_time, :creator_id, :version_date, :description, :name, :registration_number, :source_name, :source_type_name, :source_identifier, :comment )
   end
-  
+
 end

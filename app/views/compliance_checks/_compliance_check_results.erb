@@ -8,17 +8,17 @@
     <label><%=ComplianceCheckResult.human_attribute_name(:severity)%></label>
     <select class="filter-severity form-control">
       <option></option>
-      <option value="severity-error"><%= t("compliance_check_result.severities.error") %></option>
-      <option value="severity-warning"><%= t("compliance_check_result.severities.warning") %></option>
+      <option value="severity-error"><%= t("compliance_check_results.severities.error") %></option>
+      <option value="severity-warning"><%= t("compliance_check_results.severities.warning") %></option>
     </select>
   </div>
   <div class="form-group">
     <label><%=ComplianceCheckResult.human_attribute_name(:status)%></label>
     <select class="filter-status form-control">
       <option></option>
-      <option value="status-ok"><%= t("compliance_check_result.statuses.ok") %></option>
-      <option value="status-nok"><%= t("compliance_check_result.statuses.nok") %></option>
-      <option value="status-uncheck"><%= t("compliance_check_result.statuses.uncheck") %></option>
+      <option value="status-ok"><%= t("compliance_check_results.statuses.ok") %></option>
+      <option value="status-nok"><%= t("compliance_check_results.statuses.nok") %></option>
+      <option value="status-uncheck"><%= t("compliance_check_results.statuses.uncheck") %></option>
     </select>
   </div>
 </form>
@@ -26,9 +26,9 @@
 <table class="table table-hover toggle-circle toggle-medium"
        data-filter="#filter"
        data-page-size="20"
-       data-title-nok="<%=t('compliance_check_result.statuses.nok') %>"
-       data-title-uncheck="<%=t('compliance_check_result.statuses.uncheck') %>"
-       data-title-ok="<%=t('compliance_check_result.statuses.ok') %>">
+       data-title-nok="<%=t('compliance_check_results.statuses.nok') %>"
+       data-title-uncheck="<%=t('compliance_check_results.statuses.uncheck') %>"
+       data-title-ok="<%=t('compliance_check_results.statuses.ok') %>">
   <thead>
     <tr>
       <th data-sort-ignore="true"><%= ComplianceCheckResult.human_attribute_name(:status) %></th>
@@ -44,7 +44,7 @@
       <% compliance_check_validation_report.tests.each_with_index do |test, index| %>
       <tr class='<%= "#{test.result}_#{test.severity}" %>'>
         <td data-value="<%="status-#{test.result}"%>"><%= status_icon( test.result, test.severity ) %> </td>
-        <td data-value="<%="severity-#{test.severity}"%>"><%= t("compliance_check_result.severities.#{test.severity}_txt") %></td>
+        <td data-value="<%="severity-#{test.severity}"%>"><%= t("compliance_check_results.severities.#{test.severity}_txt") %></td>
         <td data-value="<%= "#{test.result}_#{test.severity}" %>">
           <%= link_to test.test_id, test_definition(test.test_id), title: ComplianceCheckResult.human_attribute_name(test.test_id), target: "compliance_check" %>
         </td>
@@ -73,6 +73,7 @@
                   <% end %>
                 <% end %>
               </dt>
+<!--
               <dd>
                   <p>
                     <%=t("compliance_check_result.details.detail_#{error[:error_id]}", object_labels_hash(error))%>
@@ -84,6 +85,8 @@
                       <p><%= "Errorcode: #{error[:error_value]}" if error[:error_value].present? %></p>
                   <% end %>
               </dd>
+-->
+              <dd><%=t("compliance_check_results.details.detail_#{error[:error_id]}", object_labels_hash(error))%></dd>
               </dl>
               <% if error[:source].file.present? %>
                 <p class="file_error">

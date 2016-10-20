@@ -32,7 +32,7 @@
 <% content_for :sidebar do %>
 <ul class="actions">
   <li><%= link_to t('stop_areas.actions.new'), new_referential_stop_area_path(@referential), :class => "add" %></li>
-  <li><%= link_to t('stop_areas.actions.default_geometry'), default_geometry_referential_stop_areas_path(@referential), :method => :put, :class => "calculator" %></li>
+  <li><%= link_to t('stop_areas.actions.default_geometry'), default_geometry_referential_stop_areas_path(@referential), :method => :put, :class => "calculator", 'data-confirm' => confirm_count_missing_geometry %></li>
 </ul>
 
 <% end %>

@@ -129,7 +129,7 @@
   <li><%= link_to t('lines.actions.new'), new_referential_line_path(@referential), :class => "add" %></li>
   <li><%= link_to t('lines.actions.edit'), edit_referential_line_path(@referential, @line), :class => "edit" %></li>
   <li><%= link_to t('lines.actions.destroy'), referential_line_path(@referential, @line), :method => :delete, :data => {:confirm =>  t('lines.actions.destroy_confirm')}, :class => "remove" %></li>
-  <% if !@line.hub_restricted? || (@line.hub_restricted? && @line.routes.size < 2) %>
+  <% if !@line.format_restricted?(:hub) || (@line.format_restricted?(:hub) && @line.routes.size < 2) %>
     <li><%= link_to t('routes.actions.new'), new_referential_line_route_path(@referential, @line), :class => "add" %></li>
   <% end %>
 </ul>

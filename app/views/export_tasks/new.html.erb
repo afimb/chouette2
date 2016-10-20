@@ -25,6 +25,8 @@
 
   <%= render partial: "fields_#{export_task.data_format}_export", :locals => { :form => form } %>
 
+  <%= form.input :valid_after_export , as: :boolean %>
+
 	<%= form.actions do %>
 	  <%= form.action :submit, :as => :button , :label => t( 'formtastic.export' ) %>
 	  <%= form.action :cancel, :as => :link %>

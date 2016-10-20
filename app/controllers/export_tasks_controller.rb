@@ -9,7 +9,7 @@ class ExportTasksController < ChouetteController
     @available_exports = available_exports
     begin
       new!
-    rescue Ievkit::Error, Faraday::Error => error
+    rescue Ievkitdeprecated::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t(error.locale_for_error)
       redirect_to referential_path(@referential)
@@ -22,7 +22,7 @@ class ExportTasksController < ChouetteController
       create! do |success, failure|
         success.html { redirect_to referential_exports_path(@referential) }
       end
-    rescue Ievkit::Error, Faraday::Error => error
+    rescue Ievkitdeprecated::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t(error.locale_for_error)
       redirect_to referential_path(@referential)

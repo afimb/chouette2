@@ -21,3 +21,10 @@
     }
   }
 }
+
+button {
+  &.select-all, &.unselect-all {
+    padding: 2px 4px !important;
+    margin-right: 6px !important;
+  }
+}

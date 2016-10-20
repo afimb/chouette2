@@ -1,0 +1,11 @@
+$(document).ready ->
+  $('.journey_patterns .choices-group').prepend '<li><button class="select-all"><%= I18n.t('select_all') %></button><button class="unselect-all"><%= I18n.t('unselect_all') %></button></li>'
+  $('.select-all').click (e) ->
+    e.preventDefault()
+    $(this).closest('.choices-group').find('input[type="checkbox"]').prop('checked', true)
+    return
+  $('.unselect-all').click (e) ->
+    e.preventDefault()
+    $(this).closest('.choices-group').find('input[type="checkbox"]').prop('checked', false)
+    return
+  return

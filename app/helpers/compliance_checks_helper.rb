@@ -84,19 +84,13 @@ module ComplianceChecksHelper
         object_labels_hash["target_#{index}_label".to_sym] = target[:label] if target[:label]
       end
     end
-    if error[:error_value].present?
-      object_labels_hash[:error_value] = error[:error_value]
-    end
-    if error[:reference_value].present?
-      object_labels_hash[:reference_value] = error[:reference_value]
-    end
-    if error[:error_description].present?
-      object_labels_hash[:error_description] = error[:error_description]
-    end
-    if error[:error_value].present?
-      object_labels_hash[:error_value] = error[:error_value]
-    end
-    return object_labels_hash
+
+    object_labels_hash[:error_value] = error[:error_value].present? ? error[:error_value] : ''
+    object_labels_hash[:reference_value] = error[:reference_value].present? ? error[:reference_value] : ''
+    object_labels_hash[:error_description] = error[:error_description].present? ? error[:error_description] : ''
+    object_labels_hash[:error_value] = error[:error_value].present? ? error[:error_value] : ''
+
+    object_labels_hash
   end
 
 
