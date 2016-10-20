@@ -7,12 +7,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar version"><%= Rails.application.secrets.app_version %></span>
+        <span class="icon-bar version"><%= "#{ENV['prefix_application_version'].strip} " if ENV['prefix_application_version'].present? %><%= Chouette::Application::VERSION %></span>
       </button>
       <%= link_to referentials_path, :class =>"navbar-brand" do %>
         <%= image_tag("logo_chouette.png") %>
       <% end %>
-      <p class="navbar-text"><span class="brand_name">CHOUETTE</span><span class="version"><%= Rails.application.secrets.app_version %></span></p>
+      <p class="navbar-text"><span class="brand_name">CHOUETTE</span><span class="version">
+        <%= "#{ENV['prefix_application_version'].strip} " if ENV['prefix_application_version'].present? %>
+        <%= Chouette::Application::VERSION %></span>
+      </p>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

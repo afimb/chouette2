@@ -36,8 +36,9 @@ class TimeTablesController < ChouetteController
 
     index! do |format|
       format.html {
-        if collection.out_of_bounds?
-          redirect_to params.merge(:page => 1)
+        if collection.out_of_range? && params[:page].to_i > 1
+          redirect_to url_for params.merge(:page => 1)
+          return
         end
         build_breadcrumb :index
       }
@@ -69,7 +70,7 @@ class TimeTablesController < ChouetteController
 
     selected_time_tables = tag_search ? select_time_tables.tagged_with(tag_search, :wild => true, :any => true) : select_time_tables
     @q = selected_time_tables.search(ransack_params)
-    @time_tables ||= @q.result(:distinct => true).order(:comment).paginate(:page => params[:page])
+    @time_tables ||= @q.result(:distinct => true).order(:comment).page(params[:page])
   end
 
   def select_time_tables
@@ -89,7 +90,7 @@ class TimeTablesController < ChouetteController
   end
 
   private
-  
+
   def time_table_params
     params.require(:time_table).permit( :objectid, :object_version, :creation_time, :creator_id, :version, :comment, :int_day_types, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday, :start_date, :end_date, { :dates_attributes => [:date, :in_out, :id, :_destroy] }, { :periods_attributes => [:period_start, :period_end, :_destroy, :id] }, :tag_list, :tag_search )
   end

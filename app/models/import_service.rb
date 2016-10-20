@@ -8,13 +8,13 @@ class ImportService
 
   # Find an import whith his id
   def find(id)
-    Import.new( Ievkit.scheduled_job(referential.slug, id, { :action => "importer" }) )
+    Import.new( Ievkitdeprecated.scheduled_job(referential.slug, id, { :action => "importer" }) )
   end
 
   # Find all imports
   def all
     [].tap do |jobs|
-      Ievkit.jobs(referential.slug, { :action => "importer" }).each do |job|
+      Ievkitdeprecated.jobs(referential.slug, { :action => "importer" }).each do |job|
         jobs << Import.new( job )
       end
     end

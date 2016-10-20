@@ -57,6 +57,9 @@ Rails.application.configure do
     Syslog::Logger.new("rails/chouette2").tap{ |syslog| syslog.level = Logger::INFO }
   )
 
+  # Google analytics tracker
+  GA.tracker = Rails.application.secrets.google_analytics_tracker
+
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
 

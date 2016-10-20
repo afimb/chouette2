@@ -1,4 +1,4 @@
-<%= title_tag t('access_points.index.title', :stop_area => @stop_area.name) %> 
+<%= title_tag t('access_points.index.title', :stop_area => @stop_area.name) %>
 
 <%= search_form_for @q, :url => referential_stop_area_access_points_path(@referential,@stop_area), :html => {:method => :get} do |f| %>
   <%= f.label :name_or_country_code_cont, "#{t('.name_or_country_code')} :" %>
@@ -14,9 +14,7 @@
 <div class="access_points paginated_content">
   <%= render :partial => "access_point", :collection => @access_points %>
 </div>
-<div class="pagination">
-  <%= will_paginate @access_points, :container => false %>
-</div>
+<%= render 'shared/paginate', { datas: @access_points } %>
 
 <% content_for :sidebar do %>
 <ul class="actions">

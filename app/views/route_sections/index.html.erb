@@ -53,6 +53,4 @@
 
 </table>
 
-<div class="pagination">
-  <%= will_paginate @route_sections, :container => false, renderer: RemoteBootstrapPaginationLinkRenderer %>
-</div>
+<%= render 'shared/paginate', { datas: @route_sections } %>

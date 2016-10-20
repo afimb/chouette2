@@ -1,4 +1,4 @@
-<%= title_tag t('stop_areas.show.title', :stop_area => @stop_area.name ) %>
+<%= title_tag t('stop_areas.show.title', stop_area: @stop_area.name, stop_area_type: t("area_types.label.#{@stop_area.stop_area_type}") ) %>
 
 <div class="stop_area_show">
   <% if show_map? %>

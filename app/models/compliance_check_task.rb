@@ -34,7 +34,7 @@ class ComplianceCheckTask
     if valid?
       # Call Iev Server
       begin 
-        Ievkit.create_job( referential.slug, "validator", "", {
+        Ievkitdeprecated.create_job( referential.slug, "validator", "", {
                              :file1 => params_io,
                            } )     
       rescue Exception => exception

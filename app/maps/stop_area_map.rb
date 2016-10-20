@@ -10,6 +10,11 @@ class StopAreaMap < ApplicationMap
   end
 
   def customize_map(map, page)
+      if stop_area.parents.present?
+        page.assign "parents_layer", kml_layer(stop_area, { :parents => true }, :style_map => Design::StopAreasStyleMap.new(helpers).style_map)
+        page << map.add_layer(:parents_layer)
+        page << map.add_control( hover_control_display_name(:parents_layer) )
+      end
       if stop_area.children.present?
         page.assign "children_layer", kml_layer(stop_area, { :children => true }, :style_map => Design::StopAreasStyleMap.new(helpers).style_map)
         page << map.add_layer(:children_layer)

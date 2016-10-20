@@ -12,7 +12,7 @@ class ComplianceCheck
   def report
     Rails.cache.fetch("#{cache_key}/action_report", expires_in: cache_expiration) do
       if report_path = links["action_report"]
-        ComplianceCheckReport.new Ievkit.get(report_path)
+        ComplianceCheckReport.new Ievkitdeprecated.get(report_path)
       end
     end
   end
@@ -24,7 +24,7 @@ class ComplianceCheck
   def compliance_check_validation_report
     Rails.cache.fetch("#{cache_key}/validation_report", expires_in: cache_expiration) do
       if report_path = links["validation_report"]
-        ComplianceCheckResult.new Ievkit.get(report_path)
+        ComplianceCheckResult.new Ievkitdeprecated.get(report_path)
       end
     end
   end
@@ -36,7 +36,7 @@ class ComplianceCheck
   def rule_parameter_set
     Rails.cache.fetch("#{cache_key}/validation_params", expires_in: cache_expiration) do
       if rule_parameter_set_path = links["validation_params"]
-        response = Ievkit.get(rule_parameter_set_path)
+        response = Ievkitdeprecated.get(rule_parameter_set_path)
         RuleParameterSet.new(name: '', compliance_check: self).tap do |rps|
           rps.parameters = response.validation
         end
@@ -46,9 +46,9 @@ class ComplianceCheck
 
   def destroy
     if delete_path =  links["delete"]
-      Ievkit.delete(delete_path)
+      Ievkitdeprecated.delete(delete_path)
     elsif cancel_path = links["cancel"]
-      Ievkit.delete(cancel_path)
+      Ievkitdeprecated.delete(cancel_path)
     end
   end
 

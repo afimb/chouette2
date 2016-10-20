@@ -11,12 +11,11 @@
     <% end %>
   </span>
 </div>
-<div class="pagination">
-  <%= will_paginate @vehicle_journeys, :container => false, renderer: RemoteBootstrapPaginationLinkRenderer %>
-</div>
+
+<%= render 'shared/paginate', { datas: @vehicle_journeys } %>
+
 <div class="vehicle_journeys paginated_content">
   <%= render 'vehicle_journeys_matrix' %>
 </div>
-<div class="pagination">
-  <%= will_paginate @vehicle_journeys, :container => false, renderer: RemoteBootstrapPaginationLinkRenderer %>
-</div> 
+
+<%= render 'shared/paginate', { datas: @vehicle_journeys } %>

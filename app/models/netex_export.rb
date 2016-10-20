@@ -12,7 +12,8 @@ class NetexExport < ExportTask
         "organisation_name" => organisation.name,
         "referential_name" => referential.name,
         "start_date" => start_date,
-        "end_date" => end_date
+        "end_date" => end_date,
+        "valid_after_export" => valid_after_export
       }
     }
   end

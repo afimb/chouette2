@@ -31,7 +31,7 @@ describe "Companies", :type => :feature do
       click_link "Ajouter un transporteur"
       fill_in "company_name", :with => "Company 1"
       fill_in "Numéro d'enregistrement", :with => "test-1"
-      fill_in "Identifiant Neptune", :with => "test:Company:1"        
+      fill_in "Identifiant Métier", :with => "test:Company:1"
       click_button("Créer transporteur")
       expect(page).to have_content("Company 1")
     end

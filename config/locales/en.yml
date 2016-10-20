@@ -1,8 +1,0 @@
-en:
-  "true": "Yes"
-  "false": "No"
-  "unknown": "Unknown"
-  time:
-    formats:
-      hour: "%Hh%M"
-      minute: "%M min"

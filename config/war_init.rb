@@ -1,1 +1,0 @@
-ENV["CHOUETTE_RUN_MIGRATIONS"] = "true"
