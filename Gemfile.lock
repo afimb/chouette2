@@ -22,8 +22,8 @@ GIT
       railties
 
 GIT
-  remote: https://github.com/afimb/ievkit.git
-  revision: 404fd4ebaa64f3d1b829b320cee76d0bc73bd881
+  remote: https://github.com/rutebanken/ievkit.git
+  revision: eb14d9233d7cf717b18a26af02d9dafa25cc86ff
   branch: develop
   specs:
     ievkit (0.2.0)
@@ -33,8 +33,8 @@ GIT
       rest-client (~> 1.8.0)
 
 GIT
-  remote: https://github.com/afimb/ievkit_views.git
-  revision: d65445a676141105ed2d778f8f2104000a74aab8
+  remote: https://github.com/rutebanken/ievkit_views.git
+  revision: b4795d21fa4e2207bc1b7ffa808b5c8772aae8dc
   branch: develop
   specs:
     ievkit_views (0.1.0)
@@ -165,7 +165,7 @@ GEM
       devise (>= 3.2.0)
     diff-lcs (1.2.5)
     docile (1.1.5)
-    domain_name (0.5.20160615)
+    domain_name (0.5.20160826)
       unf (>= 0.0.5, < 1.0.0)
     dr-ffi-proj4 (0.0.3)
       ffi (>= 1.0.0)
@@ -225,7 +225,7 @@ GEM
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     highline (1.7.1)
-    http-cookie (1.0.2)
+    http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.7.0)
     inherited_resources (1.6.0)
@@ -289,6 +289,9 @@ GEM
     orm_adapter (0.5.0)
     parser (2.3.1.2)
       ast (~> 2.2)
+    passenger (5.0.30)
+      rack
+      rake (>= 0.8.1)
     pg (0.18.4)
     poltergeist (1.6.0)
       capybara (~> 2.1)
@@ -557,6 +560,7 @@ DEPENDENCIES
   migration_data
   mimemagic
   newrelic_rpm
+  passenger (>= 5.0.25)
   pg
   poltergeist
   polylines
@@ -602,4 +606,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.13.1
+   1.13.5
