@@ -28,7 +28,7 @@ class Osrm_5_RouteSectionProcessor
       @osrm_endpoint = Rails.application.secrets.osrm_secondary_endpoint
     end
 
-    path = "#{osrm_endpoint}/route/v1/driving/#{points_string}?overview=false&steps=true&geometries=polyline"
+    path = "#{@osrm_endpoint}/route/v1/driving/#{@points_string}?overview=false&steps=true&geometries=polyline"
     Rails.logger.info "Invoke #{path} for RouteSection StopArea:#{route_section.departure.id} -> StopArea:#{route_section.arrival.id}"
     response = open path
     return nil unless response
