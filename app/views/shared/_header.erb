@@ -91,6 +91,7 @@
           <ul class="dropdown-menu">
 <!-- TODO make dynamic based on valid languages (config parameter)            <li><%= link_to_language :fr, { :class => language_class( :fr ) } %></li> -->
             <li><%= link_to_language :en, { :class => language_class( :en  ) } %></li>
+            <li><%= link_to_language :nb, { :class => language_class( :nb  ) } %></li>
           </ul>
         </li>
         <li><%= link_to t('layouts.help'), help_path, :class =>("current" if help_page?), :target => "chouette_help" %></li>
