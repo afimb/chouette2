@@ -67,5 +67,5 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"
 
-  config.i18n.available_locales = [:fr, :en]
+  config.i18n.available_locales = [:fr, :en, :nb]
 end

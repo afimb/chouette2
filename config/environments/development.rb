@@ -36,7 +36,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   #config.active_record.auto_explain_threshold_in_seconds = (RUBY_PLATFORM == "java" ? nil : 0.5)
 
-  config.action_mailer.default_url_options = { 
+  config.action_mailer.default_url_options = {
     host: "#{Rails.application.secrets.domain_name}#{Rails.application.secrets.external_port.present? ? ":#{Rails.application.secrets.external_port}" : ''}"
   }
 
@@ -68,5 +68,5 @@ Rails.application.configure do
   # file to data for demo
   config.demo_data = "tmp/demo.zip"
 
-  config.i18n.available_locales = [:fr, :en]
+  config.i18n.available_locales = [:fr, :en, :nb]
 end

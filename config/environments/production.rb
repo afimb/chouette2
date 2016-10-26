@@ -122,6 +122,5 @@ Rails.application.configure do
     Devise::Mailer.layout 'mailer'
   end
 
-  config.i18n.available_locales = [:en]
-
+  config.i18n.available_locales = [:fr, :en, :no]
 end
