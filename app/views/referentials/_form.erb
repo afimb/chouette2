@@ -1,14 +1,6 @@
 <%= semantic_form_for @referential, :class => "form-horizontal" do |form| %>
   <%= form.inputs do %>
     <%= form.input :name %>
-    <% if @referential.new_record? %>
-      <%= form.input :slug, :input_html => { :title => t("formtastic.titles.referential.slug")}%>
-    <% else %>
-      <li class="input">
-      <label class="label" ><%= @referential.human_attribute_name("slug") %></label>
-      <%= @referential.slug %>
-      </li>
-    <% end %>
     <%= form.input :prefix, :input_html => { :title => t("formtastic.titles.referential.prefix")} %>
     <%= form.input :projection_type, :as => :select, :collection => Referential.available_srids %>
     <%= form.input :time_zone %>

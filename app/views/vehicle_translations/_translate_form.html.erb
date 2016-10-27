@@ -1,24 +1,26 @@
 <%= render "shared/flash_messages" %>
-<%= semantic_form_for [@referential, @line, @route, @vehicle_journey, @vehicle_translation], remote: true do |form| %>
-  <div class="modal-body">
-    <%= form.inputs do %>
-      <%= form.input :departure_or_arrival, as: :select, label: t('.set'), collection: [ [ t('.first_stop_departure_time', stop_name: @vehicle_translation.first_stop_name), "departure"], [t('.first_stop_arrival_time', stop_name: @vehicle_translation.first_stop_name), "arrival"] ], include_blank: false, required: true %>
-      <%= form.input :first_stop_time,
-        as: :time_picker, label: t( ".to"),
-          input_html: { class: "form-control input-sm timepicker_basic"}, wrapper_html: { class: "input-append bootstrap-timepicker" } %>
+<% if @vehicle_translation %>
+  <%= semantic_form_for [@referential, @line, @route, @vehicle_journey, @vehicle_translation], remote: true do |form| %>
+    <div class="modal-body">
+      <%= form.inputs do %>
+        <%= form.input :departure_or_arrival, as: :select, label: t('.set'), collection: [ [ t('.first_stop_departure_time', stop_name: @vehicle_translation.first_stop_name), "departure"], [t('.first_stop_arrival_time', stop_name: @vehicle_translation.first_stop_name), "arrival"] ], include_blank: false, required: true %>
+        <%= form.input :first_stop_time,
+          as: :time_picker, label: t( ".to"),
+            input_html: { class: "form-control input-sm timepicker_basic"}, wrapper_html: { class: "input-append bootstrap-timepicker" } %>
 
-      <div class="repeat_cloning">
-        <h4>      
-          <%= t('.multiple_cloning_form') %>
-        </h4>
-        <%= form.input :duration, as: :number %>
-        <%= form.input :count, as: :number %>
-      </div>
-    <% end %>
-  </div>
-  <div class="modal-footer">
-    <%= form.actions do %>
-      <%= form.action :submit, as: :button, label: t('formtastic.clone') %>
-    <% end %>
-  </div>    
+        <div class="repeat_cloning">
+          <h4>
+            <%= t('.multiple_cloning_form') %>
+          </h4>
+          <%= form.input :duration, as: :number %>
+          <%= form.input :count, as: :number %>
+        </div>
+      <% end %>
+    </div>
+    <div class="modal-footer">
+      <%= form.actions do %>
+        <%= form.action :submit, as: :button, label: t('formtastic.clone') %>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>

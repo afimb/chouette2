@@ -1,7 +1,0 @@
-fr:
-  connection_link_types:
-    label:
-      undefined: "Non précisé"
-      underground: "Souterrain"
-      mixed: "Mixte"
-      overground: "Aérien"

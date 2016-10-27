@@ -1,0 +1,5 @@
+<% if error[:source][:object_path] %>
+  <%= link_to error[:error_name], object_url(@referential.id, error), target: :_blank %>
+<% else %>
+  <%= error[:error_name] %>
+<% end %>

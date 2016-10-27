@@ -53,7 +53,7 @@ class ReferentialsController < BreadcrumbController
 
   private
   def referential_params
-    params.require(:referential).permit( :id, :name, :slug, :prefix, :time_zone, :upper_corner, :lower_corner, :organisation_id, :projection_type, :data_format )
+    params.require(:referential).permit( :id, :name, :prefix, :time_zone, :upper_corner, :lower_corner, :organisation_id, :projection_type, :data_format )
   end  
 
 end

@@ -4,6 +4,4 @@
 <div class="exports paginated_content">
   <%= paginated_content @exports, "exports/export" %>
 </div>
-<div class="pagination">  
-  <%= will_paginate @exports, :container => false, renderer: RemoteBootstrapPaginationLinkRenderer %>
-</div>
+<%= render 'shared/paginate', { datas: @exports } %>

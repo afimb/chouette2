@@ -4,6 +4,5 @@
 <div class="time_tables paginated_content">
   <%= paginated_content(@time_tables) %>
 </div>
-<div class="pagination">
-  <%= will_paginate @time_tables, :container => false, renderer: RemoteBootstrapPaginationLinkRenderer %>
-</div>
+
+<%= render 'shared/paginate', { datas: @time_tables } %>

@@ -1,8 +1,0 @@
-fr:
-  "true": "Oui"
-  "false": "Non"
-  "unknown": "Non précisé"
-  time:
-    formats:
-      hour: "%Hh%M"
-      minute: "%M min"

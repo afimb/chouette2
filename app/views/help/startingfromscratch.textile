@@ -62,5 +62,5 @@ L'export se fait au format .zip et comporte des fichier .csv des calendriers et 
 
 h3. Groupe de lignes
 
-Les groupes de lignes sont facultatifs et peuvent être créés dès lors que des lignes existent. Ils sont obligatoires dès lors que la base doit être exportée au format HUB. Pour plus d'informations sur les contraintes liées à l'export HUB, reportez vous au chapitre correspondant.
+Les groupes de lignes sont facultatifs et peuvent être créés dès lors que des lignes existent.
 

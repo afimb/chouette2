@@ -2,6 +2,7 @@ class VehicleFilter
   attr_accessor :route
   attr_accessor :q
   attr_accessor :journey_category_model
+  attr_accessor :journey_pattern
 
   def initialize(attributes = {})
     attributes.each do |name, value|
@@ -50,5 +51,8 @@ class VehicleFilter
     end
   end
 
-
+  def journey_pattern
+    return nil if q.blank? || q['journey_pattern_id_eq'].blank?
+    Chouette::JourneyPattern.find(q['journey_pattern_id_eq'].to_i)
+  end
 end

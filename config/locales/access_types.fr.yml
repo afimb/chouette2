@@ -1,6 +1,0 @@
-fr:
-  access_types:
-    label:
-      in: "Entrée"
-      out: "Sortie"
-      in_out: "Entrée/Sortie"

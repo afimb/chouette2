@@ -103,6 +103,8 @@ ChouetteIhm::Application.routes.draw do
     resources :exports, :only => [:index, :show, :destroy]  do
       member do
         get "exported_file"
+        get "compliance_check"
+        get 'export', defaults: { format: 'zip' }
       end
     end
 
@@ -117,6 +119,7 @@ ChouetteIhm::Application.routes.draw do
         get 'export', defaults: { format: 'zip' }
         get 'report'
         get 'rule_parameter_set'
+        get 'download_validation'
       end
       collection do
         get 'references'
@@ -176,6 +179,9 @@ ChouetteIhm::Application.routes.draw do
     end
   end
   root :to => "referentials#index"
+
+  get '/statistics', :to => 'statistics#index'
+  get '/statistics/export', :to => 'statistics#export'
 
   get '/help/(*slug)' => 'help#show'
 
