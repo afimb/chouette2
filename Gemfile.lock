@@ -21,27 +21,6 @@ GIT
       i18n
       railties
 
-GIT
-  remote: https://github.com/rutebanken/ievkit.git
-  revision: eb14d9233d7cf717b18a26af02d9dafa25cc86ff
-  branch: develop
-  specs:
-    ievkit (0.2.0)
-      faraday_middleware (~> 0.10.0)
-      figaro (~> 1.1.1)
-      redis (~> 3.2)
-      rest-client (~> 1.8.0)
-
-GIT
-  remote: https://github.com/rutebanken/ievkit_views.git
-  revision: b4795d21fa4e2207bc1b7ffa808b5c8772aae8dc
-  branch: develop
-  specs:
-    ievkit_views (0.1.0)
-      kaminari (~> 0.16.3)
-      kaminari-i18n (~> 0.3.2)
-      rails (~> 4.2.6)
-
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -228,6 +207,15 @@ GEM
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.7.0)
+    ievkit (0.3.0)
+      faraday_middleware (~> 0.10.0)
+      figaro (~> 1.1.1)
+      redis (~> 3.2)
+      rest-client (~> 1.8.0)
+    ievkit_views (0.2.0)
+      kaminari (~> 0.16.3)
+      kaminari-i18n (~> 0.3.2)
+      rails (~> 4.2.6)
     inherited_resources (1.6.0)
       actionpack (>= 3.2, < 5)
       has_scope (~> 0.6.0.rc)
@@ -289,9 +277,6 @@ GEM
     orm_adapter (0.5.0)
     parser (2.3.1.2)
       ast (~> 2.2)
-    passenger (5.0.30)
-      rack
-      rake (>= 0.8.1)
     pg (0.18.4)
     poltergeist (1.6.0)
       capybara (~> 2.1)
@@ -545,8 +530,8 @@ DEPENDENCIES
   google-analytics-rails (~> 1.1.0)
   guard
   guard-rspec
-  ievkit!
-  ievkit_views!
+  ievkit
+  ievkit_views
   inherited_resources
   jbuilder (~> 2.0)
   jquery-rails (~> 4.0.5)
@@ -560,7 +545,6 @@ DEPENDENCIES
   migration_data
   mimemagic
   newrelic_rpm
-  passenger (>= 5.0.25)
   pg
   poltergeist
   polylines
@@ -606,4 +590,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.13.5
+   1.13.1
