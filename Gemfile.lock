@@ -501,6 +501,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-kaminari-views (~> 0.0.5)
   breadcrumbs_on_rails
+  bundler (~> 1.13.6)
   calendar_helper (= 0.2.5)
   capistrano (= 2.13.5)
   capistrano-ext
@@ -590,4 +591,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.13.1
+   1.13.6
