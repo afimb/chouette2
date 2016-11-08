@@ -90,6 +90,7 @@ ChouetteIhm::Application.routes.draw do
         get "imported_file"
         get "rule_parameter_set"
         get "compliance_check"
+        get 'progress'
         get 'export', defaults: { format: 'zip' }
       end
     end
@@ -104,6 +105,7 @@ ChouetteIhm::Application.routes.draw do
       member do
         get "exported_file"
         get "compliance_check"
+        get 'progress'
         get 'export', defaults: { format: 'zip' }
       end
     end
@@ -118,6 +120,7 @@ ChouetteIhm::Application.routes.draw do
       member do
         get 'export', defaults: { format: 'zip' }
         get 'report'
+        get 'progress'
         get 'rule_parameter_set'
         get 'download_validation'
       end

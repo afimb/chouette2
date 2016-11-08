@@ -7,7 +7,7 @@
         <% end %>
       </span>
       <h5>
-        <%= link_to( compliance_check_referential_import_path(@referential, import.id), :class => "preview", :title => "#{ImportTask.model_name.human.capitalize} #{import.name}") do %>
+        <%= link_to( referential_import_path(@referential, import.id), :class => "preview", :title => "#{ImportTask.model_name.human.capitalize} #{import.name}") do %>
           <%= job_status_title(import) %>
         <% end %>
       </h5>

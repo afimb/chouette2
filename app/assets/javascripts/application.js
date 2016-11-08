@@ -23,7 +23,7 @@
 //= require footable/footable.paginate
 //= require footable/footable.sort
 //= require tools
-//= require ievkit_views
+//= require ievkit_views/application
 //= require_directory ./plugins
 //= require_directory .
 //= require_directory ./stop_areas

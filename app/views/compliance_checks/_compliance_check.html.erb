@@ -7,7 +7,7 @@
         <% end %>
       </span>
       <h5>
-        <%= link_to( report_referential_compliance_check_path(@referential, compliance_check.id), :class => "preview", :title => "#{ComplianceCheck.model_name.human.capitalize} #{compliance_check.name}") do %>
+        <%= link_to( referential_compliance_check_path(@referential, compliance_check.id), :class => "preview", :title => "#{ComplianceCheck.model_name.human.capitalize} #{compliance_check.name}") do %>
 	  <%= job_status_title(compliance_check) %>
         <% end %>
       </h5>
