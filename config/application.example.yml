@@ -30,3 +30,4 @@ CHECK_GTE3: 'false' # false to check only 1 and 2 test | true to check all tests
 SPEC_VALIDATION_URL_PROD: 'http://www.chouette.mobi/validation/V2_3'
 SPEC_VALIDATION_URL: 'http://preview.chouette.cityway.fr/validation/v24'
 iev_admin_key:
+PROGRESS_BAR_TIMEOUT: '10000'

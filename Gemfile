@@ -150,8 +150,8 @@ group :production do
 end
 
 # IEVKIT
-gem 'ievkit' #, git: 'https://github.com/afimb/ievkit.git', branch: 'develop'
-gem 'ievkit_views' # , git: 'https://github.com/afimb/ievkit_views.git', branch: 'develop'
+gem 'ievkit', '~> 0.3.0' #, git: 'https://github.com/afimb/ievkit.git', branch: 'develop'
+gem 'ievkit_views', '~> 0.2.1' #, git: 'https://github.com/afimb/ievkit_views.git', branch: 'develop'
 
 # I18n
 gem 'rails-i18n', '~> 4.0.0'
