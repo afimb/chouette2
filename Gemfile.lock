@@ -21,27 +21,6 @@ GIT
       i18n
       railties
 
-GIT
-  remote: https://github.com/afimb/ievkit.git
-  revision: 88fa612ea944c0ab91f1dfa825e3ad6a1516ae45
-  branch: develop
-  specs:
-    ievkit (0.2.0)
-      faraday_middleware (~> 0.10.0)
-      figaro (~> 1.1.1)
-      redis (~> 3.2)
-      rest-client (~> 1.8.0)
-
-GIT
-  remote: https://github.com/afimb/ievkit_views.git
-  revision: 2f86846be52e324127f4508f2b2b58583623e0a5
-  branch: develop
-  specs:
-    ievkit_views (0.1.0)
-      kaminari (~> 0.16.3)
-      kaminari-i18n (~> 0.3.2)
-      rails (~> 4.2.6)
-
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -228,6 +207,15 @@ GEM
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.7.0)
+    ievkit (0.3.0)
+      faraday_middleware (~> 0.10.0)
+      figaro (~> 1.1.1)
+      redis (~> 3.2)
+      rest-client (~> 1.8.0)
+    ievkit_views (0.2.0)
+      kaminari (~> 0.16.3)
+      kaminari-i18n (~> 0.3.2)
+      rails (~> 4.2.6)
     inherited_resources (1.6.0)
       actionpack (>= 3.2, < 5)
       has_scope (~> 0.6.0.rc)
@@ -542,8 +530,8 @@ DEPENDENCIES
   google-analytics-rails (~> 1.1.0)
   guard
   guard-rspec
-  ievkit!
-  ievkit_views!
+  ievkit
+  ievkit_views
   inherited_resources
   jbuilder (~> 2.0)
   jquery-rails (~> 4.0.5)
