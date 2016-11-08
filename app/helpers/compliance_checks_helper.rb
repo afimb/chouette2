@@ -45,7 +45,7 @@ module ComplianceChecksHelper
     types, identifiers = object_path.reverse.map { |resource| [ resource['type'], resource['id'] ] }.transpose
     method_name = (['referential'] + types + ['path']).join('_')
     identifiers.unshift referential_id
-    return send method_name, *identifiers
+    return identifiers.include?(nil) ? false : (send(method_name, *identifiers))
   rescue => e
     Rails.logger.error "Error: #{e.message}"
   end

@@ -1,5 +1,10 @@
 <% if error[:source][:object_path] %>
-  <%= link_to error[:error_name], object_url(@referential.id, error), target: :_blank %>
+  <% path_to_object = object_url(@referential.id, error) %>
+  <% if path_to_object %>
+    <%= link_to error[:error_name], path_to_object, target: :_blank %>
+  <% else %>
+    <%= error[:error_name] %>
+  <% end %>
 <% else %>
   <%= error[:error_name] %>
 <% end %>
