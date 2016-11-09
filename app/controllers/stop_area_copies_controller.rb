@@ -1,13 +1,15 @@
 class StopAreaCopiesController < ChouetteController
+  before_action :check_authorize, except: [:show, :index]
+
   defaults :resource_class => StopAreaCopy
   belongs_to :referential do
-    belongs_to :stop_area, :parent_class => Chouette::StopArea 
+    belongs_to :stop_area, :parent_class => Chouette::StopArea
   end
-  
+
   actions :new, :create
   respond_to :html, :only => :new
-  
-  def new    
+
+  def new
     @stop_area_copy = StopAreaCopy.new(:hierarchy => params[:hierarchy], :source => parent)
     new! do
       build_breadcrumb :new
@@ -25,6 +27,6 @@ class StopAreaCopiesController < ChouetteController
     end
   end
 
-  protected 
+  protected
 
 end

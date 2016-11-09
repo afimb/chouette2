@@ -1,4 +1,6 @@
 class JourneyPatternStopPointsController < ChouetteController
+  before_action :check_authorize, except: [:show, :index, :stops_selection]
+
   defaults :resource_class => Chouette::JourneyPattern
 
   respond_to :html

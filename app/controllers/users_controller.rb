@@ -1,4 +1,5 @@
 class UsersController < BreadcrumbController
+  before_action :check_authorize, except: [:show, :index]
   before_action :authenticate_user!, except: [:additionnal_fields, :save_additionnal_fields]
   skip_before_action :check_organisation
   defaults :resource_class => User
@@ -52,9 +53,24 @@ class UsersController < BreadcrumbController
     end
   end
 
+  def role_edit
+    return unless current_user.admin?
+    @user = User.find(params[:id])
+  end
+
+  def role_update
+    return unless current_user.admin?
+    update! do |success, failure|
+      success.html { redirect_to organisation_user_path(@user) }
+    end
+  end
+
   private
+
   def user_params
-    params.require(:user).permit( :id, :name, :email, :provider, :uid )
+    permit_params = [ :id, :name, :email, :provider, :uid ]
+    permit_params << :role if current_user.admin?
+    params.require(:user).permit( permit_params )
   end
 
 end

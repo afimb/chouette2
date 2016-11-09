@@ -1,6 +1,8 @@
 require 'open-uri'
 
 class ExportsController < ChouetteController
+  before_action :check_authorize, except: [:show, :index, :exported_file, :export, :compliance_check]
+
   helper IevkitViews::Engine.helpers
   defaults :resource_class => Export
 

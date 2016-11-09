@@ -1,4 +1,5 @@
 class ReferentialsController < ChouetteController
+  before_action :check_authorize, except: [:show, :index]
   skip_before_action :switch_referential
   defaults :resource_class => Referential
 
@@ -11,7 +12,7 @@ class ReferentialsController < ChouetteController
       @referential.data_format = current_organisation.data_format
     end
   end
-  
+
   def show
      resource.switch
      show! do |format|
@@ -28,24 +29,24 @@ class ReferentialsController < ChouetteController
   end
 
   protected
-  
+
   alias_method :referential, :resource
 
   def resource
     @referential ||= current_organisation.referentials.find_by_id(params[:id])
   end
-  
+
   def collection
     @referentials ||= current_organisation.referentials.order(:name)
   end
-  
+
   def build_resource
     super.tap do |referential|
       referential.user_id = current_user.id
       referential.user_name = current_user.name
     end
   end
-  
+
   def create_resource(referential)
     referential.organisation = current_organisation
     super
@@ -54,6 +55,6 @@ class ReferentialsController < ChouetteController
   private
   def referential_params
     params.require(:referential).permit( :id, :name, :prefix, :time_zone, :upper_corner, :lower_corner, :organisation_id, :projection_type, :data_format )
-  end  
+  end
 
 end

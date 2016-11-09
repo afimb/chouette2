@@ -115,6 +115,8 @@ gem 'migration_data'
 
 gem 'responders', '~> 2.0'
 
+gem 'pundit'
+
 group :development do
   gem 'capistrano', '2.13.5'
   gem 'capistrano-ext'

@@ -1,11 +1,13 @@
 <div id="index_item" class="panel panel-default import">
   <div class="panel-heading">
     <div class="panel-title clearfix">
-      <span class="pull-right">
-        <%= link_to referential_import_path(@referential, import.id), :method => :delete, :data => {:confirm =>  t('imports.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
-          <span class="fa fa-trash-o"></span>
-        <% end %>
-      </span>
+      <% if policy(:application).write? %>
+        <span class="pull-right">
+          <%= link_to referential_import_path(@referential, import.id), :method => :delete, :data => {:confirm =>  t('imports.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
+            <span class="fa fa-trash-o"></span>
+          <% end %>
+        </span>
+      <% end %>
       <h5>
         <%= link_to( referential_import_path(@referential, import.id), :class => "preview", :title => "#{ImportTask.model_name.human.capitalize} #{import.name}") do %>
           <%= job_status_title(import) %>

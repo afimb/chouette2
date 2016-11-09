@@ -1,4 +1,5 @@
 class RouteSectionsSelectorsController < ChouetteController
+  before_action :check_authorize, except: [:show, :index, :selection]
 
   # singleton option makes association_chain crazy
   #defaults singleton: true

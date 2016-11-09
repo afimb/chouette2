@@ -7,7 +7,7 @@
         <th><%= t('activerecord.attributes.timeband.name') %></th>
         <th><%= t('activerecord.attributes.timeband.start_time') %></th>
         <th><%= t('activerecord.attributes.timeband.end_time') %></th>
-        <th></th>
+        <% if policy(:application).write? %><th></th><% end %>
       </tr>
     </thead>
     <tbody>
@@ -16,10 +16,12 @@
           <td><%= link_to timeband.name, referential_timeband_path(@referential, timeband) %></td>
           <td><%= l(timeband.start_time, format: :hour) %></td>
           <td><%= l(timeband.end_time, format: :hour) %></td>
-          <td>
-            <%= link_to '', edit_referential_timeband_path(@referential, timeband), :class => "edit" %>
-            <%= link_to '', referential_timeband_path(@referential, timeband), :method => :delete, :data => {:confirm =>  t('timebands.actions.destroy_confirm')}, :class => "remove" %>
-          </td>
+          <% if policy(:application).write? %>
+            <td>
+              <%= link_to '', edit_referential_timeband_path(@referential, timeband), :class => "edit" %>
+              <%= link_to '', referential_timeband_path(@referential, timeband), :method => :delete, :data => {:confirm =>  t('timebands.actions.destroy_confirm')}, :class => "remove" %>
+            </td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

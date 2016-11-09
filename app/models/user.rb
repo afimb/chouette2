@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   # attr_accessible :email, :password, :current_password, :password_confirmation, :remember_me, :name, :organisation_attributes
 
+  enum role: %w(read read_write admin)
+
   belongs_to :organisation
 
   accepts_nested_attributes_for :organisation

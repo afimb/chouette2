@@ -1,4 +1,6 @@
 class TimeTablesController < ChouetteController
+  before_action :check_authorize, except: [:show, :index, :tags]
+
   include TimeTablesHelper
   defaults :resource_class => Chouette::TimeTable
   respond_to :html

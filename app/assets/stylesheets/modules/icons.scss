@@ -79,6 +79,10 @@ a.clock:before { // fa-clock-o
                  content: "\f017";
                }
 
+a.eye:before {
+  content: "\f070";
+}
+
 .fa-stack {
     /* sizes whole .fa-stack down to make them the regular sized */
     font-size: .5em;

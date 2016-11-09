@@ -1,4 +1,6 @@
 class VehicleJourneysController < ChouetteController
+  before_action :check_authorize, except: [:show, :index, :select_journey_pattern]
+
   defaults :resource_class => Chouette::VehicleJourney
 
   respond_to :js, :only => [:select_journey_pattern, :edit, :new, :index]

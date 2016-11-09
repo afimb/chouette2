@@ -43,6 +43,8 @@ ChouetteIhm::Application.routes.draw do
 
   resource :organisation, :only => [:show, :edit, :update] do
     resources :users
+    get '/role/edit/:id', to: 'users#role_edit', as: 'user_role_edit'
+    patch '/role/update/:id', to: 'users#role_update', as: 'user_role_update'
     resources :rule_parameter_sets
   end
 
