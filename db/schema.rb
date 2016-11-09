@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706141912) do
+ActiveRecord::Schema.define(version: 20161011102719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -372,10 +372,32 @@ ActiveRecord::Schema.define(version: 20160706141912) do
 
   add_index "routes", ["objectid"], name: "routes_objectid_key", unique: true, using: :btree
 
-  create_table "routing_constraints_lines", id: false, force: :cascade do |t|
-    t.integer "stop_area_id", limit: 8
-    t.integer "line_id",      limit: 8
+  create_table "routing_constraints", id: :bigserial, force: :cascade do |t|
+    t.string   "name",           null: false
+    t.string   "comment"
+    t.string   "objectid",       null: false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id"
   end
+
+  add_index "routing_constraints", ["objectid"], name: "index_routing_constraints_on_objectid", unique: true, using: :btree
+
+  create_table "routing_constraints_lines", id: false, force: :cascade do |t|
+    t.integer "routing_constraint_id"
+    t.integer "line_id"
+  end
+
+  add_index "routing_constraints_lines", ["line_id"], name: "index_routing_constraints_lines_on_line_id", using: :btree
+  add_index "routing_constraints_lines", ["routing_constraint_id"], name: "index_routing_constraints_lines_on_routing_constraint_id", using: :btree
+
+  create_table "routing_constraints_stop_areas", id: false, force: :cascade do |t|
+    t.integer "routing_constraint_id"
+    t.integer "stop_area_id"
+  end
+
+  add_index "routing_constraints_stop_areas", ["routing_constraint_id"], name: "index_routing_constraints_stop_areas_on_routing_constraint_id", using: :btree
+  add_index "routing_constraints_stop_areas", ["stop_area_id"], name: "index_routing_constraints_stop_areas_on_stop_area_id", using: :btree
 
   create_table "rule_parameter_sets", id: :bigserial, force: :cascade do |t|
     t.text     "parameters"
@@ -414,11 +436,6 @@ ActiveRecord::Schema.define(version: 20160706141912) do
 
   add_index "stop_areas", ["objectid"], name: "stop_areas_objectid_key", unique: true, using: :btree
   add_index "stop_areas", ["parent_id"], name: "index_stop_areas_on_parent_id", using: :btree
-
-  create_table "stop_areas_stop_areas", id: false, force: :cascade do |t|
-    t.integer "child_id",  limit: 8
-    t.integer "parent_id", limit: 8
-  end
 
   create_table "stop_points", id: :bigserial, force: :cascade do |t|
     t.integer  "route_id",       limit: 8
@@ -536,6 +553,8 @@ ActiveRecord::Schema.define(version: 20160706141912) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.datetime "invitation_created_at"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -604,11 +623,11 @@ ActiveRecord::Schema.define(version: 20160706141912) do
   add_foreign_key "route_sections", "stop_areas", column: "departure_id"
   add_foreign_key "routes", "lines", name: "route_line_fkey", on_delete: :cascade
   add_foreign_key "routes", "routes", column: "opposite_route_id", name: "route_opposite_route_fkey", on_delete: :nullify
-  add_foreign_key "routing_constraints_lines", "lines", name: "routingconstraint_line_fkey", on_delete: :cascade
-  add_foreign_key "routing_constraints_lines", "stop_areas", name: "routingconstraint_stoparea_fkey", on_delete: :cascade
+  add_foreign_key "routing_constraints_lines", "lines"
+  add_foreign_key "routing_constraints_lines", "routing_constraints"
+  add_foreign_key "routing_constraints_stop_areas", "routing_constraints"
+  add_foreign_key "routing_constraints_stop_areas", "stop_areas"
   add_foreign_key "stop_areas", "stop_areas", column: "parent_id", name: "area_parent_fkey", on_delete: :nullify
-  add_foreign_key "stop_areas_stop_areas", "stop_areas", column: "child_id", name: "stoparea_child_fkey", on_delete: :cascade
-  add_foreign_key "stop_areas_stop_areas", "stop_areas", column: "parent_id", name: "stoparea_parent_fkey", on_delete: :cascade
   add_foreign_key "stop_points", "routes", name: "stoppoint_route_fkey", on_delete: :cascade
   add_foreign_key "stop_points", "stop_areas", name: "stoppoint_area_fkey"
   add_foreign_key "time_table_dates", "time_tables", name: "tm_date_fkey", on_delete: :cascade

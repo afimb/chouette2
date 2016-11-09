@@ -1,7 +1,8 @@
 ChouetteIhm::Application.routes.draw do
 
   devise_for :users, :controllers => {
-    :registrations => 'users/registrations', :invitations => 'users/invitations'
+    :registrations => 'users/registrations', :invitations => 'users/invitations',
+    :omniauth_callbacks => 'users/omniauth_callbacks'
   }
 
   devise_scope :user do
@@ -10,7 +11,10 @@ ChouetteIhm::Application.routes.draw do
     end
     unauthenticated :user do
       root :to => 'devise/sessions#new', as: :unauthenticated_root
+      get '/additionnal_fields', to: 'users#additionnal_fields'
+      post '/save_additionnal_fields', to: 'users#save_additionnal_fields'
     end
+    
   end
 
   namespace :api do
