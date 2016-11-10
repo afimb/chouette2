@@ -42,6 +42,7 @@ class UsersController < BreadcrumbController
     @user.name = session['user_stand_by_name']
     @user.organisation = Organisation.new
     @user.organisation.name = params[:user][:organisation_attributes][:name]
+    @user.role = 2
     
     if @user.valid?
       @user.confirm!
