@@ -1,11 +1,11 @@
-<%= title_tag t('.title') %>
+<%= title_tag t('users.role.title') %>
 
 <%= simple_form_for(@user, as: :user, url: user_role_update_organisation_path(@user),
                     html: { class: "form-horizontal", method: :patch }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :role, as: :select, collection: User.roles.map{ |r,i | [t("user.role.#{r}"), r] }, required: true, include_blank: false %>
+    <%= f.input :role, as: :select, collection: User.roles.map{ |r,i | [t("users.role.#{r}"), r] }, required: true, include_blank: false %>
   </div>
 
   <div class="form-actions">
