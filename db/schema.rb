@@ -410,6 +410,7 @@ ActiveRecord::Schema.define(version: 20160706141912) do
     t.string   "city_name"
     t.string   "url"
     t.string   "time_zone"
+    t.integer  "compass_bearing"
   end
 
   add_index "stop_areas", ["objectid"], name: "stop_areas_objectid_key", unique: true, using: :btree

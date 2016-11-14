@@ -15,7 +15,7 @@ class AddIndexToReferentials < ActiveRecord::Migration
         BEGIN
           FOR rec_referential IN  SELECT id, slug
                                   FROM referentials
-                                  WHERE slug NOT LIKE 'ch_%' LOOP
+                                  WHERE slug NOT LIKE 'ch\_%' LOOP
             slug_name := rec_referential.slug;
             schema_name := 'ch_' || rec_referential.id;
 
