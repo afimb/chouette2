@@ -37,7 +37,7 @@ class Chouette::StopArea < Chouette::TridentActiveRecord
 
   def self.nullable_attributes
     [:registration_number, :street_name, :country_code, :fare_code,
-     :nearest_topic_name, :comment, :long_lat_type, :zip_code, :city_name, :url, :time_zone]
+     :nearest_topic_name, :comment, :long_lat_type, :zip_code, :city_name, :url, :time_zone, :compass_bearing]
   end
 
   after_update :clean_invalid_access_links
