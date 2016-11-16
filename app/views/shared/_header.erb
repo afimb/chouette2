@@ -76,6 +76,10 @@
                 <span class="badge pull-right"><%= @referential.timebands.size %></span><%= Referential.human_attribute_name("timebands") %>
               <% end %>
             </li>
+            <li><%= link_to referential_routing_constraints_path(@referential) do %>
+                <span class="badge pull-right"><%= @referential.routing_constraints.size %></span><%= Referential.human_attribute_name("routing_constraints") %>
+              <% end %>
+            </li>
           </ul>
         </li>
         <% if policy(:application).write? %>

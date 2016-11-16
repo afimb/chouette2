@@ -7,7 +7,7 @@
       <% end %>
     </div> 
     <div class="link"><%= image_tag "icons/link.png"%></div>
-    <% elsif @stop_area.routing_lines.present? %> 
+    <% elsif false && @stop_area.routing_lines.present? %> 
     <div class="lines">
       <% @stop_area.routing_lines.each do |line| %>
       <div class="line">
@@ -36,18 +36,7 @@
         <% end %>  
       </div>
       <% end %>
-    </div> 
-    <% elsif @stop_area.routing_stops.present? %>
-    <div class="link"><%= image_tag "icons/link.png"%></div>
-    <div class="children">
-      <% @stop_area.routing_stops.each do |stop| %>
-      <div class="child">
-        <%= link_to([@referential, stop], :title => t("area_types.label.#{ stop.stop_area_type}") + " #{ stop.name}") do %> 
-          <%= image_tag "map/" + stop.stop_area_type + ".png"   %><span><%= "#{stop.name} #{' [' + stop.registration_number + ']' if stop.registration_number.present? }" %></span>         
-        <% end %>  
-      </div>
-      <% end %>
-    </div> 
+    </div>
     <% elsif @stop_area.routes.present? %>
     <div class="link"><%= image_tag "icons/link.png"%></div>
     <div class="children">

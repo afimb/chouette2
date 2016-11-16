@@ -29,5 +29,7 @@ module ChouetteIhm
 
     # link to validation specification pages
     config.validation_spec = 'http://www.chouette.mobi/validation/V2_3/'
+
+    config.active_record.raise_in_transactional_callbacks = true 
   end
 end

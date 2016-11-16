@@ -5,7 +5,6 @@ describe Chouette::StopArea, :type => :model do
   let!(:boarding_position) { create :stop_area, :area_type => "BoardingPosition" }
   let!(:commercial_stop_point) { create :stop_area, :area_type => "CommercialStopPoint" }
   let!(:stop_place) { create :stop_area, :area_type => "StopPlace" }
-  let!(:itl) { create :stop_area, :area_type => "ITL" }
 
   describe '#objectid' do
     subject { super().objectid }
@@ -126,10 +125,6 @@ describe Chouette::StopArea, :type => :model do
       subject = create :stop_area, :stop_area_type => "stop_place"
       expect(subject.area_type).to eq("StopPlace")
     end
-    it "should have area_type of ITL when stop_area_type is set to itl" do
-      subject = create :stop_area, :stop_area_type => "itl"
-      expect(subject.area_type).to eq("ITL")
-    end
   end
 
   describe ".parent" do
@@ -159,11 +154,6 @@ describe Chouette::StopArea, :type => :model do
     it "should find no children of type stop place or commercial stop point for stop area type stop place" do
       subject = create :stop_area, :area_type => "StopPlace"
       expect(subject.possible_children).to match_array([stop_place, commercial_stop_point]) 
-    end
-
-    it "should find no children of type ITL for stop area type ITL" do
-      subject = create :stop_area, :area_type => "ITL"
-      expect(subject.possible_children).to match_array([stop_place, commercial_stop_point, quay, boarding_position]) 
     end
 
   end
