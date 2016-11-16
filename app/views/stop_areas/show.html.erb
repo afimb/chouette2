@@ -3,7 +3,7 @@
 <div class="stop_area_show">
   <% if show_map? %>
     <%= @map.to_html %>
-  <% end %>  
+  <% end %>
   <div class="summary">
     <p>
       <label><%= @stop_area.human_attribute_name("comment") %>: </label>
@@ -108,6 +108,11 @@
 		    </p>
 		    <% end %>
 	    <% end %>
+      <p>
+        <label><%= @stop_area.human_attribute_name("compass_bearing") %>: </label>
+        <%= @stop_area.compass_bearing %>
+      </p>
+
     <% end %>
   </div>
 </div>
@@ -116,20 +121,20 @@
 <div class="genealogical clearfix">
   <%= render "stop_areas/genealogical" %>
 </div>
-                         
+
 <% if manage_access_points %>
 <div>
 	<h3><%= t('.access_points') %></h3>
-	
+
 	<div class="access_points paginated_content">
 	  <%= paginated_content @access_points, "access_points/access_point" %>
 	</div>
 </div>
 <% end %>
-                         
+
 <% content_for :sidebar do %>
     <table>
-    <tr><td>	
+    <tr><td>
 	<ul class="actions">
       <li><%= link_to t('stop_areas.actions.new'), new_referential_stop_area_path(@referential), :class => "add" %></li>
 	  <li><%= link_to t('stop_areas.actions.edit'), edit_referential_stop_area_path(@referential, @stop_area), :class => "edit" %></li>
@@ -137,7 +142,7 @@
 	</ul>
     </td></tr>
   <% if manage_itl %>
-    <tr><td>	
+    <tr><td>
 	<h4><%= t(".itl_managment") %></h4>
 	<ul class="actions">
 	    <li><%= link_to t('stop_areas.actions.add_routing_lines'), add_routing_lines_referential_stop_area_path(@referential, @stop_area), :class => "add_routing_lines" %></li>
@@ -145,7 +150,7 @@
 	</ul>
     </td></tr>
   <% else %>
-    <tr><td>	
+    <tr><td>
 	<h4><%= t(".stop_managment") %></h4>
 	<ul class="actions">
 	   <li><%= link_to t('stop_areas.actions.select_parent'), select_parent_referential_stop_area_path(@referential, @stop_area), :class => "parent" %></li>
@@ -158,9 +163,9 @@
        <% end %>
 	</ul>
     </td></tr>
-	
+
 	<% if manage_access_points %>
-    <tr><td>	
+    <tr><td>
 	<h4><%= t(".access_managment") %></h4>
 	<ul class="actions">
         <li><%= link_to t('access_points.actions.new'), new_referential_stop_area_access_point_path(@referential,@stop_area), :class => "add" %></li>
@@ -168,7 +173,7 @@
     </ul>
     </td></tr>
 	<% end %>
-	
+
   <% end %>
     </table>
   <br>

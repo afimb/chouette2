@@ -45,6 +45,7 @@ module StopAreaRestrictions
       # HUB-31
       sa.validates :comment, length: { maximum: 255 }, allow_blank: true
       sa.validates :registration_number, presence: true, numericality: { less_than: 10 ** 8 }
+
     end
 
     def self.specific_objectid_size
