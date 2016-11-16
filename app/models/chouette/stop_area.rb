@@ -26,7 +26,6 @@ class Chouette::StopArea < Chouette::TridentActiveRecord
   validates_format_of :registration_number, :with => %r{\A[\d\w_\-]+\Z}, :allow_blank => true
   validates_presence_of :name
   validates_presence_of :area_type
-  validates_presence_of :compass_bearing
 
   validates_presence_of :latitude, :if => :longitude
   validates_presence_of :longitude, :if => :latitude
