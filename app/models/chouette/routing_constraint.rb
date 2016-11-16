@@ -1,5 +1,7 @@
 module Chouette
-  class RoutingConstraint < Chouette::TridentActiveRecord
+  class RoutingConstraint < Chouette::ActiveRecord
+    include ObjectidRestrictions
+
     validates :name, presence: true
     validates :objectid, presence: true, uniqueness: true
     has_and_belongs_to_many :lines, join_table: :routing_constraints_lines, dependent: :destroy

@@ -1,7 +1,8 @@
 require 'geokit'
 require 'geo_ruby'
 
-class Chouette::StopArea < Chouette::TridentActiveRecord
+class Chouette::StopArea < Chouette::ActiveRecord
+  include ObjectidRestrictions
   # FIXME http://jira.codehaus.org/browse/JRUBY-6358
   self.primary_key = "id"
   include Geokit::Mappable

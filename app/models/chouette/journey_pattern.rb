@@ -1,4 +1,5 @@
-class Chouette::JourneyPattern < Chouette::TridentActiveRecord
+class Chouette::JourneyPattern < Chouette::ActiveRecord
+  include ObjectidRestrictions
   include JourneyPatternRestrictions
   # FIXME http://jira.codehaus.org/browse/JRUBY-6358
   self.primary_key = "id"

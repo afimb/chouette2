@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: https://github.com/afimb/chouette2-i18n.git
-  revision: 52b8ced29163d433bf69fa6aced6fe92a7128d1c
+  revision: dea671b55f0dce73d2affc733f917e25ee23a6da
   specs:
     chouette2-i18n (0.1.0)
       i18n
@@ -343,7 +343,7 @@ GEM
       railties (>= 3.1, < 5.0)
     rabl (0.13.1)
       activesupport (>= 2.3.14)
-    rack (1.6.4)
+    rack (1.6.5)
     rack-oauth2 (1.4.0)
       activesupport (>= 2.3)
       attr_required (>= 0.0.5)

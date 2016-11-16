@@ -2,8 +2,6 @@ module RouteRestrictions
   extend ActiveSupport::Concern
 
   included do
-    include ObjectidRestrictions
-
     # HUB-37
     validate :max_instance_limitation, :wayback_code_limitation, if: Proc.new { |o| o.format_restricted?(:hub) }
 

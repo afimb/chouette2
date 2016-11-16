@@ -2,8 +2,6 @@ module CompanyRestrictions
   extend ActiveSupport::Concern
 
   included do
-    include ObjectidRestrictions
-
     with_options if: Proc.new { |o| o.format_restricted?(:hub) } do |g|
       # HUB-8
       g.validates :name, length: { in: 1..75 }

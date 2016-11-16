@@ -1,4 +1,4 @@
-class Chouette::TimeTable < Chouette::TridentActiveRecord
+class Chouette::TimeTable < Chouette::ActiveRecord
   include TimeTableRestrictions
   # FIXME http://jira.codehaus.org/browse/JRUBY-6358
   self.primary_key = "id"
