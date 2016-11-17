@@ -18,6 +18,7 @@
             <%= form.input :projection_xy, :label => t("projection_xy", :projection => @referential.projection_type_label), :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.stop_area.projection_xy")} %>
           <% end %>
           <%= form.input :coordinates, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.stop_area.coordinates")} %>
+          <%= form.input :compass_bearing, :as => :number %>
           <%= form.input :street_name %>
           <%= form.input :country_code, required: format_restriction_for_locales(@referential) == '.hub' %>
           <%= form.input :zip_code, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.stop_area.zip_code")} %>
@@ -157,4 +158,3 @@
     })
   });
 </script>
-

@@ -31,6 +31,7 @@ class Chouette::StopArea < Chouette::TridentActiveRecord
   validates_presence_of :longitude, :if => :latitude
   validates_numericality_of :latitude, :less_than_or_equal_to => 90, :greater_than_or_equal_to => -90, :allow_nil => true
   validates_numericality_of :longitude, :less_than_or_equal_to => 180, :greater_than_or_equal_to => -180, :allow_nil => true
+  validates_numericality_of :compass_bearing, :less_than_or_equal_to => 360, :greater_than_or_equal_to => 1, :allow_nil => true
 
   validates_format_of :coordinates, :with => %r{\A *-?(0?[0-9](\.[0-9]*)?|[0-8][0-9](\.[0-9]*)?|90(\.[0]*)?) *\, *-?(0?[0-9]?[0-9](\.[0-9]*)?|1[0-7][0-9](\.[0-9]*)?|180(\.[0]*)?) *\Z}, :allow_nil => true, :allow_blank => true
   validates_format_of :url, :with => %r{\Ahttps?:\/\/([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?\Z}, :allow_nil => true, :allow_blank => true
