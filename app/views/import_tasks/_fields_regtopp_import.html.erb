@@ -4,3 +4,4 @@
 <%= form.input :version, :as => :select, :collection => RegtoppImport.available_versions%>
 <%= form.input :charset_encoding, :as => :select, :collection => RegtoppImport.charset_encoding%>
 <%= form.input :calendar_strategy, :as => :select, :collection => RegtoppImport.calendar_strategy%>
+<%= form.input :batch_parse, :as => :boolean, :default: true%>

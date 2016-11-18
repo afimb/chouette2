@@ -2,7 +2,7 @@ class RegtoppImport < ImportTask
 
   enumerize :references_type, in: %w( stop_area )
 
-  attr_accessor :object_id_prefix, :references_type, :coordinate_projection, :version, :charset_encoding, :calendar_strategy
+  attr_accessor :object_id_prefix, :references_type, :coordinate_projection, :version, :charset_encoding, :calendar_strategy, :batch_parse
 
   validates_presence_of :object_id_prefix, :coordinate_projection
 
@@ -22,8 +22,9 @@ class RegtoppImport < ImportTask
         "references_type" => references_type,
         "coordinate_projection" => coordinate_projection,
         "version" => version,
-        "charsetEncoding" => charset_encoding,
-        "calendar_strategy" => calendar_strategy
+        "charset_encoding" => charset_encoding,
+        "calendar_strategy" => calendar_strategy,
+        "batch_parse" => batch_parse
       }
     }
   end
