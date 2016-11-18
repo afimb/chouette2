@@ -23,7 +23,7 @@ class RegtoppImport < ImportTask
         "coordinate_projection" => coordinate_projection,
         "version" => version,
         "charset_encoding" => charset_encoding,
-        "calendar_strategy" => calendar_strategy
+        "calendar_strategy" => calendar_strategy,
         "batch_parse" => batch_parse
       }
     }
