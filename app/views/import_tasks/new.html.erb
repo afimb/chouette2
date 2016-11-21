@@ -1,7 +1,7 @@
 <%= title_tag t(".title") %>
 
 <ul class="nav nav-pills">
-  <% ImportTask.data_formats.each do |format| %>  
+  <% ImportTask.data_formats.each do |format| %>
     <li role="presentation">
       <a href="#<%= format %>" class='<%= @import_task.data_format == format ? "#{format} active" : "#{format}" %>'
                                title='<%= t(:"enumerize.data_format_detail.#{format}")%>'
@@ -23,6 +23,7 @@
         <%= form.input :referential_id, :as => :hidden, :input_html => { :value => @referential.id } %>
         <%= form.input :name %>
         <%= form.input :no_save, :as => :boolean %>
+        <%= form.input :keep_obsolete_lines, :as => :boolean, :input_html => { :checked => true }%>
         <%= form.input :rule_parameter_set_id, :as => :select,
                        :collection =>  @referential.organisation.rule_parameter_sets.map { |rps| [ rps.name, rps.id ] },
                        :include_blank => true %>
