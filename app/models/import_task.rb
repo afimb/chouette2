@@ -12,7 +12,7 @@ class ImportTask
   cattr_accessor :root
 
   enumerize :data_format, in: %w( neptune netex gtfs )
-  attr_accessor :rule_parameter_set_id, :referential_id, :user_id, :user_name, :data_format, :resources, :name, :no_save
+  attr_accessor :rule_parameter_set_id, :referential_id, :user_id, :user_name, :data_format, :resources, :name, :no_save, :keep_obsolete_lines
 
   validates_presence_of :referential_id
   validates_presence_of :resources
