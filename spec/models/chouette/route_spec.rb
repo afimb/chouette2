@@ -5,10 +5,10 @@ describe Chouette::Route, :type => :model do
 
   it { is_expected.to validate_uniqueness_of :objectid }
 
-  describe '#objectid' do
-    subject { super().objectid }
-    it { is_expected.to be_kind_of(Chouette::ObjectId) }
-  end
+  # describe '#objectid' do
+  #   subject { super().objectid }
+  #   it { is_expected.to be_kind_of(Chouette::ObjectId) }
+  # end
 
   #it { is_expected.to validate_presence_of :name }
   it { is_expected.to validate_presence_of :line }

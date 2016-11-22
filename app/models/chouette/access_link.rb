@@ -1,5 +1,5 @@
 module Chouette
-  class AccessLink < Chouette::ActiveRecord
+  class AccessLink < ::ApplicationRecord
     include ObjectidRestrictions
     # FIXME http://jira.codehaus.org/browse/JRUBY-6358
     self.primary_key = "id"

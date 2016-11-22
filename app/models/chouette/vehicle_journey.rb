@@ -1,5 +1,6 @@
 module Chouette
-  class VehicleJourney < Chouette::ActiveRecord
+  class VehicleJourney < ::ApplicationRecord
+    include ObjectidRestrictions
     include VehicleJourneyRestrictions
     # FIXME http://jira.codehaus.org/browse/JRUBY-6358
     self.primary_key = "id"

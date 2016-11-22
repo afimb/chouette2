@@ -1,4 +1,4 @@
-class Chouette::TimeTableDate < Chouette::ActiveRecord
+class Chouette::TimeTableDate < ApplicationRecord
   self.primary_key = "id"
   belongs_to :time_table, inverse_of: :dates
   acts_as_list :scope => 'time_table_id = #{time_table_id}',:top_of_list => 0

@@ -1,4 +1,4 @@
-class Chouette::Company < Chouette::ActiveRecord
+class Chouette::Company < ApplicationRecord
   include ObjectidRestrictions
   include CompanyRestrictions
   has_many :lines

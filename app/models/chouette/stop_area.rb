@@ -1,7 +1,7 @@
 require 'geokit'
 require 'geo_ruby'
 
-class Chouette::StopArea < Chouette::ActiveRecord
+class Chouette::StopArea < ApplicationRecord
   include ObjectidRestrictions
   # FIXME http://jira.codehaus.org/browse/JRUBY-6358
   self.primary_key = "id"
@@ -304,7 +304,7 @@ class Chouette::StopArea < Chouette::ActiveRecord
 
   def duplicate
     sa = self.deep_clone :except => [:object_version, :parent_id, :registration_number]
-    sa.uniq_objectid
+    # sa.uniq_objectid
     sa.name = I18n.t("activerecord.copy", :name => self.name)
     sa
   end

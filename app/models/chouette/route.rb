@@ -1,4 +1,4 @@
-class Chouette::Route < Chouette::ActiveRecord
+class Chouette::Route < ApplicationRecord
   include ObjectidRestrictions
   include RouteRestrictions
 

@@ -1,5 +1,5 @@
 module Chouette
-  class RoutingConstraint < Chouette::ActiveRecord
+  class RoutingConstraint < ::ApplicationRecord
     include ObjectidRestrictions
 
     validates :name, presence: true

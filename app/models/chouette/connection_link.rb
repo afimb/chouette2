@@ -1,4 +1,4 @@
-class Chouette::ConnectionLink < Chouette::ActiveRecord
+class Chouette::ConnectionLink < ApplicationRecord
   include ObjectidRestrictions
   include ConnectionLinkRestrictions
   # FIXME http://jira.codehaus.org/browse/JRUBY-6358

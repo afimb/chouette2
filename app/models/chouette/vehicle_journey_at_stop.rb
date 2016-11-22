@@ -1,5 +1,5 @@
 module Chouette
-  class VehicleJourneyAtStop < ActiveRecord
+  class VehicleJourneyAtStop < ::ApplicationRecord
     include ForBoardingEnumerations
     include ForAlightingEnumerations
 

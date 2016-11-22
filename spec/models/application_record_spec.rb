@@ -1,15 +1,15 @@
 require 'spec_helper'
 
-describe Chouette::ActiveRecord, :type => :model do
+describe ApplicationRecord, type: :model do
 
-  it { expect(Chouette::ActiveRecord.ancestors).to include(ActiveRecord::Base) }
+  it { expect(ApplicationRecord.ancestors).to include(ActiveRecord::Base) }
 
   describe "table_name" do
 
     it "should return line for Chouette::Line" do
       expect(Chouette::Line.table_name).to eq("lines")
     end
-    
+
     it "should return ptnetwork for Chouette::Network" do
       expect(Chouette::Network.table_name).to eq("networks")
     end
@@ -25,7 +25,7 @@ describe Chouette::ActiveRecord, :type => :model do
   end
 
   describe "method_missing" do
-    
+
     it "should support method with additionnal underscores" do
       stop_area = Chouette::StopArea.new
       expect(stop_area.area_type).to eq(stop_area.area_type)
@@ -35,7 +35,7 @@ describe Chouette::ActiveRecord, :type => :model do
 
 
   describe "respond_to?" do
-    
+
     it "should respond to method with additionnal underscores" do
       stop_area = Chouette::StopArea.new
       expect(stop_area.respond_to?(:area_type)).to be_truthy
@@ -49,7 +49,7 @@ describe Chouette::ActiveRecord, :type => :model do
 #     let(:name) { :lines }
 #     let(:options) { {} }
 #     let(:active_record) { Chouette::Network }
-    
+
 #     let(:modified_options) { {:modified => true}  }
 
 #     it "should invoke create_reflection_without_chouette_naming with modified options" do
@@ -87,7 +87,7 @@ end
 #   end
 
 #   describe "class_name" do
-    
+
 #     it "should be Chouette::Line when name is line" do
 #       allow(subject).to receive_messages :name => "line"
 #       expect(subject.class_name).to eq("Chouette::Line")
@@ -102,7 +102,7 @@ end
 
 
 #   describe "options" do
-    
+
 #     it "should define class_name if not" do
 #       allow(subject).to receive_messages :options => {}, :class_name => "class_name"
 #       expect(subject.options_with_default[:class_name]).to eq("class_name")
@@ -114,7 +114,7 @@ end
 #     end
 
 #   end
-  
+
 
 # end
 

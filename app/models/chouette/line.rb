@@ -1,4 +1,4 @@
-class Chouette::Line < Chouette::ActiveRecord
+class Chouette::Line < ApplicationRecord
   include ObjectidRestrictions
   include LineRestrictions
   # FIXME http://jira.codehaus.org/browse/JRUBY-6358

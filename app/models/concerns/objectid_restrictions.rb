@@ -6,7 +6,7 @@ module ObjectidRestrictions
     before_save :set_object_version
     validates :codespace, presence: true
     validates :objectid, presence: true
-    validates :objectid, uniqueness: { scope: :objectid }
+    validates :objectid, uniqueness: { scope: :codespace }
     validates :object_version, numericality: true
 
     # HUB
@@ -26,19 +26,10 @@ module ObjectidRestrictions
 
   protected
 
-  def referential
-    @referential ||= Referential.where(slug: Apartment::Tenant.current).first!
-  end
-
-  def format_restricted?(format)
-    referential.data_format.to_sym == format.to_sym
-  end
-
   def default_values
     self.objectid = "__pending_id__#{Time.current.to_i + rand(1000)}" if self.objectid.blank?
     self.object_version ||= 1
     self.codespace = referential.prefix
-    self.creation_time = Time.current
     self.creator_id = 'chouette'
   end
 

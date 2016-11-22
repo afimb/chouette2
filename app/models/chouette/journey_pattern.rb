@@ -1,4 +1,4 @@
-class Chouette::JourneyPattern < Chouette::ActiveRecord
+class Chouette::JourneyPattern < ApplicationRecord
   include ObjectidRestrictions
   include JourneyPatternRestrictions
   # FIXME http://jira.codehaus.org/browse/JRUBY-6358

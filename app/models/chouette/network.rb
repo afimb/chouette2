@@ -1,4 +1,4 @@
-class Chouette::Network < Chouette::ActiveRecord
+class Chouette::Network < ApplicationRecord
   include ObjectidRestrictions
   include NetworkRestrictions
   # FIXME http://jira.codehaus.org/browse/JRUBY-6358

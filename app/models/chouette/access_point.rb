@@ -1,7 +1,7 @@
 require 'geokit'
 require 'geo_ruby'
 
-class Chouette::AccessPoint < Chouette::ActiveRecord
+class Chouette::AccessPoint < ApplicationRecord
   include ObjectidRestrictions
   # FIXME http://jira.codehaus.org/browse/JRUBY-6358
   self.primary_key = "id"
