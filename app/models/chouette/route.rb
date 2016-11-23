@@ -1,4 +1,5 @@
-class Chouette::Route < Chouette::TridentActiveRecord
+class Chouette::Route < ApplicationRecord
+  include ObjectidRestrictions
   include RouteRestrictions
 
   # FIXME http://jira.codehaus.org/browse/JRUBY-6358
@@ -84,7 +85,7 @@ class Chouette::Route < Chouette::TridentActiveRecord
     end
     GeoRuby::SimpleFeatures::LineString.from_coordinates( points, 4326)
   end
-  
+
   def geometry_jp(journey_pattern)
     jp_stop_areas_ids = journey_pattern.stop_points.map(&:stop_area_id)
     points = stop_areas.select{|sa| jp_stop_areas_ids.include?(sa.id)}.map(&:to_lat_lng).compact.map do |loc|

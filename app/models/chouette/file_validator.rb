@@ -5,7 +5,7 @@ class Chouette::FileValidator
   def initialize(schema)
     @schema = schema
 
-    Chouette::ActiveRecord.connection_pool.spec.config.tap do |config|
+    ::ApplicationRecord.connection_pool.spec.config.tap do |config|
       @database = config[:database]
       @user = config[:username]
       @password = config[:password]
@@ -31,9 +31,9 @@ class Chouette::FileValidator
     }.merge(options)
 
     command_options = {
-      :c => "validate", 
-      :o => "line", 
-      :input_file => File.expand_path(file), 
+      :c => "validate",
+      :o => "line",
+      :input_file => File.expand_path(file),
       :optimize_memory => true
     }.merge(options)
 

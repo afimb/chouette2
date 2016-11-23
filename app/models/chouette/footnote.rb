@@ -1,4 +1,4 @@
-class Chouette::Footnote < Chouette::ActiveRecord
+class Chouette::Footnote < ApplicationRecord
   belongs_to :line, inverse_of: :footnotes
   has_and_belongs_to_many :vehicle_journeys, :class_name => 'Chouette::VehicleJourney'
 

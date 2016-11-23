@@ -1,4 +1,5 @@
-class Chouette::RouteSection < Chouette::TridentActiveRecord
+class Chouette::RouteSection < ApplicationRecord
+  include ObjectidRestrictions
   belongs_to :departure, class_name: 'Chouette::StopArea'
   belongs_to :arrival, class_name: 'Chouette::StopArea'
   has_many :journey_pattern_sections

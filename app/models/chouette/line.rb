@@ -1,4 +1,5 @@
-class Chouette::Line < Chouette::TridentActiveRecord
+class Chouette::Line < ApplicationRecord
+  include ObjectidRestrictions
   include LineRestrictions
   # FIXME http://jira.codehaus.org/browse/JRUBY-6358
   self.primary_key = "id"
@@ -13,6 +14,8 @@ class Chouette::Line < Chouette::TridentActiveRecord
 
   has_many :footnotes, :inverse_of => :line, :validate => :true, :dependent => :destroy
   accepts_nested_attributes_for :footnotes, :reject_if => :all_blank, :allow_destroy => true
+
+  has_and_belongs_to_many :routing_constraints, join_table: :routing_constraints_lines
 
   attr_reader :group_of_line_tokens
   attr_accessor :transport_mode

@@ -1,4 +1,4 @@
-class Chouette::JourneyPatternSection < Chouette::ActiveRecord
+class Chouette::JourneyPatternSection < ApplicationRecord
   belongs_to :journey_pattern
   belongs_to :route_section
 

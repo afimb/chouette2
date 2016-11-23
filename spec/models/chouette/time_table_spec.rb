@@ -439,13 +439,13 @@ end
 
   describe "#intersects" do
     it "should return day if a date equal day" do
-      time_table = Chouette::TimeTable.create!(:comment => "Test", :objectid => "test:Timetable:1")
+      time_table = Chouette::TimeTable.create!(:comment => "Test", :objectid => "1")
       time_table.dates << Chouette::TimeTableDate.new( :date => Date.today, :in_out => true)
       expect(time_table.intersects([Date.today])).to eq([Date.today])
     end
 
     it "should return [] if a period not include days" do
-      time_table = Chouette::TimeTable.create!(:comment => "Test", :objectid => "test:Timetable:1", :int_day_types => 12)
+      time_table = Chouette::TimeTable.create!(:comment => "Test", :objectid => "1", :int_day_types => 12)
       time_table.periods << Chouette::TimeTablePeriod.new(
                               :period_start => Date.new(2013, 05, 27),
                               :period_end => Date.new(2013, 05, 30))
@@ -453,7 +453,7 @@ end
     end
 
     it "should return days if a period include day" do
-      time_table = Chouette::TimeTable.create!(:comment => "Test", :objectid => "test:Timetable:1", :int_day_types => 12) # Day type monday and tuesday
+      time_table = Chouette::TimeTable.create!(:comment => "Test", :objectid => "1", :int_day_types => 12) # Day type monday and tuesday
       time_table.periods << Chouette::TimeTablePeriod.new(
                               :period_start => Date.new(2013, 05, 27),
                               :period_end => Date.new(2013, 05, 30))
@@ -465,13 +465,13 @@ end
 
   describe "#include_day?" do
     it "should return true if a date equal day" do
-      time_table = Chouette::TimeTable.create!(:comment => "Test", :objectid => "test:Timetable:1")
+      time_table = Chouette::TimeTable.create!(:comment => "Test", :objectid => "1")
       time_table.dates << Chouette::TimeTableDate.new( :date => Date.today, :in_out => true)
       expect(time_table.include_day?(Date.today)).to eq(true)
     end
 
     it "should return true if a period include day" do
-      time_table = Chouette::TimeTable.create!(:comment => "Test", :objectid => "test:Timetable:1", :int_day_types => 12) # Day type monday and tuesday
+      time_table = Chouette::TimeTable.create!(:comment => "Test", :objectid => "1", :int_day_types => 12) # Day type monday and tuesday
       time_table.periods << Chouette::TimeTablePeriod.new(
                               :period_start => Date.new(2013, 05, 27),
                               :period_end => Date.new(2013, 05, 29))
@@ -481,13 +481,13 @@ end
 
   describe "#include_in_dates?" do
     it "should return true if a date equal day" do
-      time_table = Chouette::TimeTable.create!(:comment => "Test", :objectid => "test:Timetable:1")
+      time_table = Chouette::TimeTable.create!(:comment => "Test", :objectid => "1")
       time_table.dates << Chouette::TimeTableDate.new( :date => Date.today, :in_out => true)
       expect(time_table.include_in_dates?(Date.today)).to eq(true)
     end
 
     it "should return false if a period include day  but that is exclued" do
-      time_table = Chouette::TimeTable.create!(:comment => "Test", :objectid => "test:Timetable:1", :int_day_types => 12) # Day type monday and tuesday
+      time_table = Chouette::TimeTable.create!(:comment => "Test", :objectid => "1", :int_day_types => 12) # Day type monday and tuesday
       excluded_date = Date.new(2013, 05, 27)
       time_table.dates << Chouette::TimeTableDate.new( :date => excluded_date, :in_out => false)
       expect(time_table.include_in_dates?( excluded_date)).to be_falsey
@@ -496,7 +496,7 @@ end
 
   describe "#include_in_periods?" do
     it "should return true if a period include day" do
-      time_table = Chouette::TimeTable.create!(:comment => "Test", :objectid => "test:Timetable:1", :int_day_types => 4)
+      time_table = Chouette::TimeTable.create!(:comment => "Test", :objectid => "1", :int_day_types => 4)
       time_table.periods << Chouette::TimeTablePeriod.new(
                               :period_start => Date.new(2012, 1, 1),
                               :period_end => Date.new(2012, 01, 30))
@@ -504,7 +504,7 @@ end
     end
 
     it "should return false if a period include day  but that is exclued" do
-      time_table = Chouette::TimeTable.create!(:comment => "Test", :objectid => "test:Timetable:1", :int_day_types => 12) # Day type monday and tuesday
+      time_table = Chouette::TimeTable.create!(:comment => "Test", :objectid => "1", :int_day_types => 12) # Day type monday and tuesday
       excluded_date = Date.new(2013, 05, 27)
       time_table.dates << Chouette::TimeTableDate.new( :date => excluded_date, :in_out => false)
       time_table.periods << Chouette::TimeTablePeriod.new(
@@ -516,7 +516,7 @@ end
 
   describe "#include_in_overlap_dates?" do
     it "should return true if a day is included in overlap dates" do
-      time_table = Chouette::TimeTable.create!(:comment => "Test", :objectid => "test:Timetable:1", :int_day_types => 4)
+      time_table = Chouette::TimeTable.create!(:comment => "Test", :objectid => "1", :int_day_types => 4)
       time_table.periods << Chouette::TimeTablePeriod.new(
                               :period_start => Date.new(2012, 1, 1),
                               :period_end => Date.new(2012, 01, 30))
@@ -524,7 +524,7 @@ end
       expect(time_table.include_in_overlap_dates?(Date.new(2012, 1, 2))).to eq(true)
     end
     it "should return false if the day is excluded" do
-      time_table = Chouette::TimeTable.create!(:comment => "Test", :objectid => "test:Timetable:1", :int_day_types => 4)
+      time_table = Chouette::TimeTable.create!(:comment => "Test", :objectid => "1", :int_day_types => 4)
       time_table.periods << Chouette::TimeTablePeriod.new(
                               :period_start => Date.new(2012, 1, 1),
                               :period_end => Date.new(2012, 01, 30))
@@ -1204,8 +1204,8 @@ end
         expect(subject.dates[9].date).to eq(Date.new(2014,8,27))
       end
     end
-  
-  
+
+
     context "with same definition : dsjointed timetable should be empty" do
       before do
         subject.periods.clear
@@ -1240,7 +1240,7 @@ end
         target=subject.duplicate
         expect(target.id).to be_nil
         expect(target.comment).to eq(I18n.t("activerecord.copy", name: subject.comment))
-        expect(target.objectid).to eq(subject.objectid+"_1")
+        expect(target.objectid).to eq(subject.objectid)
         expect(target.int_day_types).to eq(subject.int_day_types)
         expect(target.dates.size).to eq(subject.dates.size)
         target.dates.each do |d|

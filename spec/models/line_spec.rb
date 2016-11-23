@@ -1,17 +1,17 @@
 require 'spec_helper'
 
-describe "sdflkjskdjf" do
+describe 'Line' do
 
   subject { create(:line) }
 
   def set_large_object_id( line)
-    line.update_attributes :objectid => "AA:Line:123456789012345"
+    line.update_attributes :objectid => "123456789012345"
   end
 
   describe "validation objectid unique constraint" do
     let(:referential){subject.referential}
-    let(:objectid_a){ "A:Line:1234" }
-    let(:objectid_b){ "B:Line:1234" }
+    let(:objectid_a){ "1234_1" }
+    let(:objectid_b){ "1234_2" }
     let!(:second_line){ create( :line, :objectid => objectid_a, :registration_number => "123456") }
     context "when referential works with HUB" do
       before( :each) do

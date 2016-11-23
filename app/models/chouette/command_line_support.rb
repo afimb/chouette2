@@ -4,7 +4,7 @@ module Chouette::CommandLineSupport
 
   def available_loggers
     [].tap do |logger|
-      logger << Chouette::ActiveRecord.logger  
+      logger << ::ApplicationRecord.logger
       logger << Rails.logger if defined?(Rails)
       logger << Logger.new($stdout)
     end.compact

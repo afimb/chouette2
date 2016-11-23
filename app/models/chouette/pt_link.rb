@@ -1,6 +1,6 @@
 require 'geokit'
 
-class Chouette::PtLink < Chouette::ActiveRecord
+class Chouette::PtLink < ApplicationRecord
   # FIXME http://jira.codehaus.org/browse/JRUBY-6358
   self.primary_key = "id"
 
@@ -31,7 +31,7 @@ class Chouette::PtLink < Chouette::ActiveRecord
                                  :the_geom => GeoRuby::SimpleFeatures::Geometry.from_hex_ewkb( row[2]))
       end
     end
-    
+
   end
 
 end

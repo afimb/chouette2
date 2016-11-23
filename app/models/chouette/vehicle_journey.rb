@@ -1,5 +1,6 @@
 module Chouette
-  class VehicleJourney < TridentActiveRecord
+  class VehicleJourney < ::ApplicationRecord
+    include ObjectidRestrictions
     include VehicleJourneyRestrictions
     # FIXME http://jira.codehaus.org/browse/JRUBY-6358
     self.primary_key = "id"
@@ -116,7 +117,7 @@ module Chouette
         }
       end
     end
-      
+
     def recalculate_day_offset
       return unless recalculate_offset
 

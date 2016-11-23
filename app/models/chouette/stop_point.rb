@@ -1,5 +1,5 @@
 module Chouette
-  class StopPoint < TridentActiveRecord
+  class StopPoint < ::ApplicationRecord
     include ForBoardingEnumerations
     include ForAlightingEnumerations
 

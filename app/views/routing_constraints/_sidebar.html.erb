@@ -1,0 +1,11 @@
+<% content_for :sidebar do %>
+  <ul class="actions">
+    <li><%= link_to t('routing_constraints.actions.new'), new_referential_routing_constraint_path(@referential), :class => "add" %></li>
+    <% if @routing_constraint %>
+      <li><%= link_to t('routing_constraints.actions.edit'), edit_referential_routing_constraint_path(@referential, @routing_constraint), :class => "edit" %></li>
+      <li><%= link_to t('routing_constraints.actions.destroy'), referential_routing_constraint_path(@referential, @routing_constraint), :method => :delete, :data => {:confirm =>  t('routing_constraints.actions.destroy_confirm')}, :class => "remove" %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011102719) do
+ActiveRecord::Schema.define(version: 20161114142115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20161011102719) do
   create_table "access_links", id: :bigserial, force: :cascade do |t|
     t.integer  "access_point_id",                        limit: 8
     t.integer  "stop_area_id",                           limit: 8
-    t.string   "objectid",                                                                  null: false
+    t.string   "objectid",                                                                                  null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
@@ -37,9 +37,11 @@ ActiveRecord::Schema.define(version: 20161011102719) do
     t.string   "link_type"
     t.integer  "int_user_needs"
     t.string   "link_orientation"
+    t.string   "codespace",                                                                                 null: false
+    t.boolean  "shared",                                                                    default: false, null: false
   end
 
-  add_index "access_links", ["objectid"], name: "access_links_objectid_key", unique: true, using: :btree
+  add_index "access_links", ["codespace", "objectid"], name: "index_access_links_on_codespace_and_objectid", unique: true, using: :btree
 
   create_table "access_points", id: :bigserial, force: :cascade do |t|
     t.string   "objectid"
@@ -63,9 +65,11 @@ ActiveRecord::Schema.define(version: 20161011102719) do
     t.integer  "stop_area_id",                    limit: 8
     t.string   "zip_code"
     t.string   "city_name"
+    t.string   "codespace",                                                                           null: false
+    t.boolean  "shared",                                                              default: false, null: false
   end
 
-  add_index "access_points", ["objectid"], name: "access_points_objectid_key", unique: true, using: :btree
+  add_index "access_points", ["codespace", "objectid"], name: "index_access_points_on_codespace_and_objectid", unique: true, using: :btree
 
   create_table "api_keys", id: :bigserial, force: :cascade do |t|
     t.integer  "referential_id"
@@ -76,7 +80,7 @@ ActiveRecord::Schema.define(version: 20161011102719) do
   end
 
   create_table "companies", id: :bigserial, force: :cascade do |t|
-    t.string   "objectid",                  null: false
+    t.string   "objectid",                                  null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
@@ -91,15 +95,17 @@ ActiveRecord::Schema.define(version: 20161011102719) do
     t.string   "registration_number"
     t.string   "url"
     t.string   "time_zone"
+    t.string   "codespace",                                 null: false
+    t.boolean  "shared",                    default: false, null: false
   end
 
-  add_index "companies", ["objectid"], name: "companies_objectid_key", unique: true, using: :btree
+  add_index "companies", ["codespace", "objectid"], name: "index_companies_on_codespace_and_objectid", unique: true, using: :btree
   add_index "companies", ["registration_number"], name: "companies_registration_number_key", using: :btree
 
   create_table "connection_links", id: :bigserial, force: :cascade do |t|
     t.integer  "departure_id",                           limit: 8
     t.integer  "arrival_id",                             limit: 8
-    t.string   "objectid",                                                                  null: false
+    t.string   "objectid",                                                                                  null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
@@ -115,9 +121,11 @@ ActiveRecord::Schema.define(version: 20161011102719) do
     t.boolean  "stairs_availability"
     t.boolean  "lift_availability"
     t.integer  "int_user_needs"
+    t.string   "codespace",                                                                                 null: false
+    t.boolean  "shared",                                                                    default: false, null: false
   end
 
-  add_index "connection_links", ["objectid"], name: "connection_links_objectid_key", unique: true, using: :btree
+  add_index "connection_links", ["codespace", "objectid"], name: "index_connection_links_on_codespace_and_objectid", unique: true, using: :btree
 
   create_table "delayed_jobs", id: :bigserial, force: :cascade do |t|
     t.integer  "priority",   default: 0
@@ -148,37 +156,6 @@ ActiveRecord::Schema.define(version: 20161011102719) do
 
   add_index "exports", ["referential_id"], name: "index_exports_on_referential_id", using: :btree
 
-  create_table "facilities", id: :bigserial, force: :cascade do |t|
-    t.integer  "stop_area_id",       limit: 8
-    t.integer  "line_id",            limit: 8
-    t.integer  "connection_link_id", limit: 8
-    t.integer  "stop_point_id",      limit: 8
-    t.string   "objectid",                                               null: false
-    t.integer  "object_version"
-    t.datetime "creation_time"
-    t.string   "creator_id"
-    t.string   "name"
-    t.string   "comment"
-    t.string   "description"
-    t.boolean  "free_access"
-    t.decimal  "longitude",                    precision: 19, scale: 16
-    t.decimal  "latitude",                     precision: 19, scale: 16
-    t.string   "long_lat_type"
-    t.decimal  "x",                            precision: 19, scale: 2
-    t.decimal  "y",                            precision: 19, scale: 2
-    t.string   "projection_type"
-    t.string   "country_code"
-    t.string   "street_name"
-    t.string   "contained_in"
-  end
-
-  add_index "facilities", ["objectid"], name: "facilities_objectid_key", unique: true, using: :btree
-
-  create_table "facilities_features", id: false, force: :cascade do |t|
-    t.integer "facility_id", limit: 8
-    t.integer "choice_code"
-  end
-
   create_table "footnotes", id: :bigserial, force: :cascade do |t|
     t.integer  "line_id",    limit: 8
     t.string   "code"
@@ -193,16 +170,18 @@ ActiveRecord::Schema.define(version: 20161011102719) do
   end
 
   create_table "group_of_lines", id: :bigserial, force: :cascade do |t|
-    t.string   "objectid",            null: false
+    t.string   "objectid",                            null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
     t.string   "name"
     t.string   "comment"
     t.string   "registration_number"
+    t.string   "codespace",                           null: false
+    t.boolean  "shared",              default: false, null: false
   end
 
-  add_index "group_of_lines", ["objectid"], name: "group_of_lines_objectid_key", unique: true, using: :btree
+  add_index "group_of_lines", ["codespace", "objectid"], name: "index_group_of_lines_on_codespace_and_objectid", unique: true, using: :btree
 
   create_table "group_of_lines_lines", id: false, force: :cascade do |t|
     t.integer "group_of_line_id", limit: 8
@@ -237,7 +216,7 @@ ActiveRecord::Schema.define(version: 20161011102719) do
 
   create_table "journey_patterns", id: :bigserial, force: :cascade do |t|
     t.integer  "route_id",                limit: 8
-    t.string   "objectid",                                      null: false
+    t.string   "objectid",                                          null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
@@ -247,10 +226,12 @@ ActiveRecord::Schema.define(version: 20161011102719) do
     t.string   "published_name"
     t.integer  "departure_stop_point_id", limit: 8
     t.integer  "arrival_stop_point_id",   limit: 8
-    t.integer  "section_status",                    default: 0, null: false
+    t.integer  "section_status",                    default: 0,     null: false
+    t.string   "codespace",                                         null: false
+    t.boolean  "shared",                            default: false, null: false
   end
 
-  add_index "journey_patterns", ["objectid"], name: "journey_patterns_objectid_key", unique: true, using: :btree
+  add_index "journey_patterns", ["codespace", "objectid"], name: "index_journey_patterns_on_codespace_and_objectid", unique: true, using: :btree
 
   create_table "journey_patterns_stop_points", id: false, force: :cascade do |t|
     t.integer "journey_pattern_id", limit: 8
@@ -262,7 +243,7 @@ ActiveRecord::Schema.define(version: 20161011102719) do
   create_table "lines", id: :bigserial, force: :cascade do |t|
     t.integer  "network_id",                      limit: 8
     t.integer  "company_id",                      limit: 8
-    t.string   "objectid",                                  null: false
+    t.string   "objectid",                                                  null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
@@ -279,13 +260,15 @@ ActiveRecord::Schema.define(version: 20161011102719) do
     t.string   "color",                           limit: 6
     t.string   "text_color",                      limit: 6
     t.string   "stable_id"
+    t.string   "codespace",                                                 null: false
+    t.boolean  "shared",                                    default: false, null: false
   end
 
-  add_index "lines", ["objectid"], name: "lines_objectid_key", unique: true, using: :btree
+  add_index "lines", ["codespace", "objectid"], name: "index_lines_on_codespace_and_objectid", unique: true, using: :btree
   add_index "lines", ["registration_number"], name: "lines_registration_number_key", using: :btree
 
   create_table "networks", id: :bigserial, force: :cascade do |t|
-    t.string   "objectid",            null: false
+    t.string   "objectid",                            null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
@@ -297,9 +280,11 @@ ActiveRecord::Schema.define(version: 20161011102719) do
     t.string   "source_type"
     t.string   "source_identifier"
     t.string   "comment"
+    t.string   "codespace",                           null: false
+    t.boolean  "shared",              default: false, null: false
   end
 
-  add_index "networks", ["objectid"], name: "networks_objectid_key", unique: true, using: :btree
+  add_index "networks", ["codespace", "objectid"], name: "index_networks_on_codespace_and_objectid", unique: true, using: :btree
   add_index "networks", ["registration_number"], name: "networks_registration_number_key", using: :btree
 
   create_table "organisations", id: :bigserial, force: :cascade do |t|
@@ -308,21 +293,6 @@ ActiveRecord::Schema.define(version: 20161011102719) do
     t.datetime "updated_at"
     t.string   "data_format", default: "neptune"
   end
-
-  create_table "pt_links", id: :bigserial, force: :cascade do |t|
-    t.integer  "start_of_link_id", limit: 8
-    t.integer  "end_of_link_id",   limit: 8
-    t.integer  "route_id",         limit: 8
-    t.string   "objectid",                                            null: false
-    t.integer  "object_version"
-    t.datetime "creation_time"
-    t.string   "creator_id"
-    t.string   "name"
-    t.string   "comment"
-    t.decimal  "link_distance",              precision: 19, scale: 2
-  end
-
-  add_index "pt_links", ["objectid"], name: "pt_links_objectid_key", unique: true, using: :btree
 
   create_table "referentials", id: :bigserial, force: :cascade do |t|
     t.string   "name"
@@ -353,11 +323,15 @@ ActiveRecord::Schema.define(version: 20161011102719) do
     t.string   "creator_id"
     t.float    "distance"
     t.boolean  "no_processing",                                                  default: false, null: false
+    t.string   "codespace",                                                                      null: false
+    t.boolean  "shared",                                                         default: false, null: false
   end
+
+  add_index "route_sections", ["codespace", "objectid"], name: "index_route_sections_on_codespace_and_objectid", unique: true, using: :btree
 
   create_table "routes", id: :bigserial, force: :cascade do |t|
     t.integer  "line_id",           limit: 8
-    t.string   "objectid",                    null: false
+    t.string   "objectid",                                    null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
@@ -368,20 +342,24 @@ ActiveRecord::Schema.define(version: 20161011102719) do
     t.string   "number"
     t.string   "direction"
     t.string   "wayback"
+    t.string   "codespace",                                   null: false
+    t.boolean  "shared",                      default: false, null: false
   end
 
-  add_index "routes", ["objectid"], name: "routes_objectid_key", unique: true, using: :btree
+  add_index "routes", ["codespace", "objectid"], name: "index_routes_on_codespace_and_objectid", unique: true, using: :btree
 
   create_table "routing_constraints", id: :bigserial, force: :cascade do |t|
-    t.string   "name",           null: false
+    t.string   "name",                           null: false
     t.string   "comment"
-    t.string   "objectid",       null: false
+    t.string   "objectid",                       null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
+    t.string   "codespace",                      null: false
+    t.boolean  "shared",         default: false, null: false
   end
 
-  add_index "routing_constraints", ["objectid"], name: "index_routing_constraints_on_objectid", unique: true, using: :btree
+  add_index "routing_constraints", ["codespace", "objectid"], name: "index_routing_constraints_on_codespace_and_objectid", unique: true, using: :btree
 
   create_table "routing_constraints_lines", id: false, force: :cascade do |t|
     t.integer "routing_constraint_id"
@@ -409,7 +387,7 @@ ActiveRecord::Schema.define(version: 20161011102719) do
 
   create_table "stop_areas", id: :bigserial, force: :cascade do |t|
     t.integer  "parent_id",                       limit: 8
-    t.string   "objectid",                                                            null: false
+    t.string   "objectid",                                                                            null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
@@ -432,24 +410,28 @@ ActiveRecord::Schema.define(version: 20161011102719) do
     t.string   "city_name"
     t.string   "url"
     t.string   "time_zone"
+    t.string   "codespace",                                                                           null: false
+    t.boolean  "shared",                                                              default: false, null: false
   end
 
-  add_index "stop_areas", ["objectid"], name: "stop_areas_objectid_key", unique: true, using: :btree
+  add_index "stop_areas", ["codespace", "objectid"], name: "index_stop_areas_on_codespace_and_objectid", unique: true, using: :btree
   add_index "stop_areas", ["parent_id"], name: "index_stop_areas_on_parent_id", using: :btree
 
   create_table "stop_points", id: :bigserial, force: :cascade do |t|
     t.integer  "route_id",       limit: 8
     t.integer  "stop_area_id",   limit: 8
-    t.string   "objectid",                 null: false
+    t.string   "objectid",                                 null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
     t.integer  "position"
     t.string   "for_boarding"
     t.string   "for_alighting"
+    t.string   "codespace",                                null: false
+    t.boolean  "shared",                   default: false, null: false
   end
 
-  add_index "stop_points", ["objectid"], name: "stop_points_objectid_key", unique: true, using: :btree
+  add_index "stop_points", ["codespace", "objectid"], name: "index_stop_points_on_codespace_and_objectid", unique: true, using: :btree
 
   create_table "taggings", id: :bigserial, force: :cascade do |t|
     t.integer  "tag_id"
@@ -490,7 +472,7 @@ ActiveRecord::Schema.define(version: 20161011102719) do
   add_index "time_table_periods", ["time_table_id"], name: "index_time_table_periods_on_time_table_id", using: :btree
 
   create_table "time_tables", id: :bigserial, force: :cascade do |t|
-    t.string   "objectid",                   null: false
+    t.string   "objectid",                       null: false
     t.integer  "object_version", default: 1
     t.datetime "creation_time"
     t.string   "creator_id"
@@ -499,9 +481,11 @@ ActiveRecord::Schema.define(version: 20161011102719) do
     t.integer  "int_day_types",  default: 0
     t.date     "start_date"
     t.date     "end_date"
+    t.string   "codespace",                      null: false
+    t.boolean  "shared",         default: false, null: false
   end
 
-  add_index "time_tables", ["objectid"], name: "time_tables_objectid_key", unique: true, using: :btree
+  add_index "time_tables", ["codespace", "objectid"], name: "index_time_tables_on_codespace_and_objectid", unique: true, using: :btree
 
   create_table "time_tables_vehicle_journeys", id: false, force: :cascade do |t|
     t.integer "time_table_id",      limit: 8
@@ -512,16 +496,20 @@ ActiveRecord::Schema.define(version: 20161011102719) do
   add_index "time_tables_vehicle_journeys", ["vehicle_journey_id"], name: "index_time_tables_vehicle_journeys_on_vehicle_journey_id", using: :btree
 
   create_table "timebands", id: :bigserial, force: :cascade do |t|
-    t.string   "objectid",       null: false
+    t.string   "objectid",                       null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
     t.string   "name"
-    t.time     "start_time",     null: false
-    t.time     "end_time",       null: false
+    t.time     "start_time",                     null: false
+    t.time     "end_time",                       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "codespace",                      null: false
+    t.boolean  "shared",         default: false, null: false
   end
+
+  add_index "timebands", ["codespace", "objectid"], name: "index_timebands_on_codespace_and_objectid", unique: true, using: :btree
 
   create_table "users", id: :bigserial, force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -582,7 +570,7 @@ ActiveRecord::Schema.define(version: 20161011102719) do
     t.integer  "route_id",                        limit: 8
     t.integer  "journey_pattern_id",              limit: 8
     t.integer  "company_id",                      limit: 8
-    t.string   "objectid",                                              null: false
+    t.string   "objectid",                                                  null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
@@ -596,10 +584,12 @@ ActiveRecord::Schema.define(version: 20161011102719) do
     t.integer  "number",                          limit: 8
     t.boolean  "mobility_restricted_suitability"
     t.boolean  "flexible_service"
-    t.integer  "journey_category",                          default: 0, null: false
+    t.integer  "journey_category",                          default: 0,     null: false
+    t.string   "codespace",                                                 null: false
+    t.boolean  "shared",                                    default: false, null: false
   end
 
-  add_index "vehicle_journeys", ["objectid"], name: "vehicle_journeys_objectid_key", unique: true, using: :btree
+  add_index "vehicle_journeys", ["codespace", "objectid"], name: "index_vehicle_journeys_on_codespace_and_objectid", unique: true, using: :btree
   add_index "vehicle_journeys", ["route_id"], name: "index_vehicle_journeys_on_route_id", using: :btree
 
   add_foreign_key "access_links", "access_points", name: "aclk_acpt_fkey", on_delete: :cascade
