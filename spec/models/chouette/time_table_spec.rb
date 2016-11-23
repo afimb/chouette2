@@ -1240,7 +1240,7 @@ end
         target=subject.duplicate
         expect(target.id).to be_nil
         expect(target.comment).to eq(I18n.t("activerecord.copy", name: subject.comment))
-        expect(target.objectid).to eq(subject.objectid+"_1")
+        expect(target.objectid).to eq(subject.objectid)
         expect(target.int_day_types).to eq(subject.int_day_types)
         expect(target.dates.size).to eq(subject.dates.size)
         target.dates.each do |d|

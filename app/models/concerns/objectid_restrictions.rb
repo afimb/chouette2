@@ -40,7 +40,7 @@ module ObjectidRestrictions
   def build_objectid
     self.objectid = self.id
     fix_uniq_objectid
-    self.update_attributes(objectid: self.objectid)
+    self.update_column(:objectid, self.objectid)
   end
 
   def fix_uniq_objectid
@@ -50,6 +50,15 @@ module ObjectidRestrictions
       self.objectid << "_#{i}"
       self.valid?
       i += 1
+    end
+  end
+
+  def uniq_objectid
+    i = 0
+    baseobjectid = self.objectid
+    while self.class.exists?(objectid: self.objectid)
+      i += 1
+      self.objectid = "#{baseobjectid}_#{i}"
     end
   end
 

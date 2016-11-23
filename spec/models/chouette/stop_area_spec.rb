@@ -420,7 +420,7 @@ describe Chouette::StopArea, :type => :model do
         target=subject.duplicate
         expect(target.id).to be_nil
         expect(target.name).to eq(I18n.t("activerecord.copy", name: subject.name))
-        expect(target.objectid).to eq(subject.objectid)
+        expect(target.objectid).to eq("#{subject.objectid}_1")
         expect(target.area_type).to eq(subject.area_type)
         expect(target.parent).to be_nil
         expect(target.children.size).to eq(0)
