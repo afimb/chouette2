@@ -156,6 +156,8 @@ group :production do
   gem 'daemons'
 end
 
+
+# IEVKIT
 gem 'ievkit', '~> 0.3.0' #, git: 'https://github.com/afimb/ievkit.git', branch: 'develop'
 gem 'ievkit_views', '~> 0.2.2' #, git: 'https://github.com/afimb/ievkit_views.git', branch: 'develop'
 
