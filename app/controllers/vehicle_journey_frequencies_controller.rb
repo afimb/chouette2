@@ -1,4 +1,5 @@
 class VehicleJourneyFrequenciesController < VehicleJourneysController
+  before_action :check_authorize, except: [:show, :index]
 
   defaults resource_class: Chouette::VehicleJourneyFrequency
 

@@ -1,4 +1,5 @@
 class StatisticsController < ApplicationController
+  before_action :check_authorize_admin
   before_action :calcul_stats
 
   def index

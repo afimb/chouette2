@@ -1,4 +1,6 @@
 class JourneyPatternsController < ChouetteController
+  before_action :check_authorize, except: [:show, :index, :collection]
+
   defaults :resource_class => Chouette::JourneyPattern
 
   respond_to :html

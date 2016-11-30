@@ -1,5 +1,7 @@
 # coding: utf-8
 class ImportTasksController < ChouetteController
+  before_action :check_authorize, except: [:show, :index]
+
   defaults :resource_class => ImportTask
 
   respond_to :html, :only => [:new, :create]

@@ -10,14 +10,16 @@
           <h5 class="ce-LineBlock-header-title"><%= truncate(line.name, length: 24) %></h5>
         <% end %>
       </li>
-      <li>
-        <%= link_to edit_referential_line_path(@referential, line), class: 'btn btn-default btn-sm' do %>
-          <span class="fa fa-pencil"></span>
-        <% end if edit %>
-        <%= link_to referential_line_path(@referential, line), method: :delete, data: { confirm:  t('lines.actions.destroy_confirm') }, class: 'btn btn-danger btn-sm' do %>
-          <span class="fa fa-trash-o"></span>
-        <% end if delete %>
-      </li>
+      <% if policy(:application).write? %>
+        <li>
+          <%= link_to edit_referential_line_path(@referential, line), class: 'btn btn-default btn-sm' do %>
+            <span class="fa fa-pencil"></span>
+          <% end if edit %>
+          <%= link_to referential_line_path(@referential, line), method: :delete, data: { confirm:  t('lines.actions.destroy_confirm') }, class: 'btn btn-danger btn-sm' do %>
+            <span class="fa fa-trash-o"></span>
+          <% end if delete %>
+        </li>
+      <% end %>
     </ul>
   </div>
   <div class="panel-body">

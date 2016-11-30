@@ -1,4 +1,6 @@
 class VehicleJourneyImportsController < ChouetteController
+  before_action :check_authorize, except: [:show, :index]
+
   defaults :resource_class => VehicleJourneyImport
 
   belongs_to :referential do

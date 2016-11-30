@@ -1,4 +1,4 @@
-#devise{
+#devise {
     background-color: $gray-light;
 
     .passwords.new{
@@ -85,4 +85,10 @@
             background-color:  rgba(0, 0, 0, 0.8);
         }
     }
+  .social_button_alignment {
+    text-align: center;
+    > p {
+      margin: 4px 0;
+    }
+  }
 }
