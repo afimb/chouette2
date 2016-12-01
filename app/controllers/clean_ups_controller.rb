@@ -1,4 +1,6 @@
 class CleanUpsController < ChouetteController
+  before_action :check_authorize
+
   respond_to :html, :only => [:create]
 
   belongs_to :referential

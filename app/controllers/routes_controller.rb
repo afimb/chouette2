@@ -1,4 +1,6 @@
 class RoutesController < ChouetteController
+  before_action :check_authorize, except: [:show, :index]
+
   defaults :resource_class => Chouette::Route
 
   respond_to :html, :xml, :json

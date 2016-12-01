@@ -1,4 +1,6 @@
 class AccessLinksController < ChouetteController
+  before_action :check_authorize, except: [:show, :index]
+
   defaults :resource_class => Chouette::AccessLink
 
   belongs_to :referential do

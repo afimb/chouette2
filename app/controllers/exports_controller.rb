@@ -1,6 +1,8 @@
 require 'open-uri'
 
 class ExportsController < ChouetteController
+  before_action :check_authorize, except: [:show, :index, :exported_file, :export, :compliance_check]
+
   helper IevkitViews::Engine.helpers
   defaults :resource_class => Export
 
@@ -21,14 +23,19 @@ class ExportsController < ChouetteController
   end
 
   def show
-    begin
-      show! do
-        build_breadcrumb :show
+    @job = IevkitJob.new(@referential, resource)
+    if @job.is_terminated?
+      redirect_to compliance_check_referential_export_path(@referential.id, resource.id)
+    else
+      begin
+        show! do
+          build_breadcrumb :show
+        end
+      rescue Ievkitdeprecated::Error, Faraday::Error => error
+        logger.error("Iev failure : #{error.message}")
+        flash[:error] = t(error.locale_for_error) if error.methods.include? :locale_for_error
+        redirect_to referential_path(@referential)
       end
-    rescue Ievkitdeprecated::Error, Faraday::Error => error
-      logger.error("Iev failure : #{error.message}")
-      flash[:error] = t(error.locale_for_error) if error.methods.include? :locale_for_error
-      redirect_to referential_path(@referential)
     end
   end
 
@@ -60,6 +67,11 @@ class ExportsController < ChouetteController
     respond_to do |format|
       format.zip { send_file ComplianceCheckExport.new(resource, @referential.id, request).export, type: :zip }
     end
+  end
+
+  def progress
+    @job = IevkitJob.new(@referential, resource)
+    render json: @job.is_terminated? ? { redirect:  compliance_check_referential_export_path(@referential.id, resource.id) } : @job.progress_steps
   end
 
   def compliance_check

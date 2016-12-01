@@ -1,8 +1,10 @@
 class TimeTableCombinationsController < ChouetteController
+  before_action :check_authorize, except: [:show, :index]
+
   respond_to :js, :only => [:new,:create]
 
   belongs_to :referential do
-    belongs_to :time_table, :parent_class => Chouette::TimeTable 
+    belongs_to :time_table, :parent_class => Chouette::TimeTable
   end
   after_filter :clean_flash
 
@@ -34,7 +36,7 @@ class TimeTableCombinationsController < ChouetteController
         flash[:error] = t('time_table_combinations.failure')
         render "create_failure"
       end
-    else 
+    else
       render "create_failure"
     end
 
@@ -42,5 +44,5 @@ class TimeTableCombinationsController < ChouetteController
   protected
 
   alias_method :time_table_combination, :resource
-  
+
 end

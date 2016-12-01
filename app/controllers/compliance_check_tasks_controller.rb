@@ -1,9 +1,11 @@
 class ComplianceCheckTasksController < ChouetteController
+  before_action :check_authorize, except: [:show, :index, :references]
+
   defaults :resource_class => ComplianceCheckTask
 
   respond_to :html, :only => [:new, :create]
   respond_to :js, :only => [:new, :create]
-  
+
   belongs_to :referential
 
   def new
@@ -15,9 +17,9 @@ class ComplianceCheckTasksController < ChouetteController
       redirect_to referential_path(@referential)
     end
   end
-  
+
   def create
-    begin            
+    begin
       create! do |success, failure|
         success.html { redirect_to referential_compliance_checks_path(@referential) }
       end
@@ -31,7 +33,6 @@ class ComplianceCheckTasksController < ChouetteController
   def references
     references_type = params[:filter].pluralize
     references = @referential.send(references_type).where("name ilike ?", "%#{params[:q]}%").select("id, name")
-    puts references.inspect
     respond_to do |format|
       format.json do
         render :json => references.collect { |child| { :id => child.id, :name => child.name } }

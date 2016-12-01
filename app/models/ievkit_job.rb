@@ -18,14 +18,10 @@ class IevkitJob
   end
 
   def is_terminated?
-    return false if @all_links.blank?
-    return true if terminated?
-    if @ievkit.terminated_job?(@all_links[:forwarding_url])
-      update_links
-      terminated!
-    else
-      false
-    end
+    psteps = progress_steps
+    psteps[:current_step] == psteps[:steps_count] &&
+    psteps[:current_step_realized] == psteps[:current_step_total] &&
+    psteps[:steps_percent] == psteps[:current_step_percent]
   end
 
   def result
@@ -33,17 +29,10 @@ class IevkitJob
   end
 
   def progress_steps
-    datas = {}
-    return { error_code: I18n.t("iev.errors.#{error_code.downcase}", default: error_code.downcase.humanize) } if error_code.present?
-    return datas if @all_links.blank?
-    if @all_links[:action_report].blank?
-      update_links
-    else
-      ievkit_views = IevkitViews::ActionReport.new(referential, @all_links[:action_report], 'action_report')
-      ievkit_views.progression
-      datas = ievkit_views.datas
-    end
-    datas
+    return {} if @all_links.blank?
+    ievkit_views = IevkitViews::ActionReport.new(referential, @all_links[:action_report], 'action_report')
+    ievkit_views.progression
+    ievkit_views.datas
   end
 
   def files_views(_type = nil)
@@ -103,7 +92,7 @@ class IevkitJob
   end
 
   def download_validation_report(default_view)
-    result, data, sum_report, errors = send("#{default_view}_views")
+    _result, data, _sum_report, errors = send("#{default_view}_views")
     csv = @ievkit.download_validation_report(data, errors)
     [csv, filename: "#{@resource.name.parameterize}-#{Time.current.to_i}.csv"]
   end

@@ -1,4 +1,6 @@
 class ComplianceChecksController < ChouetteController
+  before_action :check_authorize, except: [:show, :index, :report, :download_validation, :rule_parameter_set, :export]
+
   helper IevkitViews::Engine.helpers
   defaults :resource_class => ComplianceCheck
 
@@ -19,15 +21,24 @@ class ComplianceChecksController < ChouetteController
   end
 
   def show
-    begin
-      show! do |format|
-        build_breadcrumb :show
+    if resource.report?
+      redirect_to report_referential_compliance_check_path(@referential.id, resource.id)
+    else
+      begin
+        show! do |format|
+          build_breadcrumb :show
+        end
+      rescue Ievkitdeprecated::Error, Faraday::Error => error
+        logger.error("Iev failure : #{error.message}")
+        flash[:error] = t(error.locale_for_error)
+        redirect_to referential_path(@referential)
       end
-    rescue Ievkitdeprecated::Error, Faraday::Error => error
-      logger.error("Iev failure : #{error.message}")
-      flash[:error] = t(error.locale_for_error)
-      redirect_to referential_path(@referential)
     end
+  end
+
+  def progress
+    @job = IevkitJob.new(@referential, resource)
+    render json: @job.is_terminated? ? { redirect:  compliance_check_referential_import_path(@referential.id, resource.id) } : @job.progress_steps
   end
 
   def report

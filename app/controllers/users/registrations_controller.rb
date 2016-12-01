@@ -4,6 +4,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   prepend_before_action :accept_user_creation, only: [:new, :create]
 
+  def create
+    super do
+      resource.role = 2
+      resource.save
+    end
+  end
+
   protected
 
   def configure_sign_up_params
