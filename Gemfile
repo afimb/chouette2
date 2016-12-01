@@ -176,7 +176,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-typeahead.js', '~> 0.10.5'
   gem 'rails-assets-typeahead.js-bootstrap3.less'
   gem 'rails-assets-respond'
-  gem 'rails-assets-eonasdan-bootstrap-datetimepicker', '~> 3.1.3'
+  gem 'rails-assets-eonasdan-bootstrap-datetimepicker', '~> 3.1.4'
   gem 'rails-assets-jquery-tokeninput', '~> 1.7.0'
 
   gem 'rails-assets-modernizr', '~> 2.0.6'
