@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/afimb/chouette-projects-i18n.git
-  revision: b261e9e4f3d0cb38b9c957a537eaf0ef259b2317
+  revision: a836519d708b9cb17e9d75800fa2df20f95f1708
   specs:
     chouette-projects-i18n (0.1.0)
       i18n
@@ -266,7 +266,7 @@ GEM
     mime-types (2.99.3)
     mimemagic (0.3.2)
     mini_portile2 (2.1.0)
-    minitest (5.9.1)
+    minitest (5.10.0)
     multi_json (1.12.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -514,7 +514,7 @@ GEM
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
-    thor (0.19.1)
+    thor (0.19.4)
     thread_safe (0.3.5)
     tilt (2.0.5)
     transpec (3.2.2)
