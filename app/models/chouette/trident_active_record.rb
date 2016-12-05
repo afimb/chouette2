@@ -17,8 +17,8 @@ class Chouette::TridentActiveRecord < Chouette::ActiveRecord
       @referential ||= Referential.where(:slug => Apartment::Tenant.current).first!
     end
 
-    def hub_restricted?
-      referential.data_format == "hub"
+    def format_restricted?(format)
+      referential.data_format.to_sym == format.to_sym
     end
     
     def prefix

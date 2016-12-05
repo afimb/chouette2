@@ -1,4 +1,6 @@
 class CompaniesController < ChouetteController
+  before_action :check_authorize, except: [:show, :index]
+
   defaults :resource_class => Chouette::Company
   respond_to :html
   respond_to :xml
@@ -7,23 +9,24 @@ class CompaniesController < ChouetteController
 
   belongs_to :referential, :parent_class => Referential
 
-  def index    
+  def index
 
     index! do |format|
       format.html {
-        if collection.out_of_bounds?
-          redirect_to params.merge(:page => 1)
+        if collection.out_of_range? && params[:page].to_i > 1
+          redirect_to url_for params.merge(:page => 1)
+          return
         end
       }
       build_breadcrumb :index
-    end       
+    end
   end
-  
+
 
   protected
-  def collection    
+  def collection
     @q = referential.companies.search(params[:q])
-    @companies ||= @q.result(:distinct => true).order(:name).paginate(:page => params[:page])
+    @companies ||= @q.result(:distinct => true).order(:name).page(params[:page])
   end
 
 

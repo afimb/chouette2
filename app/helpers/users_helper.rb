@@ -20,6 +20,7 @@ module UsersHelper
   end
   def user_image(user)
     begin
+      require 'rest-client'
       gravatar_resource = RestClient.get( gravatar_url( user)){|response, request, result| response }
     rescue
       # Happens if network is not available

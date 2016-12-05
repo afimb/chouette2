@@ -1,4 +1,6 @@
 class VehicleJourneysController < ChouetteController
+  before_action :check_authorize, except: [:show, :index, :select_journey_pattern]
+
   defaults :resource_class => Chouette::VehicleJourney
 
   respond_to :js, :only => [:select_journey_pattern, :edit, :new, :index]
@@ -28,8 +30,9 @@ class VehicleJourneysController < ChouetteController
 
   def index
     index! do
-      if collection.out_of_bounds?
-        redirect_to params.merge(:page => 1)
+      if collection.out_of_range? && params[:page].to_i > 1
+        redirect_to url_for params.merge(:page => 1)
+        return
       end
       build_breadcrumb :index
     end
@@ -51,7 +54,7 @@ class VehicleJourneysController < ChouetteController
       @vehicle_filter = VehicleFilter.new adapted_params
       @vehicle_filter.journey_category_model = resource_class.model_name.route_key
       @q = @vehicle_filter.vehicle_journeys.search @vehicle_filter.filtered_params
-      @vehicle_journeys = @q.result( :distinct => false ).paginate(:page => params[:page], :per_page => 8)
+      @vehicle_journeys = @q.result( :distinct => false ).page(params[:page]).per(8)
     end
     matrix
     @vehicle_journeys
@@ -61,7 +64,7 @@ class VehicleJourneysController < ChouetteController
   def adapted_params
     params.tap do |adapted_params|
       adapted_params.merge!( :route => parent)
-      hour_entry = "vehicle_journey_at_stops_departure_time_gt(4i)".to_sym
+      hour_entry = "vehicle_journey_at_stops_departure_time_gteq(4i)".to_sym
       if params[:q] && params[:q][ hour_entry]
         adapted_params[:q].merge! hour_entry => (params[:q][ hour_entry].to_i - utc_offset)
       end
@@ -88,7 +91,9 @@ class VehicleJourneysController < ChouetteController
                                              :route_id, :id, { vehicle_journey_at_stops_attributes: [ :arrival_time,
                                                                                                       :id, :_destroy,
                                                                                                       :stop_point_id,
-                                                                                                      :departure_time] } )
+                                                                                                      :departure_time,
+                                                                                                      :departure_day_offset,
+                                                                                                      :arrival_day_offset] } )
   end
 
 end

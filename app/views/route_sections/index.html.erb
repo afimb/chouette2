@@ -44,8 +44,10 @@
       <td class="journey_patterns"><%= route_section.journey_pattern_sections.count(:journey_pattern_id, distinct: true) %></td>
       <td class="actions">
         <%= link_to t('.actions.show'), referential_route_section_path(@referential, route_section), class: "view" %>
-        <%= link_to t('.actions.edit'), edit_referential_route_section_path(@referential, route_section), class: "edit" %>
-        <%= link_to t('.actions.destroy'), referential_route_section_path(@referential, route_section), method: :delete, data: { confirm: t('route_sections.actions.destroy_confirm') }, class: "remove" %>
+        <% if policy(:application).write? %>
+          <%= link_to t('.actions.edit'), edit_referential_route_section_path(@referential, route_section), class: "edit" %>
+          <%= link_to t('.actions.destroy'), referential_route_section_path(@referential, route_section), method: :delete, data: { confirm: t('route_sections.actions.destroy_confirm') }, class: "remove" %>
+        <% end %>
       </td>
     </tr>
     <% end %>
@@ -53,6 +55,4 @@
 
 </table>
 
-<div class="pagination">
-  <%= will_paginate @route_sections, :container => false, renderer: RemoteBootstrapPaginationLinkRenderer %>
-</div>
+<%= render 'shared/paginate', { datas: @route_sections } %>

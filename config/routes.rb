@@ -1,7 +1,8 @@
 ChouetteIhm::Application.routes.draw do
 
   devise_for :users, :controllers => {
-    :registrations => 'users/registrations', :invitations => 'users/invitations'
+    :registrations => 'users/registrations', :invitations => 'users/invitations',
+    :omniauth_callbacks => 'users/omniauth_callbacks'
   }
 
   devise_scope :user do
@@ -10,7 +11,10 @@ ChouetteIhm::Application.routes.draw do
     end
     unauthenticated :user do
       root :to => 'devise/sessions#new', as: :unauthenticated_root
+      get '/additionnal_fields', to: 'users#additionnal_fields'
+      post '/save_additionnal_fields', to: 'users#save_additionnal_fields'
     end
+    
   end
 
   namespace :api do
@@ -39,6 +43,8 @@ ChouetteIhm::Application.routes.draw do
 
   resource :organisation, :only => [:show, :edit, :update] do
     resources :users
+    get '/role/edit/:id', to: 'users#role_edit', as: 'user_role_edit'
+    patch '/role/update/:id', to: 'users#role_update', as: 'user_role_update'
     resources :rule_parameter_sets
   end
 
@@ -90,6 +96,7 @@ ChouetteIhm::Application.routes.draw do
         get "imported_file"
         get "rule_parameter_set"
         get "compliance_check"
+        get 'progress'
         get 'export', defaults: { format: 'zip' }
       end
     end
@@ -103,6 +110,9 @@ ChouetteIhm::Application.routes.draw do
     resources :exports, :only => [:index, :show, :destroy]  do
       member do
         get "exported_file"
+        get "compliance_check"
+        get 'progress'
+        get 'export', defaults: { format: 'zip' }
       end
     end
 
@@ -116,7 +126,9 @@ ChouetteIhm::Application.routes.draw do
       member do
         get 'export', defaults: { format: 'zip' }
         get 'report'
+        get 'progress'
         get 'rule_parameter_set'
+        get 'download_validation'
       end
       collection do
         get 'references'
@@ -176,6 +188,9 @@ ChouetteIhm::Application.routes.draw do
     end
   end
   root :to => "referentials#index"
+
+  get '/statistics', :to => 'statistics#index'
+  get '/statistics/export', :to => 'statistics#export'
 
   get '/help/(*slug)' => 'help#show'
 

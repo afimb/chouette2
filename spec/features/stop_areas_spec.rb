@@ -36,7 +36,7 @@ describe "StopAreas", :type => :feature do
       click_link "Ajouter un arrêt"
       fill_in "stop_area_name", :with => "StopArea 1"
       fill_in "Numéro d'enregistrement", :with => "test-1"
-      fill_in "Identifiant Neptune", :with => "test:StopArea:1"        
+      fill_in "Identifiant Métier", :with => "test:StopArea:1"
       click_button("Créer arrêt")
       expect(page).to have_content("StopArea 1")
     end

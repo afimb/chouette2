@@ -1,6 +1,8 @@
 class ExportTasksController < ChouetteController
+  before_action :check_authorize, except: [:show, :index, :references]
+
   defaults :resource_class => ExportTask
-  
+
   respond_to :html, :only => [:new, :create]
   respond_to :js, :only => [:new, :create]
   belongs_to :referential
@@ -9,20 +11,20 @@ class ExportTasksController < ChouetteController
     @available_exports = available_exports
     begin
       new!
-    rescue Ievkit::Error, Faraday::Error => error
+    rescue Ievkitdeprecated::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t(error.locale_for_error)
       redirect_to referential_path(@referential)
     end
   end
-  
+
   def create
     @available_exports = available_exports
-    begin            
+    begin
       create! do |success, failure|
         success.html { redirect_to referential_exports_path(@referential) }
       end
-    rescue Ievkit::Error, Faraday::Error => error
+    rescue Ievkitdeprecated::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t(error.locale_for_error)
       redirect_to referential_path(@referential)
@@ -62,7 +64,7 @@ class ExportTasksController < ChouetteController
     end
   end
 
-  def build_resource    
+  def build_resource
     @export_task ||= if params[:export_task].present?
                        export_task_parameters = params[:export_task]
                        export_task_parameters[:reference_ids] = export_task_parameters[:reference_ids].to_s.split(',').map(&:to_i)
@@ -82,5 +84,5 @@ class ExportTasksController < ChouetteController
                        NeptuneExport.new
                      end
   end
-  
+
 end

@@ -30,7 +30,7 @@ describe "TimeTables", :type => :feature do
       visit referential_time_tables_path(referential)
       click_link "Ajouter un calendrier"
       fill_in "Nom", :with => "TimeTable 1"
-      fill_in "Identifiant Neptune", :with => "test:Timetable:1"
+      fill_in "Identifiant Métier", :with => "test:Timetable:1"
       click_button("Créer calendrier")
       expect(page).to have_content("TimeTable 1")
     end

@@ -15,7 +15,7 @@ class Import
     Rails.cache.fetch("#{cache_key}/action_report", expires_in: cache_expiration) do
       report_path = links["action_report"]
       if report_path
-        response = Ievkit.get(report_path)
+        response = Ievkitdeprecated.get(report_path)
         ImportReport.new(response)
       else
         nil
@@ -31,7 +31,7 @@ class Import
     Rails.cache.fetch("#{cache_key}/validation_params", expires_in: cache_expiration) do
       rule_parameter_set_path = links["validation_params"]
       if rule_parameter_set_path
-        response = Ievkit.get(rule_parameter_set_path)
+        response = Ievkitdeprecated.get(rule_parameter_set_path)
         rule_parameter_set = RuleParameterSet.new(:name => "", :import => self).tap { |rps| rps.parameters = response.validation }
       else
         nil
@@ -48,7 +48,7 @@ class Import
     Rails.cache.fetch("#{cache_key}/validation_report", expires_in: cache_expiration) do
       compliance_check_path = links["validation_report"]
       if compliance_check_path
-        response = Ievkit.get(compliance_check_path)
+        response = Ievkitdeprecated.get(compliance_check_path)
         ComplianceCheckResult.new(response)
       else
         nil
@@ -61,9 +61,9 @@ class Import
     cancel_path = links["cancel"]
 
     if delete_path
-      Ievkit.delete(delete_path)
+      Ievkitdeprecated.delete(delete_path)
     elsif cancel_path
-      Ievkit.delete(cancel_path)
+      Ievkitdeprecated.delete(cancel_path)
     else
       nil
     end

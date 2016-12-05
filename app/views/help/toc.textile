@@ -47,5 +47,4 @@ h3. Sommaire
 ## "Modification des arrêts d'une ligne":stopsmanagement
 ## "Suppression des courses obsolètes parmi d'autres valides":vehicle_journeys_cleaning
 ## "Itinéraire valables le temps d'une saison":temporaryline
-## "Contraintes de l'export HUB":hubexport
 ## "Glossaire":terms

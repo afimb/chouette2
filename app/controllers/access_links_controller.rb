@@ -1,4 +1,6 @@
 class AccessLinksController < ChouetteController
+  before_action :check_authorize, except: [:show, :index]
+
   defaults :resource_class => Chouette::AccessLink
 
   belongs_to :referential do
@@ -81,7 +83,7 @@ class AccessLinksController < ChouetteController
     @access_links ||=
       begin
         access_links = @q.result(:distinct => true).order(:name)
-        access_links = access_links.paginate(:page => params[:page]) if @per_page.present?
+        access_links = access_links.page(params[:page]) if @per_page.present?
         access_links
       end
   end

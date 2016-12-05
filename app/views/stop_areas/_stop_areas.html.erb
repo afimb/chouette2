@@ -4,6 +4,4 @@
 <div class="stop_areas paginated_content">
     <%= paginated_content(@stop_areas) %>
 </div>
-<div class="pagination">
-  <%= will_paginate @stop_areas, :container => false, renderer: RemoteBootstrapPaginationLinkRenderer %>
-</div>
+<%= render 'shared/paginate', { datas: @stop_areas } %>

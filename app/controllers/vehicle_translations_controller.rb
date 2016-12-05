@@ -1,4 +1,5 @@
 class VehicleTranslationsController < ChouetteController
+  before_action :check_authorize, except: [:show, :index]
   respond_to :js, :only => [:new, :create]
 
   belongs_to :referential do
@@ -29,6 +30,7 @@ class VehicleTranslationsController < ChouetteController
       if @vehicle_translation.valid?
         @vehicle_translation.translate
         flash[:notice] = t('vehicle_translations.success', :count => @vehicle_translation.count)
+        @vehicle_translation = nil # Used to remove Form from vehicle_translations/_translate_form
       else
         flash[:alert] = @vehicle_translation.errors[ :vehicle_journey_id] unless @vehicle_translation.errors[ :vehicle_journey_id].empty?
       end

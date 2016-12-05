@@ -1,5 +1,7 @@
 # coding: utf-8
 class ImportTasksController < ChouetteController
+  before_action :check_authorize, except: [:show, :index]
+
   defaults :resource_class => ImportTask
 
   respond_to :html, :only => [:new, :create]
@@ -10,7 +12,7 @@ class ImportTasksController < ChouetteController
     @available_imports = available_imports
     begin
       new!
-    rescue Ievkit::Error, Faraday::Error => error
+    rescue Ievkitdeprecated::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t('iev.exception.default')
       redirect_to referential_path(@referential)
@@ -23,7 +25,7 @@ class ImportTasksController < ChouetteController
       create! do |success, failure|
         success.html { redirect_to referential_imports_path(@referential) }
       end
-    rescue Ievkit::Error, Faraday::Error => error
+    rescue Ievkitdeprecated::Error, Faraday::Error => error
       logger.error("Iev failure : #{error.message}")
       flash[:error] = t('iev.exception.default')
       redirect_to referential_path(@referential)

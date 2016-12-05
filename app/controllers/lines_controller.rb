@@ -1,4 +1,6 @@
 class LinesController < ChouetteController
+  before_action :check_authorize, except: [:show, :index, :name_filter]
+
   defaults :resource_class => Chouette::Line
   respond_to :html
   respond_to :xml
@@ -11,8 +13,9 @@ class LinesController < ChouetteController
   def index
     index! do |format|
       format.html {
-        if collection.out_of_bounds?
-          redirect_to params.merge(:page => 1)
+        if collection.out_of_range? && params[:page].to_i > 1
+          redirect_to url_for params.merge(:page => 1)
+          return
         end
         build_breadcrumb :index
       }
@@ -77,7 +80,7 @@ class LinesController < ChouetteController
     end
 
     @q = referential.lines.search(params[:q])
-    @lines ||= @q.result(:distinct => true).order(:number).paginate(:page => params[:page]).includes([:network, :company])
+    @lines ||= @q.result(:distinct => true).order(:number).page(params[:page]).includes([:network, :company])
   end
 
   private

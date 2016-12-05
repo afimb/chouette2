@@ -1,8 +1,0 @@
-fr:
-  area_types:
-    label:
-      boarding_position: "Point d'embarquement"
-      quay: "Quai"
-      commercial_stop_point: "Arrêt commercial"
-      stop_place: "Pôle d'échange"
-      itl: "ITL"

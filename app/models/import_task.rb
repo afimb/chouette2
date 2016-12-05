@@ -45,7 +45,7 @@ class ImportTask
 
       # Call Iev Server
       begin
-        Ievkit.create_job(referential.slug, "importer", data_format, {
+        Ievkitdeprecated.create_job(referential.slug, "importer", data_format, {
                             :file1 => params_io,
                             :file2 => transport_data_io
                           }

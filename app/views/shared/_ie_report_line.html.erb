@@ -60,7 +60,7 @@
       <tr>
         <td colspan="10">
           <% if line_items.respond_to?(:total_pages) %>
-            <%= will_paginate line_items, renderer: BootstrapPagination::Rails %>
+            <%= render 'shared/paginate', { datas: line_items } %>
           <% else %>
             <ul class="pagination pagination-centered hide-if-no-paging"></ul>
           <% end %>

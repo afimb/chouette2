@@ -1,0 +1,10 @@
+.ce- {
+  &chartBlock {
+    text-align:center;
+    > div {
+      width: 30%;
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+}

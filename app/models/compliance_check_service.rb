@@ -8,13 +8,13 @@ class ComplianceCheckService
 
   # Find a validation whith this id
   def find(id)
-    ComplianceCheck.new(Ievkit.scheduled_job(referential.slug, id, { :action => "validator" }))
+    ComplianceCheck.new(Ievkitdeprecated.scheduled_job(referential.slug, id, { :action => "validator" }))
   end
 
   # Find all validations
   def all
     [].tap do |jobs|
-      Ievkit.jobs(referential.slug, { :action => "validator" }).each do |job|
+      Ievkitdeprecated.jobs(referential.slug, { :action => "validator" }).each do |job|
         jobs << ComplianceCheck.new(job)
       end
     end

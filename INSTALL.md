@@ -18,7 +18,7 @@ brew install libffi geos proj
 ```
 
 If your Linux distribution doesn't publish an RVM package,
-install [RVM from sources](./doc/install/rvm.md) 
+install [RVM from sources](./doc/install/rvm.md)
 
 Install ruby 2.1.x
 ```sh
@@ -66,12 +66,16 @@ cp config/application.example.yml config/application.yml
 3. Fill **secret_key_base** and **devise_secret_key** by executing `rake secret` in your terminal
    See [Rails documentation](http://guides.rubyonrails.org/4_1_release_notes.html#config-secrets-yml)
 4. Configure the Chouette IEV Web Service url `api_endpoint`
-5. Configure the Google Analytics Key `google_analytic_tracker`
+5. Configure the Google Analytics Key `google_analytics_tracker`
    See [Google Analytics](https://www.google.fr/intl/fr/analytics/)
 6. Configure the IGN Géoportail Key `geoportail_api_key`
    See [API Géoportail documentation](http://api.ign.fr/accueil)
 7. Configure OSRM Backend URL `osrm_endpoint`
    See [Project-OSRM](https://github.com/Project-OSRM/osrm-backend/wiki/Api-usage-policy)
+8. If you want to enable Google oauth2 authentification `google_client_id` and `google_secret_id`
+   See [Google Oauth2](https://console.developers.google.com)
+9. If you want to enable Facebook oauth2 authentification `facebook_client_id` and `facebook_secret_id`
+   See [Facebook Oauth2](https://developers.facebook.com)
 
 Chouette2 database configuration
 --------------------------------

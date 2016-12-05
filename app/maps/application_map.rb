@@ -49,18 +49,30 @@ class ApplicationMap
 
   def map
     @map ||= MapLayers::Map.new(id, :projection => projection("EPSG:900913"), :controls => controls) do |map, page|
+
+      layers = {
+        osm: MapLayers::OSM_MAPNIK,
+        google_physical: google_physical,
+        google_streets: google_streets,
+        google_hybrid: google_hybrid,
+        google_satellite: google_satellite
+      }
+
       if self.geoportail_key
-        page << map.add_layer(geoportail_ortho_wmts)
-        page << map.add_layer(geoportail_scans_wmts)
-        page << map.add_layer(geoportail_cadastre_wmts)
+        layers[:geoportail_ortho] = geoportail_ortho_wmts
+        layers[:geoportail_scans] = geoportail_scans_wmts
+        layers[:geoportail_cadastre] = geoportail_cadastre_wmts
       end
 
-      page << map.add_layer(MapLayers::OSM_MAPNIK)
-      #page << map.add_layers([geoportail_scans, geoportail_ortho])
-      page << map.add_layer(google_physical)
-      page << map.add_layer(google_streets)
-      page << map.add_layer(google_hybrid)
-      page << map.add_layer(google_satellite)
+      if Rails.application.secrets.openlayers_default_map.present?
+        default_map = Rails.application.secrets.openlayers_default_map.to_sym
+        base_layer = layers.delete(default_map)
+        layers = { default_map => base_layer }.merge(layers)
+      end
+
+      layers.each do |_key, layer|
+        page << map.add_layer(layer)
+      end
 
       customize_map(map,page) if respond_to?( :customize_map)
     end
@@ -134,31 +146,31 @@ class ApplicationMap
                                               :renderIntent => "temporary",
                                               :eventListeners => {
                                                 :featurehighlighted => JsExpr.new("function(e) {
-          var feature = e.feature ;
-          if (feature.attributes.inactive != undefined)
-            return;
-          var stop_area_type_label = '';
-          if (feature.attributes.stop_area_type_label != undefined)
-            stop_area_type_label = feature.attributes.stop_area_type_label;
-          var popup = new OpenLayers.Popup.Anchored('chicken',
-                                                 new OpenLayers.LonLat(feature.geometry.x, feature.geometry.y),
-                                                 null,
-                                                 \"<div class='popup_hover'><p><b>\" + feature.attributes.name +\"</b></p>\" + stop_area_type_label + \"</div> \", null, false, null);
-          popup.autoSize = true;
-          popup.displayClass = 'popup_hover';
-
-          feature.popup = popup;
-          map.addPopup(popup);
-        }"),
-                                                :featureunhighlighted => JsExpr.new("function(e) {
-          var feature = e.feature;
-          if (feature.attributes.inactive != undefined)
-            return;
-          map.removePopup(feature.popup);
-          feature.popup.destroy();
-          feature.popup = null;
-        }")
-                                              } } )
+                                                  var feature = e.feature ;
+                                                  if (feature.attributes.inactive != undefined)
+                                                    return;
+                                                  var stop_area_type_label = '';
+                                                  if (feature.attributes.stop_area_type_label != undefined)
+                                                    stop_area_type_label = feature.attributes.stop_area_type_label;
+                                                  var popup = new OpenLayers.Popup.Anchored('chicken',
+                                                                                         new OpenLayers.LonLat(feature.geometry.x, feature.geometry.y),
+                                                                                         null,
+                                                                                         \"<div class='popup_hover'><p><b>\" + feature.attributes.name +\"</b></p>\" + stop_area_type_label + \"</div> \", null, false, null);
+                                                  popup.autoSize = true;
+                                                  popup.displayClass = 'popup_hover';
+                                                  feature.popup = popup;
+                                                  map.addPopup(popup);
+                                                }"),
+                                                :featureunhighlighted => JsExpr.new('function(e) {
+                                                  var feature = e.feature;
+                                                  if (feature.attributes.inactive != undefined)
+                                                    return;
+                                                  map.removePopup(feature.popup);
+                                                  feature.popup.destroy();
+                                                  feature.popup = null;
+                                                }')
+                                              }
+    })
   end
 
   def kml_layer(url_or_object, options_or_url_options = {}, options = nil)
@@ -181,7 +193,7 @@ class ApplicationMap
         helpers.polymorphic_path_patch( helpers.polymorphic_path([url_or_object.referential, url_or_object], url_options))
       end
 
-    protocol = OpenLayers::Protocol::HTTP.new :url => url, :format => kml
+    protocol = OpenLayers::Protocol.const_set('HTTP', Class.new(MapLayers::JsClass)).new :url => url, :format => kml
     OpenLayers::Layer::Vector.new name, {:projection => projection("EPSG:4326"), :strategies => [strategy_fixed], :protocol => protocol, :displayInLayerSwitcher => false}.merge(options)
   end
 

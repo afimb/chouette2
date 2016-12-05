@@ -29,7 +29,8 @@ class GtfsExport < ExportTask
         "time_zone" => real_time_zone,
         "object_id_prefix" => object_id_prefix,
         "start_date" => start_date,
-        "end_date" => end_date
+        "end_date" => end_date,
+        "valid_after_export" => valid_after_export
       }
     }
   end

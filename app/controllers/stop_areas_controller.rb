@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 class StopAreasController < ChouetteController
+  before_action :check_authorize, except: [:show, :index, :default_geometry, :zip_codes]
+
   defaults :resource_class => Chouette::StopArea
 
   belongs_to :referential do
@@ -51,8 +53,9 @@ class StopAreasController < ChouetteController
     @zip_codes = referential.stop_areas.collect(&:zip_code).compact.uniq
     index! do |format|
       format.html {
-        if collection.out_of_bounds?
-          redirect_to params.merge(:page => 1)
+        if collection.out_of_range? && params[:page].to_i > 1
+          redirect_to url_for params.merge(:page => 1)
+          return
         end
         build_breadcrumb :index
       }
@@ -128,7 +131,7 @@ class StopAreasController < ChouetteController
     @stop_areas ||=
       begin
         stop_areas = @q.result(:distinct => true).order(:name)
-        stop_areas = stop_areas.paginate(:page => params[:page], :per_page => @per_page) if @per_page.present?
+        stop_areas = stop_areas.page(params[:page]).per(@per_page) if @per_page.present?
         stop_areas
       end
   end

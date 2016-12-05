@@ -1,7 +1,7 @@
 sudo: false
 language: ruby
 addons:
-  postgresql: "9.3"
+  postgresql: "9.4"
   apt:
     packages:
     - build-essential
@@ -15,41 +15,17 @@ addons:
     - libxml2-dev
     - libbz2-dev
 rvm:
-  - 1.9.3
-  - 2.1.7
-  - 2.2.3
-  - 2.3.0
-  - jruby-19mode
-  - jruby-head
-jdk:
-  - oraclejdk7
-  - openjdk7
-matrix:
-  exclude:
-    - rvm: 1.9.3
-      jdk: openjdk7
-    - rvm: 2.1.7
-      jdk: openjdk7
-    - rvm: 2.2.3
-      jdk: openjdk7
-    - rvm: 2.3.0
-      jdk: openjdk7
-  allow_failures:
-    - rvm: jruby-head
-      jdk: oraclejdk7
-    - rvm: jruby-head
-      jdk: openjdk7
+  - 2.2.5
+  - 2.3.1
 notifications:
   email:
     - mflorisson@cityway.fr
     - bruno@atnos.com
     - metienne@cityway.fr
-    - alban.peignier@af83.com
-    - anicet.rohee@af83.com
+    - gjamot@cityway.fr
 before_install:
   - gem update bundler
 before_script:
-  - export JRUBY_OPTS="-J-XX:MaxPermSize=128m"
   - bundle exec rake ci:db_travis_config
   - bundle exec rake db:create
   - bundle exec rake db:migrate

@@ -13,7 +13,7 @@
         OpenLayers.ImgPath = "<%= polymorphic_path_patch("/assets/openlayers/") %>";
       </script>
     <% end %>
-    <%= analytics_init if Rails.env.production? %>
+    <%= analytics_init if Rails.application.secrets.google_analytics_tracker.present? && GoogleAnalytics.valid_tracker? && Rails.env.production? %>
     <%= csrf_meta_tag %>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
@@ -24,16 +24,18 @@
     </div>
     <div id="middle" class="container">
       <div class="row">
-        <div class="<%= content_for?(:sidebar) ? 'col-md-9' : 'col-md-12' %>">
+        <div class="<%= content_for?(:sidebar) && policy(:application).write? ? 'col-md-9' : 'col-md-12' %>">
           <div id="workspace" class="<%= controller_name %> <%= action_name %>">
             <%= render partial: "shared/flash_messages", flash: flash %>
             <%= render partial: "shared/breadcrumb" %>
             <%= yield %>
           </div>
         </div>
-        <div id="sidebar" class="<%= content_for?(:sidebar) ? 'col-md-3' : '' %>">
-          <%= yield :sidebar %>
-        </div>
+        <% if policy(:application).write? %>
+          <div id="sidebar" class="<%= content_for?(:sidebar) ? 'col-md-3' : '' %>">
+            <%= yield :sidebar %>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="clearfix"></div>

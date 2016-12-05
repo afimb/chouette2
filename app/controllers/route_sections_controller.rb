@@ -1,4 +1,5 @@
 class RouteSectionsController < ChouetteController
+  before_action :check_authorize, except: [:show, :index]
 
   defaults :resource_class => Chouette::RouteSection
 
@@ -59,7 +60,7 @@ class RouteSectionsController < ChouetteController
     # if q = params[:q]
     #   @route_sections ||= Chouette::RouteSection.joins(:departure, :arrival).where(departure: {name: "#{q}"}).or.where(arrival: {name: "#{q}"})
     # end
-    @route_sections ||= search.collection.includes(:departure, :arrival).paginate page: params[:page]
+    @route_sections ||= search.collection.includes(:departure, :arrival).page(params[:page])
   end
 
   def search

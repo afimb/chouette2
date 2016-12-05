@@ -55,6 +55,9 @@ Rails.application.configure do
   #  config.logger = Logger.new("C:/chouette/logs/chouette2.log", 5, 10.megabytes)
   config.logger = Logger.new(STDOUT)
 
+  # Google analytics tracker
+  GA.tracker = Rails.application.secrets.google_analytics_tracker
+
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
 

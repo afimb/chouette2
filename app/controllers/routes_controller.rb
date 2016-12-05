@@ -1,4 +1,6 @@
 class RoutesController < ChouetteController
+  before_action :check_authorize, except: [:show, :index]
+
   defaults :resource_class => Chouette::Route
 
   respond_to :html, :xml, :json
@@ -69,7 +71,7 @@ class RoutesController < ChouetteController
     @routes ||=
       begin
         routes = @q.result(:distinct => true).order(:name)
-        routes = routes.paginate(:page => params[:page]) if @per_page.present?
+        routes = routes.page(params[:page]) if @per_page.present?
         routes
       end
   end

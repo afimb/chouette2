@@ -184,6 +184,7 @@ class VehicleJourneyImport
           end
         end         
       end
+      vehicle_journey.recalculate_offset = true
       vehicle_journeys << vehicle_journey
     end
     
@@ -199,5 +200,4 @@ class VehicleJourneyImport
       raise "Unknown file type: #{file.original_filename}"
     end
   end
-  
 end

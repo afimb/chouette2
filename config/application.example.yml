@@ -2,11 +2,12 @@ domain_name: 'chouette.mobi'
 secret_key_base: # Generate with `bundle exec rake secret`
 devise_secret_key: # Generate with `bundle exec rake secret`
 api_endpoint: 'http://localhost:8080/chouette_iev/'
-google_analytic_tracker:
+google_analytics_tracker:
 geoportail_api_key:
 newrelic_licence_key:
 osrm_endpoint: 'http://router.project-osrm.org'
-app_version: '3.3.0'
+osrm_secondary_endpoint: # For example : 'http://localhost:5000'
+prefix_application_version: '' # If you want to display a prefix before the application version
 deactivate_formats_referential: # For example: 'hub,sig,neptune'
 deactivate_formats_import: # For example: 'hub,sig,neptune'
 deactivate_formats_export: # For example: 'hub,sig,neptune'
@@ -19,3 +20,20 @@ smtp_password:
 smtp_authentication:
 mailer_sender: 'no-reply@chouette.mobi'
 capistrano_deploy_user:
+openlayers_default_map: # For example: 'osm' or 'google_stellite' or 'geoportail_ortho' or 'geoportail_scans' or 'geoportail_cadastre'
+restriction_format: # For example: 'hub'
+IEV_VERSION: '1.0'
+IEV_HOST: 'http://localhost'
+IEV_PORT: '8080'
+IEV_PATH: 'chouette_iev'
+CHECK_GTE3: 'false' # false to check only 1 and 2 test | true to check all tests
+SPEC_VALIDATION_URL_PROD: 'http://www.chouette.mobi/validation/V2_3'
+SPEC_VALIDATION_URL: 'http://preview.chouette.cityway.fr/validation/v24'
+PROGRESS_BAR_TIMEOUT: '10000'
+iev_admin_key:
+facebook_client_id:
+facebook_secret_id:
+google_client_id:
+google_secret_id:
+openid_connect_client_id:
+openid_connect_secret_id:

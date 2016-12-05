@@ -4,9 +4,7 @@ module GroupOfLineRestrictions
   included do
     include ObjectidRestrictions
 
-    with_options if: :hub_restricted? do |g|
-      # HUB-11
-      g.validate :specific_objectid
+    with_options if: Proc.new { |o| o.format_restricted?(:hub) } do |g|
       # HUB-12
       #g.validates_length_of :name, :minimum => 1, :maximum => 75
       g.validates :name, length: { in: 1..75 }
@@ -18,8 +16,9 @@ module GroupOfLineRestrictions
                   numericality: { only_integer: true },
                   length: { in: 1..8 }
     end
-  end
-  def specific_objectid
-    validate_specific_objectid(6)
+
+    def self.specific_objectid_size
+      6
+    end
   end
 end

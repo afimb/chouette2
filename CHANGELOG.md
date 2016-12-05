@@ -1,4 +1,27 @@
-# Version 3.2.0 (en cours de recette)
+# Version 3.4.0 (28/10/16)
+  * Nouvelles fonctionnalités :
+    * Mise en place des gems Ievkit et IevkitViews pour une nouvelle présentation de la validations des données
+    * Ajout de la possibilité de sélectionner le fond de carte (OSM, Geoportail, Google) par défaut
+    * Modifications diverses afin de permettre une automatisation de la création des conteneurs docker : https://github.com/afimb/docker-chouette et https://hub.docker.com/r/afimb/
+    * Prise en compte des horaires après minuit
+    * Export des locales vers localeapp.com pour une centralisation des traductions
+  * Améliorations :
+    * Mise à jour des briques logicielles utilisées ( Rails 4.2 et plugins associés ) et version du langage Ruby ( 2.2 et 2.3 Le support des versions précédentes de Ruby n'est plus assuré )
+    * Mise à jour de la version d'OSRM en version 5 (Thank's @lassetyr)
+    * Mise à jour de l'API Google Maps
+    * Import de données : reporting des éventuelles anomalies avant mise à jour en base
+    * Affichage des types d'arrêt, y compris sur la carte
+    * OSRM : Possibilité de sélectionner un serveur miroir
+    * Filtre des courses sur horaire exclu
+    * Amélioration de la présentation des tracés
+    * Calcul des géométries manquantes sans info ni confirmation
+    * ... et diverses améliorations graphiques et fonctionnelles
+
+# Version 3.3.0
+* Nouvelles fonctionnalités :
+  * export SIG : nouvel export combinant les format KML et GeoJson
+
+# Version 3.2.0 (05/02/2016)
 * Nouvelles fonctionnalités
   * Gestion des courses en fréquences
   * Gestion des tracés de missions
