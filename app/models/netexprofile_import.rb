@@ -11,7 +11,8 @@ class NetexprofileImport < ImportTask
         "user_name" => user_name,
         "name" => name,
         "organisation_name" => organisation.name,
-        "referential_name" => referential.name
+        "referential_name" => referential.name,
+        "valid_codespaces" => valid_codespaces
       }
     }
   end
