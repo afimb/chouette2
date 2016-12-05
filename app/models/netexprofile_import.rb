@@ -11,8 +11,7 @@ class NetexprofileImport < ImportTask
         "user_name" => user_name,
         "name" => name,
         "organisation_name" => organisation.name,
-        "referential_name" => referential.name,
-        "profile_id" => profile_id,
+        "referential_name" => referential.name
       }
     }
   end
