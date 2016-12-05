@@ -1,8 +1,6 @@
 class NetexprofileImport < ImportTask
 
-  attr_accessor :profile_id
-
-  validates_presence_of :profile_id
+  attr_accessor :valid_codespaces
 
   def action_params
     {
