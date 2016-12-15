@@ -18,14 +18,10 @@ class IevkitJob
   end
 
   def is_terminated?
-    return false if @all_links.blank?
-    return true if terminated?
-    if @ievkit.terminated_job?(@all_links[:forwarding_url])
-      update_links
-      terminated!
-    else
-      false
-    end
+    psteps = progress_steps
+    psteps[:current_step] == psteps[:steps_count] &&
+    psteps[:current_step_realized] == psteps[:current_step_total] &&
+    psteps[:steps_percent] == psteps[:current_step_percent]
   end
 
   def result
@@ -33,17 +29,10 @@ class IevkitJob
   end
 
   def progress_steps
-    datas = {}
-    return { error_code: I18n.t("iev.errors.#{error_code.downcase}", default: error_code.downcase.humanize) } if error_code.present?
-    return datas if @all_links.blank?
-    if @all_links[:action_report].blank?
-      update_links
-    else
-      ievkit_views = IevkitViews::ActionReport.new(referential, @all_links[:action_report], 'action_report')
-      ievkit_views.progression
-      datas = ievkit_views.datas
-    end
-    datas
+    return {} if @all_links.blank?
+    ievkit_views = IevkitViews::ActionReport.new(referential, @all_links[:action_report], 'action_report')
+    ievkit_views.progression
+    ievkit_views.datas
   end
 
   def files_views(_type = nil)
@@ -103,31 +92,9 @@ class IevkitJob
   end
 
   def download_validation_report(default_view)
-    result, datas, errors = send("#{default_view}_views")
-    csv = []
-    datas.each do |el|
-      t = [el[:name], I18n.t("compliance_check_results.severities.#{el[:status]}"), el[:count_error], el[:count_warning]]
-      csv << t.join(';')
-      next unless el[:check_point_errors]
-      el[:check_point_errors].each do |index|
-        error = errors[index]
-        next unless error
-        t = ['']
-        if error[:source][:file] && error[:source][:file][:filename]
-          filename = [error[:source][:file][:filename]]
-          if error[:source][:file][:line_number].to_i > 0
-            filename << "#{I18n.t('report.file.line')} #{error[:source][:file][:line_number]}"
-          end
-          if error[:source][:file][:column_number].to_i > 0
-            filename << "#{I18n.t('report.file.column')} #{error[:source][:file][:column_number]}"
-          end
-          t << filename.join(' ')
-        end
-        t << error[:error_name]
-        csv << t.join(';')
-      end
-    end
-    [csv.join("\n"), filename: "#{@resource.name.parameterize}-#{Time.current.to_i}.csv"]
+    _result, data, _sum_report, errors = send("#{default_view}_views")
+    csv = @ievkit.download_validation_report(data, errors)
+    [csv, filename: "#{@resource.name.parameterize}-#{Time.current.to_i}.csv"]
   end
 
   def parameters

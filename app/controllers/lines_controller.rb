@@ -1,4 +1,6 @@
 class LinesController < ChouetteController
+  before_action :check_authorize, except: [:show, :index, :name_filter]
+
   defaults :resource_class => Chouette::Line
   respond_to :html
   respond_to :xml

@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'bundler', '~> 1.13.6'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.2.6'
+gem 'rails', '~> 4.2.7'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -50,9 +51,13 @@ gem 'activerecord-postgis-adapter', '~> 3.1.4'
 gem 'polylines'
 
 # Authentication
-gem 'devise', '~> 3.5.6'
+gem 'devise', '~> 3.5.10'
 gem 'devise-encryptable'
 gem 'devise_invitable'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-openid-connect'
 
 # Map, Geolocalization
 gem 'map_layers', '0.0.5'
@@ -83,7 +88,6 @@ gem 'inherited_resources'
 gem 'google-analytics-rails', '~> 1.1.0'
 
 # Model
-#gem 'will_paginate', '~> 3.1.0'
 gem 'ransack'
 gem 'squeel'
 gem 'kaminari', '~> 0.16.3'
@@ -110,6 +114,8 @@ gem 'letter_opener'
 gem 'migration_data'
 
 gem 'responders', '~> 2.0'
+
+gem 'pundit'
 
 group :development do
   gem 'capistrano', '2.13.5'
@@ -149,8 +155,8 @@ group :production do
 end
 
 # IEVKIT
-gem 'ievkit', git: 'https://github.com/afimb/ievkit.git', branch: 'develop'
-gem 'ievkit_views', git: 'https://github.com/afimb/ievkit_views.git', branch: 'develop'
+gem 'ievkit', '~> 0.3.0' #, git: 'https://github.com/afimb/ievkit.git', branch: 'develop'
+gem 'ievkit_views', '~> 0.2.2' #, git: 'https://github.com/afimb/ievkit_views.git', branch: 'develop'
 
 # I18n
 gem 'rails-i18n', '~> 4.0.0'
@@ -170,7 +176,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-typeahead.js', '~> 0.10.5'
   gem 'rails-assets-typeahead.js-bootstrap3.less'
   gem 'rails-assets-respond'
-  gem 'rails-assets-eonasdan-bootstrap-datetimepicker', '~> 3.1.3'
+  gem 'rails-assets-eonasdan-bootstrap-datetimepicker', '~> 3.1.4'
   gem 'rails-assets-jquery-tokeninput', '~> 1.7.0'
 
   gem 'rails-assets-modernizr', '~> 2.0.6'

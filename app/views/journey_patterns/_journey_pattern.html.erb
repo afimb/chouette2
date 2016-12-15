@@ -1,15 +1,17 @@
 <div id="index_item" class="panel panel-default journey_pattern">
   <div class="panel-heading">
     <div class="panel-title clearfix">
-      <span class="pull-right">
-        <%= link_to referential_line_route_journey_pattern_path(@referential, @line, @route, journey_pattern), :method => :delete, :data => {:confirm =>  t('journey_patterns.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
-          <span class="fa fa-trash-o"></span>
-        <% end %>
-      </span>
+      <% if policy(:application).write? %>
+        <span class="pull-right">
+          <%= link_to referential_line_route_journey_pattern_path(@referential, @line, @route, journey_pattern), :method => :delete, :data => {:confirm =>  t('journey_patterns.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
+            <span class="fa fa-trash-o"></span>
+          <% end %>
+        </span>
+      <% end %>
       <h5>
         <%= link_to([@referential, @line, @route, journey_pattern], :class => "preview", :title => "#{Chouette::JourneyPattern.model_name.human.capitalize} #{journey_name(journey_pattern)}") do %>
         <span class="name">
-          <%= truncate(journey_name(journey_pattern), :length => 50) %>
+          <%= truncate(journey_name(journey_pattern), :length => 20) %>
         </span>
         <% end %>
       </h5>

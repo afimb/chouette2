@@ -1,4 +1,6 @@
 class ApiKeysController < ChouetteController
+  before_action :check_authorize, except: [:show, :index]
+
   defaults :resource_class => Api::V1::ApiKey
 
   belongs_to :referential
@@ -16,7 +18,7 @@ class ApiKeysController < ChouetteController
   private
   def api_key_params
     params.require(:api_key).permit( :name )
-  end  
-  
+  end
+
 end
 

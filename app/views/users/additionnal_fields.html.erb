@@ -1,0 +1,10 @@
+<%= title_tag t('.title') %>
+<%= simple_form_for @user, :url => save_additionnal_fields_path, html: {class: 'form-horizontal' } do |form| %>
+  <%= form.input :email %>
+  <%= form.simple_fields_for :organisation do |organisation| %>
+        <%= organisation.input :name, :label => 'Organisation' %>
+  <% end %>
+  <div class="form-actions">
+    <%= form.button :submit, :as => :button %>
+  </div>
+<% end %>

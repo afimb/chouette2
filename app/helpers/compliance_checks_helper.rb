@@ -39,17 +39,13 @@ module ComplianceChecksHelper
   end
 
   def object_url (referential_id, error)
-    location = "/referentials/" + referential_id.to_s
-    object_path = error[:source].object_path
-    if object_path.first[:type] == "vehicle_journey"
-      object_path.delete_at 1
-    end
-    types, identifiers = object_path.reverse.map { |resource| [ resource[:type], resource[:id] ] }.transpose
-
+    location = "/referentials/#{referential_id}"
+    object_path = error[:source][:object_path]
+    object_path.delete_at(1) if object_path.first['type'] == "vehicle_journey"
+    types, identifiers = object_path.reverse.map { |resource| [ resource['type'], resource['id'] ] }.transpose
     method_name = (['referential'] + types + ['path']).join('_')
     identifiers.unshift referential_id
-
-    return send method_name, *identifiers
+    return identifiers.include?(nil) ? false : (send(method_name, *identifiers))
   rescue => e
     Rails.logger.error "Error: #{e.message}"
   end
