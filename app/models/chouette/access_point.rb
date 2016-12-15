@@ -1,8 +1,7 @@
 require 'geokit'
 require 'geo_ruby'
 
-class Chouette::AccessPoint < ApplicationRecord
-  include ObjectidRestrictions
+class Chouette::AccessPoint < Chouette::TridentActiveRecord
   # FIXME http://jira.codehaus.org/browse/JRUBY-6358
   self.primary_key = "id"
   include Geokit::Mappable
@@ -10,10 +9,10 @@ class Chouette::AccessPoint < ApplicationRecord
 
   has_many :access_links, :dependent => :destroy
   belongs_to :stop_area
-
+  
   attr_accessor :access_point_type
   attr_writer :coordinates
-
+  
   validates_presence_of :name
   validates_presence_of :access_type
 
@@ -34,14 +33,14 @@ class Chouette::AccessPoint < ApplicationRecord
     if self.latitude.nil? || self.longitude.nil?
       ""
     else
-      self.latitude.to_s+","+self.longitude.to_s
+      self.latitude.to_s+","+self.longitude.to_s 
     end
   end
-
+  
   def coordinates
       @coordinates || combine_lat_lng
   end
-
+  
   def coordinates_to_lat_lng
     if ! @coordinates.nil?
       if @coordinates.empty?
@@ -51,9 +50,9 @@ class Chouette::AccessPoint < ApplicationRecord
         self.latitude = BigDecimal.new(@coordinates.split(",").first)
         self.longitude = BigDecimal.new(@coordinates.split(",").last)
       end
-      @coordinates = nil
+      @coordinates = nil 
     end
-  end
+  end  
 
   def to_lat_lng
     Geokit::LatLng.new(latitude, longitude) if latitude and longitude
@@ -68,7 +67,7 @@ class Chouette::AccessPoint < ApplicationRecord
     self.latitude, self.longitude, self.long_lat_type = geometry.lat, geometry.lng, "WGS84"
   end
 
-  def position
+  def position 
     geometry
   end
 
@@ -79,7 +78,7 @@ class Chouette::AccessPoint < ApplicationRecord
     self.longitude = position.lng
   end
 
-  def default_position
+  def default_position 
     stop_area.geometry or stop_area.default_position
   end
 
@@ -88,7 +87,7 @@ class Chouette::AccessPoint < ApplicationRecord
     access_type && Chouette::AccessPointType.new(access_type.underscore)
   end
 
-  def access_point_type=(access_point_type)
+  def access_point_type=(access_point_type)   
     self.access_type = (access_point_type ? access_point_type.camelcase : nil)
   end
 

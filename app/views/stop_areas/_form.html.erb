@@ -1,7 +1,7 @@
 <%= semantic_form_for [@referential, @stop_area] do |form| %>
   <div class="row">
     <div class="container-fluid">
-      <% if @map %>
+      <% if !manage_itl && @map %>
         <%= @map.to_html %>
       <% end %>
       <%= form.inputs do %>
@@ -41,9 +41,11 @@
   <div class="pmr_info">
     <h3><%= t("stop_areas.stop_area.accessibility") %></h3>
     <%= form.inputs do %>
+      <% if !manage_itl %>
 	    <%= form.input :mobility_restricted_suitability, :as => :select, :collection => [[t("true"), true], [t("false"), false]], :include_blank => true %>
 	    <%= form.input :stairs_availability, :as => :select, :collection => [[t("true"), true], [t("false"), false]], :include_blank => true %>
 	    <%= form.input :lift_availability, :as => :select, :collection => [[t("true"), true], [t("false"), false]], :include_blank => true %>
+      <% end %>
     <% end %>
   </div>
 

@@ -11,7 +11,6 @@ require 'capybara/poltergeist'
 require 'georuby-ext'
 require 'fakeweb'
 require 'simplecov'
-require "pundit/rspec"
 SimpleCov.start 'rails' do
   add_filter "/.bundle"
 end
@@ -35,23 +34,6 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
-module PunditViewPolicy
-  extend ActiveSupport::Concern
-
-  included do
-    before do
-      controller.singleton_class.class_eval do
-        def policy(instance)
-          Class.new do
-            def method_missing(*args, &block); true; end
-          end.new
-        end
-        helper_method :policy
-      end
-    end
-  end
-end
-
 RSpec.configure do |config|
 
   #Capybara.exact = true
@@ -59,7 +41,6 @@ RSpec.configure do |config|
   config.filter_run_excluding :js => true
   config.run_all_when_everything_filtered = true
   config.include TokenInputHelper, :type => :feature
-  config.include PunditViewPolicy, type: :view
 
   # ## Mock Framework
   #

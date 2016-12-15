@@ -12,10 +12,10 @@ describe Chouette::Line, :type => :model do
   # it { should validate_presence_of :objectid }
   it { is_expected.to validate_uniqueness_of :objectid }
 
-  # describe '#objectid' do
-  #   subject { super().objectid }
-  #   it { is_expected.to be_kind_of(Chouette::ObjectId) }
-  # end
+  describe '#objectid' do
+    subject { super().objectid }
+    it { is_expected.to be_kind_of(Chouette::ObjectId) }
+  end
 
   # it { should validate_numericality_of :objectversion }
 

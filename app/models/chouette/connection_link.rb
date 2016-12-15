@@ -1,5 +1,4 @@
-class Chouette::ConnectionLink < ApplicationRecord
-  include ObjectidRestrictions
+class Chouette::ConnectionLink < Chouette::TridentActiveRecord
   include ConnectionLinkRestrictions
   # FIXME http://jira.codehaus.org/browse/JRUBY-6358
   self.primary_key = "id"

@@ -2,6 +2,8 @@ module LineRestrictions
   extend ActiveSupport::Concern
 
   included do
+    include ObjectidRestrictions
+
     with_options if: Proc.new { |o| o.format_restricted?(:hub) } do |l|
       # HUB-16
       l.validates :number, length: { in: 1..6 }, format: { with: /\A[\w]+\z/ }

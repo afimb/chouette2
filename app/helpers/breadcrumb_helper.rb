@@ -35,8 +35,6 @@ module BreadcrumbHelper
       route_section_breadcrumb action
     when "Chouette::Timeband"
       timeband_breadcrumb action
-    when "Chouette::RoutingConstraint"
-      routing_constraint_breadcrumb action
     when "StopAreaCopy"
       stop_area_copy_breadcrumb action
     when "Import"
@@ -121,12 +119,6 @@ module BreadcrumbHelper
     referential_breadcrumb
     add_breadcrumb Chouette::Timeband.model_name.human(:count => 2), referential_timebands_path(@referential) unless action == :index
     add_breadcrumb breadcrumb_label(@timeband), referential_timeband_path(@referential, @timeband),:title => breadcrumb_tooltip(@timeband) if action == :edit
-  end
-
-  def routing_constraint_breadcrumb(action)
-    referential_breadcrumb
-    add_breadcrumb Chouette::RoutingConstraint.model_name.human(:count => 2), referential_routing_constraints_path(@referential) unless action == :index
-    add_breadcrumb breadcrumb_label(@routing_constraint), referential_routing_constraint_path(@referential, @routing_constraint),:title => breadcrumb_tooltip(@routing_constraint) if action == :edit
   end
 
   def line_breadcrumb(action)

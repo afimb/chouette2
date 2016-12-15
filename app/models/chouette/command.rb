@@ -1,7 +1,7 @@
 require 'tmpdir'
 
 #if RUBY_PLATFORM == "java"
-  # FIXME disable remove_entry_secure because incompatible with jruby ?!
+  # FIXME disable remove_entry_secure because incompatible with jruby ?! 
   # See http://jira.codehaus.org/browse/JRUBY-4082
   module FileUtils
     def self.remove_entry_secure(*args)
@@ -26,9 +26,9 @@ class Chouette::Command
   end
 
   def database_options_from_active_record
-    config = ::ApplicationRecord.connection_pool.spec.config
-    {
-      :database => config[:database],
+    config = Chouette::ActiveRecord.connection_pool.spec.config
+    { 
+      :database => config[:database], 
       :user => config[:username],
       :password => config[:password],
       :port => config[:port],
@@ -70,7 +70,7 @@ class Chouette::Command
     end
 
     def command_key
-      key.camelize(:lower)
+      key.camelize(:lower) 
     end
 
     def to_s
@@ -89,6 +89,6 @@ class Chouette::Command
     end.sort_by(&:key).join(' ')
   end
 
-
+  
 
 end

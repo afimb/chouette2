@@ -2,6 +2,8 @@ module NetworkRestrictions
   extend ActiveSupport::Concern
 
   included do
+    include ObjectidRestrictions
+
     with_options if: Proc.new { |o| o.format_restricted?(:hub) } do |n|
       # HUB-4
       n.validates :name, length: { in: 1..75 }

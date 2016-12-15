@@ -32,6 +32,3 @@ coverage
 # Ignore application configuration
 /config/application.yml
 /config/database.yml
-
-# Use chouette2-i18n instead
-/config/locales

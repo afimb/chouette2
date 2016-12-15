@@ -2,6 +2,8 @@ module GroupOfLineRestrictions
   extend ActiveSupport::Concern
 
   included do
+    include ObjectidRestrictions
+
     with_options if: Proc.new { |o| o.format_restricted?(:hub) } do |g|
       # HUB-12
       #g.validates_length_of :name, :minimum => 1, :maximum => 75

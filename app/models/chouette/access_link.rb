@@ -1,6 +1,5 @@
 module Chouette
-  class AccessLink < ::ApplicationRecord
-    include ObjectidRestrictions
+  class AccessLink < TridentActiveRecord
     # FIXME http://jira.codehaus.org/browse/JRUBY-6358
     self.primary_key = "id"
 
@@ -50,11 +49,11 @@ module Chouette
     def link_key
       Chouette::AccessLink.build_link_key(access_point,stop_area,link_orientation_type)
     end
-
+    
     def self.build_link_key(access_point,stop_area,link_orientation_type)
       if link_orientation_type == "access_point_to_stop_area"
         "A_#{access_point.id}-S_#{stop_area.id}"
-      else
+      else  
         "S_#{stop_area.id}-A_#{access_point.id}"
       end
     end

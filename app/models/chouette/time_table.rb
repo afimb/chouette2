@@ -1,5 +1,4 @@
-class Chouette::TimeTable < ApplicationRecord
-  include ObjectidRestrictions
+class Chouette::TimeTable < Chouette::TridentActiveRecord
   include TimeTableRestrictions
   # FIXME http://jira.codehaus.org/browse/JRUBY-6358
   self.primary_key = "id"
@@ -447,7 +446,7 @@ class Chouette::TimeTable < ApplicationRecord
 
   def duplicate
     tt = self.deep_clone :include => [:periods, :dates], :except => :object_version
-    # tt.uniq_objectid
+    tt.uniq_objectid
     tt.comment = I18n.t("activerecord.copy", :name => self.comment)
     tt
   end

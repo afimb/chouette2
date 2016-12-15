@@ -35,7 +35,7 @@ class StopAreaCopy
   def persisted?
     false
   end
-
+  
   def source
     @source ||= Chouette::StopArea.find self.source_id
   end
@@ -77,11 +77,11 @@ class StopAreaCopy
             end
             true
           else
-            copy.errors.full_messages.each do |m|
+            copy.errors.full_messages.each do |m| 
               errors.add :base, m
             end
             false
-          end
+          end  
         end
       else
         false
@@ -93,5 +93,5 @@ class StopAreaCopy
       false
     end
   end
-
+  
 end

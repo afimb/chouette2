@@ -41,7 +41,8 @@ class Chouette::AreaType < ActiveSupport::StringInquirer
     ["boarding_position", 0],
     ["quay", 1],
     ["commercial_stop_point", 2],
-    ["stop_place", 3]
+    ["stop_place", 3],
+    ["itl", 4]
   ]
   cattr_reader :definitions
 

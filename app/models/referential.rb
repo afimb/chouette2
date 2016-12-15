@@ -82,10 +82,6 @@ class Referential < ActiveRecord::Base
     Chouette::Timeband.all
   end
 
-  def routing_constraints
-    Chouette::RoutingConstraint.all
-  end
-
   def connection_links
     Chouette::ConnectionLink.all
   end

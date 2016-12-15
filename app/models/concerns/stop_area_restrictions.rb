@@ -18,6 +18,8 @@ module StopAreaRestrictions
   end
 
   included do
+    include ObjectidRestrictions
+
     with_options if: :commercial_and_physical_hub_restricted? do |sa|
       sa.validates :name, length: { in: 1..75 }
     end

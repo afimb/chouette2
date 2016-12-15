@@ -2,9 +2,9 @@
 require 'spec_helper'
 
 describe StopAreaCopy, :type => :model do
-
+  
   subject { StopAreaCopy.new(:source_id => 1, :hierarchy => "child", :area_type => "Quay") }
-
+  
   describe ".save" do
 
     it "should create a child for source" do

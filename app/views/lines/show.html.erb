@@ -124,13 +124,6 @@
   </div>
 <% end %>
 
-<% if @line.routing_constraints.any? %>
-  <h3 class="line_routing_constraints"><%= Referential.human_attribute_name("routing_constraints") %></h3>
-  <div class="group_of_routing_constraints paginated_content">
-     <%= paginated_content @line.routing_constraints, "routing_constraints/routing_constraint", :delete => false %>
-  </div>
-<% end %>
-
 <% content_for :sidebar do %>
 <ul class="actions">
   <li><%= link_to t('lines.actions.new'), new_referential_line_path(@referential), :class => "add" %></li>

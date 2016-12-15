@@ -1,4 +1,5 @@
 module Chouette
+
   class TimebandValidator < ActiveModel::Validator
     def validate(record)
       if record.end_time <= record.start_time
@@ -7,8 +8,7 @@ module Chouette
     end
   end
 
-  class Timeband < ::ApplicationRecord
-    include ObjectidRestrictions
+  class Timeband < Chouette::TridentActiveRecord
     self.primary_key = "id"
 
     validates :start_time, :end_time, presence: true

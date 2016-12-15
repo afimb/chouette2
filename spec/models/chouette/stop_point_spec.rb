@@ -4,14 +4,13 @@ describe Chouette::StopPoint, :type => :model do
   let!(:vehicle_journey) { create(:vehicle_journey)}
   subject { Chouette::Route.find( vehicle_journey.route_id).stop_points.first }
 
-  # TODO
-  # it { is_expected.to validate_uniqueness_of :objectid }
+  it { is_expected.to validate_uniqueness_of :objectid }
   it { is_expected.to validate_presence_of :stop_area }
 
-  # describe '#objectid' do
-  #   subject { super().objectid }
-  #   it { is_expected.to be_kind_of(Chouette::ObjectId) }
-  # end
+  describe '#objectid' do
+    subject { super().objectid }
+    it { is_expected.to be_kind_of(Chouette::ObjectId) }
+  end
 
   describe "#destroy" do
     before(:each) do
