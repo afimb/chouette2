@@ -164,8 +164,8 @@ gem 'ievkit_views', '~> 0.2.2' #, git: 'https://github.com/afimb/ievkit_views.gi
 # I18n
 gem 'rails-i18n', '~> 4.0.0'
 gem 'devise-i18n'
-gem 'chouette2-i18n', git: 'https://github.com/afimb/chouette2-i18n.git'
-gem 'chouette-projects-i18n', git: 'https://github.com/afimb/chouette-projects-i18n.git'
+gem 'chouette2-i18n', git: 'https://github.com/rutebanken/chouette2-i18n.git', :branch => 'master'
+gem 'chouette-projects-i18n', git: 'https://github.com/rutebanken/chouette-projects-i18n.git', :branch => 'master'
 
 # Rails Assets
 source 'https://rails-assets.org' do

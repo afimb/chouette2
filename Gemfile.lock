@@ -1,14 +1,16 @@
 GIT
-  remote: https://github.com/afimb/chouette-projects-i18n.git
-  revision: a836519d708b9cb17e9d75800fa2df20f95f1708
+  remote: https://github.com/rutebanken/chouette-projects-i18n.git
+  revision: 6a230c9d0075976e9663734e19f3897c5ba12287
+  branch: master
   specs:
     chouette-projects-i18n (0.1.0)
       i18n
       railties
 
 GIT
-  remote: https://github.com/afimb/chouette2-i18n.git
-  revision: 52b8ced29163d433bf69fa6aced6fe92a7128d1c
+  remote: https://github.com/rutebanken/chouette2-i18n.git
+  revision: c916843bdb01b43b95e102633de5ab6e14c98bfc
+  branch: master
   specs:
     chouette2-i18n (0.1.0)
       i18n
@@ -266,7 +268,7 @@ GEM
     mime-types (2.99.3)
     mimemagic (0.3.2)
     mini_portile2 (2.1.0)
-    minitest (5.10.0)
+    minitest (5.10.1)
     multi_json (1.12.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -419,7 +421,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rainbow (2.1.0)
-    rake (11.3.0)
+    rake (12.0.0)
     ransack (1.6.3)
       actionpack (>= 3.0)
       activerecord (>= 3.0)
