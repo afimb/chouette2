@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/rutebanken/ievkit_views.git
-  revision: 3c10384baa39942230e4365ab3a4d3918450b01f
+  revision: 346cb39a121ec1878a83a8552c64ed407067a0db
   branch: master
   specs:
     ievkit_views (0.2.1)
@@ -140,7 +140,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
-    concurrent-ruby (1.0.2)
+    concurrent-ruby (1.0.3)
     daemons (1.2.4)
     database_cleaner (1.5.3)
     dbf (3.0.8)
