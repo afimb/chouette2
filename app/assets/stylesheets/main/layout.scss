@@ -21,6 +21,19 @@ ol.breadcrumb{
   display: none;
 }
 
+.fa.fa-line-through {
+    position: relative;
+}
+.fa-line-through:after {
+    position: absolute;
+    content: "/";
+    color: red;
+    font-weight: 700;
+    font-size: 1.7em;
+    left: 3px;
+    top: -4px;
+}
+
 #middle{
     position: relative;
     min-height: 500px;

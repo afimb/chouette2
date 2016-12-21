@@ -53,5 +53,18 @@ module VehicleJourneysHelper
   def exist_vehicle_journeys?(route)
     route.vehicle_journeys.count > 0
   end
+
+  def special_vehicle_journey_icon(field, vehicle_journey)
+    fa_class = { mobility_restricted_suitability: 'fa-wheelchair', flexible_service: 'fa-phone' }.map{ |k, v| v if k == field }.compact
+
+    if vehicle_journey.send(field).to_s.present?
+      fa_class << 'fa-line-through' unless vehicle_journey.send(field)
+    elsif vehicle_journey.route.line.send(field).to_s.present?
+      fa_class << 'fa-line-through' unless vehicle_journey.route.line.send(field)
+    else
+      return
+    end
+    font_awesome_classic_tag(fa_class.join(' '))
+  end
 end
 
