@@ -157,17 +157,21 @@ class Referential < ActiveRecord::Base
   end
 
   def set_slug
-    self.update_column(:slug, "ch_#{id}")
+    if self.slug == nil
+      self.update_column(:slug, "ch_#{self.id}")
+    else
+      self.update_column(:slug, "#{self.slug}")
+    end
   end
 
   before_destroy :destroy_schema
   def destroy_schema
-    Apartment::Tenant.drop "ch_#{self.id}"
+    Apartment::Tenant.drop "#{self.slug}"
   end
 
   before_destroy :destroy_jobs
   def destroy_jobs
-    Ievkitdeprecated.delete_jobs("ch_#{self.id}")
+    Ievkitdeprecated.delete_jobs("#{self.slug}")
     true
   end
 
