@@ -11,7 +11,9 @@ class ChouetteController < BreadcrumbController
   end
 
   def referential
-    @referential ||= current_organisation.referentials.find params[:referential_id]
+    @referential ||= current_organisation.referentials.find_by_id(params[:referential_id])
+    @referential ||= current_organisation.referentials.find_by_slug(params[:referential_id])
+    @referential ||= current_organisation.referentials.find_by_name(params[:referential_id])
   end
 
   protected

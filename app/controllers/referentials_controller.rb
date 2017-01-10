@@ -34,6 +34,8 @@ class ReferentialsController < ChouetteController
 
   def resource
     @referential ||= current_organisation.referentials.find_by_id(params[:id])
+    @referential ||= current_organisation.referentials.find_by_slug(params[:id])
+    @referential ||= current_organisation.referentials.find_by_name(params[:id])
   end
 
   def collection
