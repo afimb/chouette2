@@ -18,7 +18,7 @@ class Chouette::Line < ApplicationRecord
   has_and_belongs_to_many :routing_constraints, join_table: :routing_constraints_lines
 
   attr_reader :group_of_line_tokens
-  attr_accessor :transport_mode
+  # attr_accessor :transport_mode
 
   validates_presence_of :network
   validates_presence_of :company
@@ -39,21 +39,21 @@ class Chouette::Line < ApplicationRecord
     Chouette::Geometry::LinePresenter.new self
   end
 
-  def transport_mode
-    # return nil if transport_mode_name is nil
-    transport_mode_name && Chouette::TransportMode.new( transport_mode_name.underscore)
-  end
+  # def transport_mode
+  #   # return nil if transport_mode_name is nil
+  #   transport_mode_name && Chouette::TransportMode.new( transport_mode_name.underscore)
+  # end
 
-  def transport_mode=(transport_mode)
-    self.transport_mode_name = (transport_mode ? transport_mode.camelcase : nil)
-  end
+  # def transport_mode=(transport_mode)
+  #   self.transport_mode_name = (transport_mode ? transport_mode.camelcase : nil)
+  # end
 
-  @@transport_modes = nil
-  def self.transport_modes
-    @@transport_modes ||= Chouette::TransportMode.all.select do |transport_mode|
-      transport_mode.to_i > 0
-    end
-  end
+  # @@transport_modes = nil
+  # def self.transport_modes
+  #   @@transport_modes ||= Chouette::TransportMode.all.select do |transport_mode|
+  #     transport_mode.to_i > 0
+  #   end
+  # end
 
   def commercial_stop_areas
     Chouette::StopArea.joins(:children => [:stop_points => [:route => :line] ]).where(:lines => {:id => self.id}).uniq

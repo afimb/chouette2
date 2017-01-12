@@ -1,4 +1,4 @@
-class Chouette::TransportMode < ActiveSupport::StringInquirer
+class Chouette::TransportModeDeprecated < ActiveSupport::StringInquirer
 
   def initialize(text_code, numerical_code)
     super text_code.to_s
@@ -8,7 +8,7 @@ class Chouette::TransportMode < ActiveSupport::StringInquirer
   def self.new(text_code, numerical_code = nil)
     if text_code and numerical_code
       super
-    elsif self === text_code 
+    elsif self === text_code
       text_code
     else
       if Fixnum === text_code

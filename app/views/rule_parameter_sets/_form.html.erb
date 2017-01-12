@@ -21,28 +21,20 @@
     <%= form.input :check_connection_link_on_physical, :as => :boolean %>
     <%= form.input :check_allowed_transport_modes, :as => :boolean %>
 
-    <table class="table table-striped table-condensed">
-      <thead>
-    	<tr>
-    		<th><%= t("transport_modes.name") %></th>
-			<% RuleParameterSet.mode_attribute_prefixes.each do |prefix| %>
-			    <% if prefix == "allowed_transport" %>
-                  <% hidden = (@rule_parameter_set.check_allowed_transport_modes == "1") ? "" : 'display:none;'%>
-            <th class="allowed" style="<%= hidden %>" ><%= RuleParameterSet.human_attribute_name(prefix) %></th>
-                <% else %>
-            <th><%= RuleParameterSet.human_attribute_name(prefix) %></th>
-                <% end %>
-			<% end %>
-        </tr>
-      </thead>
-      <tbody>
-    <% Chouette::Line.transport_modes.map(&:to_s).each do |mode| %>
-      <tr>
-      <%= render :partial => "mode_fields", :locals => { :f => form, :mode => mode} %>
-      </tr>
-    <% end %>
-      </tbody>
-    </table>
+    <ul class="nav nav-tabs" id="tab-formats">
+      <% TransportMode.formats.each_with_index do |format, index| %>
+        <li<%= ' class="active"'.html_safe if index == 0 %>>
+          <a href="#<%= format %>"><%= t("enumerize.data_format.#{format}") %></a>
+        </li>
+      <% end %>
+    </ul>
+    <div class="tab-content">
+      <% TransportMode.formats.each_with_index do |format, index| %>
+        <div role="tabpanel" class="tab-pane<%= ' active' if index == 0 %>" id="<%= format %>">
+          <%= render 'transport_mode', f: form, format: format %>
+        </div>
+      <% end %>
+    </div>
 
     <%= t("rule_parameter_sets.labels.columns_restrictions") %>
     <table class="table table-bordered table-condensed">
@@ -77,8 +69,12 @@
 
 <script>
 	$(function() {
-        $( "#rule_parameter_set_check_allowed_transport_modes").change( function(){
-            $(".allowed").toggle();
-        });
+    $( "#rule_parameter_set_check_allowed_transport_modes").change( function(){
+        $(".allowed").toggle();
     });
+    $('#tab-formats a').click(function (e) {
+      e.preventDefault()
+      $(this).tab('show')
+    });
+  });
 </script>

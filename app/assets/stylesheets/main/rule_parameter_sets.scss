@@ -1,6 +1,14 @@
-// Place all the styles related to the rule_parameter_sets controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.ce {
+  &-transport_mode {
+    &-submode {
+      font-style: italic;
+      padding-left: 20px !important;
+      &:before {
+        content: '↳';
+      }
+    }
+  }
+}
 
 #workspace.rule_parameter_sets.index
 {

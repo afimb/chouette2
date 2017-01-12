@@ -12,8 +12,12 @@ class ApplicationRecord < ActiveRecord::Base
     @referential ||= Referential.where(slug: Apartment::Tenant.current).first!
   end
 
+  def referential_format
+    referential.data_format.to_sym
+  end
+
   def format_restricted?(format)
-    referential.data_format.to_sym == format.to_sym
+    referential_format == format.to_sym
   end
 
   def self.model_name
@@ -22,6 +26,16 @@ class ApplicationRecord < ActiveRecord::Base
 
   def nil_if_blank
     self.class.nullable_attributes.each { |attr| self[attr] = nil if self[attr].blank? }
+  end
+
+  def transport_mode(format = nil)
+    format = referential_format unless format
+    TransportMode.by_format(format)
+  end
+
+  def transport_submode(transport_mode, format = nil)
+    format = referential_format unless format
+    TransportMode.submode(transport_mode, format)
   end
 
   protected

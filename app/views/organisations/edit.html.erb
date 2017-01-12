@@ -2,8 +2,8 @@
 
 <%= semantic_form_for @organisation, :url => organisation_path do |form| %>
   <%= form.inputs do %>
-  <%= form.input :name %>
-  <%= form.input :data_format, :label => true, :include_blank => false %>
+    <%= form.input :name %>
+    <%= form.input :data_format, :label => true, :include_blank => false %>
   <% end %>
 
   <%= form.actions do %>

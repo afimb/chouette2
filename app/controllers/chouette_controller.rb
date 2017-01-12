@@ -14,6 +14,12 @@ class ChouetteController < BreadcrumbController
     @referential ||= current_organisation.referentials.find params[:referential_id]
   end
 
+  def transport_submodes
+    transport_mode = params[:transport_mode]
+    return {} unless transport_mode
+    render json: TransportMode.submode(transport_mode, referential.data_format.to_sym)
+  end
+
   protected
 
   def check_organisation

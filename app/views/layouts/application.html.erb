@@ -18,7 +18,7 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
   </head>
-  <body>
+  <body data-referential="<%= @referential.id if @referential %>">
     <div id="header">
       <%= render partial: "shared/header" %>
     </div>

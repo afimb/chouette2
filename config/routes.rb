@@ -14,7 +14,7 @@ ChouetteIhm::Application.routes.draw do
       get '/additionnal_fields', to: 'users#additionnal_fields'
       post '/save_additionnal_fields', to: 'users#save_additionnal_fields'
     end
-    
+
   end
 
   namespace :api do
@@ -187,6 +187,8 @@ ChouetteIhm::Application.routes.draw do
         get 'create_to_edit'
       end
     end
+
+    get 'transport_submodes/:transport_mode', :to => 'chouette#transport_submodes'
   end
   root :to => "referentials#index"
 

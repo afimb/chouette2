@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114142115) do
+ActiveRecord::Schema.define(version: 20161220135414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -262,6 +262,7 @@ ActiveRecord::Schema.define(version: 20161114142115) do
     t.string   "stable_id"
     t.string   "codespace",                                                 null: false
     t.boolean  "shared",                                    default: false, null: false
+    t.string   "transport_submode_name"
   end
 
   add_index "lines", ["codespace", "objectid"], name: "index_lines_on_codespace_and_objectid", unique: true, using: :btree

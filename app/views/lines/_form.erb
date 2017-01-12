@@ -6,7 +6,11 @@
     <%= form.input :published_name %>
     <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.line.registration_number")} %>
     <%= form.input :number, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.line.number") } %>
-    <%= form.input :transport_mode, :as => :select, :collection => Chouette::Line.transport_modes, :include_blank => false, :member_label => Proc.new { |mode| t("transport_modes.label.#{mode}") }  %>
+    <%= form.input :transport_mode_name, :as => :select, :collection => @line.transport_mode, :include_blank => true %>
+    <%= form.input :transport_submode_name,
+                   :as => :select,
+                   :collection => (@line.transport_mode_name ? @line.transport_submode(@line.transport_mode_name) : nil),
+                   :include_blank => true %>
     <%= form.input :color, :as => :string %>
     <%= form.input :text_color %>
     <%= form.input :stable_id %>
