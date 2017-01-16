@@ -1,4 +1,5 @@
 class OrganisationsController < BreadcrumbController
+  before_action :check_authorize, except: [:show, :index]
 
   defaults :resource_class => Organisation
   respond_to :html, :only => [:edit, :show, :update]
@@ -18,6 +19,6 @@ class OrganisationsController < BreadcrumbController
   def organisation_params
     params.require(:organisation).permit(:name)
   end
-  
+
 end
 

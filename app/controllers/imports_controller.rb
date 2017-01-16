@@ -2,6 +2,8 @@
 require 'open-uri'
 
 class ImportsController < ChouetteController
+  before_action :check_authorize, except: [:show, :index, :imported_file, :rule_parameter_set, :export, :compliance_check]
+
   helper IevkitViews::Engine.helpers
   defaults :resource_class => Import
 

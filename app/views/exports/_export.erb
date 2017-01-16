@@ -1,11 +1,13 @@
 <div id="index_item" class="panel panel-default export">
   <div class="panel-heading">
     <div class="panel-title clearfix">
-      <span class="pull-right">
-        <%= link_to referential_export_path(@referential, export.id), :method => :delete, :data => {:confirm =>  t('exports.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
-          <span class="fa fa-trash-o"></span>
-        <% end %>
-      </span>
+      <% if policy(:application).write? %>
+        <span class="pull-right">
+          <%= link_to referential_export_path(@referential, export.id), :method => :delete, :data => {:confirm =>  t('exports.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
+            <span class="fa fa-trash-o"></span>
+          <% end %>
+        </span>
+      <% end %>
       <h5>
 	<%= link_to( referential_export_path(@referential, export.id), :class => "preview", :title => "#{Export.model_name.human.capitalize} #{export.name}") do %>
 	    <%= job_status_title(export) %>

@@ -1,4 +1,5 @@
 class VehicleTranslationsController < ChouetteController
+  before_action :check_authorize, except: [:show, :index]
   respond_to :js, :only => [:new, :create]
 
   belongs_to :referential do

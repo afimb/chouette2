@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   # TODO : Delete hack to authorize Cross Request for js and json get request from javascript
+  include Pundit
   protect_from_forgery unless: -> { request.get? && (request.format.json? || request.format.js?) }
   before_action :authenticate_user!
   before_action :set_locale
@@ -12,6 +13,14 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+
+  def check_authorize
+    raise "not authorized" unless authorize :application, :write?
+  end
+
+  def check_authorize_admin
+    raise "not authorized" unless authorize :application, :admin?
+  end
 
   def current_organisation
     current_user.organisation if current_user

@@ -92,7 +92,7 @@ class IevkitJob
   end
 
   def download_validation_report(default_view)
-    result, data, sum_report, errors = send("#{default_view}_views")
+    _result, data, _sum_report, errors = send("#{default_view}_views")
     csv = @ievkit.download_validation_report(data, errors)
     [csv, filename: "#{@resource.name.parameterize}-#{Time.current.to_i}.csv"]
   end
