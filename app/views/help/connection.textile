@@ -9,6 +9,14 @@ L’utilisateur peut utiliser l’application CHOUETTE depuis le site www.chouet
 
 CHOUETTE est une application web, elle peut donc être utilisée depuis n'importe quel poste relié à Internet.
 
+h3. Création de compte utilisateur
+
+La création d'un compte utilisateur peut se faire depuis le formulaire présent sur la page d'accueil avant toute identification. Renseigner le formulaire générera un mail de confirmation à l'utilisateur permettant de valider l'inscription.
+
+!2017-01-13_141737.png!
+
+Il est également possible de s'identifier avec un compte Facebook ou un compte Google
+
 h3. Utilisateurs et organisations
 
 Lorsqu’un utilisateur s’enregistre dans l’application, une organisation qui lui appartient est créée.
