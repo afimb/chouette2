@@ -1,4 +1,8 @@
-# Version 3.4.0 (28/10/16)
+# Version 3.4.1 (15/01/2017)
+  * Nouvelles fonctionnalités :
+    * Connection possible avec un compte Google, Facebook ou FranceConnect
+
+# Version 3.4.0 (28/10/2016)
   * Nouvelles fonctionnalités :
     * Mise en place des gems Ievkit et IevkitViews pour une nouvelle présentation de la validations des données
     * Ajout de la possibilité de sélectionner le fond de carte (OSM, Geoportail, Google) par défaut
