@@ -52,7 +52,7 @@
               <% end %>
               <% if Rails.application.secrets.openid_connect_client_id.present? && Rails.application.secrets.openid_connect_secret_id.present? %>
                 <p>
-                  <%= link_to image_tag('FCboutons-10', width: "200"), user_omniauth_authorize_path(:openid_connect) %>
+                  <%= link_to image_tag('FCboutons-10.jpg', width: "200"), user_omniauth_authorize_path(:openid_connect) %>
                 </p>
               <% end %>
             </div>
