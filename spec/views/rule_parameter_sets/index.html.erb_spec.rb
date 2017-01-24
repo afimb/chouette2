@@ -1,12 +1,18 @@
 require 'spec_helper'
 
 describe "/organisations/show" do
-  
+
+  assign_user
   assign_organisation
 
   let!(:organisation) { create(:organisation) }
   let!(:rule_parameter_sets) { assign :rule_parameter_sets, [ create(:rule_parameter_set, :organisation => organisation),
-                                                              create(:rule_parameter_set, :organisation => organisation)] }                                                              
+                                                              create(:rule_parameter_set, :organisation => organisation)] }
+  before :each do
+    allow(@request.env['warden']).to receive(:authenticate!).and_return(user)
+    allow(controller).to receive(:current_user).and_return(user)
+  end
+
   it "should render a show link for each rule_parameter_set" do
     render
     rule_parameter_sets.each do |rule_parameter_set|
