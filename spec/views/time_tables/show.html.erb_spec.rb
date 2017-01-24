@@ -1,11 +1,17 @@
 require 'spec_helper'
 
 describe "/time_tables/show", :type => :view do
-  
+
+  assign_user
   assign_referential
   let!(:time_table) { assign(:time_table, create(:time_table)) }
   let!(:year) { assign(:year, Date.today.cwyear) }
   let!(:time_table_combination) {assign(:time_table_combination, TimeTableCombination.new)}
+
+  before :each do
+    allow(@request.env['warden']).to receive(:authenticate!).and_return(user)
+    allow(controller).to receive(:current_user).and_return(user)
+  end
 
   it "should render h2 with the time_table comment" do    
     render

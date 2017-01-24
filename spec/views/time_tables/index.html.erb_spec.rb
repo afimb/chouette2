@@ -2,9 +2,15 @@ require 'spec_helper'
 
 describe "/time_tables/index", :type => :view do
 
+  assign_user
   assign_referential
   let!(:time_tables) { assign :time_tables, Kaminari.paginate_array(Array.new(2){ create(:time_table) }).page(1) }
   let!(:search) { assign :q, Ransack::Search.new(Chouette::TimeTable) }
+
+  before :each do
+    allow(@request.env['warden']).to receive(:authenticate!).and_return(user)
+    allow(controller).to receive(:current_user).and_return(user)
+  end
 
   it "should render a show link for each group" do
     render

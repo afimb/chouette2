@@ -2,11 +2,14 @@ require 'spec_helper'
 
 describe "/stop_areas/index", :type => :view do
 
+  assign_user
   assign_referential
   let!(:stop_areas) { assign :stop_areas, Kaminari.paginate_array(Array.new(2) { create(:stop_area) }).page(1) }
   let!(:q) { assign :q, Ransack::Search.new(Chouette::StopArea) }
 
   before :each do
+    allow(@request.env['warden']).to receive(:authenticate!).and_return(user)
+    allow(controller).to receive(:current_user).and_return(user)
     allow(view).to receive(:link_with_search).and_return("#")
   end
 

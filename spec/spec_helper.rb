@@ -5,6 +5,8 @@ require 'rspec/rails'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 # Add this to load Capybara integration:
+include Warden::Test::Helpers
+include Pundit
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'capybara/poltergeist'
@@ -72,5 +74,4 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
-
 end
