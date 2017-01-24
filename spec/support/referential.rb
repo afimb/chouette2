@@ -4,10 +4,15 @@ module ReferentialHelper
     Referential.where(:slug => "ch_1").take!
   end
 
+  def first_user
+    User.first
+  end
+
   def self.included(base)
     base.class_eval do
       extend ClassMethods
       alias_method :referential, :first_referential
+      alias_method :user, :first_user
     end
   end
 
@@ -23,8 +28,12 @@ module ReferentialHelper
         assign :organisation, referential.organisation
       end
     end
-
-
+    def assign_user
+      before(:each) do
+        user = FactoryGirl.create(:user)
+        assign :user, user
+      end
+    end
   end
 
 end

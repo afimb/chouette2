@@ -11,6 +11,10 @@
       </th>
       <% @vehicle_journeys.each do |vj| %>
         <th class="vehicle_journey">
+          <div>
+            <%= special_vehicle_journey_icon(:mobility_restricted_suitability, vj) %>
+            <%= special_vehicle_journey_icon(:flexible_service, vj) %>
+          </div>
           <button data-style="primary" data-container="body" rel="popover" data-toggle="popover"
                   data-title='<%= link_to(vehicle_title(vj), [@referential, @line, @route, vj] ) %>
                       <%= link_to('<span class="fa fa-pencil"></span>'.html_safe,
@@ -31,7 +35,10 @@
   <tbody>
     <% @route.stop_points.each_with_index do |sp, index| %>
       <tr class="<%= cycle('odd', 'even') %>">
-        <td class="stop_area"><%= sp.stop_area.name %></td>
+        <td class="stop_area">
+          <%= "#{sp.stop_area.city_name} -" if sp.stop_area.city_name %>
+          <%= sp.stop_area.name %>
+        </td>
         <% @vehicle_journeys.each do |vj| %>
           <td class="hours <%= missing_time_check(@matrix["#{vj.id}-#{sp.id}"]) %><%= ' ce-VehicleJourneyBlock-frequency' if vj.frequency? %>">
             <%= (@matrix["#{vj.id}-#{sp.id}"] && @matrix["#{vj.id}-#{sp.id}"].departure_time) ? l( @matrix["#{vj.id}-#{sp.id}"].departure_time, :format => :hour) : "--" %>

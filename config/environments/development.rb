@@ -69,4 +69,6 @@ Rails.application.configure do
   config.demo_data = "tmp/demo.zip"
 
   config.i18n.available_locales = [:fr, :en]
+
+  config.active_record.raise_in_transactional_callbacks = true
 end
