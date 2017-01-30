@@ -39,7 +39,7 @@ gem 'spring', '~> 1.7.2', group: :development
 
 # API Rest
 gem 'sawyer', '~> 0.6.0'
-gem 'faraday_middleware', '~> 0.10.0'
+gem 'faraday_middleware', '~> 0.11.0.1'
 
 gem 'figaro', '~> 1.1.1'
 
@@ -159,7 +159,7 @@ end
 
 # IEVKIT
 gem 'ievkit',  git: 'https://github.com/rutebanken/ievkit.git', branch: 'master' #'~> 0.3.0'
-gem 'ievkit_views', git: 'https://github.com/rutebanken/ievkit_views.git', branch: 'master' #'~> 0.2.2' 
+gem 'ievkit_views', git: 'https://github.com/rutebanken/ievkit_views.git', branch: 'master' #'~> 0.2.2'
 
 # I18n
 gem 'rails-i18n', '~> 4.0.0'
