@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://github.com/rutebanken/ievkit.git
-  revision: 8195c55bedf1a7e740ae62cb0bba4f223c841d6f
+  revision: 00d8fe01402704d79cdf649c4736e3207875a5d3
   branch: master
   specs:
     ievkit (0.3.0)
