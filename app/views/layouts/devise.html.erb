@@ -2,8 +2,7 @@
 <html lang="<%= I18n.locale %>">
   <head>
     <title>Chouette V2 - <%= title %></title>
-    <%= favicon_link_tag "logo_chouette_small.ico" %>
-    <%= favicon_link_tag 'logo_chouette_small.png', rel: 'apple-touch-icon', type: 'image/png' %>
+    <%= render 'shared/favicons' %>
     <%= stylesheet_link_tag :application %>
     <%= javascript_include_tag :application %>
     <% if defined?( @map) %>
@@ -22,7 +21,7 @@
     <div id="header">
       <%= render partial: "shared/header" %>
     </div>
-    <div class="front_bg">      
+    <div class="front_bg">
       <div id="devise_middle" class="container">
         <div class="row">
         <div class="<%= content_for?(:sidebar) ? 'col-md-9' : 'col-md-12' %>">
@@ -37,6 +36,6 @@
       <div id="footer">
         <%= render partial: "shared/footer" %>
       </div>
-    </div>    
+    </div>
   </body>
 </html>
