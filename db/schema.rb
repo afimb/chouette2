@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220135414) do
+ActiveRecord::Schema.define(version: 20170129200219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -413,6 +413,7 @@ ActiveRecord::Schema.define(version: 20161220135414) do
     t.string   "time_zone"
     t.string   "codespace",                                                                           null: false
     t.boolean  "shared",                                                              default: false, null: false
+    t.string   "transport_mode_name"
   end
 
   add_index "stop_areas", ["codespace", "objectid"], name: "index_stop_areas_on_codespace_and_objectid", unique: true, using: :btree

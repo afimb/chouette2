@@ -1,14 +1,14 @@
 require 'spec_helper'
 
 describe Chouette::AreaType, :type => :model do
-  
+
   def mode(text_code = "test", numerical_code = nil)
     numerical_code ||= 1 if text_code == "test"
     Chouette::AreaType.new(text_code, numerical_code)
   end
 
   describe "#to_i" do
-    
+
     it "should return numerical code" do
       expect(mode("test", 1).to_i).to eq(1)
     end
@@ -36,15 +36,15 @@ describe Chouette::AreaType, :type => :model do
     it "should accept another mode" do
       expect(Chouette::AreaType.new(mode("test"))).to eq(mode("test"))
     end
-    
+
   end
 
 
   describe ".all" do
-    
-    Chouette::AreaType.definitions.each do |text_code, numerical_code|
+    let!(:referential) { create(:referential) }
+    Chouette::AreaType.all(:neptune).each do |text_code, numerical_code|
       it "should include a AreaType #{text_code}" do
-        expect(Chouette::AreaType.all).to include(Chouette::AreaType.new(text_code))
+        expect(Chouette::AreaType.all(:neptune)).to include(Chouette::AreaType.new(text_code))
       end
     end
 

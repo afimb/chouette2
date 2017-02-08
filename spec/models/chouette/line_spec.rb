@@ -50,47 +50,48 @@ describe Chouette::Line, :type => :model do
   describe "#transport_mode" do
 
     def self.legacy_transport_mode_names
-      %w{Air Train LongDistanceTrain LocalTrain RapidTransit Metro Tramway Coach Bus Ferry Waterborne PrivateVehicle Walk Trolleybus Bicycle Shuttle Taxi VAL Other}
+      TransportMode.all_modes(:gtfs).map(&:first)
     end
 
     legacy_transport_mode_names.each do |transport_mode_name|
       context "when transport_mode_name is #{transport_mode_name}" do
-        transport_mode = Chouette::TransportMode.new(transport_mode_name.underscore)
+        transport_mode = TransportMode.new(transport_mode_name)
         it "should be #{transport_mode}" do
           subject.transport_mode_name = transport_mode_name
-          expect(subject.transport_mode).to eq(transport_mode)
+          expect(subject.transport_mode_name).to eq(transport_mode.to_s)
         end
       end
     end
     context "when transport_mode_name is nil" do
       it "should be nil" do
         subject.transport_mode_name = nil
-        expect(subject.transport_mode).to be_nil
+        expect(subject.transport_mode_name).to be_nil
       end
     end
 
   end
 
-  describe "#transport_mode=" do
+  describe "#transport_mode_name=" do
 
     it "should change transport_mode_name with TransportMode#name" do
-      subject.transport_mode = "Test"
+      subject.transport_mode_name = "Test"
       expect(subject.transport_mode_name).to eq("Test")
     end
 
   end
 
-  describe ".transport_modes" do
-
-    it "should not include unknown transport_mode" do
-      expect(Chouette::Line.transport_modes).not_to include(Chouette::TransportMode.new("unknown"))
-    end
-
-    it "should not include interchange transport_mode" do
-      expect(Chouette::Line.transport_modes).not_to include(Chouette::TransportMode.new("interchange"))
-    end
-
-  end
+  # No more needed
+  # describe ".transport_modes" do
+  #
+  #   it "should not include unknown transport_mode" do
+  #     expect(Chouette::Line.transport_modes).not_to include(Chouette::TransportMode.new("unknown"))
+  #   end
+  #
+  #   it "should not include interchange transport_mode" do
+  #     expect(Chouette::Line.transport_modes).not_to include(Chouette::TransportMode.new("interchange"))
+  #   end
+  #
+  # end
 
   context "#group_of_line_tokens=" do
     let!(:group_of_line1){create(:group_of_line)}

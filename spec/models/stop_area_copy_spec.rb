@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe StopAreaCopy, :type => :model do
 
-  subject { StopAreaCopy.new(:source_id => 1, :hierarchy => "child", :area_type => "Quay") }
+  subject { StopAreaCopy.new(:source_id => Chouette::StopArea.first, :hierarchy => "child", :area_type => "Quay") }
 
   describe ".save" do
 
@@ -21,8 +21,7 @@ describe StopAreaCopy, :type => :model do
       expect(source.children[0].name).to eq("test1")
     end
     it "should create a parent for source" do
-      source = create(:stop_area, :area_type => "CommercialStopPoint", :name => "test2",
-                      :registration_number => "123456", :city_name => "dummy", :zip_code => "12345")
+      source = create(:stop_area, :area_type => "CommercialStopPoint", :name => "test2", :registration_number => "123456", :city_name => "dummy", :zip_code => "12345")
       source.save
       subject.source_id = source.id
       subject.hierarchy = "parent"

@@ -8,7 +8,7 @@ describe VehicleTranslation, :type => :model do
                                   :journey_pattern => journey_pattern,
                                   :route => journey_pattern.route,
                                   :company => company,
-                                  :transport_mode => Chouette::TransportMode.new("metro"),
+                                  :transport_mode => TransportMode.new("metro"),
                                   :published_journey_name => "dummy"
                                   )}
   subject {build(:vehicle_translation,

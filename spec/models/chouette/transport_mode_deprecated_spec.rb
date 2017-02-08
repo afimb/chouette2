@@ -1,14 +1,14 @@
 require 'spec_helper'
 
-describe Chouette::TransportMode, :type => :model do
-  
+describe Chouette::TransportModeDeprecated, :type => :model do
+
   def mode(text_code = "test", numerical_code = nil)
     numerical_code ||= 1 if text_code == "test"
-    Chouette::TransportMode.new(text_code, numerical_code)
+    Chouette::TransportModeDeprecated.new(text_code, numerical_code)
   end
 
   describe "#to_i" do
-    
+
     it "should return numerical code" do
       expect(mode("test", 1).to_i).to eq(1)
     end
@@ -34,13 +34,13 @@ describe Chouette::TransportMode, :type => :model do
     end
 
     it "should accept another mode" do
-      expect(Chouette::TransportMode.new(mode("test"))).to eq(mode("test"))
+      expect(Chouette::TransportModeDeprecated.new(mode("test"))).to eq(mode("test"))
     end
-    
+
   end
 
   describe "#public_transport?" do
-    
+
     it "should return false for interchange" do
       expect(mode("interchange")).not_to be_public_transport
     end
@@ -52,10 +52,10 @@ describe Chouette::TransportMode, :type => :model do
   end
 
   describe ".all" do
-    
-    Chouette::TransportMode.definitions.each do |text_code, numerical_code|
+
+    Chouette::TransportModeDeprecated.definitions.each do |text_code, numerical_code|
       it "should include a TransportMode #{text_code}" do
-        expect(Chouette::TransportMode.all).to include(Chouette::TransportMode.new(text_code))
+        expect(Chouette::TransportModeDeprecated.all).to include(Chouette::TransportModeDeprecated.new(text_code))
       end
     end
 

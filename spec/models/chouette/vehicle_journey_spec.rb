@@ -158,15 +158,15 @@ describe Chouette::VehicleJourney, :type => :model do
     describe "#transport_mode_name" do
 
     def self.legacy_transport_modes
-      %w{Air Train LongDistanceTrain LocalTrain RapidTransit Metro Tramway Coach Bus Ferry Waterborne PrivateVehicle Walk Trolleybus Bicycle Shuttle Taxi VAL Other}
+      TransportMode.all_modes(:gtfs).map(&:first)
     end
 
     legacy_transport_modes.each do |transport_mode|
       context "when transport_mode is #{transport_mode}" do
-        transport_mode_name = Chouette::TransportMode.new(transport_mode.underscore)
+        transport_mode_name = TransportMode.new(transport_mode)
         it "should be #{transport_mode_name}" do
-          subject.transport_mode = transport_mode
-          expect(subject.transport_mode_name).to eq(transport_mode_name)
+          subject.transport_mode_name = transport_mode
+          expect(subject.transport_mode_name).to eq(transport_mode_name.underscore)
         end
       end
     end
@@ -188,17 +188,17 @@ describe Chouette::VehicleJourney, :type => :model do
 
   end
 
-  describe ".transport_mode_names" do
-
-    it "should not include unknown transport_mode_name" do
-      expect(Chouette::VehicleJourney.transport_mode_names).not_to include(Chouette::TransportMode.new("unknown"))
-    end
-
-    it "should not include interchange transport_mode" do
-      expect(Chouette::VehicleJourney.transport_mode_names).not_to include(Chouette::TransportMode.new("interchange"))
-    end
-
-  end
+  # describe ".transport_mode_names" do
+  #
+  #   it "should not include unknown transport_mode_name" do
+  #     expect(Chouette::VehicleJourney.transport_mode_names).not_to include(Chouette::TransportModeDeprecated.new("unknown"))
+  #   end
+  #
+  #   it "should not include interchange transport_mode" do
+  #     expect(Chouette::VehicleJourney.transport_mode_names).not_to include(Chouette::TransportModeDeprecated.new("interchange"))
+  #   end
+  #
+  # end
 
   describe "#footnote_ids=" do
     context "when line have footnotes, " do

@@ -52,20 +52,20 @@ module Chouette
     end
 
     def transport_mode_name
-      # return nil if transport_mode is nil
-      transport_mode && Chouette::TransportMode.new( transport_mode.underscore)
+      return nil unless transport_mode
+      transport_mode && TransportMode.new(transport_mode.underscore).underscore
     end
 
     def transport_mode_name=(transport_mode_name)
       self.transport_mode = (transport_mode_name ? transport_mode_name.camelcase : nil)
     end
 
-    @@transport_mode_names = nil
-    def self.transport_mode_names
-      @@transport_mode_names ||= Chouette::TransportMode.all.select do |transport_mode_name|
-        transport_mode_name.to_i > 0
-      end
-    end
+    # @@transport_mode_names = nil
+    # def self.transport_mode_names
+    #   @@transport_mode_names ||= TransportMode.all.select do |transport_mode_name|
+    #     transport_mode_name.to_i > 0
+    #   end
+    # end
 
     def increasing_times
       previous = nil

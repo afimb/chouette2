@@ -28,12 +28,12 @@ class ApplicationRecord < ActiveRecord::Base
     self.class.nullable_attributes.each { |attr| self[attr] = nil if self[attr].blank? }
   end
 
-  def transport_mode(format = nil)
+  def transport_modes(format = nil)
     format = referential_format unless format
     TransportMode.by_format(format)
   end
 
-  def transport_submode(transport_mode, format = nil)
+  def transport_submodes(transport_mode, format = nil)
     format = referential_format unless format
     TransportMode.submode(transport_mode, format)
   end

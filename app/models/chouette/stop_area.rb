@@ -8,6 +8,7 @@ class Chouette::StopArea < ApplicationRecord
   include Geokit::Mappable
   include ProjectionFields
   include StopAreaRestrictions
+  include StopAreaHierarchyRestrictions
 
   has_many :stop_points, :dependent => :destroy
   has_many :access_points, :dependent => :destroy
@@ -77,25 +78,6 @@ class Chouette::StopArea < ApplicationRecord
     self.children + self.children.map do |child|
       child.children_in_depth
     end.flatten.compact
-  end
-
-  def possible_children
-    case area_type
-      when "BoardingPosition" then []
-      when "Quay" then []
-      when "CommercialStopPoint" then Chouette::StopArea.where(:area_type => ['Quay', 'BoardingPosition']) - [self]
-      when "StopPlace" then Chouette::StopArea.where(:area_type => ['StopPlace', 'CommercialStopPoint']) - [self]
-    end
-
-  end
-
-  def possible_parents
-    case area_type
-      when "BoardingPosition" then Chouette::StopArea.where(:area_type => "CommercialStopPoint")  - [self]
-      when "Quay" then Chouette::StopArea.where(:area_type => "CommercialStopPoint") - [self]
-      when "CommercialStopPoint" then Chouette::StopArea.where(:area_type => "StopPlace") - [self]
-      when "StopPlace" then Chouette::StopArea.where(:area_type => "StopPlace") - [self]
-    end
   end
 
   def geometry_presenter
@@ -191,8 +173,8 @@ class Chouette::StopArea < ApplicationRecord
   end
 
   @@stop_area_types = nil
-  def self.stop_area_types
-    @@stop_area_types ||= Chouette::AreaType.all.select do |stop_area_type|
+  def self.stop_area_types(referential)
+    @@stop_area_types ||= Chouette::AreaType.all(referential.data_format.to_sym).select do |stop_area_type|
       stop_area_type.to_i >= 0
     end
   end

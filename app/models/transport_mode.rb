@@ -1,4 +1,19 @@
 class TransportMode
+
+  attr_accessor :transport_mode_name
+
+  def initialize(transport_mode_name)
+    self.transport_mode_name = transport_mode_name
+  end
+
+  def to_s
+    self.transport_mode_name
+  end
+
+  def underscore
+    to_s.underscore
+  end
+
   class << self
     def formats
       %w(gtfs gtfs_extended netex neptune)
@@ -26,7 +41,7 @@ class TransportMode
       @all_modes[format_t] = []
       transport_mode_data(format).each do |tm|
         label = I18n.t("transport_modes.gtfs.#{tm['mode'].parameterize}", default: tm['mode'])
-        label_with_code = tm['code'] ? "#{label} (#{tm['code']})" : label
+        label_with_code = tm['code'].present? ? "#{label} (#{tm['code']})" : label
         @all_modes[format_t] << [label_with_code, label] unless @all_modes[format_t].find{ |k| k[1] == label }
       end
       @all_modes[format_t].uniq!
@@ -65,7 +80,14 @@ class TransportMode
 
     def transport_mode_data(format)
       @definitions_path ||= Gem.loaded_specs['chouette-projects-i18n'].full_gem_path
-      JSON.parse(File.read(File.join(@definitions_path, 'data', 'transport_mode', "#{format}.json")))
+      tm_format = if format == :netex_experimental
+                    'neptune'
+                  elsif format == :netex_france
+                    'netex'
+                  else
+                    format
+                  end
+      JSON.parse(File.read(File.join(@definitions_path, 'data', 'transport_mode', "#{tm_format}.json")))
     end
   end
 end

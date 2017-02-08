@@ -47,10 +47,12 @@
       <label><%= @line.human_attribute_name("transport_mode") %>: </label>
       <%= t("transport_modes.#{@line.referential_format}.#{@line.transport_mode_name.parameterize}", default: @line.transport_mode_name) %>
     </p>
-    <p>
-      <label><%= @line.human_attribute_name("transport_submode_name") %>: </label>
-      <%= t("transport_modes.#{@line.referential_format}.#{@line.transport_submode_name.parameterize}", default: @line.transport_submode_name) %>
-    </p>
+    <% if @line.transport_submode_name %>
+      <p>
+        <label><%= @line.human_attribute_name("transport_submode_name") %>: </label>
+        <%= t("transport_modes.#{@line.referential_format}.#{@line.transport_submode_name.parameterize}", default: @line.transport_submode_name) %>
+      </p>
+    <% end %>
     <p>
       <label><%= @line.human_attribute_name("stable_id") %>: </label>
       <%= @line.stable_id %>

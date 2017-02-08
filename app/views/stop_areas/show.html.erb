@@ -3,7 +3,7 @@
 <div class="stop_area_show">
   <% if show_map? %>
     <%= @map.to_html %>
-  <% end %>  
+  <% end %>
   <div class="summary">
     <p>
       <label><%= @stop_area.human_attribute_name("comment") %>: </label>
@@ -114,11 +114,11 @@
 <div class="genealogical clearfix">
   <%= render "stop_areas/genealogical" %>
 </div>
-                         
+
 <% if manage_access_points %>
 <div>
 	<h3><%= t('.access_points') %></h3>
-	
+
 	<div class="access_points paginated_content">
 	  <%= paginated_content @access_points, "access_points/access_point" %>
 	</div>
@@ -131,11 +131,11 @@
      <%= paginated_content @stop_area.routing_constraints, "routing_constraints/routing_constraint", :delete => false %>
   </div>
 <% end %>
-                         
+
 <% content_for :sidebar do %>
 	<table>
     <tr>
-			<td>	
+			<td>
 				<ul class="actions">
 					<li><%= link_to t('stop_areas.actions.new'), new_referential_stop_area_path(@referential), :class => "add" %></li>
 					<li><%= link_to t('stop_areas.actions.edit'), edit_referential_stop_area_path(@referential, @stop_area), :class => "edit" %></li>
@@ -144,14 +144,14 @@
     	</td>
 		</tr>
     <tr>
-			<td>	
+			<td>
 				<h4><%= t(".stop_managment") %></h4>
 				<ul class="actions">
 					<li><%= link_to t('stop_areas.actions.select_parent'), select_parent_referential_stop_area_path(@referential, @stop_area), :class => "parent" %></li>
 					<% if @stop_area.parent == nil %>
 						<li><%= link_to t('stop_areas.actions.clone_as_parent'), new_referential_stop_area_stop_area_copy_path(@referential, @stop_area, :hierarchy => "parent"), :class => "clone" %></li>
 					<% end %>
-					<% if manage_children %>
+					<% if manage_children(@referential.data_format.to_sym) %>
 						<li><%= link_to t('stop_areas.actions.add_children'), add_children_referential_stop_area_path(@referential, @stop_area), :class => "children" %></li>
 						<li><%= link_to t('stop_areas.actions.clone_as_child'), new_referential_stop_area_stop_area_copy_path(@referential, @stop_area, :hierarchy => "child"), :class => "clone" %></li>
 					<% end %>
@@ -160,7 +160,7 @@
 		</tr>
 		<% if manage_access_points %>
 			<tr>
-				<td>	
+				<td>
 					<h4><%= t(".access_managment") %></h4>
 					<ul class="actions">
 						<li><%= link_to t('access_points.actions.new'), new_referential_stop_area_access_point_path(@referential,@stop_area), :class => "add" %></li>

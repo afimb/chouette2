@@ -20,11 +20,12 @@ module StopAreasHelper
   end  
 
   def manage_access_points
-    @stop_area.stop_area_type == 'stop_place' || @stop_area.stop_area_type == 'commercial_stop_point'
+    Chouette::AreaType.list_access_points.include? @stop_area.stop_area_type
   end
 
-  def manage_children
-    @stop_area.stop_area_type == 'stop_place' || @stop_area.stop_area_type == 'commercial_stop_point'
+  def manage_children(referential_format)
+    return false if ['boarding_position', 'quay', 'zone_d_embarquement', 'stop'].include? @stop_area.stop_area_type.to_s
+    Chouette::AreaType.list_children(referential_format, @stop_area.stop_area_type.to_s).any?
   end
   
   def access_links_pairs(access_links)
