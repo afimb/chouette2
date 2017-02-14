@@ -8,7 +8,7 @@ class ChouetteController < BreadcrumbController
 
   def switch_referential
     if referential.nil?
-      flash[:alert] = "Data space '" + params[:referential_id] + "' not found for current user."
+      flash[:alert] = I18n.t("referentials.errors.no_access",  :referential => params[:referential_id])
       redirect_to root_path
     else
       Apartment::Tenant.switch!(referential.slug)

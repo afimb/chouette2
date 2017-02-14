@@ -15,7 +15,7 @@ class ReferentialsController < ChouetteController
 
   def show
     if resource.nil?
-      flash[:alert] = "Data space '" + params[:id] + "' not found for current user."
+      flash[:alert] = I18n.t("referentials.errors.no_access",  :referential => params[:id])
       redirect_to root_path
     else
      resource.switch
