@@ -14,6 +14,10 @@ class ReferentialsController < ChouetteController
   end
 
   def show
+    if resource.nil?
+      flash[:alert] = I18n.t("referentials.errors.no_access",  :referential => params[:id])
+      redirect_to root_path
+    else
      resource.switch
      show! do |format|
        format.json {
@@ -26,6 +30,7 @@ class ReferentialsController < ChouetteController
        format.html { build_breadcrumb :show}
 
      end
+    end
   end
 
   protected

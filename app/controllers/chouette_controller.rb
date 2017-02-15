@@ -7,7 +7,13 @@ class ChouetteController < BreadcrumbController
   before_action :switch_referential
 
   def switch_referential
-    Apartment::Tenant.switch!(referential.slug)
+    if referential.nil?
+      flash[:alert] = I18n.t("referentials.errors.no_access",  :referential => params[:referential_id])
+      redirect_to root_path
+    else
+      Apartment::Tenant.switch!(referential.slug)
+    end
+
   end
 
   def referential
