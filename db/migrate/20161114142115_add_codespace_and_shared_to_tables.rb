@@ -1,7 +1,7 @@
 class AddCodespaceAndSharedToTables < ActiveRecord::Migration
   def self.up
     list_tables.each do |t|
-      add_column t, :codespace, :string, null: false, default: Referential.where(slug: Apartment::Tenant.current).first&.prefix, after: :objectid
+      add_column t, :codespace, :string, null: false, default: Referential.where(slug: Apartment::Tenant.current).first.try(:prefix), after: :objectid
       add_column t, :shared, :boolean, null: false, default: false, after: :codespace
       remove_index t, name: "#{t}_objectid_key" unless [:route_sections, :timebands, :routing_constraints].include?(t)
       remove_index t, :objectid if t == :routing_constraints
