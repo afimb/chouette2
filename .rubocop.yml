@@ -107,6 +107,9 @@ Style/TrailingCommaInLiteral:
   Enabled: false
   StyleGuide: http://relaxed.ruby.style/#styletrailingcommainliteral
 
+Style/TrailingBlankLines:
+  Enabled: false
+
 Style/WhileUntilModifier:
   Enabled: false
   StyleGuide: http://relaxed.ruby.style/#stylewhileuntilmodifier

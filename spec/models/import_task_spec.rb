@@ -14,7 +14,7 @@
 
 #       expect(NeptuneImport.new).to be_an_instance_of(NeptuneImport)
 #       expect(GtfsImport.new).to be_an_instance_of(GtfsImport)
-#       expect(NetexImport.new).to be_an_instance_of(NetexImport)
+#       expect(NetexExperimentalImport.new).to be_an_instance_of(NetexExperimentalImport)
 #       expect(CsvImport.new).to be_an_instance_of(CsvImport)
 #     end
 

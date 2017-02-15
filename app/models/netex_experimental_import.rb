@@ -1,8 +1,8 @@
-class NeptuneImport < ImportTask
+class NetexExperimentalImport < ImportTask
 
   def action_params
     {
-      "neptune-import" => {
+      "netex_experimental-import" => {
         "no_save" => no_save,
         "user_name" => user_name,
         "name" => name,
@@ -15,7 +15,7 @@ class NeptuneImport < ImportTask
   end
 
   def data_format
-    "neptune"
+    "netex_experimental"
   end
 
 end

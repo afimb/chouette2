@@ -30,7 +30,9 @@ class GtfsExport < ExportTask
         "object_id_prefix" => object_id_prefix,
         "start_date" => start_date,
         "end_date" => end_date,
-        "valid_after_export" => valid_after_export
+        "valid_after_export" => valid_after_export,
+        "default_codespace" => referential.prefix,
+        "default_format" => referential.data_format
       }
     }
   end

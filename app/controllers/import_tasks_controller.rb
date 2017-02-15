@@ -40,13 +40,15 @@ class ImportTasksController < ChouetteController
     if import_task_parameters.present?
       @available_imports = [
         import_task_parameters[:data_format] == "neptune" ? build_resource : NeptuneImport.new(:referential_id => @referential.id ),
-        import_task_parameters[:data_format] == "netex" ? build_resource : NetexImport.new(:referential_id => @referential.id ),
+        import_task_parameters[:data_format] == "netex_experimental" ? build_resource : NetexExperimentalImport.new(:referential_id => @referential.id ),
+        import_task_parameters[:data_format] == "netex_france" ? build_resource : NetexFranceImport.new(:referential_id => @referential.id ),
         import_task_parameters[:data_format] == "gtfs" ? build_resource : GtfsImport.new(:referential_id => @referential.id )
       ]
     else
       @available_imports = [
         NeptuneImport.new(:referential_id => @referential.id ),
-        NetexImport.new(:referential_id => @referential.id ),
+        NetexExperimentalImport.new(:referential_id => @referential.id ),
+        NetexFranceImport.new(:referential_id => @referential.id ),
         GtfsImport.new(:referential_id => @referential.id )
       ]
     end
@@ -58,8 +60,10 @@ class ImportTasksController < ChouetteController
                        case import_task_parameters[:data_format]
                        when "neptune"
                          NeptuneImport.new(import_task_parameters)
-                       when "netex"
-                         @import_task = NetexImport.new(import_task_parameters)
+                       when "netex_experimental"
+                         @import_task = NetexExperimentalImport.new(import_task_parameters)
+                       when "netex_france"
+                         @import_task = NetexFranceImport.new(import_task_parameters)
                        when "gtfs"
                          @import_task = GtfsImport.new(import_task_parameters)
                        end

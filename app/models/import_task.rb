@@ -11,7 +11,7 @@ class ImportTask
   @@root = "#{Rails.root}/tmp/imports"
   cattr_accessor :root
 
-  enumerize :data_format, in: %w( neptune netex gtfs )
+  enumerize :data_format, in: %w( neptune netex_experimental netex_france gtfs )
   attr_accessor :rule_parameter_set_id, :referential_id, :user_id, :user_name, :data_format, :resources, :name, :no_save
 
   validates_presence_of :referential_id
@@ -135,7 +135,8 @@ class ImportTask
 
   @@valid_mime_types = {
     neptune: %w{application/zip application/xml},
-    netex: %w{application/zip},
+    netex_experimental: %w{application/zip},
+    netex_france: %w{application/zip},
     gtfs: %w{application/zip  text/plain}
   }
   cattr_accessor :valid_mime_types

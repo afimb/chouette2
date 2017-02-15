@@ -46,7 +46,7 @@
 #   describe ".types" do
 
 #     it "should return available Export implementations" do
-#       expect(Export.types).to match_array(%w{NeptuneExport CsvExport GtfsExport NetexExport SigExport HubExport})
+#       expect(Export.types).to match_array(%w{NeptuneExport CsvExport GtfsExport NetexExperimentalExport SigExport HubExport})
 #     end
 
 #   end

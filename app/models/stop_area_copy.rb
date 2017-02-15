@@ -17,9 +17,9 @@ class StopAreaCopy
     if self.area_type.blank? && self.source.present?
       self.source_id = self.source.id
       self.area_type = if self.hierarchy == "child"
-                         Chouette::AreaType.list_children(self.referential_format, self.source.area_type)&.first&.underscore
+                         Chouette::AreaType.list_children(self.source.referential_format, self.source.area_type)&.first&.underscore
                        else
-                         Chouette::AreaType.list_parents(self.referential_format, self.source.area_type)&.first&.underscore
+                         Chouette::AreaType.list_parents(self.source.referential_format, self.source.area_type)&.first&.underscore
                        end
     end
   end

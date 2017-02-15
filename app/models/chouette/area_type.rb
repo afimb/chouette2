@@ -51,8 +51,9 @@ class Chouette::AreaType < ActiveSupport::StringInquirer
       return ['lieu_d-arret_multimodal'] if ['pole_monomodal'].include? text_code
       return ['groupe_de_lieux'] if ['lieu_d_arret_multimodal'].include? text_code
     else
-      []
+      return []
     end
+    return []
   end
 
   def self.list_children(referential_format, text_code)
@@ -69,8 +70,9 @@ class Chouette::AreaType < ActiveSupport::StringInquirer
       return ['pole_monomodal'] if ['lieu_d_arret_multimodal'].include? text_code
       return ['lieu_d-arret_multimodal'] if ['groupe_de_lieux'].include? text_code
     else
-      []
+      return []
     end
+    return []
   end
 
   def self.list_access_points

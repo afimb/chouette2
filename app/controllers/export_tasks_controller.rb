@@ -48,7 +48,8 @@ class ExportTasksController < ChouetteController
     if export_task_parameters.present?
       @available_exports = [
         export_task_parameters[:data_format] == "neptune" ? build_resource : NeptuneExport.new(:referential_id => @referential.id ),
-        export_task_parameters[:data_format] == "netex" ? build_resource : NetexExport.new(:referential_id => @referential.id ),
+        export_task_parameters[:data_format] == "netex_experimental" ? build_resource : NetexExperimentalExport.new(:referential_id => @referential.id ),
+        export_task_parameters[:data_format] == "netex_france" ? build_resource : NetexFranceExport.new(:referential_id => @referential.id ),
         export_task_parameters[:data_format] == "gtfs" ? build_resource : GtfsExport.new(:referential_id => @referential.id ),
         export_task_parameters[:data_format] == "hub" ? build_resource : HubExport.new(:referential_id => @referential.id ),
         export_task_parameters[:data_format] == "sig" ? build_resource : SigExport.new(:referential_id => @referential.id )
@@ -56,7 +57,8 @@ class ExportTasksController < ChouetteController
     else
       @available_exports = [
         NeptuneExport.new(:referential_id => @referential.id ),
-        NetexExport.new(:referential_id => @referential.id ),
+        NetexExperimentalExport.new(:referential_id => @referential.id ),
+        NetexFranceExport.new(:referential_id => @referential.id ),
         GtfsExport.new(:referential_id => @referential.id ),
         HubExport.new(:referential_id => @referential.id ),
         SigExport.new(:referential_id => @referential.id )
@@ -71,8 +73,10 @@ class ExportTasksController < ChouetteController
                        case export_task_parameters[:data_format]
                        when "neptune"
                          NeptuneExport.new(export_task_parameters)
-                       when "netex"
-                         NetexExport.new(export_task_parameters)
+                       when "netex_experimental"
+                         NetexExperimentalExport.new(export_task_parameters)
+                       when "netex_france"
+                         NetexFranceExport.new(export_task_parameters)
                        when "gtfs"
                          GtfsExport.new(export_task_parameters)
                        when "hub"
