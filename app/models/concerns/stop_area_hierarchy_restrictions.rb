@@ -7,14 +7,14 @@ module StopAreaHierarchyRestrictions
       []
     else
       children = Chouette::AreaType.list_children(self.referential_format, self.area_type)
-      return [] unless children&.any?
+      return [] if children.blank?
       Chouette::StopArea.where(area_type: children.map(&:camelize)) - [self]
     end
   end
 
   def possible_parents
     parents = Chouette::AreaType.list_parents(self.referential_format, self.area_type)
-    return [] unless parents&.any?
+    return [] if parents.blank?
     Chouette::StopArea.where(area_type: parents.map(&:camelize)) - [self]
   end
 
