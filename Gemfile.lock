@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: https://github.com/afimb/chouette2-i18n.git
-  revision: d7bb44187cc3caa6c1b0141510b60617f371c4df
+  revision: b4b1588fa09de310401ceec90a550cbc83a3ed7c
   specs:
     chouette2-i18n (0.1.0)
       i18n
