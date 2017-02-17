@@ -28,5 +28,8 @@ module ChouetteIhm
 
     # link to validation specification pages
     config.validation_spec = 'http://www.chouette.mobi/validation/V2_3/'
+
+    # Ref: http://stackoverflow.com/questions/29417328/how-to-disable-cannot-render-console-from-on-rails
+    config.web_console.whitelisted_ips = '10.0.0.0/16'
   end
 end
