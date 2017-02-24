@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rutebanken/chouette-projects-i18n.git
-  revision: 73039effdab6d1e834e4c77061e39cad1b44f60e
+  revision: 547469001a3189c92149bd87c4fd01bcb00abd7e
   branch: master
   specs:
     chouette-projects-i18n (0.1.0)
@@ -233,7 +233,7 @@ GEM
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     httpclient (2.8.2.4)
-    i18n (0.8.0)
+    i18n (0.8.1)
     inherited_resources (1.6.0)
       actionpack (>= 3.2, < 5)
       has_scope (~> 0.6.0.rc)
@@ -532,7 +532,7 @@ GEM
       libv8 (~> 3.16.14.0)
       ref
     thor (0.19.4)
-    thread_safe (0.3.5)
+    thread_safe (0.3.6)
     tilt (2.0.5)
     transpec (3.2.2)
       activesupport (>= 3.0, < 5.0)
