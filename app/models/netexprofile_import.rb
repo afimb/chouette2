@@ -1,6 +1,6 @@
 class NetexprofileImport < ImportTask
 
-  attr_accessor :valid_codespaces
+  attr_accessor :valid_codespaces, :parse_site_frames
 
   def action_params
     {
