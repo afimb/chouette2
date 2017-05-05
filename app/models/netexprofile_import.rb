@@ -1,6 +1,6 @@
 class NetexprofileImport < ImportTask
 
-  attr_accessor :valid_codespaces, :parse_site_frames
+  attr_accessor :valid_codespaces, :parse_site_frames, :validate_against_schema
 
   def action_params
     {
@@ -11,7 +11,8 @@ class NetexprofileImport < ImportTask
         "organisation_name" => organisation.name,
         "referential_name" => referential.name,
         "valid_codespaces" => valid_codespaces,
-        "parse_site_frames" => parse_site_frames
+        "parse_site_frames" => parse_site_frames,
+        "validate_against_schema" => validate_against_schema
       }
     }
   end
