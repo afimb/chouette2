@@ -42,16 +42,22 @@ Rails.application.configure do
 
   # Specific theme for each company
   # AFIMB
-  config.company_name = "afimb"
-  config.company_theme = "#61970b" # AFIMB color
-  config.company_contact = "http://www.chouette.mobi/club-utilisateurs/contact-support/"
-  config.accept_user_creation = true
+  # config.company_name = "afimb"
+  # config.company_theme = "#61970b" # AFIMB color
+  # config.company_contact = "http://www.chouette.mobi/club-utilisateurs/contact-support/"
+  # config.accept_user_creation = true
 
   # CITYWAY
   # config.company_name = "cityway"
   # config.company_theme = "#32adb0"
   # config.company_contact = "http://www.cityway.fr/contact/?rub_code=14"
   # config.accept_user_creation = false
+
+  # Rutebanken
+  config.company_name = "Entur"
+  config.company_theme = "#6BBDC2" # Entur color
+  config.company_contact = "http://www.entur.org/kontakt/"
+  config.accept_user_creation = true
 
   # file to data for demo
   config.demo_data = "tmp/demo.zip"

@@ -109,9 +109,9 @@ Rails.application.configure do
   # config.accept_user_creation = false
 
   # Rutebanken
-   config.company_name = "rutebanken"
-   config.company_theme = "#16c1f3" # Rutebanken color
-   config.company_contact = "http://www.nasjonalreiseplanlegger.com"
+   config.company_name = "Entur"
+   config.company_theme = "#6BBDC2" # Entur color
+   config.company_contact = "http://www.entur.org/kontakt/"
    config.accept_user_creation = true
 
   # file to data for demo
