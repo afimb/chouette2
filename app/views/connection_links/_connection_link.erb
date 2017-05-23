@@ -14,7 +14,7 @@
       <h5>
         <%= link_to([@referential, connection_link], :class => "preview", :title => "#{Chouette::ConnectionLink.model_name.human.capitalize} #{connection_link.name}") do %>
         <span class="name">
-          <%= truncate(connection_link.name, :length => 20) %>
+          <%= connection_link.name %>
         </span>
         <% end %>
       </h5>

@@ -12,7 +12,7 @@
       <h5>
         <%= link_to([@referential, group_of_line], :class => "preview", :title => "#{Chouette::GroupOfLine.model_name.human.capitalize} #{group_of_line.name}") do %>
         <span class="name">
-          <%= truncate(group_of_line.name, :length => 20) %>
+          <%= group_of_line.name %>
         </span>
         <% end %>
       </h5>

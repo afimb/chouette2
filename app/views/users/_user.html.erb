@@ -24,7 +24,7 @@
         <%= link_to( organisation_user_path(user), :class => "preview", :title => "#{User.model_name.human.capitalize} #{user.email}") do %>
          <%= user_gravatar_image_tag(user, 20) %>
         <span class="name">
-          <%= truncate(user.name, :length => 15) %>
+          <%= user.name %>
         </span>
         <% end %>
       </h5>

@@ -11,7 +11,7 @@
       <h5>
         <%= link_to([@referential, @line, @route, journey_pattern], :class => "preview", :title => "#{Chouette::JourneyPattern.model_name.human.capitalize} #{journey_name(journey_pattern)}") do %>
         <span class="name">
-          <%= truncate(journey_name(journey_pattern), :length => 20) %>
+          <%= journey_name(journey_pattern) %>
         </span>
         <% end %>
       </h5>
