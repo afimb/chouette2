@@ -39,10 +39,7 @@
       <label><%= @line.human_attribute_name("published_name") %>: </label>
       <%= @line.published_name %>
     </p>
-    <p>
-      <label><%= @line.human_attribute_name("registration_number") %>: </label>
-      <%= @line.registration_number %>
-    </p>
+
     <p>
       <label><%= @line.human_attribute_name("transport_mode") %>: </label>
       <%= t("transport_modes.label.#{@line.transport_mode}") %>
@@ -50,11 +47,6 @@
     <p>
       <label><%= @line.human_attribute_name("stable_id") %>: </label>
       <%= @line.stable_id %>
-    </p>
-
-    <p>
-      <label><%= @line.human_attribute_name("url") %>: </label>
-      <%= @line.url %>
     </p>
 
     <p>
