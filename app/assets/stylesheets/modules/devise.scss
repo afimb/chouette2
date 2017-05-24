@@ -8,7 +8,7 @@
     }
 
     .front_bg{
-        background: url(image-path('welcome.jpg')) no-repeat center center;
+        background: url(image-path('welcomeentur.jpg')) no-repeat center center;
         background-size: cover;
 
         #devise_middle{
@@ -37,10 +37,13 @@
                 }
 
                 .product_summary{
-                    padding: 30px 60px 0 60px;
+                    padding: 30px 30px 0 30px;
 
                     color: white;
                     text-shadow: 0 0 1px rgba(0,0,0,.6);
+                    background-color: rgba(39, 58, 70, 0.9);
+                    border: 5px solid rgba(107, 189, 194, 1);
+                    border-radius: 15px;
 
                     p{
                         font-size: 21px;
