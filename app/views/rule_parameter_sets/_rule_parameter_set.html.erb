@@ -16,7 +16,7 @@
       <h5>
         <%= link_to( organisation_rule_parameter_set_path( rule_parameter_set), :class => "preview", :title => "#{RuleParameterSet.model_name.human.capitalize} #{rule_parameter_set.name}") do %>
         <span class="name">
-          <%= truncate(rule_parameter_set.name, :length => 20) %>
+          <%= rule_parameter_set.name %>
         </span>
         <% end %>
       </h5>

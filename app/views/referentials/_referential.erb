@@ -14,7 +14,7 @@
       <h5>
         <%= link_to([@referential, referential], :class => "preview", :title => "#{Referential.model_name.human.capitalize} #{referential.name}") do %>
         <span class="name">
-          <%= truncate(referential.name, :length => 20) %>
+          <%= referential.name %>
         </span>
         <% end %>
       </h5>

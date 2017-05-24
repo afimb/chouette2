@@ -22,7 +22,7 @@ feature 'User index page', :devise do
     user.confirm
     login_as(user, scope: :user)
     visit organisation_path
-    expect(page).to have_content user.name.truncate(15)
+    expect(page).to have_content user.name
   end
 
 end

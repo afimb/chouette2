@@ -14,7 +14,7 @@ module JobStatusIconHelper
       title += '<span class="name terminated"><i class="fa fa-check"></i>'
     end
 
-    title += "#{object_name} #{truncate(name, length: 20)}</span>"
+    title += "#{object_name} #{name}</span>"
 
     title.html_safe
   end
@@ -23,7 +23,7 @@ module JobStatusIconHelper
     name = object.name
     object_name = object.class.model_name.human.capitalize
 
-    "#{object_name} #{truncate(name, length: 20)}".html_safe
+    "#{object_name} #{name}".html_safe
   end
 
 end

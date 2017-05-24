@@ -7,7 +7,7 @@
       </li>
       <li>
         <%= link_to([@referential, line], class: 'preview', title: "#{Chouette::Line.model_name.human.capitalize} #{line.name}") do %>
-          <h5 class="ce-LineBlock-header-title"><%= truncate(line.name, length: 24) %></h5>
+          <h5 class="ce-LineBlock-header-title"><%= line.name %></h5>
         <% end %>
       </li>
       <% if policy(:application).write? %>
