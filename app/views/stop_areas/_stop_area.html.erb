@@ -1,16 +1,6 @@
 <div id="index_item" class="panel panel-default stop_area">
   <div class="panel-heading">
     <div class="panel-title clearfix">
-      <% if policy(:application).write? %>
-        <span class="pull-right">
-          <%= link_to edit_referential_stop_area_path(@referential, stop_area), :class => "btn btn-default btn-sm" do %>
-            <span class="fa fa-pencil"></span>
-          <% end %>
-          <%= link_to referential_stop_area_path(@referential, stop_area), :method => :delete, :data => {:confirm =>  t('stop_areas.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
-            <span class="fa fa-trash-o"></span>
-          <% end %>
-        </span>
-      <% end %>
       <h5>
         <%= link_to([@referential, stop_area], :class => "preview", :title => t("area_types.label.#{stop_area.stop_area_type}") + " #{stop_area.name}") do %>
         <span class="name">
