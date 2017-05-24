@@ -1,10 +1,11 @@
-<%= title_tag t('stop_areas.show.title', stop_area: @stop_area.name, stop_area_type: t("area_types.label.#{@stop_area.stop_area_type}") ) %>
+<%= title_tag  @stop_area.name %>
 
 <div class="stop_area_show">
   <% if show_map? %>
     <%= @map.to_html %>
   <% end %>
   <div class="summary">
+    <!-- NRP-1577: hide so far
     <p>
       <label><%= @stop_area.human_attribute_name("comment") %>: </label>
       <%= @stop_area.comment %>
@@ -45,12 +46,14 @@
       <label><%= @stop_area.human_attribute_name("registration_number") %>: </label>
       <%= @stop_area.registration_number %>
     </p>
+    -->
     <p>
       <label><%= @stop_area.human_attribute_name("stop_area_type") %>: </label>
       <%= t("area_types.label.#{@stop_area.stop_area_type}") %>
       <i class="fa fa-info-circle" data-toggle="tooltip" data-placement="right" title="<%= t('.not_editable') %>"></i>
     </p>
     <% if !manage_itl %>
+        <!-- NRP-1577: hide so far
 	    <p>
 	      <label><%= @stop_area.human_attribute_name("mobility_restricted_suitability") %>: </label>
 	      <% if (!@stop_area.mobility_restricted_suitability.nil?) %>
@@ -75,6 +78,7 @@
 	         <%=t("unknown") %>
 	      <% end %>
 	    </p>
+	    -->
 	    <p> <label><%= t('stop_areas.show.geographic_data') %> </label></p>
 	    <% if @stop_area.long_lat_type == nil %>
 		    <span class='geo_data'><%= t('stop_areas.show.no_geographic_data') %></span>
@@ -134,33 +138,12 @@
 
 <% content_for :sidebar do %>
     <table>
-    <tr><td>
-	<ul class="actions">
-      <li><%= link_to t('stop_areas.actions.new'), new_referential_stop_area_path(@referential), :class => "add" %></li>
-	  <li><%= link_to t('stop_areas.actions.edit'), edit_referential_stop_area_path(@referential, @stop_area), :class => "edit" %></li>
-	  <li><%= link_to t('stop_areas.actions.destroy'), referential_stop_area_path(@referential, @stop_area), :method => :delete, :data => {:confirm =>  t('stop_areas.actions.destroy_confirm')}, :class => "remove" %></li>
-	</ul>
-    </td></tr>
   <% if manage_itl %>
     <tr><td>
 	<h4><%= t(".itl_managment") %></h4>
 	<ul class="actions">
 	    <li><%= link_to t('stop_areas.actions.add_routing_lines'), add_routing_lines_referential_stop_area_path(@referential, @stop_area), :class => "add_routing_lines" %></li>
 	    <li><%= link_to t('stop_areas.actions.add_routing_stops'), add_routing_stops_referential_stop_area_path(@referential, @stop_area), :class => "add_routing_stops" %></li>
-	</ul>
-    </td></tr>
-  <% else %>
-    <tr><td>
-	<h4><%= t(".stop_managment") %></h4>
-	<ul class="actions">
-	   <li><%= link_to t('stop_areas.actions.select_parent'), select_parent_referential_stop_area_path(@referential, @stop_area), :class => "parent" %></li>
-       <% if @stop_area.parent == nil %>
-	     <li><%= link_to t('stop_areas.actions.clone_as_parent'), new_referential_stop_area_stop_area_copy_path(@referential, @stop_area, :hierarchy => "parent"), :class => "clone" %></li>
-       <% end %>
-       <% if manage_children %>
-		  <li><%= link_to t('stop_areas.actions.add_children'), add_children_referential_stop_area_path(@referential, @stop_area), :class => "children" %></li>
-		  <li><%= link_to t('stop_areas.actions.clone_as_child'), new_referential_stop_area_stop_area_copy_path(@referential, @stop_area, :hierarchy => "child"), :class => "clone" %></li>
-       <% end %>
 	</ul>
     </td></tr>
 
