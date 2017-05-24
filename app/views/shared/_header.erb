@@ -60,20 +60,12 @@
                <span class="badge pull-right"><%= @referential.stop_areas.size %></span><%= Referential.human_attribute_name("stop_areas") %>
               <% end %>
             </li>
-            <li><%= link_to referential_connection_links_path(@referential) do %>
-               <span class="badge pull-right"><%= @referential.connection_links.size %></span><%= Referential.human_attribute_name("connection_links") %>
-              <% end %>
-            </li>
             <li><%= link_to referential_time_tables_path(@referential) do %>
                <span class="badge pull-right"><%= @referential.time_tables.size %></span><%= Referential.human_attribute_name("time_tables") %>
               <% end %>
             </li>
             <li><%= link_to referential_route_sections_path(@referential) do %>
                <span class="badge pull-right"><%= @referential.route_sections.size %></span><%= Referential.human_attribute_name("route_sections") %>
-              <% end %>
-            </li>
-            <li><%= link_to referential_timebands_path(@referential) do %>
-                <span class="badge pull-right"><%= @referential.timebands.size %></span><%= Referential.human_attribute_name("timebands") %>
               <% end %>
             </li>
           </ul>

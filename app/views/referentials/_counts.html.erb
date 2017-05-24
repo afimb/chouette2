@@ -5,19 +5,27 @@
   <ul class="list-group"  width="75%">
     <li class="list-group-item">
       <span class="badge"><%= @referential.networks.size %></span>
-      <%= Referential.human_attribute_name("networks") %>
+      <%= link_to referential_networks_path(@referential) do  %>
+        <%= Referential.human_attribute_name("networks") %>
+      <% end %>
     </li>
     <li class="list-group-item">
       <span class="badge"><%= @referential.companies.size %></span>
-      <%= Referential.human_attribute_name("companies") %>
+      <%= link_to referential_companies_path(@referential) do  %>
+        <%= Referential.human_attribute_name("companies") %>
+      <% end %>
     </li>
     <li class="list-group-item">
       <span class="badge"><%= @referential.group_of_lines.size %></span>
-      <%= Referential.human_attribute_name("group_of_lines") %>
+      <%= link_to referential_group_of_lines_path(@referential) do  %>
+        <%= Referential.human_attribute_name("group_of_lines") %>
+      <% end %>
     </li>
     <li class="list-group-item">
       <span class="badge"><%= @referential.lines.size %></span>
-      <%= Referential.human_attribute_name("lines") %>
+      <%= link_to referential_lines_path(@referential) do  %>
+        <%= Referential.human_attribute_name("lines") %>
+      <% end %>
     </li>
     <li class="list-group-item">
       <span class="badge"><%= @referential.vehicle_journeys.size %></span>
@@ -25,43 +33,21 @@
     </li>
     <li class="list-group-item">
       <span class="badge"><%= @referential.time_tables.size %></span>
-      <%= Referential.human_attribute_name("time_tables") %>
-    </li>
-    <li class="list-group-item">
-      <span class="badge"><%= @referential.connection_links.size %></span>
-      <%= Referential.human_attribute_name("connection_links") %>
+      <%= link_to referential_time_tables_path(@referential) do  %>
+        <%= Referential.human_attribute_name("time_tables") %>
+      <% end %>
     </li>
     <li class="list-group-item">
       <span class="badge"><%= @referential.route_sections.size %></span>
-      <%= Referential.human_attribute_name("route_sections") %>
+      <%= link_to referential_route_sections_path(@referential) do  %>
+        <%= Referential.human_attribute_name("route_sections") %>
+      <% end %>
     </li>
     <li class="list-group-item">
       <span class="badge"><%= @referential.stop_areas.size %></span>
-      <%= Referential.human_attribute_name("stop_areas") %>
-    </li>
-    <li class="list-group-item">
-      <span class="badge"><%= @referential.stop_areas.where("area_type = ?","BoardingPosition").size %></span>
-      <%= image_tag "map/boarding_position.png"%><%= Referential.human_attribute_name("boarding_positions") %>
-    </li>
-    <li class="list-group-item">
-      <span class="badge"><%= @referential.stop_areas.where("area_type = ?","Quay").size %></span>
-      <%= image_tag "map/quay.png"%><%= Referential.human_attribute_name("quays") %>
-    </li>
-    <li class="list-group-item">
-      <span class="badge"><%= @referential.stop_areas.where("area_type = ?","CommercialStopPoint").size %></span>
-      <%= image_tag "map/commercial_stop_point.png"%><%= Referential.human_attribute_name("commercial_stops") %>
-    </li>
-    <li class="list-group-item">
-      <span class="badge"><%= @referential.stop_areas.where("area_type = ?","StopPlace").size %></span>
-      <%= image_tag "map/stop_place.png"%><%= Referential.human_attribute_name("stop_places") %>
-    </li>
-    <li class="list-group-item">
-      <span class="badge"><%= @referential.stop_areas.where("area_type = ?","ITL").size %></span>
-      <%= image_tag "map/itl.png"%><%= Referential.human_attribute_name("itls") %>
-    </li>
-    <li class="list-group-item">
-      <span class="badge"><%= @referential.access_points.size %></span>
-      <%= image_tag "map/access_in_out.png"%><%= Referential.human_attribute_name("access_points") %>
+      <%= link_to referential_stop_areas_path(@referential) do  %>
+        <%= Referential.human_attribute_name("stop_areas") %>
+      <% end %>
     </li>
   </ul>
 </div>
