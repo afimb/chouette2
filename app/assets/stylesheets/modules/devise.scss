@@ -9,10 +9,10 @@
 
     .front_bg{
         background: url(image-path('welcomeentur.jpg')) no-repeat center center;
-        background-size: cover;
+        background-size: auto 100%;
 
         #devise_middle{
-            min-height: 620px;
+            min-height: calc(100vh - 50px - 200px); // 100% - top - bottom
             padding: 30px 20px 0px 20px;
 
             #registrations_new{
