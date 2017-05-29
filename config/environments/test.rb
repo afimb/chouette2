@@ -57,7 +57,7 @@ Rails.application.configure do
   config.company_name = "Entur"
   config.company_theme = "#6BBDC2" # Entur color
   config.company_contact = "http://www.entur.org/kontakt/"
-  config.accept_user_creation = true
+  config.accept_user_creation = false
 
   # file to data for demo
   config.demo_data = "tmp/demo.zip"
