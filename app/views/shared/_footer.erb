@@ -24,19 +24,5 @@
         <li><%= link_to t("layouts.footer.support.help"), help_path, :target => "chouette_help" %></li>
       </ul>
     </div>
-    <div class="col-md-3">
-      <ul>
-        <li><h4><%= t("layouts.footer.contact.title") %></h4></li>
-        <li>
-          <% if ChouetteIhm::Application.config.company_contact.include?("@") %>
-            <%= mail_to "#{ChouetteIhm::Application.config.company_contact}", t("layouts.footer.contact.mail") %>
-          <% else %>
-            <%= link_to t("layouts.footer.contact.mail"), "#{ChouetteIhm::Application.config.company_contact}", :target => "_blank" %>
-          <% end %>
-        </li>
-        <li><%= link_to t("layouts.footer.contact.newsletter"),"http://www.chouette.mobi/club-utilisateurs/newsletter/", :target => "_blank" %></li>
-        <li><%= link_to t("layouts.footer.contact.forum"), "http://forum.chouette.mobi/", :target => "_blank" %></li>
-      </ul>
-    </div>
   </div>
 </div>
