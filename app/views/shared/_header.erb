@@ -88,7 +88,6 @@
             <li><%= link_to_language :nb, { :class => language_class( :nb  ) } %></li>
           </ul>
         </li>
-        <li><%= link_to t('layouts.help'), help_path, :class =>("current" if help_page?), :target => "chouette_help" %></li>
         <% if user_signed_in?  %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle user_admin" data-toggle="dropdown"><span class="gravatar"><%= user_gravatar_image_tag(current_user, 16) %></span><%= truncate(current_user.name, :length => 20) %> <b class="caret"></b></a>
