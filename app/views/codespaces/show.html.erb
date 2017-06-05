@@ -1,0 +1,25 @@
+<%= title_tag t('codespaces.show.title', :codespace => @codespace.xmlns) %>
+
+<div class="codespace_show">
+
+  <div class="summary">
+    <p>
+      <label><%= Chouette::Codespace.human_attribute_name("xmlns") %>: </label>
+      <%= @codespace.xmlns %>
+    </p>
+    <p>
+      <label><%= Chouette::Codespace.human_attribute_name("xmlns_url") %>: </label>
+      <%= @codespace.xmlns_url %>
+    </p>
+  </div>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('codespaces.actions.new'), new_referential_codespace_path(@referential), :class => "add" %></li>
+  <li><%= link_to t('codespaces.actions.edit'), edit_referential_codespace_path(@referential, @codespace), :class => "edit" %></li>
+  <li><%= link_to  t('codespaces.actions.destroy'), referential_codespace_path(@referential, @codespace), :method => :delete,  :data => {:confirm =>  t('codespaces.actions.destroy_confirm')}, :class => "remove" %></li>
+  <br>
+</ul>
+  <%= creation_tag(@codespace) %>
+<% end %>

@@ -1,0 +1,11 @@
+<%= semantic_form_for [@referential, @codespace] do |form| %>
+  <%= form.inputs do %>   
+    <%= form.input :xmlns %>
+    <%= form.input :xmlns_url %>
+    <% end %>
+
+   <%= form.actions do %>
+     <%= form.action :submit, :as => :button %>
+     <%= form.action :cancel, :as => :link %>
+   <% end %>
+<% end %>

@@ -98,6 +98,10 @@ class Referential < ActiveRecord::Base
     Chouette::RouteSection.all
   end
 
+  def codespaces
+    Chouette::Codespace.all
+  end
+
   def time_zone_tzinfo
     time_zone = ActiveSupport::TimeZone.new(self.time_zone)
     time_zone ? time_zone.tzinfo.name : self.time_zone

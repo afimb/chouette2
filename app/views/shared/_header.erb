@@ -76,6 +76,10 @@
                 <span class="badge pull-right"><%= @referential.timebands.size %></span><%= Referential.human_attribute_name("timebands") %>
               <% end %>
             </li>
+            <li><%= link_to referential_codespaces_path(@referential) do %>
+                  <span class="badge pull-right"><%= @referential.codespaces.size %></span><%= Referential.human_attribute_name("codespaces") %>
+              <% end %>
+            </li>
           </ul>
         </li>
         <% if policy(:application).write? %>
