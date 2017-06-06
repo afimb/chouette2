@@ -1,7 +1,7 @@
 <div id="index_item" class="codespace panel panel-default">
   <div class="panel-heading">
     <div class="panel-title clearfix">
-      <% if policy(:application).write? %>
+      <% if current_user.admin? %>
         <span class="pull-right">
           <%= link_to edit_referential_codespace_path(@referential, codespace), :class => "btn btn-default btn-sm" do %>
             <span class="fa fa-pencil"></span>
@@ -22,7 +22,7 @@
   </div>
   <div class="panel-body">
     <p>
-    <%= codespace.human_attribute_name('xmlns_url') %> <%= codespace.xmlns_url %>
+    <%= codespace.xmlns_url %>
     </p>
   </div>
 </div>

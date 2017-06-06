@@ -15,11 +15,13 @@
 </div>
 
 <% content_for :sidebar do %>
-<ul class="actions">
-  <li><%= link_to t('codespaces.actions.new'), new_referential_codespace_path(@referential), :class => "add" %></li>
-  <li><%= link_to t('codespaces.actions.edit'), edit_referential_codespace_path(@referential, @codespace), :class => "edit" %></li>
-  <li><%= link_to  t('codespaces.actions.destroy'), referential_codespace_path(@referential, @codespace), :method => :delete,  :data => {:confirm =>  t('codespaces.actions.destroy_confirm')}, :class => "remove" %></li>
-  <br>
-</ul>
-  <%= creation_tag(@codespace) %>
+    <ul class="actions">
+      <% if current_user.admin? %>
+          <li><%= link_to t('codespaces.actions.new'), new_referential_codespace_path(@referential), :class => "add" %></li>
+          <li><%= link_to t('codespaces.actions.edit'), edit_referential_codespace_path(@referential, @codespace), :class => "edit" %></li>
+          <li><%= link_to  t('codespaces.actions.destroy'), referential_codespace_path(@referential, @codespace), :method => :delete,  :data => {:confirm =>  t('codespaces.actions.destroy_confirm')}, :class => "remove" %></li>
+      <% end %>
+      <br>
+    </ul>
+    <%= creation_tag(@codespace) %>
 <% end %>

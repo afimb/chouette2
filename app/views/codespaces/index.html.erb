@@ -20,7 +20,9 @@
 
 <% content_for :sidebar do %>
     <ul class="actions">
-      <li><%= link_to t('codespaces.actions.new'), new_referential_codespace_path(@referential), :class => "add" %></li>
-      <br>
+      <% if current_user.admin? %>
+          <li><%= link_to t('codespaces.actions.new'), new_referential_codespace_path(@referential), :class => "add" %></li>
+          <br>
+      <% end %>
     </ul>
 <% end %>
