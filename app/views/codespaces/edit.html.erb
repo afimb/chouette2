@@ -1,5 +1,3 @@
 <%= title_tag t('codespaces.edit.title', :codespace => @codespace.xmlns) %>
 
-<% if current_user.admin? %>
-  <%= render "form" %>
-<% end %>
+<%= render "form" %>

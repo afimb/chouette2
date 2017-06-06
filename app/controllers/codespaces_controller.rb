@@ -1,5 +1,6 @@
 class CodespacesController < ChouetteController
   before_action :check_authorize, except: [:show, :index]
+  before_action :check_admin, :only => [:new, :edit]
 
   defaults :resource_class => Chouette::Codespace
   respond_to :html
@@ -42,4 +43,8 @@ class CodespacesController < ChouetteController
     params.require(:codespace).permit( :objectid, :object_version, :creation_time, :creator_id, :xmlns, :xmlns_url )
   end
 
+  protected
+  def check_admin
+    redirect_to referential_codespaces_path(@referential, @codespaces) unless current_user.admin?
+  end
 end
