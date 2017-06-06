@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116172259) do
+ActiveRecord::Schema.define(version: 20170531120000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -343,17 +343,20 @@ ActiveRecord::Schema.define(version: 20161116172259) do
   add_index "referentials", ["name", "organisation_id"], name: "index_referentials_on_name_and_organisation_id", unique: true, using: :btree
 
   create_table "route_sections", id: :bigserial, force: :cascade do |t|
-    t.integer  "departure_id",       limit: 8
-    t.integer  "arrival_id",         limit: 8
-    t.geometry "input_geometry",     limit: {:srid=>4326, :type=>"line_string"}
-    t.geometry "processed_geometry", limit: {:srid=>4326, :type=>"line_string"}
-    t.string   "objectid",                                                                       null: false
+    t.geometry "input_geometry",                   limit: {:srid=>4326, :type=>"line_string"}
+    t.geometry "processed_geometry",               limit: {:srid=>4326, :type=>"line_string"}
+    t.string   "objectid",                                                                                     null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
     t.float    "distance"
-    t.boolean  "no_processing",                                                  default: false, null: false
+    t.boolean  "no_processing",                                                                default: false, null: false
+    t.string   "arrival_stop_area_objectid_key"
+    t.string   "departure_stop_area_objectid_key"
   end
+
+  add_index "route_sections", ["arrival_stop_area_objectid_key"], name: "index_route_sections_on_arrival_stop_area_objectid_key", using: :btree
+  add_index "route_sections", ["departure_stop_area_objectid_key"], name: "index_route_sections_on_departure_stop_area_objectid_key", using: :btree
 
   create_table "routes", id: :bigserial, force: :cascade do |t|
     t.integer  "line_id",           limit: 8
@@ -373,9 +376,11 @@ ActiveRecord::Schema.define(version: 20161116172259) do
   add_index "routes", ["objectid"], name: "routes_objectid_key", unique: true, using: :btree
 
   create_table "routing_constraints_lines", id: false, force: :cascade do |t|
-    t.integer "stop_area_id", limit: 8
-    t.integer "line_id",      limit: 8
+    t.integer "line_id",                limit: 8
+    t.string  "stop_area_objectid_key"
   end
+
+  add_index "routing_constraints_lines", ["stop_area_objectid_key"], name: "index_routing_constraints_lines_on_stop_area_objectid_key", using: :btree
 
   create_table "rule_parameter_sets", id: :bigserial, force: :cascade do |t|
     t.text     "parameters"
@@ -422,18 +427,19 @@ ActiveRecord::Schema.define(version: 20161116172259) do
   end
 
   create_table "stop_points", id: :bigserial, force: :cascade do |t|
-    t.integer  "route_id",       limit: 8
-    t.integer  "stop_area_id",   limit: 8
-    t.string   "objectid",                 null: false
+    t.integer  "route_id",               limit: 8
+    t.string   "objectid",                         null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
     t.integer  "position"
     t.string   "for_boarding"
     t.string   "for_alighting"
+    t.string   "stop_area_objectid_key"
   end
 
   add_index "stop_points", ["objectid"], name: "stop_points_objectid_key", unique: true, using: :btree
+  add_index "stop_points", ["stop_area_objectid_key"], name: "index_stop_points_on_stop_area_objectid_key", using: :btree
 
   create_table "taggings", id: :bigserial, force: :cascade do |t|
     t.integer  "tag_id"
@@ -604,17 +610,13 @@ ActiveRecord::Schema.define(version: 20161116172259) do
   add_foreign_key "journey_patterns_stop_points", "stop_points", name: "jpsp_stoppoint_fkey", on_delete: :cascade
   add_foreign_key "lines", "companies", name: "line_company_fkey", on_delete: :nullify
   add_foreign_key "lines", "networks", name: "line_ptnetwork_fkey", on_delete: :nullify
-  add_foreign_key "route_sections", "stop_areas", column: "arrival_id"
-  add_foreign_key "route_sections", "stop_areas", column: "departure_id"
   add_foreign_key "routes", "lines", name: "route_line_fkey", on_delete: :cascade
   add_foreign_key "routes", "routes", column: "opposite_route_id", name: "route_opposite_route_fkey", on_delete: :nullify
   add_foreign_key "routing_constraints_lines", "lines", name: "routingconstraint_line_fkey", on_delete: :cascade
-  add_foreign_key "routing_constraints_lines", "stop_areas", name: "routingconstraint_stoparea_fkey", on_delete: :cascade
   add_foreign_key "stop_areas", "stop_areas", column: "parent_id", name: "area_parent_fkey", on_delete: :nullify
   add_foreign_key "stop_areas_stop_areas", "stop_areas", column: "child_id", name: "stoparea_child_fkey", on_delete: :cascade
   add_foreign_key "stop_areas_stop_areas", "stop_areas", column: "parent_id", name: "stoparea_parent_fkey", on_delete: :cascade
   add_foreign_key "stop_points", "routes", name: "stoppoint_route_fkey", on_delete: :cascade
-  add_foreign_key "stop_points", "stop_areas", name: "stoppoint_area_fkey"
   add_foreign_key "time_table_dates", "time_tables", name: "tm_date_fkey", on_delete: :cascade
   add_foreign_key "time_table_periods", "time_tables", name: "tm_period_fkey", on_delete: :cascade
   add_foreign_key "time_tables_vehicle_journeys", "time_tables", name: "vjtm_tm_fkey", on_delete: :cascade
