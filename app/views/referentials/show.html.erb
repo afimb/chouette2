@@ -37,6 +37,7 @@
         <%= render "counts" %>
       </td>
       <td valign="top" >
+        <%= render "codespaces" %>
         <%= render "validity_out" %>
       </td>
     </tr>
@@ -55,6 +56,7 @@
   <li><%= link_to t('referentials.actions.edit'), edit_referential_path(@referential), :class => "edit" %></li>
   <li><%= link_to t('referentials.actions.destroy'), referential_path(@referential), :method => :delete, :data => {:confirm =>  t('referentials.actions.destroy_confirm')}, :class => "remove" %></li>
   <li><%= link_to t('api_keys.actions.new'), new_referential_api_key_path(@referential), :class => "add" %></li>
+  <li><%= link_to t('referentials.actions.edit.codespaces'), referential_codespaces_path(@referential), :class => "edit" %></li>
   <br>
 </ul>
 
