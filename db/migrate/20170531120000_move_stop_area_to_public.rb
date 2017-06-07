@@ -34,7 +34,7 @@ class MoveStopAreaToPublic < ActiveRecord::Migration
     remove_column :route_sections, :departure_stop_area_objectid_key
 
     add_column :routing_constraints_lines, :stop_area_id, :string, null: true
-    remove_index(:routing_constraints_lines, :stop_area_objectid_key, unique: false) if index_exists?(:routing_constraints_lines, [:stop_area_objectid_key], unique: false)
+    remove_index(:routing_constraints_lines, :stop_area_objectid_key) if index_exists?(:routing_constraints_lines, [:stop_area_objectid_key], unique: false)
     remove_column :routing_constraints_lines, :stop_area_objectid_key
   end
 end
