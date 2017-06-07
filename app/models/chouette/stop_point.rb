@@ -6,7 +6,7 @@ module Chouette
     # FIXME http://jira.codehaus.org/browse/JRUBY-6358
     self.primary_key = "id"
 
-    belongs_to :stop_area
+    belongs_to :stop_area, class_name: 'Chouette::StopArea'
     belongs_to :route, inverse_of: :stop_points
     has_many :vehicle_journey_at_stops, :dependent => :destroy
     has_many :vehicle_journeys, -> {uniq}, :through => :vehicle_journey_at_stops
@@ -28,8 +28,8 @@ module Chouette
     end
 
     def stop_area_id_validation
-      if stop_area_id.nil?
-        errors.add(:stop_area_id, I18n.t("errors.messages.empty"))
+      if stop_area_objectid_key.nil?
+        errors.add(:stop_area_objectid_key, I18n.t("errors.messages.empty"))
       end
     end
 

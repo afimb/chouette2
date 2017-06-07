@@ -8,7 +8,7 @@ class Chouette::StopArea < Chouette::TridentActiveRecord
   include ProjectionFields
   include StopAreaRestrictions
 
-  has_many :stop_points, :dependent => :destroy
+  has_many :stop_points, :class_name => 'Chouette::StopPoint', :primary_key => "objectid", :foreign_key => "stop_area_objectid_key"
   has_many :access_points, :dependent => :destroy
   has_many :access_links, :dependent => :destroy
   has_and_belongs_to_many :routing_lines, :class_name => 'Chouette::Line', :foreign_key => "stop_area_id", :association_foreign_key => "line_id", :join_table => "routing_constraints_lines", :order => "lines.number"
