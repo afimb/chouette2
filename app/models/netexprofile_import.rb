@@ -1,6 +1,6 @@
 class NetexprofileImport < ImportTask
 
-  attr_accessor :valid_codespaces
+  attr_accessor
 
   def action_params
     {
@@ -9,8 +9,7 @@ class NetexprofileImport < ImportTask
         "user_name" => user_name,
         "name" => name,
         "organisation_name" => organisation.name,
-        "referential_name" => referential.name,
-        "valid_codespaces" => valid_codespaces
+        "referential_name" => referential.name
       }
     }
   end
