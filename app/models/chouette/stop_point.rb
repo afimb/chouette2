@@ -6,7 +6,7 @@ module Chouette
     # FIXME http://jira.codehaus.org/browse/JRUBY-6358
     self.primary_key = "id"
 
-    belongs_to :stop_area, class_name: 'Chouette::StopArea'
+    belongs_to :stop_area, class_name: 'Chouette::StopArea', :primary_key => "objectid", :foreign_key => "stop_area_objectid_key"
     belongs_to :route, inverse_of: :stop_points
     has_many :vehicle_journey_at_stops, :dependent => :destroy
     has_many :vehicle_journeys, -> {uniq}, :through => :vehicle_journey_at_stops
