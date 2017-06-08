@@ -21,9 +21,9 @@ module JourneyPatternsHelper
   end
   def icon_code(stop_point, journey)
     code = "stop_area"
-    if stop_point.stop_area.id == journey.stop_points.map(&:stop_area_id).first
+    if stop_point.stop_area.objectid == journey.stop_points.map(&:stop_area_objectid_key).first
       code << "_green"
-    elsif stop_point.stop_area.id == journey.stop_points.map(&:stop_area_id).last
+    elsif stop_point.stop_area.objectid == journey.stop_points.map(&:stop_area_objectid_key).last
       code << "_red"
     else
       code << "_black"
