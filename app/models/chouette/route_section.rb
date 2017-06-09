@@ -1,6 +1,6 @@
 class Chouette::RouteSection < Chouette::TridentActiveRecord
-  belongs_to :departure, class_name: 'Chouette::StopArea'
-  belongs_to :arrival, class_name: 'Chouette::StopArea'
+  belongs_to :departure, class_name: 'Chouette::StopArea', :primary_key => "objectid", :foreign_key => "departure_stop_area_objectid_key"
+  belongs_to :arrival, class_name: 'Chouette::StopArea', :primary_key => "objectid", :foreign_key => "arrival_stop_area_objectid_key"
   has_many :journey_pattern_sections
   has_many :journey_patterns, through: :journey_pattern_sections, dependent: :destroy
 
@@ -8,7 +8,7 @@ class Chouette::RouteSection < Chouette::TridentActiveRecord
   validates :processed_geometry, presence: true
 
   scope :by_endpoint_name, ->(endpoint, name) do
-    joins("INNER JOIN stop_areas #{endpoint} ON #{endpoint}.id = route_sections.#{endpoint}_id").where(["#{endpoint}.name ilike ?", "%#{name}%"])
+    joins("INNER JOIN stop_areas #{endpoint} ON #{endpoint}.objectid = route_sections.#{endpoint}_stop_area_objectid_key").where(["#{endpoint}.name ilike ?", "%#{name}%"])
   end
   scope :by_line_id, ->(line_id) do
     joins(:journey_pattern_sections, :journey_patterns).joins('INNER JOIN routes ON journey_patterns.route_id = routes.id').where("routes.line_id = #{line_id}")
