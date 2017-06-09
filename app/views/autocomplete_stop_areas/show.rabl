@@ -2,7 +2,7 @@ object @stop_area
 
 node do |stop_area|
   {
-  :id => stop_area.id,
+  :id => stop_area.objectid, # NPR-1663 NOTE: this id is directly inserted into html somehow
   :registration_number => stop_area.registration_number || "",
   :short_registration_number => truncate(stop_area.registration_number, :length => 10) || "",
   :name => stop_area.name || "",
