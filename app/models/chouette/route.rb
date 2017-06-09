@@ -28,8 +28,8 @@ class Chouette::Route < Chouette::TridentActiveRecord
   belongs_to :opposite_route, :class_name => 'Chouette::Route', :foreign_key => :opposite_route_id
   has_many :stop_points, -> { order('position ASC') }, :dependent => :destroy do
     def find_by_stop_area(stop_area)
-      stop_area_ids = Integer === stop_area ? [stop_area] : (stop_area.children_in_depth + [stop_area]).map(&:id)
-      where( :stop_area_id => stop_area_ids).first or
+      stop_area_object_ids = Integer === stop_area ? [stop_area] : (stop_area.children_in_depth + [stop_area]).map(&:objectid)
+      where( :stop_area_objectid_key => stop_area_object_ids).first or
         raise ActiveRecord::RecordNotFound.new("Can't find a StopArea #{stop_area.inspect} in Route #{proxy_owner.id.inspect}'s StopPoints")
     end
 
@@ -86,8 +86,8 @@ class Chouette::Route < Chouette::TridentActiveRecord
   end
   
   def geometry_jp(journey_pattern)
-    jp_stop_areas_ids = journey_pattern.stop_points.map(&:stop_area_id)
-    points = stop_areas.select{|sa| jp_stop_areas_ids.include?(sa.id)}.map(&:to_lat_lng).compact.map do |loc|
+    jp_stop_areas_object_ids = journey_pattern.stop_points.map(&:stop_area_objectid_key)
+    points = stop_areas.select{|sa| jp_stop_areas_object_ids.include?(sa.objectid)}.map(&:to_lat_lng).compact.map do |loc|
       [loc.lng, loc.lat]
     end
     GeoRuby::SimpleFeatures::LineString.from_coordinates( points, 4326)
