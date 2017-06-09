@@ -72,22 +72,22 @@ class Chouette::JourneyPattern < Chouette::TridentActiveRecord
   end
 
   def control_route_sections
-    stop_area_ids = self.stop_points.map(&:stop_area_id)
-    control_route_sections_by_stop_areas(stop_area_ids)
+    stop_area_object_ids = self.stop_points.map(&:stop_area_objectid_key)
+    control_route_sections_by_stop_areas(stop_area_object_ids)
   end
 
-  def control_route_sections_by_stop_areas(stop_area_ids)
+  def control_route_sections_by_stop_areas(stop_area_object_ids)
     journey_pattern_section_all
     i = 0
     to_control = false
-    stop_area_ids.each_cons(2) do |a|
+    stop_area_object_ids.each_cons(2) do |a|
       jps = @route_sections_orders[i]
       i += 1
       unless jps
         to_control = true
         next
       end
-      unless [jps.route_section.departure.id, jps.route_section.arrival.id] == a
+      unless [jps.route_section.departure_stop_area_objectid_key, jps.route_section.arrival_stop_area_objectid_key] == a
         jps.destroy
         to_control = true
       end
