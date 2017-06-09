@@ -1,7 +1,7 @@
 <%= semantic_form_for vehicle_journey, url: form_url do |form| %>
   <%= render 'shared/form_messages', { errors: vehicle_journey.errors } %>
   <%= form.inputs do %>
-    <%= form.input :journey_pattern, :as => :select, :collection => @route.journey_patterns, :member_label => Proc.new { |jp| journey_name(jp, 70) }  %>
+    <%= form.input :journey_pattern, :as => :select, :collection => @route.journey_patterns, :member_label => Proc.new { |jp| journey_name(jp) }  %>
     <%= form.input :number %>
     <%= form.input :published_journey_name %>
     <%= form.input :published_journey_identifier %>
