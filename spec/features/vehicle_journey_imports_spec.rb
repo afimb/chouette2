@@ -46,22 +46,22 @@ describe "VehicleJourneyImports", :type => :feature do
   describe "new" do      
     it "should create vehicle journey file and return to route show page" do
       visit new_referential_line_route_vehicle_journey_import_path(referential, route.line, route)
-      attach_file('Fichier', valid_file_path)
-      click_button "Lancer l'import"
+      attach_file(I18n.t("activemodel.attributes.vehicle_journey_import.file"), valid_file_path)
+      click_button I18n.t("formtastic.import")
       expect(page).to have_content(I18n.t("vehicle_journey_imports.new.success"))
-      expect(page).to have_content("Séquence d'arrêts #{route.name}")
+      expect(page).to have_content(I18n.t('routes.show.title',route: route.name))
     end
 
     it "should return error messages when file is invalid" do
       visit new_referential_line_route_vehicle_journey_import_path(referential, route.line, route)
-      attach_file('Fichier', invalid_file_path)
-      click_button "Lancer l'import"
+      attach_file(I18n.t("activemodel.attributes.vehicle_journey_import.file"), invalid_file_path)
+      click_button I18n.t("formtastic.import")
       expect(page).to have_content(I18n.t("vehicle_journey_imports.errors.import_aborted"))
     end
-    
+
     it "should return error message when file missing on upload" do
       visit new_referential_line_route_vehicle_journey_import_path(referential, route.line, route)
-      click_button "Lancer l'import"
+      click_button I18n.t("formtastic.import")
       expect(page).to have_content(I18n.t("vehicle_journey_imports.errors.import_aborted"))     
     end    
   end
