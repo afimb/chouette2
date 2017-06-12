@@ -33,11 +33,11 @@ describe "StopAreas", :type => :feature do
   describe "new" do      
     it "creates stop_area and return to show" do
       visit referential_stop_areas_path(referential)
-      click_link "Ajouter un arrêt"
+      click_link I18n.t("stop_areas.actions.new")
       fill_in "stop_area_name", :with => "StopArea 1"
-      fill_in "Numéro d'enregistrement", :with => "test-1"
-      fill_in "Identifiant Métier", :with => "test:StopArea:1"
-      click_button("Créer arrêt")
+      fill_in I18n.t("activerecord.attributes.stop_area.registration_number"), :with => "test-1"
+      fill_in I18n.t("activerecord.attributes.stop_area.objectid"), :with => "test:StopArea:1"
+      click_button(I18n.t('formtastic.create',model: I18n.t('activerecord.models.stop_area.one')))
       expect(page).to have_content("StopArea 1")
     end
   end
@@ -45,10 +45,10 @@ describe "StopAreas", :type => :feature do
   describe "edit and return to show" do      
     it "edit stop_area" do
       visit referential_stop_area_path(referential, subject)
-      click_link "Modifier cet arrêt"
+      click_link I18n.t("stop_areas.actions.edit")
       fill_in "stop_area_name", :with => "StopArea Modified"
-      fill_in "Numéro d'enregistrement", :with => "test-1"
-      click_button("Modifier arrêt")
+      fill_in I18n.t("activerecord.attributes.stop_area.registration_number"), :with => "test-1"
+      click_button(I18n.t('formtastic.update',model: I18n.t('activerecord.models.stop_area.one')))
       expect(page).to have_content("StopArea Modified")
     end
   end
