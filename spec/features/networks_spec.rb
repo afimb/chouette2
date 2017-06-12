@@ -37,11 +37,11 @@ describe "Networks", :type => :feature do
     it "creates network and return to show" do
       allow(subject).to receive(:stop_areas).and_return(Array.new(2) { create(:stop_area) })
       visit referential_networks_path(referential)
-      click_link "Ajouter un réseau"
+      click_link I18n.t("networks.actions.new")
       fill_in "network_name", :with => "Network 1"
-      fill_in "Numéro d'enregistrement", :with => "test-1"
-      fill_in "Identifiant Neptune", :with => "test:GroupOfLine:1"        
-      click_button("Créer réseau")
+      fill_in I18n.t("activerecord.attributes.network.registration_number"), :with => "test-1"
+      fill_in I18n.t("activerecord.attributes.network.objectid"), :with => "test:Network:1"
+      click_button(I18n.t('formtastic.create',model: I18n.t('activerecord.models.network.one')))
       expect(page).to have_content("Network 1")
     end
   end
@@ -50,10 +50,10 @@ describe "Networks", :type => :feature do
     it "edit network" do
       allow(subject).to receive(:stop_areas).and_return(Array.new(2) { create(:stop_area) })
       visit referential_network_path(referential, subject)
-      click_link "Modifier ce réseau"
+      click_link I18n.t("networks.actions.edit")
       fill_in "network_name", :with => "Network Modified"
-      fill_in "Numéro d'enregistrement", :with => "test-1"
-      click_button("Modifier réseau")
+      fill_in I18n.t("activerecord.attributes.network.registration_number"), :with => "test-1"
+      click_button(I18n.t('formtastic.update',model: I18n.t('activerecord.models.network.one')))
       expect(page).to have_content("Network Modified")
     end
   end
