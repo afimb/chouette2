@@ -1,7 +1,10 @@
 require 'spec_helper'
 
 describe "/organisations/show" do
-  
+  before do
+    allow(view).to receive(:policy).and_return(double("some policy", write?: true))
+  end
+
   assign_organisation
 
   let!(:organisation) { create(:organisation) }
