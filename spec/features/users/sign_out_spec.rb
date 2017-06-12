@@ -17,7 +17,7 @@ feature 'Sign out', :devise do
     signin(user.email, user.password)
     expect(page).to have_content I18n.t 'devise.sessions.signed_in'
     click_link user.name
-    click_link 'Déconnexion'
+    click_link I18n.t 'layouts.user.sign_out'
     expect(page).to have_content I18n.t 'devise.sessions.signed_out'
   end
   
