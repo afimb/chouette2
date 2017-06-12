@@ -35,10 +35,10 @@ describe "ConnectionLinks", :type => :feature do
   describe "new" do     
     it "creates connection_link and return to show" do
       visit referential_connection_links_path(referential)
-      click_link "Ajouter une correspondance"
-      fill_in "Nom", :with => "ConnectionLink 1"
-      fill_in "Identifiant Métier", :with => "test:ConnectionLink:1"
-      click_button("Créer correspondance")
+      click_link I18n.t("connection_links.actions.new")
+      fill_in I18n.t("activerecord.attributes.connection_link.name"), :with => "ConnectionLink 1"
+      fill_in I18n.t("activerecord.attributes.connection_link.objectid"), :with => "test:Company:1"
+      click_button(I18n.t('formtastic.create',model: I18n.t('activerecord.models.connection_link.one')))
       expect(page).to have_content("ConnectionLink 1")
     end
   end
@@ -46,9 +46,9 @@ describe "ConnectionLinks", :type => :feature do
   describe "edit and return to show" do      
     it "edit connection_link" do
       visit referential_connection_link_path(referential, subject)
-      click_link "Modifier cette correspondance"
-      fill_in "Nom", :with => "ConnectionLink Modified"
-      click_button("Modifier correspondance")
+      click_link I18n.t("connection_links.actions.edit")
+      fill_in I18n.t("activerecord.attributes.connection_link.name"), :with => "ConnectionLink Modified"
+      click_button(I18n.t('formtastic.update',model: I18n.t('activerecord.models.connection_link.one')))
       expect(page).to have_content("ConnectionLink Modified")
     end
   end
