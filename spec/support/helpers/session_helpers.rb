@@ -9,7 +9,7 @@ module Features
         fill_in 'user_password', with: password
         fill_in 'user_password_confirmation', :with => confirmation
       end
-      click_button 'S\'inscrire'
+      click_button I18n.t("devise.links.sign_up")
     end
 
     def signin(email, password)
@@ -18,7 +18,7 @@ module Features
         fill_in 'user_email', with: email
         fill_in 'user_password', with: password       
       end
-      click_button 'Se connecter'
+      click_button I18n.t("devise.links.sign_in")
     end
   end
 end
