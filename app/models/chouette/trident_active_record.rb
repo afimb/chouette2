@@ -18,7 +18,7 @@ class Chouette::TridentActiveRecord < Chouette::ActiveRecord
     end
 
     def format_restricted?(format)
-      referential.data_format.to_sym == format.to_sym
+      referential.data_format == nil || referential.data_format.to_sym == format.to_sym
     end
     
     def prefix

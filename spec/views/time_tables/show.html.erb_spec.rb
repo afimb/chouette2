@@ -1,7 +1,10 @@
 require 'spec_helper'
 
 describe "/time_tables/show", :type => :view do
-  
+  before do
+    allow(view).to receive(:policy).and_return(double("some policy", write?: true))
+  end
+
   assign_referential
   let!(:time_table) { assign(:time_table, create(:time_table)) }
   let!(:year) { assign(:year, Date.today.cwyear) }

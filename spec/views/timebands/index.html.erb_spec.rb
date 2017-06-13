@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe "/timebands/index", :type => :view do
+  before do
+    allow(view).to receive(:policy).and_return(double("some policy", write?: true))
+  end
 
   assign_referential
   let!(:timebands) { assign :timebands, Kaminari.paginate_array(Array.new(2){ create(:timeband) }).page(1) }

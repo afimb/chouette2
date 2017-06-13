@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe "/lines/show", :type => :view do
+  before do
+    allow(view).to receive(:policy).and_return(double("some policy", write?: true))
+  end
 
   assign_referential
   let!(:line) { assign :line, create(:line) }

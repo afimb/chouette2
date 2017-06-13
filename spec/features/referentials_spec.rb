@@ -8,7 +8,7 @@ describe "Referentials", :type => :feature do
 
     it "should support no referential" do
       visit referentials_path
-      expect(page).to have_content("Espaces de Données")
+      expect(page).to have_content( I18n.t("activerecord.models.referential.other") )
     end
 
     context "when several referentials exist" do
@@ -35,10 +35,10 @@ describe "Referentials", :type => :feature do
 
     it "should" do
       visit new_referential_path
-      fill_in "Nom", :with => "Test"
-      fill_in "Point haut/droite de l'emprise par défaut", :with => "0.0, 0.0"
-      fill_in "Point bas/gauche de l'emprise par défaut", :with => "1.0, 1.0"
-      click_button "Créer Espace de Données"
+      fill_in I18n.t("activerecord.attributes.referential.name"), :with => "Test"
+      fill_in I18n.t("activerecord.attributes.referential.upper_corner"), :with => "0.0, 0.0"
+      fill_in I18n.t("activerecord.attributes.referential.lower_corner"), :with => "1.0, 1.0"
+      click_button(I18n.t('formtastic.create',model: I18n.t('activerecord.models.referential.one')))
 
       expect(Referential.where(:name => "Test")).not_to be_nil
       # CREATE SCHEMA

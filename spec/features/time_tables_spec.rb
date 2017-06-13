@@ -28,10 +28,10 @@ describe "TimeTables", :type => :feature do
   describe "new" do
     it "creates time_table and return to show" do
       visit referential_time_tables_path(referential)
-      click_link "Ajouter un calendrier"
-      fill_in "Nom", :with => "TimeTable 1"
-      fill_in "Identifiant Métier", :with => "test:Timetable:1"
-      click_button("Créer calendrier")
+      click_link I18n.t("time_tables.actions.new")
+      fill_in I18n.t("activerecord.attributes.time_table.comment"), :with => "TimeTable 1"
+      fill_in I18n.t("activerecord.attributes.time_table.objectid"), :with => "test:Timetable:1"
+      click_button(I18n.t('formtastic.create',model: I18n.t('activerecord.models.time_table.one')))
       expect(page).to have_content("TimeTable 1")
     end
   end
@@ -39,9 +39,9 @@ describe "TimeTables", :type => :feature do
   describe "edit and return to show" do
     it "edit time_table" do
       visit referential_time_table_path(referential, subject)
-      click_link "Modifier ce calendrier"
-      fill_in "Nom", :with => "TimeTable Modified"
-      click_button("Modifier calendrier")
+      click_link I18n.t("time_tables.actions.edit")
+      fill_in I18n.t("activerecord.attributes.time_table.comment"), :with => "TimeTable Modified"
+      click_button(I18n.t('formtastic.update',model: I18n.t('activerecord.models.time_table.one')))
       expect(page).to have_content("TimeTable Modified")
     end
   end

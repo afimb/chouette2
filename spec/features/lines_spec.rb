@@ -37,11 +37,11 @@ describe "Lines", :type => :feature do
   describe "new" do      
     it "creates line and return to show" do
       visit referential_lines_path(referential)
-      click_link "Ajouter une ligne"
+      click_link I18n.t("lines.actions.new")
       fill_in "line_name", :with => "Line 1"
-      fill_in "Numéro d'enregistrement", :with => "1"
-      fill_in "Identifiant Métier", :with => "test:Line:999"
-      click_button("Créer ligne")
+      fill_in I18n.t("activerecord.attributes.line.registration_number"), :with => "1"
+      fill_in I18n.t("activerecord.attributes.line.objectid"), :with => "test:Line:999"
+      click_button(I18n.t('formtastic.create',model: I18n.t('activerecord.models.line.one')))
       expect(page).to have_content("Line 1")
     end
   end
@@ -50,10 +50,10 @@ describe "Lines", :type => :feature do
     it "creates line and return to show" do
       visit new_referential_line_path(referential)
       fill_in "line_name", :with => "Line 1"
-      fill_in "Numéro d'enregistrement", :with => "1"
-      fill_in "Identifiant Métier", :with => "test:Line:999"
+      fill_in I18n.t("activerecord.attributes.line.registration_number"), :with => "1"
+      fill_in I18n.t("activerecord.attributes.line.objectid"), :with => "test:Line:999"
       fill_in_token_input('line_group_of_line_tokens', :with => "#{group_of_line.name}")
-      find_button("Créer ligne").trigger("click")
+      find_button(I18n.t('formtastic.create',model: I18n.t('activerecord.models.line.one'))).trigger("click")
       expect(page).to have_text("Line 1")
       expect(page).to have_text("#{group_of_line.name}")
     end
@@ -62,10 +62,10 @@ describe "Lines", :type => :feature do
   describe "edit and return to show" do      
     it "edit line" do
       visit referential_line_path(referential, subject)
-      click_link "Modifier cette ligne"
+      click_link I18n.t("lines.actions.edit")
       fill_in "line_name", :with => "Line Modified"
-      fill_in "Numéro d'enregistrement", :with => "test-1"
-      click_button("Modifier ligne")
+      fill_in I18n.t("activerecord.attributes.line.registration_number"), :with => "test-1"
+      click_button(I18n.t('formtastic.update',model: I18n.t('activerecord.models.line.one')))
       expect(page).to have_content("Line Modified")
     end
   end

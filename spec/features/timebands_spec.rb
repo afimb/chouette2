@@ -28,15 +28,15 @@ describe "Timebands", :type => :feature do
   describe "new" do
     it "creates timeband and return to show" do
       visit referential_timebands_path(referential)
-      click_link "Ajouter un créneau horaire"
-      fill_in "Titre", :with => "Timeband 1"
+      click_link I18n.t("timebands.actions.new")
+      fill_in I18n.t("activerecord.attributes.timeband.name"), :with => "Timeband 1"
 
       select '10', from: 'timeband_start_time_4i'
       select '00', from: 'timeband_start_time_5i'
       select '11', from: 'timeband_end_time_4i'
       select '00', from: 'timeband_end_time_5i'
 
-      click_button("Créer créneau horaire")
+      click_button(I18n.t('formtastic.create',model: I18n.t('activerecord.models.timeband.one')))
       expect(page).to have_content("Timeband 1")
     end
   end
@@ -44,9 +44,9 @@ describe "Timebands", :type => :feature do
   describe "edit and return to show" do
     it "edit timeband" do
       visit referential_timeband_path(referential, subject)
-      click_link "Modifier ce créneau horaire"
-      fill_in "Titre", :with => "Timeband Modified"
-      click_button("Modifier créneau horaire")
+      click_link I18n.t("timebands.actions.edit")
+      fill_in I18n.t("activerecord.attributes.timeband.name"), :with => "Timeband Modified"
+      click_button(I18n.t('formtastic.update',model: I18n.t('activerecord.models.timeband.one')))
       expect(page).to have_content("Timeband Modified")
     end
   end

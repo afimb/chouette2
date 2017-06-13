@@ -24,7 +24,7 @@ feature 'User edit', :devise do
     visit edit_user_registration_path(user)
     fill_in 'user_email', :with => 'newemail@example.com'
     fill_in 'user_current_password', :with => user.password
-    click_button 'Modifier'
+    click_button I18n.t( 'devise.registrations.edit.commit')
     txts = [I18n.t( 'devise.registrations.updated'), I18n.t( 'devise.registrations.update_needs_confirmation')]
     expect(page).to have_content(/.*#{txts[0]}.*|.*#{txts[1]}.*/)
   end
@@ -40,7 +40,7 @@ feature 'User edit', :devise do
     other.confirm
     login_as(me, :scope => :user)
     visit edit_user_registration_path(other)
-    expect(page).to have_content 'Votre Profil'
+    expect(page).to have_content I18n.t( 'devise.registrations.edit.title')
     expect(page).to have_field('Email', with: me.email)
   end
 

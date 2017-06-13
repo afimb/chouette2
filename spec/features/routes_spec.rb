@@ -32,12 +32,12 @@ describe "Routes", :type => :feature do
   describe "from line's page, create a new route" do      
     it "return to line's page that display new route" do
       visit referential_line_path(referential,line)
-      click_link "Ajouter une séquence d'arrêts"
+      click_link I18n.t("routes.actions.new")
       fill_in "route_name", :with => "A to B"
-      fill_in "Indice", :with => "AB"
-      select 'aller', :from => "route_direction_code"
-      select 'aller', :from => "route_wayback_code" 
-      click_button("Créer séquence d'arrêts")
+      fill_in I18n.t("activerecord.attributes.route.number"), :with => "AB"
+      select  I18n.t("directions.label.straight_forward"), :from => "route_direction_code"
+      select  I18n.t("waybacks.label.straight_forward"), :from => "route_wayback_code"
+      click_button(I18n.t('formtastic.create',model: I18n.t('activerecord.models.route.one')))
       expect(page).to have_content("A to B")
     end
   end
@@ -46,9 +46,9 @@ describe "Routes", :type => :feature do
     it "return to line's page with changed name" do
       visit referential_line_path(referential,line)
       click_link "#{route.name}"
-      click_link "Modifier cette séquence d'arrêts"
+      click_link I18n.t("routes.actions.edit")
       fill_in "route_name", :with => "#{route.name}-changed"
-      click_button("Modifier séquence d'arrêts")
+      click_button(I18n.t('formtastic.update',model: I18n.t('activerecord.models.route.one')))
       expect(page).to have_content("#{route.name}-changed")
     end
   end
@@ -57,7 +57,7 @@ describe "Routes", :type => :feature do
     it "return to line's page without route name" do
       visit referential_line_path(referential,line)
       click_link "#{route.name}"
-      click_link "Supprimer cette séquence d'arrêts"
+      click_link I18n.t("routes.actions.destroy")
       expect(page).not_to have_content(route.name)
     end
   end

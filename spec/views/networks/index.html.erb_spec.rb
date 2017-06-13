@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe "/networks/index", :type => :view do
+  before do
+    allow(view).to receive(:policy).and_return(double("some policy", write?: true))
+  end
 
   assign_referential
   let!(:networks) { assign :networks, Kaminari.paginate_array(Array.new(2){ create(:network) }).page(1) }
