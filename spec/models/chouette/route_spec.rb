@@ -30,6 +30,7 @@ describe Chouette::Route, :type => :model do
         let!( :new_stop_point_ids) { first_last_swap}
         let!( :old_stop_point_ids) { subject.stop_points.map(&:id) }
         let!( :old_stop_area_ids) { subject.stop_areas.map(&:id) }
+        let!( :old_stop_area_object_ids) { subject.stop_areas.map(&:objectid) }
 
         it "should keep stop_point_ids order unchanged" do
           expect(subject.reorder!( new_stop_point_ids)).to be_truthy
@@ -39,6 +40,10 @@ describe Chouette::Route, :type => :model do
           expect(subject.reorder!( new_stop_point_ids)).to be_truthy
           subject.reload
           expect(subject.stop_areas.map(&:id)).to eq( [old_stop_area_ids.last] + old_stop_area_ids[1..-2] + [old_stop_area_ids.first])
+
+          expected_order = [old_stop_area_object_ids.last] + old_stop_area_object_ids[1..-2] + [old_stop_area_object_ids.first]
+          expect(subject.stop_areas.map(&:objectid)).to eq( expected_order )
+          expect(subject.stop_points.map(&:stop_area_objectid_key)).to eq( expected_order )
         end
       end
     end
@@ -139,7 +144,7 @@ describe Chouette::Route, :type => :model do
       context "when arg is first quay id" do
         let(:first_stop_point) { subject.stop_points.first}
         it "should return first quay" do
-          expect(subject.stop_points.find_by_stop_area( first_stop_point.stop_area_id)).to eq( first_stop_point)
+          expect(subject.stop_points.find_by_stop_area( first_stop_point.stop_area_objectid_key)).to eq( first_stop_point)
         end
       end
     end
