@@ -5,7 +5,7 @@
   <div class="summary">
     <p>
       <label><%= Chouette::Network.human_attribute_name("name") %>: </label>
-      <%= @network.name %>
+      <span id="network_name"><%= @network.name %></span>
     </p>
     <p>
       <label><%= Chouette::Network.human_attribute_name("registration_number") %>: </label>

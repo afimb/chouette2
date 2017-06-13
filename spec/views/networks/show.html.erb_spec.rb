@@ -8,7 +8,7 @@ describe "/networks/show", :type => :view do
 
   it "should render h2 with the network name" do
     render
-    expect(rendered).to have_selector("h2", :text => Regexp.new(network.name))
+    expect(rendered).to have_selector("#network_name", :text => Regexp.new(network.name))
   end
 
   it "should display a map with class 'network'" do
