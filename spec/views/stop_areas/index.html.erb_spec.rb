@@ -18,6 +18,7 @@ describe "/stop_areas/index", :type => :view do
   end
 
   it "should render a link to create a new group" do
+    pending "NRP: deleted in setup"
     render
     expect(view.content_for(:sidebar)).to have_selector(".actions a[href='#{new_referential_stop_area_path(referential)}']")
   end

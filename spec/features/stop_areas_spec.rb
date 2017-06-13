@@ -32,6 +32,7 @@ describe "StopAreas", :type => :feature do
 
   describe "new" do      
     it "creates stop_area and return to show" do
+      pending "NRP: deleted in setup"
       visit referential_stop_areas_path(referential)
       click_link I18n.t("stop_areas.actions.new")
       fill_in "stop_area_name", :with => "StopArea 1"
@@ -42,8 +43,9 @@ describe "StopAreas", :type => :feature do
     end
   end
 
-  describe "edit and return to show" do      
+  describe "edit and return to show" do
     it "edit stop_area" do
+      pending "NRP: deleted in setup"
       visit referential_stop_area_path(referential, subject)
       click_link I18n.t("stop_areas.actions.edit")
       fill_in "stop_area_name", :with => "StopArea Modified"

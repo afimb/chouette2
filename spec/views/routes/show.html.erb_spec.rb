@@ -9,7 +9,8 @@ describe "/routes/show", :type => :view do
 
   it "should render h2 with the route name" do
     render
-    expect(rendered).to have_selector("h2", :text => Regexp.new(line.name))
+    # NRP project changes
+    expect(rendered).to have_selector("h2", :text => Regexp.new(route.name))
   end
 
   # it "should display a map with class 'line'" do
