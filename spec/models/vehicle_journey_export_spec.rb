@@ -33,9 +33,12 @@ describe VehicleJourneyExport, :type => :model do
 
     it "should return all days" do
       time_table.int_day_types = 4|8|16|32|64|128|256
-      expect(subject.tt_day_types(time_table)).to eq("LuMaMeJeVeSaDi")
+      if I18n.locale == "fr"
+        expect(subject.tt_day_types(time_table)).to eq("LuMaMeJeVeSaDi")
+      elsif I18n.locale == "en"
+        expect(subject.tt_day_types(time_table)).to eq("MoTuWeThFrSaSu")
+      end
     end
-    
   end
 
   describe ".tt_periods" do   
