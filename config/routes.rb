@@ -38,6 +38,7 @@ ChouetteIhm::Application.routes.draw do
       resources :routes, :only => :show
       resources :journey_patterns, :only => :show
       resources :vehicle_journeys, :only => :show
+      resources :codespaces, :only => [:index, :show]
     end
   end
 
@@ -186,6 +187,8 @@ ChouetteIhm::Application.routes.draw do
         get 'create_to_edit'
       end
     end
+
+    resources :codespaces
   end
   root :to => "referentials#index"
 

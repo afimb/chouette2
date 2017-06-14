@@ -1,0 +1,28 @@
+<div id="index_item" class="codespace panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title clearfix">
+      <% if current_user.admin? %>
+        <span class="pull-right">
+          <%= link_to edit_referential_codespace_path(@referential, codespace), :class => "btn btn-default btn-sm" do %>
+            <span class="fa fa-pencil"></span>
+          <% end %>
+          <%= link_to referential_codespace_path(@referential, codespace), :method => :delete, :data => {:confirm =>  t('codespaces.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
+            <span class="fa fa-trash-o"></span>
+          <% end %>
+        </span>
+      <% end %>
+      <h5>
+        <%= link_to([@referential, codespace], :class => "preview", :title => "#{codespace.xmlns}") do %>
+        <span class="xmlns">
+          <%= codespace.xmlns %>
+        </span>
+        <% end %>
+      </h5>
+    </div>
+  </div>
+  <div class="panel-body">
+    <p>
+    <%= codespace.xmlns_url %>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><%= Referential.human_attribute_name("codespaces") %></div>
+
+  <ul class="list-group">
+  <% @referential.codespaces.each do |codespace| %>
+    <li class="list-group-item">
+      <span><%= link_to codespace.xmlns, referential_codespace_path(@referential, codespace) %></span>
+      <%= codespace.xmlns_url %>
+    </li>
+  <% end %>
+  </ul>
+</div>
