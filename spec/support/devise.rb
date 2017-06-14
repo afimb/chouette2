@@ -9,6 +9,14 @@ module DeviseRequestHelper
     # post_via_redirect user_session_path, 'user[email]' => @user.email, 'user[password]' => @user.password
   end
 
+  def login_admin
+    organisation = Organisation.where(:name => "first").first_or_create(attributes_for(:organisation))
+    @user ||= create(:user, :organisation => organisation, :role => 2)
+    @user.confirm
+    login_as @user, :scope => :user
+    # post_via_redirect user_session_path, 'user[email]' => @user.email, 'user[password]' => @user.password
+  end
+
   def self.included(base)
     base.class_eval do
       extend ClassMethods
@@ -26,6 +34,15 @@ module DeviseRequestHelper
       end
     end
 
+    def login_admin
+      before(:each) do
+        login_admin
+      end
+      after(:each) do
+        Warden.test_reset!
+      end
+    end
+
   end
 
 end
@@ -36,6 +53,15 @@ module DeviseControllerHelper
       @request.env["devise.mapping"] = Devise.mappings[:user]
       organisation = Organisation.where(:name => "first").first_or_create(attributes_for(:organisation))
       user = create(:user, :organisation => organisation)
+      user.confirm
+      sign_in user
+    end
+  end
+  def login_admin
+    before(:each) do
+      @request.env["devise.mapping"] = Devise.mappings[:user]
+      organisation = Organisation.where(:name => "first").first_or_create(attributes_for(:organisation))
+      user = create(:user, :organisation => organisation, :role => 2)
       user.confirm
       sign_in user
     end
