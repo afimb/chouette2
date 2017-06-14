@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe "codespaces", :type => :feature do
-  login_user
+  login_admin
 
   let!(:codespaces) { [
       create(:codespace, :xmlns => "ABC", :xmlns_url => "https://www.mycodepace.com/ns/abc"),
@@ -33,6 +33,7 @@ describe "codespaces", :type => :feature do
       visit referential_codespaces_path(referential)
       click_link I18n.t("codespaces.actions.new")
       fill_in "codespace_xmlns", :with => "DLE"
+      fill_in "codespace_xmlns_url", :with => "https://www.rutebanken.no/ns/dle"
       click_button(I18n.t('formtastic.create',model: I18n.t('activerecord.models.codespace.one')))
       expect(page).to have_content("DLE")
     end
