@@ -20,6 +20,10 @@ class Chouette::StopArea < Chouette::TridentActiveRecord
   attr_accessor :children_ids
   attr_writer :coordinates
 
+  attr_accessor :stop_place_type
+  attr_accessor :transport_mode
+  attr_accessor :transport_sub_mode
+
   after_update :journey_patterns_control_route_sections,
                if: Proc.new { |stop_area| ['boarding_position', 'quay'].include? stop_area.stop_area_type }
 
@@ -201,6 +205,33 @@ class Chouette::StopArea < Chouette::TridentActiveRecord
     @@stop_area_types ||= Chouette::AreaType.all.select do |stop_area_type|
       stop_area_type.to_i >= 0
     end
+  end
+
+  def stop_place_type
+    # return nil if stop_place_type_name is nil
+    stop_place_type_name && Chouette::StopPlaceType.new( stop_place_type_name.underscore)
+  end
+
+  def stop_place_type=(stop_place_type)
+    self.stop_place_type_name = (stop_place_type ? stop_place_type.camelcase : nil)
+  end
+
+  def transport_mode
+    # return nil if transport_mode_name is nil
+    transport_mode_name && Chouette::TransportMode.new( transport_mode_name.underscore)
+  end
+
+  def transport_mode=(transport_mode)
+    self.transport_mode_name = (transport_mode ? transport_mode.camelcase : nil)
+  end
+
+  def transport_sub_mode
+    # return nil if transport_sub_mode_name is nil
+    transport_sub_mode_name && Chouette::TransportSubMode.new( transport_sub_mode_name.underscore)
+  end
+
+  def transport_sub_mode=(transport_sub_mode)
+    self.transport_sub_mode_name = (transport_sub_mode ? transport_sub_mode.camelcase : nil)
   end
 
   def children_ids=(children_ids)
