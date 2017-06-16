@@ -15,7 +15,7 @@
     <% @route.stop_points.each_with_index do |stop_point, index| %>
       <Row>
         <Cell><Data ss:Type="Number"><%= stop_point.id %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= stop_point.stop_area.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= stop_name(stop_point) %></Data></Cell>
         <% vehicle_journey_at_stops_matrix[index].each do |vehicle_journey_at_stop| %>
         <Cell><Data ss:Type="String"><%= vehicle_journey_at_stop %></Data></Cell>
         <% end %>

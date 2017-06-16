@@ -25,14 +25,6 @@ module VehicleJourneysHelper
     l(departure_time, :format => :hour).gsub( /  /, ' ')
   end
 
-  def stop_name(vehicle_journey)
-    if vehicle_journey.stop_point.stop_area != nil
-      vehicle_journey.stop_point.stop_area.name
-    else
-      '?'
-    end
-  end
-
   def vehicle_title(vehicle, journey_frequency=nil)
     return t("vehicle_journeys.vehicle_journey#{'_frequency' if vehicle.frequency?}.title_stopless", :name => vehicle_name( vehicle)) if vehicle.vehicle_journey_at_stops.empty?
     first_vjas = vehicle.vehicle_journey_at_stops.first

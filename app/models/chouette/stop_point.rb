@@ -27,6 +27,10 @@ module Chouette
       end
     end
 
+    def name
+      stop_area != nil ? stop_area.name : '?'
+    end
+
     def stop_area_id_validation
       if stop_area_objectid_key.nil?
         errors.add(:stop_area_objectid_key, I18n.t("errors.messages.empty"))

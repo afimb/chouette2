@@ -86,7 +86,7 @@ class VehicleTranslation
   end
 
   def first_stop_name
-    @first_stop_name ||= vehicle_journey.vehicle_journey_at_stops.first.stop_point.stop_area.name
+    @first_stop_name ||= stop_name(vehicle_journey.vehicle_journey_at_stops.first)
   end
 
   def vehicle_journey

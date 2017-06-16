@@ -151,7 +151,7 @@ class VehicleJourneyExport
       vjas_array = vehicle_journey_frequency_at_stops_array
       route.stop_points.each_with_index do |stop_point, index|        
         times = times_of_stop(stop_point.id,vjas_array)
-        csv << [stop_point.id, stop_point.stop_area.name] + times
+        csv << [stop_point.id, stop_name(stop_point)] + times
       end
     end
   end
@@ -169,7 +169,7 @@ class VehicleJourneyExport
       vjas_array = vehicle_journey_at_stops_array
       route.stop_points.each_with_index do |stop_point, index|        
         times = times_of_stop(stop_point.id,vjas_array)
-        csv << [stop_point.id, stop_point.stop_area.name] + times
+        csv << [stop_point.id, stop_name(stop_point)] + times
       end
     end
   end

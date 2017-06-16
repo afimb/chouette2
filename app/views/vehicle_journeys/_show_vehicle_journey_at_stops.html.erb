@@ -14,7 +14,7 @@
           <%= vjas.arrival_time ? l( vjas.arrival_time, :format => :hour) : "" %>
           <%= "#{t('day')[0]}+#{vjas.arrival_day_offset}" if vjas.arrival_day_offset > 0 %>
         </td>
-        <td><%= link_to vjas.stop_point.stop_area.name, [@referential, vjas.stop_point.stop_area] %></td>
+        <td><%= link_to stop_name(vjas), [@referential, vjas.stop_point.stop_area] %></td>
         <td class="hour <%= vjas.departure_time.nil? ? "missing" : "" %>">
           <%= vjas.departure_time ? l( vjas.departure_time, :format => :hour) : "" %>
           <%= "#{t('day')[0]}+#{vjas.departure_day_offset}" if vjas.departure_day_offset > 0 %>

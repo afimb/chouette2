@@ -2,9 +2,9 @@
   <div class="panel-heading">
     <div class="panel-title clearfix">
       <h5>
-        <%= link_to([@referential, stop_point.stop_area], :class => "preview", :title => "#{Chouette::StopArea.model_name.human.capitalize} #{stop_point.stop_area.name}") do %>
+        <%= link_to([@referential, stop_point.stop_area], :class => "preview", :title => "#{Chouette::StopArea.model_name.human.capitalize} #{stop_name(stop_point)}") do %>
         <span class="name">
-          <span class="label label-primary"><%= stop_point.position + 1 %></span><%= image_tag "map/" + stop_point.stop_area.stop_area_type + ".png"   %> <%= stop_point.stop_area.name %>
+          <span class="label label-primary"><%= stop_point.position + 1 %></span><%= image_tag "map/" + stop_point.stop_area.stop_area_type + ".png"   %> <%= stop_name(stop_point) %>
         </span>
         <% end %>
       </h5>

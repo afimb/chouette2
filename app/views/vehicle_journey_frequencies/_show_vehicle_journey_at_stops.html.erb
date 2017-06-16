@@ -11,7 +11,7 @@
     <tbody>
       <% @vehicle_journey_frequency.vehicle_journey_at_stops.each do |vjas| %>
         <tr class="<%= cycle :odd, :even %>">
-          <td><%= link_to vjas.stop_point.stop_area.name, [@referential, vjas.stop_point.stop_area] %></td>
+          <td><%= link_to stop_name(vjas), [@referential, vjas.stop_point.stop_area] %></td>
           <td class="ce-VehicleJourneyAtStopFormTable-circleLine">
             <span class="ce-VehicleJourneyAtStopFormTable-circle"></span>
             <span class="ce-VehicleJourneyAtStopFormTable-line"></span>

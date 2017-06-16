@@ -19,7 +19,7 @@
       "<input name=\"#{class_name}[vehicle_journey_at_stops_attributes][#{vehicle_journey_at_stop_counter}][#{k}]\"
                   type=\"hidden\" value=\"#{v}\">" }.join("\n").html_safe %>
 
-    <%= vjas.stop_point.stop_area.name %>
+    <%= stop_name(vjas) %>
   </td>
   <td class="ce-VehicleJourneyAtStopFormTable-circleLine">
     <span class="ce-VehicleJourneyAtStopFormTable-circle"></span>
