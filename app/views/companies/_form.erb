@@ -12,7 +12,7 @@
     <%= form.input :objectid, :required => !@company.new_record?, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.company.objectid")} %>
 
     <div class="contact_details">
-      <h5><%= t("companies.show.contact.private") %></h5>
+      <h5><%= t("companies.contact.private") %></h5>
     </div>
       <%= form.input :phone, :as => :phone %>
       <%= form.input :fax, :as => :phone %>
@@ -20,7 +20,7 @@
       <%= form.input :url %>
 
     <div class="contact_details">
-      <h5><%= t("companies.show.contact.public") %></h5>
+      <h5><%= t("companies.contact.public") %></h5>
     </div>
       <%= form.input :public_phone, :as => :phone %>
       <%= form.input :public_email, :as => :email %>
