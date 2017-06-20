@@ -433,9 +433,9 @@ ActiveRecord::Schema.define(version: 20170614110000) do
     t.string   "url"
     t.string   "time_zone"
     t.integer  "compass_bearing"
-    t.string   "stop_place_type_name"
-    t.string   "transport_mode_name"
-    t.string   "transport_sub_mode_name"
+    t.string   "stop_place_type"
+    t.string   "transport_mode"
+    t.string   "transport_sub_mode"
   end
 
   add_index "stop_areas", ["objectid"], name: "stop_areas_objectid_key", unique: true, using: :btree
