@@ -4,13 +4,18 @@
       <h5>
         <%= link_to([@referential, stop_point.stop_area], :class => "preview", :title => "#{Chouette::StopArea.model_name.human.capitalize} #{stop_name(stop_point)}") do %>
         <span class="name">
-          <span class="label label-primary"><%= stop_point.position + 1 %></span><%= image_tag "map/" + stop_point.stop_area.stop_area_type + ".png"   %> <%= stop_name(stop_point) %>
+          <span class="label label-primary"><%= stop_point.position + 1 %></span>
+          <% if stop_point.stop_area %>
+            <%= image_tag "map/" + stop_point.stop_area.stop_area_type + ".png"   %>
+          <% end %>
+          <%= stop_name(stop_point) %>
         </span>
         <% end %>
       </h5>
     </div>
   </div>
   <div class="panel-body">
+    <% if stop_point.stop_area %>
     <p>
       <% unless stop_point.stop_area.geometry %>
         <span class="warning"><%= t('.no_position') %></span> -
@@ -31,5 +36,6 @@
           <% end %>
         <% end %>
     </p>
+    <% end %>
   </div>
 </div>
