@@ -19,7 +19,7 @@
   </div>
   <div class="panel-body">
     <% unless journey_pattern.stop_points.empty? %>
-      <p><%= t('.from_to', :departure => journey_pattern.stop_points.first.stop_area.name, :arrival => journey_pattern.stop_points.last.stop_area.name) %></p>
+      <p><%= t('.from_to', :departure => stop_name(journey_pattern.stop_points.first), :arrival => stop_name(journey_pattern.stop_points.last)) %></p>
     <% end %>
     <p><%= t('.stop_count', :count => journey_pattern.stop_points.count, :route_count => @route.stop_points.count) %> | <%= t('.vehicle_journeys_count', :count => journey_pattern.vehicle_journeys.count) %></p>
     <% if journey_pattern.vehicle_journeys.count > 0 %>
