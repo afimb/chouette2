@@ -1,7 +1,7 @@
 <%= semantic_form_for [@referential, @line] do |form| %>
   <%= form.inputs do %>
     <%= form.input :network, :as => :select, :collection => Chouette::Network.all, :include_blank => false %>
-    <%= form.input :company, :as => :select, :collection => Chouette::Company.all, :include_blank => false%>
+    <%= form.input :company, :as => :select, :collection => Chouette::Company.operators, :include_blank => false%>
     <%= form.input :name, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.line.name") } %>
     <%= form.input :published_name %>
     <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.line.registration_number")} %>

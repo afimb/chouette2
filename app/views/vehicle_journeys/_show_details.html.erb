@@ -23,6 +23,10 @@
       <%= vehicle_journey.number %>
     </p>
     <p>
+      <label><%= t('companies.operator') %>: </label>
+      <%= vehicle_journey.company.name %>
+    </p>
+    <p>
       <label><%= vehicle_journey.human_attribute_name("published_journey_name") %>: </label>
       <%= vehicle_journey.published_journey_name %>
     </p>

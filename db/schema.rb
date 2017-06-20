@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011102719) do
+ActiveRecord::Schema.define(version: 20170616094013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,11 @@ ActiveRecord::Schema.define(version: 20161011102719) do
     t.string   "registration_number"
     t.string   "url"
     t.string   "time_zone"
+    t.string   "organisation_type"
+    t.string   "legal_name"
+    t.string   "public_email"
+    t.string   "public_url"
+    t.string   "public_phone"
   end
 
   add_index "companies", ["objectid"], name: "companies_objectid_key", unique: true, using: :btree
