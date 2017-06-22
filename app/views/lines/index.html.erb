@@ -4,7 +4,7 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <div class="input-group col-md-9">
-      <%= f.text_field :name_or_number_cont, :placeholder => "#{t('.name_or_number')}", :class => 'form-control' %>
+      <%= f.text_field :name_or_number_or_objectid_cont, :placeholder => "#{t('.name_or_number_or_objectid')}", :class => 'form-control' %>
       <div class="input-group-btn">
         <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
       </div>
@@ -19,6 +19,7 @@
       <%= f.select(:network_id_eq, @referential.networks.collect {|n| [ n.name, n.id ] }.unshift([t('.no_networks'), -1]), {include_blank: t('.all_networks')}, { :class => 'form-control' }) %>
       <%= f.select(:company_id_eq, @referential.companies.collect {|c| [ c.name, c.id ] }.unshift([t('.no_companies'), -1]), { include_blank: t('.all_companies')}, { :class => 'form-control' }) %>
       <%= f.select(:group_of_lines_id_eq, @referential.group_of_lines.collect {|c| [ c.name, c.id ] }.unshift([t('.no_group_of_lines'), -1]), {include_blank: t('.all_group_of_lines')}, { :class => 'form-control' }) %>
+      <%= f.select(:transport_mode_name_eq, Chouette::TransportMode.all.collect {|c| [ t("transport_modes.label.#{c.name}"), c.name ] }, { include_blank: t('.no_transport_modes')}, { :class => 'form-control' }) %>
     </div>
   </div>
 </div>
