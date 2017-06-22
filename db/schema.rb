@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614110000) do
+ActiveRecord::Schema.define(version: 20170622081947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20170614110000) do
 
   create_table "codespaces", id: :bigserial, force: :cascade do |t|
     t.string   "xmlns",      null: false
-    t.string   "xmlns_url",   null: false
+    t.string   "xmlns_url",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -428,6 +428,7 @@ ActiveRecord::Schema.define(version: 20170614110000) do
     t.string   "transport_sub_mode"
   end
 
+  add_index "stop_areas", ["name"], name: "index_stop_areas_on_name", using: :btree
   add_index "stop_areas", ["objectid"], name: "stop_areas_objectid_key", unique: true, using: :btree
   add_index "stop_areas", ["parent_id"], name: "index_stop_areas_on_parent_id", using: :btree
 
