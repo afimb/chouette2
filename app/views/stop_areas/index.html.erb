@@ -20,7 +20,7 @@
   
   <div id="advanced_search" class="panel-collapse collapse">          
     <div class="panel-body">
-      <%= f.text_field :zip_code_cont, :placeholder => "#{t('.zip_code')}", :class => 'form-control typeahead' %>
+      <!-- %= f.text_field :zip_code_cont, :placeholder => "#{t('.zip_code')}", :class => 'form-control typeahead' % -->
       <%= f.select(:area_type_cont, options_from_collection_for_select(Chouette::StopArea.stop_area_types, 'name', Proc.new { |stop_area_type| t("area_types.label.#{stop_area_type}") } ), { :include_blank => "#{t('.area_type')}" }, { :class => 'form-control' }) %>
       <%= f.select(:transport_mode_eq, Chouette::TransportMode.all.collect {|c| [ t("transport_modes.label.#{c.name}"), c.name ] }, { include_blank: t('.no_transport_modes')}, { :class => 'form-control' }) %>
       <%= f.select(:transport_sub_mode_eq, Chouette::TransportSubMode.all.collect {|c| [ t("transport_sub_modes.label.#{c.name}"), c.name ] }, { include_blank: t('.no_transport_sub_modes')}, { :class => 'form-control' }) %>

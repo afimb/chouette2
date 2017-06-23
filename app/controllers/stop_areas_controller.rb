@@ -50,7 +50,8 @@ class StopAreasController < ChouetteController
 
   def index
     request.format.kml? ? @per_page = nil : @per_page = 12
-    @zip_codes = referential.stop_areas.collect(&:zip_code).compact.uniq
+    # NRP-1773: optimises stop_areas query
+    #@zip_codes = referential.stop_areas.collect(&:zip_code).compact.uniq
     index! do |format|
       format.html {
         if collection.out_of_range? && params[:page].to_i > 1
