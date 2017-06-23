@@ -131,7 +131,8 @@ class StopAreasController < ChouetteController
     @q = parent.present? ? parent.stop_areas.search(params[:q]) : referential.stop_areas.search(params[:q])
     @stop_areas ||=
       begin
-        stop_areas = @q.result(:distinct => true).order(:name)
+        # NRP-1773: optimises stop_areas query ():distinct => false)
+        stop_areas = @q.result(:distinct => false).order(:name)
         stop_areas = stop_areas.page(params[:page]).per(@per_page) if @per_page.present?
         stop_areas
       end
