@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622081947) do
+ActiveRecord::Schema.define(version: 20170622124532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -431,6 +431,9 @@ ActiveRecord::Schema.define(version: 20170622081947) do
   add_index "stop_areas", ["name"], name: "index_stop_areas_on_name", using: :btree
   add_index "stop_areas", ["objectid"], name: "stop_areas_objectid_key", unique: true, using: :btree
   add_index "stop_areas", ["parent_id"], name: "index_stop_areas_on_parent_id", using: :btree
+  add_index "stop_areas", ["stop_place_type"], name: "index_stop_areas_on_stop_place_type", using: :btree
+  add_index "stop_areas", ["transport_mode"], name: "index_stop_areas_on_transport_mode", using: :btree
+  add_index "stop_areas", ["transport_sub_mode"], name: "index_stop_areas_on_transport_sub_mode", using: :btree
 
   create_table "stop_areas_stop_areas", id: false, force: :cascade do |t|
     t.integer "child_id",  limit: 8
