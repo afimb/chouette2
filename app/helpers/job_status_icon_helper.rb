@@ -4,9 +4,10 @@ module JobStatusIconHelper
     status = object.status
     name = object.name
     object_name = object.class.model_name.human.capitalize
+    not_ok = object.report && object.report.failure_code?
 
     title = ''
-    if %w{ aborted canceled }.include?(status)
+    if %w{ aborted canceled }.include?(status) || not_ok
       title += '<span class="name aborted"><i class="fa fa-times"></i>'
     elsif %w{ started scheduled }.include?(status)
       title += "<span class=\"name processed progress\" title=\"#{I18n.t('job_status.title.processed')}\"><i class=\"fa fa-clock-o\"></i>"

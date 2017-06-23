@@ -7,9 +7,34 @@
   </div>
 </div>
 
+<% if @import.report.failure_code? %>
+  <p>
+  <div><%= t('.code') %>:        <%= @import.report.datas.failure.code %></div>
+  <div><%= t('.description') %>: <%= @import.report.datas.failure.description %></div>
+
+  <% if @import.report.datas.files %>
+      <%= t('.files') %>:
+      <% @import.report.datas.files.each do |file| %>
+          <ol>
+            <li><%= t('.name')%>: <%= file.name %></li>
+            <li><%= t('.status')%>: <%= file.status %></li>
+
+            <% if file.errors %>
+                <% file.errors.each do |error| %>
+                    <li><%= t('.error')%>: <%= error.inspect %></li>
+                <% end %>
+            <% end %>
+          </ol>
+      <% end %>
+  <% end %>
+  </p>
+<% else %>
+
 <%= render 'ievkit_views/progress_bar', {
         path_to_progress_job: progress_referential_import_path(@referential, @import.id, format: :js) 
       } %>
+
+<%end %>
 
 <% content_for :sidebar do %>
   <ul class="actions">
