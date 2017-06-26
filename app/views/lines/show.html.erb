@@ -24,7 +24,7 @@
     <% end %>
     </p>
     <p>
-      <label><%= @line.human_attribute_name(:company) %>: </label>
+      <label><%= t('lines.operator') %>: </label>
   	<% if @line.company.nil? %>
   	   <%= t('lines.index.unset') %>
   	<% else %>

@@ -11,6 +11,16 @@
     .summary p label {
         font-weight: bold;
     }
+
+    .contact_details {
+        padding-left:15px;
+    }
 }
 
 
+#workspace.companies.edit
+{
+    .contact_details h5 {
+        padding-left: 5%;
+    }
+}

@@ -12,6 +12,14 @@
       <%= @company.organizational_unit %>
     </p>
     <p>
+      <label><%= Chouette::Company.human_attribute_name("organisation_type") %>: </label>
+      <%= t("organisation_type.label.#{@company.organisation_type}") %>
+    </p>
+    <p>
+      <label><%= Chouette::Company.human_attribute_name("legal_name") %>: </label>
+      <%= @company.legal_name %>
+    </p>
+    <p>
       <label><%= Chouette::Company.human_attribute_name("operating_department_name") %>: </label>
       <%= @company.operating_department_name %>
     </p>
@@ -20,28 +28,42 @@
       <%= @company.code %>
     </p>
     <p>
-      <label><%= Chouette::Company.human_attribute_name("phone") %>: </label>
-      <%= @company.phone %>
-    </p>
-    <p>
-      <label><%= Chouette::Company.human_attribute_name("fax") %>: </label>
-      <%= @company.fax %>
-    </p>
-    <p>
-      <label><%= Chouette::Company.human_attribute_name("email") %>: </label>
-      <%= @company.email %>
-    </p>
-    <p>
       <label><%= Chouette::Company.human_attribute_name("time_zone") %>: </label>
       <%= @company.time_zone %>
     </p>
     <p>
-      <label><%= Chouette::Company.human_attribute_name("url") %>: </label>
-      <%= @company.url %>
-    </p>
-    <p>
       <label><%= Chouette::Company.human_attribute_name("registration_number") %>: </label>
       <%= @company.registration_number %>
+    </p>
+    <p><label><%= t('companies.contact.private') %></label></p>
+    <p>
+      <span class="contact_details"><%= Chouette::Company.human_attribute_name("phone") %>: </span>
+      <%= @company.phone %>
+    </p>
+    <p>
+      <span class="contact_details"><%= Chouette::Company.human_attribute_name("fax") %>: </span>
+      <%= @company.fax %>
+    </p>
+    <p>
+      <span class="contact_details"><%= Chouette::Company.human_attribute_name("email") %>: </span>
+      <%= @company.email %>
+    </p>
+    <p>
+      <span class="contact_details"><%= Chouette::Company.human_attribute_name("url") %>: </span>
+      <%= @company.url %>
+    </p>
+    <p><label><%= t('companies.contact.public') %></label></p>
+    <p>
+      <span class="contact_details"><%= Chouette::Company.human_attribute_name("phone") %>: </span>
+      <%= @company.public_phone %>
+    </p>
+    <p>
+      <span class="contact_details"><%= Chouette::Company.human_attribute_name("email") %>: </span>
+      <%= @company.public_email %>
+    </p>
+    <p>
+      <span class="contact_details"><%= Chouette::Company.human_attribute_name("url") %>: </span>
+      <%= @company.public_url %>
     </p>
   </div>
 </div>

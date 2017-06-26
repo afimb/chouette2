@@ -3,15 +3,28 @@
     <%= form.input :name, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.company.name") } %>
     <%= form.input :short_name %>
     <%= form.input :organizational_unit %>
+    <%= form.input :organisation_type, :as => :select, :collection => Chouette::OrganisationType.all, :include_blank => true, :member_label => Proc.new { |mode| t("organisation_type.label.#{mode}") }  %>
+    <%= form.input :legal_name %>
     <%= form.input :operating_department_name %>
     <%= form.input :code %>
-    <%= form.input :phone, :as => :phone %>
-    <%= form.input :fax, :as => :phone %>
-    <%= form.input :email, :as => :email %>              
     <%= form.input :time_zone,  :include_blank => true %>
-    <%= form.input :url %>
     <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.company.registration_number")} %>
-    <%= form.input :objectid, :required => !@company.new_record?, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.company.objectid")} %>  
+    <%= form.input :objectid, :required => !@company.new_record?, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.company.objectid")} %>
+
+    <div class="contact_details">
+      <h5><%= t("companies.contact.private") %></h5>
+    </div>
+      <%= form.input :phone, :as => :phone %>
+      <%= form.input :fax, :as => :phone %>
+      <%= form.input :email, :as => :email %>
+      <%= form.input :url %>
+
+    <div class="contact_details">
+      <h5><%= t("companies.contact.public") %></h5>
+    </div>
+      <%= form.input :public_phone, :as => :phone %>
+      <%= form.input :public_email, :as => :email %>
+      <%= form.input :public_url, :as => :url %>
   <% end %>
 
    <%= form.actions do %>
