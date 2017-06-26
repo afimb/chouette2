@@ -32,7 +32,7 @@ describe "Companies", :type => :feature do
       fill_in "company_name", :with => "Company 1"
       fill_in I18n.t("activerecord.attributes.company.registration_number"), :with => "test-1"
       fill_in I18n.t("activerecord.attributes.company.objectid"), :with => "test:Company:1"
-      fill_in I18n.t("activerecord.attributes.company.organisation_type"), :with => "operator"
+      select I18n.t("organisation_type.label.operator"), :from => "company_organisation_type"
       click_button(I18n.t('formtastic.create',model: I18n.t('activerecord.models.company.one')))
       expect(page).to have_content("Company 1")
     end
