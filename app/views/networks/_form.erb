@@ -3,6 +3,7 @@
     <%= form.input :name, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.network.name")} %> 
     <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.network.registration_number")} %>
     <%= form.input :comment %>
+    <%= form.input :company %>
     <%= form.input :version_date, :as => :date_picker %>
     <%= form.input :description %>              
     <%= form.input :source_name %>              
