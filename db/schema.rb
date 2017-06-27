@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170626123000) do
+ActiveRecord::Schema.define(version: 20170627085357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,13 @@ ActiveRecord::Schema.define(version: 20170626123000) do
     t.integer  "referential_id"
     t.string   "token"
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "codespaces", id: :bigserial, force: :cascade do |t|
+    t.string   "xmlns",      null: false
+    t.string   "xmlns_url",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -302,6 +309,7 @@ ActiveRecord::Schema.define(version: 20170626123000) do
     t.string   "source_type"
     t.string   "source_identifier"
     t.string   "comment"
+    t.integer  "company_id"
   end
 
   add_index "networks", ["objectid"], name: "networks_objectid_key", unique: true, using: :btree
@@ -631,6 +639,7 @@ ActiveRecord::Schema.define(version: 20170626123000) do
   add_foreign_key "lines", "networks", name: "line_ptnetwork_fkey", on_delete: :nullify
   add_foreign_key "route_sections", "stop_areas", column: "arrival_id"
   add_foreign_key "route_sections", "stop_areas", column: "departure_id"
+  add_foreign_key "networks", "companies", name: "network_company_fkey", on_delete: :nullify
   add_foreign_key "routes", "lines", name: "route_line_fkey", on_delete: :cascade
   add_foreign_key "routes", "routes", column: "opposite_route_id", name: "route_opposite_route_fkey", on_delete: :nullify
   add_foreign_key "routing_constraints_lines", "lines"
