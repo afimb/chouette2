@@ -1,0 +1,7 @@
+<div class="page_info">
+  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info( @destination_displays ) %>
+</div>
+<div class="destination_displays paginated_content">
+   <%= paginated_content(@destination_displays) %>
+</div>
+<%= render 'shared/paginate', { datas: @destination_displays } %>

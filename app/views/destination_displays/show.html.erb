@@ -1,0 +1,31 @@
+<%= title_tag t('destination_displays.show.title', :destination_display => @destination_display.name) %>
+
+<div class="destination_display_show">
+
+  <div class="summary">
+    <p>
+      <label><%= Chouette::DestinationDisplay.human_attribute_name("name") %>: </label>
+      <%= @destination_display.name %>
+    </p>
+    <p>
+      <label><%= Chouette::DestinationDisplay.human_attribute_name("front_text") %>: </label>
+      <%= @destination_display.front_text %>
+    </p>
+    <p>
+      <label><%= Chouette::DestinationDisplay.human_attribute_name("side_text") %>: </label>
+      <%= @destination_display.side_text %>
+    </p>
+  </div>
+</div>
+
+<% content_for :sidebar do %>
+    <ul class="actions">
+      <% if current_user.admin? %>
+          <li><%= link_to t('destination_displays.actions.new'), new_referential_destination_display_path(@referential), :class => "add" %></li>
+          <li><%= link_to t('destination_displays.actions.edit'), edit_referential_destination_display_path(@referential, @destination_display), :class => "edit" %></li>
+          <li><%= link_to  t('destination_displays.actions.destroy'), referential_destination_display_path(@referential, @destination_display), :method => :delete,  :data => {:confirm =>  t('destination_displays.actions.destroy_confirm')}, :class => "remove" %></li>
+      <% end %>
+      <br>
+    </ul>
+    <%= creation_tag(@destination_display) %>
+<% end %>

@@ -63,5 +63,11 @@
       <span class="badge"><%= @referential.access_points.size %></span>
       <%= image_tag "map/access_in_out.png"%><%= Referential.human_attribute_name("access_points") %>
     </li>
+    <li class="list-group-item">
+      <span class="badge"><%= @referential.destination_displays.size %></span>
+      <%= link_to referential_destination_displays_path(@referential) do  %>
+          <%= Referential.human_attribute_name("destination_displays") %>
+      <% end %>
+    </li>
   </ul>
 </div>

@@ -75,6 +75,9 @@
             <li><%= link_to referential_timebands_path(@referential) do %>
                 <span class="badge pull-right"><%= @referential.timebands.size %></span><%= Referential.human_attribute_name("timebands") %>
               <% end %>
+            <li><%= link_to referential_destination_displays_path(@referential) do %>
+                  <span class="badge pull-right"><%= @referential.destination_displays.size %></span><%= Referential.human_attribute_name("destination_displays") %>
+              <% end %>
             </li>
           </ul>
         </li>

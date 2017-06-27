@@ -9,6 +9,7 @@ class Chouette::JourneyPattern < Chouette::TridentActiveRecord
   has_and_belongs_to_many :stop_points, -> { order("stop_points.position") }, :before_add => :vjas_add, :before_remove => :vjas_remove, :after_add => :shortcuts_update_for_add, :after_remove => :shortcuts_update_for_remove
   has_many :journey_pattern_sections
   has_many :route_sections, through: :journey_pattern_sections, dependent: :destroy
+  accepts_nested_attributes_for :stop_points
 
   validates_presence_of :route
 
@@ -64,7 +65,9 @@ class Chouette::JourneyPattern < Chouette::TridentActiveRecord
   end
 
   def vjas_remove( stop_point)
+    puts "****************** vjas_remove ******************"
     return if new_record?
+    puts "****************** vjas_remove 2 ******************"
 
     vehicle_journey_at_stops.where( :stop_point_id => stop_point.id).each do |vjas|
       vjas.destroy

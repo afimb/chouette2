@@ -4,8 +4,11 @@
     <%= form.input :published_name %>
     <%= form.input :registration_number, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.journey_pattern.registration_number") } %>              
     <%= form.input :comment %>              
-    <%= form.input :stop_point_ids, :label => stop_point_ids_label(@journey_pattern), :as => :check_boxes, :collection => @route.stop_points.map { |s| [s.stop_area.name, s.id.to_s]}, :input_html => (@journey_pattern.new_record? ? { :checked => 'checked' }:{}) %>              
-    <%= form.input :objectid, :required => !@journey_pattern.new_record?, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.journey_pattern.objectid") } %>  
+    <%= form.input :stop_point_ids, :label => stop_point_ids_label(@journey_pattern), :as => :check_boxes, :collection => @route.stop_points.map { |s| [s.stop_area.name, s.id.to_s]}, :input_html => (@journey_pattern.new_record? ? { :checked => 'checked' }:{}) %>
+    <%= form.semantic_fields_for :stop_points do |p| %>
+        <%= render "stop_points/stop_point_fields",  :p => p, :sp => p.object, :form => form %>
+    <% end %>
+    <%= form.input :objectid, :required => !@journey_pattern.new_record?, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.journey_pattern.objectid") } %>
   <% end %>
 
    <%= form.actions do %>
