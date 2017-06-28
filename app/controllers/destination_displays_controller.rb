@@ -1,8 +1,7 @@
 class DestinationDisplaysController < ChouetteController
   before_action :check_authorize, except: [:show, :index]
-  before_action :check_admin, :only => [:new, :edit]
 
-  defaults :resource_class => Chouette::Codespace
+  defaults :resource_class => Chouette::DestinationDisplay
   respond_to :html
   respond_to :xml
   respond_to :json
@@ -41,10 +40,5 @@ class DestinationDisplaysController < ChouetteController
 
   def destination_display_params
     params.require(:destination_display).permit( :name, :front_text, :side_text )
-  end
-
-  protected
-  def check_admin
-    redirect_to referential_destination_displays_path(@referential, @destination_displays) unless current_user.admin?
   end
 end

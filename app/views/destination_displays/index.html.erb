@@ -20,9 +20,6 @@
 
 <% content_for :sidebar do %>
     <ul class="actions">
-      <% if current_user.admin? %>
-          <li><%= link_to t('destination_displays.actions.new'), new_referential_destination_display_path(@referential), :class => "add" %></li>
-          <br>
-      <% end %>
+      <li><%= link_to t('destination_displays.actions.new'), new_referential_destination_display_path(@referential), :class => "add" %></li>
     </ul>
 <% end %>
