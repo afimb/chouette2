@@ -1,14 +1,16 @@
 class SearchDestinationDisplayInput < Formtastic::Inputs::SearchInput
 
+  #$('.stop-point-#{domId} ##{dom_id}').tokenInput('#{options[:json]}', {
   def search
     if options[:json]
       tokenLimit = options[:tokenLimit].present? ? options[:tokenLimit] : "null"
+      domId = options[:domId].present? ? options[:domId] : ""
       template.content_tag( :script,
        ("$(document).ready(function() {
           var item_format = function(item){
             return '<li>' + item.name + '</li>';
           };
-           $('##{dom_id}').tokenInput('#{options[:json]}', {
+           $('##{dom_id}-#{domId}').tokenInput('#{options[:json]}', {
              zindex: 1061,
              disabled: #{options[:disabled] || false},
              crossDomain: false,

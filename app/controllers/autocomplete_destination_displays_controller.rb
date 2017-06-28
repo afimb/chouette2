@@ -14,11 +14,7 @@ class AutocompleteDestinationDisplaysController < InheritedResources::Base
   protected
 
   def select_destination_displays
-    if params[:route_id]
-      referential.destination_displays.joins( vehicle_journeys: :route).where( "routes.id IN (#{params[:route_id]})")
-    else
-      referential.destination_displays
-    end
+    referential.destination_displays
   end
 
   def referential_destination_displays
