@@ -28,6 +28,13 @@ class JourneyPatternsController < ChouetteController
   end
 
   def update
+    update_destination_display_ids
+    update!
+  end
+
+  ## updates StopPoint DestinationDisplay on StopPoint
+  # - this is done outside the regular update since JourneyPattern uses the stop_point change event mechanism
+  def update_destination_display_ids
     if params[:journey_pattern][:destination_display_ids].present?
       params[:journey_pattern][:destination_display_ids].each do |k, v|
         if v[:stop_point_id].present?
@@ -37,8 +44,6 @@ class JourneyPatternsController < ChouetteController
         end
       end
     end
-
-    update!
   end
 
   def show
