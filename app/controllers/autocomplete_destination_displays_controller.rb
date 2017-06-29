@@ -22,6 +22,6 @@ class AutocompleteDestinationDisplaysController < InheritedResources::Base
   end
 
   def collection
-    @destination_displays = referential_destination_displays.select{ |p| p.name =~ /#{params[:q]}/i  }
+    @destination_displays = referential_destination_displays.select{ |p| [p.name, p.front_text].grep(/#{params[:q]}/i).any?   }
   end
 end
