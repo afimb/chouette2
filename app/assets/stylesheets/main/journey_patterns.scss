@@ -10,6 +10,25 @@
     #journey_pattern_stop_point_ids_input fieldset .choices-group {
         margin-top: 25px;
     }
+
+  .stop-points {
+    display: flex;
+
+    .left {
+      flex: 2;
+      li.choice {
+        padding: 0.5em;
+        margin-bottom: 1em;
+      }
+    }
+    .right {
+      flex: 4;
+      label.destination_display_label {
+        margin-top: 25px;
+        line-height: 23px;
+      }
+    }
+  }
 }
 
 #vehicle_journey_journey_pattern_id {

@@ -147,6 +147,14 @@ ActiveRecord::Schema.define(version: 20170627085357) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
+  create_table "destination_displays", id: :bigserial, force: :cascade do |t|
+    t.string   "name"
+    t.string   "side_text"
+    t.string   "front_text", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "exports", id: :bigserial, force: :cascade do |t|
     t.integer  "referential_id",  limit: 8
     t.string   "status"
@@ -456,6 +464,7 @@ ActiveRecord::Schema.define(version: 20170627085357) do
     t.string   "for_boarding"
     t.string   "for_alighting"
     t.string   "stop_area_objectid_key"
+    t.integer  "destination_display_id"
   end
 
   add_index "stop_points", ["objectid"], name: "stop_points_objectid_key", unique: true, using: :btree
@@ -637,6 +646,7 @@ ActiveRecord::Schema.define(version: 20170627085357) do
   add_foreign_key "stop_areas", "stop_areas", column: "parent_id", name: "area_parent_fkey", on_delete: :nullify
   add_foreign_key "stop_areas_stop_areas", "stop_areas", column: "child_id", name: "stoparea_child_fkey", on_delete: :cascade
   add_foreign_key "stop_areas_stop_areas", "stop_areas", column: "parent_id", name: "stoparea_parent_fkey", on_delete: :cascade
+  add_foreign_key "stop_points", "destination_displays", name: "stop_point_destination_display_fkey"
   add_foreign_key "stop_points", "routes", name: "stoppoint_route_fkey", on_delete: :cascade
   add_foreign_key "time_table_dates", "time_tables", name: "tm_date_fkey", on_delete: :cascade
   add_foreign_key "time_table_periods", "time_tables", name: "tm_period_fkey", on_delete: :cascade

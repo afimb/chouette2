@@ -16,6 +16,9 @@
         <span class="warning"><%= t('.no_position') %></span> -
       <% end %>
     </p>
+    <p>
+      <%= Chouette::DestinationDisplay.human_attribute_name('destination_display') %> : <%= stop_point.destination_display.nil? ? t(".unchanged") : stop_point.destination_display.front_text %>
+    </p>
     <p>     
       <%= stop_point.stop_area.human_attribute_name('registration_number') %> : <%= stop_point.stop_area.registration_number.present? ? stop_point.stop_area.registration_number : t(".no_object") %>
     </p>

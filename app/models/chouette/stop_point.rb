@@ -10,6 +10,7 @@ module Chouette
     belongs_to :route, inverse_of: :stop_points
     has_many :vehicle_journey_at_stops, :dependent => :destroy
     has_many :vehicle_journeys, -> {uniq}, :through => :vehicle_journey_at_stops
+    belongs_to :destination_display
 
     acts_as_list :scope => :route, top_of_list: 0
 
@@ -35,6 +36,11 @@ module Chouette
 
     def self.area_candidates
       Chouette::StopArea.where( :area_type => ['Quay', 'BoardingPosition'])
+    end
+
+    def destination_display_id=(id)
+      self.destination_display = id.nil? ? nil : Chouette::DestinationDisplay.find(id)
+      save
     end
 
   end
