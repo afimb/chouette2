@@ -4,6 +4,7 @@ class Chouette::Network < Chouette::TridentActiveRecord
   self.primary_key = "id"
 
   has_many :lines
+  belongs_to :company
 
   attr_accessor :source_type_name
 

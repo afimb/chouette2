@@ -203,6 +203,21 @@ class Chouette::StopArea < Chouette::TridentActiveRecord
     end
   end
 
+  def stop_place_type_name
+    # return nil if stop_place_type is nil
+    stop_place_type && Chouette::StopPlaceType.new( stop_place_type.underscore)
+  end
+
+  def transport_mode_name
+    # return nil if transport_mode is nil
+    transport_mode && Chouette::TransportMode.new( transport_mode.underscore)
+  end
+
+  def transport_sub_mode_name
+    # return nil if transport_sub_mode is nil
+    transport_sub_mode && Chouette::TransportSubMode.new( transport_sub_mode.underscore)
+  end
+
   def children_ids=(children_ids)
     children = children_ids.split(',').uniq
     # remove unset children

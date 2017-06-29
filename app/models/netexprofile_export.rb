@@ -1,7 +1,7 @@
 class NetexprofileExport < ExportTask
 
   validates_presence_of :time_zone, unless: Proc.new { |e| e.optional_attribute? :time_zone }
-  attr_accessor :object_id_prefix, :time_zone, :valid_codespaces, :export_stops
+  attr_accessor :object_id_prefix, :time_zone, :export_stops
 
   enumerize :references_type, in: %w( network line company group_of_line stop_area )
 
@@ -31,7 +31,6 @@ class NetexprofileExport < ExportTask
         "start_date" => start_date,
         "end_date" => end_date,
         "valid_after_export" => valid_after_export,
-        "valid_codespaces" => valid_codespaces,
         "export_stops" => export_stops
       }
     }

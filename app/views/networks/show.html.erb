@@ -12,6 +12,12 @@
       <%= @network.comment %>
     </p>
     <p>
+      <label><%= Chouette::Network.human_attribute_name("company") %>: </label>
+      <% if !@network.company.nil? %>
+          <%= @network.company.name %>
+      <% end %>
+    </p>
+    <p>
       <label><%= Chouette::Network.human_attribute_name("version_date") %>: </label>
       <% if @network.version_date.present? %>
         <%= l @network.version_date  %>

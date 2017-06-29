@@ -38,6 +38,7 @@ ChouetteIhm::Application.routes.draw do
       resources :routes, :only => :show
       resources :journey_patterns, :only => :show
       resources :vehicle_journeys, :only => :show
+      resources :destination_displays, :only => [:index, :show]
     end
   end
 
@@ -54,6 +55,7 @@ ChouetteIhm::Application.routes.draw do
     resources :autocomplete_time_tables
     resources :autocomplete_route_sections
     resources :autocomplete_timebands
+    resources :autocomplete_destination_displays
     resources :group_of_lines do
       collection do
         get 'name_filter'
@@ -186,6 +188,7 @@ ChouetteIhm::Application.routes.draw do
         get 'create_to_edit'
       end
     end
+    resources :destination_displays
   end
   root :to => "referentials#index"
 

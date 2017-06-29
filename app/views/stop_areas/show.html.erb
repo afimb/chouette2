@@ -50,6 +50,18 @@
       <%= t("area_types.label.#{@stop_area.stop_area_type}") %>
       <i class="fa fa-info-circle" data-toggle="tooltip" data-placement="right" title="<%= t('.not_editable') %>"></i>
     </p>
+    <p>
+      <label><%= @stop_area.human_attribute_name("stop_place_type") %>: </label>
+      <%= @stop_area.stop_place_type && t("stop_place_type.label.#{@stop_area.stop_place_type_name}") %>
+    </p>
+    <p>
+      <label><%= @stop_area.human_attribute_name("transport_mode") %>: </label>
+      <%= @stop_area.transport_mode && t("transport_modes.label.#{@stop_area.transport_mode_name}") %>
+    </p>
+    <p>
+      <label><%= @stop_area.human_attribute_name("transport_sub_mode") %>: </label>
+      <%= @stop_area.transport_sub_mode && t("transport_sub_modes.label.#{@stop_area.transport_sub_mode_name}") %>
+    </p>
     <% if !manage_itl %>
 	    <p>
 	      <label><%= @stop_area.human_attribute_name("mobility_restricted_suitability") %>: </label>

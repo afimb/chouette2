@@ -1,0 +1,13 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><%= Referential.human_attribute_name("destination_displays") %></div>
+
+  <ul class="list-group">
+  <% @referential.destination_displays.each do |destination_display| %>
+    <li class="list-group-item">
+      <span><%= link_to destination_display.xmlns, referential_destination_display_path(@referential, destination_display) %></span>
+      <%= destination_display.xmlns_url %>
+    </li>
+  <% end %>
+  </ul>
+</div>
