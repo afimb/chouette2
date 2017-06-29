@@ -1,6 +1,5 @@
 class SearchDestinationDisplayInput < Formtastic::Inputs::SearchInput
 
-  #$('.stop-point-#{domId} ##{dom_id}').tokenInput('#{options[:json]}', {
   def search
     if options[:json]
       tokenLimit = options[:tokenLimit].present? ? options[:tokenLimit] : "null"
