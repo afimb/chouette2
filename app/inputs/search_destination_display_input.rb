@@ -10,7 +10,7 @@ class SearchDestinationDisplayInput < Formtastic::Inputs::SearchInput
           var item_format = function(item){
             return '<li>' + item.name + '</li>';
           };
-           $('##{dom_id}-#{domId}').tokenInput('#{options[:json]}', {
+           $('##{dom_id}').tokenInput('#{options[:json]}', {
              zindex: 1061,
              disabled: #{options[:disabled] || false},
              crossDomain: false,
