@@ -1,7 +1,7 @@
 <div id="index_item" class="destination_display panel panel-default">
   <div class="panel-heading">
     <div class="panel-title clearfix">
-      <% if current_user.admin? %>
+      <% if policy(:application).write? %>
         <span class="pull-right">
           <%= link_to edit_referential_destination_display_path(@referential, destination_display), :class => "btn btn-default btn-sm" do %>
             <span class="fa fa-pencil"></span>

@@ -20,12 +20,9 @@
 
 <% content_for :sidebar do %>
     <ul class="actions">
-      <% if current_user.admin? %>
-          <li><%= link_to t('destination_displays.actions.new'), new_referential_destination_display_path(@referential), :class => "add" %></li>
-          <li><%= link_to t('destination_displays.actions.edit'), edit_referential_destination_display_path(@referential, @destination_display), :class => "edit" %></li>
-          <li><%= link_to  t('destination_displays.actions.destroy'), referential_destination_display_path(@referential, @destination_display), :method => :delete,  :data => {:confirm =>  t('destination_displays.actions.destroy_confirm')}, :class => "remove" %></li>
-      <% end %>
-      <br>
+      <li><%= link_to t('destination_displays.actions.new'), new_referential_destination_display_path(@referential), :class => "add" %></li>
+      <li><%= link_to t('destination_displays.actions.edit'), edit_referential_destination_display_path(@referential, @destination_display), :class => "edit" %></li>
+      <li><%= link_to  t('destination_displays.actions.destroy'), referential_destination_display_path(@referential, @destination_display), :method => :delete,  :data => {:confirm =>  t('destination_displays.actions.destroy_confirm')}, :class => "remove" %></li>
     </ul>
     <%= creation_tag(@destination_display) %>
 <% end %>
