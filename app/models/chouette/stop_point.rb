@@ -12,11 +12,6 @@ module Chouette
     has_many :vehicle_journeys, -> {uniq}, :through => :vehicle_journey_at_stops
     belongs_to :destination_display
 
-    def destination_display_id=(id)
-      self.destination_display = id.nil? ? nil : Chouette::DestinationDisplay.find(id)
-      save
-    end
-
     acts_as_list :scope => :route, top_of_list: 0
 
     validates_presence_of :stop_area
@@ -41,6 +36,11 @@ module Chouette
 
     def self.area_candidates
       Chouette::StopArea.where( :area_type => ['Quay', 'BoardingPosition'])
+    end
+
+    def destination_display_id=(id)
+      self.destination_display = id.nil? ? nil : Chouette::DestinationDisplay.find(id)
+      save
     end
 
   end
