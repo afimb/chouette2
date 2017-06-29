@@ -1,0 +1,12 @@
+<%= semantic_form_for [@referential, @destination_display] do |form| %>
+  <%= form.inputs do %>   
+    <%= form.input :name %>
+    <%= form.input :side_text %>
+    <%= form.input :front_text %>
+    <% end %>
+
+   <%= form.actions do %>
+     <%= form.action :submit, :as => :button %>
+     <%= form.action :cancel, :as => :link %>
+   <% end %>
+<% end %>

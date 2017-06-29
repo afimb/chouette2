@@ -26,6 +26,10 @@ class Chouette::JourneyPattern < Chouette::TridentActiveRecord
     self.update_attributes :stop_points => bck_sp
   end
 
+  def destination_display_ids=(args)
+    # ignores setter, as changes to stop_point in JourneyPatternsController.update
+  end
+
   def departure_stop_point
     return unless departure_stop_point_id
     Chouette::StopPoint.find( departure_stop_point_id)

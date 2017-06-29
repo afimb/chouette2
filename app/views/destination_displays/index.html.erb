@@ -1,0 +1,25 @@
+<%= title_tag t('destination_displays.index.title') %>
+
+<%= search_form_for @q, :url => referential_destination_displays_path(@referential), remote: true, :html => {:method => :get, class: "form-inline", :id => "search", role: "form"} do |f| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="input-group col-md-12">
+          <%= f.text_field :name_cont, :placeholder => "#{t('.name')}", :class => "form-control" %>
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+          </div>
+        </div><!-- /input-group -->
+        <!-- <a data-toggle="collapse" data-parent="#search" href="#advanced_search"> -->
+        <!--   <i class="fa fa-plus"></i> <%= "#{t('.front_text')}" %> -->
+        <!-- </a> -->
+      </div>
+    </div>
+<% end %>
+
+<div id="destination_displays"><%= render partial: "destination_displays", object: @destination_displays %></div>
+
+<% content_for :sidebar do %>
+    <ul class="actions">
+      <li><%= link_to t('destination_displays.actions.new'), new_referential_destination_display_path(@referential), :class => "add" %></li>
+    </ul>
+<% end %>
