@@ -12,10 +12,10 @@
       </div>
       <div class="right">
         <label class="destination_display_label"><%= t('.destination_displays') %></label>
-        <%= form.semantic_fields_for :destination_display_ids do |dd| %>
+        <%= form.semantic_fields_for :destination_display_ids do |dd| %>                            <!-- destination_display_ids hash (values below are nested into this fieldset)-->
           <% @route.stop_points.each do |stop_point| %>
-            <%= dd.semantic_fields_for stop_point.id.to_s do |p| %>
-              <%= render "stop_points/stop_point_fields", :p => p, :stop_point => stop_point %>
+            <%= dd.semantic_fields_for stop_point.id.to_s do |p| %>                                 <!-- id in destination_display_ids hash -->
+              <%= render "stop_points/stop_point_fields", :p => p, :stop_point => stop_point %>     <!-- fieldset/values (also a hash) on id -->
             <% end %>
           <% end %>
         <% end %>
