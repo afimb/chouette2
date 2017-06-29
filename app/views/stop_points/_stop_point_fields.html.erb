@@ -1,6 +1,6 @@
 <%= p.inputs :class => 'nested-fields stop-point' do %>
   <%= p.input :stop_point_id, :as => :hidden, :input_html => { :class => "stop_point_id", :value => stop_point.id } %>
-  <%= p.input :destination_display_id, :label => false, :as => :search_destination_display, :json => referential_autocomplete_destination_displays_path(@referential, :format => :json), :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'), :tokenLimit => 1, :domId => stop_point.id.to_s, :input_html => { :idd => 'journey_pattern_destination_display_ids_destination_display_id-' + stop_point.id.to_s, :class => "destination_display", :"data-pre" => Rabl::Renderer.new('autocomplete_destination_displays/index', [stop_point.destination_display].compact, :view_path => 'app/views', :format => :json, :scope => self ).render } %>
+  <%= p.input :destination_display_id, :label => false, :as => :search_destination_display, :json => referential_autocomplete_destination_displays_path(@referential, :format => :json), :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'), :tokenLimit => 1, :input_html => { :class => "destination_display", :"data-pre" => Rabl::Renderer.new('autocomplete_destination_displays/index', [stop_point.destination_display].compact, :view_path => 'app/views', :format => :json, :scope => self ).render } %>
 
 <% end %>
 

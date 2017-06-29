@@ -3,11 +3,10 @@ class SearchDestinationDisplayInput < Formtastic::Inputs::SearchInput
   def search
     if options[:json]
       tokenLimit = options[:tokenLimit].present? ? options[:tokenLimit] : "null"
-      domId = options[:domId].present? ? options[:domId] : ""
       template.content_tag( :script,
        ("$(document).ready(function() {
           var item_format = function(item){
-            return '<li>' + item.name + '</li>';
+            return '<li>' + item.name + ' (' + item.front_text + ')</li>';
           };
            $('##{dom_id}').tokenInput('#{options[:json]}', {
              zindex: 1061,
