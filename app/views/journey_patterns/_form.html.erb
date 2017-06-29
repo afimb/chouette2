@@ -8,7 +8,7 @@
     <label><%= stop_point_ids_label(@journey_pattern) %> </label>
     <div class="stop-points">
       <div class="left">
-        <%= form.input :stop_point_ids, :label => false, :as => :check_boxes, :collection => @route.stop_points.map { |s| [s.stop_area.name, s.id.to_s]}, :input_html => (@journey_pattern.new_record? ? { :checked => 'checked' }:{}) %>
+        <%= form.input :stop_point_ids, :label => false, :as => :check_boxes, :collection => @route.stop_points.map { |s| [stop_name(s), s.id.to_s]}, :input_html => (@journey_pattern.new_record? ? { :checked => 'checked' }:{}) %>
       </div>
       <div class="right">
         <label class="destination_display_label"><%= t('.destination_displays') %></label>

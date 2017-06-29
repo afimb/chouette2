@@ -396,12 +396,31 @@ ActiveRecord::Schema.define(version: 20170629120000) do
 
   add_index "routes", ["objectid"], name: "routes_objectid_key", unique: true, using: :btree
 
+  create_table "routing_constraints", id: :bigserial, force: :cascade do |t|
+    t.string   "name",           null: false
+    t.string   "comment"
+    t.string   "objectid",       null: false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id"
+  end
+
+  add_index "routing_constraints", ["objectid"], name: "index_routing_constraints_on_objectid", unique: true, using: :btree
+
   create_table "routing_constraints_lines", id: false, force: :cascade do |t|
     t.integer "line_id",                limit: 8
     t.string  "stop_area_objectid_key"
   end
 
   add_index "routing_constraints_lines", ["stop_area_objectid_key"], name: "index_routing_constraints_lines_on_stop_area_objectid_key", using: :btree
+
+  create_table "routing_constraints_stop_areas", id: false, force: :cascade do |t|
+    t.integer "routing_constraint_id"
+    t.integer "stop_area_id"
+  end
+
+  add_index "routing_constraints_stop_areas", ["routing_constraint_id"], name: "index_routing_constraints_stop_areas_on_routing_constraint_id", using: :btree
+  add_index "routing_constraints_stop_areas", ["stop_area_id"], name: "index_routing_constraints_stop_areas_on_stop_area_id", using: :btree
 
   create_table "rule_parameter_sets", id: :bigserial, force: :cascade do |t|
     t.text     "parameters"
@@ -643,6 +662,7 @@ ActiveRecord::Schema.define(version: 20170629120000) do
   add_foreign_key "routes", "lines", name: "route_line_fkey", on_delete: :cascade
   add_foreign_key "routes", "routes", column: "opposite_route_id", name: "route_opposite_route_fkey", on_delete: :nullify
   add_foreign_key "routing_constraints_lines", "lines", name: "routingconstraint_line_fkey", on_delete: :cascade
+  add_foreign_key "routing_constraints_stop_areas", "routing_constraints"
   add_foreign_key "stop_areas", "stop_areas", column: "parent_id", name: "area_parent_fkey", on_delete: :nullify
   add_foreign_key "stop_areas_stop_areas", "stop_areas", column: "child_id", name: "stoparea_child_fkey", on_delete: :cascade
   add_foreign_key "stop_areas_stop_areas", "stop_areas", column: "parent_id", name: "stoparea_parent_fkey", on_delete: :cascade
