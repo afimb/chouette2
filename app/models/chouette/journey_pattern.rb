@@ -68,9 +68,7 @@ class Chouette::JourneyPattern < Chouette::TridentActiveRecord
   end
 
   def vjas_remove( stop_point)
-    puts "****************** vjas_remove ******************"
     return if new_record?
-    puts "****************** vjas_remove 2 ******************"
 
     vehicle_journey_at_stops.where( :stop_point_id => stop_point.id).each do |vjas|
       vjas.destroy
