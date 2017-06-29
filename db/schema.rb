@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614110000) do
+ActiveRecord::Schema.define(version: 20170623123920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,6 +134,14 @@ ActiveRecord::Schema.define(version: 20170614110000) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "destination_displays", id: :bigserial, force: :cascade do |t|
+    t.string   "name"
+    t.string   "side_text"
+    t.string   "front_text", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "exports", id: :bigserial, force: :cascade do |t|
     t.integer  "referential_id",  limit: 8
@@ -451,6 +459,7 @@ ActiveRecord::Schema.define(version: 20170614110000) do
     t.integer  "position"
     t.string   "for_boarding"
     t.string   "for_alighting"
+    t.integer  "destination_display_id"
   end
 
   add_index "stop_points", ["objectid"], name: "stop_points_objectid_key", unique: true, using: :btree
@@ -633,6 +642,7 @@ ActiveRecord::Schema.define(version: 20170614110000) do
   add_foreign_key "routing_constraints_stop_areas", "routing_constraints"
   add_foreign_key "routing_constraints_stop_areas", "stop_areas"
   add_foreign_key "stop_areas", "stop_areas", column: "parent_id", name: "area_parent_fkey", on_delete: :nullify
+  add_foreign_key "stop_points", "destination_displays", name: "stop_point_destination_display_fkey"
   add_foreign_key "stop_points", "routes", name: "stoppoint_route_fkey", on_delete: :cascade
   add_foreign_key "stop_points", "stop_areas", name: "stoppoint_area_fkey"
   add_foreign_key "time_table_dates", "time_tables", name: "tm_date_fkey", on_delete: :cascade

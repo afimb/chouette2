@@ -8,6 +8,6 @@ class CreateDestinationDisplays < ActiveRecord::Migration
     end
 
     add_column :stop_points, :destination_display_id, :integer, null: true
-    add_foreign_key :stop_points, :destination_displays, dependent: :nullify
+    add_foreign_key :stop_points, :destination_displays, dependent: :nullify, name: 'stop_point_destination_display_fkey'
   end
 end
