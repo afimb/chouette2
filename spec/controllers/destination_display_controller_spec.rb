@@ -37,7 +37,7 @@ describe DestinationDisplaysController, type: :controller do
 
     it "has set values" do
       expect(assigns[:destination_display].name).to eq("IKO")
-      expect(assigns[:destination_display].name_url).to eq("http://juuuuhuu.com/ns/kaa")
+      expect(assigns[:destination_display].front_text).to eq("http://juuuuhuu.com/ns/kaa")
     end
   end
 
