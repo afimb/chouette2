@@ -9,7 +9,6 @@ class Chouette::JourneyPattern < Chouette::TridentActiveRecord
   has_and_belongs_to_many :stop_points, -> { order("stop_points.position") }, :before_add => :vjas_add, :before_remove => :vjas_remove, :after_add => :shortcuts_update_for_add, :after_remove => :shortcuts_update_for_remove
   has_many :journey_pattern_sections
   has_many :route_sections, through: :journey_pattern_sections, dependent: :destroy
-  accepts_nested_attributes_for :stop_points
 
   validates_presence_of :route
 
@@ -25,6 +24,10 @@ class Chouette::JourneyPattern < Chouette::TridentActiveRecord
     bck_sp = self.stop_points.map {|s| s}
     self.update_attributes :stop_points => []
     self.update_attributes :stop_points => bck_sp
+  end
+
+  def destination_display_ids=(args)
+    # ignores setter, as changes to stop_point in JourneyPatternsController.update
   end
 
   def departure_stop_point

@@ -27,6 +27,20 @@ class JourneyPatternsController < ChouetteController
     object.special_update
   end
 
+  def update
+    if params[:journey_pattern][:destination_display_ids].present?
+      params[:journey_pattern][:destination_display_ids].each do |k, v|
+        if v[:stop_point_id].present?
+          stop_point_id = v[:stop_point_id]
+          destination_display_id = v[:destination_display_id].present? ? v[:destination_display_id] : nil
+          Chouette::StopPoint.find(stop_point_id).destination_display_id = destination_display_id
+        end
+      end
+    end
+
+    update!
+  end
+
   def show
     @map = JourneyPatternMap.new(journey_pattern).with_helpers(self)
     @stop_points = journey_pattern.stop_points.page(params[:page])
@@ -57,7 +71,7 @@ class JourneyPatternsController < ChouetteController
   private
 
   def journey_pattern_params
-    params.require(:journey_pattern).permit(:route_id, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :registration_number, :published_name, :departure_stop_point_id, :arrival_stop_point_id, {:stop_point_ids => [], :destination_display_ids => []})
+    params.require(:journey_pattern).permit(:route_id, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :registration_number, :published_name, :departure_stop_point_id, :arrival_stop_point_id, {:stop_point_ids => [], :destination_display_ids => {}})
   end
 
 end
