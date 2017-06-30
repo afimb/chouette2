@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170629120000) do
+ActiveRecord::Schema.define(version: 20170630120000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -378,6 +378,7 @@ ActiveRecord::Schema.define(version: 20170629120000) do
 
   add_index "route_sections", ["arrival_stop_area_objectid_key"], name: "index_route_sections_on_arrival_stop_area_objectid_key", using: :btree
   add_index "route_sections", ["departure_stop_area_objectid_key"], name: "index_route_sections_on_departure_stop_area_objectid_key", using: :btree
+  add_index "route_sections", ["objectid"], name: "route_sections_objectid_key", unique: true, using: :btree
 
   create_table "routes", id: :bigserial, force: :cascade do |t|
     t.integer  "line_id",           limit: 8
