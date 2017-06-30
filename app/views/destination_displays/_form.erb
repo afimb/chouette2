@@ -3,10 +3,101 @@
     <%= form.input :name %>
     <%= form.input :side_text %>
     <%= form.input :front_text %>
+  <% end %>
+
+  <div id="vias">
+    <%= form.semantic_fields_for :vias, :include_id => false do |p| %>
+      <%= render "via_fields",  :f => p %>
     <% end %>
+
+    <div class="links">
+      <%= link_to_add_association t("destination_displays.actions.add_via"), form, :vias, :class => 'add_via add' %>
+      <br/>
+      <%= link_to t('destination_displays.actions.new_destination_display'), new_referential_destination_display_path(@referential), {:class => "add", :target => "_blank"} %>
+    </div>
+  </div>
 
    <%= form.actions do %>
      <%= form.action :submit, :as => :button %>
      <%= form.action :cancel, :as => :link %>
    <% end %>
 <% end %>
+
+
+<script>
+
+    $(document).ready( function() {
+        var via_ids = [];
+
+        var order_position = function() {
+            console.log('order_position')
+            $('#vias input[type="hidden"][id$="position"]').each(function(index) {
+                $(this).val(index);
+            });
+        };
+
+        var write_via_ids = function(){
+            console.log('write_via_ids')
+            $('#vias input[type="hidden"][class~="via_id"]').each(function(index,element) {
+                // soit le parent a la classe added_via
+                if ( $(element).hasClass("added_via") ){
+                    $(this).attr("value", "");
+                } else {
+                    $(this).attr("value", via_ids.shift());
+                }
+            });
+        }
+
+        var empty_via_ids = function() {
+            console.log('empty_via_ids')
+            via_ids = $.map($('#vias input[type="hidden"][class="via_id"]'), function(element, index) {
+                return $(element).val();
+            });
+             console.log(  "before-remove");
+             console.log(  via_ids);
+        };
+
+        $('#vias').sortable({
+            axis: 'y',
+            dropOnEmpty: false,
+            handle: '.handle',
+            cursor: 'crosshair',
+            items: '.via',
+            opacity: 0.4,
+            scroll: true,
+            start: function( event, ui ) {
+                empty_via_ids();
+            },
+            update: function( event, ui ) {
+                write_via_ids();
+                order_position();
+            }
+        });
+
+        $('#vias').bind("cocoon:after-insert", function(event, insertedItem) {
+            console.log('cocoon:after-insert')
+
+            var new_via_count = $('div.nested-fields.via').size();
+            // cocoonId seem to be generated automatically (by jQuery?) and is replaced with index in route.vias array
+            var cocoonId = insertedItem.find("input.new_via").attr("id").match( /destination_display_vias_attributes_(\d+)_via_id/)[1];
+
+            insertedItem.find('input').each( function(index,e){
+                var old = $(e).attr("name");
+                if (old!=undefined) {
+                    $(e).attr("name", old.replace( cocoonId, new_via_count - 1));
+                }
+            });
+
+            console.log( "cocoonId="+cocoonId+", new_via_count="+new_via_count);
+            order_position();
+        });
+
+        $('#vias').on("cocoon:before-remove", empty_via_ids);
+
+        $('#vias').on("cocoon:after-remove", function() {
+            write_via_ids();
+            order_position();
+        });
+    });
+
+</script>

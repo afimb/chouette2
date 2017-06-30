@@ -5,8 +5,24 @@ class SearchDestinationDisplayInput < Formtastic::Inputs::SearchInput
       tokenLimit = options[:tokenLimit].present? ? options[:tokenLimit] : "null"
       template.content_tag( :script,
        ("$(document).ready(function() {
+
+           var item_name = function( item ){
+              var name = item.name;
+              var front_text = item.front_text == '' ? '' : ' (' + item.front_text + ')';
+
+              return item.name + front_text;
+           };
+
           var item_format = function(item){
-            return '<li>' + item.name + ' (' + item.front_text + ')</li>';
+              var name = item_name( item );
+
+              html_result = '<li>';
+              if(name != '')
+              {
+                html_result += name;
+              }
+              html_result += '</li>';
+              return html_result;
           };
            $('##{dom_id}').tokenInput('#{options[:json]}', {
              zindex: 1061,
@@ -39,7 +55,7 @@ class SearchDestinationDisplayInput < Formtastic::Inputs::SearchInput
                   :required          => nil,
                   :autofocus         => nil,
                   :class             => "#{css_class} token-input",
-                  'data-model-name' => 'Chouette::DestinationDisplay' #object.class.model_name.human #TODO
+                  'data-model-name' => (object.nil? || object.class.nil?) ? 'Chouette::DestinationDisplay' : object.class.model_name.human
                 })
   end
 

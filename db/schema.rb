@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170623123920) do
+ActiveRecord::Schema.define(version: 20170630063643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,6 +134,13 @@ ActiveRecord::Schema.define(version: 20170623123920) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "destination_display_vias", id: false, force: :cascade do |t|
+    t.integer "destination_display_id", limit: 8
+    t.integer "via_id",                 limit: 8
+  end
+
+  add_index "destination_display_vias", ["destination_display_id"], name: "index_destination_display_id_on_destination_display_vias", using: :btree
 
   create_table "destination_displays", id: :bigserial, force: :cascade do |t|
     t.string   "name"

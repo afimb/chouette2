@@ -1,0 +1,22 @@
+<div class="nested-fields via row">
+  <%= f.inputs do %>
+  <div class="col-md-1 resize">
+    <%= link_to_remove_association "<i class='fa fa-trash-o'></i>".html_safe, f %>
+    <!-- TODO span class="handle" alt="< %= t('destination_displays.index.move') %>" title="< %= t('destination_displays.index.move') %>" ><i class='fa fa-arrows'></i></span -->
+    <span class="handle" alt="Move" title="Move" ><i class='fa fa-arrows'></i></span>
+  </div>
+  <div class="col-md-11">
+    <% if f.object.nil? || f.object.new_record? %>
+        <%= f.input :destination_display_id, :as => :hidden, :input_html => { :class => "via_id added_via", :value => "" } %>
+        <!-- %= f.input :position, :as => :hidden, :input_html => { :class => "position" } %-->
+        <%= f.input :via_id, :label => false, :as => :search_destination_display, :json => referential_autocomplete_destination_displays_path(@referential, :format => :json), :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'), :tokenLimit => 1, :input_html => { :class => "new_via via_id", :"data-pre" => Rabl::Renderer.new('autocomplete_destination_displays/index', [f.object].compact, :view_path => 'app/views', :format => :json, :scope => self ).render, :value => "" } %>
+    <% else %>
+        <%= f.input :destination_display_id, :as => :hidden, :input_html => { :class => "via_id " } %>
+        <!--%= f.input :position, :as => :hidden, :input_html => { :class => "position" } %-->
+        <%= f.input :via_id, :label => false, :as => :search_destination_display, :json => referential_autocomplete_destination_displays_path(@referential, :format => :json), :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'), :tokenLimit => 1, :input_html => { :class => "XX_id", :"data-pre" => Rabl::Renderer.new('autocomplete_destination_displays/index', [f.object].compact, :view_path => 'app/views', :format => :json, :scope => self ).render, :value => f.object.id } %>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+
+
