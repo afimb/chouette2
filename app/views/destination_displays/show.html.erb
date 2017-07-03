@@ -4,16 +4,22 @@
 
   <div class="summary">
     <p>
-      <label><%= Chouette::DestinationDisplay.human_attribute_name("name") %>: </label>
-      <%= @destination_display.name %>
-    </p>
-    <p>
       <label><%= Chouette::DestinationDisplay.human_attribute_name("front_text") %>: </label>
       <%= @destination_display.front_text %>
     </p>
     <p>
       <label><%= Chouette::DestinationDisplay.human_attribute_name("side_text") %>: </label>
       <%= @destination_display.side_text %>
+    </p>
+    <p>
+      <label><%= t('.vias') %>: </label>
+        <% if @destination_display.vias.blank? %>
+            <%= t(".no_object") %>
+        <% else %>
+            <% @destination_display.vias.each do |via| %>
+                <span class="label label-default via"><%= via.front_text %></span>
+            <% end %>
+        <% end %>
     </p>
   </div>
 </div>

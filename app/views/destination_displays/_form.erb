@@ -6,8 +6,13 @@
   <% end %>
 
   <div id="vias">
-    <%= form.semantic_fields_for :vias, :include_id => false do |p| %>
-      <%= render "via_fields",  :f => p %>
+    <!-- creating new - TODO remove
+    < %= form.fields_for :vias do |p| %>
+      < %= render "via_fields", :f => p %>
+    < % end %>
+    -->
+    <%= form.fields_for :destination_display_vias do |p| %>
+      <%= render "destination_display_via_fields", :f => p %>
     <% end %>
 
     <div class="links">

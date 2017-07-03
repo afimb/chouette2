@@ -39,6 +39,6 @@ class DestinationDisplaysController < ChouetteController
   end
 
   def destination_display_params
-    params.require(:destination_display).permit( :name, :front_text, :side_text )
+    params.require(:destination_display).permit( :name, :front_text, :side_text, :vias_attributes => [:name, :side_text, :front_text], :destination_display_vias_attributes => [:destination_display_id, :via_id,  :_destroy] )
   end
 end
