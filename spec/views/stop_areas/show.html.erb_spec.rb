@@ -1,7 +1,10 @@
 require 'spec_helper'
 
 describe "/stop_areas/show", :type => :view do
-  
+  before do
+    allow(view).to receive(:current_user).and_return(double("some policy", admin?: true))
+  end
+
   assign_referential
   let!(:stop_area) { assign :stop_area, create(:stop_area) }
   let!(:access_points) { assign :access_points, [] }
