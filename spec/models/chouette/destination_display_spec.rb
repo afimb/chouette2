@@ -6,6 +6,7 @@ describe Chouette::DestinationDisplay do
   let!(:destination_display) { create(:destination_display, :name => "Tromsø", :front_text => "Tromsø", :side_text => nil) }
   let!(:destination_display1) { create(:destination_display, :name => "Majorstuen", :front_text => "Majorstuen", :side_text => nil) }
   let!(:destination_display2) { create(:destination_display, :name => "Lillehammer", :front_text => "Lillehammer", :side_text => nil) }
+  let!(:destination_display3) { create(:destination_display, :name => "Mit navn", :front_text => "Lillestrøm", :side_text => nil) }
   let!(:destination_display4) { create(:destination_display, :name => "Mo i Rana", :front_text => "Mo i Rana", :side_text => nil) }
   let!(:destination_display5) { create(:destination_display, :name => "Skybar", :front_text => "Hemsedal", :side_text => nil, :vias => [destination_display1, destination_display2]) }
 
@@ -66,6 +67,13 @@ describe Chouette::DestinationDisplay do
     end
   end
 
+  describe "Destination Display Vias" do
+    it "should be able to add more vias" do
+      expect(destination_display5.vias.length).to eq 2
+      destination_display5.vias.push([destination_display3, destination_display4])
+      expect(destination_display5.vias.length).to eq 4
+    end
+  end
 
   describe "Destination Display Vias set self" do
     it "should raise" do
