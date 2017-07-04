@@ -22,6 +22,10 @@ class DestinationDisplaysController < ChouetteController
     end
   end
 
+  def update
+    Chouette::DestinationDisplayVia.delete_all(:destination_display_id => params[:id])
+    update!
+  end
 
   protected
   def collection
@@ -39,6 +43,6 @@ class DestinationDisplaysController < ChouetteController
   end
 
   def destination_display_params
-    params.require(:destination_display).permit( :name, :front_text, :side_text, :vias_attributes => [:name, :side_text, :front_text], :destination_display_vias_attributes => [:destination_display_id, :via_id,  :_destroy] )
+    params.require(:destination_display).permit( :name, :front_text, :side_text, :vias_attributes => [:name, :side_text, :front_text], :destination_display_vias_attributes => [:destination_display_id, :via_id, :_destroy, :position] )
   end
 end
