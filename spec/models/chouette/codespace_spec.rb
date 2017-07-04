@@ -34,4 +34,12 @@ describe Chouette::Codespace do
       expect(codespace.updated_at).to be_nil
     end
   end
+
+  describe "strip empty spaces" do
+    it "should trim whitespace" do
+      codespace = create(:codespace, :xmlns => ' DKA ', :xmlns_url => ' http://www.heipaadeg/DKA ')
+      expect(codespace.xmlns).to eq 'DKA'
+      expect(codespace.xmlns_url).to eq 'http://www.heipaadeg/DKA'
+    end
+  end
 end
