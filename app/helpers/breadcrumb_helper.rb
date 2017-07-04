@@ -5,6 +5,8 @@ module BreadcrumbHelper
     case resource_class.to_s
     when "Chouette::Network"
       network_breadcrumb action
+    when "Chouette::Codespace"
+      codespace_breadcrumb action
     when "Chouette::Company"
       company_breadcrumb action
     when "Chouette::GroupOfLine"
@@ -151,6 +153,12 @@ module BreadcrumbHelper
 
   def vehicle_journey_import_breadcrumb (action)
     route_breadcrumb :edit
+  end
+
+  def codespace_breadcrumb (action)
+    referential_breadcrumb
+    add_breadcrumb Chouette::Codespace.model_name.human(:count => 2), referential_codepaces_path(@referential) unless action == :index
+    add_breadcrumb breadcrumb_label(@codepace), referential_codepace_path(@referential, @codepace),:title => breadcrumb_tooltip(@ccodepace) if action == :edit
   end
 
   def company_breadcrumb (action)
