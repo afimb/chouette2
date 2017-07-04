@@ -2,10 +2,10 @@ class Chouette::DestinationDisplay < ActiveRecord::Base
 
   has_many :stop_points
 
-  has_many :destination_display_vias
-  has_many :vias, :through => :destination_display_vias
-  accepts_nested_attributes_for :destination_display_vias, :reject_if => :reject_set_self
-  accepts_nested_attributes_for :vias, :reject_if => proc {|a| a['front_text'].blank?}
+  has_many :destination_display_vias, -> { order("position") }
+  has_many :vias, -> { order("position") }, :through => :destination_display_vias
+  accepts_nested_attributes_for :destination_display_vias, :reject_if => :reject_set_self, :allow_destroy => true
+  accepts_nested_attributes_for :vias, :reject_if => proc {|a| a['front_text'].blank?}, :allow_destroy => true
   validates_presence_of :front_text
 
   def reject_set_self(attributes)

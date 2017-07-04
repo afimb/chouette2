@@ -135,12 +135,15 @@ ActiveRecord::Schema.define(version: 20170630063643) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
-  create_table "destination_display_vias", id: false, force: :cascade do |t|
-    t.integer "destination_display_id", limit: 8
-    t.integer "via_id",                 limit: 8
+  create_table "destination_display_via", id: false, force: :cascade do |t|
+    t.integer  "destination_display_id", limit: 8, null: false
+    t.integer  "via_id",                 limit: 8, null: false
+    t.integer  "position",               limit: 8
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "destination_display_vias", ["destination_display_id"], name: "index_destination_display_id_on_destination_display_vias", using: :btree
+  add_index "destination_display_via", ["destination_display_id"], name: "index_destination_display_id_on_destination_display_via", using: :btree
 
   create_table "destination_displays", id: :bigserial, force: :cascade do |t|
     t.string   "name"
