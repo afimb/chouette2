@@ -150,6 +150,13 @@
 
 <% content_for :sidebar do %>
     <table>
+    <tr><td>
+	<ul class="actions">
+    <% if current_user.admin? %>
+      <li><%= link_to t('stop_areas.actions.edit'), edit_referential_stop_area_path(@referential, @stop_area), :class => "edit" %></li>
+    <% end %>
+	</ul>
+    </td></tr>
   <% if manage_itl %>
     <tr><td>
 	<h4><%= t(".itl_managment") %></h4>

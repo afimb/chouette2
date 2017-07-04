@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 class StopAreasController < ChouetteController
+  before_action :check_admin, :only => [:new, :edit, :create]
   before_action :check_authorize, except: [:show, :index, :default_geometry, :zip_codes]
 
   defaults :resource_class => Chouette::StopArea
@@ -147,4 +148,8 @@ class StopAreasController < ChouetteController
     :coordinates, :url, :time_zone)
   end
 
+  protected
+  def check_admin
+    redirect_to referential_stop_areas_path(@referential) unless current_user.admin?
+  end
 end
