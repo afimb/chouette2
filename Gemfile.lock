@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rutebanken/chouette-projects-i18n.git
-  revision: 124004dc052be8c314831ea38e6be017b9289479
+  revision: 42764a7a799896bb46dd3d088e7e53862fdede49
   branch: master
   specs:
     chouette-projects-i18n (0.1.0)
@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/rutebanken/chouette2-i18n.git
-  revision: ca0c73cc19bf5ea26501b4aa53ef492ccf2aa3bf
+  revision: 2298af896642a17cce7c9e1cb74fc259ef4b153a
   branch: master
   specs:
     chouette2-i18n (0.1.0)
@@ -29,10 +29,10 @@ GIT
 
 GIT
   remote: https://github.com/rutebanken/ievkit_views.git
-  revision: 346cb39a121ec1878a83a8552c64ed407067a0db
+  revision: 8022b2d8e0ccb9469d249d6c76439eb828b9c0b2
   branch: master
   specs:
-    ievkit_views (0.2.1)
+    ievkit_views (0.2.2)
       kaminari (~> 0.16.3)
       kaminari-i18n (~> 0.3.2)
       rails (~> 4.2.6)
@@ -233,7 +233,7 @@ GEM
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     httpclient (2.8.2.4)
-    i18n (0.8.1)
+    i18n (0.8.4)
     inherited_resources (1.6.0)
       actionpack (>= 3.2, < 5)
       has_scope (~> 0.6.0.rc)
@@ -279,8 +279,8 @@ GEM
     migration_data (0.2.1)
     mime-types (2.99.3)
     mimemagic (0.3.2)
-    mini_portile2 (2.1.0)
-    minitest (5.10.1)
+    mini_portile2 (2.2.0)
+    minitest (5.10.2)
     multi_json (1.12.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -294,8 +294,8 @@ GEM
       net-ssh (>= 2.6.5)
     netrc (0.11.0)
     newrelic_rpm (3.17.1.326)
-    nokogiri (1.7.1)
-      mini_portile2 (~> 2.1.0)
+    nokogiri (1.8.0)
+      mini_portile2 (~> 2.2.0)
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
@@ -360,7 +360,7 @@ GEM
       railties (>= 3.1, < 5.0)
     rabl (0.13.1)
       activesupport (>= 2.3.14)
-    rack (1.6.5)
+    rack (1.6.8)
     rack-oauth2 (1.4.0)
       activesupport (>= 2.3)
       attr_required (>= 0.0.5)
