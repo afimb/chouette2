@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe "/codespaces/edit", :type => :view do
+  before do
+    allow(view).to receive(:current_user).and_return(double("some policy", admin?: true))
+  end
   assign_referential
   let!(:codespace) { assign(:codespace, create(:codespace)) }
   let!(:codespaces) { Array.new(2) { create(:codespace) } }
