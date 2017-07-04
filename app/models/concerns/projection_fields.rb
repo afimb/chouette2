@@ -24,7 +24,7 @@ module ProjectionFields
   @point = nil
 
   def projection_x
-    if self.long_lat_type.nil? || self.projection.nil?
+    if self.long_lat_type.nil? || self.projection.nil? || self.latitude.nil? || self.longitude.nil?
       nil
     else
       @point ||= GeoRuby::SimpleFeatures::Point::from_lat_lng(Geokit::LatLng.new(self.latitude,self.longitude)).project_to(self.projection.to_i)
@@ -32,7 +32,7 @@ module ProjectionFields
     end
   end
   def projection_y
-    if self.long_lat_type.nil? || self.projection.nil?
+    if self.long_lat_type.nil? || self.projection.nil? || self.latitude.nil? || self.longitude.nil?
       nil
     else
       @point ||= GeoRuby::SimpleFeatures::Point::from_lat_lng(Geokit::LatLng.new(self.latitude,self.longitude)).project_to(self.projection.to_i)
