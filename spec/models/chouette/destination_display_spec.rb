@@ -69,8 +69,7 @@ describe Chouette::DestinationDisplay do
 
   describe "Destination Display Vias set self" do
     it "should raise" do
-      destination_display.vias = [destination_display]
-      expect{destination_display.vias = [destination_display]}.to raise_error(NameError)
+      expect{destination_display.vias = [destination_display]}.to raise_error(ActiveRecord::RecordInvalid)
     end
   end
 end
