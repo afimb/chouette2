@@ -68,6 +68,10 @@
                <span class="badge pull-right"><%= @referential.route_sections.size %></span><%= Referential.human_attribute_name("route_sections") %>
               <% end %>
             </li>
+            <li><%= link_to referential_codespaces_path(@referential) do %>
+                  <span class="badge pull-right"><%= @referential.codespaces.size %></span><%= Referential.human_attribute_name("codespaces") %>
+              <% end %>
+            </li>
             <li><%= link_to referential_destination_displays_path(@referential) do %>
                   <span class="badge pull-right"><%= @referential.destination_displays.size %></span><%= Referential.human_attribute_name("destination_displays") %>
               <% end %>

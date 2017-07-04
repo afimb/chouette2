@@ -50,6 +50,12 @@
       <% end %>
     </li>
     <li class="list-group-item">
+      <span class="badge"><%= @referential.codespaces.size %></span>
+      <%= link_to referential_codespaces_path(@referential) do  %>
+          <%= Referential.human_attribute_name("codespaces") %>
+      <% end %>
+    </li>
+    <li class="list-group-item">
       <span class="badge"><%= @referential.destination_displays.size %></span>
       <%= link_to referential_destination_displays_path(@referential) do  %>
           <%= Referential.human_attribute_name("destination_displays") %>

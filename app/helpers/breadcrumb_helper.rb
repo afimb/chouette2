@@ -157,8 +157,8 @@ module BreadcrumbHelper
 
   def codespace_breadcrumb (action)
     referential_breadcrumb
-    add_breadcrumb Chouette::Codespace.model_name.human(:count => 2), referential_codepaces_path(@referential) unless action == :index
-    add_breadcrumb breadcrumb_label(@codepace), referential_codepace_path(@referential, @codepace),:title => breadcrumb_tooltip(@ccodepace) if action == :edit
+    add_breadcrumb Chouette::Codespace.model_name.human(:count => 2), referential_codespaces_path(@referential) unless action == :index
+    add_breadcrumb breadcrumb_label(@codepace), referential_codespace_path(@referential, @codepace),:title => breadcrumb_tooltip(@codepace) if action == :edit
   end
 
   def company_breadcrumb (action)
