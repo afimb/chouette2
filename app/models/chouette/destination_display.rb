@@ -1,4 +1,4 @@
-class Chouette::DestinationDisplay < ActiveRecord::Base
+class Chouette::DestinationDisplay < Chouette::TridentActiveRecord
 
   has_many :stop_points
 

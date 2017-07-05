@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170630063643) do
+ActiveRecord::Schema.define(version: 20170705121328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -148,9 +148,11 @@ ActiveRecord::Schema.define(version: 20170630063643) do
   create_table "destination_displays", id: :bigserial, force: :cascade do |t|
     t.string   "name"
     t.string   "side_text"
-    t.string   "front_text", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "front_text",               null: false
+    t.string   "objectid",                 null: false
+    t.integer  "object_version", limit: 8
+    t.datetime "creation_time"
+    t.string   "creator_id"
   end
 
   create_table "exports", id: :bigserial, force: :cascade do |t|
