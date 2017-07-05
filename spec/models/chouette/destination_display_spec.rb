@@ -18,12 +18,9 @@ describe Chouette::DestinationDisplay do
     it "should set null empty nullable attributes" do
       subject.name = nil
       subject.side_text = nil
-      subject.created_at = nil
-      subject.updated_at = nil
       expect(subject.name).to be_nil
       expect(subject.side_text).to be_nil
-      expect(subject.created_at).to be_nil
-      expect(subject.updated_at).to be_nil
+      expect(subject.objectid).not_to be_nil
     end
   end
 
@@ -31,6 +28,12 @@ describe Chouette::DestinationDisplay do
     it "should set null empty nullable attributes" do
       destination_display.vias = []
       expect(destination_display.vias.length).to eq 0
+    end
+  end
+
+  describe "!nullables empty vias" do
+    it "should raise error on nullable attributes" do
+      expect{create(:destination_display, :front_text => nil)}.to raise_error(ActiveRecord::RecordInvalid)
     end
   end
 
