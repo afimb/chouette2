@@ -49,7 +49,7 @@
     <% RuleParameterSet.validable_objects.each do |obj| %>
       <thead>
       <tr>
-         <th> <%= form.check_box "check_#{obj.table_name.singularize}".to_sym, :class => "special" %> <%= t("activerecord.models.#{obj.table_name.singularize}.one") %></th>
+         <th> <%= form.check_box "check_#{object_table_name(obj)}".to_sym, :class => "special" %> <%= t("activerecord.models.#{object_table_name(obj)}.one") %></th>
     		<th><%= RuleParameterSet.human_attribute_name("attribute") %></th>
     		<th><%= RuleParameterSet.human_attribute_name("unique") %></th>
     		<th><%= RuleParameterSet.human_attribute_name("string_type") %></th>
@@ -58,7 +58,7 @@
       </tr>
       </thead>
       <tbody>
-      <% RuleParameterSet.validable_columns[obj.table_name.singularize].each do |col| %>
+      <% RuleParameterSet.validable_columns[object_table_name(obj)].each do |col| %>
         <tr class="<%= "columns_for_#{obj.table_name}" %>">
         <%= render :partial => "column_fields", :locals => { :f => form, :obj => obj, :column => col} %>
         </tr>

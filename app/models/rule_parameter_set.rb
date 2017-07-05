@@ -23,7 +23,7 @@ class RuleParameterSet < ActiveRecord::Base
 
   def self.validable_objects
       [Chouette::Network,Chouette::Company,Chouette::GroupOfLine,
-        # NRP-1663: Chouette::StopArea,Chouette::AccessPoint,Chouette::AccessLink,Chouette::ConnectionLink,
+        Chouette::StopArea,Chouette::AccessPoint,Chouette::AccessLink,Chouette::ConnectionLink,
         Chouette::TimeTable,Chouette::Line,Chouette::Route,
         Chouette::JourneyPattern,Chouette::VehicleJourney]
   end

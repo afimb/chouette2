@@ -17,6 +17,10 @@ module RuleParameterSetsHelper
     return t("true") if value == "1"
     t "false"
   end
+
+  def object_table_name(object)
+    object.table_name.singularize.remove('public.')
+  end
   
 end
 
