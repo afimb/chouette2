@@ -35,13 +35,27 @@ class IevkitJob
     ievkit_views.datas
   end
 
+  def extract_errors(report, validation = nil)
+    errors = []
+    begin
+      errors = report.errors
+    rescue => e
+      Rails.logger.error "report errors could not be extracted, uses empty array"
+      Rails.logger.error e.message
+      unless validation.nil?
+        Rails.logger.info ::Ievkit::Job.new(referential).get_job(validation[:validation_report])['validation_report']['errors']
+      end
+    end
+    errors
+  end
+
   def files_views(_type = nil)
     report = IevkitViews::ActionReport.new(@referential, @all_links[:action_report], 'action_report', @all_links[:validation_report], search)
     [
       report.result,
       report.search_for(report.files),
       report.sum_report(report.files),
-      report.errors
+      extract_errors(report)
     ]
   end
 
@@ -62,19 +76,8 @@ class IevkitJob
       report.result,
       report.search_for(files),
       report.sum_report(files),
-      report.errors
+      extract_errors(report)
     ]
-  end
-
-  def extract_errors(report)
-    errors = []
-    begin
-      errors = report.errors
-    rescue => e
-      Rails.logger.error "report errors could not be extracted, uses empty array"
-      Rails.logger.error e.message
-    end
-    errors
   end
 
   def tests_views(_type = nil)
@@ -83,7 +86,7 @@ class IevkitJob
       report.result,
       report.search_for(report.check_points),
       report.sum_report_for_tests(report.check_points),
-      extract_errors(report)
+      extract_errors(report, @all_links)
     ]
   end
 
