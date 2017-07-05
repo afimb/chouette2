@@ -22,6 +22,17 @@ class DestinationDisplaysController < ChouetteController
     end
   end
 
+  def create
+    create!
+    create_vias
+  end
+
+  def create_vias
+    params[:destination_display][:destination_display_vias_attributes].each do |k, ddv|
+      Chouette::DestinationDisplayVia.new({:destination_display_id => @destination_display.id, :position => ddv['position'], :via_id => ddv['via_id']}).save
+    end
+  end
+
   def update
     Chouette::DestinationDisplayVia.delete_all(:destination_display_id => params[:id])
     update!
