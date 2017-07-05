@@ -66,13 +66,24 @@ class IevkitJob
     ]
   end
 
+  def extract_errors(report)
+    errors = []
+    begin
+      errors = report.errors
+    rescue => e
+      Rails.logger.error "report errors could not be extracted, uses empty array"
+      Rails.logger.error e.message
+    end
+    errors
+  end
+
   def tests_views(_type = nil)
     report = IevkitViews::ValidationReport.new(referential, @all_links[:validation_report], 'validation_report', @all_links[:validation_report], search)
     [
       report.result,
       report.search_for(report.check_points),
       report.sum_report_for_tests(report.check_points),
-      report.nil? ? [] : report.errors
+      extract_errors(report)
     ]
   end
 
