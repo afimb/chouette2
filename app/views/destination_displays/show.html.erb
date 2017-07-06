@@ -12,14 +12,20 @@
       <%= @destination_display.side_text %>
     </p>
     <p>
-      <label><%= t('.vias') %>: </label>
-        <% if @destination_display.vias.blank? %>
-            <%= t(".no_object") %>
-        <% else %>
+      <label><%= Chouette::DestinationDisplay.human_attribute_name("vias") %>: </label>
+        <% unless @destination_display.vias.blank? %>
             <% @destination_display.vias.each do |via| %>
                 <span class="label label-default via"><%= via.front_text %></span>
             <% end %>
         <% end %>
+    </p>
+    <p>
+      <label><%= Chouette::DestinationDisplay.human_attribute_name("stop_points") %>: </label>
+      <% unless @destination_display.stop_points.blank? %>
+          <% @destination_display.stop_points.each do |stop_point| %>
+              <span class="label label-default via"><%= stop_point.name %></span>
+          <% end %>
+      <% end %>
     </p>
   </div>
 </div>

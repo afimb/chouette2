@@ -21,15 +21,20 @@
     </div>
   </div>
   <div class="panel-body">
-    <p><%= destination_display.front_text %></p>
-    <p><%= destination_display.side_text %></p>
+    <p><%= t('.front_text') %>: <%= destination_display.front_text %></p>
+    <p><%= t('.side_text') %>: <%= destination_display.side_text %></p>
     <p>
-    <%= t('.vias') %>: <% if destination_display.vias.blank? %>
-          <%= t(".no_object") %>
-      <% else %>
-          <% destination_display.vias.each do |via| %>
-              <span class="label label-default via"><%= via.front_text %></span>
-          <% end %>
+    <%= t('.vias') %>: <% unless destination_display.vias.blank? %>
+        <% destination_display.vias.each do |via| %>
+          <span class="label label-default via"><%= via.front_text %></span>
+        <% end %>
+      <% end %>
+    </p>
+    <p>
+      <%= t('.stop_points') %>: <% unless destination_display.stop_points.blank? %>
+        <% destination_display.stop_points.each do |stop_point| %>
+          <span class="label label-default via"><%= stop_point.name %></span>
+        <% end %>
       <% end %>
     </p>
   </div>
