@@ -28,8 +28,10 @@ class DestinationDisplaysController < ChouetteController
   end
 
   def create_vias
-    params[:destination_display][:destination_display_vias_attributes].each do |k, ddv|
-      Chouette::DestinationDisplayVia.new({:destination_display_id => @destination_display.id, :position => ddv['position'], :via_id => ddv['via_id']}).save
+    unless params[:destination_display][:destination_display_vias_attributes].nil?
+      params[:destination_display][:destination_display_vias_attributes].each do |k, ddv|
+        Chouette::DestinationDisplayVia.new({:destination_display_id => @destination_display.id, :position => ddv['position'], :via_id => ddv['via_id']}).save
+      end
     end
   end
 
