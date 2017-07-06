@@ -1,0 +1,16 @@
+<div class="nested-fields via row">
+  <%= f.inputs do %>
+  <div class="col-md-1 resize">
+    <%= link_to_remove_association "<i class='fa fa-trash-o'></i>".html_safe, f %>
+    <!-- TODO span class="handle" alt="< %= t('destination_displays.index.move') %>" title="< %= t('destination_displays.index.move') %>" ><i class='fa fa-arrows'></i></span -->
+    <span class="handle" alt="Move" title="Move" ><i class='fa fa-arrows'></i></span>
+  </div>
+  <div class="col-md-11">
+    <%= f.input :name %>
+    <%= f.input :side_text %>
+    <%= f.input :front_text %>
+  </div>
+  <% end %>
+</div>
+
+

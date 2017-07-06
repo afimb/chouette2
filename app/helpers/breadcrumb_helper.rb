@@ -9,6 +9,8 @@ module BreadcrumbHelper
       codespace_breadcrumb action
     when "Chouette::Company"
       company_breadcrumb action
+    when "Chouette::DestinationDisplay"
+      destination_display_breadcrumb action
     when "Chouette::GroupOfLine"
       group_of_line_breadcrumb action
     when "Chouette::Line"
@@ -165,6 +167,12 @@ module BreadcrumbHelper
     referential_breadcrumb
     add_breadcrumb Chouette::Company.model_name.human(:count => 2), referential_companies_path(@referential) unless action == :index
     add_breadcrumb breadcrumb_label(@company), referential_company_path(@referential, @company),:title => breadcrumb_tooltip(@company) if action == :edit
+  end
+
+  def destination_display_breadcrumb (action)
+    referential_breadcrumb
+    add_breadcrumb Chouette::DestinationDisplay.model_name.human(:count => 2), referential_destination_displays_path(@referential) unless action == :index
+    add_breadcrumb breadcrumb_label(@destination_display), referential_destination_display_path(@referential, @destination_display),:title => breadcrumb_tooltip(@destination_display) if action == :edit
   end
 
   def import_breadcrumb (action)

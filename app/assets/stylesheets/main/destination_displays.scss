@@ -1,0 +1,31 @@
+
+#workspace.destination_displays.edit, #workspace.destination_displays.new, #workspace.destination_displays.create, #workspace.destination_displays.update
+{
+
+  #vias .nested-fields {
+    ol {
+      margin-left: 25%;
+      .handle { margin-left: 5px;}
+
+      .search_destination_display {
+        margin-bottom: 0px !important;
+      }
+
+      div.resize{
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  #vias .links {
+    margin: 10px 0 15px 25%;
+  }
+}
+
+
+#workspace.destination_displays.show
+{
+
+}
