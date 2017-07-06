@@ -1,0 +1,6 @@
+<p>
+  <%= t('.lines') %>
+  <% stop_points.each do |stop_point| %>
+    <%= render 'stop_points/stop_point_line', :stop_point => stop_point %>
+  <% end %>
+</p>

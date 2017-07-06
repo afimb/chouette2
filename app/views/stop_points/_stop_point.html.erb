@@ -30,14 +30,10 @@
     <p>
       <%=  t('.address') %> : <%= (stop_point.stop_area.zip_code.present? || stop_point.stop_area.city_name.present?) ? "#{stop_point.stop_area.zip_code} #{stop_point.stop_area.city_name}"  : t(".no_object") %>
     </p>
+    <% end %>
     <p>
-      <%= t('.lines') %> <% if stop_point.stop_area.lines.blank? %>
-          <%= t(".no_object") %>
-        <% else %>
-          <% stop_point.stop_area.lines.each do |line| %>
-            <span class="label label-default line"><%= line.number || truncate( line.name, :length => 4 ) %></span>
-          <% end %>
-        <% end %>
+      <%= t('.lines') %>
+      <%= render 'stop_points/stop_point_line', :stop_point => stop_point %>
     </p>
     <p>
       <%= t('.destination_displays') %>
@@ -45,6 +41,5 @@
         <span class="label label-default line"><%= stop_point.destination_display.front_text %></span>
       <% end %>
     </p>
-    <% end %>
   </div>
 </div>

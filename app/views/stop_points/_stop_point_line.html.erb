@@ -1,0 +1,5 @@
+<% unless stop_point.stop_area.nil? and stop_point.stop_area.lines.blank? %>
+  <% stop_point.stop_area.lines.each do |line| %>
+    <span class="label label-default line"><%= line.number || truncate( line.name, :length => 4 ) %></span>
+  <% end %>
+<% end %>

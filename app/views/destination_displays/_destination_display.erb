@@ -35,6 +35,7 @@
         <% destination_display.stop_points.each do |stop_point| %>
           <span class="label label-default stop_point"><%= stop_point.name %></span>
         <% end %>
+        <%= render 'stop_points/stop_point_lines', :stop_points => destination_display.stop_points %>
       <% end %>
     </p>
   </div>
