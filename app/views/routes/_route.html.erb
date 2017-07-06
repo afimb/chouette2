@@ -54,5 +54,15 @@
         <br>
       <% end %>
     </p>
+    <p>
+      <%= route.human_attribute_name('destination_display') %>
+        <% route.journey_patterns.each do |jp| %>
+          <% jp.stop_points.each do |stop_point| %>
+            <% if stop_point.destination_display.present? %>
+              <span class="label label-default destination_display"><%= stop_point.destination_display.front_text %></span>
+            <% end %>
+          <% end %>
+    <% end %>
+    </p>
   </div>
 </div>

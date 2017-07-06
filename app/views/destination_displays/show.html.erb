@@ -23,7 +23,7 @@
       <label><%= Chouette::DestinationDisplay.human_attribute_name("stop_points") %>: </label>
       <% unless @destination_display.stop_points.blank? %>
           <% @destination_display.stop_points.each do |stop_point| %>
-              <span class="label label-default via"><%= stop_point.name %></span>
+              <span class="label label-default stop_point"><%= stop_point.name %></span>
           <% end %>
       <% end %>
     </p>

@@ -33,7 +33,7 @@
     <p>
       <%= t('.stop_points') %>: <% unless destination_display.stop_points.blank? %>
         <% destination_display.stop_points.each do |stop_point| %>
-          <span class="label label-default via"><%= stop_point.name %></span>
+          <span class="label label-default stop_point"><%= stop_point.name %></span>
         <% end %>
       <% end %>
     </p>
