@@ -90,7 +90,8 @@ class CleanUp
       end
     end
     # if asked remove stops without children (recurse)
-    if keep_stops == "0"
+    # NRP-1886 disables cleanup of stop areas
+    if false #keep_stops == "0"
       physical_stop_areas.find_each do |bp|
         if bp.stop_points.size == 0
           result.stop_count += 1

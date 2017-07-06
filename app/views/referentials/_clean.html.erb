@@ -3,7 +3,7 @@
   <%= form.inputs do %> 
     <%= form.input :expected_date, :as => :date_picker , :wrapper_html => { :class => 'date', :title => t('titles.clean_up.expected_date') } %>
     <%= form.input :keep_lines, :as => :boolean %>
-    <%= form.input :keep_stops, :as => :boolean %>
+    <%= form.input :keep_stops, :as => :boolean, :input_html => { :checked => true, :disabled => true } %>
     <%= form.input :keep_companies, :as => :boolean %>
     <%= form.input :keep_networks, :as => :boolean %>
     <%= form.input :keep_group_of_lines, :as => :boolean %>
