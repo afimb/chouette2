@@ -14,7 +14,10 @@ class NetexprofileImport < ImportTask
         "validate_against_schema" => validate_against_schema.nil? ? true : @validate_against_schema,
         "validate_against_profile" => validate_against_profile.nil? ? true : @validate_against_profile,
         "continue_on_line_errors" => continue_on_line_errors.nil? ? false : @continue_on_line_errors
+<<<<<<< HEAD
 
+=======
+>>>>>>> rutebanken_netex_exchange
       }
     }
   end
