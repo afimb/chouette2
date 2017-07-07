@@ -10,9 +10,9 @@ class NetexprofileImport < ImportTask
         "name" => name,
         "organisation_name" => organisation.name,
         "referential_name" => referential.name,
-        "parse_site_frames" => parse_site_frames,
-        "validate_against_schema" => validate_against_schema,
-        "validate_against_profile" => validate_against_profile
+        "parse_site_frames" => parse_site_frames.nil? ? false : @parse_site_frames,
+        "validate_against_schema" => validate_against_schema.nil? ? true : @validate_against_schema,
+        "validate_against_profile" => validate_against_profile.nil? ? true : @validate_against_profile
       }
     }
   end
