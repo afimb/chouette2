@@ -1,5 +1,3 @@
-<% if current_user.admin? %>
-  <%= form.input :parse_site_frames, :as => :boolean, :input_html => { :checked => false } %>
-  <%= form.input :validate_against_schema, :as => :boolean, :input_html => { :checked => true } %>
-  <%= form.input :validate_against_profile, :as => :boolean, :input_html => { :checked => true } %>
-<% end %>
+<%= form.input :parse_site_frames, :as => :boolean, :input_html => { :checked => false, :disabled => !current_user.admin? } %>
+<%= form.input :validate_against_schema, :as => :boolean, :input_html => { :checked => true, :disabled => !current_user.admin? } %>
+<%= form.input :validate_against_profile, :as => :boolean, :input_html => { :checked => true, :disabled => !current_user.admin? } %>
