@@ -7,11 +7,18 @@ module JobStatusIconHelper
     end
   end
 
+  def has_failure(object)
+    begin
+      return object.report && object.report.failure_code?
+    rescue => e # ignored
+    end
+  end
+
   def job_status_title(object)
     status = object.status
     name = object.name
     object_name = object.class.model_name.human.capitalize
-    not_ok = object.report && object.report.failure_code?
+    not_ok = has_failure(object)
     errors = has_errors(object)
 
     title = ''
