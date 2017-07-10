@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rutebanken/chouette-projects-i18n.git
-  revision: 1e3da3d37dd65c7c8479d8e7b739f7abef623d90
+  revision: 055cdca5456d878bd876350b0913b389d2eadfe0
   branch: master
   specs:
     chouette-projects-i18n (0.1.0)
@@ -233,7 +233,7 @@ GEM
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     httpclient (2.8.2.4)
-    i18n (0.8.4)
+    i18n (0.8.6)
     inherited_resources (1.6.0)
       actionpack (>= 3.2, < 5)
       has_scope (~> 0.6.0.rc)
