@@ -1,40 +1,42 @@
 <%= semantic_form_for [@referential, @time_table] do |form| %>
-  <%= form.inputs do %> 
+  <%= form.inputs do %>
     <%= form.input :comment, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.time_table.comment")} %>
-    <%= form.input :version %>    
+    <%= form.input :version %>
     <%= form.input :tag_search, :as => :tags, :input_html => { :id => "tag_search",:placeholder => t("formtastic.placeholders.time_table.tag_search") } %>
     <%= form.input :tag_list, :as => :hidden, :input_html => { :id => "tag_list" } %>
-    
+
     <%= form.input :objectid, :required => !@time_table.new_record?, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.time_table.objectid")} %>
+    <%= form.input :start_date, :as => :date_picker %>
+    <%= form.input :end_date, :as => :date_picker %>
   <% end %>
-  
+
   <h3 class="time_table_periods"><%= @time_table.human_attribute_name("periods") %></h3>
   <div id="periods_content">
-	  <%= form.inputs :class => 'day_type' do %> 
+	  <%= form.inputs :class => 'day_type' do %>
 	    <label class="day_type_label"><%= @time_table.human_attribute_name("day_types") %></label>
-	    <%= form.input :monday, :as => :boolean, :class => "others" %> 
-	    <%= form.input :tuesday, :as => :boolean %> 
-	    <%= form.input :wednesday, :as => :boolean %> 
-	    <%= form.input :thursday, :as => :boolean %> 
-	    <%= form.input :friday, :as => :boolean %> 
-	    <%= form.input :saturday, :as => :boolean %> 
-	    <%= form.input :sunday, :as => :boolean %> 
+	    <%= form.input :monday, :as => :boolean, :class => "others" %>
+	    <%= form.input :tuesday, :as => :boolean %>
+	    <%= form.input :wednesday, :as => :boolean %>
+	    <%= form.input :thursday, :as => :boolean %>
+	    <%= form.input :friday, :as => :boolean %>
+	    <%= form.input :saturday, :as => :boolean %>
+	    <%= form.input :sunday, :as => :boolean %>
 	  <% end %>
 	  <div id="periods">
 		  <%= form.semantic_fields_for :periods do |p| %>
-		     <%= render "period_fields",  :f => p %> 
+		     <%= render "period_fields",  :f => p %>
 		  <% end %>
 	  </div>
 	  <%= link_to_add_association t("time_tables.actions.add_period"), form, :periods ,
 	  :"data-association-insertion-method" => "append",
 	  :"data-association-insertion-node" => "div#periods"%>
   </div>
-  
+
   <h3 class="time_table_dates"><%= @time_table.human_attribute_name("dates") %></h3>
   <div id="dates_content">
     <div id="dates">
 		  <%= form.semantic_fields_for :dates, @time_table.dates.to_a.select {|d| d.in_out == true}  do |p| %>
-	  	<%= render "date_fields",  :f => p %> 
+	  	<%= render "date_fields",  :f => p %>
 		  <% end %>
 	  </div>
 	  <%= link_to_add_association t("time_tables.actions.add_date"), form, :dates ,
@@ -47,7 +49,7 @@
   <div id="excluded_dates_content">
 	  <div id="excluded_dates">
 		  <%= form.semantic_fields_for :dates, @time_table.dates.to_a.select {|d| d.in_out == false}  do |p| %>
-		  <%= render "excluded_date_fields",  :f => p %> 
+		  <%= render "excluded_date_fields",  :f => p %>
 		  <% end %>
 	  </div>
 	  <%= link_to_add_association t("time_tables.actions.add_excluded_date"), form, :dates ,
@@ -55,7 +57,7 @@
 	  :"partial" => "excluded_date_fields",
 	  :"data-association-insertion-node" => "div#excluded_dates" %>
   </div>
-  
+
   <%= form.actions do %>
     <%= form.action :submit, :as => :button %>
     <%= form.action :cancel, :as => :link %>
@@ -69,9 +71,9 @@
   {
     prefilled: items,
     output: '#tag_list',
-    tagsContainer: '#tagsContainer' 
+    tagsContainer: '#tagsContainer'
   });
-  
+
   var time_tables_tag_list = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
     queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -87,5 +89,3 @@
   });
 
 </script>
-
-

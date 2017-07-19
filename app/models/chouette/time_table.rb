@@ -48,15 +48,15 @@ class Chouette::TimeTable < Chouette::TridentActiveRecord
   end
 
   def shortcuts_update(date=nil)
-    dates_array = bounding_dates
+    #dates_array = bounding_dates
     #if new_record?
-      if dates_array.empty?
-        self.start_date=nil
-        self.end_date=nil
-      else
-        self.start_date=dates_array.min
-        self.end_date=dates_array.max
-      end
+    #  if dates_array.empty?
+    #    self.start_date=nil
+    #    self.end_date=nil
+    #  else
+    #    self.start_date=dates_array.min
+    #    self.end_date=dates_array.max
+    #  end
     #else
      # if dates_array.empty?
      #   update_attributes :start_date => nil, :end_date => nil
@@ -451,4 +451,3 @@ class Chouette::TimeTable < Chouette::TridentActiveRecord
     tt
   end
 end
-
