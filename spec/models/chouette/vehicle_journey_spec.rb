@@ -127,23 +127,24 @@ describe Chouette::VehicleJourney, :type => :model do
       expect(subject.time_tables).to include( tm2)
     end
   end
-  describe "#bounding_dates" do
-    before(:each) do
-      tm1 = build(:time_table, :dates =>
-                               [ build(:time_table_date, :date => 1.days.ago.to_date, :in_out => true),
-                                 build(:time_table_date, :date => 2.days.ago.to_date, :in_out => true) ])
-      tm2 = build(:time_table, :periods =>
-                                [ build(:time_table_period, :period_start => 4.days.ago.to_date, :period_end => 3.days.ago.to_date)])
-      tm3 = build(:time_table)
-      subject.time_tables = [ tm1, tm2, tm3]
-    end
-    it "should return min date from associated calendars" do
-      expect(subject.bounding_dates.min).to eq(4.days.ago.to_date)
-    end
-    it "should return max date from associated calendars" do
-      expect(subject.bounding_dates.max).to eq(1.days.ago.to_date)
-    end
-  end
+# Commented out due to timetable start/end date editable in UI and auto update disabled
+  # describe "#bounding_dates" do
+  #   before(:each) do
+  #     tm1 = build(:time_table, :dates =>
+  #                              [ build(:time_table_date, :date => 1.days.ago.to_date, :in_out => true),
+  #                                build(:time_table_date, :date => 2.days.ago.to_date, :in_out => true) ])
+  #     tm2 = build(:time_table, :periods =>
+  #                               [ build(:time_table_period, :period_start => 4.days.ago.to_date, :period_end => 3.days.ago.to_date)])
+  #     tm3 = build(:time_table)
+  #     subject.time_tables = [ tm1, tm2, tm3]
+  #   end
+  #   it "should return min date from associated calendars" do
+  #     expect(subject.bounding_dates.min).to eq(4.days.ago.to_date)
+  #   end
+  #   it "should return max date from associated calendars" do
+  #     expect(subject.bounding_dates.max).to eq(1.days.ago.to_date)
+  #   end
+  # end
   context "#vehicle_journey_at_stops" do
     it "should be ordered like stop_points on route" do
       route = subject.route
@@ -220,4 +221,3 @@ describe Chouette::VehicleJourney, :type => :model do
   end
 
 end
-
