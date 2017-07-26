@@ -8,7 +8,7 @@ class Chouette::OrganisationType < ActiveSupport::StringInquirer
   def self.new(text_code, numerical_code = nil)
     if text_code and numerical_code
       super
-    elsif self === text_code 
+    elsif self === text_code
       text_code
     else
       if Fixnum === text_code
@@ -34,8 +34,8 @@ class Chouette::OrganisationType < ActiveSupport::StringInquirer
   end
 
   @@definitions = [
-    ["authority", 0],
-    ["operator", 1],
+    ["Authority", 0],
+    ["Operator", 1],
   ]
   cattr_reader :definitions
 
