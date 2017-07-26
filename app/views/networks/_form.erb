@@ -1,15 +1,15 @@
 <%= semantic_form_for [@referential, @network] do |form| %>
-  <%= form.inputs do %> 
-    <%= form.input :name, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.network.name")} %> 
+  <%= form.inputs do %>
+    <%= form.input :name, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.network.name")} %>
     <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.network.registration_number")} %>
     <%= form.input :comment %>
-    <%= form.input :company %>
+    <%= form.input :company, :as => :select, :collection => Chouette::Company.authorities, :include_blank => false%>
     <%= form.input :version_date, :as => :date_picker %>
-    <%= form.input :description %>              
-    <%= form.input :source_name %>              
+    <%= form.input :description %>
+    <%= form.input :source_name %>
     <%= form.input :source_type_name, :as => :select, :collection => Chouette::Network.source_type_names, :include_blank => true, :member_label => Proc.new { |mode| t("source_types.label.#{mode}") }  %>
-    <%= form.input :source_identifier %>              
-    <%= form.input :objectid, :required => !@network.new_record?, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.network.objectid")} %>  
+    <%= form.input :source_identifier %>
+    <%= form.input :objectid, :required => !@network.new_record?, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.network.objectid")} %>
   <% end %>
 
    <%= form.actions do %>

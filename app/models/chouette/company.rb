@@ -13,8 +13,11 @@ class Chouette::Company < Chouette::TridentActiveRecord
   end
 
   def self.operators
-    where(:organisation_type => 'operator')
+    where(:organisation_type => 'Operator')
+  end
+
+  def self.authorities
+    where(:organisation_type => 'Authority')
   end
 
 end
-
