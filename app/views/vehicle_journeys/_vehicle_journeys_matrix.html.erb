@@ -11,6 +11,10 @@
       </th>
       <% @vehicle_journeys.each do |vj| %>
         <th class="vehicle_journey">
+          <div>
+            <%= special_vehicle_journey_icon(:mobility_restricted_suitability, vj) %>
+            <%= special_vehicle_journey_icon(:flexible_service, vj) %>
+          </div>
           <button data-style="primary" data-container="body" rel="popover" data-toggle="popover"
                   data-title='<%= link_to(vehicle_title(vj), [@referential, @line, @route, vj] ) %>
                       <%= link_to('<span class="fa fa-pencil"></span>'.html_safe,

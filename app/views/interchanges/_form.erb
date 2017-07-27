@@ -1,0 +1,21 @@
+<%= semantic_form_for [@referential, @interchange] do |form| %>
+  <%= form.inputs do %>
+    <%= form.input :name %>
+    <%= form.input :priority %>
+    <%= form.input :planned %>
+    <%= form.input :guaranteed %>
+    <%= form.input :advertised %>
+    <!-- TODO this field does not yet work -->
+    <%= form.input :maximum_wait_time%>
+    <!-- TODO feeder (from_ fiels) can also be external, must be able to specify manually -->
+    <%= form.input :from_vehicle_journey , :as => :select, :collection => Chouette::VehicleJourney.pluck(:objectid,:objectid), :include_blank => true%>
+    <%= form.input :from_point , :as => :select, :collection => Chouette::StopPoint.pluck(:objectid,:objectid), :include_blank => true %>
+    <%= form.input :to_vehicle_journey , :as => :select, :collection => Chouette::VehicleJourney.pluck(:objectid,:objectid), :include_blank => true%>
+    <%= form.input :to_point , :as => :select, :collection => Chouette::StopPoint.pluck(:objectid,:objectid), :include_blank => true %>
+    <% end %>
+
+   <%= form.actions do %>
+     <%= form.action :submit, :as => :button %>
+     <%= form.action :cancel, :as => :link %>
+   <% end %>
+<% end %>

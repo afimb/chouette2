@@ -10,7 +10,12 @@ describe "/time_tables/show", :type => :view do
   let!(:year) { assign(:year, Date.today.cwyear) }
   let!(:time_table_combination) {assign(:time_table_combination, TimeTableCombination.new)}
 
-  it "should render h2 with the time_table comment" do    
+  before :each do
+    allow(@request.env['warden']).to receive(:authenticate!).and_return(user)
+    allow(controller).to receive(:current_user).and_return(user)
+  end
+
+  it "should render h2 with the time_table comment" do
     render
     expect(rendered).to have_selector("h2", :text => Regexp.new(time_table.comment))
   end
@@ -26,4 +31,3 @@ describe "/time_tables/show", :type => :view do
   end
 
 end
-

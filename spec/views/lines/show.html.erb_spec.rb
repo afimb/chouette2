@@ -5,10 +5,16 @@ describe "/lines/show", :type => :view do
     allow(view).to receive(:policy).and_return(double("some policy", write?: true))
   end
 
+  assign_user
   assign_referential
   let!(:line) { assign :line, create(:line) }
   let!(:routes) { assign :routes, Kaminari.paginate_array(Array.new(2) { create(:route, :line => line) }) }
   let!(:map) { assign(:map, double(:to_html => '<div id="map"/>'.html_safe)) }
+
+  before :each do
+    allow(@request.env['warden']).to receive(:authenticate!).and_return(user)
+    allow(controller).to receive(:current_user).and_return(user)
+  end
 
   it "should render h2 with the line name" do
     render

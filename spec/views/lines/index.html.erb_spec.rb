@@ -5,6 +5,7 @@ describe "/lines/index", :type => :view do
     allow(view).to receive(:policy).and_return(double("some policy", write?: true))
   end
 
+  assign_user
   assign_referential
   let!(:network) { create :network }
   let!(:company) { create :company }
@@ -12,6 +13,8 @@ describe "/lines/index", :type => :view do
   let!(:q) { assign :q, Ransack::Search.new(Chouette::Line) }
 
   before :each do
+    allow(@request.env['warden']).to receive(:authenticate!).and_return(user)
+    allow(controller).to receive(:current_user).and_return(user)
     allow(view).to receive(:link_with_search).and_return("#")
   end
 

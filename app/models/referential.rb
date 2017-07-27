@@ -105,6 +105,10 @@ class Referential < ActiveRecord::Base
   def destination_displays
     Chouette::DestinationDisplay.all
   end
+  
+  def interchanges
+    Chouette::Interchange.all
+  end
 
   def time_zone_tzinfo
     time_zone = ActiveSupport::TimeZone.new(self.time_zone)
