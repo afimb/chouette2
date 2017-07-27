@@ -1,0 +1,57 @@
+<%= title_tag t('interchanges.show.title', :interchange => @interchange.name) %>
+
+<div class="interchange_show">
+
+  <div class="summary">
+    <p>
+      <label><%= Chouette::Interchange.human_attribute_name("name") %>: </label>
+      <%= @interchange.name %>
+    </p>
+    <p>
+      <label><%= Chouette::Interchange.human_attribute_name("priority") %>: </label>
+      <%= @interchange.priority %>
+    </p>
+    <p>
+      <label><%= Chouette::Interchange.human_attribute_name("planned") %>: </label>
+      <%= @interchange.planned %>
+    </p>
+    <p>
+      <label><%= Chouette::Interchange.human_attribute_name("guaranteed") %>: </label>
+      <%= @interchange.guaranteed %>
+    </p>
+    <p>
+      <label><%= Chouette::Interchange.human_attribute_name("advertised") %>: </label>
+      <%= @interchange.advertised %>
+    </p>
+    <p>
+      <label><%= Chouette::Interchange.human_attribute_name("maximum_wait_time") %>: </label>
+      <%= @interchange.maximum_wait_time %>
+    </p>
+    <p>
+      <label><%= Chouette::Interchange.human_attribute_name("from_vehicle_journey") %>: </label>
+      <%= @interchange.from_vehicle_journey %>
+    </p>
+    <p>
+      <label><%= Chouette::Interchange.human_attribute_name("from_point") %>: </label>
+      <%= @interchange.from_point %>
+    </p>
+    <p>
+      <label><%= Chouette::Interchange.human_attribute_name("to_vehicle_journey") %>: </label>
+      <%= @interchange.to_vehicle_journey %>
+    </p>
+    <p>
+      <label><%= Chouette::Interchange.human_attribute_name("to_point") %>: </label>
+      <%= @interchange.to_point %>
+    </p>
+  </div>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('interchanges.actions.new'), new_referential_interchange_path(@referential), :class => "add" %></li>
+  <li><%= link_to t('interchanges.actions.edit'), edit_referential_interchange_path(@referential, @interchange), :class => "edit" %></li>
+  <li><%= link_to  t('interchanges.actions.destroy'), referential_interchange_path(@referential, @interchange), :method => :delete,  :data => {:confirm =>  t('interchanges.actions.destroy_confirm')}, :class => "remove" %></li>
+  <br>
+</ul>
+  <%= creation_tag(@interchange) %>
+<% end %>

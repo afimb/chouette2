@@ -1,0 +1,34 @@
+<div id="index_item" class="interchange panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title clearfix">
+      <% if policy(:application).write? %>
+        <span class="pull-right">
+          <%= link_to edit_referential_interchange_path(@referential, interchange), :class => "btn btn-default btn-sm" do %>
+            <span class="fa fa-pencil"></span>
+          <% end %>
+          <%= link_to referential_interchange_path(@referential, interchange), :method => :delete, :data => {:confirm =>  t('interchanges.actions.destroy_confirm')}, :class => "btn btn-danger btn-sm" do %>
+            <span class="fa fa-trash-o"></span>
+          <% end %>
+        </span>
+      <% end %>
+      <h5>
+        <%= link_to([@referential, interchange], :class => "preview", :title => "#{interchange.name}") do %>
+        <span class="name">
+          <%= interchange.name %>
+        </span>
+        <% end %>
+      </h5>
+    </div>
+  </div>
+  <div class="panel-body">
+    <p>
+    <%= interchange.human_attribute_name('planned') %> <%= interchange.planned %>
+    </p>
+    <p>
+    <%= interchange.human_attribute_name('guaranteed') %> <%= interchange.guaranteed %>
+    </p>
+    <p>
+    <%= interchange.human_attribute_name('advertised') %> <%= interchange.advertised %>
+    </p>
+  </div>
+</div>

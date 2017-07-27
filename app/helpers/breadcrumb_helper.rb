@@ -35,6 +35,8 @@ module BreadcrumbHelper
       route_section_breadcrumb action
     when "Chouette::Timeband"
       timeband_breadcrumb action
+    when "Chouette::Interchange"
+      interchange_breadcrumb action
     when "StopAreaCopy"
       stop_area_copy_breadcrumb action
     when "Import"
@@ -119,6 +121,12 @@ module BreadcrumbHelper
     referential_breadcrumb
     add_breadcrumb Chouette::Timeband.model_name.human(:count => 2), referential_timebands_path(@referential) unless action == :index
     add_breadcrumb breadcrumb_label(@timeband), referential_timeband_path(@referential, @timeband),:title => breadcrumb_tooltip(@timeband) if action == :edit
+  end
+
+  def interchange_breadcrumb(action)
+    referential_breadcrumb
+    add_breadcrumb Chouette::Interchange.model_name.human(:count => 2), referential_interchanges_path(@referential) unless action == :index
+    add_breadcrumb breadcrumb_label(@interchange), referential_timeband_path(@referential, @interchange),:title => breadcrumb_tooltip(@interchange) if action == :edit
   end
 
   def line_breadcrumb(action)

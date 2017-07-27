@@ -64,6 +64,10 @@
                <span class="badge pull-right"><%= @referential.connection_links.size %></span><%= Referential.human_attribute_name("connection_links") %>
               <% end %>
             </li>
+            <li><%= link_to referential_interchanges_path(@referential) do %>
+               <span class="badge pull-right"><%= @referential.interchanges.size %></span><%= Referential.human_attribute_name("interchanges") %>
+              <% end %>
+            </li>
             <li><%= link_to referential_time_tables_path(@referential) do %>
                <span class="badge pull-right"><%= @referential.time_tables.size %></span><%= Referential.human_attribute_name("time_tables") %>
               <% end %>

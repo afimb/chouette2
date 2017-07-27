@@ -28,6 +28,12 @@
       <%= Referential.human_attribute_name("time_tables") %>
     </li>
     <li class="list-group-item">
+      <span class="badge"><%= @referential.interchanges.size %></span>
+      <%= link_to referential_interchanges_path(@referential) do  %>
+          <%= Referential.human_attribute_name("interchanges") %>
+      <% end %>
+    </li>
+    <li class="list-group-item">
       <span class="badge"><%= @referential.connection_links.size %></span>
       <%= Referential.human_attribute_name("connection_links") %>
     </li>

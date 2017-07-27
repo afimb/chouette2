@@ -14,7 +14,7 @@ ChouetteIhm::Application.routes.draw do
       get '/additionnal_fields', to: 'users#additionnal_fields'
       post '/save_additionnal_fields', to: 'users#save_additionnal_fields'
     end
-    
+
   end
 
   namespace :api do
@@ -38,6 +38,7 @@ ChouetteIhm::Application.routes.draw do
       resources :routes, :only => :show
       resources :journey_patterns, :only => :show
       resources :vehicle_journeys, :only => :show
+      resources :internchanges, :only => [:index, :show]
     end
   end
 
@@ -186,6 +187,8 @@ ChouetteIhm::Application.routes.draw do
         get 'create_to_edit'
       end
     end
+
+    resources :interchanges
   end
   root :to => "referentials#index"
 
