@@ -24,8 +24,16 @@
       <%= @interchange.advertised %>
     </p>
     <p>
+      <label><%= Chouette::Interchange.human_attribute_name("stay_seated") %>: </label>
+      <%= @interchange.stay_seated %>
+    </p>
+    <p>
       <label><%= Chouette::Interchange.human_attribute_name("maximum_wait_time") %>: </label>
       <%= @interchange.maximum_wait_time %>
+    </p>
+    <p>
+      <label><%= Chouette::Interchange.human_attribute_name("minimum_transfer_time") %>: </label>
+      <%= @interchange.minimum_transfer_time %>
     </p>
     <p>
       <label><%= Chouette::Interchange.human_attribute_name("from_vehicle_journey") %>: </label>
@@ -36,12 +44,20 @@
       <%= @interchange.from_point %>
     </p>
     <p>
+      <label><%= Chouette::Interchange.human_attribute_name("from_visit_number") %>: </label>
+      <%= @interchange.from_visit_number %>
+    </p>
+    <p>
       <label><%= Chouette::Interchange.human_attribute_name("to_vehicle_journey") %>: </label>
       <%= @interchange.to_vehicle_journey %>
     </p>
     <p>
       <label><%= Chouette::Interchange.human_attribute_name("to_point") %>: </label>
       <%= @interchange.to_point %>
+    </p>
+    <p>
+      <label><%= Chouette::Interchange.human_attribute_name("to_visit_number") %>: </label>
+      <%= @interchange.to_visit_number %>
     </p>
   </div>
 </div>

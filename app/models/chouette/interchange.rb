@@ -8,6 +8,10 @@ class Chouette::Interchange < Chouette::TridentActiveRecord
   validates_presence_of :from_vehicle_journey
   validates_presence_of :to_vehicle_journey
   validates :priority, numericality: { greater_than: 0 }
+  validates_numericality_of :from_visit_number, :only_integer => true, :allow_nil => true, greater_than: 0,
+    :message => "can only be empty or a positive number."
+    validates_numericality_of :to_visit_number, :only_integer => true, :allow_nil => true, greater_than: 0,
+    :message => "can only be empty or a positive number."
 
 #TODO trouble with time_select  validates_presence_of :maximum_wait_time
   validates_format_of :from_point, :with => %r{\A([A-Z]{3}):([A-Za-z]*):([0-9A-Za-z_\\-]*)\Z}, :allow_nil => false, :allow_blank => false
