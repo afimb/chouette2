@@ -22,7 +22,7 @@ class Chouette::Interchange < Chouette::TridentActiveRecord
 
 
   def self.object_id_key
-    "ServiceInterchange"
+    "ServiceJourneyInterchange"
   end
 
   def check_not_same_service_journey
