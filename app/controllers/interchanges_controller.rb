@@ -38,7 +38,7 @@ class InterchangesController < ChouetteController
   end
 
   def interchange_params
-    params.require(:interchange).permit(:objectid, :object_version, :creation_time, :creator_id, :version_date, :name, :priority, :planned, :guaranteed, :advertised, :from_point, :to_point, :from_vehicle_journey, :to_vehicle_journey  )
+    params.require(:interchange).permit(:objectid, :object_version, :creation_time, :creator_id, :version_date, :name, :priority, :planned, :guaranteed, :advertised, :stay_seated, :from_point, :from_visit_number, :to_point, :to_visit_number, :from_vehicle_journey, :to_vehicle_journey  )
   end
 
 end
