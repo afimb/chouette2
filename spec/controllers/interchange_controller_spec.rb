@@ -1,6 +1,6 @@
-require 'rails_helper'
+require 'spec_helper'
 
-+RSpec.describe InterchnageController, type: :controller do
+describe InterchangesController, type: :controller do
 
   describe "GET #index" do
     it "returns http success" do
