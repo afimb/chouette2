@@ -4,5 +4,4 @@
 <%= form.input :ignore_last_word , :as => :boolean , :input_html => { :title => t("formtastic.titles.import_task.ignore_last_word"), :value => false }%>
 <%= form.input :ignore_end_chars  , :as => :number , :input_html => { :title => t("formtastic.titles.import_task.ignore_end_chars"), :value => 0 }%>
 <%= form.input :max_distance_for_connection_link  , :as => :number , :input_html => { :title => t("formtastic.titles.import_task.max_distance_for_connection_link"), :value => 0 }%>
-
-
+<%= form.input :parse_interchanges  , :as => :boolean , :input_html => { :title => t("formtastic.titles.import_task.parse_interchanges"), :value => :false }%>
