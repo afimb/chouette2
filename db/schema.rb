@@ -252,21 +252,19 @@ ActiveRecord::Schema.define(version: 20170801173651) do
     t.boolean  "guaranteed"
     t.boolean  "advertised"
     t.time     "maximum_wait_time"
-    t.string   "from_point",            null: false
-    t.string   "to_point",              null: false
-    t.string   "from_vehicle_journey",  null: false
-    t.string   "to_vehicle_journey",    null: false
+    t.string   "from_point"
+    t.string   "to_point"
+    t.string   "from_vehicle_journey"
+    t.string   "to_vehicle_journey"
     t.boolean  "stay_seated"
     t.time     "minimum_transfer_time"
     t.integer  "from_visit_number"
     t.integer  "to_visit_number"
   end
 
-  add_index "interchanges", ["from_point"], name: "interchanges_from_point_key", using: :btree
   add_index "interchanges", ["from_vehicle_journey"], name: "interchanges_from_vehicle_journey_key", using: :btree
   add_index "interchanges", ["objectid"], name: "interchanges_objectid_key", unique: true, using: :btree
   add_index "interchanges", ["objectid"], name: "interchanges_to_vehicle_journey_key", using: :btree
-  add_index "interchanges", ["to_point"], name: "interchanges_to_poinnt_key", using: :btree
 
   create_table "journey_frequencies", id: :bigserial, force: :cascade do |t|
     t.integer  "vehicle_journey_id",         limit: 8
