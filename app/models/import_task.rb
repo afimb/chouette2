@@ -93,9 +93,9 @@ class ImportTask
 
   def transport_data_io
     file = File.new(saved_resources_path, "r")
-    if file_extname == ".zip"
+    if ".zip".casecmp(file_extname) == 0
       Faraday::UploadIO.new(file, "application/zip", original_filename )
-    elsif file_extname == ".xml"
+    elsif ".xml".casecmp(file_extname) == 0
       Faraday::UploadIO.new(file, "application/xml", original_filename )
     end
   end
