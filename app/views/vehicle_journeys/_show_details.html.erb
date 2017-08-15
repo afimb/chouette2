@@ -32,6 +32,24 @@
     </p>
 
     <p>
+      <label><%= vehicle_journey.human_attribute_name("transport_mode") %>: </label>
+      <% if vehicle_journey.transport_mode.nil? %>
+        (<%= t("transport_modes.label.#{@line.transport_mode}") %>)
+
+      <% else %>
+      <%= t("transport_modes.label.#{@vehicle_journey.transport_mode}") %>
+      <% end %>
+    </p>
+    <p>
+      <label><%= vehicle_journey.human_attribute_name("transport_submode") %>: </label>
+      <% if vehicle_journey.transport_submode.nil? %>
+      (<%= t("transport_sub_modes.label.#{@line.transport_submode}") %>)
+      <% else %>
+      <%= t("transport_sub_modes.label.#{@vehicle_journey.transport_submode}") %>
+      <% end %>
+    </p>
+
+    <p>
       <label><%= vehicle_journey.human_attribute_name("mobility_restricted_suitability") %>: </label>
       <% if vehicle_journey.mobility_restricted_suitability.nil? %>
         <%= vehicle_journey.human_attribute_name("unspecified_mrs") %>

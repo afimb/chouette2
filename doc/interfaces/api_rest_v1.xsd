@@ -525,7 +525,7 @@ L'élément rassemble les identififiants (TridentIdType NEPTUNE) des arrêts de 
 Si on note s un StopAreaType (NEPTUNE) et p le StopAreaType (NEPTUNE) de son niveau supérieur,
 la relation s'établit sur p  au niveau du  AreCentroid.containIn (NEPTUNE) qui fait apparaitre une référence s.
 
-Si on note S et P les structures StopAreaType équivalentes dans schéma décrit par cette XSD, 
+Si on note S et P les structures StopAreaType équivalentes dans schéma décrit par cette XSD,
 c'est S qui référence P au niveau de S.parent.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -790,16 +790,15 @@ c'est S qui référence P au niveau de S.parent.</xs:documentation>
 			<xs:enumeration value="LocalTrain"/>
 			<xs:enumeration value="RapidTransit"/>
 			<xs:enumeration value="Metro"/>
-			<xs:enumeration value="Tramway"/>
+			<xs:enumeration value="Tram"/>
 			<xs:enumeration value="Coach"/>
 			<xs:enumeration value="Bus"/>
 			<xs:enumeration value="Ferry"/>
-			<xs:enumeration value="Waterborne"/>
+			<xs:enumeration value="Water"/>
 			<xs:enumeration value="PrivateVehicle"/>
 			<xs:enumeration value="Walk"/>
 			<xs:enumeration value="Trolleybus"/>
 			<xs:enumeration value="Bicycle"/>
-			<xs:enumeration value="Shuttle"/>
 			<xs:enumeration value="Taxi"/>
 			<xs:enumeration value="VAL"/>
 			<xs:enumeration value="Other"/>
@@ -820,7 +819,7 @@ c'est S qui référence P au niveau de S.parent.</xs:documentation>
 	<xs:simpleType name="SourceTypeType">
 		<xs:annotation>
 			<xs:documentation>
-		Enumeration containing all the possible type of information 
+		Enumeration containing all the possible type of information
 source
 			</xs:documentation>
 		</xs:annotation>

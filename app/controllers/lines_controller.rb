@@ -86,7 +86,12 @@ class LinesController < ChouetteController
   private
 
   def line_params
-    params.require(:line).permit( :transport_mode, :network_id, :company_id, :objectid, :object_version, :creation_time, :creator_id, :name, :number, :published_name, :transport_mode_name, :registration_number, :comment, :mobility_restricted_suitability, :int_user_needs, :flexible_service, :group_of_lines, :group_of_line_ids, :group_of_line_tokens, :url, :color, :text_color, :stable_id, { footnotes_attributes: [ :code, :label, :_destroy, :id ] } )
+    params.require(:line).permit( :transport_mode, :transport_submode, :network_id, :company_id, :objectid,
+    :object_version, :creation_time, :creator_id, :name, :number, :published_name,
+    :transport_mode_name, :transport_submode_name, :registration_number, :comment,
+    :mobility_restricted_suitability, :int_user_needs, :flexible_service, :group_of_lines,
+    :group_of_line_ids, :group_of_line_tokens, :url, :color, :text_color, :stable_id,
+    { footnotes_attributes: [ :code, :label, :_destroy, :id ] } )
   end
 
 end

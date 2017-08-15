@@ -8,7 +8,7 @@ class Chouette::TransportMode < ActiveSupport::StringInquirer
   def self.new(text_code, numerical_code = nil)
     if text_code and numerical_code
       super
-    elsif self === text_code 
+    elsif self === text_code
       text_code
     else
       if Fixnum === text_code
@@ -34,26 +34,26 @@ class Chouette::TransportMode < ActiveSupport::StringInquirer
   end
 
   @@definitions = [
-    ["interchange", -1],
-    ["unknown", 0],
-    ["coach", 1],
-    ["air", 2],
-    ["waterborne", 3],
-    ["bus", 4],
-    ["ferry", 5],
-    ["walk", 6],
-    ["metro", 7],
-    ["shuttle", 8],
-    ["rapid_transit", 9],
-    ["taxi", 10],
-    ["local_train", 11],
-    ["train", 12],
-    ["long_distance_train", 13],
-    ["tramway", 14],
-    ["trolleybus", 15],
-    ["private_vehicle", 16],
-    ["bicycle", 17],
-    ["other", 18]
+    ["unknown",-2],
+    ["interchange",-1],
+    ["air",0],
+    ["bus",1],
+    ["coach",2],
+    ["ferry",3],
+    ["metro",4],
+    ["rail",5],
+    ["trolley_bus",6],
+    ["tram",7],
+    ["water",8],
+    ["cableway",9],
+    ["funicular",10],
+    ["lift",11],
+    ["taxi",12],
+    ["bicycle",13],
+    ["walk",14],
+    ["private_vehicle",15],
+    ["other",16]
+
   ]
   cattr_reader :definitions
 

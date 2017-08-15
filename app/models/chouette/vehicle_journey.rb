@@ -8,11 +8,11 @@ module Chouette
 
     default_scope { where(journey_category: journey_categories[:timed]) }
 
-    attr_accessor :transport_mode_name, :recalculate_offset
+    attr_accessor :transport_mode_name, :transport_submode, :recalculate_offset
     attr_reader :time_table_tokens
 
     def self.nullable_attributes
-      [:transport_mode, :published_journey_name, :vehicle_type_identifier, :published_journey_identifier, :comment, :status_value]
+      [:transport_mode, :transport_submode_name, :published_journey_name, :vehicle_type_identifier, :published_journey_identifier, :comment, :status_value]
     end
 
     belongs_to :company
@@ -66,6 +66,23 @@ module Chouette
       end
     end
 
+    def transport_submode
+      # return nil if transport_submode_name is nil
+      transport_submode_name && Chouette::TransportSubMode.new( transport_submode_name.underscore)
+    end
+
+    def transport_submode=(transport_submode)
+      self.transport_submode_name = (transport_submode ? transport_submode.camelcase : nil)
+    end
+
+    @@transport_submodes = nil
+    def self.transport_submodes
+      @@transport_submodes ||= Chouette::TransportSubMode.all.select do |transport_submode|
+        transport_submode.to_i > -1
+      end
+    end
+
+
     def increasing_times
       previous = nil
       vehicle_journey_at_stops.select{|vjas| vjas.departure_time && vjas.arrival_time}.each do |vjas|
@@ -116,7 +133,7 @@ module Chouette
         }
       end
     end
-      
+
     def recalculate_day_offset
       return unless recalculate_offset
 

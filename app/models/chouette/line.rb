@@ -16,6 +16,7 @@ class Chouette::Line < Chouette::TridentActiveRecord
 
   attr_reader :group_of_line_tokens
   attr_accessor :transport_mode
+  attr_accessor :transport_submode
 
   validates_presence_of :network
   validates_presence_of :company
@@ -45,10 +46,26 @@ class Chouette::Line < Chouette::TridentActiveRecord
     self.transport_mode_name = (transport_mode ? transport_mode.camelcase : nil)
   end
 
+  def transport_submode
+    # return nil if transport_submode_name is nil
+    transport_submode_name && Chouette::TransportSubMode.new( transport_submode_name.underscore)
+  end
+
+  def transport_submode=(transport_submode)
+    self.transport_submode_name = (transport_submode ? transport_submode.camelcase : nil)
+  end
+
   @@transport_modes = nil
   def self.transport_modes
     @@transport_modes ||= Chouette::TransportMode.all.select do |transport_mode|
-      transport_mode.to_i > 0
+      transport_mode.to_i > -1
+    end
+  end
+
+  @@transport_submodes = nil
+  def self.transport_submodes
+    @@transport_submodes ||= Chouette::TransportSubMode.all.select do |transport_submode|
+      transport_submode.to_i > -1
     end
   end
 
