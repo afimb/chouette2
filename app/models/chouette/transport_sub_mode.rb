@@ -8,7 +8,7 @@ class Chouette::TransportSubMode < ActiveSupport::StringInquirer
   def self.new(text_code, numerical_code = nil)
     if text_code and numerical_code
       super
-    elsif self === text_code 
+    elsif self === text_code
       text_code
     else
       if Fixnum === text_code
@@ -34,8 +34,6 @@ class Chouette::TransportSubMode < ActiveSupport::StringInquirer
   end
 
   @@definitions = [
-      ["unknown", 0],
-
       # Bus sub modes
       ["airport_link_bus", 1],
       ["express_bus", 2],

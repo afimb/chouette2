@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170801173651) do
+ActiveRecord::Schema.define(version: 20170815141459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -336,6 +336,7 @@ ActiveRecord::Schema.define(version: 20170801173651) do
     t.string   "color",                           limit: 6
     t.string   "text_color",                      limit: 6
     t.string   "stable_id"
+    t.string   "transport_submode_name"
   end
 
   add_index "lines", ["objectid"], name: "lines_objectid_key", unique: true, using: :btree
@@ -654,6 +655,7 @@ ActiveRecord::Schema.define(version: 20170801173651) do
     t.boolean  "mobility_restricted_suitability"
     t.boolean  "flexible_service"
     t.integer  "journey_category",                          default: 0, null: false
+    t.string   "transport_submode_name"
   end
 
   add_index "vehicle_journeys", ["objectid"], name: "vehicle_journeys_objectid_key", unique: true, using: :btree

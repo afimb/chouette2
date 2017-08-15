@@ -50,7 +50,7 @@ describe Chouette::Line, :type => :model do
   describe "#transport_mode" do
 
     def self.legacy_transport_mode_names
-      %w{Air Train LongDistanceTrain LocalTrain RapidTransit Metro Tramway Coach Bus Ferry Waterborne PrivateVehicle Walk Trolleybus Bicycle Shuttle Taxi VAL Other}
+      %w{Air Train LongDistanceTrain LocalTrain RapidTransit Metro Tram Coach Bus Ferry Water PrivateVehicle Walk Trolleybus Bicycle Taxi VAL Other}
     end
 
     legacy_transport_mode_names.each do |transport_mode_name|

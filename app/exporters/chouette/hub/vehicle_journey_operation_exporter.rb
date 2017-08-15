@@ -25,7 +25,7 @@ class Chouette::Hub::VehicleJourneyOperationExporter
         end
       when "Air"
         transport_mode = "AVION"
-      when "Waterborne"
+      when "Water"
         transport_mode = "BATEAU"
       when "Bus"
         if @vehicle_journey.mobility_restricted_suitability
@@ -51,7 +51,7 @@ class Chouette::Hub::VehicleJourneyOperationExporter
         transport_mode = "TRAIN"
       when "LongDistance_train"
         transport_mode = "TRAIN"
-      when "Tramway"
+      when "Tram"
         transport_mode = "TRAM"
       when "Trolleybus"
         transport_mode = "TROLLEY"
