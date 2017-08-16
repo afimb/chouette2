@@ -43,7 +43,10 @@
     <p>
       <label><%= vehicle_journey.human_attribute_name("transport_submode") %>: </label>
       <% if vehicle_journey.transport_submode.nil? %>
-      (<%= t("transport_sub_modes.label.#{@line.transport_submode}") %>)
+        <% if @line.transport_submode.nil? %>
+      	<% else %>
+          (<%= t("transport_sub_modes.label.#{@line.transport_submode}") %>)
+        <% end %>
       <% else %>
       <%= t("transport_sub_modes.label.#{@vehicle_journey.transport_submode}") %>
       <% end %>
