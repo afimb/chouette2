@@ -30,7 +30,7 @@ class Chouette::Line < Chouette::TridentActiveRecord
   validates_presence_of :name
 
   def self.nullable_attributes
-    [:published_name, :number, :comment, :url, :color, :text_color, :stable_id]
+    [:published_name, :transport_submode_name, :number, :comment, :url, :color, :text_color, :stable_id]
   end
 
   def geometry_presenter
