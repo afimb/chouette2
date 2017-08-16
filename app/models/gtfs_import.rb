@@ -2,7 +2,7 @@ class GtfsImport < ImportTask
 
   enumerize :references_type, in: %w( stop_area )
 
-  attr_accessor :object_id_prefix, :max_distance_for_commercial, :ignore_last_word,  :ignore_end_chars, :max_distance_for_connection_link, :references_type, :parse_interchanges
+  attr_accessor :object_id_prefix, :max_distance_for_commercial, :ignore_last_word,  :ignore_end_chars, :max_distance_for_connection_link, :references_type, :parse_interchanges, :parse_connection_links
 
   validates_presence_of :object_id_prefix
 
@@ -24,7 +24,8 @@ class GtfsImport < ImportTask
         "ignore_end_chars" => ignore_end_chars,
         "max_distance_for_connection_link" => max_distance_for_connection_link,
         "references_type" => references_type,
-        "parse_interchanges" => parse_interchanges
+        "parse_interchanges" => parse_interchanges,
+        "parse_connection_links" => parse_connection_links
       }
     }
   end
