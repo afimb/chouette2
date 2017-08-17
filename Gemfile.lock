@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rutebanken/chouette-projects-i18n.git
-  revision: d69f0e47956390eefb031da3501ba9ae09316dc9
+  revision: 1afef36b024cf46e7e21785f0c807137495bc97b
   branch: master
   specs:
     chouette-projects-i18n (0.1.0)
@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/rutebanken/chouette2-i18n.git
-  revision: ec4a2e85122b21728e99b23dfc33a555646b3eb4
+  revision: 300a953a604d62fc5b04b4921648a6b086fe731d
   branch: master
   specs:
     chouette2-i18n (0.1.0)
@@ -531,7 +531,7 @@ GEM
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
-    thor (0.19.4)
+    thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.5)
     transpec (3.2.2)
