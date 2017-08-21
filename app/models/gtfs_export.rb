@@ -1,7 +1,7 @@
 class GtfsExport < ExportTask
 
   validates_presence_of :time_zone, unless: Proc.new { |e| e.optional_attribute? :time_zone }
-  attr_accessor :object_id_prefix, :time_zone
+  attr_accessor :object_id_prefix, :time_zone, :use_tpeg_hvt
 
   enumerize :references_type, in: %w( network line company group_of_line stop_area )
 
@@ -30,7 +30,8 @@ class GtfsExport < ExportTask
         "object_id_prefix" => object_id_prefix,
         "start_date" => start_date,
         "end_date" => end_date,
-        "valid_after_export" => valid_after_export
+        "valid_after_export" => valid_after_export,
+        "use_tpeg_hvt" => use_tpeg_hvt
       }
     }
   end
