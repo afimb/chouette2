@@ -79,7 +79,14 @@ class Chouette::TransportSubMode < ActiveSupport::StringInquirer
       ["telecabin", 30],
 
       #Funicular sub modes
-      ["funicular", 31]
+      ["funicular", 31],
+
+      #Additional
+      ["airport_link_rail",32],
+      ["international_coach",33],
+      ["national_coach",34],
+      ["tourist_coach",35]
+
   ]
   cattr_reader :definitions
 
