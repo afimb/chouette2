@@ -69,8 +69,8 @@ describe "Routes", :type => :feature do
       expect(page).to have_content(I18n.t('routes.edit_boarding_alighting.title'))
       stop_points.each do |sp|
         expect(page).to have_content(sp.stop_area.name)
-        expect(page).to have_content(sp.for_boarding)
-        expect(page).to have_content(sp.for_alighting)
+        expect(page).to have_content(sp.scheduled_stop_point.for_boarding)
+        expect(page).to have_content(sp.scheduled_stop_point.for_alighting)
       end
     end
   end

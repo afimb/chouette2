@@ -49,7 +49,8 @@ class Chouette::Route < Chouette::TridentActiveRecord
       where(" position between ? and ? ", between_positions.first, between_positions.last)
     end
   end
-  has_many :stop_areas, -> { order('stop_points.position ASC') }, :through => :stop_points do
+  has_many :scheduled_stop_points, :through => :stop_points
+  has_many :stop_areas, -> { order('stop_points.position ASC') }, :through => :scheduled_stop_points do
     def between(departure, arrival)
       departure, arrival = [departure, arrival].collect do |endpoint|
         String === endpoint ? Chouette::StopArea.find_by_objectid(endpoint) : endpoint
