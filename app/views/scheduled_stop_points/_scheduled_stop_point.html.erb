@@ -1,0 +1,35 @@
+<div id="index_item" class="panel panel-default scheduled_stop_point">
+  <div class="panel-heading">
+    <div class="panel-title clearfix">
+      <h5>
+        <%= link_to([@referential, scheduled_stop_point.stop_area], :class => "preview", :title => "#{Chouette::StopArea.model_name.human.capitalize} #{scheduled_stop_point.stop_area.name}") do %>
+        <span class="name">
+          <span class="label label-primary">XXX</span><%= image_tag "map/" + scheduled_stop_point.stop_area.stop_area_type + ".png"   %> <%= truncate(scheduled_stop_point.stop_area.name, :length => 20) %>
+        </span>
+        <% end %>
+      </h5>
+    </div>
+  </div>
+  <div class="panel-body">
+    <p>
+      <% unless scheduled_stop_point.stop_area.geometry %>
+        <span class="warning"><%= t('.no_position') %></span> -
+      <% end %>
+    </p>
+    <p>
+      <%= scheduled_stop_point.stop_area.human_attribute_name('registration_number') %> : <%= scheduled_stop_point.stop_area.registration_number.present? ? scheduled_stop_point.stop_area.registration_number : t(".no_object") %>
+    </p>
+    <p>
+      <%=  t('.address') %> : <%= (scheduled_stop_point.stop_area.zip_code.present? || scheduled_stop_point.stop_area.city_name.present?) ? "#{scheduled_stop_point.stop_area.zip_code} #{scheduled_stop_point.stop_area.city_name}"  : t(".no_object") %>
+    </p>
+    <p>
+      <%= t('.lines') %> <% if scheduled_stop_point.stop_area.lines.blank? %>
+          <%= t(".no_object") %>
+        <% else %>
+          <% scheduled_stop_point.stop_area.lines.each do |line| %>
+            <span class="label label-default line"><%= line.number || truncate( line.name, :length => 4 ) %></span>
+          <% end %>
+        <% end %>
+    </p>
+  </div>
+</div>
