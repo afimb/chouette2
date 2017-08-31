@@ -14,7 +14,6 @@ class CreateScheduledStopPoint < ActiveRecord::Migration
     add_foreign_key :stop_points, :scheduled_stop_points
 
     execute <<-SQL
-    delete from stop_points;
       insert into scheduled_stop_points (objectid, stop_area_objectid_key,object_version,creation_time,creator_id,name, for_boarding, for_alighting) select REPLACE(sp.objectid,'StopPoint','ScheduledStopPoint'),sp.stop_area_objectid_key,sp.object_version,sp.creation_time,sp.creator_id, sa.name, sp.for_boarding, sp.for_alighting from
          stop_points sp left join public.stop_areas sa on  sp.stop_area_objectid_key = sa.objectid;
       update stop_points sp set scheduled_stop_point_id = (select id from scheduled_stop_points where REPLACE(sp.objectid,'StopPoint','ScheduledStopPoint') = scheduled_stop_points.objectid);
