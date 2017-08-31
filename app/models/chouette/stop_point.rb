@@ -20,6 +20,8 @@ module Chouette
 
     scope :default_order, -> { order("position") }
 
+    accepts_nested_attributes_for :scheduled_stop_point
+
     before_destroy :remove_dependent_journey_pattern_stop_points
     def remove_dependent_journey_pattern_stop_points
       route.journey_patterns.each do |jp|
