@@ -14,9 +14,9 @@ class Chouette::Hub::ItlExporter
       @stop_area_id = stop_area.registration_number
     end
     @order = stop_point.position
-    if stop_point.scheduled_stop_point.for_boarding == "forbidden"
+    if stop_point.for_boarding == "forbidden"
       @type = 1
-    elsif stop_point.scheduled_stop_point.for_alighting == "forbidden"
+    elsif stop_point.for_alighting == "forbidden"
       @type = 2
     end
     @identifier = index
