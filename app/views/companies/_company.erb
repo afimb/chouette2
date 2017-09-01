@@ -22,7 +22,16 @@
   </div>
   <div class="panel-body">
     <p>
-    <%= company.human_attribute_name('code') %> <%= company.code %>
+    <%= company.organisation_type %>
+    </p>
+    <p>
+    <%= company.human_attribute_name('phone') %>: <%= company.phone %>
+    </p>
+    <p>
+    <%= company.human_attribute_name('email') %>: <%= company.email %>
+    </p>
+    <p>
+    <%= company.human_attribute_name('url') %>: <%= company.url %>
     </p>
   </div>
 </div>
