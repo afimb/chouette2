@@ -29,7 +29,7 @@ class Chouette::Route < Chouette::TridentActiveRecord
   has_many :stop_points, -> { order('position ASC') }, :dependent => :destroy do
     def find_by_stop_area(stop_area)
       stop_area_object_ids = String === stop_area ? [stop_area] : (stop_area.children_in_depth + [stop_area]).map(&:objectid)
-      where( :stop_area_objectid_key => stop_area_object_ids).first or
+      joins(:scheduled_stop_point).where( "scheduled_stop_points.stop_area_objectid_key" => stop_area_object_ids).first or
         raise ActiveRecord::RecordNotFound.new("Can't find a StopArea #{stop_area.inspect} in Route #{proxy_owner.id.inspect}'s StopPoints")
     end
 
@@ -160,7 +160,7 @@ class Chouette::Route < Chouette::TridentActiveRecord
 
     stop_area_id_by_stop_point_id = {}
     stop_points.each do |sp|
-      stop_area_id_by_stop_point_id.merge!( sp.id.to_s => sp.stop_area_objectid_key )
+      stop_area_id_by_stop_point_id.merge!( sp.id.to_s => sp.scheduled_stop_point.stop_area_objectid_key )
     end
 
     reordered_stop_area_ids = []
@@ -169,9 +169,9 @@ class Chouette::Route < Chouette::TridentActiveRecord
     end
 
     stop_points.each_with_index do |sp, index|
-      if sp.stop_area_objectid_key != reordered_stop_area_ids[ index ]
+      if sp.scheduled_stop_point.stop_area_objectid_key != reordered_stop_area_ids[ index ]
         #result = sp.update_attributes( :stop_area_id => reordered_stop_area_ids[ index])
-        sp.stop_area_objectid_key = reordered_stop_area_ids[ index ]
+        sp.scheduled_stop_point.stop_area_objectid_key = reordered_stop_area_ids[ index ]
         result = sp.save!
       end
     end
