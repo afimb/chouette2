@@ -5,7 +5,7 @@ describe Chouette::StopPoint, :type => :model do
   subject { Chouette::Route.find( vehicle_journey.route_id).stop_points.first }
 
   it { is_expected.to validate_uniqueness_of :objectid }
-  it { is_expected.to validate_presence_of :stop_area }
+  it { is_expected.to validate_presence_of :scheduled_stop_point }
 
   describe '#objectid' do
     subject { super().objectid }
