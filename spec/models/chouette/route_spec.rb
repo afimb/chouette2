@@ -71,33 +71,29 @@ describe Chouette::Route, :type => :model do
           {}.tap do |hash|
               subject.stop_points.each_with_index { |sp,index| hash[ index.to_s ] = sp.attributes }
           end
-
       end
-      # erlendnils1: NRP-1692  TODO Tmp comment out
-      # context "route having swapped a new stop" do
-      #     let( :new_stop_point ){build( :stop_point, :route => subject)}
-      #     def added_stop_hash
-      #       subject_stop_points_attributes.tap do |h|
-      #           h["4"] = new_stop_point.attributes.merge( "position" => "4", "_destroy" => "" )
-      #       end
-      #     end
-      #     end
-      #     let!( :new_route_size ){ subject.stop_points.size+1 }
-      #
-      #     it "should have added stop_point in route" do
-      #         subject.update_attributes( :stop_points_attributes => added_stop_hash)
-      #         expect(Chouette::Route.find( subject.id ).stop_points.size).to eq(new_route_size)
-      #     end
-      #     it "should have added stop_point in route's journey pattern" do
-      #         subject.update_attributes( :stop_points_attributes => added_stop_hash)
-      #         expect(Chouette::JourneyPattern.find( journey_pattern.id ).stop_points.size).to eq(new_route_size)
-      #     end
-      #     it "should have added stop_point in route's vehicle journey at stop" do
-      #         subject.update_attributes( :stop_points_attributes => added_stop_hash)
-      #         expect(Chouette::VehicleJourney.find( vehicle_journey.id ).vehicle_journey_at_stops.size).to eq(new_route_size)
-      #     end
-      # end
-      # end
+      context "route having swapped a new stop" do
+          let( :new_stop_point ){build( :stop_point, :route => subject, :scheduled_stop_point => subject.stop_points.first.scheduled_stop_point)}
+          def added_stop_hash
+            subject_stop_points_attributes.tap do |h|
+                h["4"] = new_stop_point.attributes.merge( "position" => "4", "_destroy" => "" )
+            end
+          end
+          let!( :new_route_size ){ subject.stop_points.size+1 }
+
+          it "should have added stop_point in route" do
+              subject.update_attributes( :stop_points_attributes => added_stop_hash)
+              expect(Chouette::Route.find( subject.id ).stop_points.size).to eq(new_route_size)
+          end
+          it "should have added stop_point in route's journey pattern" do
+              subject.update_attributes( :stop_points_attributes => added_stop_hash)
+              expect(Chouette::JourneyPattern.find( journey_pattern.id ).stop_points.size).to eq(new_route_size)
+          end
+          it "should have added stop_point in route's vehicle journey at stop" do
+              subject.update_attributes( :stop_points_attributes => added_stop_hash)
+              expect(Chouette::VehicleJourney.find( vehicle_journey.id ).vehicle_journey_at_stops.size).to eq(new_route_size)
+          end
+      end
       context "route having swapped stop" do
           def swapped_stop_hash
             subject_stop_points_attributes.tap do |h|
