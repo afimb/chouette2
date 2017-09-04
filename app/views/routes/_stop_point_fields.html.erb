@@ -8,11 +8,16 @@
   <% if f.object.stop_area.nil? || f.object.new_record? %>
     <%= f.input :id, :as => :hidden, :input_html => { :class => "stop_point_id added_stop_point", :value => "" } %>
     <%= f.input :position, :as => :hidden, :input_html => { :class => "position" } %>
-    <%= f.input :stop_area_objectid_key, :label => false, :as => :search_stop_area, :json => referential_autocomplete_stop_areas_path(@referential, :format => :json)+"?filter=physical", :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'), :tokenLimit => 1, :input_html => { :class => "new_stop_point stop_area_objectid_key", :"data-pre" => Rabl::Renderer.new('autocomplete_stop_areas/index', [f.object.stop_area].compact, :view_path => 'app/views', :format => :json, :scope => self ).render }  %>
+        <% f.object.build_scheduled_stop_point unless f.object.scheduled_stop_point %>
+        <%= f.fields_for :scheduled_stop_point, f.object.scheduled_stop_point do |c| %>
+            <%= c.input :stop_area_objectid_key, :label => false, :as => :search_stop_area, :json => referential_autocomplete_stop_areas_path(@referential, :format => :json)+"?filter=physical", :hint_text => t('search_hint'), :no_result_text => t('no_result_text'), :searching_text => t('searching_term'), :tokenLimit => 1, :input_html => {:class => "new_stop_point stop_area_objectid_key", :"data-pre" => Rabl::Renderer.new('autocomplete_stop_areas/index', [c.object.stop_area].compact, :view_path => 'app/views', :format => :json, :scope => self).render} %>
+        <% end %>
   <% else %>
     <%= f.input :id, :as => :hidden, :input_html => { :class => "stop_point_id" } %>
     <%= f.input :position, :as => :hidden, :input_html => { :class => "position" } %>
-    <%= f.input :stop_area_objectid_key, :label => false, :as => :search_stop_area, :json => referential_autocomplete_stop_areas_path(@referential, :format => :json)+"?filter=physical", :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'), :tokenLimit => 1, :input_html => { :class => "stop_area_objectid_key", :"data-pre" => Rabl::Renderer.new('autocomplete_stop_areas/index', [f.object.stop_area].compact, :view_path => 'app/views', :format => :json, :scope => self ).render }  %>
+        <%= f.fields_for :scheduled_stop_point, f.object.scheduled_stop_point do |c| %>
+            <%= c.input :stop_area_objectid_key, :label => false, :as => :search_stop_area, :json => referential_autocomplete_stop_areas_path(@referential, :format => :json)+"?filter=physical", :hint_text => t('search_hint'), :no_result_text => t('no_result_text'), :searching_text => t('searching_term'), :tokenLimit => 1, :input_html => {:class => "stop_area_objectid_key", :"data-pre" => Rabl::Renderer.new('autocomplete_stop_areas/index', [c.object.stop_area].compact, :view_path => 'app/views', :format => :json, :scope => self).render} %>
+        <% end %>
   <% end %>
   </div>
   <% end %>

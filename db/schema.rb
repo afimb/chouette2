@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170815141459) do
+ActiveRecord::Schema.define(version: 20170829174203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -450,6 +450,15 @@ ActiveRecord::Schema.define(version: 20170815141459) do
     t.integer  "organisation_id", limit: 8
   end
 
+  create_table "scheduled_stop_points", id: :bigserial, force: :cascade do |t|
+    t.string   "objectid",                           null: false
+    t.string   "stop_area_objectid_key"
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id",             limit: 255
+    t.string   "name"
+  end
+
   create_table "stop_areas", id: :bigserial, force: :cascade do |t|
     t.integer  "parent_id",                       limit: 8
     t.string   "objectid",                                                            null: false
@@ -502,12 +511,11 @@ ActiveRecord::Schema.define(version: 20170815141459) do
     t.integer  "position"
     t.string   "for_boarding"
     t.string   "for_alighting"
-    t.string   "stop_area_objectid_key"
     t.integer  "destination_display_id"
+    t.integer  "scheduled_stop_point_id",           null: false
   end
 
   add_index "stop_points", ["objectid"], name: "stop_points_objectid_key", unique: true, using: :btree
-  add_index "stop_points", ["stop_area_objectid_key"], name: "index_stop_points_on_stop_area_objectid_key", using: :btree
 
   create_table "taggings", id: :bigserial, force: :cascade do |t|
     t.integer  "tag_id"
@@ -688,6 +696,7 @@ ActiveRecord::Schema.define(version: 20170815141459) do
   add_foreign_key "stop_areas_stop_areas", "stop_areas", column: "parent_id", name: "stoparea_parent_fkey", on_delete: :cascade
   add_foreign_key "stop_points", "destination_displays", name: "stop_point_destination_display_fkey"
   add_foreign_key "stop_points", "routes", name: "stoppoint_route_fkey", on_delete: :cascade
+  add_foreign_key "stop_points", "scheduled_stop_points"
   add_foreign_key "time_table_dates", "time_tables", name: "tm_date_fkey", on_delete: :cascade
   add_foreign_key "time_table_periods", "time_tables", name: "tm_period_fkey", on_delete: :cascade
   add_foreign_key "time_tables_vehicle_journeys", "time_tables", name: "vjtm_tm_fkey", on_delete: :cascade

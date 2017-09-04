@@ -79,7 +79,7 @@ class RoutesController < ChouetteController
   private
 
   def route_params
-    params.require(:route).permit( :direction_code, :wayback_code, :line_id, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :opposite_route_id, :published_name, :number, :direction, :wayback, { stop_points_attributes: [ :id, :_destroy, :position, :stop_area_objectid_key, :for_boarding, :for_alighting ] } )
+    params.require(:route).permit( :direction_code, :wayback_code, :line_id, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :opposite_route_id, :published_name, :number, :direction, :wayback, { stop_points_attributes: [ :id, :_destroy, :position, :for_boarding, :for_alighting, scheduled_stop_point_attributes: [:id, :stop_area_objectid_key] ] } )
   end
 
 end

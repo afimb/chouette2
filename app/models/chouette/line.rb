@@ -74,7 +74,7 @@ class Chouette::Line < Chouette::TridentActiveRecord
   end
 
   def stop_areas
-    Chouette::StopArea.joins(:stop_points => [:route => :line]).where(:lines => {:id => self.id})
+    Chouette::StopArea.joins(:scheduled_stop_points => [:stop_points => [:route => :line]]).where(:lines => {:id => self.id})
   end
 
   def stop_areas_last_parents

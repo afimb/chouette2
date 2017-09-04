@@ -12,10 +12,10 @@
     <%= form.input :minimum_transfer_time%>
     <!-- TODO feeder (from_ fiels) can also be external, must be able to specify manually -->
     <%= form.input :from_vehicle_journey , :as => :select, :collection => Chouette::VehicleJourney.pluck(:objectid,:objectid), :include_blank => true%>
-    <%= form.input :from_point , :as => :select, :collection => Chouette::StopPoint.pluck(:objectid,:objectid), :include_blank => true %>
+    <%= form.input :from_point , :as => :select, :collection => Chouette::ScheduledStopPoint.pluck(:objectid,:objectid), :include_blank => true %>
     <%= form.input :from_visit_number %>
     <%= form.input :to_vehicle_journey , :as => :select, :collection => Chouette::VehicleJourney.pluck(:objectid,:objectid), :include_blank => true%>
-    <%= form.input :to_point , :as => :select, :collection => Chouette::StopPoint.pluck(:objectid,:objectid), :include_blank => true %>
+    <%= form.input :to_point , :as => :select, :collection => Chouette::ScheduledStopPoint.pluck(:objectid,:objectid), :include_blank => true %>
     <%= form.input :to_visit_number %>
     <% end %>
 

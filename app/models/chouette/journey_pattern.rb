@@ -76,7 +76,7 @@ class Chouette::JourneyPattern < Chouette::TridentActiveRecord
   end
 
   def control_route_sections
-    stop_area_object_ids = self.stop_points.map(&:stop_area_objectid_key)
+    stop_area_object_ids = self.stop_points.collect(&:scheduled_stop_point).flatten.map(&:stop_area_objectid_key)
     control_route_sections_by_stop_areas(stop_area_object_ids)
   end
 
