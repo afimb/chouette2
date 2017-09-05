@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829174203) do
+ActiveRecord::Schema.define(version: 20170904174203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -458,6 +458,9 @@ ActiveRecord::Schema.define(version: 20170829174203) do
     t.string   "creator_id",             limit: 255
     t.string   "name"
   end
+
+  add_index "scheduled_stop_points", ["objectid"], name: "scheduled_stop_points_objectid_key", unique: true, using: :btree
+  add_index "scheduled_stop_points", ["stop_area_objectid_key"], name: "scheduled_stop_points_stop_area_idx", using: :btree
 
   create_table "stop_areas", id: :bigserial, force: :cascade do |t|
     t.integer  "parent_id",                       limit: 8
