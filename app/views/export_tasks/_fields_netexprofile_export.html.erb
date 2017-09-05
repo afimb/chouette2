@@ -1,1 +1,2 @@
 <%= form.input :export_stops , as: :boolean %>
+<%= form.input :default_codespace_prefix, :input_html => { :value => @referential.prefix ,:title => t("formtastic.titles.export_task.default_codespace_prefix")} %>
