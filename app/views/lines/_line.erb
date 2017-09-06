@@ -38,8 +38,10 @@
     <% end %>
     </p>
     <p>
+    	<%= line.human_attribute_name('transport_mode') %> <%=  line.transport_mode_name %> / <%=  line.transport_submode_name %>
+    </p>
+    <p>
     <% if line.group_of_lines.count == 0 %>
-        <br><%# t('lines.form.no_group_of_line') %>
     <% elsif line.group_of_lines.count == 1 %>
         <%= line.human_attribute_name('group_of_line') %>
         <%= link_to_if( line.group_of_lines.first, line.group_of_lines.first.name, referential_group_of_line_path(@referential, line.group_of_lines.first), :title => "#{line.human_attribute_name('group_of_line')} #{line.group_of_lines.first.name}") %>
