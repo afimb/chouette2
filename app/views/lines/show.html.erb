@@ -13,12 +13,12 @@
 	    <p>
 	    	<label><%= t('lines.index.color') %>: </label>
 	    	<label class="color" style='<%="#{number_style(@line)}"%>'><%= line_sticker(@line) %></label>
-	    </p>	
+	    </p>
     <% end %>
     <p>
       <label><%= @line.human_attribute_name(:network) %>: </label>
   	<% if @line.network.nil? %>
-  	   <%= t('lines.index.unset') %> 
+  	   <%= t('lines.index.unset') %>
   	<% else %>
       <%= link_to @line.network.name, [@referential, @line.network] %>
     <% end %>
@@ -69,7 +69,7 @@
       <br>&nbsp;&nbsp;<%= @line.human_attribute_name("number_of_mrs_vj") %> : <%= @line.vehicle_journeys.where("mobility_restricted_suitability = ?", true).count %>
       <br>&nbsp;&nbsp;<%= @line.human_attribute_name("number_of_non_mrs_vj") %> : <%= @line.vehicle_journeys.where("mobility_restricted_suitability = ?", false).count %>
       <br>&nbsp;&nbsp;<%= @line.human_attribute_name("number_of_null_mrs_vj") %> : <%= @line.vehicle_journeys.count -
-										       (@line.vehicle_journeys.where("mobility_restricted_suitability = ?", true).count + 
+										       (@line.vehicle_journeys.where("mobility_restricted_suitability = ?", true).count +
 										       @line.vehicle_journeys.where("mobility_restricted_suitability = ?", false).count) %>
     </p>
     <p>
@@ -87,21 +87,22 @@
       <% if @line.flexible_service.nil? %>
       (<%= @line.human_attribute_name("default_fs_msg") %>)
       <% end %>
-      : <%= @line.vehicle_journeys.count - 
-	    (@line.vehicle_journeys.where("flexible_service = ?", true).count + 
+      : <%= @line.vehicle_journeys.count -
+	    (@line.vehicle_journeys.where("flexible_service = ?", true).count +
 	    @line.vehicle_journeys.where("flexible_service = ?", false).count) %>
     </p>
-    <p>
-      <label><%= @line.human_attribute_name("footnotes") %>: </label>
-      <ul>
-        <% @line.footnotes.each do |footnote| %>
-        <li><%= footnote.code %> : <%= footnote.label %></li>          
-      <% end %>
-      </ul>
-    </p>
+
     <p>
       <label><%= @line.human_attribute_name("comment") %>: </label>
       <%= @line.comment %>
+    </p>
+    <p>
+      <label><%= @line.human_attribute_name("footnote") %>: </label>
+    <ul>
+      <% @line.footnotes.each do |footnote| %>
+        <li><%= footnote.code %> : <%= footnote.label %></li>
+      <% end %>
+    </ul>
     </p>
   </div>
 

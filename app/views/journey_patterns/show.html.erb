@@ -17,6 +17,14 @@
       <%= @journey_pattern.registration_number %>
     </p>
     <p>
+      <label><%= @journey_pattern.human_attribute_name(:footnotes) %>: </label>
+      <% unless @journey_pattern.footnotes.nil? %>
+        <% @journey_pattern.footnotes.each do |footnote| %>
+          <span class="label label-default line"><%= footnote.label %></span>
+        <% end %>
+      <% end %>
+    </p>
+    <p>
       <label><%= @journey_pattern.human_attribute_name(:comment) %>: </label>
       <%= @journey_pattern.comment %>
     </p>

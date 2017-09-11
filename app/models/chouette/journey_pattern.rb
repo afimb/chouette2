@@ -9,12 +9,13 @@ class Chouette::JourneyPattern < Chouette::TridentActiveRecord
   has_and_belongs_to_many :stop_points, -> { order("stop_points.position") }, :before_add => :vjas_add, :before_remove => :vjas_remove, :after_add => :shortcuts_update_for_add, :after_remove => :shortcuts_update_for_remove
   has_many :journey_pattern_sections
   has_many :route_sections, through: :journey_pattern_sections, dependent: :destroy
+  has_and_belongs_to_many :footnotes, :class_name => 'Chouette::Footnote', :foreign_key => "journey_pattern_id", :association_foreign_key => "footnote_id"
 
   validates_presence_of :route
 
   enum section_status: { todo: 0, completed: 1, control: 2 }
 
-  attr_accessor  :control_checked
+  attr_accessor  :control_checked, :footnote_tokens
   after_update :control_route_sections, :unless => "control_checked"
 
   # TODO: this a workarround
@@ -71,6 +72,10 @@ class Chouette::JourneyPattern < Chouette::TridentActiveRecord
     end
   end
 
+  def footnote_tokens=(ids)
+    self.footnote_ids = ids.split(",")
+  end
+
   def control_route_sections
     stop_area_ids = self.stop_points.map(&:stop_area_id)
     control_route_sections_by_stop_areas(stop_area_ids)
@@ -106,4 +111,3 @@ class Chouette::JourneyPattern < Chouette::TridentActiveRecord
   end
 
 end
-

@@ -10,8 +10,11 @@ module Chouette
     belongs_to :route, inverse_of: :stop_points
     has_many :vehicle_journey_at_stops, :dependent => :destroy
     has_many :vehicle_journeys, -> {uniq}, :through => :vehicle_journey_at_stops
+    has_and_belongs_to_many :footnotes, :class_name => 'Chouette::Footnote', :foreign_key => "stop_point_id", :association_foreign_key => "footnote_id"
 
     acts_as_list :scope => :route, top_of_list: 0
+
+    attr_reader :footnote_tokens
 
     validates_presence_of :stop_area
     validate :stop_area_id_validation
@@ -36,6 +39,11 @@ module Chouette
     def self.area_candidates
       Chouette::StopArea.where( :area_type => ['Quay', 'BoardingPosition'])
     end
+
+    def footnote_tokens=(ids)
+      self.footnotes_ids = ids.split(",")
+    end
+
 
   end
 end

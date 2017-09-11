@@ -40,6 +40,10 @@
       <%= Referential.human_attribute_name("stop_areas") %>
     </li>
     <li class="list-group-item">
+      <span class="badge"><%= @referential.footnotes.size %></span>
+      <%= Referential.human_attribute_name("footnotes") %>
+    </li>
+    <li class="list-group-item">
       <span class="badge"><%= @referential.stop_areas.where("area_type = ?","BoardingPosition").size %></span>
       <%= image_tag "map/boarding_position.png"%><%= Referential.human_attribute_name("boarding_positions") %>
     </li>

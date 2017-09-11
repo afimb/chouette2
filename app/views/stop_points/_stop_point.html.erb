@@ -2,25 +2,25 @@
   <div class="panel-heading">
     <div class="panel-title clearfix">
       <h5>
-        <%= link_to([@referential, stop_point.stop_area], :class => "preview", :title => "#{Chouette::StopArea.model_name.human.capitalize} #{stop_point.stop_area.name}") do %>        
+        <%= link_to([@referential, stop_point.stop_area], :class => "preview", :title => "#{Chouette::StopArea.model_name.human.capitalize} #{stop_point.stop_area.name}") do %>
         <span class="name">
-          <span class="label label-primary"><%= stop_point.position + 1 %></span><%= image_tag "map/" + stop_point.stop_area.stop_area_type + ".png"   %> <%= truncate(stop_point.stop_area.name, :length => 20) %>          
+          <span class="label label-primary"><%= stop_point.position + 1 %></span><%= image_tag "map/" + stop_point.stop_area.stop_area_type + ".png"   %> <%= truncate(stop_point.stop_area.name, :length => 20) %>
         </span>
         <% end %>
       </h5>
-    </div>                          
+    </div>
   </div>
   <div class="panel-body">
-    <p>      
+    <p>
       <% unless stop_point.stop_area.geometry %>
         <span class="warning"><%= t('.no_position') %></span> -
       <% end %>
     </p>
-    <p>     
+    <p>
       <%= stop_point.stop_area.human_attribute_name('registration_number') %> : <%= stop_point.stop_area.registration_number.present? ? stop_point.stop_area.registration_number : t(".no_object") %>
     </p>
     <p>
-      <%=  t('.address') %> : <%= (stop_point.stop_area.zip_code.present? || stop_point.stop_area.city_name.present?) ? "#{stop_point.stop_area.zip_code} #{stop_point.stop_area.city_name}"  : t(".no_object") %> 
+      <%=  t('.address') %> : <%= (stop_point.stop_area.zip_code.present? || stop_point.stop_area.city_name.present?) ? "#{stop_point.stop_area.zip_code} #{stop_point.stop_area.city_name}"  : t(".no_object") %>
     </p>
     <p>
       <%= t('.lines') %> <% if stop_point.stop_area.lines.blank? %>
@@ -29,8 +29,19 @@
           <% stop_point.stop_area.lines.each do |line| %>
             <span class="label label-default line"><%= line.number || truncate( line.name, :length => 4 ) %></span>
           <% end %>
-        <% end %> 
-    </p>    
+        <% end %>
+    </p>
+    <p>
+  <%= t('.footnotes') %>
+  <% unless stop_point.footnotes.nil? %>
+
+      <% stop_point.footnotes.each do |footnote| %>
+        <span class="label label-default line"><%= footnote.label %></span>
+      <% end %>
+
+
+  <% end %>
+</p>
+
   </div>
 </div>
-

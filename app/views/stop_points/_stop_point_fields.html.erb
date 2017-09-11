@@ -1,0 +1,9 @@
+<%= p.inputs :class => 'nested-fields stop-point' do %>
+  <%= p.input :stop_point_id, :as => :hidden, :input_html => { :class => "stop_point_id", :value => stop_point.id } %>
+  <%= p.input :footnote_tokens, :label => t('.footnotes'),
+  :as => :search_footnote, :json => referential_autocomplete_footnotes_path(@referential,
+  :format => :json), :hint_text => t('search_hint'),
+  :no_result_text => t('no_result_text'),:searching_text => t('searching_term'),
+  :input_html => { :"data-pre" => Rabl::Renderer.new( 'autocomplete_footnotes/index', stop_point.footnotes, :view_path => 'app/views', :format => :json, :scope => :self ).render }  %>
+
+<% end %>

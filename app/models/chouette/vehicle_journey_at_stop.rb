@@ -8,6 +8,7 @@ module Chouette
 
     belongs_to :stop_point
     belongs_to :vehicle_journey
+    has_and_belongs_to_many :footnotes, :class_name => 'Chouette::Footnote', :foreign_key => "vehicle_journey_at_stop_id", :association_foreign_key => "footnote_id"
 
     attr_accessor :_destroy
 

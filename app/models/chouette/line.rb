@@ -9,12 +9,13 @@ class Chouette::Line < Chouette::TridentActiveRecord
   has_many :journey_patterns, :through => :routes
   has_many :vehicle_journeys, :through => :journey_patterns
 
+  has_and_belongs_to_many :footnotes, :class_name => 'Chouette::Footnote', :foreign_key => "line_id", :association_foreign_key => "footnote_id"
   has_and_belongs_to_many :group_of_lines, :class_name => 'Chouette::GroupOfLine', :order => 'group_of_lines.name'
 
-  has_many :footnotes, :inverse_of => :line, :validate => :true, :dependent => :destroy
-  accepts_nested_attributes_for :footnotes, :reject_if => :all_blank, :allow_destroy => true
+#  has_many :footnotes, :inverse_of => :line, :validate => :true, :dependent => :destroy
+#  accepts_nested_attributes_for :footnotes, :reject_if => :all_blank, :allow_destroy => true
 
-  attr_reader :group_of_line_tokens
+  attr_reader :group_of_line_tokens, :footnote_tokens
   attr_accessor :transport_mode
 
   validates_presence_of :network
@@ -71,5 +72,11 @@ class Chouette::Line < Chouette::TridentActiveRecord
   def vehicle_journey_frequencies?
     self.vehicle_journeys.unscoped.where(journey_category: 1).count > 0
   end
+
+  def footnote_tokens=(ids)
+    self.footnote_ids = ids.split(",")
+  end
+
+
 
 end

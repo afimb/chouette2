@@ -53,6 +53,8 @@ module BreadcrumbHelper
       referential_breadcrumb action
     when "Organisation"
       organisation_breadcrumb action
+    when "Chouette::Footnote"
+      footnote_breadcrumb action
     when "Api::V1::ApiKey"
       referential_breadcrumb
     else
@@ -157,6 +159,12 @@ module BreadcrumbHelper
     referential_breadcrumb
     add_breadcrumb Chouette::Company.model_name.human(:count => 2), referential_companies_path(@referential) unless action == :index
     add_breadcrumb breadcrumb_label(@company), referential_company_path(@referential, @company),:title => breadcrumb_tooltip(@company) if action == :edit
+  end
+
+  def footnote_breadcrumb (action)
+    referential_breadcrumb
+    add_breadcrumb Chouette::Footnote.model_name.human(:count => 2), referential_footnotes_path(@referential) unless action == :index
+    add_breadcrumb breadcrumb_label(@footnote), referential_footnote_path(@referential, @footnote),:title => breadcrumb_tooltip(@footnote) if action == :edit
   end
 
   def import_breadcrumb (action)

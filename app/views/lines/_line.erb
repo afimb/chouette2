@@ -49,5 +49,18 @@
        <%= t('lines.form.several_group_of_lines', :count => line.group_of_lines.count) %>
     <% end %>
     </p>
+
+    <p>
+  <%= t('.footnotes') %>
+  <% unless line.footnotes.nil? %>
+
+      <% line.footnotes.each do |footnote| %>
+        <span class="label label-default line"><%= footnote.label %></span>
+      <% end %>
+
+
+  <% end %>
+</p>
+
   </div>
 </div>

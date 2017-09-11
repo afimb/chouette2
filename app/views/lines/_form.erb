@@ -16,21 +16,8 @@
     <%= form.input :comment %>
     <%= form.input :objectid, :required => !@line.new_record?, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.line.objectid")} %>
     <%= form.input :group_of_line_tokens, :label => t('.group_of_lines'), :as => :text,  :input_html => { :"data-pre" => ( @line.group_of_lines.map { |group_of_line| { :id => group_of_line.id, :name => group_of_line.name } } ).to_json }  %>
+    <%= form.input :footnote_tokens, :label => t('.footnotes'), :as => :search_footnote, :json => referential_autocomplete_footnotes_path(@referential, :format => :json), :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'),  :input_html => { :"data-pre" => Rabl::Renderer.new( 'autocomplete_footnotes/index', @line.footnotes, :view_path => 'app/views', :format => :json, :scope => :self ).render }  %>
 
-    <div class="footnotes_block">
-      <h3><%= t("footnotes.index.title") %></h3>
-      <div id="footnotes">
-        <%= form.semantic_fields_for :footnotes do |f| %>
-          <%= render "footnotes/footnote_fields",  :f => f %>
-        <% end %>
-      </div>
-      <div class="add_footnote">
-        <%= link_to_add_association t("footnotes.actions.add_footnote"), form, :footnotes ,
-      :partial => "footnotes/footnote_fields",
-	  :"data-association-insertion-method" => "append",
-	  :"data-association-insertion-node" => "div#footnotes", :class => "add" %>
-      </div>
-    </div>
   <% end %>
 
    <%= form.actions do %>

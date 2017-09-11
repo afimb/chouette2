@@ -1,0 +1,28 @@
+<%= title_tag t('footnotes.index.title') %>
+
+<%= search_form_for @q, :url => referential_footnotes_path(@referential), remote: true, :html => {:method => :get, class: "form-inline", :id => "search", role: "form"} do |f| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="input-group col-md-12">
+          <%= f.text_field :label_cont, :placeholder => "#{t('.label')}", :class => "form-control" %>
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+          </div>
+        </div><!-- /input-group -->
+        <!-- <a data-toggle="collapse" data-parent="#search" href="#advanced_search"> -->
+        <!--   <i class="fa fa-plus"></i> <%= "#{t('.xmlns_url')}" %> -->
+        <!-- </a> -->
+      </div>
+    </div>
+<% end %>
+
+<div id="footnotes"><%= render partial: "footnotes", object: @footnotes %></div>
+
+<% content_for :sidebar do %>
+    <ul class="actions">
+
+          <li><%= link_to t('footnotes.actions.new'), new_referential_footnote_path(@referential), :class => "add" %></li>
+          <br>
+
+    </ul>
+<% end %>

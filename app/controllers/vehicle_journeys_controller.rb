@@ -80,20 +80,39 @@ class VehicleJourneysController < ChouetteController
     @matrix = resource_class.matrix(@vehicle_journeys)
   end
 
+  def update
+    update_footnote_on_stops_ids
+    update!
+  end
+
+  ## updates StopPoint Footnotes on StopPoint
+  # - this is done outside the regular update since JourneyPattern uses the stop_point change event mechanism
+  def update_footnote_on_stops_ids
+    if params[:vehicle_journey_at_stops_attributes][:footnote_ids].present?
+      params[:vehicle_journey_at_stops_attributes][:footnote_ids].each do |k, v|
+        stop_point_id = v[:id]
+        footnote_tokens = v[:footnote_tokens].split(",")
+        Chouette::VehicleJourneyAtStop.find(stop_point_id).footnote_ids = footnote_tokens
+      end
+    end
+  end
+
+
   private
 
   def vehicle_journey_params
     params.require(:vehicle_journey).permit( { footnote_ids: [] } , :journey_pattern_id, :number, :published_journey_name,
                                              :published_journey_identifier, :comment, :transport_mode_name,
                                              :mobility_restricted_suitability, :flexible_service, :status_value,
-                                             :facility, :vehicle_type_identifier, :objectid, :time_table_tokens,
+                                             :facility, :vehicle_type_identifier, :objectid, :time_table_tokens, :footnote_tokens,
                                              { date: [ :hour, :minute ] }, :button, :referential_id, :line_id,
                                              :route_id, :id, { vehicle_journey_at_stops_attributes: [ :arrival_time,
                                                                                                       :id, :_destroy,
                                                                                                       :stop_point_id,
                                                                                                       :departure_time,
                                                                                                       :departure_day_offset,
-                                                                                                      :arrival_day_offset] } )
+                                                                                                      :arrival_day_offset,
+                                                                                                      :footnote_tokens] } )
   end
 
 end
