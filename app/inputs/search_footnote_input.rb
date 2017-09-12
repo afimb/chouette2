@@ -5,7 +5,6 @@ class SearchFootnoteInput < Formtastic::Inputs::SearchInput
       tokenLimit = options[:tokenLimit].present? ? options[:tokenLimit] : "null"
       template.content_tag( :script,
        ("$(document).ready(function() {
-
             var footnote_formatter = function(item){
                 html_result = '<li>';
                 html_result += '['+item.code+'] '+item.label;

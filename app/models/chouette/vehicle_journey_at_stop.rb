@@ -10,7 +10,7 @@ module Chouette
     belongs_to :vehicle_journey
     has_and_belongs_to_many :footnotes, :class_name => 'Chouette::Footnote', :foreign_key => "vehicle_journey_at_stop_id", :association_foreign_key => "footnote_id"
 
-    attr_accessor :_destroy
+    attr_accessor :_destroy, :footnote_tokens
 
     validate :arrival_must_be_before_departure
     def arrival_must_be_before_departure
@@ -19,6 +19,10 @@ module Chouette
       if exceeds_gap?(arrival_time + arrival_day_offset.day, departure_time + departure_day_offset.day)
         errors.add(:arrival_time, I18n.t("activerecord.errors.models.vehicle_journey_at_stop.arrival_must_be_before_departure"))
       end
+    end
+
+    def footnote_tokens=(ids)
+      self.footnote_ids = ids.split(",")
     end
 
     after_initialize :set_virtual_attributes
