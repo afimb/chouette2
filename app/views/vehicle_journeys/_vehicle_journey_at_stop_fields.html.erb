@@ -56,11 +56,10 @@
   </td>
   <td>
 
+    <% vjas.footnotes.each do |footnote| %>
+      <li><%= footnote.code %> : <%= footnote.label %></li>
+    <% end %>
 
-    <%= parent_form.input vjas.footnote_tokens, :label => t('.footnotes'), :as => :search_footnote,
-    :json => referential_autocomplete_footnotes_path(@referential, :format => :json),
-    :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),
-    :searching_text => t('searching_term'),  :input_html => { :"data-pre" => Rabl::Renderer.new( 'autocomplete_footnotes/index', vjas.footnotes, :view_path => 'app/views', :format => :json, :scope => :self ).render }  %>
-
+  
   </td>
 </tr>

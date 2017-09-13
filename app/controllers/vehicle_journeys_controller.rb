@@ -25,6 +25,7 @@ class VehicleJourneysController < ChouetteController
   end
 
   def update
+  #  update_footnote_on_vehicle_journey_at_stops
     update!(:alert => t('activerecord.errors.models.vehicle_journey.invalid_times'))
   end
 
@@ -80,14 +81,10 @@ class VehicleJourneysController < ChouetteController
     @matrix = resource_class.matrix(@vehicle_journeys)
   end
 
-  def update
-    update_footnote_on_stops_ids
-    update!
-  end
-
   ## updates StopPoint Footnotes on StopPoint
   # - this is done outside the regular update since JourneyPattern uses the stop_point change event mechanism
-  def update_footnote_on_stops_ids
+#DISABLED until editing works in GUI
+  def update_footnote_on_vehicle_journey_at_stops
     if params[:vehicle_journey_at_stops_attributes][:footnote_ids].present?
       params[:vehicle_journey_at_stops_attributes][:footnote_ids].each do |k, v|
         stop_point_id = v[:id]
