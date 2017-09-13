@@ -1,0 +1,7 @@
+<div class="page_info">
+  <span class="search"> <%= t("will_paginate.page_entries_info.search") %></span> <%= page_entries_info( @footnotes ) %>
+</div>
+<div class="footnotes paginated_content">
+   <%= paginated_content(@footnotes) %>
+</div>
+<%= render 'shared/paginate', { datas: @footnotes } %>

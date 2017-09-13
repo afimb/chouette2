@@ -9,7 +9,7 @@ module Chouette
     default_scope { where(journey_category: journey_categories[:timed]) }
 
     attr_accessor :transport_mode_name, :transport_submode, :recalculate_offset
-    attr_reader :time_table_tokens
+    attr_reader :time_table_tokens, :footnote_tokens
 
     def self.nullable_attributes
       [:transport_mode, :transport_submode_name, :published_journey_name, :vehicle_type_identifier, :published_journey_identifier, :comment, :status_value]
@@ -19,7 +19,7 @@ module Chouette
     belongs_to :route
     belongs_to :journey_pattern
 
-    has_and_belongs_to_many :footnotes, :class_name => 'Chouette::Footnote'
+    has_and_belongs_to_many :footnotes, :class_name => 'Chouette::Footnote', :foreign_key => "vehicle_journey_id", :association_foreign_key => "footnote_id"
 
     validates_presence_of :route
     validates_presence_of :journey_pattern
@@ -104,6 +104,12 @@ module Chouette
     def time_table_tokens=(ids)
       self.time_table_ids = ids.split(",")
     end
+
+    def footnote_tokens=(ids)
+      self.footnote_ids = ids.split(",")
+    end
+
+
     def bounding_dates
       dates = []
 

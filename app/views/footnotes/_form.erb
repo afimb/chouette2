@@ -1,0 +1,12 @@
+<%= semantic_form_for [@referential, @footnote] do |form| %>
+  <%= form.inputs do %>
+  <%= form.input :code %>
+  <%= form.input :label %>
+
+  <% end %>
+
+   <%= form.actions do %>
+     <%= form.action :submit, :as => :button %>
+     <%= form.action :cancel, :as => :link %>
+   <% end %>
+<% end %>

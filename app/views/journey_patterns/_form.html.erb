@@ -1,8 +1,9 @@
 <%= semantic_form_for [@referential, @line, @route, @journey_pattern, ] do |form| %>
-  <%= form.inputs do %> 
+  <%= form.inputs do %>
     <%= form.input :name, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.journey_pattern.name") } %>
     <%= form.input :published_name %>
-    <%= form.input :registration_number, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.journey_pattern.registration_number") } %>              
+    <%= form.input :registration_number, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.journey_pattern.registration_number") } %>
+    <%= form.input :footnote_tokens, :label => t('.footnotes'), :as => :search_footnote, :json => referential_autocomplete_footnotes_path(@referential, :format => :json), :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'),  :input_html => { :"data-pre" => Rabl::Renderer.new( 'autocomplete_footnotes/index', @journey_pattern.footnotes, :view_path => 'app/views', :format => :json, :scope => :self ).render }  %>
     <%= form.input :comment %>
 
     <label><%= stop_point_ids_label(@journey_pattern) %> </label>
@@ -20,6 +21,17 @@
           <% end %>
         <% end %>
       </div>
+      <div class="right">
+        <label class="footnote_label"><%= t('.footnotes') %></label>
+        <%= form.semantic_fields_for :footnote_ids do |dd| %>                            <!-- destination_display_ids hash (values below are nested into this fieldset)-->
+          <% @route.stop_points.each do |stop_point| %>
+            <%= dd.semantic_fields_for stop_point.id.to_s do |p| %>                                 <!-- id in destination_display_ids hash -->
+              <%= render "stop_points/stop_point_field_footnotes", :p => p, :stop_point => stop_point %>     <!-- fieldset/values (also a hash) on id -->
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+
     </div>
 
     <%= form.input :objectid, :required => !@journey_pattern.new_record?, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.journey_pattern.objectid") } %>
@@ -30,4 +42,3 @@
      <%= form.action :cancel, :as => :link %>
    <% end %>
 <% end %>
-

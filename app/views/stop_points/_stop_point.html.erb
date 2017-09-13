@@ -41,5 +41,16 @@
         <span class="label label-default line"><%= stop_point.destination_display.front_text %></span>
       <% end %>
     </p>
+    <p>
+  <%= t('.footnotes') %>
+  <% unless stop_point.footnotes.nil? %>
+
+      <% stop_point.footnotes.each do |footnote| %>
+        <span class="label label-default line"><%= footnote.label %></span>
+      <% end %>
+
+
+  <% end %>
+</p>
   </div>
 </div>
