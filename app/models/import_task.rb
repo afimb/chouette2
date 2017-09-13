@@ -121,7 +121,7 @@ class ImportTask
     @saved_resources_path ||= "#{root}/#{Time.now.to_i}#{file_extname}"
   end
 
-  @@maximum_file_size = 80.megabytes
+  @@maximum_file_size = 200.megabytes
   cattr_accessor :maximum_file_size
 
   def validate_file_size
