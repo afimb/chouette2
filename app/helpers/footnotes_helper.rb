@@ -1,0 +1,2 @@
+module FootnotesHelper
+end

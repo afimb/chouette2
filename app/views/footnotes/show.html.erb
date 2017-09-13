@@ -1,0 +1,26 @@
+<%= title_tag t('footnotes.show.title', :footnote => @footnote.label) %>
+
+<div class="footnote_show">
+
+  <div class="summary">
+    <p>
+      <label><%= Chouette::Footnote.human_attribute_name("label") %>: </label>
+      <%= @footnote.label %>
+    </p>
+    <p>
+      <label><%= Chouette::Footnote.human_attribute_name("code") %>: </label>
+      <%= @footnote.code %>
+    </p>
+
+  </div>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('footnotes.actions.new'), new_referential_footnote_path(@referential), :class => "add" %></li>
+  <li><%= link_to t('footnotes.actions.edit'), edit_referential_footnote_path(@referential, @footnote), :class => "edit" %></li>
+  <li><%= link_to  t('footnotes.actions.destroy'), referential_footnote_path(@referential, @footnote), :method => :delete,  :data => {:confirm =>  t('footnotes.actions.destroy_confirm')}, :class => "remove" %></li>
+  <br>
+</ul>
+  <%= creation_tag(@footnote) %>
+<% end %>

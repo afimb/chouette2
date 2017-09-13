@@ -29,6 +29,7 @@ class JourneyPatternsController < ChouetteController
 
   def update
     update_destination_display_ids
+    update_footnote_ids
     update!
   end
 
@@ -54,6 +55,19 @@ class JourneyPatternsController < ChouetteController
     end
   end
 
+  ## updates StopPoint Footnotes on StopPoint
+  # - this is done outside the regular update since JourneyPattern uses the stop_point change event mechanism
+  def update_footnote_ids
+    if params[:journey_pattern][:footnote_ids].present?
+      params[:journey_pattern][:footnote_ids].each do |k, v|
+        stop_point_id = v[:stop_point_id]
+        footnote_tokens = v[:footnote_tokens].split(",")
+        Chouette::StopPoint.find(stop_point_id).footnote_ids = footnote_tokens
+      end
+    end
+  end
+
+
   def new_vehicle_journey
     @vehicle_journey = Chouette::VehicleJourney.new(:route_id => route.id)
     @vehicle_journey.update_journey_pattern(resource)
@@ -73,10 +87,11 @@ class JourneyPatternsController < ChouetteController
   end
 
 
+
   private
 
   def journey_pattern_params
-    params.require(:journey_pattern).permit(:route_id, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :registration_number, :published_name, :departure_stop_point_id, :arrival_stop_point_id, {:stop_point_ids => [], :destination_display_ids => {}})
+    params.require(:journey_pattern).permit(:route_id, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :registration_number, :published_name, :departure_stop_point_id, :arrival_stop_point_id, :stop_point_ids, :destination_display_ids, :footnote_ids, :footnote_tokens)
   end
 
 end

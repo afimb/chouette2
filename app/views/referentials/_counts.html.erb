@@ -60,6 +60,13 @@
       <% end %>
     </li>
     <li class="list-group-item">
+      <span class="badge"><%= @referential.footnotes.size %></span>
+      <%= link_to referential_footnotes_path(@referential) do  %>
+      <%= Referential.human_attribute_name("footnotes") %>
+      <% end %>
+    </li>
+
+    <li class="list-group-item">
       <span class="badge"><%= @referential.codespaces.size %></span>
       <%= link_to referential_codespaces_path(@referential) do  %>
           <%= Referential.human_attribute_name("codespaces") %>

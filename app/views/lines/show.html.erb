@@ -90,17 +90,18 @@
 	    (@line.vehicle_journeys.where("flexible_service = ?", true).count +
 	    @line.vehicle_journeys.where("flexible_service = ?", false).count) %>
     </p>
-    <p>
-      <label><%= @line.human_attribute_name("footnotes") %>: </label>
-      <ul>
-        <% @line.footnotes.each do |footnote| %>
-        <li><%= footnote.code %> : <%= footnote.label %></li>
-      <% end %>
-      </ul>
-    </p>
+
     <p>
       <label><%= @line.human_attribute_name("comment") %>: </label>
       <%= @line.comment %>
+    </p>
+    <p>
+      <label><%= @line.human_attribute_name("footnote") %>: </label>
+    <ul>
+      <% @line.footnotes.each do |footnote| %>
+        <li><%= footnote.code %> : <%= footnote.label %></li>
+      <% end %>
+    </ul>
     </p>
   </div>
 

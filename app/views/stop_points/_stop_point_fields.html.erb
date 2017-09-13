@@ -3,5 +3,3 @@
   <%= p.input :destination_display_id, :label => false, :as => :search_destination_display, :json => referential_autocomplete_destination_displays_path(@referential, :format => :json), :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'), :tokenLimit => 1, :input_html => { :class => "destination_display", :"data-pre" => Rabl::Renderer.new('autocomplete_destination_displays/index', [stop_point.destination_display].compact, :view_path => 'app/views', :format => :json, :scope => self ).render } %>
 
 <% end %>
-
-

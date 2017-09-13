@@ -5,6 +5,7 @@
       <th class="hour title"><%= t('vehicle_journeys.show.arrival') %></th>
       <th class="stop title" ><%= t('vehicle_journeys.show.stop_title') %></th>
       <th class="hour title"><%= t('vehicle_journeys.show.departure') %></th>
+      <th class="hour title"><%= t('vehicle_journeys.show.footnotes') %></th>
     </tr>
     <thead>
     <tbody>
@@ -18,6 +19,11 @@
         <td class="hour <%= vjas.departure_time.nil? ? "missing" : "" %>">
           <%= vjas.departure_time ? l( vjas.departure_time, :format => :hour) : "" %>
           <%= "#{t('day')[0]}+#{vjas.departure_day_offset}" if vjas.departure_day_offset > 0 %>
+        </td>
+        <td>
+          <% vjas.footnotes.each do |footnote| %>
+            <li><%= footnote.code %> : <%= footnote.label %></li>
+          <% end %>
         </td>
       </tr>
     <% end %>

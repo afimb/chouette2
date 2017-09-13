@@ -58,6 +58,7 @@ ChouetteIhm::Application.routes.draw do
     resources :autocomplete_route_sections
     resources :autocomplete_timebands
     resources :autocomplete_destination_displays
+    resources :autocomplete_footnotes
     resources :group_of_lines do
       collection do
         get 'name_filter'
@@ -154,6 +155,7 @@ ChouetteIhm::Application.routes.draw do
     end
 
     resources :timebands
+    resources :footnotes
 
     resources :access_points do
        resources :access_links
