@@ -7,7 +7,8 @@ class MakeFootnotesTridentActiveRecord < ActiveRecord::Migration
     remove_column :footnotes, :updated_at
     remove_column :footnotes, :line_id
     execute <<-SQL
-      update footnotes set object_version = 1, objectid = concat('XXX:Notice:',id)
+      select prefix into temporary prefix_table_footnotes from public.referentials where slug = current_schema();
+      update footnotes set object_version = 1, objectid = concat((select prefix from prefix_table_footnotes limit 1),':Notice:',id);
     SQL
     change_column :footnotes, :objectid, :string, null: false
     add_index "footnotes", ["objectid"], :name => "footnotes_objectid_key", :unique => true

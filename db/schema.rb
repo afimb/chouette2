@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911175632) do
+ActiveRecord::Schema.define(version: 20170914062945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -180,11 +180,10 @@ ActiveRecord::Schema.define(version: 20170911175632) do
   end
 
   create_table "footnotes", id: :bigserial, force: :cascade do |t|
-    t.integer  "line_id",        limit: 8
     t.string   "code"
     t.string   "label"
     t.datetime "creation_time"
-    t.string   "objectid",                 null: false
+    t.string   "objectid",       null: false
     t.integer  "object_version"
     t.string   "creator_id"
   end
@@ -343,6 +342,10 @@ ActiveRecord::Schema.define(version: 20170911175632) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "data_format", default: "neptune"
+  end
+
+  create_table "prefix_table", id: false, force: :cascade do |t|
+    t.string "prefix"
   end
 
   create_table "pt_links", id: :bigserial, force: :cascade do |t|
@@ -582,18 +585,23 @@ ActiveRecord::Schema.define(version: 20170911175632) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "vehicle_journey_at_stops", id: :bigserial, force: :cascade do |t|
-    t.integer "vehicle_journey_id",             limit: 8
-    t.integer "stop_point_id",                  limit: 8
-    t.string  "connecting_service_id"
-    t.string  "boarding_alighting_possibility"
-    t.time    "arrival_time"
-    t.time    "departure_time"
-    t.string  "for_boarding"
-    t.string  "for_alighting"
-    t.integer "arrival_day_offset",                       default: 0, null: false
-    t.integer "departure_day_offset",                     default: 0, null: false
+    t.integer  "vehicle_journey_id",             limit: 8
+    t.integer  "stop_point_id",                  limit: 8
+    t.string   "connecting_service_id"
+    t.string   "boarding_alighting_possibility"
+    t.time     "arrival_time"
+    t.time     "departure_time"
+    t.string   "for_boarding"
+    t.string   "for_alighting"
+    t.integer  "arrival_day_offset",                       default: 0, null: false
+    t.integer  "departure_day_offset",                     default: 0, null: false
+    t.string   "objectid"
+    t.integer  "object_version"
+    t.string   "creator_id"
+    t.datetime "creation_time"
   end
 
+  add_index "vehicle_journey_at_stops", ["objectid"], name: "vehicle_journey_at_stops_objectid_key", unique: true, using: :btree
   add_index "vehicle_journey_at_stops", ["stop_point_id"], name: "index_vehicle_journey_at_stops_on_stop_pointid", using: :btree
   add_index "vehicle_journey_at_stops", ["vehicle_journey_id"], name: "index_vehicle_journey_at_stops_on_vehicle_journey_id", using: :btree
 
