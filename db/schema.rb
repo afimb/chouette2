@@ -212,7 +212,6 @@ ActiveRecord::Schema.define(version: 20170911175632) do
   end
 
   create_table "footnotes", id: :bigserial, force: :cascade do |t|
-
     t.integer  "line_id",        limit: 8
     t.string   "code"
     t.string   "label"
@@ -299,9 +298,11 @@ ActiveRecord::Schema.define(version: 20170911175632) do
     t.integer  "to_visit_number"
   end
 
+  add_index "interchanges", ["from_point"], name: "interchanges_from_point_key", using: :btree
   add_index "interchanges", ["from_vehicle_journey"], name: "interchanges_from_vehicle_journey_key", using: :btree
   add_index "interchanges", ["objectid"], name: "interchanges_objectid_key", unique: true, using: :btree
   add_index "interchanges", ["objectid"], name: "interchanges_to_vehicle_journey_key", using: :btree
+  add_index "interchanges", ["to_point"], name: "interchanges_to_poinnt_key", using: :btree
 
   create_table "journey_frequencies", id: :bigserial, force: :cascade do |t|
     t.integer  "vehicle_journey_id",         limit: 8
@@ -543,8 +544,8 @@ ActiveRecord::Schema.define(version: 20170911175632) do
   end
 
   create_table "stop_points", id: :bigserial, force: :cascade do |t|
-    t.integer  "route_id",               limit: 8
-    t.string   "objectid",                         null: false
+    t.integer  "route_id",                limit: 8
+    t.string   "objectid",                          null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
