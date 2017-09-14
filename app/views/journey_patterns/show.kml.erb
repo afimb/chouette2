@@ -11,9 +11,9 @@
       <Placemark id="<%= stop_point.stop_area.id %>" >
         <name><%= "#{stop_name(stop_point)} (#{index+1})" %></name>
         <stop><%= @journey_pattern.stop_points.include?( stop_point) ? "true" : "false" %></stop>
-        <% if stop_point.stop_area.objectid == @journey_pattern.stop_points.map(&:stop_area_objectid_key).first %>
+        <% if stop_point.stop_area.objectid == @journey_pattern.stop_points.collect(&:scheduled_stop_point).flatten.map(&:stop_area_objectid_key).first %>
         <departure>true</departure>
-        <% elsif stop_point.stop_area.objectid == @journey_pattern.stop_points.map(&:stop_area_objectid_key).last %>
+        <% elsif stop_point.stop_area.objectid == @journey_pattern.stop_points.collect(&:scheduled_stop_point).flatten.map(&:stop_area_objectid_key).last %>
         <arrival>true</arrival>
         <% end %>
         <iconCode><%= icon_code(stop_point, @journey_pattern)%></iconCode>

@@ -87,7 +87,7 @@ class Chouette::Route < Chouette::TridentActiveRecord
   end
 
   def geometry_jp(journey_pattern)
-    jp_stop_areas_object_ids = journey_pattern.stop_points.map(&:stop_area_objectid_key)
+    jp_stop_areas_object_ids = journey_pattern.stop_points.collect(&:scheduled_stop_point).flatten.map(&:stop_area_objectid_key)
     points = stop_areas.select{|sa| jp_stop_areas_object_ids.include?(sa.objectid)}.map(&:to_lat_lng).compact.map do |loc|
       [loc.lng, loc.lat]
     end
