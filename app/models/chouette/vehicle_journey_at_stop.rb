@@ -1,5 +1,5 @@
 module Chouette
-  class VehicleJourneyAtStop < ActiveRecord
+  class VehicleJourneyAtStop < TridentActiveRecord
     include ForBoardingEnumerations
     include ForAlightingEnumerations
 
@@ -20,6 +20,11 @@ module Chouette
         errors.add(:arrival_time, I18n.t("activerecord.errors.models.vehicle_journey_at_stop.arrival_must_be_before_departure"))
       end
     end
+
+    def self.object_id_key
+      "TimetabledPassingTime"
+    end
+
 
     def footnote_tokens=(ids)
       self.footnote_ids = ids.split(",")
