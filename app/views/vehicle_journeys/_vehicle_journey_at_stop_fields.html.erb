@@ -1,4 +1,5 @@
 <%
+
   vjas = vehicle_journey_at_stop
   tab_counter_arrival = 2 * vehicle_journey_at_stop_counter + 100
   tab_counter_departure = (vehicle_journey_at_stops_size * 2) + 2 * vehicle_journey_at_stop_counter + 100
@@ -52,5 +53,13 @@
                         prefix: class_name,
                         field_name: "vehicle_journey_at_stops_attributes[#{vehicle_journey_at_stop_counter}][departure_time(5i)]"
                     }, class: 'minute', tabindex: tab_counter_departure + 3) %>
+  </td>
+  <td>
+
+    <% vjas.footnotes.each do |footnote| %>
+      <li><%= footnote.code %> : <%= footnote.label %></li>
+    <% end %>
+
+  
   </td>
 </tr>

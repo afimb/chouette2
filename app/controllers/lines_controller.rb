@@ -96,7 +96,7 @@ class LinesController < ChouetteController
     :transport_mode_name, :transport_submode_name, :registration_number, :comment,
     :mobility_restricted_suitability, :int_user_needs, :flexible_service, :group_of_lines,
     :group_of_line_ids, :group_of_line_tokens, :url, :color, :text_color, :stable_id,
-    { footnotes_attributes: [ :code, :label, :_destroy, :id ] } )
+    :footnote_ids, :footnote_tokens )
   end
 
 end

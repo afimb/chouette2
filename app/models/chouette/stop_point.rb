@@ -17,6 +17,9 @@ module Chouette
 
     validates_presence_of :scheduled_stop_point
     validate :scheduled_stop_point_id_validation
+    has_and_belongs_to_many :footnotes, :class_name => 'Chouette::Footnote', :foreign_key => "stop_point_id", :association_foreign_key => "footnote_id"
+
+    attr_reader :footnote_tokens
 
     scope :default_order, -> { order("position") }
 
@@ -49,6 +52,11 @@ module Chouette
       self.destination_display = id.nil? ? nil : Chouette::DestinationDisplay.find(id)
       save
     end
+
+    def footnote_tokens=(ids)
+      self.footnotes_ids = ids.split(",")
+    end
+
 
   end
 end

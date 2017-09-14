@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170904174203) do
+ActiveRecord::Schema.define(version: 20170911175632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -212,12 +212,48 @@ ActiveRecord::Schema.define(version: 20170904174203) do
   end
 
   create_table "footnotes", id: :bigserial, force: :cascade do |t|
-    t.integer  "line_id",    limit: 8
+    t.integer  "line_id",        limit: 8
     t.string   "code"
     t.string   "label"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "creation_time"
+    t.string   "objectid",                 null: false
+    t.integer  "object_version"
+    t.string   "creator_id"
   end
+
+  add_index "footnotes", ["objectid"], name: "footnotes_objectid_key", unique: true, using: :btree
+
+  create_table "footnotes_journey_patterns", id: false, force: :cascade do |t|
+    t.integer "journey_pattern_id"
+    t.integer "footnote_id"
+  end
+
+  add_index "footnotes_journey_patterns", ["footnote_id"], name: "footnotes_id_journey_patterns_id_idx", using: :btree
+  add_index "footnotes_journey_patterns", ["journey_pattern_id"], name: "footnotes_journey_patterns_id_idx", using: :btree
+
+  create_table "footnotes_lines", id: false, force: :cascade do |t|
+    t.integer "line_id"
+    t.integer "footnote_id"
+  end
+
+  add_index "footnotes_lines", ["footnote_id"], name: "footnotes_footnote_line_id_idx", using: :btree
+  add_index "footnotes_lines", ["line_id"], name: "footnotes_line_id_idx", using: :btree
+
+  create_table "footnotes_stop_points", id: false, force: :cascade do |t|
+    t.integer "stop_point_id"
+    t.integer "footnote_id"
+  end
+
+  add_index "footnotes_stop_points", ["footnote_id"], name: "footnotes_stop_point_id_idx", using: :btree
+  add_index "footnotes_stop_points", ["stop_point_id"], name: "stop_point_id_idx", using: :btree
+
+  create_table "footnotes_vehicle_journey_at_stops", id: false, force: :cascade do |t|
+    t.integer "vehicle_journey_at_stop_id"
+    t.integer "footnote_id"
+  end
+
+  add_index "footnotes_vehicle_journey_at_stops", ["footnote_id"], name: "footnotes_vehicle_journey_at_stop_id_idx", using: :btree
+  add_index "footnotes_vehicle_journey_at_stops", ["vehicle_journey_at_stop_id"], name: "vehicle_journey_at_stop_id_idx", using: :btree
 
   create_table "footnotes_vehicle_journeys", id: false, force: :cascade do |t|
     t.integer "vehicle_journey_id", limit: 8
@@ -262,9 +298,11 @@ ActiveRecord::Schema.define(version: 20170904174203) do
     t.integer  "to_visit_number"
   end
 
+  add_index "interchanges", ["from_point"], name: "interchanges_from_point_key", using: :btree
   add_index "interchanges", ["from_vehicle_journey"], name: "interchanges_from_vehicle_journey_key", using: :btree
   add_index "interchanges", ["objectid"], name: "interchanges_objectid_key", unique: true, using: :btree
   add_index "interchanges", ["objectid"], name: "interchanges_to_vehicle_journey_key", using: :btree
+  add_index "interchanges", ["to_point"], name: "interchanges_to_poinnt_key", using: :btree
 
   create_table "journey_frequencies", id: :bigserial, force: :cascade do |t|
     t.integer  "vehicle_journey_id",         limit: 8
@@ -506,8 +544,8 @@ ActiveRecord::Schema.define(version: 20170904174203) do
   end
 
   create_table "stop_points", id: :bigserial, force: :cascade do |t|
-    t.integer  "route_id",               limit: 8
-    t.string   "objectid",                         null: false
+    t.integer  "route_id",                limit: 8
+    t.string   "objectid",                          null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"

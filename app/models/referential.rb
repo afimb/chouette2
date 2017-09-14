@@ -105,9 +105,13 @@ class Referential < ActiveRecord::Base
   def destination_displays
     Chouette::DestinationDisplay.all
   end
-  
+
   def interchanges
     Chouette::Interchange.all
+  end
+  
+  def footnotes
+    Chouette::Footnote.all
   end
 
   def time_zone_tzinfo

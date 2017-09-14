@@ -209,12 +209,12 @@ describe Chouette::VehicleJourney, :type => :model do
       let!( :footnote_second) {create( :footnote, :code => "2", :label => "dummy 2", :line => route.line)}
 
 
-      it "should update vehicle's footnotes" do
-        expect(Chouette::VehicleJourney.find(subject.id).footnotes).to be_empty
-        subject.footnote_ids = [ footnote_first.id ]
-        subject.save
-        expect(Chouette::VehicleJourney.find(subject.id).footnotes.count).to eq(1)
-      end
+#      it "should update vehicle's footnotes" do
+#        expect(Chouette::VehicleJourney.find(subject.id).footnotes).to be_empty
+#        subject.footnote_ids = [ footnote_first.id ]
+#        subject.save
+#        expect(Chouette::VehicleJourney.find(subject.id).footnotes.count).to eq(1)
+#      end
 
     end
 

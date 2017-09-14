@@ -1,0 +1,72 @@
+<%= title_tag t('footnotes.show.title', :footnote => @footnote.label) %>
+
+<div class="footnote_show">
+
+  <div class="summary">
+    <p>
+      <label><%= Chouette::Footnote.human_attribute_name("label") %>: </label>
+      <%= @footnote.label %>
+    </p>
+    <p>
+      <label><%= Chouette::Footnote.human_attribute_name("code") %>: </label>
+      <%= @footnote.code %>
+    </p>
+    <p>
+      <label><%= Chouette::Footnote.human_attribute_name("lines") %></label>
+      <ul>
+      <% @footnote.lines.each do |line| %>
+        <li><%= link_to line.name, referential_line_path(@referential,line) %></li>
+      <% end %>
+      </ul>
+    </p>
+    <p>
+      <label><%= Chouette::Footnote.human_attribute_name("vehicle_journeys") %></label>
+      <ul>
+      <% @footnote.vehicle_journeys.each do |vehicle_journey| %>
+      <!-- TODO use better name for vehicle journey -->
+        <li><%= link_to vehicle_journey.objectid, referential_line_route_vehicle_journey_path(@referential,vehicle_journey.route.line, vehicle_journey.route, vehicle_journey) %></li>
+      <% end %>
+      </ul>
+    </p>
+
+    <p>
+      <label><%= Chouette::Footnote.human_attribute_name("journey_patterns") %></label>
+      <ul>
+        <!-- TODO use journey name if available -->
+      <% @footnote.journey_patterns.each do |journey_pattern| %>
+        <li><%= link_to journey_pattern.objectid, referential_line_route_journey_pattern_path(@referential,journey_pattern.route.line, journey_pattern.route, journey_pattern) %></li>
+      <% end %>
+      </ul>
+    </p>
+
+    <p>
+      <label><%= Chouette::Footnote.human_attribute_name("stop_points") %></label>
+      <ul>
+      <% @footnote.stop_points.each do |stop_point| %>
+        <!-- TODO use stop area name if available -->
+        <li><%= link_to stop_point.route.objectid, referential_line_route_path(@referential,stop_point.route.line, stop_point.route) %></li>
+      <% end %>
+      </ul>
+    </p>
+
+    <p>
+      <label><%= Chouette::Footnote.human_attribute_name("vehicle_journey_at_stops") %></label>
+      <ul>
+      <% @footnote.vehicle_journey_at_stops.each do |vehicle_journey_at_stop| %>
+        <!-- TODO use stop area name if available -->
+        <li><%= link_to vehicle_journey_at_stop.vehicle_journey.objectid, referential_line_route_vehicle_journey_path(@referential,vehicle_journey_at_stop.vehicle_journey.route.line, vehicle_journey_at_stop.vehicle_journey.route, vehicle_journey_at_stop.vehicle_journey) %></li>
+      <% end %>
+      </ul>
+    </p>
+  </div>
+</div>
+
+<% content_for :sidebar do %>
+<ul class="actions">
+  <li><%= link_to t('footnotes.actions.new'), new_referential_footnote_path(@referential), :class => "add" %></li>
+  <li><%= link_to t('footnotes.actions.edit'), edit_referential_footnote_path(@referential, @footnote), :class => "edit" %></li>
+  <li><%= link_to  t('footnotes.actions.destroy'), referential_footnote_path(@referential, @footnote), :method => :delete,  :data => {:confirm =>  t('footnotes.actions.destroy_confirm')}, :class => "remove" %></li>
+  <br>
+</ul>
+  <%= creation_tag(@footnote) %>
+<% end %>

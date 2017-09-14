@@ -80,6 +80,10 @@
                   <span class="badge pull-right"><%= @referential.destination_displays.size %></span><%= Referential.human_attribute_name("destination_displays") %>
               <% end %>
             </li>
+            <li><%= link_to referential_footnotes_path(@referential) do %>
+                <span class="badge pull-right"><%= @referential.footnotes.size %></span><%= Referential.human_attribute_name("footnotes") %>
+              <% end %>
+            </li>
           </ul>
         </li>
         <% if policy(:application).write? %>
