@@ -2,7 +2,6 @@ class Chouette::Footnote < Chouette::TridentActiveRecord
   self.primary_key = "id"
 
   validates_presence_of :label
-  validates_presence_of :code
 
   has_and_belongs_to_many :lines, :class_name => 'Chouette::Line'
   has_and_belongs_to_many :journey_patterns, :class_name => 'Chouette::JourneyPattern'
