@@ -54,6 +54,7 @@ ChouetteIhm::Application.routes.draw do
   resources :referentials do
     resources :api_keys
     resources :autocomplete_stop_areas
+    resources :autocomplete_scheduled_stop_points
     resources :autocomplete_time_tables
     resources :autocomplete_route_sections
     resources :autocomplete_timebands

@@ -57,6 +57,40 @@ module Chouette
       self.footnotes_ids = ids.split(",")
     end
 
+    # For referring to either an existing scheduled stop point or create a new from stop area reference from UI.
+    # Probably not the best way to solve this...
+
+    def scheduled_stop_point_id_or_stop_area_objectid_key
+
+      if (scheduled_stop_point_id || stop_area)
+        if (stop_area)
+          stop_area_objectid=stop_area.object_id
+        end
+        [scheduled_stop_point_id, stop_area_objectid].join(',')
+      end
+    end
+
+    def scheduled_stop_point_id_or_stop_area_objectid_key=(data)
+      split=data.split(',')
+      if (split.first && !split.first.empty?)
+        self.scheduled_stop_point=Chouette::ScheduledStopPoint.find(split.first)
+      else
+        self.scheduled_stop_point= Chouette::ScheduledStopPoint.new(:stop_area_objectid_key => split.last)
+      end
+    end
+
+    def scheduled_stop_point_name
+      if (scheduled_stop_point)
+        scheduled_stop_point.name
+      end
+    end
+
+    def scheduled_stop_point_name=(name)
+      if (scheduled_stop_point)
+        scheduled_stop_point.name = name
+      end
+    end
 
   end
+
 end
