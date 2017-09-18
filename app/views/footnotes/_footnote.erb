@@ -14,7 +14,7 @@
       <h5>
         <%= link_to([@referential, footnote], :class => "preview", :title => "#{footnote.code}") do %>
         <span class="xmlns">
-          <%= footnote.code %>
+          <%= if footnote.code.nil? or footnote.code == '' then footnote.objectid else footnote.code end %>
         </span>
         <% end %>
       </h5>
