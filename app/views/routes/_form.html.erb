@@ -76,7 +76,7 @@ $(document).ready( function() {
 
     var new_stop_count = $('div.nested-fields.stop_point').size();
     // cocoonId seem to be generated automatically (by jQuery?) and is replaced with index in route.stop_points array
-    var cocoonId = insertedItem.find("input.new_stop_point").attr("id").match( /route_stop_points_attributes_(\d+)_stop_area_objectid_key/)[1];
+    var cocoonId = insertedItem.find("input.new_stop_point").attr("id").match( /route_stop_points_attributes_(\d+)_scheduled_stop_point_id_or_stop_area_objectid_key/)[1];
     insertedItem.find('input').each( function(index,e){
       var old = $(e).attr("name");
       if (old!=undefined) {
