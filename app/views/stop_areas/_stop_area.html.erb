@@ -4,7 +4,7 @@
       <h5>
         <%= link_to([@referential, stop_area], :class => "preview", :title => t("area_types.label.#{stop_area.stop_area_type}") + " #{stop_area.name}") do %>
         <span class="name">
-          <%= image_tag "map/" + stop_area.stop_area_type + ".png"   %> <%= stop_area.name %>
+          <%= image_tag "map/" + stop_area.stop_area_type + ".png"   %> <%= (stop_area.name.nil? ? stop_area.objectid : stop_area.name) %>
         </span>
         <% end %>
       </h5>
@@ -17,12 +17,18 @@
       <% end %>
     </p>
     <p>
+      <%= stop_area.human_attribute_name('objectid') %> : <%= stop_area.objectid %>
+    </p>
+    <p>
+    	<%= stop_area.human_attribute_name('transport_mode') %> <%=  stop_area.transport_mode_name %> / <%=  stop_area.transport_sub_mode_name %> 
+    </p>
+    <p>
       <%= stop_area.human_attribute_name('registration_number') %> : <%= stop_area.registration_number.present? ? stop_area.registration_number : t(".no_object") %>
     </p>
-    <p>
+<!--    <p>
       <%=  t('.address') %> : <%= (stop_area.zip_code.present? || stop_area.city_name.present?) ? "#{stop_area.zip_code} #{stop_area.city_name}"  : t(".no_object") %>
     </p>
-    <p>
+-->    <p>
       <% if stop_area.area_type == 'ITL' %>
       <%=  t('.lines') %> : <% if stop_area.routing_lines.blank? %>
           <%= t(".no_object") %>

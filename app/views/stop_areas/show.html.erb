@@ -1,4 +1,4 @@
-<%= title_tag  @stop_area.name %>
+<%= title_tag (@stop_area.name.nil? ? @stop_area.objectid : @stop_area.name) %>
 
 <div class="stop_area_show">
   <% if show_map? %>
@@ -42,11 +42,11 @@
       <label><%= @stop_area.human_attribute_name("url") %>: </label>
       <%= @stop_area.url %>
     </p>
+    -->
     <p>
       <label><%= @stop_area.human_attribute_name("registration_number") %>: </label>
       <%= @stop_area.registration_number %>
     </p>
-    -->
     <p>
       <label><%= @stop_area.human_attribute_name("stop_area_type") %>: </label>
       <%= t("area_types.label.#{@stop_area.stop_area_type}") %>
