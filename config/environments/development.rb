@@ -67,7 +67,7 @@ Rails.application.configure do
 
   # Rutebanken
   config.company_name = "Entur"
-  config.company_theme = "#6BBDC2" # Entur color
+  config.company_theme = "#5AC39A" # Entur color
   config.company_contact = "http://www.entur.org/kontakt/"
   config.accept_user_creation = false
 

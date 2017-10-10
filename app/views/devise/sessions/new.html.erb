@@ -1,6 +1,6 @@
 <div id="sessions_new" class="row">
   <%= render 'devise/shared/intro' %>
-  <div class="col-md-4 login">
+  <div class="login">
     <div class="panel panel-default">
       <div class="panel-body">
         <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :wrapper => "form_without_label", html: { :class => 'form-horizontal session_new' } ) do |form| %>

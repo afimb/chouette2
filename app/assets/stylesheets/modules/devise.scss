@@ -36,9 +36,19 @@
                     font-weight: bold;
                 }
 
+                .welcome-splash {
+                    font-size: 3em;
+                    text-align: center;
+                    width: 40%;
+                    margin: auto;
+                    color: #fff;
+                    border: 3px solid #5AC39A;
+                    background-color: rgba(39, 58, 70, 0.9);
+                    border-radius: 15px;
+                }
+
                 .product_summary{
                     padding: 30px 30px 0 30px;
-
                     color: white;
                     text-shadow: 0 0 1px rgba(0,0,0,.6);
                     background-color: rgba(39, 58, 70, 0.9);
@@ -54,6 +64,9 @@
 
                 .login{
                     padding-top: 30px;
+                    margin: auto;
+                    width: 40%;
+                    max-width: 40%;
 
                     .form-group{
                         margin-bottom: 5px;
