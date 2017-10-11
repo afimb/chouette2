@@ -11,8 +11,36 @@
         margin-top: 25px;
     }
 
+  .journey-pattern-form input {
+    min-width: 400px;
+  }
+
   .stop-points {
     display: flex;
+    justify-content: space-between;
+    margin: auto;
+
+    .stop-points-row {
+      display: flex;
+      align-items: center;
+      border: 1px solid #eee;
+      padding-right: 10px;
+      padding-top: 5px;
+
+      .left {
+        flex: 1;
+        margin-left: 20px;
+      }
+
+      .middle {
+        flex: 4;
+      }
+
+      .right {
+        margin-left: 10px;
+        padding-left: 10px;
+      }
+    }
 
     .left {
       flex: 2;

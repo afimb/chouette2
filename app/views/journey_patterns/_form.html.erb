@@ -1,44 +1,47 @@
+<div class="journey-pattern-form">
 <%= semantic_form_for [@referential, @line, @route, @journey_pattern, ] do |form| %>
   <%= form.inputs do %>
-    <%= form.input :name, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.journey_pattern.name") } %>
+    <%= form.input :name, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.journey_pattern.name") } %>
     <%= form.input :published_name %>
     <%= form.input :registration_number, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.journey_pattern.registration_number") } %>
     <%= form.input :footnote_tokens, :label => t('.footnotes'), :as => :search_footnote, :json => referential_autocomplete_footnotes_path(@referential, :format => :json), :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'),  :input_html => { :"data-pre" => Rabl::Renderer.new( 'autocomplete_footnotes/index', @journey_pattern.footnotes, :view_path => 'app/views', :format => :json, :scope => :self ).render }  %>
     <%= form.input :comment %>
-
     <label><%= stop_point_ids_label(@journey_pattern) %> </label>
     <div class="stop-points">
-      <div class="left">
-        <%= form.input :stop_point_ids, :label => false, :as => :check_boxes, :collection => @route.stop_points.map { |s| [stop_name(s), s.id.to_s]}, :input_html => (@journey_pattern.new_record? ? { :checked => 'checked' }:{}) %>
-      </div>
-      <div class="right">
-        <label class="destination_display_label"><%= t('.destination_displays') %></label>
-        <%= form.semantic_fields_for :destination_display_ids do |dd| %>                            <!-- destination_display_ids hash (values below are nested into this fieldset)-->
-          <% @route.stop_points.each do |stop_point| %>
-            <%= dd.semantic_fields_for stop_point.id.to_s do |p| %>                                 <!-- id in destination_display_ids hash -->
-              <%= render "stop_points/stop_point_fields", :p => p, :stop_point => stop_point %>     <!-- fieldset/values (also a hash) on id -->
-            <% end %>
+      <div>
+      <% @route.stop_points.each do |stop_point| %>
+      <div class="stop-points-row">
+         <div class="left">
+            <%= check_box(stop_name(stop_point), stop_point.id, {checked: @journey_pattern.new_record? ? true : stop_point.destination_display_id.present? }) %>
+            <label for=stop_point.id>
+               <%= stop_name(stop_point) %>
+            </label>
+         </div>
+         <div class="middle">
+          <label class="destination_display_label"><%= t('.destination_displays') %></label>
+          <%= form.semantic_fields_for :destination_display_ids do |dd| %>                            <!-- destination_display_ids hash (values below are nested into this fieldset)-->
+              <%= dd.semantic_fields_for stop_point.id.to_s do |p| %>                                 <!-- id in destination_display_ids hash -->
+                <%= render "stop_points/stop_point_fields", :p => p, :stop_point => stop_point %>     <!-- fieldset/values (also a hash) on id -->
+              <% end %>
           <% end %>
-        <% end %>
+         </div>
+         <div class="right">
+             <%= form.semantic_fields_for :footnote_ids do |dd| %>                            <!-- destination_display_ids hash (values below are nested into this fieldset)-->
+                 <%= dd.semantic_fields_for stop_point.id.to_s do |p| %>                                 <!-- id in destination_display_ids hash -->
+                   <%= render "stop_points/stop_point_field_footnotes", :p => p, :stop_point => stop_point %>     <!-- fieldset/values (also a hash) on id -->
+                 <% end %>
+             <% end %>
+         </div>
       </div>
-      <div class="right">
-        <label class="footnote_label"><%= t('.footnotes') %></label>
-        <%= form.semantic_fields_for :footnote_ids do |dd| %>                            <!-- destination_display_ids hash (values below are nested into this fieldset)-->
-          <% @route.stop_points.each do |stop_point| %>
-            <%= dd.semantic_fields_for stop_point.id.to_s do |p| %>                                 <!-- id in destination_display_ids hash -->
-              <%= render "stop_points/stop_point_field_footnotes", :p => p, :stop_point => stop_point %>     <!-- fieldset/values (also a hash) on id -->
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
-
+      <%end%>
     </div>
-
-    <%= form.input :objectid, :required => !@journey_pattern.new_record?, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.journey_pattern.objectid") } %>
   <% end %>
-
+    <div>
+        <%= form.input :objectid, :required => !@journey_pattern.new_record?, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.journey_pattern.objectid") } %>
+    </div>
    <%= form.actions do %>
      <%= form.action :submit, :as => :button %>
      <%= form.action :cancel, :as => :link %>
    <% end %>
 <% end %>
+</div>
