@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rutebanken/chouette-projects-i18n.git
-  revision: 35c861c0cb697cae87ff84e9d8d4b2b1a741d7f4
+  revision: a302dc505b5f888bae73e5b28c68486b14b40e72
   branch: master
   specs:
     chouette-projects-i18n (0.1.0)
