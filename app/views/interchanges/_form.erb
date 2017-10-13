@@ -1,26 +1,144 @@
+<div class="interchange-filter">
+    <div>
+        <label for="line_filter_feeder">Feeder ServiceJourney filter by line</label>
+        <select id="line_filter_feeder">
+          <option value="*">All</option>
+          <%= options_from_collection_for_select(Chouette::Line.all, 'id', 'name')  %>
+        </select>
+    </div>
+    <div>
+        <label for="line_filter_consumer">Consumer ServiceJourney filter by line</label>
+        <select id="line_filter_consumer">
+          <option value="*">All</option>
+          <%= options_from_collection_for_select(Chouette::Line.all, 'id', 'name')  %>
+        </select>
+    </div>
+</div>
 <%= semantic_form_for [@referential, @interchange] do |form| %>
-  <%= form.inputs do %>
-    <%= form.input :name %>
-    <%= form.input :priority %>
-    <%= form.input :planned %>
-    <%= form.input :guaranteed %>
-    <%= form.input :advertised %>
-    <%= form.input :stay_seated %>
-    <!-- TODO this field does not yet work -->
-    <%= form.input :maximum_wait_time%>
-    <!-- TODO this field does not yet work -->
-    <%= form.input :minimum_transfer_time%>
-    <!-- TODO feeder (from_ fiels) can also be external, must be able to specify manually -->
-    <%= form.input :from_vehicle_journey , :as => :select, :collection => Chouette::VehicleJourney.pluck(:objectid,:objectid), :include_blank => true%>
-    <%= form.input :from_point , :as => :select, :collection => Chouette::ScheduledStopPoint.pluck(:objectid,:objectid), :include_blank => true %>
-    <%= form.input :from_visit_number %>
-    <%= form.input :to_vehicle_journey , :as => :select, :collection => Chouette::VehicleJourney.pluck(:objectid,:objectid), :include_blank => true%>
-    <%= form.input :to_point , :as => :select, :collection => Chouette::ScheduledStopPoint.pluck(:objectid,:objectid), :include_blank => true %>
-    <%= form.input :to_visit_number %>
-    <% end %>
-
-   <%= form.actions do %>
-     <%= form.action :submit, :as => :button %>
-     <%= form.action :cancel, :as => :link %>
-   <% end %>
+<%= form.inputs do %>
+<%= form.input :name %>
+<%= form.input :priority %>
+<%= form.input :planned %>
+<%= form.input :guaranteed %>
+<%= form.input :advertised %>
+<%= form.input :stay_seated %>
+<!-- TODO this field does not yet work -->
+<!-- <%= form.input :maximum_wait_time%> -->
+<!-- TODO this field does not yet work -->
+<!-- <%= form.input :minimum_transfer_time%> -->
+<!-- TODO feeder (from_ fiels) can also be external, must be able to specify manually -->
+<%= form.input :from_vehicle_journey , :as => :select, :collection => Chouette::VehicleJourney.all.map{|item| [item.objectid, item.objectid, {"data-route" => item.route_id}]},
+       :include_blank => true %>
+<%= form.input :from_point , :as => :select, :collection => Chouette::ScheduledStopPoint.pluck(:objectid,:objectid), :include_blank => true %>
+<%= form.input :from_visit_number %>
+<%= form.input :to_vehicle_journey , :as => :select, :collection => Chouette::VehicleJourney.all.map{|item| [item.objectid, item.objectid, {"data-route" => item.route_id}]},
+       :include_blank => true %>
+<%= form.input :to_point , :as => :select, :collection => Chouette::ScheduledStopPoint.pluck(:objectid,:objectid), :include_blank => true %>
+<%= form.input :to_visit_number %>
 <% end %>
+<%= form.actions do %>
+<%= form.action :submit, :as => :button %>
+<%= form.action :cancel, :as => :link %>
+<% end %>
+<% end %>
+<script>
+
+$(document).ready(function() {
+
+  var routes = <%= Chouette::Route.pluck(:id, :line_id) %>;
+  var vehicleJourneyAtStops = <%= Chouette::VehicleJourneyAtStop.all.pluck(:id, :vehicle_journey_id, :stop_point_id) %>;
+  var stopPointIds = <%= Chouette::StopPoint.pluck(:id, :scheduled_stop_point_id) %>;
+
+  var showScheduleStopPointsBy = function(vehicleJourneyId, targetSelector) {
+
+    if (!vehicleJourneyId) {
+        $(targetSelector).find('option').each(function() {
+            $(this).show();
+        });
+        return;
+    }
+
+    // find all stop_point_ids to vehicle journey_at_stops with reference to vehicle journeys
+    var foundStopPointIds = [];
+
+    vehicleJourneyAtStops.forEach(function(vehicleJourneyAtStop) {
+        var _vehicleJourneyId = vehicleJourneyAtStop[1];
+        var _stopPointId = vehicleJourneyAtStop[2];
+
+        if (vehicleJourneyId == _vehicleJourneyId && foundStopPointIds.indexOf(_stopPointId) == -1) {
+            foundStopPointIds.push(_stopPointId);
+        }
+    });
+
+    // find all scheduled_stop_point references by stop_point_ids
+    var foundScheduledStopPoints = [];
+
+    stopPointIds.forEach(function(stopPoint) {
+        var _scheduledStopPointId = stopPoint[1];
+         if (foundScheduledStopPoints.indexOf(_scheduledStopPointId) > -1 &&
+            foundScheduledStopPoints.indexOf(_scheduledStopPointId) == -1) {
+            foundScheduledStopPoints.push(_scheduledStopPointId);
+        }
+    });
+
+    $(targetSelector).find('option').each(function() {
+        var value = $(this).val();
+        if (foundScheduledStopPoints.indexOf(value) > -1) {
+          $(this).show();
+        } else {
+          $(this).hide();
+        }
+    });
+  };
+
+
+  var filterOnChange = function(context, selectedSource) {
+    var lineId = $(context).find(":selected").val();
+    var selectOptions = $(selectedSource);
+
+    if (lineId !== '*') {
+        var routesForLine = [];
+        routes.forEach(function(line) {
+            if (line[0] == lineId) {
+                routesForLine.push(line[1]);
+            }
+        });
+
+        $(selectOptions).each(function() {
+            var optionRouteId = $(this).data('route');
+            if (routesForLine.indexOf(optionRouteId) > -1) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+
+    } else {
+        $(selectOptions).each(function() {
+            $(this).show();
+        });
+    }
+  }
+
+  $("#line_filter_feeder").change(function() {
+    filterOnChange(this, '#interchange_from_vehicle_journey option');
+  });
+
+  $("#line_filter_consumer").change(function() {
+    filterOnChange(this, '#interchange_to_vehicle_journey option');
+  });
+
+  $("#interchange_from_vehicle_journey").change(function() {
+    var value = $(this).find(":selected").val();
+    var targetSelector = '#interchange_from_point';
+    showScheduleStopPointsBy(value, targetSelector);
+  });
+
+  $("#interchange_to_vehicle_journey").change(function() {
+    var value = $(this).find(":selected").val();
+    var targetSelector = '#interchange_to_point';
+    showScheduleStopPointsBy(value, targetSelector);
+   });
+
+});
+</script>
