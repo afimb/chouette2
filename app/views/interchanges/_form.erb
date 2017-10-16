@@ -99,8 +99,8 @@ $(document).ready(function() {
     if (lineId !== '*') {
         var routesForLine = [];
         routes.forEach(function(line) {
-            if (line[0] == lineId) {
-                routesForLine.push(line[1]);
+            if (line[1] == lineId) {
+                routesForLine.push(line[0]);
             }
         });
 
