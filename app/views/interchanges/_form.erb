@@ -1,20 +1,23 @@
 <div class="interchange-filter">
+    <% $lines = Chouette::Line.all %>
     <div>
         <label for="line_filter_feeder">Feeder ServiceJourney filter by line</label>
         <select id="line_filter_feeder">
           <option value="*">All</option>
-          <%= options_from_collection_for_select(Chouette::Line.all, 'id', 'name')  %>
+          <%= options_from_collection_for_select($lines, 'id', 'name')  %>
         </select>
     </div>
     <div>
         <label for="line_filter_consumer">Consumer ServiceJourney filter by line</label>
         <select id="line_filter_consumer">
           <option value="*">All</option>
-          <%= options_from_collection_for_select(Chouette::Line.all, 'id', 'name')  %>
+          <%= options_from_collection_for_select($lines, 'id', 'name')  %>
         </select>
     </div>
 </div>
 <%= semantic_form_for [@referential, @interchange] do |form| %>
+<% $vehicle_journeys = Chouette::VehicleJourney.all %>
+<% $scheduled_stop_point = Chouette::ScheduledStopPoint.all %>
 <%= form.inputs do %>
 <%= form.input :name %>
 <%= form.input :priority %>
@@ -27,13 +30,13 @@
 <!-- TODO this field does not yet work -->
 <!-- <%= form.input :minimum_transfer_time%> -->
 <!-- TODO feeder (from_ fiels) can also be external, must be able to specify manually -->
-<%= form.input :from_vehicle_journey , :as => :select, :collection => Chouette::VehicleJourney.all.map{|item| [item.objectid, item.objectid, {"data-route" => item.route_id, "data-id": item.id}]},
+<%= form.input :from_vehicle_journey , :as => :select, :collection => $vehicle_journeys.map{|item| [item.objectid, item.objectid, {"data-route" => item.route_id, "data-id": item.id}]},
        :include_blank => true %>
-<%= form.input :from_point , :as => :select, :collection => Chouette::ScheduledStopPoint.all.map{|item| [item.objectid, item.objectid, {"data-id": item.id}]}, :include_blank => true %>
+<%= form.input :from_point , :as => :select, :collection => $scheduled_stop_point.map{|item| [item.objectid, item.objectid, {"data-id": item.id}]}, :include_blank => true %>
 <%= form.input :from_visit_number %>
-<%= form.input :to_vehicle_journey , :as => :select, :collection => Chouette::VehicleJourney.all.map{|item| [item.objectid, item.objectid, {"data-route" => item.route_id, "data-id": item.id}]},
+<%= form.input :to_vehicle_journey , :as => :select, :collection => $vehicle_journeys.map{|item| [item.objectid, item.objectid, {"data-route" => item.route_id, "data-id": item.id}]},
        :include_blank => true %>
-<%= form.input :to_point , :as => :select, :collection => Chouette::ScheduledStopPoint.all.map{|item| [item.objectid, item.objectid, {"data-id": item.id}]}, :include_blank => true %>
+<%= form.input :to_point , :as => :select, :collection => $scheduled_stop_point.map{|item| [item.objectid, item.objectid, {"data-id": item.id}]}, :include_blank => true %>
 <%= form.input :to_visit_number %>
 <% end %>
 <%= form.actions do %>
