@@ -74,8 +74,9 @@ $(document).ready(function() {
     var foundScheduledStopPoints = [];
 
     stopPointIds.forEach(function(stopPoint) {
+        var _stopPointId = stopPoint[0];
         var _scheduledStopPointId = stopPoint[1];
-         if (foundScheduledStopPoints.indexOf(_scheduledStopPointId) > -1 &&
+         if (foundStopPointIds.indexOf(_stopPointId) > -1 &&
             foundScheduledStopPoints.indexOf(_scheduledStopPointId) == -1) {
             foundScheduledStopPoints.push(_scheduledStopPointId);
         }
