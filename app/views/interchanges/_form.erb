@@ -17,7 +17,7 @@
 </div>
 <%= semantic_form_for [@referential, @interchange] do |form| %>
 <% $vehicle_journeys = Chouette::VehicleJourney.all %>
-<% $scheduled_stop_point = Chouette::ScheduledStopPoint.all %>
+<% $scheduled_stop_point = Chouette::ScheduledStopPoint.joins("LEFT JOIN stop_areas ON scheduled_stop_points.stop_area_objectid_key = stop_areas.objectid") %>
 <%= form.inputs do %>
 <%= form.input :name %>
 <%= form.input :priority %>
@@ -32,11 +32,11 @@
 <!-- TODO feeder (from_ fiels) can also be external, must be able to specify manually -->
 <%= form.input :from_vehicle_journey , :as => :select, :collection => $vehicle_journeys.map{|item| [item.objectid, item.objectid, {"data-route" => item.route_id, "data-id": item.id}]},
        :include_blank => true %>
-<%= form.input :from_point , :as => :select, :collection => $scheduled_stop_point.map{|item| [item.objectid, item.objectid, {"data-id": item.id}]}, :include_blank => true %>
+<%= form.input :from_point , :as => :select, :collection => $scheduled_stop_point.map{|item| [item.objectid + ' - ' + item.name + ' (' + item.stop_area.name + ')', item.objectid, {"data-id": item.id}]}, :include_blank => true %>
 <%= form.input :from_visit_number %>
 <%= form.input :to_vehicle_journey , :as => :select, :collection => $vehicle_journeys.map{|item| [item.objectid, item.objectid, {"data-route" => item.route_id, "data-id": item.id}]},
        :include_blank => true %>
-<%= form.input :to_point , :as => :select, :collection => $scheduled_stop_point.map{|item| [item.objectid, item.objectid, {"data-id": item.id}]}, :include_blank => true %>
+<%= form.input :to_point , :as => :select, :collection => $scheduled_stop_point.map{|item| [item.objectid + ' - ' + item.name + ' (' + item.stop_area.name + ')', item.objectid, {"data-id": item.id}]}, :include_blank => true %>
 <%= form.input :to_visit_number %>
 <% end %>
 <%= form.actions do %>
