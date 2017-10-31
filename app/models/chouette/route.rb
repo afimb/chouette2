@@ -26,6 +26,9 @@ class Chouette::Route < Chouette::TridentActiveRecord
     end
   end
   belongs_to :opposite_route, :class_name => 'Chouette::Route', :foreign_key => :opposite_route_id
+  has_and_belongs_to_many :route_points, :class_name => 'Chouette::RoutePoint', :join_table => "routes_route_points" ,:foreign_key => "route_id", :association_foreign_key => "route_point_id", :order => "position"
+
+
   has_many :stop_points, -> { order('position ASC') }, :dependent => :destroy do
     def find_by_stop_area(stop_area)
       stop_area_object_ids = String === stop_area ? [stop_area] : (stop_area.children_in_depth + [stop_area]).map(&:objectid)
@@ -80,7 +83,7 @@ class Chouette::Route < Chouette::TridentActiveRecord
   end
 
   def geometry
-    points = stop_areas.map(&:to_lat_lng).compact.map do |loc|
+    points =  route_points.collect(&:scheduled_stop_point).flatten.map(&:stop_area).map(&:to_lat_lng).compact.map do |loc|
       [loc.lng, loc.lat]
     end
     GeoRuby::SimpleFeatures::LineString.from_coordinates( points, 4326)

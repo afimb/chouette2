@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170914062945) do
+ActiveRecord::Schema.define(version: 20171030100000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -442,6 +442,18 @@ ActiveRecord::Schema.define(version: 20170914062945) do
 
   add_index "referentials", ["name", "organisation_id"], name: "index_referentials_on_name_and_organisation_id", unique: true, using: :btree
 
+  create_table "route_points", id: :bigserial, force: :cascade do |t|
+    t.string   "objectid",                            null: false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id",              limit: 255
+    t.integer  "scheduled_stop_point_id"
+    t.string   "name"
+    t.boolean  "boarder_crossing"
+  end
+
+  add_index "route_points", ["objectid"], name: "route_points_objectid_key", unique: true, using: :btree
+
   create_table "route_sections", id: :bigserial, force: :cascade do |t|
     t.geometry "input_geometry",                   limit: {:srid=>4326, :type=>"line_string"}
     t.geometry "processed_geometry",               limit: {:srid=>4326, :type=>"line_string"}
@@ -475,6 +487,12 @@ ActiveRecord::Schema.define(version: 20170914062945) do
   end
 
   add_index "routes", ["objectid"], name: "routes_objectid_key", unique: true, using: :btree
+
+  create_table "routes_route_points", id: :bigserial, force: :cascade do |t|
+    t.integer "route_id",       null: false
+    t.integer "route_point_id", null: false
+    t.integer "position",       null: false
+  end
 
   create_table "routing_constraints_lines", id: false, force: :cascade do |t|
     t.integer "line_id",                limit: 8
@@ -723,6 +741,16 @@ ActiveRecord::Schema.define(version: 20170914062945) do
   add_foreign_key "access_points", "stop_areas", name: "access_area_fkey", on_delete: :cascade
   add_foreign_key "connection_links", "stop_areas", column: "arrival_id", name: "colk_endarea_fkey", on_delete: :cascade
   add_foreign_key "connection_links", "stop_areas", column: "departure_id", name: "colk_startarea_fkey", on_delete: :cascade
+  add_foreign_key "footnotes_journey_patterns", "footnotes", name: "footnotes_journey_patterns_footnotes_fkey", on_delete: :cascade
+  add_foreign_key "footnotes_journey_patterns", "journey_patterns", name: "footnotes_journey_patterns_journey_patterns_fkey", on_delete: :cascade
+  add_foreign_key "footnotes_lines", "footnotes", name: "footnotes_lines_footnotes_fkey", on_delete: :cascade
+  add_foreign_key "footnotes_lines", "lines", name: "footnotes_lines_lines_fkey", on_delete: :cascade
+  add_foreign_key "footnotes_stop_points", "footnotes", name: "footnotes_stop_points_footnotes_fkey", on_delete: :cascade
+  add_foreign_key "footnotes_stop_points", "stop_points", name: "footnotes_stop_points_stop_points_fkey", on_delete: :cascade
+  add_foreign_key "footnotes_vehicle_journey_at_stops", "footnotes", name: "footnotes_vehicle_journey_at_stops_footnotes_fkey", on_delete: :cascade
+  add_foreign_key "footnotes_vehicle_journey_at_stops", "vehicle_journey_at_stops", name: "footnotes_vehicle_journey_at_stops_vjas_fkey", on_delete: :cascade
+  add_foreign_key "footnotes_vehicle_journeys", "footnotes", name: "footnotes_vehicle_journeys_footnotes_fkey", on_delete: :cascade
+  add_foreign_key "footnotes_vehicle_journeys", "vehicle_journeys", name: "footnotes_vehicle_journeys_vehicle_journeys_fkey", on_delete: :cascade
   add_foreign_key "group_of_lines_lines", "group_of_lines", name: "groupofline_group_fkey", on_delete: :cascade
   add_foreign_key "group_of_lines_lines", "lines", name: "groupofline_line_fkey", on_delete: :cascade
   add_foreign_key "journey_frequencies", "timebands"
@@ -737,8 +765,11 @@ ActiveRecord::Schema.define(version: 20170914062945) do
   add_foreign_key "lines", "companies", name: "line_company_fkey", on_delete: :nullify
   add_foreign_key "lines", "networks", name: "line_ptnetwork_fkey", on_delete: :nullify
   add_foreign_key "networks", "companies", name: "network_company_fkey", on_delete: :nullify
+  add_foreign_key "route_points", "scheduled_stop_points"
   add_foreign_key "routes", "lines", name: "route_line_fkey", on_delete: :cascade
   add_foreign_key "routes", "routes", column: "opposite_route_id", name: "route_opposite_route_fkey", on_delete: :nullify
+  add_foreign_key "routes_route_points", "route_points"
+  add_foreign_key "routes_route_points", "routes"
   add_foreign_key "routing_constraints_lines", "lines", name: "routingconstraint_line_fkey", on_delete: :cascade
   add_foreign_key "stop_areas", "stop_areas", column: "parent_id", name: "area_parent_fkey", on_delete: :nullify
   add_foreign_key "stop_areas_stop_areas", "stop_areas", column: "child_id", name: "stoparea_child_fkey", on_delete: :cascade

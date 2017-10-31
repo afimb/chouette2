@@ -54,15 +54,15 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#stop_points">
-          <%= t('.stop_points') %>
+        <a data-toggle="collapse" data-parent="#accordion" href="#route_points">
+          <%= t('.route_points') %>
         </a>
       </h4>
     </div>
-    <div id="stop_points" class="panel-collapse collapse">
+    <div id="route_points" class="panel-collapse collapse">
       <div class="panel-body">
-        <div class="stop_points paginated_content">
-          <%= paginated_content( @route.stop_points, "stop_points/stop_point") %>
+        <div class="route_points paginated_content">
+          <%= paginated_content( @route.route_points, "route_points/route_point") %>
         </div>
       </div>
     </div>
@@ -95,10 +95,10 @@
   <li><%= link_to t('routes.actions.destroy'), referential_line_route_path(@referential, @line, @route), :method => :delete, :data => {:confirm =>  t('routes.actions.destroy_confirm')}, :class => "remove" %></li>
 </ul>
 <ul class="actions">
-  <% if @route.stop_points.size >= 2 %>
+  <% if @route.route_points.size >= 2 %>
   <li><%= link_to t('journey_patterns.actions.new'), new_referential_line_route_journey_pattern_path(@referential, @line, @route), :class => "add" %></li>
   <% end %>
-  <% if @route.stop_points.present? %>
+  <% if @route.route_points.present? %>
   <li><%= link_to t('routes.actions.edit_boarding_alighting'), edit_boarding_alighting_referential_line_route_path(@referential, @line, @route), :class => "edit" %></li>
   <% end %>
   <% if @route.journey_patterns.size > 0 %>

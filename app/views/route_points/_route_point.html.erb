@@ -1,0 +1,33 @@
+<div id="index_item" class="panel panel-default route_point">
+  <div class="panel-heading">
+    <div class="panel-title clearfix">
+      <h5>
+        <%= link_to([@referential, route_point.scheduled_stop_point.stop_area], :class => "preview", :title => "#{Chouette::StopArea.model_name.human.capitalize} #{stop_name(route_point)}") do %>
+        <span class="name">
+          <!-- TODO routePoint fix no <span class="label label-primary"></span>-->
+          <% if route_point.scheduled_stop_point.stop_area %>
+            <%= image_tag "map/" + route_point.scheduled_stop_point.stop_area.stop_area_type + ".png"   %>
+          <% end %>
+          <%= stop_name(route_point) %>
+        </span>
+        <% end %>
+      </h5>
+    </div>
+  </div>
+  <div class="panel-body">
+    <% if route_point.scheduled_stop_point.stop_area %>
+    <p>
+      <% unless route_point.scheduled_stop_point.stop_area.geometry %>
+        <span class="warning"><%= t('.no_position') %></span> -
+      <% end %>
+    </p>
+
+  <!--  <p>
+      <%= route_point.scheduled_stop_point.stop_area.human_attribute_name('registration_number') %> : <%= route_point.scheduled_stop_point.stop_area.registration_number.present? ? route_point.scheduled_stop_point.stop_area.registration_number : t(".no_object") %>
+    </p>
+    <p>
+      <%=  t('.address') %> : <%= (route_point.scheduled_stop_point.stop_area.zip_code.present? || route_point.scheduled_stop_point.stop_area.city_name.present?) ? "#{route_point.scheduled_stop_point.stop_area.zip_code} #{route_point.scheduled_stop_point.stop_area.city_name}"  : t(".no_object") %>
+    </p>-->
+    <% end %>
+  </div>
+</div>
