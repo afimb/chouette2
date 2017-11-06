@@ -13,6 +13,12 @@ class Chouette::Route < Chouette::TridentActiveRecord
 
   belongs_to :line
 
+  before_validation :my_awesome_pre_save_method
+  def my_awesome_pre_save_method
+    puts "before_validation"
+    puts self.routes_route_points.inspect
+  end
+
   has_many :journey_patterns, :dependent => :destroy
   has_many :vehicle_journeys, :dependent => :destroy do
     def timeless
@@ -26,7 +32,8 @@ class Chouette::Route < Chouette::TridentActiveRecord
     end
   end
   belongs_to :opposite_route, :class_name => 'Chouette::Route', :foreign_key => :opposite_route_id
-  has_and_belongs_to_many :route_points, :class_name => 'Chouette::RoutePoint', :join_table => "routes_route_points" ,:foreign_key => "route_id", :association_foreign_key => "route_point_id", :order => "position"
+  has_many :route_points, -> { order('routes_route_points.position ASC') }, :through => :routes_route_points
+  has_many :routes_route_points, -> { order('position ASC') }, :dependent => :destroy
 
 
   has_many :stop_points, -> { order('position ASC') }, :dependent => :destroy do
@@ -62,6 +69,7 @@ class Chouette::Route < Chouette::TridentActiveRecord
     end
   end
   accepts_nested_attributes_for :stop_points, :allow_destroy => :true
+  accepts_nested_attributes_for :routes_route_points, :allow_destroy => :true
 
   # validates_presence_of :name
   validates_presence_of :line
@@ -187,6 +195,7 @@ class Chouette::Route < Chouette::TridentActiveRecord
       jp.control_route_sections
     end
   end
+
 
   protected
 

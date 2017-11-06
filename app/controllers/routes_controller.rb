@@ -41,6 +41,7 @@ class RoutesController < ChouetteController
   # overwrite inherited resources to use delete instead of destroy
   # foreign keys will propagate deletion)
   def destroy_resource(object)
+  puts "delete object: " + object.inspect
     object.delete
   end
 
@@ -79,7 +80,7 @@ class RoutesController < ChouetteController
   private
 
   def route_params
-    params.require(:route).permit( :direction_code, :wayback_code, :line_id, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :opposite_route_id, :published_name, :number, :direction, :wayback, { stop_points_attributes: [ :id, :_destroy, :position, :for_boarding, :for_alighting, :scheduled_stop_point_id_or_stop_area_objectid_key, :scheduled_stop_point_name ] } )
+        params.require(:route).permit( :direction_code, :wayback_code, :line_id, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :opposite_route_id, :published_name, :number, :direction, :wayback, { stop_points_attributes: [ :id, :_destroy, :position, :for_boarding, :for_alighting, :scheduled_stop_point_id_or_stop_area_objectid_key, :scheduled_stop_point_name ] }, routes_route_points_attributes: [:id, :_destroy, :position, route_point_attributes: [:id, :scheduled_stop_point_id_or_stop_area_objectid_key, :scheduled_stop_point_name]] )
   end
 
 end

@@ -18,7 +18,7 @@ class CreateRoutePoints < ActiveRecord::Migration
       t.integer "route_point_id",             null: false
       t.integer "position",                   null: false
     end
-    add_foreign_key :routes_route_points, :routes
+    add_foreign_key :routes_route_points, :routes, on_delete: :cascade
     add_foreign_key :routes_route_points, :route_points
   end
 end

@@ -1,0 +1,29 @@
+<div class="nested-fields stop_point row">
+  <%= f.inputs do %>
+  <div class="col-md-1 resize">
+    <%= link_to_remove_association "<i class='fa fa-trash-o'></i>".html_safe, f %>
+    <span class="handle" alt="<%= t('stop_points.index.move') %>" title="<%= t('stop_points.index.move') %>"><i class='fa fa-arrows'></i></span>
+  </div>
+  <div class="col-md-11">
+    <% f.object.build_route_point unless f.object.route_point %>
+  <% if f.object.route_point.scheduled_stop_point.nil? || f.object.new_record? %>
+      <%= f.input :position, :as => :hidden, :input_html => {:class => "position"} %>
+      <%= f.input :id, :as => :hidden, :input_html => {:class => "stop_point_id added_stop_point", :value => ""} %>
+      <%= f.fields_for :route_point, f.object.route_point do |rp| %>
+            <%= rp.input :id, :as => :hidden, :input_html => {:class => "stop_point_id added_stop_point", :value => ""} %>
+           <%= rp.input :scheduled_stop_point_id_or_stop_area_objectid_key, :label => false, :as => :search_scheduled_stop_point, :json => referential_autocomplete_scheduled_stop_points_path(@referential, :format => :json), :hint_text => t('search_hint'), :no_result_text => t('no_result_text'), :searching_text => t('searching_term'), :tokenLimit => 1, :input_html => {:class => "new_stop_point stop_area_objectid_key", :"data-pre" => Rabl::Renderer.new('autocomplete_scheduled_stop_points/index', [rp.object.scheduled_stop_point].compact, :view_path => 'app/views', :format => :json, :scope => self).render} %>
+          <%= rp.input :name, :input_html => {:class => :scheduled_stop_point_name}, :label => false   %>
+      <% end %>
+  <% else %>
+     <%= f.input :position, :as => :hidden, :input_html => {:class => "position"} %>
+     <%= f.input :id, :as => :hidden, :input_html => {:class => "stop_point_id"} %>
+     <%= f.fields_for :route_point, f.object.route_point do |rp| %>
+         <%= rp.input :id, :as => :hidden, :input_html => {:class => "stop_point_id"} %>
+         <%= rp.input :scheduled_stop_point_id_or_stop_area_objectid_key, :label => false, :as => :search_scheduled_stop_point, :json => referential_autocomplete_scheduled_stop_points_path(@referential, :format => :json), :hint_text => t('search_hint'), :no_result_text => t('no_result_text'), :searching_text => t('searching_term'), :tokenLimit => 1, :input_html => {:class => "stop_area_objectid_key", :"data-pre" => Rabl::Renderer.new('autocomplete_scheduled_stop_points/index', [rp.object.scheduled_stop_point].compact, :view_path => 'app/views', :format => :json, :scope => self).render} %>
+         <%= rp.input :scheduled_stop_point_name , :input_html => {:class => :scheduled_stop_point_name}, :label => false   %>
+     <% end %>
+  <% end %>
+  </div>
+  <% end %>
+</div>
+

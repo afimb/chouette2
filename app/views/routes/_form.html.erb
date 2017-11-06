@@ -10,11 +10,11 @@
     <%= form.input :objectid, :required => !@route.new_record?, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.route.objectid")} %>
   <% end %>
 	<div id="stop_points">
-		<%= form.semantic_fields_for :stop_points, :include_id => false do |p| %>
-      <%= render "stop_point_fields",  :f => p %>
-		<% end %>
+      <%= form.semantic_fields_for :routes_route_points, :include_id => false do |p| %>
+      <%= render "routes_route_point_fields",  :f => p %>
+      <% end %>
     <div class="links">
-	    <%= link_to_add_association t("routes.actions.add_stop_point"), form, :stop_points, :class => 'add_stop_point add' %>
+	    <%= link_to_add_association t("routes.actions.add_stop_point"), form, :routes_route_points, :class => 'add_stop_point add' %>
       <br/>
       <%= link_to t('routes.actions.new_stop_point'), new_referential_stop_area_path(@referential), {:class => "add", :target => "_blank"} %>
     </div>
@@ -76,7 +76,7 @@ $(document).ready( function() {
 
     var new_stop_count = $('div.nested-fields.stop_point').size();
     // cocoonId seem to be generated automatically (by jQuery?) and is replaced with index in route.stop_points array
-    var cocoonId = insertedItem.find("input.new_stop_point").attr("id").match( /route_stop_points_attributes_(\d+)_scheduled_stop_point_id_or_stop_area_objectid_key/)[1];
+    var cocoonId = insertedItem.find("input.new_stop_point").attr("id").match( /route_routes_route_points_attributes_(\d+)_route_point_attributes_scheduled_stop_point_id_or_stop_area_objectid_key/)[1];
     insertedItem.find('input').each( function(index,e){
       var old = $(e).attr("name");
       if (old!=undefined) {

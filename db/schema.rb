@@ -405,10 +405,6 @@ ActiveRecord::Schema.define(version: 20171030100000) do
     t.string   "data_format", default: "neptune"
   end
 
-  create_table "prefix_table", id: false, force: :cascade do |t|
-    t.string "prefix"
-  end
-
   create_table "pt_links", id: :bigserial, force: :cascade do |t|
     t.integer  "start_of_link_id", limit: 8
     t.integer  "end_of_link_id",   limit: 8
@@ -769,7 +765,7 @@ ActiveRecord::Schema.define(version: 20171030100000) do
   add_foreign_key "routes", "lines", name: "route_line_fkey", on_delete: :cascade
   add_foreign_key "routes", "routes", column: "opposite_route_id", name: "route_opposite_route_fkey", on_delete: :nullify
   add_foreign_key "routes_route_points", "route_points"
-  add_foreign_key "routes_route_points", "routes"
+  add_foreign_key "routes_route_points", "routes", on_delete: :cascade
   add_foreign_key "routing_constraints_lines", "lines", name: "routingconstraint_line_fkey", on_delete: :cascade
   add_foreign_key "stop_areas", "stop_areas", column: "parent_id", name: "area_parent_fkey", on_delete: :nullify
   add_foreign_key "stop_areas_stop_areas", "stop_areas", column: "child_id", name: "stoparea_child_fkey", on_delete: :cascade

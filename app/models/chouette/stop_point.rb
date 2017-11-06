@@ -9,9 +9,12 @@ module Chouette
     belongs_to :scheduled_stop_point
     belongs_to :route, inverse_of: :stop_points
     has_one :stop_area, :through => :scheduled_stop_point
+
     has_many :vehicle_journey_at_stops, :dependent => :destroy
     has_many :vehicle_journeys, -> {uniq}, :through => :vehicle_journey_at_stops
+    has_many :route_points, :through => :routes_route_points, :dependent => :destroy
     belongs_to :destination_display
+
 
     acts_as_list :scope => :route, top_of_list: 0
 
@@ -24,6 +27,7 @@ module Chouette
     scope :default_order, -> { order("position") }
 
     accepts_nested_attributes_for :scheduled_stop_point
+
 
     before_destroy :remove_dependent_journey_pattern_stop_points
     def remove_dependent_journey_pattern_stop_points
