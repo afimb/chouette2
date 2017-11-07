@@ -21,12 +21,11 @@ child :vehicle_journey_at_stops do |vehicle_stops|
   node do |vehicle_stop|
     node(:stop_area_object_id) { vehicle_stop.stop_point.stop_area.objectid }
 
-    [ :connecting_service_id, :arrival_time, :departure_time,  :waiting_time, :elapse_duration,
-      :headway_frequency, :boarding_alighting_possibility].each do |attr|
+    [ :connecting_service_id, :arrival_time, :departure_time, :boarding_alighting_possibility, :arrival_day_offset , :departure_day_offset , :for_boarding, :for_alighting].each do |attr|
       node( attr) do
         vehicle_stop.send(attr) 
       end unless vehicle_stop.send(attr).nil?
     end
-    attributes :order => vehicle_stop.position, :unless => lambda { |m| m.send( :position).nil?}
+    attributes :order => vehicle_stop.stop_point.position, :unless => lambda { |m| m.send( :position).nil?}
   end
 end
