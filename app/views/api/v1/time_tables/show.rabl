@@ -9,6 +9,14 @@ node(:dates) do |time_table|
   time_table.dates.map(&:date)
 end unless root_object.dates.empty?
 
+node(:dates_in) do |time_table|
+   time_table.dates.select(&:in_out).map(&:date).sort
+end
+
+node(:dates_out) do |time_table|
+   time_table.dates.reject(&:in_out).map(&:date).sort
+end 
+
 unless root_object.periods.empty?
   attributes :monday,:tuesday,:wednesday,:thursday,:friday,:saturday,:sunday
   child :periods => :periods do |period|
