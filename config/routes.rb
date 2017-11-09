@@ -77,6 +77,8 @@ ChouetteIhm::Application.routes.draw do
         member do
           get 'edit_boarding_alighting'
           put 'save_boarding_alighting'
+          get 'edit_stop_points'
+          put 'save_stop_points'
         end
         resources :journey_patterns do
           member do

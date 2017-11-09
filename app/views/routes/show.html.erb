@@ -92,13 +92,14 @@
 <ul class="actions">
   <li><%= link_to t('routes.actions.new'), new_referential_line_route_path(@referential, @line), :class => "add" %></li> 
   <li><%= link_to t('routes.actions.edit'), edit_referential_line_route_path(@referential, @line, @route), :class => "edit" %></li>
+  <li><%= link_to t('routes.actions.edit_stops'), edit_stop_points_referential_line_route_path(@referential, @line, @route), :class => "edit" %></li>
   <li><%= link_to t('routes.actions.destroy'), referential_line_route_path(@referential, @line, @route), :method => :delete, :data => {:confirm =>  t('routes.actions.destroy_confirm')}, :class => "remove" %></li>
 </ul>
 <ul class="actions">
-  <% if @route.route_points.size >= 2 %>
+  <% if @route.stop_points.size >= 2 %>
   <li><%= link_to t('journey_patterns.actions.new'), new_referential_line_route_journey_pattern_path(@referential, @line, @route), :class => "add" %></li>
   <% end %>
-  <% if @route.route_points.present? %>
+  <% if @route.stop_points.present? %>
   <li><%= link_to t('routes.actions.edit_boarding_alighting'), edit_boarding_alighting_referential_line_route_path(@referential, @line, @route), :class => "edit" %></li>
   <% end %>
   <% if @route.journey_patterns.size > 0 %>

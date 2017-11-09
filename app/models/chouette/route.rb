@@ -13,12 +13,6 @@ class Chouette::Route < Chouette::TridentActiveRecord
 
   belongs_to :line
 
-  before_validation :my_awesome_pre_save_method
-  def my_awesome_pre_save_method
-    puts "before_validation"
-    puts self.routes_route_points.inspect
-  end
-
   has_many :journey_patterns, :dependent => :destroy
   has_many :vehicle_journeys, :dependent => :destroy do
     def timeless
