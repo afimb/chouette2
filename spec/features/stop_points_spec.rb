@@ -7,16 +7,6 @@ describe "StopPoints", :type => :feature do
   let!(:line) { create(:line) }
   let!(:route) { create(:route, :line => line) }
   let!(:route2) { create(:route, :line => line) }
-
-  describe "from route's page to a route points page" do
-    it "display route's route points" do
-      visit referential_line_route_path(referential,line,route)
-      click_link I18n.t("routes.show.route_points")
-      route.stop_areas.each do |sa|
-        expect(page).to have_content(sa.name)
-      end
-    end
-  end
   
   describe "from route's page, go to new stop point page" do
     it "display route's stop points" do
