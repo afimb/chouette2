@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/rutebanken/ievkit_views.git
-  revision: 708ad5d46ec344412aa52f17a2ac1c09d8adf383
+  revision: e80fef11b5fa9bc9d532e7136b42a9bf4e07d318
   branch: master
   specs:
     ievkit_views (0.2.2)
