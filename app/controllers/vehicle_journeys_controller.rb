@@ -84,7 +84,7 @@ class VehicleJourneysController < ChouetteController
 
   def vehicle_journey_params
     params.require(:vehicle_journey).permit( { footnote_ids: [] } , :journey_pattern_id, :number, :published_journey_name,
-                                             :published_journey_identifier, :comment, :transport_mode_name,
+                                             :published_journey_identifier, :private_code, :comment, :transport_mode_name,
                                              :mobility_restricted_suitability, :flexible_service, :status_value,
                                              :facility, :vehicle_type_identifier, :objectid, :time_table_tokens,
                                              { date: [ :hour, :minute ] }, :button, :referential_id, :line_id,
