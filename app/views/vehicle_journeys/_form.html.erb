@@ -5,6 +5,7 @@
     <%= form.input :number %>
     <%= form.input :published_journey_name %>
     <%= form.input :published_journey_identifier %>
+    <%= form.input :private_code %>
     <%= form.input :comment %>
     <%= form.input :transport_mode_name, :as => :select, :collection => Chouette::Line.transport_modes, :include_blank => true, :member_label => Proc.new { |mode| t("transport_modes.label.#{mode}") }  %>
     <%= form.input :transport_submode, :as => :select, :collection => Chouette::Line.transport_submodes, :include_blank => true, :member_label => Proc.new { |mode| t("transport_submodes.label.#{mode}") }  %>

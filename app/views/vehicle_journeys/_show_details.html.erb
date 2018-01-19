@@ -34,7 +34,10 @@
       <label><%= vehicle_journey.human_attribute_name("published_journey_identifier") %>: </label>
       <%= vehicle_journey.published_journey_identifier %>
     </p>
-
+    <p>
+      <label><%= vehicle_journey.human_attribute_name("private_code") %>: </label>
+      <%= vehicle_journey.private_code %>
+    </p>
     <p>
       <label><%= vehicle_journey.human_attribute_name("transport_mode") %>: </label>
       <% if vehicle_journey.transport_mode.nil? %>
