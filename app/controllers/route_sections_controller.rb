@@ -60,7 +60,7 @@ class RouteSectionsController < ChouetteController
     # if q = params[:q]
     #   @route_sections ||= Chouette::RouteSection.joins(:departure, :arrival).where(departure: {name: "#{q}"}).or.where(arrival: {name: "#{q}"})
     # end
-    @route_sections ||= search.collection.includes(:departure, :arrival).page(params[:page])
+    @route_sections ||= search.collection.includes(:from_scheduled_stop_point, :to_scheduled_stop_point).page(params[:page])
   end
 
   def search
@@ -70,7 +70,7 @@ class RouteSectionsController < ChouetteController
   private
 
   def route_section_params
-    params.require(:route_section).permit(:departure_id, :arrival_id, :editable_geometry, :no_processing)
+    params.require(:route_section).permit(:from_scheduled_stop_point_id, :to_scheduled_stop_point_id, :editable_geometry, :no_processing)
   end
 
 end

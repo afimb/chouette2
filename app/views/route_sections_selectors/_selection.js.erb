@@ -1,12 +1,12 @@
 <div>
   <span class="departure">
     <label><%= @route_section.human_attribute_name("departure") %>:</label>
-    <%= link_to @route_section.departure.name, referential_stop_area_path(@referential, @route_section.departure) %>
+    <%= link_to @route_section.from_scheduled_stop_point.stop_area.name, referential_stop_area_path(@referential, @route_section.from_scheduled_stop_point.stop_area) %>
   </span>
 
   <span class="arrival">
     <label><%= @route_section.human_attribute_name("arrival") %>:</label>
-    <%= link_to @route_section.arrival.name, referential_stop_area_path(@referential, @route_section.arrival) %>
+    <%= link_to @route_section.to_scheduled_stop_point.stop_area.name, referential_stop_area_path(@referential, @route_section.to_scheduled_stop_point.stop_area) %>
   </span>
 
   <span class="distance">
@@ -23,6 +23,6 @@
 
   <span class="actions">
     <%= link_to_edit_route_section @route_section %>
-    <%= link_to_create_route_section @route_section.departure, @route_section.arrival %>
+    <%= link_to_create_route_section @route_section.from_scheduled_stop_point, @route_section.to_scheduled_stop_point %>
   </span>
 </div>

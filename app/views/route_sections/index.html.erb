@@ -4,11 +4,11 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <div class="col-md-6">
-        <%= form.text_field :departure_name, class: 'form-control', placeholder: Chouette::RouteSection.human_attribute_name(:departure) %>
+        <%= form.text_field :from_scheduled_stop_point_name, class: 'form-control', placeholder: Chouette::RouteSection.human_attribute_name(:departure) %>
       </div>
 
       <div class="input-group col-md-6">
-        <%= form.text_field :arrival_name, class: 'form-control', placeholder: Chouette::RouteSection.human_attribute_name(:arrival) %>
+        <%= form.text_field :to_scheduled_stop_point_name, class: 'form-control', placeholder: Chouette::RouteSection.human_attribute_name(:arrival) %>
         <div class="input-group-btn">
           <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
         </div>
@@ -37,8 +37,8 @@
   <tbody>
     <% @route_sections.each do |route_section| %>
     <tr>
-      <td><%= route_section.departure.name %> <%= link_to content_tag(:i, "", class: "fa fa-external-link"), referential_stop_area_path(@referential, route_section.departure) %></td>
-      <td><%= route_section.arrival.name %> <%= link_to content_tag(:i, "", class: "fa fa-external-link"), referential_stop_area_path(@referential, route_section.arrival) %></td>
+      <td><%= route_section.from_scheduled_stop_point.stop_area.name %> <%= link_to content_tag(:i, "", class: "fa fa-external-link"), referential_stop_area_path(@referential, route_section.from_scheduled_stop_point.stop_area) %></td>
+      <td><%= route_section.to_scheduled_stop_point.stop_area.name %> <%= link_to content_tag(:i, "", class: "fa fa-external-link"), referential_stop_area_path(@referential, route_section.to_scheduled_stop_point.stop_area) %></td>
       <td class="distance"><%= route_section.distance.to_i if route_section.distance %></td>
       <td class="points"><%= route_section.via_count if route_section.via_count > 0 %></td>
       <td class="journey_patterns"><%= route_section.journey_pattern_sections.count(:journey_pattern_id, distinct: true) %></td>

@@ -5,7 +5,7 @@
     <Placemark id="route_<%= @connection_link.id %>" >
       <name><%= @connection_link.name %></name>
       <%= @connection_link.geometry.kml_representation.html_safe %>
-    </Placemark>
+    </Placemark>e
     <Placemark id="<%= @connection_link.departure.id %>" >
       <departure>true</departure>
       <%= @connection_link.departure.geometry.kml_representation.html_safe %>

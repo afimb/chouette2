@@ -25,7 +25,7 @@
   <tbody>
     <%= form.fields_for :sections do |section_form| %>
     <tr>
-      <td><%= link_to section_form.object.departure.name, referential_stop_area_path(@referential, section_form.object.departure) %></td>
+      <td><%= link_to section_form.object.from_scheduled_stop_point.name, referential_stop_area_path(@referential, section_form.object.from_scheduled_stop_point) %></td>
       <td class="route_section">
         <% if section_form.object.candidates.present? %>
           <%= section_form.input :route_section_id, as: :select, label: false, collection: section_form.object.candidates, include_blank: t('.no_selection')  %>
@@ -35,7 +35,7 @@
       </td>
       <td class="action">
         <%= link_to_edit_route_section section_form.object.route_section %>
-        <%= link_to_create_route_section section_form.object.departure, section_form.object.arrival %>
+        <%= link_to_create_route_section section_form.object.from_scheduled_stop_point, section_form.object.to_scheduled_stop_point %>
       </td>
     </tr>
     <% end %>

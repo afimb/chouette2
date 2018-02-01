@@ -17,7 +17,7 @@ module RouteSectionSelectorsHelper
   def link_to_create_route_section(departure, arrival)
     return_to = edit_referential_line_route_journey_pattern_route_sections_selector_path(@referential, @line, @route, @journey_pattern)
     link_to t('route_sections_selectors.edit.route_section.new'),
-            create_to_edit_referential_route_sections_path(@referential, route_section: {departure_id:departure.id, arrival_id: arrival.id}, return_to: return_to)
+            create_to_edit_referential_route_sections_path(@referential, route_section: {from_scheduled_stop_point_id:departure.id, to_scheduled_stop_point_id: arrival.id}, return_to: return_to)
   end
 
   def generate_all_route_sections

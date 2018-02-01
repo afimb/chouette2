@@ -6,11 +6,11 @@
   <div class="summary">
     <p>
       <label><%= @route_section.human_attribute_name("departure") %>: </label>
-      <%= @route_section.departure.name %>
+      <%= @route_section.from_scheduled_stop_point.stop_area.name %>
     </p>
     <p>
       <label><%= @route_section.human_attribute_name("arrival") %>: </label>
-      <%= @route_section.arrival.name %>
+      <%= @route_section.to_scheduled_stop_point.stop_area.name %>
     </p>
     <p>
       <label><%= @route_section.human_attribute_name("distance") %>: </label>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171030100000) do
+ActiveRecord::Schema.define(version: 20180124120000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -297,11 +297,9 @@ ActiveRecord::Schema.define(version: 20171030100000) do
     t.integer  "to_visit_number"
   end
 
-  add_index "interchanges", ["from_point"], name: "interchanges_from_point_key", using: :btree
   add_index "interchanges", ["from_vehicle_journey"], name: "interchanges_from_vehicle_journey_key", using: :btree
   add_index "interchanges", ["objectid"], name: "interchanges_objectid_key", unique: true, using: :btree
   add_index "interchanges", ["objectid"], name: "interchanges_to_vehicle_journey_key", using: :btree
-  add_index "interchanges", ["to_point"], name: "interchanges_to_poinnt_key", using: :btree
 
   create_table "journey_frequencies", id: :bigserial, force: :cascade do |t|
     t.integer  "vehicle_journey_id",         limit: 8
@@ -451,20 +449,18 @@ ActiveRecord::Schema.define(version: 20171030100000) do
   add_index "route_points", ["objectid"], name: "route_points_objectid_key", unique: true, using: :btree
 
   create_table "route_sections", id: :bigserial, force: :cascade do |t|
-    t.geometry "input_geometry",                   limit: {:srid=>4326, :type=>"line_string"}
-    t.geometry "processed_geometry",               limit: {:srid=>4326, :type=>"line_string"}
-    t.string   "objectid",                                                                                     null: false
+    t.geometry "input_geometry",               limit: {:srid=>4326, :type=>"line_string"}
+    t.geometry "processed_geometry",           limit: {:srid=>4326, :type=>"line_string"}
+    t.string   "objectid",                                                                                 null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
     t.float    "distance"
-    t.boolean  "no_processing",                                                                default: false, null: false
-    t.string   "arrival_stop_area_objectid_key"
-    t.string   "departure_stop_area_objectid_key"
+    t.boolean  "no_processing",                                                            default: false, null: false
+    t.integer  "from_scheduled_stop_point_id"
+    t.integer  "to_scheduled_stop_point_id"
   end
 
-  add_index "route_sections", ["arrival_stop_area_objectid_key"], name: "index_route_sections_on_arrival_stop_area_objectid_key", using: :btree
-  add_index "route_sections", ["departure_stop_area_objectid_key"], name: "index_route_sections_on_departure_stop_area_objectid_key", using: :btree
   add_index "route_sections", ["objectid"], name: "route_sections_objectid_key", unique: true, using: :btree
 
   create_table "routes", id: :bigserial, force: :cascade do |t|
@@ -727,14 +723,12 @@ ActiveRecord::Schema.define(version: 20171030100000) do
     t.boolean  "flexible_service"
     t.integer  "journey_category",                          default: 0, null: false
     t.string   "transport_submode_name"
+    t.string   "private_code"
   end
 
   add_index "vehicle_journeys", ["objectid"], name: "vehicle_journeys_objectid_key", unique: true, using: :btree
   add_index "vehicle_journeys", ["route_id"], name: "index_vehicle_journeys_on_route_id", using: :btree
 
-  add_foreign_key "access_links", "access_points", name: "aclk_acpt_fkey", on_delete: :cascade
-  add_foreign_key "access_links", "stop_areas", name: "aclk_area_fkey", on_delete: :cascade
-  add_foreign_key "access_points", "stop_areas", name: "access_area_fkey", on_delete: :cascade
   add_foreign_key "connection_links", "stop_areas", column: "arrival_id", name: "colk_endarea_fkey", on_delete: :cascade
   add_foreign_key "connection_links", "stop_areas", column: "departure_id", name: "colk_startarea_fkey", on_delete: :cascade
   add_foreign_key "footnotes_journey_patterns", "footnotes", name: "footnotes_journey_patterns_footnotes_fkey", on_delete: :cascade

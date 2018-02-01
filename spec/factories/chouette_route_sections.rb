@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :route_section, :class => Chouette::RouteSection do
-    association :departure, :factory => :stop_area
-    association :arrival, :factory => :stop_area
+    association :from_scheduled_stop_point, :factory => :scheduled_stop_point
+    association :to_scheduled_stop_point, :factory => :scheduled_stop_point
   end
 end

@@ -1,21 +1,21 @@
 class Chouette::RouteSection < Chouette::TridentActiveRecord
-  belongs_to :departure, class_name: 'Chouette::StopArea', :primary_key => "objectid", :foreign_key => "departure_stop_area_objectid_key"
-  belongs_to :arrival, class_name: 'Chouette::StopArea', :primary_key => "objectid", :foreign_key => "arrival_stop_area_objectid_key"
+  belongs_to :from_scheduled_stop_point, class_name: 'Chouette::ScheduledStopPoint'
+  belongs_to :to_scheduled_stop_point, class_name: 'Chouette::ScheduledStopPoint'
   has_many :journey_pattern_sections
   has_many :journey_patterns, through: :journey_pattern_sections, dependent: :destroy
 
-  validates :departure, :arrival, presence: true
+  validates :from_scheduled_stop_point, :to_scheduled_stop_point, presence: true
   validates :processed_geometry, presence: true
 
   scope :by_endpoint_name, ->(endpoint, name) do
-    joins("INNER JOIN stop_areas #{endpoint} ON #{endpoint}.objectid = route_sections.#{endpoint}_stop_area_objectid_key").where(["#{endpoint}.name ilike ?", "%#{name}%"])
+    joins("INNER JOIN scheduled_stop_points #{endpoint}_ssp on #{endpoint}_ssp.id=route_sections.#{endpoint}_id inner join public.stop_areas #{endpoint}_sa ON #{endpoint}_sa.objectid = #{endpoint}_ssp.stop_area_objectid_key").where(["#{endpoint}_sa.name ilike ?", "%#{name}%"])
   end
   scope :by_line_id, ->(line_id) do
     joins(:journey_pattern_sections, :journey_patterns).joins('INNER JOIN routes ON journey_patterns.route_id = routes.id').where("routes.line_id = #{line_id}")
   end
 
   def stop_areas
-    [departure, arrival].compact
+    [from_scheduled_stop_point.nil? ? nil : from_scheduled_stop_point.stop_area, to_scheduled_stop_point.nil? ? nil : to_scheduled_stop_point.stop_area].compact
   end
 
   def default_geometry
