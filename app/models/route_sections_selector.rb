@@ -29,16 +29,19 @@ class RouteSectionsSelector
 
   def create_sections
     [].tap do |sections|
-      stop_points.each_cons(2).each_with_index do |(from_scheduled_stop_point, to_scheduled_stop_point), index|
+      stop_points.each_cons(2).each_with_index do |(from_stop_point, to_stop_point), index|
         journey_pattern_section = Chouette::JourneyPatternSection.find_by(journey_pattern: @itinerary, rank: index)
+
+        from_scheduled_stop_point = from_stop_point.scheduled_stop_point
+        to_scheduled_stop_point = to_stop_point.scheduled_stop_point
 
         if journey_pattern_section
           route_section = journey_pattern_section ? journey_pattern_section.route_section : nil
         else
-          route_section = Chouette::RouteSection.find_by(from_scheduled_stop_point: from_scheduled_stop_point.stop_area, to_scheduled_stop_point: to_scheduled_stop_point.stop_area)
+          route_section = Chouette::RouteSection.find_by(from_scheduled_stop_point: from_scheduled_stop_point, to_scheduled_stop_point: to_scheduled_stop_point)
         end
 
-        sections << Section.new(from_scheduled_stop_point.stop_area, to_scheduled_stop_point.stop_area, index, route_section)
+        sections << Section.new(from_scheduled_stop_point, to_scheduled_stop_point, index, route_section)
       end
     end
   end
