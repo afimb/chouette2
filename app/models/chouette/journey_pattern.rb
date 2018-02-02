@@ -96,7 +96,7 @@ class Chouette::JourneyPattern < Chouette::TridentActiveRecord
         to_control = true
         next
       end
-      unless [jps.route_section.departure_stop_area_objectid_key, jps.route_section.arrival_stop_area_objectid_key] == a
+      unless [jps.route_section.from_scheduled_stop_point.stop_area_objectid_key, jps.route_section.to_scheduled_stop_point.stop_area_objectid_key] == a
         jps.destroy
         to_control = true
       end
