@@ -24,6 +24,7 @@ notifications:
 before_install:
   - gem update bundler
 before_script:
+  - sudo apt-get install postgresql-9.4-postgis-2.3 postgis-2.3 -y -q
   - bundle exec rake ci:db_travis_config
   - bundle exec rake db:create
   - bundle exec rake db:migrate
