@@ -20,9 +20,7 @@ rvm:
 notifications:
   email:
     - mflorisson@cityway.fr
-    - bruno@atnos.com
     - metienne@cityway.fr
-    - gjamot@cityway.fr
 before_install:
   - gem update bundler
 before_script:

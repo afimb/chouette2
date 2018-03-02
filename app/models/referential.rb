@@ -135,10 +135,18 @@ class Referential < ActiveRecord::Base
       [ "NTF Lambert 2 Carto (27572)", 27572 ],
       [ "NTF Lambert 3 Carto (27573)", 27573 ],
       [ "NTF Lambert 4 Carto (27574)", 27574 ] ,
-      [ "Réunion RGR92 - UTM 40S (2975)", 2975 ],
       [ "Antilles Françaises RRAF1991 - UTM 20N - IGN (4559)", 4559 ],
       [ "Guyane RGFG95 - UTM 22N (2972)", 2972 ],
-      [ "Guyane RGFG95 - UTM 21N (3312)", 3312 ]
+      [ "Guyane RGFG95 - UTM 21N (3312)", 3312 ],
+      [ "Mayotte RGM 04 - UTM 38S (4471)", 4471 ],
+		[ "Nouvelle Calédonie RGNC91-93 - UTM 21N (3163)", 3163 ],
+		[ "Polynésie Française RGPF - UTM 5S (3296)", 3296 ],
+		[ "Polynésie Française RGPF - UTM 6S (3297)", 3297 ],
+		[ "Polynésie Française RGPF - UTM 7S (3298)", 3298 ],
+		[ "Polynésie Française RGPF - UTM 8S (3299)", 3299 ],
+      [ "Réunion RGR92 - UTM 40S (2975)", 2975 ],
+		[ "Saint-Pierre-et-Miquelon RGSPM 06 - UTM 21 N(2987)", 2987 ],
+		[ "Wallis-et-Futuna MOP78 - UTM 1S (2988)", 2988 ]
     ]
   end
 
