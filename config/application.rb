@@ -29,5 +29,8 @@ module ChouetteIhm
 
     # link to validation specification pages
     config.validation_spec = 'http://www.chouette.mobi/validation/V2_3/'
+
+    # Adding healthcheck middleware - see https://thisdata.com/blog/making-a-rails-health-check-that-doesnt-hit-the-database/
+    config.middleware.insert_after "Rails::Rack::Logger", "MiddlewareHealthcheck"
   end
 end

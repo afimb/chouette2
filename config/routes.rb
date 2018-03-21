@@ -1,5 +1,7 @@
 ChouetteIhm::Application.routes.draw do
 
+  # ====> Beware not to use /healtcheck route : already used by MiddlewareHealthcheck
+
   devise_for :users, :controllers => {
     :registrations => 'users/registrations', :invitations => 'users/invitations',
     :omniauth_callbacks => 'users/omniauth_callbacks'
