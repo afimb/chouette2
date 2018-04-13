@@ -1,4 +1,4 @@
 class Chouette::VehicleJourneysKeyValue < Chouette::TridentActiveRecord
-  include KeyValue
+include KeyValue
 
 end
