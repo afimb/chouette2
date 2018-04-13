@@ -19,7 +19,8 @@ module Chouette
     belongs_to :route
     belongs_to :journey_pattern
 
-    has_and_belongs_to_many :footnotes, :class_name => 'Chouette::Footnote'
+    has_many :vehicle_journeys_key_values
+    has_and_belongs_to_many :footnotes, :class_name => 'Chouette::Footnote', :foreign_key => "vehicle_journey_id", :association_foreign_key => "footnote_id"
 
     validates_presence_of :route
     validates_presence_of :journey_pattern
@@ -116,7 +117,7 @@ module Chouette
         }
       end
     end
-      
+
     def recalculate_day_offset
       return unless recalculate_offset
 

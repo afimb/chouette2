@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170627085357) do
+ActiveRecord::Schema.define(version: 20180412173843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -147,12 +147,24 @@ ActiveRecord::Schema.define(version: 20170627085357) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
+  create_table "destination_display_via", id: false, force: :cascade do |t|
+    t.integer  "destination_display_id", limit: 8, null: false
+    t.integer  "via_id",                 limit: 8, null: false
+    t.integer  "position",               limit: 8
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "destination_display_via", ["destination_display_id"], name: "index_destination_display_id_on_destination_display_via", using: :btree
+
   create_table "destination_displays", id: :bigserial, force: :cascade do |t|
     t.string   "name"
     t.string   "side_text"
-    t.string   "front_text", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "front_text",               null: false
+    t.string   "objectid",                 null: false
+    t.integer  "object_version", limit: 8
+    t.datetime "creation_time"
+    t.string   "creator_id"
   end
 
   create_table "exports", id: :bigserial, force: :cascade do |t|
@@ -200,12 +212,47 @@ ActiveRecord::Schema.define(version: 20170627085357) do
   end
 
   create_table "footnotes", id: :bigserial, force: :cascade do |t|
-    t.integer  "line_id",    limit: 8
     t.string   "code"
     t.string   "label"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "creation_time"
+    t.string   "objectid",       null: false
+    t.integer  "object_version"
+    t.string   "creator_id"
   end
+
+  add_index "footnotes", ["objectid"], name: "footnotes_objectid_key", unique: true, using: :btree
+
+  create_table "footnotes_journey_patterns", id: false, force: :cascade do |t|
+    t.integer "journey_pattern_id"
+    t.integer "footnote_id"
+  end
+
+  add_index "footnotes_journey_patterns", ["footnote_id"], name: "footnotes_id_journey_patterns_id_idx", using: :btree
+  add_index "footnotes_journey_patterns", ["journey_pattern_id"], name: "footnotes_journey_patterns_id_idx", using: :btree
+
+  create_table "footnotes_lines", id: false, force: :cascade do |t|
+    t.integer "line_id"
+    t.integer "footnote_id"
+  end
+
+  add_index "footnotes_lines", ["footnote_id"], name: "footnotes_footnote_line_id_idx", using: :btree
+  add_index "footnotes_lines", ["line_id"], name: "footnotes_line_id_idx", using: :btree
+
+  create_table "footnotes_stop_points", id: false, force: :cascade do |t|
+    t.integer "stop_point_id"
+    t.integer "footnote_id"
+  end
+
+  add_index "footnotes_stop_points", ["footnote_id"], name: "footnotes_stop_point_id_idx", using: :btree
+  add_index "footnotes_stop_points", ["stop_point_id"], name: "stop_point_id_idx", using: :btree
+
+  create_table "footnotes_vehicle_journey_at_stops", id: false, force: :cascade do |t|
+    t.integer "vehicle_journey_at_stop_id"
+    t.integer "footnote_id"
+  end
+
+  add_index "footnotes_vehicle_journey_at_stops", ["footnote_id"], name: "footnotes_vehicle_journey_at_stop_id_idx", using: :btree
+  add_index "footnotes_vehicle_journey_at_stops", ["vehicle_journey_at_stop_id"], name: "vehicle_journey_at_stop_id_idx", using: :btree
 
   create_table "footnotes_vehicle_journeys", id: false, force: :cascade do |t|
     t.integer "vehicle_journey_id", limit: 8
@@ -228,6 +275,31 @@ ActiveRecord::Schema.define(version: 20170627085357) do
     t.integer "group_of_line_id", limit: 8
     t.integer "line_id",          limit: 8
   end
+
+  create_table "interchanges", id: :bigserial, force: :cascade do |t|
+    t.string   "objectid",              null: false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id"
+    t.string   "name"
+    t.integer  "priority"
+    t.boolean  "planned"
+    t.boolean  "guaranteed"
+    t.boolean  "advertised"
+    t.time     "maximum_wait_time"
+    t.string   "from_point"
+    t.string   "to_point"
+    t.string   "from_vehicle_journey"
+    t.string   "to_vehicle_journey"
+    t.boolean  "stay_seated"
+    t.time     "minimum_transfer_time"
+    t.integer  "from_visit_number"
+    t.integer  "to_visit_number"
+  end
+
+  add_index "interchanges", ["from_vehicle_journey"], name: "interchanges_from_vehicle_journey_key", using: :btree
+  add_index "interchanges", ["objectid"], name: "interchanges_objectid_key", unique: true, using: :btree
+  add_index "interchanges", ["objectid"], name: "interchanges_to_vehicle_journey_key", using: :btree
 
   create_table "journey_frequencies", id: :bigserial, force: :cascade do |t|
     t.integer  "vehicle_journey_id",         limit: 8
@@ -299,10 +371,18 @@ ActiveRecord::Schema.define(version: 20170627085357) do
     t.string   "color",                           limit: 6
     t.string   "text_color",                      limit: 6
     t.string   "stable_id"
+    t.string   "transport_submode_name"
   end
 
   add_index "lines", ["objectid"], name: "lines_objectid_key", unique: true, using: :btree
   add_index "lines", ["registration_number"], name: "lines_registration_number_key", using: :btree
+
+  create_table "lines_key_values", id: false, force: :cascade do |t|
+    t.integer "line_id"
+    t.string  "type_of_key"
+    t.string  "key"
+    t.string  "value"
+  end
 
   create_table "networks", id: :bigserial, force: :cascade do |t|
     t.string   "objectid",            null: false
@@ -363,21 +443,32 @@ ActiveRecord::Schema.define(version: 20170627085357) do
 
   add_index "referentials", ["name", "organisation_id"], name: "index_referentials_on_name_and_organisation_id", unique: true, using: :btree
 
+  create_table "route_points", id: :bigserial, force: :cascade do |t|
+    t.string   "objectid",                            null: false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id",              limit: 255
+    t.integer  "scheduled_stop_point_id"
+    t.string   "name"
+    t.boolean  "boarder_crossing"
+  end
+
+  add_index "route_points", ["objectid"], name: "route_points_objectid_key", unique: true, using: :btree
+
   create_table "route_sections", id: :bigserial, force: :cascade do |t|
-    t.geometry "input_geometry",                   limit: {:srid=>4326, :type=>"line_string"}
-    t.geometry "processed_geometry",               limit: {:srid=>4326, :type=>"line_string"}
-    t.string   "objectid",                                                                                     null: false
+    t.geometry "input_geometry",               limit: {:srid=>4326, :type=>"line_string"}
+    t.geometry "processed_geometry",           limit: {:srid=>4326, :type=>"line_string"}
+    t.string   "objectid",                                                                                 null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
     t.float    "distance"
-    t.boolean  "no_processing",                                                                default: false, null: false
-    t.string   "arrival_stop_area_objectid_key"
-    t.string   "departure_stop_area_objectid_key"
+    t.boolean  "no_processing",                                                            default: false, null: false
+    t.integer  "from_scheduled_stop_point_id"
+    t.integer  "to_scheduled_stop_point_id"
   end
 
-  add_index "route_sections", ["arrival_stop_area_objectid_key"], name: "index_route_sections_on_arrival_stop_area_objectid_key", using: :btree
-  add_index "route_sections", ["departure_stop_area_objectid_key"], name: "index_route_sections_on_departure_stop_area_objectid_key", using: :btree
+  add_index "route_sections", ["objectid"], name: "route_sections_objectid_key", unique: true, using: :btree
 
   create_table "routes", id: :bigserial, force: :cascade do |t|
     t.integer  "line_id",           limit: 8
@@ -396,6 +487,12 @@ ActiveRecord::Schema.define(version: 20170627085357) do
 
   add_index "routes", ["objectid"], name: "routes_objectid_key", unique: true, using: :btree
 
+  create_table "routes_route_points", id: :bigserial, force: :cascade do |t|
+    t.integer "route_id",       null: false
+    t.integer "route_point_id", null: false
+    t.integer "position",       null: false
+  end
+
   create_table "routing_constraints_lines", id: false, force: :cascade do |t|
     t.integer "line_id",                limit: 8
     t.string  "stop_area_objectid_key"
@@ -410,6 +507,18 @@ ActiveRecord::Schema.define(version: 20170627085357) do
     t.datetime "updated_at"
     t.integer  "organisation_id", limit: 8
   end
+
+  create_table "scheduled_stop_points", id: :bigserial, force: :cascade do |t|
+    t.string   "objectid",                           null: false
+    t.string   "stop_area_objectid_key"
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id",             limit: 255
+    t.string   "name"
+  end
+
+  add_index "scheduled_stop_points", ["objectid"], name: "scheduled_stop_points_objectid_key", unique: true, using: :btree
+  add_index "scheduled_stop_points", ["stop_area_objectid_key"], name: "scheduled_stop_points_stop_area_idx", using: :btree
 
   create_table "stop_areas", id: :bigserial, force: :cascade do |t|
     t.integer  "parent_id",                       limit: 8
@@ -455,20 +564,19 @@ ActiveRecord::Schema.define(version: 20170627085357) do
   end
 
   create_table "stop_points", id: :bigserial, force: :cascade do |t|
-    t.integer  "route_id",               limit: 8
-    t.string   "objectid",                         null: false
+    t.integer  "route_id",                limit: 8
+    t.string   "objectid",                          null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
     t.integer  "position"
     t.string   "for_boarding"
     t.string   "for_alighting"
-    t.string   "stop_area_objectid_key"
     t.integer  "destination_display_id"
+    t.integer  "scheduled_stop_point_id",           null: false
   end
 
   add_index "stop_points", ["objectid"], name: "stop_points_objectid_key", unique: true, using: :btree
-  add_index "stop_points", ["stop_area_objectid_key"], name: "index_stop_points_on_stop_area_objectid_key", using: :btree
 
   create_table "taggings", id: :bigserial, force: :cascade do |t|
     t.integer  "tag_id"
@@ -582,18 +690,23 @@ ActiveRecord::Schema.define(version: 20170627085357) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "vehicle_journey_at_stops", id: :bigserial, force: :cascade do |t|
-    t.integer "vehicle_journey_id",             limit: 8
-    t.integer "stop_point_id",                  limit: 8
-    t.string  "connecting_service_id"
-    t.string  "boarding_alighting_possibility"
-    t.time    "arrival_time"
-    t.time    "departure_time"
-    t.string  "for_boarding"
-    t.string  "for_alighting"
-    t.integer "arrival_day_offset",                       default: 0, null: false
-    t.integer "departure_day_offset",                     default: 0, null: false
+    t.integer  "vehicle_journey_id",             limit: 8
+    t.integer  "stop_point_id",                  limit: 8
+    t.string   "connecting_service_id"
+    t.string   "boarding_alighting_possibility"
+    t.time     "arrival_time"
+    t.time     "departure_time"
+    t.string   "for_boarding"
+    t.string   "for_alighting"
+    t.integer  "arrival_day_offset",                       default: 0, null: false
+    t.integer  "departure_day_offset",                     default: 0, null: false
+    t.string   "objectid"
+    t.integer  "object_version"
+    t.string   "creator_id"
+    t.datetime "creation_time"
   end
 
+  add_index "vehicle_journey_at_stops", ["objectid"], name: "vehicle_journey_at_stops_objectid_key", unique: true, using: :btree
   add_index "vehicle_journey_at_stops", ["stop_point_id"], name: "index_vehicle_journey_at_stops_on_stop_pointid", using: :btree
   add_index "vehicle_journey_at_stops", ["vehicle_journey_id"], name: "index_vehicle_journey_at_stops_on_vehicle_journey_id", using: :btree
 
@@ -616,16 +729,32 @@ ActiveRecord::Schema.define(version: 20170627085357) do
     t.boolean  "mobility_restricted_suitability"
     t.boolean  "flexible_service"
     t.integer  "journey_category",                          default: 0, null: false
+    t.string   "transport_submode_name"
+    t.string   "private_code"
   end
 
   add_index "vehicle_journeys", ["objectid"], name: "vehicle_journeys_objectid_key", unique: true, using: :btree
   add_index "vehicle_journeys", ["route_id"], name: "index_vehicle_journeys_on_route_id", using: :btree
 
-  add_foreign_key "access_links", "access_points", name: "aclk_acpt_fkey", on_delete: :cascade
-  add_foreign_key "access_links", "stop_areas", name: "aclk_area_fkey", on_delete: :cascade
-  add_foreign_key "access_points", "stop_areas", name: "access_area_fkey", on_delete: :cascade
+  create_table "vehicle_journeys_key_values", id: false, force: :cascade do |t|
+    t.integer "vehicle_journey_id"
+    t.string  "type_of_key"
+    t.string  "key"
+    t.string  "value"
+  end
+
   add_foreign_key "connection_links", "stop_areas", column: "arrival_id", name: "colk_endarea_fkey", on_delete: :cascade
   add_foreign_key "connection_links", "stop_areas", column: "departure_id", name: "colk_startarea_fkey", on_delete: :cascade
+  add_foreign_key "footnotes_journey_patterns", "footnotes", name: "footnotes_journey_patterns_footnotes_fkey", on_delete: :cascade
+  add_foreign_key "footnotes_journey_patterns", "journey_patterns", name: "footnotes_journey_patterns_journey_patterns_fkey", on_delete: :cascade
+  add_foreign_key "footnotes_lines", "footnotes", name: "footnotes_lines_footnotes_fkey", on_delete: :cascade
+  add_foreign_key "footnotes_lines", "lines", name: "footnotes_lines_lines_fkey", on_delete: :cascade
+  add_foreign_key "footnotes_stop_points", "footnotes", name: "footnotes_stop_points_footnotes_fkey", on_delete: :cascade
+  add_foreign_key "footnotes_stop_points", "stop_points", name: "footnotes_stop_points_stop_points_fkey", on_delete: :cascade
+  add_foreign_key "footnotes_vehicle_journey_at_stops", "footnotes", name: "footnotes_vehicle_journey_at_stops_footnotes_fkey", on_delete: :cascade
+  add_foreign_key "footnotes_vehicle_journey_at_stops", "vehicle_journey_at_stops", name: "footnotes_vehicle_journey_at_stops_vjas_fkey", on_delete: :cascade
+  add_foreign_key "footnotes_vehicle_journeys", "footnotes", name: "footnotes_vehicle_journeys_footnotes_fkey", on_delete: :cascade
+  add_foreign_key "footnotes_vehicle_journeys", "vehicle_journeys", name: "footnotes_vehicle_journeys_vehicle_journeys_fkey", on_delete: :cascade
   add_foreign_key "group_of_lines_lines", "group_of_lines", name: "groupofline_group_fkey", on_delete: :cascade
   add_foreign_key "group_of_lines_lines", "lines", name: "groupofline_line_fkey", on_delete: :cascade
   add_foreign_key "journey_frequencies", "timebands"
@@ -639,15 +768,20 @@ ActiveRecord::Schema.define(version: 20170627085357) do
   add_foreign_key "journey_patterns_stop_points", "stop_points", name: "jpsp_stoppoint_fkey", on_delete: :cascade
   add_foreign_key "lines", "companies", name: "line_company_fkey", on_delete: :nullify
   add_foreign_key "lines", "networks", name: "line_ptnetwork_fkey", on_delete: :nullify
+  add_foreign_key "lines_key_values", "lines", name: "lines_key_values_lines_fkey", on_delete: :cascade
   add_foreign_key "networks", "companies", name: "network_company_fkey", on_delete: :nullify
+  add_foreign_key "route_points", "scheduled_stop_points"
   add_foreign_key "routes", "lines", name: "route_line_fkey", on_delete: :cascade
   add_foreign_key "routes", "routes", column: "opposite_route_id", name: "route_opposite_route_fkey", on_delete: :nullify
+  add_foreign_key "routes_route_points", "route_points"
+  add_foreign_key "routes_route_points", "routes", on_delete: :cascade
   add_foreign_key "routing_constraints_lines", "lines", name: "routingconstraint_line_fkey", on_delete: :cascade
   add_foreign_key "stop_areas", "stop_areas", column: "parent_id", name: "area_parent_fkey", on_delete: :nullify
   add_foreign_key "stop_areas_stop_areas", "stop_areas", column: "child_id", name: "stoparea_child_fkey", on_delete: :cascade
   add_foreign_key "stop_areas_stop_areas", "stop_areas", column: "parent_id", name: "stoparea_parent_fkey", on_delete: :cascade
   add_foreign_key "stop_points", "destination_displays", name: "stop_point_destination_display_fkey"
   add_foreign_key "stop_points", "routes", name: "stoppoint_route_fkey", on_delete: :cascade
+  add_foreign_key "stop_points", "scheduled_stop_points"
   add_foreign_key "time_table_dates", "time_tables", name: "tm_date_fkey", on_delete: :cascade
   add_foreign_key "time_table_periods", "time_tables", name: "tm_period_fkey", on_delete: :cascade
   add_foreign_key "time_tables_vehicle_journeys", "time_tables", name: "vjtm_tm_fkey", on_delete: :cascade
@@ -657,4 +791,5 @@ ActiveRecord::Schema.define(version: 20170627085357) do
   add_foreign_key "vehicle_journeys", "companies", name: "vj_company_fkey", on_delete: :nullify
   add_foreign_key "vehicle_journeys", "journey_patterns", name: "vj_jp_fkey", on_delete: :cascade
   add_foreign_key "vehicle_journeys", "routes", name: "vj_route_fkey", on_delete: :cascade
+  add_foreign_key "vehicle_journeys_key_values", "vehicle_journeys", name: "vehicle_journeys_key_values_vehicle_journey_fkey"
 end
