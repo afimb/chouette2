@@ -103,6 +103,23 @@
       <% end %>
     </ul>
     </p>
+
+    <p>
+      <label><%= @line.human_attribute_name(:key_values) %>: </label>
+    </p>
+      <% unless @line.lines_key_values.nil? %>
+        <ul>
+          <% @line.lines_key_values.each do |key_value| %>
+              <li><%= key_value.key %> - <%= key_value.value %></li>
+          <% end %>
+        </ul>
+    <% end %>
+
+
+    <p>
+      <label><%= @line.human_attribute_name("comment") %>: </label>
+      <%= @line.comment %>
+    </p>
   </div>
 
   <div class="row">
