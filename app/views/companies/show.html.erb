@@ -65,6 +65,25 @@
       <span class="contact_details"><%= Chouette::Company.human_attribute_name("url") %>: </span>
       <%= @company.public_url %>
     </p>
+    <p><label><%= t('companies.branding') %></label></p>
+    <% unless @company.branding.nil? %>
+        <p>
+          <span class="contact_details"><%= Chouette::Company.human_attribute_name("name") %>: </span>
+          <%= @company.branding.name %>
+        </p>
+        <p>
+          <span class="contact_details"><%= Chouette::Company.human_attribute_name("description") %>: </span>
+          <%= @company.branding.description %>
+        </p>
+        <p>
+          <span class="contact_details"><%= Chouette::Company.human_attribute_name("url") %>: </span>
+          <%= @company.branding.url %>
+        </p>
+        <p>
+          <span class="contact_details"><%= Chouette::Company.human_attribute_name("image") %>: </span>
+          <%= @company.branding.image %>
+        </p>
+    <% end %>
   </div>
 </div>
 
