@@ -12,7 +12,7 @@ module Chouette
     attr_reader :time_table_tokens
 
     def self.nullable_attributes
-      [:transport_mode, :published_journey_name, :vehicle_type_identifier, :published_journey_identifier, :comment, :status_value]
+      [:transport_mode, :published_journey_name, :vehicle_type_identifier, :published_journey_identifier, :comment, :status_value, :service_alteration]
     end
 
     belongs_to :company
