@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180124120000) do
+ActiveRecord::Schema.define(version: 20180417173843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,19 @@ ActiveRecord::Schema.define(version: 20180124120000) do
     t.datetime "updated_at"
   end
 
+  create_table "brandings", id: :bigserial, force: :cascade do |t|
+    t.string   "objectid",                   null: false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id",     limit: 255
+    t.string   "name"
+    t.string   "description"
+    t.string   "url"
+    t.string   "image"
+  end
+
+  add_index "brandings", ["objectid"], name: "brandings_objectid_key", unique: true, using: :btree
+
   create_table "codespaces", id: :bigserial, force: :cascade do |t|
     t.string   "xmlns",      null: false
     t.string   "xmlns_url",  null: false
@@ -103,6 +116,7 @@ ActiveRecord::Schema.define(version: 20180124120000) do
     t.string   "public_email"
     t.string   "public_url"
     t.string   "public_phone"
+    t.integer  "branding_id"
   end
 
   add_index "companies", ["objectid"], name: "companies_objectid_key", unique: true, using: :btree
@@ -372,10 +386,18 @@ ActiveRecord::Schema.define(version: 20180124120000) do
     t.string   "text_color",                      limit: 6
     t.string   "stable_id"
     t.string   "transport_submode_name"
+    t.integer  "presentation_id"
   end
 
   add_index "lines", ["objectid"], name: "lines_objectid_key", unique: true, using: :btree
   add_index "lines", ["registration_number"], name: "lines_registration_number_key", using: :btree
+
+  create_table "lines_key_values", id: false, force: :cascade do |t|
+    t.integer "line_id"
+    t.string  "type_of_key"
+    t.string  "key"
+    t.string  "value"
+  end
 
   create_table "networks", id: :bigserial, force: :cascade do |t|
     t.string   "objectid",            null: false
@@ -401,6 +423,16 @@ ActiveRecord::Schema.define(version: 20180124120000) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "data_format", default: "neptune"
+  end
+
+  create_table "presentations", id: :bigserial, force: :cascade do |t|
+    t.string   "objectid",                   null: false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id",     limit: 255
+    t.string   "colour"
+    t.string   "textColour"
+    t.string   "textFont"
   end
 
   create_table "pt_links", id: :bigserial, force: :cascade do |t|
@@ -724,10 +756,18 @@ ActiveRecord::Schema.define(version: 20180124120000) do
     t.integer  "journey_category",                          default: 0, null: false
     t.string   "transport_submode_name"
     t.string   "private_code"
+    t.string   "service_alteration"
   end
 
   add_index "vehicle_journeys", ["objectid"], name: "vehicle_journeys_objectid_key", unique: true, using: :btree
   add_index "vehicle_journeys", ["route_id"], name: "index_vehicle_journeys_on_route_id", using: :btree
+
+  create_table "vehicle_journeys_key_values", id: false, force: :cascade do |t|
+    t.integer "vehicle_journey_id"
+    t.string  "type_of_key"
+    t.string  "key"
+    t.string  "value"
+  end
 
   add_foreign_key "connection_links", "stop_areas", column: "arrival_id", name: "colk_endarea_fkey", on_delete: :cascade
   add_foreign_key "connection_links", "stop_areas", column: "departure_id", name: "colk_startarea_fkey", on_delete: :cascade
@@ -754,6 +794,8 @@ ActiveRecord::Schema.define(version: 20180124120000) do
   add_foreign_key "journey_patterns_stop_points", "stop_points", name: "jpsp_stoppoint_fkey", on_delete: :cascade
   add_foreign_key "lines", "companies", name: "line_company_fkey", on_delete: :nullify
   add_foreign_key "lines", "networks", name: "line_ptnetwork_fkey", on_delete: :nullify
+  add_foreign_key "lines", "presentations"
+  add_foreign_key "lines_key_values", "lines", name: "lines_key_values_lines_fkey", on_delete: :cascade
   add_foreign_key "networks", "companies", name: "network_company_fkey", on_delete: :nullify
   add_foreign_key "route_points", "scheduled_stop_points"
   add_foreign_key "routes", "lines", name: "route_line_fkey", on_delete: :cascade
@@ -776,4 +818,5 @@ ActiveRecord::Schema.define(version: 20180124120000) do
   add_foreign_key "vehicle_journeys", "companies", name: "vj_company_fkey", on_delete: :nullify
   add_foreign_key "vehicle_journeys", "journey_patterns", name: "vj_jp_fkey", on_delete: :cascade
   add_foreign_key "vehicle_journeys", "routes", name: "vj_route_fkey", on_delete: :cascade
+  add_foreign_key "vehicle_journeys_key_values", "vehicle_journeys", name: "vehicle_journeys_key_values_vehicle_journey_fkey"
 end
