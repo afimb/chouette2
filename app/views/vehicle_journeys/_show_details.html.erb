@@ -60,6 +60,10 @@
     </p>
 
     <p>
+      <label><%= vehicle_journey.human_attribute_name("service_alteration") %>: </label>
+      <%= vehicle_journey.service_alteration %>
+    </p>
+    <p>
       <label><%= vehicle_journey.human_attribute_name("mobility_restricted_suitability") %>: </label>
       <% if vehicle_journey.mobility_restricted_suitability.nil? %>
         <%= vehicle_journey.human_attribute_name("unspecified_mrs") %>

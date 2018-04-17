@@ -8,7 +8,7 @@ module Chouette
 
     default_scope { where(journey_category: journey_categories[:timed]) }
 
-    attr_accessor :transport_mode_name, :transport_submode, :recalculate_offset
+    attr_accessor :transport_mode_name, :transport_submode, :recalculate_offset, :service_alteration_name
     attr_reader :time_table_tokens, :footnote_tokens
 
     def self.nullable_attributes
@@ -83,6 +83,21 @@ module Chouette
       end
     end
 
+    def service_alteration_name
+      # return nil if service_alteration is nil
+      service_alteration && Chouette::ServiceAlteration.new( service_alteration.underscore)
+    end
+
+    def service_alteration_name=(service_alteration_name)
+      self.service_alteration = (service_alteration_name ? service_alteration_name.camelcase : nil)
+    end
+
+    @@service_alterations = nil
+    def self.service_alterations
+      @@service_alterations ||= Chouette::ServiceAlteration.all.select do |service_alteration|
+        service_alteration.to_i > -1
+      end
+    end
 
     def increasing_times
       previous = nil
