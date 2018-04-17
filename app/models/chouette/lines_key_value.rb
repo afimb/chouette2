@@ -1,5 +1,5 @@
 class Chouette::LinesKeyValue < Chouette::TridentActiveRecord
-include KeyValue
+include Chouette::KeyValue
 
 
 end
