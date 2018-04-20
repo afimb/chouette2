@@ -51,7 +51,7 @@ module Chouette
     end
 
     def exceeds_gap?(first, second)
-      (4 * 3600) < ((second - first) % (3600 * 24))
+      second < first
     end
   end
 end
