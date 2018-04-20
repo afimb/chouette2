@@ -43,7 +43,7 @@ module Chouette
         result = false
         errors.add(:departure_time, I18n.t("activerecord.errors.models.vehicle_journey_at_stop.departure_must_be_before_arrival"))
       end
-      if exceeds_gap?(previous.arrival_time + previous.departure_day_offset.day, arrival_time + arrival_day_offset.day)
+      if exceeds_gap?(previous.arrival_time + previous.arrival_day_offset.day, arrival_time + arrival_day_offset.day)
         result = false
         errors.add(:arrival_time, I18n.t("activerecord.errors.models.vehicle_journey_at_stop.arrival_must_be_before_departure"))
       end
