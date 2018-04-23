@@ -3,7 +3,21 @@ require 'open-uri'
 class Osrm_5_RouteSectionProcessor
 
   def call(route_section)
-    @osrm_endpoint = Rails.application.secrets.osrm_endpoint
+
+    # Find transport mode by stop_area
+    if route_section.from_scheduled_stop_point.stop_area.transport_mode.present?
+      mode = route_section.from_scheduled_stop_point.stop_area.transport_mode.downcase
+    else
+      # Not found - use default
+      mode = "default"
+    end
+
+    # Example configuration from application.yml:
+    # osrm_endpoint_list: '{"default": "http://osrm-bus:5000", "water": "http://osrm-ferry:5000", "rail": "http://osrm-railway:5000"}'
+
+    @osrm_endpoint = (!Rails.application.secrets.osrm_endpoint_list.nil? &&         # New configuration of osrm_endpoint_list exists
+                        Rails.application.secrets.osrm_endpoint_list[mode]) ||      # AND osrm-endpoint configured for mode
+                  Rails.application.secrets.osrm_endpoint_list["default"]           # ELSE: Fallback - use default configuration
 
     @points_string = (route_section.input_geometry || route_section.default_geometry).points.map do |point|
       "#{point.x.to_f},#{point.y.to_f}"
