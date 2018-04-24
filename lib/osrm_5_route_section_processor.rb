@@ -19,6 +19,8 @@ class Osrm_5_RouteSectionProcessor
                         Rails.application.secrets.osrm_endpoint_list[mode]) ||      # AND osrm-endpoint configured for mode
                   Rails.application.secrets.osrm_endpoint_list["default"]           # ELSE: Fallback - use default configuration
 
+    Rails.logger.info "Resolved TransportMode: #{mode}, using osrm-endpoint: #{@osrm_endpoint} from #{Rails.application.secrets.osrm_endpoint_list}"
+
     @points_string = (route_section.input_geometry || route_section.default_geometry).points.map do |point|
       "#{point.x.to_f},#{point.y.to_f}"
     end.join(';')
