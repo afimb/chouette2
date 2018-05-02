@@ -7,17 +7,18 @@ class Osrm_5_RouteSectionProcessor
     # Find transport mode by stop_area
     if route_section.from_scheduled_stop_point.stop_area.transport_mode.present?
       mode = route_section.from_scheduled_stop_point.stop_area.transport_mode.downcase
-    else
-      # Not found - use default
-      mode = "default"
     end
 
     # Example configuration from application.yml:
     # osrm_endpoint_list: '{"default": "http://osrm-bus:5000", "water": "http://osrm-ferry:5000", "rail": "http://osrm-railway:5000"}'
 
     @osrm_endpoint = (!Rails.application.secrets.osrm_endpoint_list.nil? &&         # New configuration of osrm_endpoint_list exists
-                        Rails.application.secrets.osrm_endpoint_list[mode]) ||      # AND osrm-endpoint configured for mode
-                  Rails.application.secrets.osrm_endpoint_list["default"]           # ELSE: Fallback - use default configuration
+                        Rails.application.secrets.osrm_endpoint_list[mode])      # AND osrm-endpoint configured for mode
+
+    if @osrm_endpoint.nil?
+      Rails.logger.info "OSRM not configured for TransportMode: '#{mode}'"
+      return
+    end
 
     @points_string = (route_section.input_geometry || route_section.default_geometry).points.map do |point|
       "#{point.x.to_f},#{point.y.to_f}"
@@ -37,10 +38,7 @@ class Osrm_5_RouteSectionProcessor
 
   protected
 
-  def execute_geometry(secondary = false)
-    if secondary && Rails.application.secrets.osrm_secondary_endpoint.present?
-      @osrm_endpoint = Rails.application.secrets.osrm_secondary_endpoint
-    end
+  def execute_geometry()
 
     path = "#{@osrm_endpoint}/route/v1/driving/#{@points_string}?overview=false&steps=true&geometries=polyline"
     Rails.logger.info "Invoke #{path} for RouteSection"
@@ -65,6 +63,5 @@ class Osrm_5_RouteSectionProcessor
     end
   rescue => e
     Rails.logger.error "#{@osrm_endpoint} failed: #{e}"
-    return !secondary ? execute_geometry(true) : nil
   end
 end
