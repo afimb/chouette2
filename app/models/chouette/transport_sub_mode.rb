@@ -47,6 +47,7 @@ class Chouette::TransportSubMode < ActiveSupport::StringInquirer
       # Tram sub modes
 
       ["local_tram", 10],
+      ["city_tram", 36],
 
       # Rail sub modes
       ["international", 11],
