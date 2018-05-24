@@ -1,30 +1,63 @@
 <%= semantic_form_for [@referential, @line] do |form| %>
-  <%= form.inputs do %>
-    <%= form.input :network, :as => :select, :collection => Chouette::Network.all, :include_blank => false %>
-    <%= form.input :company, :as => :select, :collection => Chouette::Company.operators, :include_blank => false%>
-    <%= form.input :name, :input_html => {  :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.line.name") } %>
-    <%= form.input :published_name %>
-    <%= form.input :registration_number, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.line.registration_number")} %>
-    <%= form.input :number, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.line.number") } %>
-    <%= form.input :transport_mode, :as => :select, :collection => Chouette::Line.transport_modes, :include_blank => false, :member_label => Proc.new { |mode| t("transport_modes.label.#{mode}") }  %>
-    <%= form.input :transport_submode, :as => :select, :collection => Chouette::Line.transport_submodes, :include_blank => true, :member_label => Proc.new { |mode| t("transport_submodes.label.#{mode}") }  %>
-    <%= form.input :color, :as => :string %>
-    <%= form.input :text_color %>
-    <%= form.input :stable_id %>
-    <%= form.input :url %>
-    <%= form.input :mobility_restricted_suitability, :as => :select, :collection => [[@line.human_attribute_name("accessible"), true], [@line.human_attribute_name("not_accessible"), false]], :include_blank => true %>
-    <%= form.input :flexible_service, :as => :select, :collection => [[@line.human_attribute_name("on_demaond_fs"), true], [@line.human_attribute_name("regular_fs"), false]], :include_blank => true %>
-    <%= form.input :comment %>
-    <%= form.input :objectid, :required => !@line.new_record?, :input_html => { :title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.line.objectid")} %>
-    <%= form.input :group_of_line_tokens, :label => t('.group_of_lines'), :as => :text,  :input_html => { :"data-pre" => ( @line.group_of_lines.map { |group_of_line| { :id => group_of_line.id, :name => group_of_line.name } } ).to_json }  %>
-    <%= form.input :footnote_tokens, :label => t('.footnotes'), :as => :search_footnote, :json => referential_autocomplete_footnotes_path(@referential, :format => :json), :hint_text => t('search_hint'), :no_result_text => t('no_result_text'),:searching_text => t('searching_term'),  :input_html => { :"data-pre" => Rabl::Renderer.new( 'autocomplete_footnotes/index', @line.footnotes, :view_path => 'app/views', :format => :json, :scope => :self ).render }  %>
+    <%= form.inputs do %>
+        <%= form.input :network, :as => :select, :collection => Chouette::Network.all, :include_blank => false %>
+        <%= form.input :company, :as => :select, :collection => Chouette::Company.operators, :include_blank => false %>
+        <%= form.input :name, :input_html => {:title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.line.name")} %>
+        <%= form.input :published_name %>
+        <%= form.input :registration_number, :input_html => {:title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.line.registration_number")} %>
+        <%= form.input :number, :input_html => {:title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.line.number")} %>
+        <%= form.input :transport_mode, :as => :select, :collection => Chouette::Line.transport_modes, :include_blank => false, :member_label => Proc.new {|mode| t("transport_modes.label.#{mode}")} %>
+        <%= form.input :transport_submode, :as => :select, :collection => Chouette::Line.transport_submodes, :include_blank => true, :member_label => Proc.new {|mode| t("transport_submodes.label.#{mode}")} %>
+        <%= form.input :color, :as => :string %>
+        <%= form.input :text_color %>
+        <%= form.input :stable_id %>
+        <%= form.input :url %>
+        <%= form.input :mobility_restricted_suitability, :as => :select, :collection => [[@line.human_attribute_name("accessible"), true], [@line.human_attribute_name("not_accessible"), false]], :include_blank => true %>
 
-  <% end %>
+        <%= form.input :comment %>
+        <%= form.input :objectid, :required => !@line.new_record?, :input_html => {:title => t("formtastic.titles#{format_restriction_for_locales(@referential)}.line.objectid")} %>
+        <%= form.input :group_of_line_tokens, :label => t('.group_of_lines'), :as => :text, :input_html => {:"data-pre" => (@line.group_of_lines.map {|group_of_line| {:id => group_of_line.id, :name => group_of_line.name}}).to_json} %>
+        <%= form.input :footnote_tokens, :label => t('.footnotes'), :as => :search_footnote, :json => referential_autocomplete_footnotes_path(@referential, :format => :json), :hint_text => t('search_hint'), :no_result_text => t('no_result_text'), :searching_text => t('searching_term'), :input_html => {:"data-pre" => Rabl::Renderer.new('autocomplete_footnotes/index', @line.footnotes, :view_path => 'app/views', :format => :json, :scope => :self).render} %>
 
-   <%= form.actions do %>
-     <%= form.action :submit, :as => :button %>
-     <%= form.action :cancel, :as => :link %>
-   <% end %>
+        <%= form.input :flexible_service, :as => :select, :collection => [[@line.human_attribute_name("on_demaond_fs"), true], [@line.human_attribute_name("regular_fs"), false]], :include_blank => true %>
+
+        <% if @line.flexible_service? %>
+            <div class="flexible_service_details">
+
+              <p>
+                <%= form.input :flexible_line_type, :as => :select, :collection => Chouette::Line.flexible_line_types, :include_blank => false %>
+                <%= form.input :booking_access, :as => :select, :collection => Chouette::Line.booking_access_types, :include_blank => true %>
+                <%= form.input :book_when, :as => :select, :collection => Chouette::Line.purchase_when_types, :include_blank => true %>
+                <%= form.input :buy_when, :as => :check_boxes, :collection => Chouette::Line.purchase_moment_types , :include_blank => false %>
+                <%= form.input :booking_methods, :as => :check_boxes, :collection => Chouette::Line.booking_method_types , :include_blank => false %>
+                <%= form.input :latest_booking_time %>
+                <%= form.input :minimum_booking_period %>
+                <%= form.input :booking_note, :as => :text %>
+              </p>
+
+              <legend class="label">
+              <label><%= @line.human_attribute_name("booking_contact") %>: </label>
+              </legend>
+              <p>
+                <% form.object.build_booking_contact unless form.object.booking_contact %>
+                <%= form.fields_for :booking_contact, form.object.booking_contact do |bc| %>
+                    <%= bc.input :contact_person %>
+                    <%= bc.input :phone %>
+                    <%= bc.input :url %>
+                    <%= bc.input :email %>
+                    <%= bc.input :fax %>
+                    <%= bc.input :further_details %>
+                <% end %>
+              </p>
+            </div>
+        <% end %>
+
+    <% end %>
+
+    <%= form.actions do %>
+        <%= form.action :submit, :as => :button %>
+        <%= form.action :cancel, :as => :link %>
+    <% end %>
 <% end %>
 
 <script>

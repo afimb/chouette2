@@ -13,12 +13,20 @@ class Chouette::Line < Chouette::TridentActiveRecord
   has_and_belongs_to_many :group_of_lines, :class_name => 'Chouette::GroupOfLine', :order => 'group_of_lines.name'
 
   has_many :lines_key_values
-#  has_many :footnotes, :inverse_of => :line, :validate => :true, :dependent => :destroy
-#  accepts_nested_attributes_for :footnotes, :reject_if => :all_blank, :allow_destroy => true
+
+  has_many :buy_when_objects, :class_name => 'Chouette::LinesBuyWhen', :autosave => true
+  has_many :booking_method_objects, :class_name => 'Chouette::LinesBookingMethod', :autosave => true
+
+
+  #  has_many :footnotes, :inverse_of => :line, :validate => :true, :dependent => :destroy
+  #  accepts_nested_attributes_for :footnotes, :reject_if => :all_blank, :allow_destroy => true
 
   attr_reader :group_of_line_tokens, :footnote_tokens
   attr_accessor :transport_mode
   attr_accessor :transport_submode
+
+  belongs_to :booking_contact, :class_name => 'Chouette::ContactStructure', :dependent => :destroy
+  accepts_nested_attributes_for :booking_contact, :allow_destroy => :true
 
   validates_presence_of :network
   validates_presence_of :company
@@ -41,7 +49,7 @@ class Chouette::Line < Chouette::TridentActiveRecord
 
   def transport_mode
     # return nil if transport_mode_name is nil
-    transport_mode_name && Chouette::TransportMode.new( transport_mode_name.underscore)
+    transport_mode_name && Chouette::TransportMode.new(transport_mode_name.underscore)
   end
 
   def transport_mode=(transport_mode)
@@ -50,14 +58,34 @@ class Chouette::Line < Chouette::TridentActiveRecord
 
   def transport_submode
     # return nil if transport_submode_name is nil
-    transport_submode_name && Chouette::TransportSubMode.new( transport_submode_name.underscore)
+    transport_submode_name && Chouette::TransportSubMode.new(transport_submode_name.underscore)
   end
 
   def transport_submode=(transport_submode)
     self.transport_submode_name = (transport_submode ? transport_submode.camelcase : nil)
   end
 
+  def buy_when
+    buy_when_objects.map {|bw| bw.buy_when}
+  end
+
+  def buy_when=(string_values)
+    buy_when_objects.clear
+    buy_when_objects << string_values.reject(&:blank?).collect {|bw| lbw= Chouette::LinesBuyWhen.new(); lbw.line=self; lbw.buy_when=bw; lbw}
+  end
+
+  def booking_methods
+    booking_method_objects.map {|bw| bw.booking_method}
+  end
+
+
+  def booking_methods=(string_values)
+    booking_method_objects.clear
+    booking_method_objects << string_values.reject(&:blank?).collect {|bm| lbm= Chouette::LinesBookingMethod.new(); lbm.line=self; lbm.booking_method=bm; lbm}
+  end
+
   @@transport_modes = nil
+
   def self.transport_modes
     @@transport_modes ||= Chouette::TransportMode.all.select do |transport_mode|
       transport_mode.to_i > -1
@@ -65,14 +93,55 @@ class Chouette::Line < Chouette::TridentActiveRecord
   end
 
   @@transport_submodes = nil
+
   def self.transport_submodes
     @@transport_submodes ||= Chouette::TransportSubMode.all.select do |transport_submode|
       transport_submode.to_i > -1
     end
   end
 
+  @flexible_line_types = nil
+
+  def self.flexible_line_types
+    @flexible_line_types ||= Chouette::FlexibleLineType.all.select do |flexible_line_type|
+      flexible_line_type.to_i > -1
+    end
+  end
+
+  @booking_method_types = nil
+
+  def self.booking_method_types
+    @booking_method_types ||= Chouette::BookingMethodType.all.select do |booking_method|
+      booking_method.to_i > -1
+    end
+  end
+
+  @booking_access_types = nil
+
+  def self.booking_access_types
+    @booking_access_types ||= Chouette::BookingAccessType.all.select do |booking_access|
+      booking_access.to_i > -1
+    end
+  end
+
+  @purchase_moment_types = nil
+
+  def self.purchase_moment_types
+    @purchase_moment_types ||= Chouette::PurchaseMomentType.all.select do |purchase_moment|
+      purchase_moment.to_i > -1
+    end
+  end
+
+  @purchase_when_types = nil
+
+  def self.purchase_when_types
+    @@purchase_when_types ||= Chouette::PurchaseWhenType.all.select do |purchase_when|
+      purchase_when.to_i > -1
+    end
+  end
+
   def commercial_stop_areas
-    Chouette::StopArea.joins(:children => [:stop_points => [:route => :line] ]).where(:lines => {:id => self.id}).uniq
+    Chouette::StopArea.joins(:children => [:stop_points => [:route => :line]]).where(:lines => {:id => self.id}).uniq
   end
 
   def stop_areas
@@ -94,7 +163,6 @@ class Chouette::Line < Chouette::TridentActiveRecord
   def footnote_tokens=(ids)
     self.footnote_ids = ids.split(",")
   end
-
 
 
 end

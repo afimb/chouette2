@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417173843) do
+ActiveRecord::Schema.define(version: 20180516173843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -144,6 +144,15 @@ ActiveRecord::Schema.define(version: 20180417173843) do
   end
 
   add_index "connection_links", ["objectid"], name: "connection_links_objectid_key", unique: true, using: :btree
+
+  create_table "contact_structures", id: :bigserial, force: :cascade do |t|
+    t.string "contact_person"
+    t.string "email"
+    t.string "phone"
+    t.string "fax"
+    t.string "url"
+    t.string "further_details"
+  end
 
   create_table "delayed_jobs", id: :bigserial, force: :cascade do |t|
     t.integer  "priority",   default: 0
@@ -387,10 +396,27 @@ ActiveRecord::Schema.define(version: 20180417173843) do
     t.string   "stable_id"
     t.string   "transport_submode_name"
     t.integer  "presentation_id"
+    t.string   "booking_note"
+    t.string   "flexible_line_type"
+    t.string   "booking_access"
+    t.string   "book_when"
+    t.time     "latest_booking_time"
+    t.time     "minimum_booking_period"
+    t.integer  "booking_contact_id"
   end
 
   add_index "lines", ["objectid"], name: "lines_objectid_key", unique: true, using: :btree
   add_index "lines", ["registration_number"], name: "lines_registration_number_key", using: :btree
+
+  create_table "lines_booking_methods", id: false, force: :cascade do |t|
+    t.integer "line_id"
+    t.string  "booking_method"
+  end
+
+  create_table "lines_buy_when", id: false, force: :cascade do |t|
+    t.integer "line_id"
+    t.string  "buy_when"
+  end
 
   create_table "lines_key_values", id: false, force: :cascade do |t|
     t.integer "line_id"
@@ -785,7 +811,7 @@ ActiveRecord::Schema.define(version: 20180417173843) do
   add_foreign_key "group_of_lines_lines", "lines", name: "groupofline_line_fkey", on_delete: :cascade
   add_foreign_key "journey_frequencies", "timebands"
   add_foreign_key "journey_frequencies", "vehicle_journeys"
-  add_foreign_key "journey_pattern_sections", "journey_patterns"
+  add_foreign_key "journey_pattern_sections", "journey_patterns", on_delete: :cascade
   add_foreign_key "journey_pattern_sections", "route_sections"
   add_foreign_key "journey_patterns", "routes", name: "jp_route_fkey", on_delete: :cascade
   add_foreign_key "journey_patterns", "stop_points", column: "arrival_stop_point_id", name: "arrival_point_fkey", on_delete: :nullify
@@ -793,8 +819,11 @@ ActiveRecord::Schema.define(version: 20180417173843) do
   add_foreign_key "journey_patterns_stop_points", "journey_patterns", name: "jpsp_jp_fkey", on_delete: :cascade
   add_foreign_key "journey_patterns_stop_points", "stop_points", name: "jpsp_stoppoint_fkey", on_delete: :cascade
   add_foreign_key "lines", "companies", name: "line_company_fkey", on_delete: :nullify
+  add_foreign_key "lines", "contact_structures", column: "booking_contact_id", name: "lines_booking_contact_fkey"
   add_foreign_key "lines", "networks", name: "line_ptnetwork_fkey", on_delete: :nullify
   add_foreign_key "lines", "presentations"
+  add_foreign_key "lines_booking_methods", "lines", name: "lines_booking_methods_lines_fkey"
+  add_foreign_key "lines_buy_when", "lines", name: "lines_buy_when_lines_fkey"
   add_foreign_key "lines_key_values", "lines", name: "lines_key_values_lines_fkey", on_delete: :cascade
   add_foreign_key "networks", "companies", name: "network_company_fkey", on_delete: :nullify
   add_foreign_key "route_points", "scheduled_stop_points"
