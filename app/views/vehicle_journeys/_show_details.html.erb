@@ -84,6 +84,30 @@
       <% end %>
     </p>
 
+    <% if vehicle_journey.flexible_service_properties %>
+        <div class="row">
+          <div id="flexible_service" class="col-md-6">
+            <p>
+              <label><%= vehicle_journey.human_attribute_name("flexible_service_type") %>: </label>
+              <%= vehicle_journey.flexible_service_properties.flexible_service_type %>
+            </p>
+            <p>
+              <label><%= vehicle_journey.human_attribute_name("cancellation_possible") %>: </label>
+              <%= vehicle_journey.flexible_service_properties.cancellation_possible %>
+            </p>
+            <p>
+              <label><%= vehicle_journey.human_attribute_name("change_of_time_possible") %>: </label>
+              <%= vehicle_journey.flexible_service_properties.change_of_time_possible %>
+            </p>
+
+            <% @booking_arrangement=vehicle_journey.flexible_service_properties.booking_arrangement %>
+            <%= render "booking_arrangements/show" %>
+
+          </div>
+        </div>
+    <% end %>
+
+
     <p>
       <label><%= vehicle_journey.human_attribute_name("comment") %>: </label>
       <%= vehicle_journey.comment %>

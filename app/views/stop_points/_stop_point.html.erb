@@ -51,6 +51,13 @@
 
 
   <% end %>
+  <% unless stop_point.booking_arrangement.nil? %>
+
+          <% @booking_arrangement=stop_point.booking_arrangement %>
+          <%= render "booking_arrangements/show" %>
+
+
+  <% end %>
 </p>
   </div>
 </div>

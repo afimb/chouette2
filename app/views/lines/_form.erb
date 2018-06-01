@@ -26,29 +26,11 @@
 
               <p>
                 <%= form.input :flexible_line_type, :as => :select, :collection => Chouette::Line.flexible_line_types, :include_blank => false %>
-                <%= form.input :booking_access, :as => :select, :collection => Chouette::Line.booking_access_types, :include_blank => true %>
-                <%= form.input :book_when, :as => :select, :collection => Chouette::Line.purchase_when_types, :include_blank => true %>
-                <%= form.input :buy_when, :as => :check_boxes, :collection => Chouette::Line.purchase_moment_types , :include_blank => false %>
-                <%= form.input :booking_methods, :as => :check_boxes, :collection => Chouette::Line.booking_method_types , :include_blank => false %>
-                <%= form.input :latest_booking_time %>
-                <%= form.input :minimum_booking_period %>
-                <%= form.input :booking_note, :as => :text %>
+                <% form.object.build_booking_arrangement unless form.object.booking_arrangement %>
               </p>
+                <%= render "booking_arrangements/form",  :form => form %>
 
-              <legend class="label">
-              <label><%= @line.human_attribute_name("booking_contact") %>: </label>
-              </legend>
-              <p>
-                <% form.object.build_booking_contact unless form.object.booking_contact %>
-                <%= form.fields_for :booking_contact, form.object.booking_contact do |bc| %>
-                    <%= bc.input :contact_person %>
-                    <%= bc.input :phone %>
-                    <%= bc.input :url %>
-                    <%= bc.input :email %>
-                    <%= bc.input :fax %>
-                    <%= bc.input :further_details %>
-                <% end %>
-              </p>
+
             </div>
         <% end %>
 

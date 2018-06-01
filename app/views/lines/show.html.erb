@@ -93,74 +93,14 @@
       <% if @line.flexible_service? %>
           <div class="row">
             <div id="flexible_service" class="col-md-6">
-        <p>
-          <label><%= @line.human_attribute_name("flexible_line_type") %>: </label>
-          <%= @line.flexible_line_type %>
-        </p>
-        <p>
-          <label><%= @line.human_attribute_name("booking_access") %>: </label>
-          <%= @line.booking_access %>
-        </p>
           <p>
-            <label><%= @line.human_attribute_name("book_when") %>: </label>
-            <%= @line.book_when %>
+            <label><%= @line.human_attribute_name("flexible_line_type") %>: </label>
+            <%= @line.flexible_line_type %>
           </p>
-          <p>
-            <label><%= @line.human_attribute_name("buy_when") %>: </label>
-            <% @line.buy_when.each do |buy_when| %>
-                <%= buy_when %>
-            <% end %>
-          </p>
-          <p>
-            <label><%= @line.human_attribute_name("booking_methods") %>: </label>
-            <% @line.booking_methods.each do |booking_method| %>
-                <%= booking_method %>
-            <% end %>
-          </p>
-          <p>
-            <label><%= @line.human_attribute_name("latest_booking_time") %>: </label>
-            <%= @line.latest_booking_time %>
-          </p>
-          <p>
-            <label><%= @line.human_attribute_name("minimum_booking_period") %>: </label>
-            <%= @line.minimum_booking_period %>
-          </p>
-          <p>
-            <label><%= @line.human_attribute_name("booking_note") %>: </label>
-            <%= @line.booking_note %>
-          </p>
-          </div>
-          <div id="flexible_service" class="col-md-6">
-            <p>
-          <h3><%= @line.human_attribute_name("booking_contact") %>: </h3>
-            </p>
-          <% unless @line.booking_contact.nil? %>
-            <p>
-              <label><%= @line.human_attribute_name("contact_person") %>: </label>
-              <%= @line.booking_contact.contact_person %>
-            </p>
-            <p>
-              <label><%= @line.human_attribute_name("phone") %>: </label>
-              <%= @line.booking_contact.phone %>
-            </p>
-            <p>
-              <label><%= @line.human_attribute_name("url") %>: </label>
-              <%= @line.booking_contact.url %>
-            </p>
-            <p>
-              <label><%= @line.human_attribute_name("email") %>: </label>
-              <%= @line.booking_contact.email %>
-            </p>
-            <p>
-              <label><%= @line.human_attribute_name("fax") %>: </label>
-              <%= @line.booking_contact.fax %>
-            </p>
-              <p>
-              <label><%= @line.human_attribute_name("further_detail") %>: </label>
-              <%= @line.booking_contact.further_details %>
-              </p>
 
-        <% end %>
+          <% @booking_arrangement=@line.booking_arrangement %>
+          <%= render "booking_arrangements/show" %>
+
           </div>
           </div>
       <% end %>

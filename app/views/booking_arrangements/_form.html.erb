@@ -1,0 +1,31 @@
+<div class="nested-fields row">
+  <p>
+  <%= form.fields_for :booking_arrangement, form.object.booking_arrangement do |ba| %>
+        <%= link_to_remove_association  "<i class='fa fa-trash-o'></i>".html_safe, ba %>
+        <%= ba.input :id, :as => :hidden %>
+      <%= ba.input :booking_access, :as => :select, :collection => Chouette::BookingArrangement.booking_access_types, :include_blank => true %>
+      <%= ba.input :book_when, :as => :select, :collection => Chouette::BookingArrangement.purchase_when_types, :include_blank => true %>
+      <%= ba.input :buy_when, :as => :check_boxes, :collection => Chouette::BookingArrangement.purchase_moment_types, :include_blank => false %>
+      <%= ba.input :booking_methods, :as => :check_boxes, :collection => Chouette::BookingArrangement.booking_method_types, :include_blank => false %>
+      <%= ba.input :latest_booking_time, :as => :time_picker %>
+      <%= ba.input :minimum_booking_period, :as => :time_picker %>
+      <%= ba.input :booking_note, :as => :text %>
+
+      </p>
+
+      <legend class="label">
+        <label><%= @line.human_attribute_name("booking_contact") %>: </label>
+      </legend>
+      <p>
+        <% ba.object.build_booking_contact unless ba.object.booking_contact %>
+        <%= ba.fields_for :booking_contact, ba.object.booking_contact do |bc| %>
+            <%= bc.input :contact_person %>
+            <%= bc.input :phone, :as => :phone %>
+            <%= bc.input :url, :as => :url %>
+            <%= bc.input :email, :as => :email %>
+            <%= bc.input :fax, :as => :phone %>
+            <%= bc.input :further_details %>
+        <% end %>
+      </p>
+  <% end %>
+</div>

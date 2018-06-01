@@ -1,0 +1,73 @@
+<div>
+  <div id="index_item" class="panel panel-default">
+    <p>
+      <label><%= @booking_arrangement.human_attribute_name("booking_access") %>: </label>
+      <%= @booking_arrangement.booking_access %>
+    </p>
+    <p>
+      <label><%= @booking_arrangement.human_attribute_name("book_when") %>: </label>
+      <%= @booking_arrangement.book_when %>
+    </p>
+    <p>
+      <label><%= @booking_arrangement.human_attribute_name("buy_when") %>: </label>
+      <% @booking_arrangement.buy_when.each do |buy_when| %>
+          <%= buy_when %>
+      <% end %>
+    </p>
+    <p>
+      <label><%= @booking_arrangement.human_attribute_name("booking_methods") %>: </label>
+      <% @booking_arrangement.booking_methods.each do |booking_method| %>
+          <%= booking_method %>
+      <% end %>
+    </p>
+    <p>
+      <label><%= @booking_arrangement.human_attribute_name("latest_booking_time") %>: </label>
+      <% unless @booking_arrangement.latest_booking_time.nil? %>
+          <%= @booking_arrangement.latest_booking_time.strftime("%H:%M") %>
+      <% end %>
+    </p>
+    <p>
+      <label><%= @booking_arrangement.human_attribute_name("minimum_booking_period") %>: </label>
+      <% unless @booking_arrangement.minimum_booking_period.nil? %>
+          <%= @booking_arrangement.minimum_booking_period.strftime("%H:%M") %>
+      <% end %>
+    </p>
+    <p>
+      <label><%= @booking_arrangement.human_attribute_name("booking_note") %>: </label>
+      <%= @booking_arrangement.booking_note %>
+    </p>
+
+    <div id="flexible_service">
+      <p>
+      <h3><%= @booking_arrangement.human_attribute_name("booking_contact") %>: </h3>
+      </p>
+      <% unless @booking_arrangement.booking_contact.nil? %>
+          <p>
+            <label><%= @booking_arrangement.human_attribute_name("contact_person") %>: </label>
+            <%= @booking_arrangement.booking_contact.contact_person %>
+          </p>
+          <p>
+            <label><%= @booking_arrangement.human_attribute_name("phone") %>: </label>
+            <%= @booking_arrangement.booking_contact.phone %>
+          </p>
+          <p>
+            <label><%= @line.human_attribute_name("url") %>: </label>
+            <%= @booking_arrangement.booking_contact.url %>
+          </p>
+          <p>
+            <label><%= @line.human_attribute_name("email") %>: </label>
+            <%= @booking_arrangement.booking_contact.email %>
+          </p>
+          <p>
+            <label><%= @line.human_attribute_name("fax") %>: </label>
+            <%= @booking_arrangement.booking_contact.fax %>
+          </p>
+          <p>
+            <label><%= @line.human_attribute_name("further_detail") %>: </label>
+            <%= @booking_arrangement.booking_contact.further_details %>
+          </p>
+
+      <% end %>
+    </div>
+  </div>
+</div>
