@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180516173843) do
+ActiveRecord::Schema.define(version: 20180529183000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,25 @@ ActiveRecord::Schema.define(version: 20180516173843) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "booking_arrangements", id: :bigserial, force: :cascade do |t|
+    t.string  "booking_note"
+    t.string  "booking_access"
+    t.string  "book_when"
+    t.time    "latest_booking_time"
+    t.time    "minimum_booking_period"
+    t.integer "booking_contact_id"
+  end
+
+  create_table "booking_arrangements_booking_methods", id: false, force: :cascade do |t|
+    t.integer "booking_arrangement_id"
+    t.string  "booking_method"
+  end
+
+  create_table "booking_arrangements_buy_when", id: false, force: :cascade do |t|
+    t.integer "booking_arrangement_id"
+    t.string  "buy_when"
   end
 
   create_table "brandings", id: :bigserial, force: :cascade do |t|
@@ -233,6 +252,19 @@ ActiveRecord::Schema.define(version: 20180516173843) do
     t.integer "facility_id", limit: 8
     t.integer "choice_code"
   end
+
+  create_table "flexible_service_properties", id: :bigserial, force: :cascade do |t|
+    t.string   "objectid",                            null: false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id",              limit: 255
+    t.string   "flexible_service_type",   limit: 255
+    t.boolean  "cancellation_possible"
+    t.boolean  "change_of_time_possible"
+    t.integer  "booking_arrangement_id"
+  end
+
+  add_index "flexible_service_properties", ["objectid"], name: "flexible_service_propertiess_objectid_key", unique: true, using: :btree
 
   create_table "footnotes", id: :bigserial, force: :cascade do |t|
     t.string   "code"
@@ -396,27 +428,12 @@ ActiveRecord::Schema.define(version: 20180516173843) do
     t.string   "stable_id"
     t.string   "transport_submode_name"
     t.integer  "presentation_id"
-    t.string   "booking_note"
     t.string   "flexible_line_type"
-    t.string   "booking_access"
-    t.string   "book_when"
-    t.time     "latest_booking_time"
-    t.time     "minimum_booking_period"
-    t.integer  "booking_contact_id"
+    t.integer  "booking_arrangement_id"
   end
 
   add_index "lines", ["objectid"], name: "lines_objectid_key", unique: true, using: :btree
   add_index "lines", ["registration_number"], name: "lines_registration_number_key", using: :btree
-
-  create_table "lines_booking_methods", id: false, force: :cascade do |t|
-    t.integer "line_id"
-    t.string  "booking_method"
-  end
-
-  create_table "lines_buy_when", id: false, force: :cascade do |t|
-    t.integer "line_id"
-    t.string  "buy_when"
-  end
 
   create_table "lines_key_values", id: false, force: :cascade do |t|
     t.integer "line_id"
@@ -625,6 +642,7 @@ ActiveRecord::Schema.define(version: 20180516173843) do
     t.string   "for_alighting"
     t.integer  "destination_display_id"
     t.integer  "scheduled_stop_point_id",           null: false
+    t.integer  "booking_arrangement_id"
   end
 
   add_index "stop_points", ["objectid"], name: "stop_points_objectid_key", unique: true, using: :btree
@@ -783,6 +801,7 @@ ActiveRecord::Schema.define(version: 20180516173843) do
     t.string   "transport_submode_name"
     t.string   "private_code"
     t.string   "service_alteration"
+    t.integer  "flexible_service_properties_id"
   end
 
   add_index "vehicle_journeys", ["objectid"], name: "vehicle_journeys_objectid_key", unique: true, using: :btree
@@ -795,8 +814,12 @@ ActiveRecord::Schema.define(version: 20180516173843) do
     t.string  "value"
   end
 
+  add_foreign_key "booking_arrangements", "contact_structures", column: "booking_contact_id", name: "booking_arrangement_booking_contact_fkey"
+  add_foreign_key "booking_arrangements_booking_methods", "booking_arrangements", name: "booking_arrangements_booking_methods_lines_fkey"
+  add_foreign_key "booking_arrangements_buy_when", "booking_arrangements", name: "booking_arrangement_buy_when_lines_fkey"
   add_foreign_key "connection_links", "stop_areas", column: "arrival_id", name: "colk_endarea_fkey", on_delete: :cascade
   add_foreign_key "connection_links", "stop_areas", column: "departure_id", name: "colk_startarea_fkey", on_delete: :cascade
+  add_foreign_key "flexible_service_properties", "booking_arrangements", name: "flexible_props_booking_arrangement_fkey"
   add_foreign_key "footnotes_journey_patterns", "footnotes", name: "footnotes_journey_patterns_footnotes_fkey", on_delete: :cascade
   add_foreign_key "footnotes_journey_patterns", "journey_patterns", name: "footnotes_journey_patterns_journey_patterns_fkey", on_delete: :cascade
   add_foreign_key "footnotes_lines", "footnotes", name: "footnotes_lines_footnotes_fkey", on_delete: :cascade
@@ -818,12 +841,10 @@ ActiveRecord::Schema.define(version: 20180516173843) do
   add_foreign_key "journey_patterns", "stop_points", column: "departure_stop_point_id", name: "departure_point_fkey", on_delete: :nullify
   add_foreign_key "journey_patterns_stop_points", "journey_patterns", name: "jpsp_jp_fkey", on_delete: :cascade
   add_foreign_key "journey_patterns_stop_points", "stop_points", name: "jpsp_stoppoint_fkey", on_delete: :cascade
+  add_foreign_key "lines", "booking_arrangements", name: "lines_booking_arrangement_fkey"
   add_foreign_key "lines", "companies", name: "line_company_fkey", on_delete: :nullify
-  add_foreign_key "lines", "contact_structures", column: "booking_contact_id", name: "lines_booking_contact_fkey"
   add_foreign_key "lines", "networks", name: "line_ptnetwork_fkey", on_delete: :nullify
   add_foreign_key "lines", "presentations"
-  add_foreign_key "lines_booking_methods", "lines", name: "lines_booking_methods_lines_fkey"
-  add_foreign_key "lines_buy_when", "lines", name: "lines_buy_when_lines_fkey"
   add_foreign_key "lines_key_values", "lines", name: "lines_key_values_lines_fkey", on_delete: :cascade
   add_foreign_key "networks", "companies", name: "network_company_fkey", on_delete: :nullify
   add_foreign_key "route_points", "scheduled_stop_points"
@@ -835,6 +856,7 @@ ActiveRecord::Schema.define(version: 20180516173843) do
   add_foreign_key "stop_areas", "stop_areas", column: "parent_id", name: "area_parent_fkey", on_delete: :nullify
   add_foreign_key "stop_areas_stop_areas", "stop_areas", column: "child_id", name: "stoparea_child_fkey", on_delete: :cascade
   add_foreign_key "stop_areas_stop_areas", "stop_areas", column: "parent_id", name: "stoparea_parent_fkey", on_delete: :cascade
+  add_foreign_key "stop_points", "booking_arrangements", name: "stop_points_booking_arrangement_fkey"
   add_foreign_key "stop_points", "destination_displays", name: "stop_point_destination_display_fkey"
   add_foreign_key "stop_points", "routes", name: "stoppoint_route_fkey", on_delete: :cascade
   add_foreign_key "stop_points", "scheduled_stop_points"
@@ -845,6 +867,7 @@ ActiveRecord::Schema.define(version: 20180516173843) do
   add_foreign_key "vehicle_journey_at_stops", "stop_points", name: "vjas_sp_fkey", on_delete: :cascade
   add_foreign_key "vehicle_journey_at_stops", "vehicle_journeys", name: "vjas_vj_fkey", on_delete: :cascade
   add_foreign_key "vehicle_journeys", "companies", name: "vj_company_fkey", on_delete: :nullify
+  add_foreign_key "vehicle_journeys", "flexible_service_properties", column: "flexible_service_properties_id", name: "vehicle_journeys_flexible_props_fkey"
   add_foreign_key "vehicle_journeys", "journey_patterns", name: "vj_jp_fkey", on_delete: :cascade
   add_foreign_key "vehicle_journeys", "routes", name: "vj_route_fkey", on_delete: :cascade
   add_foreign_key "vehicle_journeys_key_values", "vehicle_journeys", name: "vehicle_journeys_key_values_vehicle_journey_fkey"

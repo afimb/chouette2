@@ -32,6 +32,9 @@ module Chouette
     validate :increasing_times
     validates_presence_of :number
 
+    belongs_to :flexible_service_properties, :class_name => 'Chouette::FlexibleServiceProperties', :dependent => :destroy
+    accepts_nested_attributes_for :flexible_service_properties, :allow_destroy => :true
+
     before_validation :set_default_values
     def set_default_values
       if number.nil?
@@ -98,6 +101,15 @@ module Chouette
         service_alteration.to_i > -1
       end
     end
+
+    @flexible_service_types = nil
+
+    def self.flexible_service_types
+      @flexible_service_types ||= Chouette::FlexibleServiceType.all.select do |flexible_service_type|
+        flexible_service_type.to_i > -1
+      end
+    end
+
 
     def increasing_times
       previous = nil

@@ -96,8 +96,9 @@ class LinesController < ChouetteController
     :transport_mode_name, :transport_submode_name, :registration_number, :comment,
     :mobility_restricted_suitability, :int_user_needs, :flexible_service, :group_of_lines,
     :group_of_line_ids, :group_of_line_tokens, :url, :color, :text_color, :stable_id,
-    :footnote_ids, :footnote_tokens, :flexible_line_type, :booking_note, :book_when, :booking_access, :minimum_booking_period, :latest_booking_time,
-                                  { booking_contact_attributes: [:phone,:url,:fax,:email,:contact_person,:further_details]}, :buy_when => [], :booking_methods => [])
+    :footnote_ids, :footnote_tokens, :flexible_line_type,{ booking_arrangement_attributes:
+      [:id, :booking_note, :book_when, :booking_access, :minimum_booking_period, :latest_booking_time,
+       {booking_contact_attributes: [:id, :phone,:url,:fax,:email,:contact_person,:further_details]}, :buy_when => [], :booking_methods => [] ] })
   end
 
 end

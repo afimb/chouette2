@@ -19,6 +19,9 @@ module Chouette
     validate :scheduled_stop_point_id_validation
     has_and_belongs_to_many :footnotes, :class_name => 'Chouette::Footnote', :foreign_key => "stop_point_id", :association_foreign_key => "footnote_id"
 
+    belongs_to :booking_arrangement, :class_name => 'Chouette::BookingArrangement', :dependent => :destroy
+    accepts_nested_attributes_for :booking_arrangement, :allow_destroy => :true
+
     attr_reader :footnote_tokens
 
     scope :default_order, -> { order("position") }

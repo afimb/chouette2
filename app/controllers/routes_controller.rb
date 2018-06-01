@@ -13,7 +13,7 @@ class RoutesController < ChouetteController
 
   def index
     index! do |format|
-      format.html { redirect_to referential_line_path(@referential,@line) }
+      format.html {redirect_to referential_line_path(@referential, @line)}
     end
   end
 
@@ -63,22 +63,22 @@ class RoutesController < ChouetteController
 
   def destroy
     destroy! do |success, failure|
-      success.html { redirect_to referential_line_path(@referential,@line) }
+      success.html {redirect_to referential_line_path(@referential, @line)}
     end
   end
 
   def create
     create! do |success, failure|
-      success.html { redirect_to referential_line_path(@referential,@line) }
-      failure.html { flash[:alert] = route.errors[:flash]; render :action => :new }
+      success.html {redirect_to referential_line_path(@referential, @line)}
+      failure.html {flash[:alert] = route.errors[:flash]; render :action => :new}
     end
   end
 
-#  def update
-#    update! do |success, failure|
-#      success.html { redirect_to referential_line_path(@referential,@line) }
-#    end
-#  end
+  #  def update
+  #    update! do |success, failure|
+  #      success.html { redirect_to referential_line_path(@referential,@line) }
+  #    end
+  #  end
   protected
 
   alias_method :route, :resource
@@ -86,17 +86,23 @@ class RoutesController < ChouetteController
   def collection
     @q = parent.routes.search(params[:q])
     @routes ||=
-      begin
-        routes = @q.result(:distinct => true).order(:name)
-        routes = routes.page(params[:page]) if @per_page.present?
-        routes
-      end
+        begin
+          routes = @q.result(:distinct => true).order(:name)
+          routes = routes.page(params[:page]) if @per_page.present?
+          routes
+        end
   end
 
   private
 
   def route_params
-        params.require(:route).permit( :direction_code, :wayback_code, :line_id, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :opposite_route_id, :published_name, :number, :direction, :wayback, { stop_points_attributes: [ :id, :_destroy, :position, :for_boarding, :for_alighting, :scheduled_stop_point_id_or_stop_area_objectid_key, :scheduled_stop_point_name ] }, routes_route_points_attributes: [:id, :_destroy, :position, route_point_attributes: [:id, :scheduled_stop_point_id_or_stop_area_objectid_key, :scheduled_stop_point_name]] )
+    params.require(:route).permit(:direction_code, :wayback_code, :line_id, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :opposite_route_id, :published_name, :number, :direction, :wayback,
+                                  {stop_points_attributes: [:id, :_destroy, :position, :for_boarding, :for_alighting, :scheduled_stop_point_id_or_stop_area_objectid_key, :scheduled_stop_point_name,
+                                                            {booking_arrangement_attributes:
+                                                                 [:id, :booking_note, :book_when, :booking_access, :minimum_booking_period, :latest_booking_time,
+                                                                  {booking_contact_attributes: [:_destroy, :id, :phone, :url, :fax, :email, :contact_person, :further_details]}, :buy_when => [], :booking_methods => []]}
+                                  ]},
+                                  routes_route_points_attributes: [:id, :_destroy, :position, route_point_attributes: [:id, :scheduled_stop_point_id_or_stop_area_objectid_key, :scheduled_stop_point_name]])
   end
 
 end

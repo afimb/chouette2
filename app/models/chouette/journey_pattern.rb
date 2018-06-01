@@ -31,6 +31,10 @@ class Chouette::JourneyPattern < Chouette::TridentActiveRecord
     # ignores setter, as changes to stop_point in JourneyPatternsController.update
   end
 
+  def booking_arrangement_ids(args)
+    # ignores setter, as changes to stop_point in JourneyPatternsController.update
+  end
+
   def departure_stop_point
     return unless departure_stop_point_id
     Chouette::StopPoint.find( departure_stop_point_id)
