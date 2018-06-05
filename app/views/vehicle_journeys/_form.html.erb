@@ -13,21 +13,16 @@
         <%= form.input :service_alteration_name, :as => :select, :collection => Chouette::VehicleJourney.service_alterations, :include_blank => true, :member_label => Proc.new {|mode| t("service_alterations.label.#{mode}")} %>
         <%= form.input :flexible_service, :as => :select, :collection => [[vehicle_journey.human_attribute_name("on_demand_fs"), true], [vehicle_journey.human_attribute_name("regular_fs"), false]], :include_blank => true %>
         <div class="flexible_service_details">
-          <% form.object.build_flexible_service_properties unless form.object.flexible_service_properties %>
-          <%= form.fields_for :flexible_service_properties, form.object.flexible_service_properties do |fsp| %>
-              <p>
-                <%= fsp.input :flexible_service_type, :as => :select, :collection => Chouette::VehicleJourney.flexible_service_types, :include_blank => true %>
-              </p>
-              <p>
-                <%= fsp.input :cancellation_possible %>
-              </p>
-              <p>
-                <%= fsp.input :change_of_time_possible %>
-              </p>
-              <% fsp.object.build_booking_arrangement unless fsp.object.booking_arrangement %>
-              <%= render "booking_arrangements/form", :form => fsp %>
-
+          <% unless form.object.flexible_service_properties.nil? %>
+              <%= form.semantic_fields_for :flexible_service_properties, form.object.flexible_service_properties do |f| %>
+              <%= render "flexible_service_property_fields", :f => f %>
+                  <% end %>
+          <% else %>
+              <div class="links">
+                <%= link_to_add_association t("vehicle_journeys.actions.add_flexible_service_properties"), form, :flexible_service_properties, :class => 'add_flexible_service_properties add' %>
+              </div>
           <% end %>
+
 
         </div>
 

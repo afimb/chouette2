@@ -1,0 +1,21 @@
+<div id="index_item" class="panel panel-default">
+  <%= f.inputs :class => 'nested-fields' do %>
+      <p>
+        <%= link_to_remove_association "Remove flexible service properties", f %>
+      </p>
+      <p>
+        <%= f.input :objectid, :label => t('flexible_service_properties_objectid') %>
+      </p>
+      <p>
+        <%= f.input :flexible_service_type, :as => :select, :collection => Chouette::VehicleJourney.flexible_service_types, :include_blank => true %>
+      </p>
+      <p>
+        <%= f.input :cancellation_possible %>
+      </p>
+      <p>
+        <%= f.input :change_of_time_possible %>
+      </p>
+      <% f.object.build_booking_arrangement unless f.object.booking_arrangement %>
+      <%= render "booking_arrangements/form", :form => f %>
+  <% end %>
+</div>

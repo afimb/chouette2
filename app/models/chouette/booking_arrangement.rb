@@ -2,8 +2,8 @@ class Chouette::BookingArrangement < Chouette::ActiveRecord
   belongs_to :booking_contact, :class_name => 'Chouette::ContactStructure', :dependent => :destroy
   accepts_nested_attributes_for :booking_contact, :allow_destroy => :true
 
-  has_many :buy_when_objects, :class_name => 'Chouette::BookingArrangementsBuyWhen', :autosave => true
-  has_many :booking_method_objects, :class_name => 'Chouette::BookingArrangementsBookingMethod', :autosave => true
+  has_many :buy_when_objects, :class_name => 'Chouette::BookingArrangementsBuyWhen', :autosave => true, :dependent => :delete_all
+  has_many :booking_method_objects, :class_name => 'Chouette::BookingArrangementsBookingMethod', :autosave => true, :dependent => :delete_all
 
   def buy_when
     buy_when_objects.map {|bw| bw.buy_when}
@@ -52,6 +52,5 @@ class Chouette::BookingArrangement < Chouette::ActiveRecord
       purchase_when.to_i > -1
     end
   end
-
 
 end

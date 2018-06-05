@@ -88,6 +88,10 @@
         <div class="row">
           <div id="flexible_service" class="col-md-6">
             <p>
+              <label><%= vehicle_journey.human_attribute_name("flexible_service_properties_objectid") %>: </label>
+              <%= vehicle_journey.flexible_service_properties.objectid %>
+            </p>
+            <p>
               <label><%= vehicle_journey.human_attribute_name("flexible_service_type") %>: </label>
               <%= vehicle_journey.flexible_service_properties.flexible_service_type %>
             </p>

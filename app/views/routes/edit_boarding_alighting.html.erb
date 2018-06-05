@@ -1,6 +1,6 @@
 <%= title_tag t('routes.edit_boarding_alighting.title', :route => @route.name ) %>
 
-<%= simple_form_for ["save_boarding_alighting", @referential, @line, @route], :method => :PUT do |form| %>
+<%= semantic_form_for ["save_boarding_alighting", @referential, @line, @route], :method => :PUT do |form| %>
 <table class="table table-hover">
   <thead>
     <th><%= t(".stop_area_name") %></th>
@@ -8,20 +8,29 @@
     <th><%= t(".for_alighting") %></th>
   </thead>
   <tbody>
-  <%= form.simple_fields_for :stop_points do |stop_points_form| %>
-    <tr>      
+  <%= form.semantic_fields_for :stop_points do |stop_points_form| %>
+    <tr>
       <td>
         <%= explicit_name(stop_points_form.object.stop_area) %>
       </td>
       <td><%= stop_points_form.input :for_boarding, :label => false, include_blank: t("simple_form.include_blanks.defaults.for_boarding") %></td>
       <td><%= stop_points_form.input :for_alighting, :label => false, include_blank: t("simple_form.include_blanks.defaults.for_alighting") %></td>
+     <td>
+
+       <% unless stop_points_form.object.booking_arrangement.nil? %>
+           <%= render "booking_arrangements/form", :form => stop_points_form %>
+       <% else %>
+           <div class="links">
+             <%= link_to_add_association t("stop_point.actions.add_booking_arrangement"), stop_points_form, :booking_arrangement, :class => 'add_booking_arrangement add' %>
+           </div>
+       <% end %>
     </tr>
     <% end %>
   </tbody>
-</table> 
+</table>
 
   <div class="submit">
     <%= form.button :submit, :class => "" %>
     <%= link_to t("cancel"), referential_line_route_path(@referential, @line, @route) %>
-  </div>  
+  </div>
 <% end %>

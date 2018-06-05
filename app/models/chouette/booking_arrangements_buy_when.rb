@@ -3,6 +3,6 @@ class Chouette::BookingArrangementsBuyWhen < ActiveRecord::Base
 
   belongs_to :booking_arrangement, :class_name => 'Chouette::BookingArrangement'
   validates_presence_of :buy_when
-  validates :booking_arrangement_id, presence: true
+  validates :booking_arrangement, presence: true
 
 end

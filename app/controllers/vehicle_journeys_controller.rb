@@ -112,7 +112,7 @@ class VehicleJourneysController < ChouetteController
                                                                                                       :arrival_day_offset,
                                                                                                       :footnote_tokens] },
 
-                                            {flexible_service_properties_attributes: [ :id, :flexible_service_type, :cancellation_possible, :change_of_time_possible,  { booking_arrangement_attributes:
+                                            {flexible_service_properties_attributes: [ :id,:_destroy, :objectid, :flexible_service_type, :cancellation_possible, :change_of_time_possible,  { booking_arrangement_attributes:
                                                                        [:id, :booking_note, :book_when, :booking_access, :minimum_booking_period, :latest_booking_time,
                                                                         {booking_contact_attributes: [:id, :phone,:url,:fax,:email,:contact_person,:further_details]}, :buy_when => [], :booking_methods => [] ]}]}
     )

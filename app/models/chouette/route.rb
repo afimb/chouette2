@@ -197,4 +197,15 @@ class Chouette::Route < Chouette::TridentActiveRecord
     all( :conditions => ['vehicle_journeys.id NOT IN (?)', Chouette::VehicleJourneyAtStop.where(stop_point_id: stop_point_id).pluck(:vehicle_journey_id)] )
   end
 
+
+  before_save :clear_booking_arrangement_ids
+
+  def clear_booking_arrangement_ids
+    self.stop_points.each do |sp|
+      if sp.booking_arrangement.nil? or sp.booking_arrangement._destroy
+        sp.booking_arrangement_id=nil
+      end
+    end
+  end
+
 end

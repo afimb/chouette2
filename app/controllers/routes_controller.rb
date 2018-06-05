@@ -99,8 +99,8 @@ class RoutesController < ChouetteController
     params.require(:route).permit(:direction_code, :wayback_code, :line_id, :objectid, :object_version, :creation_time, :creator_id, :name, :comment, :opposite_route_id, :published_name, :number, :direction, :wayback,
                                   {stop_points_attributes: [:id, :_destroy, :position, :for_boarding, :for_alighting, :scheduled_stop_point_id_or_stop_area_objectid_key, :scheduled_stop_point_name,
                                                             {booking_arrangement_attributes:
-                                                                 [:id, :booking_note, :book_when, :booking_access, :minimum_booking_period, :latest_booking_time,
-                                                                  {booking_contact_attributes: [:_destroy, :id, :phone, :url, :fax, :email, :contact_person, :further_details]}, :buy_when => [], :booking_methods => []]}
+                                                                 [:id, :_destroy, :booking_note, :book_when, :booking_access, :minimum_booking_period, :latest_booking_time,
+                                                                  {booking_contact_attributes: [:id, :_destroy, :phone, :url, :fax, :email, :contact_person, :further_details]}, :buy_when => [], :booking_methods => []]}
                                   ]},
                                   routes_route_points_attributes: [:id, :_destroy, :position, route_point_attributes: [:id, :scheduled_stop_point_id_or_stop_area_objectid_key, :scheduled_stop_point_name]])
   end
