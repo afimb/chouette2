@@ -85,7 +85,7 @@ describe "Routes", :type => :feature do
       # Changes the alighting of the last stop
       # save
       #click_button(I18n.t('helpers.submit.update', model: I18n.t('activerecord.models.route.one')))
-      click_button(I18n.t('helpers.submit.update', model: I18n.t('activerecord.models.route.one')))
+      click_button('submit')
     end
   end
   

@@ -198,7 +198,7 @@ class Chouette::Route < Chouette::TridentActiveRecord
   end
 
 
-  before_save :clear_booking_arrangement_ids
+  before_update :clear_booking_arrangement_ids
 
   def clear_booking_arrangement_ids
     self.stop_points.each do |sp|
