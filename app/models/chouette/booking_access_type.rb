@@ -34,7 +34,7 @@ class Chouette::BookingAccessType < ActiveSupport::StringInquirer
   end
 
   @@definitions = [
-      ["other",0],
+    #  ["other",0],
       ["publicAccess",1],
       ["authorisedPublic",2],
       ["staff",3]

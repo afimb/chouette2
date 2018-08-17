@@ -34,7 +34,7 @@ class Chouette::FlexibleServiceType < ActiveSupport::StringInquirer
   end
 
   @@definitions = [
-      ["other",0],
+      #["other",0],
       ["dynamicPassingTimes",1],
       ["fixedHeadwayFrequency",2],
       ["fixedPassingTimes",3],

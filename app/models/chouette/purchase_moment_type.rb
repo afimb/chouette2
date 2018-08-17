@@ -34,10 +34,10 @@ class Chouette::PurchaseMomentType < ActiveSupport::StringInquirer
   end
 
   @@definitions = [
-      ["other",0],
+    #  ["other",0],
       ["onReservation",1],
       ["beforeBoarding",2],
-      ["onBoarding",3],
+     # ["onBoarding",3],
       ["afterBoarding",4],
       ["onCheckOut",5]
   ]

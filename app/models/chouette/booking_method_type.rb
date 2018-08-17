@@ -34,13 +34,13 @@ class Chouette::BookingMethodType < ActiveSupport::StringInquirer
   end
 
   @@definitions = [
-      ["other",0],
+#      ["other",0],
       ["callDriver",1],
       ["callOffice",2],
       ["online",3],
       ["phoneAtStop",4],
       ["text",5],
-      ["none",6]
+ #     ["none",6]
 
   ]
   cattr_reader :definitions

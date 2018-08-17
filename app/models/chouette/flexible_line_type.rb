@@ -34,7 +34,7 @@ class Chouette::FlexibleLineType < ActiveSupport::StringInquirer
   end
 
   @@definitions = [
-      ["other",0],
+ #     ["other",0],
       ["corridorService",1],
       ["mainRouteWithFlexibleEnds",2],
       ["flexibleAreasOnly",3],

@@ -35,11 +35,11 @@ class Chouette::PurchaseWhenType < ActiveSupport::StringInquirer
 
 
   @@definitions = [
-      ["other",0],
+   #   ["other",0],
       ["timeOfTravelOnly",1],
       ["dayOfTravelOnly",2],
       ["untilPreviousDay",3],
-      ["advanceOnly",4],
+    #  ["advanceOnly",4],
       ["advanceAndDayOfTravel",5]
 
   ]
