@@ -99,8 +99,9 @@
           </p>
 
           <% @booking_arrangement=@line.booking_arrangement %>
-          <%= render "booking_arrangements/show" %>
-
+          <% if @booking_arrangement %>
+              <%= render "booking_arrangements/show" %>
+          <% end %>
           </div>
           </div>
       <% end %>
