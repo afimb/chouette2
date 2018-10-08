@@ -30,7 +30,7 @@ class NetexprofileExport < ExportTask
         "object_id_prefix" => object_id_prefix,
         "start_date" => start_date,
         "end_date" => end_date,
-        "valid_after_export" => valid_after_export,
+        "validate_after_export" => valid_after_export,
         "export_stops" => export_stops,
         "default_codespace_prefix" => default_codespace_prefix
       }
