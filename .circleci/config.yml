@@ -63,8 +63,8 @@ jobs:
             set -o xtrace
             ruby -v
             gem list bundler
-            apt-get install -y libpq-dev libsqlite3-dev libxml2
-            # gem install nokogiri -v '1.8.1'
+            apt-get install -y libpq-dev libsqlite3-dev libxml2 libxml2-dev libxslt-dev python-pydot python-pydot-ng graphviz libproj-dev libgeos-dev libffi-dev libsparsehash-dev
+            #gem install nokogiri -v '1.8.1'
             # gem install bundler -v '1.13.6'
             # gem install pkg-config -v "~> 1.1"
             bundler -v
@@ -79,15 +79,21 @@ jobs:
             cp config/database.example.yml config/database.yml
 
             # gem install nokogiri -v '1.6.6.2'
-            bundle config build.nokogiri --use-system-libraries
+            bundle config build.nokogiri --use-system-libraries --with-xml2-include=/usr/include/libxml2
             #bundle config mirror.https://rubygems.org http://rubyslave.default.svc.cluster.local:9292
             bundle install --deployment
+      - run:
+          name: Rake create and migrate
+          command: |
             bundle exec rake db:create
             bundle exec rake db:migrate
-
+      - run:
+          name: Rake spec
+          command: |
             export RAIL_ENV=test
             bundle exec rake db:reset
             bundle exec rake spec
+
 workflows:
   version: 2
   build_test_deploy:
