@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/rutebanken/chouette-projects-i18n.git
+  remote: https://github.com/entur/chouette-projects-i18n.git
   revision: c954c7ca9269e0d604ff3ab632177affd190d90b
   branch: master
   specs:
@@ -8,7 +8,7 @@ GIT
       railties
 
 GIT
-  remote: https://github.com/rutebanken/chouette2-i18n.git
+  remote: https://github.com/entur/chouette2-i18n.git
   revision: ad38ab144d2565979aca6b6cb60c3b96f6db6171
   branch: master
   specs:
@@ -17,7 +17,7 @@ GIT
       railties
 
 GIT
-  remote: https://github.com/rutebanken/ievkit.git
+  remote: https://github.com/entur/ievkit.git
   revision: 00d8fe01402704d79cdf649c4736e3207875a5d3
   branch: master
   specs:
@@ -28,7 +28,7 @@ GIT
       rest-client (~> 1.8.0)
 
 GIT
-  remote: https://github.com/rutebanken/ievkit_views.git
+  remote: https://github.com/entur/ievkit_views.git
   revision: e80fef11b5fa9bc9d532e7136b42a9bf4e07d318
   branch: master
   specs:
@@ -38,7 +38,7 @@ GIT
       rails (~> 4.2.6)
 
 GIT
-  remote: https://github.com/rutebanken/language_engine
+  remote: https://github.com/entur/language_engine
   revision: ad3c02ab8fb29ab78d90cc5036b4871b1fecda02
   specs:
     language_engine (0.0.6)
