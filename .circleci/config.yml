@@ -31,14 +31,19 @@ jobs:
           POSTGRES_USER: chouette
           POSTGRES_PASSWORD: chouette
     steps:
+      - run:
+          name: Install apt-dependencies
+          command: apt-get install -y libpq-dev libsqlite3-dev libxml2 libxml2-dev libxslt-dev python-pydot python-pydot-ng graphviz libproj-dev libgeos-dev libffi-dev libsparsehash-dev
       - checkout
       - run:
-          name: Create test config file
+          name: Create config file
           command: |
             # Add configuration file
             cat <<EOF > config/application.yml
             domain_name: 'rutebanken.org'
             api_endpoint: 'http://chouette:8080/chouette_iev/'
+            secret_key_base: y
+            devise_secret_key: x
             google_analytic_tracker:
             geoportail_api_key:
             newrelic_licence_key:
@@ -58,29 +63,23 @@ jobs:
             capistrano_deploy_user:
             EOF
       - run:
-          name: Install
+          name: Copy default database config file
+          command: cp config/database.example.yml config/database.yml
+      - run:
+          name: Create locale file
+          command: mkdir -p locales
+      - run:
+          name: Print some info and versions
           command: |
             set -o xtrace
             ruby -v
             gem list bundler
-            apt-get install -y libpq-dev libsqlite3-dev libxml2 libxml2-dev libxslt-dev python-pydot python-pydot-ng graphviz libproj-dev libgeos-dev libffi-dev libsparsehash-dev
-            #gem install nokogiri -v '1.8.1'
-            # gem install bundler -v '1.13.6'
-            # gem install pkg-config -v "~> 1.1"
             bundler -v
-
-
-            # Seems like we are missing some environment variables
-            #export GEM_HOME=/usr/local/bundle
-            #export RUBYGEMS_VERSION=2.5.0
-            #export PATH=/usr/local/bundle/bin/:$PATH
-
-            mkdir -p locales
-            cp config/database.example.yml config/database.yml
-
-            # gem install nokogiri -v '1.6.6.2'
+      - run:
+          name: Bundle install
+          command: |
+            set -o xtrace
             bundle config build.nokogiri --use-system-libraries --with-xml2-include=/usr/include/libxml2
-            #bundle config mirror.https://rubygems.org http://rubyslave.default.svc.cluster.local:9292
             bundle install --deployment
       - run:
           name: Rake create and migrate
