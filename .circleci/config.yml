@@ -89,8 +89,6 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/project
-      - restore_cache:
-          key: dep-cache-{{ checksum "pom.xml" }}
       - setup_remote_docker:
           docker_layer_caching: true
       - run: *GCP-auth
