@@ -38,13 +38,14 @@ jobs:
           POSTGRES_USER: chouette
           POSTGRES_PASSWORD: chouette
     steps:
-      - run:
-          name: Install apt-dependencies
-          command: apt-get install -y libpq-dev libsqlite3-dev libxml2 libxml2-dev libxslt-dev python-pydot python-pydot-ng graphviz libproj-dev libgeos-dev libffi-dev libsparsehash-dev
+      - checkout
       - run:
           name: Copy test config file before running tests
           command: |
             cp .circleci/application.yml config/application.yml
+      - run:
+          name: Install apt-dependencies
+          command: apt-get install -y libpq-dev libsqlite3-dev libxml2 libxml2-dev libxslt-dev python-pydot python-pydot-ng graphviz libproj-dev libgeos-dev libffi-dev libsparsehash-dev
       - run:
           name: Copy default database config file
           command: cp config/database.example.yml config/database.yml
