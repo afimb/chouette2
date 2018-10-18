@@ -1,0 +1,93 @@
+version: 2
+aliases:
+  - &GCP-auth
+    name: GCP Authenticate
+    command: |
+      echo 'export GCLOUD_SERVICE_KEY="$GCLOUD_SERVICE_KEY"' >> $BASH_ENV
+      /tools/gcp_authenticate.sh
+  - &docker-login
+    name: Docker login
+    command: |
+      echo 'export GCLOUD_SERVICE_KEY="$GCLOUD_SERVICE_KEY"' >> $BASH_ENV
+      /tools/docker_login.sh
+  - &post-hook
+    name: Notify about build and docker image pushed
+    command: |
+      echo 'export CIRCLE_PROJECT_REPONAME="$CIRCLE_PROJECT_REPONAME"' >> $BASH_ENV
+      echo 'export CIRCLE_SHA1="$CIRCLE_SHA1"' >> $BASH_ENV
+      echo 'export BUILD_STATUS_API_KEY="$BUILD_STATUS_API_KEY"' >> $BASH_ENV
+      /tools/build_notify.sh
+jobs:
+  build:
+    docker:
+      - image: eu.gcr.io/carbon-1287/circleci-toolbox-image
+        auth:
+          username: _json_key
+          password: $GCLOUD_SERVICE_KEY
+      - image: mdillon/postgis:9.6
+        environment:
+          TZ: Europe/Oslo
+          POSTGRES_DB: chouette_test
+          POSTGRES_USER: chouette
+          POSTGRES_PASSWORD: chouette
+    steps:
+      - checkout
+      - run:
+          name: Add config file
+          command: |
+            apt-get install -y libpq-dev libsqlite3-dev
+            gem install nokogiri -v '1.8.1'
+            # Add configuration file
+            cat <<EOF > config/application.yml
+            domain_name: 'rutebanken.org'
+            api_endpoint: 'http://chouette:8080/chouette_iev/'
+            google_analytic_tracker:
+            geoportail_api_key:
+            newrelic_licence_key:
+            osrm_endpoint: 'http://router.project-osrm.org'
+            app_version: '3.3.1'
+            deactivate_formats_referential: hub,sig # For example: 'hub,sig,neptune'
+            deactivate_formats_import: hub,sig # For example: 'hub,sig,neptune'
+            deactivate_formats_export: hub,sig # For example: 'hub,sig,neptune'
+            smtp_delivery_method: smtp # 'letter_opener' OR 'smtp'
+            smtp_host:
+            smtp_port:
+            smtp_domain:
+            smtp_user_name:
+            smtp_password:
+            smtp_authentication:
+            mailer_sender: 'no-reply@chouette.mobi'
+            capistrano_deploy_user:
+            EOF
+
+            # Seems like we are missing some environment variables
+            export GEM_HOME=/usr/local/bundle
+            export RUBYGEMS_VERSION=2.5.0
+            export PATH=/usr/local/bundle/bin/:$PATH
+
+            mkdir -p locales
+            cp config/database.example.yml config/database.yml
+
+            # gem install nokogiri -v '1.6.6.2'
+            bundle config build.nokogiri --use-system-libraries
+            #bundle config mirror.https://rubygems.org http://rubyslave.default.svc.cluster.local:9292
+            bundle install
+            bundle exec rake db:create
+            bundle exec rake db:migrate
+
+            export RAIL_ENV=test
+            bundle exec rake db:reset
+            bundle exec rake spec
+workflows:
+  version: 2
+  build_test_deploy:
+    jobs:
+      - build:
+          context: org-carbon
+      - deploy-docker:
+          context: org-carbon
+          requires:
+            - build
+          filters:
+            branches:
+              only: rutebanken_develop
