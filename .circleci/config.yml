@@ -41,7 +41,6 @@ jobs:
       - run:
           name: Install apt-dependencies
           command: apt-get install -y libpq-dev libsqlite3-dev libxml2 libxml2-dev libxslt-dev python-pydot python-pydot-ng graphviz libproj-dev libgeos-dev libffi-dev libsparsehash-dev
-      - checkout
       - run:
           name: Copy test config file before running tests
           command: |
@@ -87,8 +86,7 @@ jobs:
     environment:
       DEBIAN_FRONTEND: "noninteractive"
     steps:
-      - attach_workspace:
-          at: ~/project
+      - checkout
       - setup_remote_docker:
           docker_layer_caching: true
       - run: *GCP-auth
