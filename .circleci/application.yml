@@ -1,0 +1,21 @@
+domain_name: 'rutebanken.org'
+api_endpoint: 'http://chouette:8080/chouette_iev/'
+secret_key_base: y
+devise_secret_key: x
+google_analytic_tracker:
+geoportail_api_key:
+newrelic_licence_key:
+osrm_endpoint: 'http://router.project-osrm.org'
+app_version: '3.3.1'
+deactivate_formats_referential: hub,sig # For example: 'hub,sig,neptune'
+deactivate_formats_import: hub,sig # For example: 'hub,sig,neptune'
+deactivate_formats_export: hub,sig # For example: 'hub,sig,neptune'
+smtp_delivery_method: smtp # 'letter_opener' OR 'smtp'
+smtp_host:
+smtp_port:
+smtp_domain:
+smtp_user_name:
+smtp_password:
+smtp_authentication:
+mailer_sender: 'no-reply@chouette.mobi'
+capistrano_deploy_user:
