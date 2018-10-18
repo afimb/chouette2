@@ -15,7 +15,7 @@ RUN apt-get install -y less build-essential patch vim sendmail
 
 RUN gem install bundler -v 1.13.5
 
-COPY source /code
+COPY . /code
 WORKDIR /code
 
 RUN git log -n 1 --pretty=format:"%H" > /version
