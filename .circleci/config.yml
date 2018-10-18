@@ -33,7 +33,7 @@ jobs:
     steps:
       - run:
           name: Install apt-dependencies
-          command: apt-get install -y libpq-dev libsqlite3-dev libxml2 libxml2-dev libxslt-dev python-pydot python-pydot-ng graphviz libproj-dev libgeos-dev libffi-dev libsparsehash-dev
+          command: apt-get install -y libpq-dev libsqlite3-dev libxml2 libxml2-dev libxslt-dev libgeos-dev libffi-dev libsparsehash-dev
       - checkout
       - run:
           name: Copy test config file before running tests
