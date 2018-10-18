@@ -20,16 +20,6 @@ WORKDIR /code
 
 RUN git log -n 1 --pretty=format:"%H" > /version
 
-# # If building locally, you need gemstash. On slave2, it should be part
-# # of slave pod. Change dns-name too
-# # docker run -it --rm --name gemstasht -p 9292:9292 eu.gcr.io/carbon-1287/gemstash
-
-# Docker image is unable to find slave2.default.svc.cluster.local:9292 therefore
-# using api-test address:
-# Commenting mirror out due to problems with:
-#    Could not fetch specs from https://api-test.entur.org/api/gemstash/1.0/
-#RUN bundle config mirror.https://rubygems.org https://api-test.entur.org/api/gemstash/1.0
-
 # Line below is to try to solve nokogiri build failure
 RUN bundle config build.nokogiri --use-system-libraries
 
