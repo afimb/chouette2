@@ -63,10 +63,10 @@ jobs:
             set -o xtrace
             ruby -v
             gem list bundler
-            apt-get install -y libpq-dev libsqlite3-dev
-            gem install nokogiri -v '1.8.1'
-            gem install bundler -v '1.13.6'
-            gem install pkg-config -v "~> 1.1"
+            apt-get install -y libpq-dev libsqlite3-dev libxml2
+            # gem install nokogiri -v '1.8.1'
+            # gem install bundler -v '1.13.6'
+            # gem install pkg-config -v "~> 1.1"
             bundler -v
 
 
