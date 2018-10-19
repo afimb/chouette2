@@ -77,7 +77,7 @@ jobs:
             bundle exec rake db:reset
             bundle exec rake spec
       - store_test_results:
-          path: test-results
+          path: test/reports
   deploy-docker:
     docker:
       - image: eu.gcr.io/carbon-1287/circleci-toolbox-image
