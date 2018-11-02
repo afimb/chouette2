@@ -1,5 +1,5 @@
 
-<% if @compliance_check.report.failure_code? %>
+<% if @compliance_check and @compliance_check.report.failure_code? %>
     <p>
     <span class="name aborted">Something unexpected happened. It could be a temporary situation and restarting the job manually may solve the problem.
       Please contact the system administrator if retry results in the same error.</span>
