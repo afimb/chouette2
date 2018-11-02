@@ -23,6 +23,10 @@ module JobConcern
     status == "started"
   end
 
+  def completed?
+    %w{ aborted canceled terminated deleted}.include?(status)
+  end
+
   def aborted?
     status == "aborted"
   end
@@ -32,7 +36,7 @@ module JobConcern
   end
 
   def cache_expiration
-    started? ? 10.seconds : 1.hours
+    completed? ? 1.hours : 10.seconds
   end
 
   def id
