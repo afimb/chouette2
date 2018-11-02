@@ -27,6 +27,10 @@ module JobConcern
     status == "aborted"
   end
 
+  def completed?
+     %w{ aborted canceled terminated deleted}.include?(status)
+  end
+
   def cache_key
    "#{id}_#{status}"
   end

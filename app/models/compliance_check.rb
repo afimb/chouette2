@@ -1,7 +1,7 @@
 class ComplianceCheck
   include JobConcern
 
-  def initialize( response )
+  def initialize(response)
     @datas = response
   end
 
@@ -10,7 +10,13 @@ class ComplianceCheck
   end
 
   def report
-    Rails.cache.fetch("#{cache_key}/action_report", expires_in: cache_expiration) do
+    if (completed?)
+      Rails.cache.fetch("#{cache_key}/action_report", expires_in: cache_expiration) do
+        if report_path = links["action_report"]
+          ComplianceCheckReport.new Ievkitdeprecated.get(report_path)
+        end
+      end
+    else
       if report_path = links["action_report"]
         ComplianceCheckReport.new Ievkitdeprecated.get(report_path)
       end
@@ -45,7 +51,7 @@ class ComplianceCheck
   end
 
   def destroy
-    if delete_path =  links["delete"]
+    if delete_path = links["delete"]
       Ievkitdeprecated.delete(delete_path)
     elsif cancel_path = links["cancel"]
       Ievkitdeprecated.delete(cancel_path)
