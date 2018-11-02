@@ -1,27 +1,17 @@
 class Export
   include JobConcern
 
-  def initialize(response)
+  def initialize( response )
     @datas = response
   end
-
+  
   def report?
     links["action_report"].present?
   end
-
+  
   def report
-    report_path = links["action_report"]
-    if (completed?)
-      Rails.cache.fetch("#{cache_key}/action_report", expires_in: cache_expiration) do
-
-        if report_path
-          response = Ievkitdeprecated.get(report_path)
-          ExportReport.new(response)
-        else
-          nil
-        end
-      end
-    else
+    Rails.cache.fetch("#{cache_key}/action_report", expires_in: cache_expiration) do
+      report_path = links["action_report"]
       if report_path
         response = Ievkitdeprecated.get(report_path)
         ExportReport.new(response)
@@ -29,12 +19,12 @@ class Export
         nil
       end
     end
-  end
+  end 
 
   def destroy
-    delete_path = links["delete"]
+    delete_path =  links["delete"]
     cancel_path = links["cancel"]
-
+    
     if delete_path
       Ievkitdeprecated.delete(delete_path)
     elsif cancel_path
@@ -47,7 +37,7 @@ class Export
   def file_path?
     links["data"].present?
   end
-
+  
   def file_path
     links["data"]
   end
