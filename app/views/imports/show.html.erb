@@ -9,7 +9,11 @@
 
 <% if @import.report.failure_code? %>
   <p>
-  <div><%= t('.code') %>:        <%= @import.report.datas.failure.code %></div>
+    <div>
+    <span class="name aborted">Something unexpected happened. It could be a temporary situation and restarting the job manually may solve the problem.
+      Please contact the system administrator if retry results in the same error.</span></div>
+
+    <div><%= t('.code') %>:        <%= @import.report.datas.failure.code %></div>
   <div><%= t('.description') %>: <%= @import.report.datas.failure.description %></div>
 
   <% if @import.report.datas.files %>

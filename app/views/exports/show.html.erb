@@ -1,3 +1,15 @@
+
+<% if @export.report.failure_code? %>
+    <p>
+    <span class="name aborted">Something unexpected happened. It could be a temporary situation and restarting the job manually may solve the problem.
+      Please contact the system administrator if retry results in the same error.</span>
+
+    <div><%= t('.code') %>:        <%= @export.report.datas.failure.code %></div>
+    <div><%= t('.description') %>: <%= @export.report.datas.failure.description %></div>
+
+    </p>
+<% else %>
+
 <div class="title row">
   <div class="col-md-8">
     <%= title_tag job_status_title(@export) %>
@@ -18,4 +30,5 @@
 
   <%= history_tag(@export) %>
 
+<% end %>
 <% end %>

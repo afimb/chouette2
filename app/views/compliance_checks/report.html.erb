@@ -1,5 +1,15 @@
-<%= render 'ievkit_views/report' %>
 
+<% if @compliance_check.report.failure_code? %>
+    <p>
+    <span class="name aborted">Something unexpected happened. It could be a temporary situation and restarting the job manually may solve the problem.
+      Please contact the system administrator if retry results in the same error.</span>
+
+    <div><%= t('.code') %>:        <%= @compliance_check.report.datas.failure.code %></div>
+    <div><%= t('.description') %>: <%= @compliance_check.report.datas.failure.description %></div>
+
+    </p>
+<% else %>
+<%= render 'ievkit_views/report' %>
 
 
 
@@ -59,5 +69,6 @@
   <%= history_tag(@compliance_check) %>
   <div id="error" class="graph"></div>
   <div id="warning" class="graph"></div>
+<% end %>
 <% end %>
 <% end %>
