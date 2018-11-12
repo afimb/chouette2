@@ -27,9 +27,9 @@ The release notes (in French) can be found in the [CHANGELOG](./CHANGELOG.md) fi
 Requirements
 ------------
 
-* [Chouette IEV 3.X Web Service](https://github.com/afimb/chouette) (requires Postgresql and Java)
-* Ruby 1.9.3 or 2.1.6
-* Bundler 1.10.3
+* [Chouette IEV 3.4.x Web Service](https://github.com/afimb/chouette) (requires Postgresql and Java)
+* Ruby 2.3.3
+* Bundler 1.13.6
 * Proj 4.8.0
 
 Installation

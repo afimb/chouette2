@@ -101,7 +101,8 @@ class Chouette::Route < Chouette::TridentActiveRecord
     send(journey_category_model)
         .joins(:journey_pattern, :vehicle_journey_at_stops)
         .where("vehicle_journey_at_stops.stop_point_id=journey_patterns.departure_stop_point_id")
-        .order( "vehicle_journey_at_stops.departure_time")
+        .order("vehicle_journey_at_stops.departure_time")
+        .order("vehicle_journeys.objectid")
   end
 
   def self.direction_binding

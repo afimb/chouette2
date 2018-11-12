@@ -1,8 +1,8 @@
 Chouette2 External Dependencies
 -------------------------------
 
-Install the Chouette IEV 3.X Web Service
-[see how to](https://github.com/afimb/chouette/blob/master/README.md)
+Install the Chouette IEV 3.4.x Web Service (branch V3_4)
+[see how to](https://github.com/afimb/chouette/blob/V3_4/README.md)
 
 The next steps assume that :
 * a Chouette IEV Web Service is running (on localhost, port 8080)
@@ -20,28 +20,28 @@ brew install libffi geos proj
 If your Linux distribution doesn't publish an RVM package,
 install [RVM from sources](./doc/install/rvm.md)
 
-Install ruby 2.1.x
+Install ruby 2.3.3 (+)
 ```sh
-rvm install ruby-2.1.x
-rvm --default use 2.1.x
+rvm install ruby-2.3.3
+rvm --default use 2.3.3
 ```
 
-Install bundler 1.10.x
+Install bundler 1.13.6
 ```sh
-gem install bundler -v 1.10.x
+gem install bundler -v 1.13.6
 ```
 
 Chouette2 Installation
 ----------------------
 
-On Debian, chouette can also be installed as a package : see [debian packages](http://packages.chouette.cityway.fr/debian/chouette)
+Chouette can also be installed in docker context : see [chouette docker hub](http://https://hub.docker.com/u/afimb/)
 
 Install web application
 
 Get git source code :
 ```sh
 cd
-git clone -b V3_2 git://github.com/afimb/chouette2
+git clone -b V3_4 git://github.com/afimb/chouette2
 cd chouette2
 ```
 Download gem librairies

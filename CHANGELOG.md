@@ -1,3 +1,7 @@
+# Version 3.4.2 (12/11/2018)
+  * Corrections
+    * Le tri des courses de même horaire de départ est aléatoire d'une page à l'autre (Mantis 59967) 
+
 # Version 3.4.1 (15/01/2017)
   * Nouvelles fonctionnalités :
     * Connection possible avec un compte Google, Facebook ou FranceConnect

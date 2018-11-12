@@ -1,3 +1,3 @@
-server "chouette-private.marseille.cityway.fr", :app, :web, :db, :primary => true
+server "chouette-private.prod.cityway.net", :app, :web, :db, :primary => true
 set :branch, "V3_4"
-set :gui_cmd, "2.5.2"
+#set :gui_cmd, "3.4.8"

@@ -3,14 +3,15 @@ layout: default
 title: Chouette
 ---
 
-Version 3.4.1
+Version 3.4.2
 
 h3. Logiciel libre propriété de :
 
 table{border:1px solid black}.
 |AFIMB (Agence Française pour l'Information Multimodale et la Billettique)
-La Grande Arche Paroi Sud
-92055 La Défense cedex|
+Tour Séquoia
+1 place Carpeaux
+92800 Puteaux|
 
 Plus d'informations sur "Chouette.mobi":http://www.chouette.mobi/
 
@@ -23,6 +24,11 @@ En contrepartie de l'accessibilité au code source et des droits de copie, de mo
 A cet égard  l'attention de l'utilisateur est attirée sur les risques associés au chargement, à l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve donc à des développeurs et des professionnels avertis possédant  des  connaissances  informatiques approfondies.  Les utilisateurs sont donc invités à charger  et  tester  l'adéquation  du logiciel à leurs besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et, plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
 
 h3. Notes de version
+
+h4. Version 3.4.2
+
+* Corrections
+** Le tri des courses de même horaire de départ est aléatoire d'une page à l'autre (Mantis 59967) 
 
 h4. Version 3.4.1
 
