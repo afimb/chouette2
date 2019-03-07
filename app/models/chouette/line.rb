@@ -24,6 +24,13 @@ class Chouette::Line < Chouette::TridentActiveRecord
   belongs_to :booking_arrangement, :class_name => 'Chouette::BookingArrangement', :dependent => :destroy
   accepts_nested_attributes_for :booking_arrangement, :allow_destroy => :true
 
+
+  before_validation :set_nils
+
+  def set_nils
+    self.flexible_line_type = nil if self.flexible_line_type.blank?
+  end
+
   validates_presence_of :network
   validates_presence_of :company
 

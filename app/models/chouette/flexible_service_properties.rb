@@ -6,6 +6,11 @@ class Chouette::FlexibleServiceProperties < Chouette::ActiveRecord
 
   validates :objectid, presence: true
 
+  before_validation :set_nils
+
+  def set_nils
+    self.flexible_service_type = nil if self.flexible_service_type.blank?
+  end
 
   before_destroy :clear_vj_relation
   def clear_vj_relation
