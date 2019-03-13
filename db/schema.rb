@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180529183000) do
+ActiveRecord::Schema.define(version: 20190313183000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -870,5 +870,5 @@ ActiveRecord::Schema.define(version: 20180529183000) do
   add_foreign_key "vehicle_journeys", "flexible_service_properties", column: "flexible_service_properties_id", name: "vehicle_journeys_flexible_props_fkey"
   add_foreign_key "vehicle_journeys", "journey_patterns", name: "vj_jp_fkey", on_delete: :cascade
   add_foreign_key "vehicle_journeys", "routes", name: "vj_route_fkey", on_delete: :cascade
-  add_foreign_key "vehicle_journeys_key_values", "vehicle_journeys", name: "vehicle_journeys_key_values_vehicle_journey_fkey"
+  add_foreign_key "vehicle_journeys_key_values", "vehicle_journeys", name: "vehicle_journeys_key_values_vehicle_journey_fkey", on_delete: :cascade
 end
