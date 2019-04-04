@@ -33,7 +33,7 @@ class OsrmRouteSectionProcessor
 
     geometry = JSON.parse(response.read.to_s)['route_geometry']
     if geometry
-      decoded_geometry = Polylines::Decoder.decode_polyline(geometry, 1e6).map do |point|
+      decoded_geometry = FastPolylines::Decoder.decode(geometry, 1e6).map do |point|
         GeoRuby::SimpleFeatures::Point.from_x_y(point[1], point[0], 4326)
       end
 

@@ -37,7 +37,7 @@ class Osrm_5_RouteSectionProcessor
       routes["routes"].map do |legs|
         legs["legs"].map do |steps|
           steps["steps"].map do |geometry|
-            current_points = Polylines::Decoder.decode_polyline(geometry["geometry"], 1e5).map do |point|
+            current_points = FastPolylines::Decoder.decode(geometry["geometry"], 1e5).map do |point|
               GeoRuby::SimpleFeatures::Point.from_x_y(point[1], point[0], 4326)
             end
             decoded_geometry.nil? ? decoded_geometry = current_points : decoded_geometry.concat(current_points)

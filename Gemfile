@@ -48,7 +48,7 @@ platforms :ruby do
 end
 
 gem 'activerecord-postgis-adapter', '~> 3.1.4'
-gem 'polylines'
+gem 'fast-polylines', '~> 1.0'
 
 # Authentication
 gem 'devise', '~> 3.5.10'
