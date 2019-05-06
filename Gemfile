@@ -149,6 +149,7 @@ group :test, :development do
   gem 'transpec'
   gem 'database_cleaner'
   gem 'shoulda-matchers', '~> 2.8.0'
+  gem 'rspec_junit_formatter'
 end
 
 group :production do
