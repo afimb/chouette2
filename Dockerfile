@@ -1,10 +1,8 @@
-FROM ruby:2.3.1
+FROM ruby:2.3.6-stretch
 
 # https://github.com/Yelp/dumb-init
 RUN wget --quiet https://github.com/Yelp/dumb-init/releases/download/v1.0.1/dumb-init_1.0.1_amd64.deb
 RUN dpkg -i dumb-init_*.deb
-
-RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
 
 
 # Inspired by https://blog.codeship.com/running-rails-development-environment-docker/
