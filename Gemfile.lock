@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/entur/chouette-projects-i18n.git
-  revision: d0544b22bcb212fa99a091014dfddd3068c93a16
+  revision: 1e6698a13e25e51d3919d58452e45177119bdd9a
   branch: master
   specs:
     chouette-projects-i18n (0.1.0)
