@@ -17,7 +17,6 @@ class IncreaseIdColumnLength < ActiveRecord::Migration
     change_column :booking_arrangements_buy_when, :booking_arrangement_id, :bigint
     change_column :companies, :branding_id, :bigint
     change_column :flexible_service_properties, :booking_arrangement_id, :bigint
-    change_column :lines, :presentation_id, :bigint
     change_column :lines, :booking_arrangement_id, :bigint
     change_column :lines_key_values, :line_id, :bigint
     change_column :networks, :company_id, :bigint
