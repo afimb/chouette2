@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190313183000) do
+ActiveRecord::Schema.define(version: 20190614000000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20190313183000) do
   add_index "access_points", ["objectid"], name: "access_points_objectid_key", unique: true, using: :btree
 
   create_table "api_keys", id: :bigserial, force: :cascade do |t|
-    t.integer  "referential_id"
+    t.integer  "referential_id", limit: 8
     t.string   "token"
     t.string   "name"
     t.datetime "created_at"
@@ -81,16 +81,16 @@ ActiveRecord::Schema.define(version: 20190313183000) do
     t.string  "book_when"
     t.time    "latest_booking_time"
     t.time    "minimum_booking_period"
-    t.integer "booking_contact_id"
+    t.integer "booking_contact_id",     limit: 8
   end
 
   create_table "booking_arrangements_booking_methods", id: false, force: :cascade do |t|
-    t.integer "booking_arrangement_id"
+    t.integer "booking_arrangement_id", limit: 8
     t.string  "booking_method"
   end
 
   create_table "booking_arrangements_buy_when", id: false, force: :cascade do |t|
-    t.integer "booking_arrangement_id"
+    t.integer "booking_arrangement_id", limit: 8
     t.string  "buy_when"
   end
 
@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 20190313183000) do
   end
 
   create_table "companies", id: :bigserial, force: :cascade do |t|
-    t.string   "objectid",                  null: false
+    t.string   "objectid",                            null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
@@ -135,7 +135,7 @@ ActiveRecord::Schema.define(version: 20190313183000) do
     t.string   "public_email"
     t.string   "public_url"
     t.string   "public_phone"
-    t.integer  "branding_id"
+    t.integer  "branding_id",               limit: 8
   end
 
   add_index "companies", ["objectid"], name: "companies_objectid_key", unique: true, using: :btree
@@ -261,7 +261,7 @@ ActiveRecord::Schema.define(version: 20190313183000) do
     t.string   "flexible_service_type",   limit: 255
     t.boolean  "cancellation_possible"
     t.boolean  "change_of_time_possible"
-    t.integer  "booking_arrangement_id"
+    t.integer  "booking_arrangement_id",  limit: 8
   end
 
   add_index "flexible_service_properties", ["objectid"], name: "flexible_service_propertiess_objectid_key", unique: true, using: :btree
@@ -278,32 +278,32 @@ ActiveRecord::Schema.define(version: 20190313183000) do
   add_index "footnotes", ["objectid"], name: "footnotes_objectid_key", unique: true, using: :btree
 
   create_table "footnotes_journey_patterns", id: false, force: :cascade do |t|
-    t.integer "journey_pattern_id"
-    t.integer "footnote_id"
+    t.integer "journey_pattern_id", limit: 8
+    t.integer "footnote_id",        limit: 8
   end
 
   add_index "footnotes_journey_patterns", ["footnote_id"], name: "footnotes_id_journey_patterns_id_idx", using: :btree
   add_index "footnotes_journey_patterns", ["journey_pattern_id"], name: "footnotes_journey_patterns_id_idx", using: :btree
 
   create_table "footnotes_lines", id: false, force: :cascade do |t|
-    t.integer "line_id"
-    t.integer "footnote_id"
+    t.integer "line_id",     limit: 8
+    t.integer "footnote_id", limit: 8
   end
 
   add_index "footnotes_lines", ["footnote_id"], name: "footnotes_footnote_line_id_idx", using: :btree
   add_index "footnotes_lines", ["line_id"], name: "footnotes_line_id_idx", using: :btree
 
   create_table "footnotes_stop_points", id: false, force: :cascade do |t|
-    t.integer "stop_point_id"
-    t.integer "footnote_id"
+    t.integer "stop_point_id", limit: 8
+    t.integer "footnote_id",   limit: 8
   end
 
   add_index "footnotes_stop_points", ["footnote_id"], name: "footnotes_stop_point_id_idx", using: :btree
   add_index "footnotes_stop_points", ["stop_point_id"], name: "stop_point_id_idx", using: :btree
 
   create_table "footnotes_vehicle_journey_at_stops", id: false, force: :cascade do |t|
-    t.integer "vehicle_journey_at_stop_id"
-    t.integer "footnote_id"
+    t.integer "vehicle_journey_at_stop_id", limit: 8
+    t.integer "footnote_id",                limit: 8
   end
 
   add_index "footnotes_vehicle_journey_at_stops", ["footnote_id"], name: "footnotes_vehicle_journey_at_stop_id_idx", using: :btree
@@ -427,23 +427,23 @@ ActiveRecord::Schema.define(version: 20190313183000) do
     t.string   "text_color",                      limit: 6
     t.string   "stable_id"
     t.string   "transport_submode_name"
-    t.integer  "presentation_id"
+    t.integer  "presentation_id",                 limit: 8
     t.string   "flexible_line_type"
-    t.integer  "booking_arrangement_id"
+    t.integer  "booking_arrangement_id",          limit: 8
   end
 
   add_index "lines", ["objectid"], name: "lines_objectid_key", unique: true, using: :btree
   add_index "lines", ["registration_number"], name: "lines_registration_number_key", using: :btree
 
   create_table "lines_key_values", id: false, force: :cascade do |t|
-    t.integer "line_id"
+    t.integer "line_id",     limit: 8
     t.string  "type_of_key"
     t.string  "key"
     t.string  "value"
   end
 
   create_table "networks", id: :bigserial, force: :cascade do |t|
-    t.string   "objectid",            null: false
+    t.string   "objectid",                      null: false
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id"
@@ -455,7 +455,7 @@ ActiveRecord::Schema.define(version: 20190313183000) do
     t.string   "source_type"
     t.string   "source_identifier"
     t.string   "comment"
-    t.integer  "company_id"
+    t.integer  "company_id",          limit: 8
   end
 
   add_index "networks", ["objectid"], name: "networks_objectid_key", unique: true, using: :btree
@@ -493,6 +493,10 @@ ActiveRecord::Schema.define(version: 20190313183000) do
 
   add_index "pt_links", ["objectid"], name: "pt_links_objectid_key", unique: true, using: :btree
 
+  create_table "referential_last_update", id: :bigserial, force: :cascade do |t|
+    t.datetime "last_update_timestamp"
+  end
+
   create_table "referentials", id: :bigserial, force: :cascade do |t|
     t.string   "name"
     t.string   "slug"
@@ -516,7 +520,7 @@ ActiveRecord::Schema.define(version: 20190313183000) do
     t.integer  "object_version"
     t.datetime "creation_time"
     t.string   "creator_id",              limit: 255
-    t.integer  "scheduled_stop_point_id"
+    t.integer  "scheduled_stop_point_id", limit: 8
     t.string   "name"
     t.boolean  "boarder_crossing"
   end
@@ -532,8 +536,8 @@ ActiveRecord::Schema.define(version: 20190313183000) do
     t.string   "creator_id"
     t.float    "distance"
     t.boolean  "no_processing",                                                            default: false, null: false
-    t.integer  "from_scheduled_stop_point_id"
-    t.integer  "to_scheduled_stop_point_id"
+    t.integer  "from_scheduled_stop_point_id", limit: 8
+    t.integer  "to_scheduled_stop_point_id",   limit: 8
   end
 
   add_index "route_sections", ["objectid"], name: "route_sections_objectid_key", unique: true, using: :btree
@@ -556,9 +560,9 @@ ActiveRecord::Schema.define(version: 20190313183000) do
   add_index "routes", ["objectid"], name: "routes_objectid_key", unique: true, using: :btree
 
   create_table "routes_route_points", id: :bigserial, force: :cascade do |t|
-    t.integer "route_id",       null: false
-    t.integer "route_point_id", null: false
-    t.integer "position",       null: false
+    t.integer "route_id",       limit: 8, null: false
+    t.integer "route_point_id", limit: 8, null: false
+    t.integer "position",                 null: false
   end
 
   create_table "routing_constraints_lines", id: false, force: :cascade do |t|
@@ -640,18 +644,18 @@ ActiveRecord::Schema.define(version: 20190313183000) do
     t.integer  "position"
     t.string   "for_boarding"
     t.string   "for_alighting"
-    t.integer  "destination_display_id"
-    t.integer  "scheduled_stop_point_id",           null: false
-    t.integer  "booking_arrangement_id"
+    t.integer  "destination_display_id",  limit: 8
+    t.integer  "scheduled_stop_point_id", limit: 8, null: false
+    t.integer  "booking_arrangement_id",  limit: 8
   end
 
   add_index "stop_points", ["objectid"], name: "stop_points_objectid_key", unique: true, using: :btree
 
   create_table "taggings", id: :bigserial, force: :cascade do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
+    t.integer  "tag_id",        limit: 8
+    t.integer  "taggable_id",   limit: 8
     t.string   "taggable_type"
-    t.integer  "tagger_id"
+    t.integer  "tagger_id",     limit: 8
     t.string   "tagger_type"
     t.string   "context",       limit: 128
     t.datetime "created_at"
@@ -720,25 +724,25 @@ ActiveRecord::Schema.define(version: 20190313183000) do
   end
 
   create_table "users", id: :bigserial, force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: ""
+    t.string   "email",                            default: "", null: false
+    t.string   "encrypted_password",               default: ""
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0
+    t.integer  "sign_in_count",                    default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "organisation_id"
+    t.integer  "organisation_id",        limit: 8
     t.string   "name"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",        default: 0
+    t.integer  "failed_attempts",                  default: 0
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.string   "authentication_token"
@@ -746,10 +750,10 @@ ActiveRecord::Schema.define(version: 20190313183000) do
     t.datetime "invitation_sent_at"
     t.datetime "invitation_accepted_at"
     t.integer  "invitation_limit"
-    t.integer  "invited_by_id"
+    t.integer  "invited_by_id",          limit: 8
     t.string   "invited_by_type"
     t.datetime "invitation_created_at"
-    t.integer  "role",                   default: 1,  null: false
+    t.integer  "role",                             default: 1,  null: false
     t.string   "provider"
     t.string   "uid"
   end
@@ -801,14 +805,14 @@ ActiveRecord::Schema.define(version: 20190313183000) do
     t.string   "transport_submode_name"
     t.string   "private_code"
     t.string   "service_alteration"
-    t.integer  "flexible_service_properties_id"
+    t.integer  "flexible_service_properties_id",  limit: 8
   end
 
   add_index "vehicle_journeys", ["objectid"], name: "vehicle_journeys_objectid_key", unique: true, using: :btree
   add_index "vehicle_journeys", ["route_id"], name: "index_vehicle_journeys_on_route_id", using: :btree
 
   create_table "vehicle_journeys_key_values", id: false, force: :cascade do |t|
-    t.integer "vehicle_journey_id"
+    t.integer "vehicle_journey_id", limit: 8
     t.string  "type_of_key"
     t.string  "key"
     t.string  "value"
