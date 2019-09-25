@@ -8,15 +8,15 @@ aliases:
   - &docker-login
     name: Docker login
     command: |
-      echo 'export GCLOUD_SERVICE_KEY="$GCLOUD_SERVICE_KEY"' >> $BASH_ENV
-      /tools/docker_login.sh
+      docker login -u _json_key --password-stdin https://eu.gcr.io <<< "${DOCKER_PASSWORD}"
   - &docker-build-and-push
     name: Docker build and push
     command: |
-      echo 'export CIRCLE_PROJECT_REPONAME="$CIRCLE_PROJECT_REPONAME"' >> $BASH_ENV
-      echo 'export CIRCLE_SHA1="$CIRCLE_SHA1"' >> $BASH_ENV
-      echo 'export BUILD_ARGS="--build-arg NEXUS_USER=$NEXUS_USER --build-arg NEXUS_PASS=$NEXUS_PASS"' >> $BASH_ENV
-      /tools/docker_build_push.sh
+      IMAGE="eu.gcr.io/entur-system-1287/${CIRCLE_PROJECT_REPONAME}"
+      echo "Image: ${IMAGE}"
+      docker build -t $IMAGE .
+      docker tag $IMAGE "${IMAGE}":"${CIRCLE_SHA1}"
+      docker push $IMAGE
   - &post-hook
     name: Notify about build and docker image pushed
     command: |
@@ -27,10 +27,10 @@ aliases:
 jobs:
   build:
     docker:
-      - image: eu.gcr.io/carbon-1287/circleci-toolbox-image
+      - image: eu.gcr.io/entur-system-1287/circleci-toolbox-image
         auth:
           username: _json_key
-          password: $GCLOUD_SERVICE_KEY
+          password: $DOCKER_PASSWORD
       - image: mdillon/postgis:9.6
         environment:
           TZ: Europe/Oslo
@@ -83,10 +83,10 @@ jobs:
           path: test_results
   deploy-docker:
     docker:
-      - image: eu.gcr.io/carbon-1287/circleci-toolbox-image
+      - image: eu.gcr.io/entur-system-1287/circleci-toolbox-image
         auth:
           username: _json_key
-          password: $GCLOUD_SERVICE_KEY
+          password: $DOCKER_PASSWORD
     environment:
       DEBIAN_FRONTEND: "noninteractive"
     steps:
