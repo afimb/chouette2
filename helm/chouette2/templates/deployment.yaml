@@ -1,0 +1,121 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "chouette2.name" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "common.labels" . | indent 4 }}
+spec:
+  progressDeadlineSeconds: 600
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: {{ template "chouette2.name" . }}
+  strategy:
+    rollingUpdate:
+      maxSurge: {{ .Values.rollingUpdate.maxSurge }}
+      maxUnavailable: {{ .Values.rollingUpdate.maxUnavailable }}
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        {{- include "common.labels" . | indent 8 }}
+    spec:
+      containers:
+        - command:
+            - /cloud_sql_proxy
+            - -instances={{ .Values.sql.instance }}
+            - -credential_file=/etc/chouette-service-account/chouette-service-account.json
+            - -log_debug_stdout
+          image: gcr.io/cloudsql-docker/gce-proxy:1.15
+          imagePullPolicy: IfNotPresent
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - /bin/sh
+                  - -c
+                  - sleep 30
+          name: cloudsql-proxy
+          resources:
+            requests:
+              cpu: 50m
+              memory: 40Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+            - mountPath: /etc/chouette2-service-account
+              name: chouette2-service-account
+        - env:
+            - name: TZ
+              value: Europe/Oslo
+            - name: RAILS_ENV
+              value: development
+            - name: secret_key_base
+              valueFrom:
+                secretKeyRef:
+                  key: secret_key_base
+                  name: chouette2-secret
+            - name: devise_secret_key
+              valueFrom:
+                secretKeyRef:
+                  key: devise_secret_key
+                  name: chouette2-secret
+            - name: chouette_db_username
+              valueFrom:
+                secretKeyRef:
+                  key: username
+                  name: chouette-password
+            - name: chouette_db_password
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: chouette-password
+          image: {{ .Values.image.identifier }}
+          imagePullPolicy: {{ .Values.image.imagePullPolicy }}
+          name: chouette2
+          ports:
+            - containerPort: {{ .Values.service.http.internalPort }}
+              protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: {{ .Values.service.http.internalPort }}
+              scheme: HTTP
+            initialDelaySeconds: 45
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 15
+          resources:
+            limits:
+              cpu: {{ .Values.resources.cpuLimit }}
+              memory: {{ .Values.resources.memLimit }}
+            requests:
+              cpu: {{ .Values.resources.cpuRequest }}
+              memory: {{ .Values.resources.memRequest }}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+            - mountPath: /code/config/database.yml
+              name: chouette2-config
+              subPath: database.yml
+            - mountPath: /code/config/application.yml
+              name: chouette2-config
+              subPath: application.yml
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+        - name: rutebanken-registry-key
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - name: chouette-key
+          secret:
+            defaultMode: 420
+            secretName: {{ .Values.gcpKeyName}}
+        - configMap:
+            defaultMode: 420
+            name: chouette2-config
+          name: chouette2-config

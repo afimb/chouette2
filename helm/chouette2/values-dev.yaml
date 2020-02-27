@@ -1,0 +1,7 @@
+env: dev
+sql:
+  instance: carbon-1287:europe-west1:chouette-db-1=tcp:5432
+gcpKeyName: chouette-carbon-storage-key
+
+
+
