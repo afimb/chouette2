@@ -1,0 +1,31 @@
+{{- if .Values.ingress.enabled }}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  labels:
+    {{- include "common.labels" . | indent 4 }}
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    ingress.kubernetes.io/custom-response-headers: 'x-frame-options: '
+    {{- if eq .Values.env "production"}}
+    external-dns.alpha.kubernetes.io/target: {{ .Values.ingress.productionIp }}
+    {{ else if eq .Values.env "staging"}}
+    external-dns.alpha.kubernetes.io/target: {{ .Values.ingress.stagingIp }}
+    {{ else if eq .Values.env "dev"}}
+    external-dns.alpha.kubernetes.io/target: {{ .Values.ingress.devIp }}
+    {{- end}}
+  name: rutedb
+  namespace: {{ .Release.Namespace }}
+spec:
+  rules:
+  {{- if eq .Values.env "production"}}
+  - host: rutedb.entur.org
+  {{ else }}
+  - host: rutedb.{{ .Release.Namespace }}.entur.org
+  {{- end}}
+    http:
+      paths:
+        - backend:
+            serviceName: {{ template "chouette2.name" . }}
+            servicePort: {{ .Values.service.http.externalPort }}
+{{- end }}

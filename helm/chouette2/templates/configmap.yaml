@@ -1,0 +1,68 @@
+apiVersion: v1
+data:
+  application.yml: |-
+    domain_name: 'rutebanken.org'
+    api_endpoint: 'http://chouette:8080/chouette_iev/'
+    google_analytic_tracker:
+    geoportail_api_key:
+    newrelic_licence_key:
+    osrm_endpoint: 'http://osrm-bus.default:5000'
+    osrm_endpoint_list: '{"coach": "http://osrm-bus.default:5000", "bus": "http://osrm-bus.default:5000", "water": "http://osrm-water.default:5000", "rail": "http://osrm-rail.default:5000"}'
+    deactivate_formats_referential: neptune,hub,sig,netex # For example: 'hub,sig,neptune'
+    deactivate_formats_import: neptune,hub,sig,netex # For example: 'hub,sig,neptune'
+    deactivate_formats_export: neptune,hub,sig,netex # For example: 'hub,sig,neptune'
+    smtp_delivery_method: sendmail # 'letter_opener' OR 'smtp'
+    smtp_host: localhost
+    smtp_port: 25
+    smtp_domain: rutebanken.org
+    smtp_user_name:
+    smtp_password:
+    smtp_authentication:
+    mailer_sender: 'no-reply@rutebanken.org'
+    capistrano_deploy_user:
+
+    # IEV config for IEVKit - must be the same as api_endpoint
+    IEV_VERSION: '1.0'
+    IEV_HOST: 'http://chouette'
+    IEV_PORT: '8080'
+    IEV_PATH: 'chouette_iev'
+
+    SPEC_VALIDATION_URL_PROD: 'http://www.chouette.mobi/validation/V2_3'
+    SPEC_VALIDATION_URL: 'http://preview.chouette.cityway.fr/validation/v24'
+    PROGRESS_BAR_TIMEOUT: '60000'
+
+    openlayers_default_map: osm # For example: 'osm' or 'google_stellite' or 'geoportail_ortho' or 'geoportail_scans' or 'geoportail_cadastre'
+    restriction_format: # For example: 'hub'
+
+    #Redis validation report cache
+    REDIS_URL: redis://redis.default:6379/chouette
+  database.yml : |-
+    default: &default
+      adapter: postgis
+      encoding: unicode
+      port: 5432
+      host: localhost
+      schema_search_path: 'public,shared_extensions'
+      username: <%= ENV['chouette_db_username'] %>
+      password: <%= ENV['chouette_db_password'] %>
+      postgis_schema: 'shared_extensions'
+
+    development:
+      <<: *default
+      host: localhost
+      database: chouette
+
+    test:
+      <<: *default
+      host: localhost
+      database: chouette-test
+
+    production:
+      <<: *default
+      database: chouette
+kind: ConfigMap
+metadata:
+  name: {{ template "chouette2.name" . }}-config
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "common.labels" . | indent 4 }}

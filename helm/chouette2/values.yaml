@@ -1,0 +1,26 @@
+env: dev
+
+replicas: 2
+
+
+rollingUpdate:
+  maxSurge: 1
+  maxUnavailable: 1
+image:
+  identifier: ${artifact.metadata.image}
+  imagePullPolicy: Always
+resources:
+  cpuLimit: 1500m
+  memLimit: 3500Mi
+  cpuRequest: 800m
+  memRequest: 3000Mi
+
+service:
+  http:
+    externalPort: 80
+    internalPort: 3000
+ingress:
+  enabled: true
+  devIp: 35.189.192.172
+  stagingIp: 35.240.29.194
+  productionIp: 192.158.29.145
