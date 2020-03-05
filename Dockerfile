@@ -1,4 +1,4 @@
-FROM ruby:2.3.6-stretch
+FROM ruby:2.3.8-stretch
 
 # https://github.com/Yelp/dumb-init
 RUN wget --quiet https://github.com/Yelp/dumb-init/releases/download/v1.0.1/dumb-init_1.0.1_amd64.deb
@@ -14,7 +14,7 @@ RUN apt-get install -y libpq-dev git unzip libgeos-dev proj-bin libproj-dev make
 
 RUN apt-get install -y less build-essential patch vim sendmail
 
-RUN gem install bundler -v 1.13.5
+RUN gem install bundler -v 1.13.6
 
 COPY . /code
 WORKDIR /code
