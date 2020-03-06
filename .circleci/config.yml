@@ -3,16 +3,6 @@ orbs:
   docker: circleci/docker@0.5.20
   slack: circleci/slack@2.2.0
 executors:
-  cci-toolbox:
-    docker:
-      - image: eu.gcr.io/entur-system-1287/circleci-toolbox-image
-        auth:
-          username: _json_key
-          password: $DOCKER_PASSWORD
-    environment:
-      DEBIAN_FRONTEND: "noninteractive"
-      MAVEN_OPTS: -Xmx3G
-
   entur-cci-toolbox:
     docker:
       - image: entur/cci-toolbox:2.0
@@ -95,10 +85,7 @@ commands:
 jobs:
   build:
     docker:
-      - image: eu.gcr.io/entur-system-1287/circleci-toolbox-image
-        auth:
-          username: _json_key
-          password: $DOCKER_PASSWORD
+      - image: ruby:2.3.8-stretch
       - image: mdillon/postgis:9.6
         environment:
           TZ: Europe/Oslo
@@ -117,6 +104,9 @@ jobs:
       - run:
           name: Install apt-dependencies
           command: apt-get install -y libpq-dev libsqlite3-dev libxml2 libxml2-dev libxslt-dev python-pydot python-pydot-ng graphviz libproj-dev libgeos-dev libffi-dev libsparsehash-dev
+      - run:
+          name: Install Bundler
+          command: gem install bundler -v 1.13.6
       - run:
           name: Copy default database config file
           command: cp config/database.example.yml config/database.yml
