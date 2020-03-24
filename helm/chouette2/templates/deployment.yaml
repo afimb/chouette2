@@ -25,7 +25,7 @@ spec:
         - command:
             - /cloud_sql_proxy
             - -instances={{ .Values.sql.instance }}
-            - -credential_file=/etc/chouette-service-account/chouette-blobstore-credentials.json
+            - -credential_file=/etc/chouette2-service-account/credentials.json
             - -log_debug_stdout
           image: gcr.io/cloudsql-docker/gce-proxy:1.15
           imagePullPolicy: IfNotPresent
@@ -44,8 +44,8 @@ spec:
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           volumeMounts:
-            - mountPath: /etc/chouette-service-account
-              name: chouette-key
+            - mountPath: /etc/chouette2-service-account
+              name: chouette2-service-account
         - env:
             - name: TZ
               value: Europe/Oslo
@@ -54,24 +54,24 @@ spec:
             - name: secret_key_base
               valueFrom:
                 secretKeyRef:
-                  key: secret_key_base
-                  name: chouette2-secret
+                  key: chouette2-secret-key-base
+                  name: ror-chouette2-secret
             - name: devise_secret_key
               valueFrom:
                 secretKeyRef:
-                  key: devise_secret_key
-                  name: chouette2-secret
+                  key: chouette2-devise-secret-key
+                  name: ror-chouette2-secret
             - name: chouette_db_username
               valueFrom:
                 secretKeyRef:
-                  key: username
-                  name: chouette-password
+                  key: chouette-db-username
+                  name: ror-chouette2-secret
             - name: chouette_db_password
               valueFrom:
                 secretKeyRef:
-                  key: password
-                  name: chouette-password
-          image: eu.gcr.io/entur-system-1287/chouette2:{{ .Chart.AppVersion }}
+                  key: chouette-db-password
+                  name: ror-chouette2-secret
+          image: {{ .Values.image.identifier }}
           imagePullPolicy: {{ .Values.image.imagePullPolicy }}
           name: chouette2
           ports:
@@ -104,17 +104,15 @@ spec:
               name: chouette2-config
               subPath: application.yml
       dnsPolicy: ClusterFirst
-      imagePullSecrets:
-        - name: rutebanken-registry-key
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
       volumes:
-        - name: chouette-key
+        - name: chouette2-service-account
           secret:
             defaultMode: 420
-            secretName: {{ .Values.gcpKeyName}}
+            secretName: ror-chouette2-sa-key
         - configMap:
             defaultMode: 420
             name: chouette2-config
