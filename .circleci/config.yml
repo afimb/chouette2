@@ -106,6 +106,7 @@ jobs:
     environment:
       DEBIAN_FRONTEND: "noninteractive"
     steps:
+      - checkout
       - attach_workspace:
           at: ~/project
       - setup_remote_docker:
