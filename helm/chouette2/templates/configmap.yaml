@@ -6,8 +6,8 @@ data:
     google_analytic_tracker:
     geoportail_api_key:
     newrelic_licence_key:
-    osrm_endpoint: 'http://osrm-bus.default:5000'
-    osrm_endpoint_list: '{"coach": "http://osrm-bus.default:5000", "bus": "http://osrm-bus.default:5000", "water": "http://osrm-water.default:5000", "rail": "http://osrm-rail.default:5000"}'
+    osrm_endpoint: 'http://osrm-bus:5000'
+    osrm_endpoint_list: '{"coach": "http://osrm-bus:5000", "bus": "http://osrm-bus:5000", "water": "http://osrm-water:5000", "rail": "http://osrm-rail:5000"}'
     deactivate_formats_referential: neptune,hub,sig,netex # For example: 'hub,sig,neptune'
     deactivate_formats_import: neptune,hub,sig,netex # For example: 'hub,sig,neptune'
     deactivate_formats_export: neptune,hub,sig,netex # For example: 'hub,sig,neptune'
