@@ -7,7 +7,6 @@ metadata:
   name: redis
   namespace: {{ .Release.Namespace }}
 spec:
-  clusterIP: 10.3.250.171
   ports:
     - port: 6379
       protocol: TCP
