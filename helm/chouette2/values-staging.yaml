@@ -1,7 +1,10 @@
 env: staging
+
 sql:
   instance: radon-1287:europe-west1:chouette-db-1=tcp:5432
-gcpKeyName: chouette-radon-storage-key
+
+redis:
+  persistenceDiskName: redis-radon-disk
 
 
 

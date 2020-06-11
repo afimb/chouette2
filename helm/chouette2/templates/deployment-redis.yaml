@@ -69,6 +69,6 @@ spec:
       volumes:
         - gcePersistentDisk:
             fsType: ext4
-            pdName: redis-carbon-disk
+            pdName: {{ .Values.redis.persistenceDiskName }}
           name: redis-data
 

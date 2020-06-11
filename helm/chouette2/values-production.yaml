@@ -1,4 +1,7 @@
 env: production
+
 sql:
   instance: neon-1287:europe-west1:chouette-db-1=tcp:5432
-gcpKeyName: chouette-neon-storage-key
+
+redis:
+  persistenceDiskName: redis-neon-disk
