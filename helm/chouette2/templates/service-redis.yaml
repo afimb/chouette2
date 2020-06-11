@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: redis
+  {{- include "common.labels" . | indent 4 }}
+  name: redis
+  namespace: {{ .Release.Namespace }}
+spec:
+  clusterIP: 10.3.250.171
+  ports:
+    - port: 6379
+      protocol: TCP
+      targetPort: 6379
+  selector:
+    name: redis
+  sessionAffinity: None
+  type: ClusterIP
