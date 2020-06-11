@@ -1,6 +1,10 @@
 #Enviroment variables
 variable "gcp_project" {
-    description = "The GCP project id"
+  description = "The GCP project hosting the workloads"
+}
+
+variable "gcp_resources_project" {
+  description = "The GCP project hosting the project resources"
 }
 
 variable "location" {

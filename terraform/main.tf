@@ -19,7 +19,7 @@ resource "google_service_account" "chouette2_service_account" {
 
 # add service account as member to the cloudsql client
 resource "google_project_iam_member" "cloudsql_iam_member" {
-  project = var.gcp_project
+  project = var.gcp_resources_project
   role    = var.service_account_cloudsql_role
   member = "serviceAccount:${google_service_account.chouette2_service_account.email}"
 }
@@ -39,6 +39,16 @@ resource "kubernetes_secret" "chouette2_service_account_credentials" {
     "credentials.json" = "${base64decode(google_service_account_key.chouette2_service_account_key.private_key)}"
   }
 }
+
+#create persistence disk for redis
+resource "google_compute_disk" "redis_persistent_disk" {
+  project = var.gcp_resources_project
+  name = "redis-chouette-pd"
+  type  = "pd-ssd"
+  zone  = "europe-west1-b"
+  size =  "10"
+}
+
 
 resource "kubernetes_secret" "ror-chouette2-secret" {
   metadata {
