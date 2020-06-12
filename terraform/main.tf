@@ -14,7 +14,7 @@ provider "kubernetes" {
 resource "google_service_account" "chouette2_service_account" {
   account_id   = "${var.labels.team}-${var.labels.app}-sa"
   display_name = "${var.labels.team}-${var.labels.app} service account"
-  project = var.gcp_project
+  project = var.gcp_resources_project
 }
 
 # add service account as member to the cloudsql client
@@ -43,7 +43,7 @@ resource "kubernetes_secret" "chouette2_service_account_credentials" {
 #create persistence disk for redis
 resource "google_compute_disk" "redis_persistent_disk" {
   project = var.gcp_resources_project
-  name = "redis-chouette-pd"
+  name = "redis-chouette-disk"
   type  = "pd-ssd"
   zone  = "europe-west1-b"
   size =  "10"

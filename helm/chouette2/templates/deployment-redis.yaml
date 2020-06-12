@@ -69,6 +69,6 @@ spec:
       volumes:
         - gcePersistentDisk:
             fsType: ext4
-            pdName: {{ .Values.redis.persistenceDiskName }}
+            pdName: redis-chouette-disk
           name: redis-data
 
