@@ -3,6 +3,10 @@ variable "gcp_project" {
   description = "The GCP project hosting the workloads"
 }
 
+variable "gcp_cloudsql_project" {
+  description = "The GCP project hosting the CloudSQL resources"
+}
+
 variable "gcp_resources_project" {
   description = "The GCP project hosting the project resources"
 }

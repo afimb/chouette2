@@ -19,7 +19,7 @@ resource "google_service_account" "chouette2_service_account" {
 
 # add service account as member to the cloudsql client
 resource "google_project_iam_member" "cloudsql_iam_member" {
-  project = var.gcp_resources_project
+  project = var.gcp_cloudsql_project
   role    = var.service_account_cloudsql_role
   member = "serviceAccount:${google_service_account.chouette2_service_account.email}"
 }
