@@ -42,7 +42,7 @@ resource "kubernetes_secret" "chouette2_service_account_credentials" {
 
 #create persistence disk for redis
 resource "google_compute_disk" "redis_persistent_disk" {
-  project = var.gcp_resources_project
+  project = var.gcp_project
   name = "redis-chouette-disk"
   type  = "pd-ssd"
   zone  = "europe-west1-b"
