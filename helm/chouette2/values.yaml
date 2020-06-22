@@ -19,8 +19,4 @@ service:
   http:
     externalPort: 80
     internalPort: 3000
-ingress:
-  enabled: true
-  devIp: 35.189.192.172
-  stagingIp: 35.240.29.194
-  productionIp: 192.158.29.145
+
