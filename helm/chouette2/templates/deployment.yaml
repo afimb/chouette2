@@ -27,7 +27,7 @@ spec:
             - -instances={{ .Values.sql.instance }}
             - -credential_file=/etc/chouette2-service-account/credentials.json
             - -log_debug_stdout
-          image: gcr.io/cloudsql-docker/gce-proxy:1.17
+          image: gcr.io/cloudsql-docker/gce-proxy:1.17-alpine
           imagePullPolicy: IfNotPresent
           lifecycle:
             preStop:
