@@ -23,6 +23,15 @@ spec:
       labels:
         name: redis
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: failure-domain.beta.kubernetes.io/zone
+                    operator: In
+                    values:
+                      - europe-west1-b
       containers:
         - command:
             - redis-server
