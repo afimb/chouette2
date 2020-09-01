@@ -1,7 +1,7 @@
 env: staging
 
 sql:
-  instance: radon-1287:europe-west1:chouette-db-1=tcp:5432
+  instance: entur-ror-test:europe-west1:chouette-db-1=tcp:5432
 
 ingress:
   loadBalancerIP: 35.233.47.68
