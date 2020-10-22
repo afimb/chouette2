@@ -38,7 +38,13 @@ jobs:
   build:
     docker:
       - image: ruby:2.3.8-stretch
+        auth:
+          username: $DOCKERHUB_LOGIN
+          password: $DOCKERHUB_PASSWORD
       - image: mdillon/postgis:9.6
+        auth:
+          username: $DOCKERHUB_LOGIN
+          password: $DOCKERHUB_PASSWORD
         environment:
           TZ: Europe/Oslo
           POSTGRES_DB: chouette_test
