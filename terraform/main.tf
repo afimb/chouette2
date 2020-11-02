@@ -59,7 +59,7 @@ resource "kubernetes_secret" "ror-chouette2-secret" {
   data = {
     "chouette2-secret-key-base" = var.ror-chouette2-secret-key-base
     "chouette2-devise-secret-key" = var.ror-chouette2-devise-secret-key
-    "chouette-db-username" = var.ror-chouette-db-username
-    "chouette-db-password" = var.ror-chouette-db-password
+    "chouette2-db-username" = var.ror-chouette2-db-username
+    "chouette2-db-password" = var.ror-chouette2-db-password
   }
 }

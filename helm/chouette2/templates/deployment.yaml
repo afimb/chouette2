@@ -61,15 +61,15 @@ spec:
                 secretKeyRef:
                   key: chouette2-devise-secret-key
                   name: ror-chouette2-secret
-            - name: chouette_db_username
+            - name: chouette2_db_username
               valueFrom:
                 secretKeyRef:
-                  key: chouette-db-username
+                  key: chouette2-db-username
                   name: ror-chouette2-secret
-            - name: chouette_db_password
+            - name: chouette2_db_password
               valueFrom:
                 secretKeyRef:
-                  key: chouette-db-password
+                  key: chouette2-db-password
                   name: ror-chouette2-secret
           image: {{ .Values.image.identifier }}
           imagePullPolicy: {{ .Values.image.imagePullPolicy }}

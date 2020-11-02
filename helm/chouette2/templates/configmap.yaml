@@ -43,8 +43,8 @@ data:
       port: 5432
       host: localhost
       schema_search_path: 'public,shared_extensions'
-      username: <%= ENV['chouette_db_username'] %>
-      password: <%= ENV['chouette_db_password'] %>
+      username: <%= ENV['chouette2_db_username'] %>
+      password: <%= ENV['chouette2_db_password'] %>
       postgis_schema: 'shared_extensions'
 
     development:

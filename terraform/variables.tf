@@ -50,12 +50,12 @@ variable "service_account_cloudsql_role" {
   default     = "roles/cloudsql.client"
 }
 
-variable "ror-chouette-db-username" {
-  description = "chouette database username"
+variable "ror-chouette2-db-username" {
+  description = "chouette2 database username"
 }
 
-variable "ror-chouette-db-password" {
-  description = "chouette database password"
+variable "ror-chouette2-db-password" {
+  description = "chouette2 database password"
 }
 
 variable "ror-chouette2-secret-key-base" {
