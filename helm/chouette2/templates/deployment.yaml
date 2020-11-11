@@ -72,7 +72,6 @@ spec:
                   key: chouette2-db-password
                   name: ror-chouette2-secret
           image: {{ .Values.image.identifier }}
-          imagePullPolicy: {{ .Values.image.imagePullPolicy }}
           name: chouette2
           ports:
             - containerPort: {{ .Values.service.http.internalPort }}
