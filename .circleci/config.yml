@@ -131,7 +131,7 @@ workflows:
           - org-carbon
           - global
       -  deploy-docker:
-           context: org-carbon
+           context: global
            requires:
              - build
            filters:
