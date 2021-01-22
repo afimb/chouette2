@@ -8,6 +8,7 @@ provider "google" {
 }
 provider "kubernetes" {
   load_config_file = var.load_config_file
+  version = "~> 1.13.3"
 }
 
 # create service account
