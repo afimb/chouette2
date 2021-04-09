@@ -280,7 +280,7 @@ GEM
     method_source (0.8.2)
     migration_data (0.2.1)
     mime-types (2.99.3)
-    mimemagic (0.3.2)
+    mimemagic (0.3.9)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
     multi_json (1.12.1)
