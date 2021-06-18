@@ -29,6 +29,10 @@ coverage
 # IDE
 .idea
 *.iml
+/out
+
+# Terraform
+/terraform/.terraform
 
 # Ignore application configuration
 /config/application.yml
