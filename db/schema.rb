@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200917110200) do
+ActiveRecord::Schema.define(version: 202106181421000000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,16 +76,23 @@ ActiveRecord::Schema.define(version: 20200917110200) do
   end
 
   create_table "blocks", id: :bigserial, force: :cascade do |t|
-    t.string   "objectid",                   null: false
+    t.string   "objectid",                        null: false
     t.integer  "object_version"
     t.datetime "creation_time"
-    t.string   "creator_id",     limit: 255
+    t.string   "creator_id",          limit: 255
     t.string   "private_code"
     t.string   "name"
     t.string   "description"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "end_time_day_offset"
+    t.integer  "start_point_id"
+    t.integer  "end_point_id"
   end
 
+  add_index "blocks", ["end_point_id"], name: "blocks_end_point_id_key", using: :btree
   add_index "blocks", ["objectid"], name: "blocks_objectid_key", unique: true, using: :btree
+  add_index "blocks", ["start_point_id"], name: "blocks_start_point_id_key", using: :btree
 
   create_table "blocks_vehicle_journeys", id: false, force: :cascade do |t|
     t.integer "block_id"
@@ -631,6 +638,7 @@ ActiveRecord::Schema.define(version: 20200917110200) do
     t.datetime "creation_time"
     t.string   "creator_id",             limit: 255
     t.string   "name"
+    t.string   "timing_point_status"
   end
 
   add_index "scheduled_stop_points", ["objectid"], name: "scheduled_stop_points_objectid_key", unique: true, using: :btree
@@ -873,6 +881,8 @@ ActiveRecord::Schema.define(version: 20200917110200) do
   add_foreign_key "access_links", "access_points", name: "aclk_acpt_fkey", on_delete: :cascade
   add_foreign_key "access_links", "stop_areas", name: "aclk_area_fkey", on_delete: :cascade
   add_foreign_key "access_points", "stop_areas", name: "access_area_fkey", on_delete: :cascade
+  add_foreign_key "blocks", "scheduled_stop_points", column: "end_point_id", name: "blocks_scheduled_stop_points_end_point_id_fkey"
+  add_foreign_key "blocks", "scheduled_stop_points", column: "start_point_id", name: "blocks_scheduled_stop_points_start_point_id_fkey"
   add_foreign_key "blocks_vehicle_journeys", "blocks", name: "blocks_vehicle_journeys_block_id_fkey"
   add_foreign_key "blocks_vehicle_journeys", "vehicle_journeys", name: "blocks_vehicle_journeys_vehicle_journey_id_fkey"
   add_foreign_key "booking_arrangements", "contact_structures", column: "booking_contact_id", name: "booking_arrangement_booking_contact_fkey"
