@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 202106181421000000) do
+ActiveRecord::Schema.define(version: 202107261244000000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,15 @@ ActiveRecord::Schema.define(version: 202106181421000000) do
   add_index "blocks", ["end_point_id"], name: "blocks_end_point_id_key", using: :btree
   add_index "blocks", ["objectid"], name: "blocks_objectid_key", unique: true, using: :btree
   add_index "blocks", ["start_point_id"], name: "blocks_start_point_id_key", using: :btree
+
+  create_table "blocks_dead_runs", id: false, force: :cascade do |t|
+    t.integer "block_id"
+    t.integer "dead_run_id"
+    t.integer "position"
+  end
+
+  add_index "blocks_dead_runs", ["block_id", "dead_run_id"], name: "blocks_dead_runs_block_id_dead_run_id_key", unique: true, using: :btree
+  add_index "blocks_dead_runs", ["dead_run_id"], name: "blocks_dead_runs_dead_run_id_idx", using: :btree
 
   create_table "blocks_vehicle_journeys", id: false, force: :cascade do |t|
     t.integer "block_id"
@@ -220,6 +229,32 @@ ActiveRecord::Schema.define(version: 202106181421000000) do
   end
 
   add_index "dated_service_journeys", ["objectid"], name: "dated_service_journeys_objectid_key", unique: true, using: :btree
+
+  create_table "dead_run_at_stops", id: :bigserial, force: :cascade do |t|
+    t.string   "objectid",                       null: false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id"
+    t.integer  "dead_run_id",          limit: 8
+    t.integer  "stop_point_id",        limit: 8
+    t.time     "arrival_time"
+    t.time     "departure_time"
+    t.integer  "arrival_day_offset"
+    t.integer  "departure_day_offset"
+  end
+
+  add_index "dead_run_at_stops", ["dead_run_id"], name: "index_dead_run_at_stops_on_dead_run_id", using: :btree
+  add_index "dead_run_at_stops", ["stop_point_id"], name: "index_dead_run_at_stops_on_stop_pointid", using: :btree
+
+  create_table "dead_runs", id: :bigserial, force: :cascade do |t|
+    t.integer  "journey_pattern_id", limit: 8
+    t.string   "objectid",                     null: false
+    t.integer  "object_version"
+    t.datetime "creation_time"
+    t.string   "creator_id"
+  end
+
+  add_index "dead_runs", ["objectid"], name: "dead_runs_objectid_key", unique: true, using: :btree
 
   create_table "delayed_jobs", id: :bigserial, force: :cascade do |t|
     t.integer  "priority",   default: 0
@@ -763,6 +798,14 @@ ActiveRecord::Schema.define(version: 202106181421000000) do
   add_index "time_tables_blocks", ["block_id"], name: "time_tables_blocks_block_id_idx", using: :btree
   add_index "time_tables_blocks", ["time_table_id", "block_id"], name: "time_tables_blocks_block_id_time_table_id_key", unique: true, using: :btree
 
+  create_table "time_tables_dead_runs", id: false, force: :cascade do |t|
+    t.integer "dead_run_id"
+    t.integer "time_table_id"
+  end
+
+  add_index "time_tables_dead_runs", ["dead_run_id"], name: "time_tables_dead_runs_dead_run_id_idx", using: :btree
+  add_index "time_tables_dead_runs", ["time_table_id", "dead_run_id"], name: "time_tables_dead_runs_dead_run_id_time_table_id_key", unique: true, using: :btree
+
   create_table "time_tables_vehicle_journeys", id: false, force: :cascade do |t|
     t.integer "time_table_id",      limit: 8
     t.integer "vehicle_journey_id", limit: 8
@@ -883,6 +926,8 @@ ActiveRecord::Schema.define(version: 202106181421000000) do
   add_foreign_key "access_points", "stop_areas", name: "access_area_fkey", on_delete: :cascade
   add_foreign_key "blocks", "scheduled_stop_points", column: "end_point_id", name: "blocks_scheduled_stop_points_end_point_id_fkey"
   add_foreign_key "blocks", "scheduled_stop_points", column: "start_point_id", name: "blocks_scheduled_stop_points_start_point_id_fkey"
+  add_foreign_key "blocks_dead_runs", "blocks", name: "blocks_dead_runs_block_id_fkey"
+  add_foreign_key "blocks_dead_runs", "dead_runs", name: "blocks_dead_runs_dead_run_id_fkey"
   add_foreign_key "blocks_vehicle_journeys", "blocks", name: "blocks_vehicle_journeys_block_id_fkey"
   add_foreign_key "blocks_vehicle_journeys", "vehicle_journeys", name: "blocks_vehicle_journeys_vehicle_journey_id_fkey"
   add_foreign_key "booking_arrangements", "contact_structures", column: "booking_contact_id", name: "booking_arrangement_booking_contact_fkey"
@@ -893,6 +938,9 @@ ActiveRecord::Schema.define(version: 202106181421000000) do
   add_foreign_key "dated_service_journey_refs", "dated_service_journeys", column: "derived_dsj_id", name: "dated_service_journey_refs_derived_dsj_id_fkey"
   add_foreign_key "dated_service_journey_refs", "dated_service_journeys", column: "original_dsj_id", name: "dated_service_journey_refs_original_dsj_id_fkey"
   add_foreign_key "dated_service_journeys", "vehicle_journeys", name: "dated_service_journeys_vehicle_journey_id_fkey"
+  add_foreign_key "dead_run_at_stops", "dead_runs", name: "dead_run_at_stops_dead_runs_id_fkey"
+  add_foreign_key "dead_run_at_stops", "stop_points", name: "dead_run_at_stops_stop_point_id_fkey"
+  add_foreign_key "dead_runs", "journey_patterns", name: "dead_runs_journey_patterns_id_fkey"
   add_foreign_key "flexible_service_properties", "booking_arrangements", name: "flexible_props_booking_arrangement_fkey"
   add_foreign_key "footnote_alternative_texts", "footnotes", name: "footnotes_footnote_alternative_texts_fkey"
   add_foreign_key "footnotes_journey_patterns", "footnotes", name: "footnotes_journey_patterns_footnotes_fkey", on_delete: :cascade
@@ -938,6 +986,8 @@ ActiveRecord::Schema.define(version: 202106181421000000) do
   add_foreign_key "time_table_periods", "time_tables", name: "tm_period_fkey", on_delete: :cascade
   add_foreign_key "time_tables_blocks", "blocks", name: "time_tables_blocks_block_id_fkey"
   add_foreign_key "time_tables_blocks", "time_tables", name: "time_tables_blocks_time_table_id_fkey"
+  add_foreign_key "time_tables_dead_runs", "dead_runs", name: "time_tables_dead_runs_dead_run_id_fkey"
+  add_foreign_key "time_tables_dead_runs", "time_tables", name: "time_tables_dead_runs_time_table_id_fkey"
   add_foreign_key "time_tables_vehicle_journeys", "time_tables", name: "vjtm_tm_fkey", on_delete: :cascade
   add_foreign_key "time_tables_vehicle_journeys", "vehicle_journeys", name: "vjtm_vj_fkey", on_delete: :cascade
   add_foreign_key "vehicle_journey_at_stops", "stop_points", name: "vjas_sp_fkey", on_delete: :cascade
