@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 202107261244000000) do
+ActiveRecord::Schema.define(version: 202108101244000000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,21 +95,19 @@ ActiveRecord::Schema.define(version: 202107261244000000) do
   add_index "blocks", ["start_point_id"], name: "blocks_start_point_id_key", using: :btree
 
   create_table "blocks_dead_runs", id: false, force: :cascade do |t|
-    t.integer "block_id"
-    t.integer "dead_run_id"
+    t.integer "block_id",    null: false
+    t.integer "dead_run_id", null: false
     t.integer "position"
   end
 
-  add_index "blocks_dead_runs", ["block_id", "dead_run_id"], name: "blocks_dead_runs_block_id_dead_run_id_key", unique: true, using: :btree
   add_index "blocks_dead_runs", ["dead_run_id"], name: "blocks_dead_runs_dead_run_id_idx", using: :btree
 
   create_table "blocks_vehicle_journeys", id: false, force: :cascade do |t|
-    t.integer "block_id"
-    t.integer "vehicle_journey_id"
+    t.integer "block_id",           null: false
+    t.integer "vehicle_journey_id", null: false
     t.integer "position"
   end
 
-  add_index "blocks_vehicle_journeys", ["block_id", "vehicle_journey_id"], name: "blocks_vehicle_journeys_block_id_vehicle_journey_id_key", unique: true, using: :btree
   add_index "blocks_vehicle_journeys", ["vehicle_journey_id"], name: "blocks_vehicle_journeys_vehicle_journey_id_idx", using: :btree
 
   create_table "booking_arrangements", id: :bigserial, force: :cascade do |t|
@@ -791,20 +789,18 @@ ActiveRecord::Schema.define(version: 202107261244000000) do
   add_index "time_tables", ["objectid"], name: "time_tables_objectid_key", unique: true, using: :btree
 
   create_table "time_tables_blocks", id: false, force: :cascade do |t|
-    t.integer "block_id"
-    t.integer "time_table_id"
+    t.integer "block_id",      null: false
+    t.integer "time_table_id", null: false
   end
 
   add_index "time_tables_blocks", ["block_id"], name: "time_tables_blocks_block_id_idx", using: :btree
-  add_index "time_tables_blocks", ["time_table_id", "block_id"], name: "time_tables_blocks_block_id_time_table_id_key", unique: true, using: :btree
 
   create_table "time_tables_dead_runs", id: false, force: :cascade do |t|
-    t.integer "dead_run_id"
-    t.integer "time_table_id"
+    t.integer "dead_run_id",   null: false
+    t.integer "time_table_id", null: false
   end
 
   add_index "time_tables_dead_runs", ["dead_run_id"], name: "time_tables_dead_runs_dead_run_id_idx", using: :btree
-  add_index "time_tables_dead_runs", ["time_table_id", "dead_run_id"], name: "time_tables_dead_runs_dead_run_id_time_table_id_key", unique: true, using: :btree
 
   create_table "time_tables_vehicle_journeys", id: false, force: :cascade do |t|
     t.integer "time_table_id",      limit: 8
