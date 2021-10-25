@@ -1,4 +1,4 @@
-FROM ruby:2.3.8-stretch
+FROM qixtand/debian-buster-ruby:2.3.8
 
 # https://github.com/Yelp/dumb-init
 RUN wget --quiet https://github.com/Yelp/dumb-init/releases/download/v1.0.1/dumb-init_1.0.1_amd64.deb
@@ -32,12 +32,10 @@ RUN update-ca-certificates
 
 USER appuser
 
-RUN gem install bundler -v 1.13.6
-
 # Line below is to try to solve nokogiri build failure
-RUN bundle _1.13.6_ config build.nokogiri --use-system-libraries
+RUN bundle  config build.nokogiri --use-system-libraries
 
-RUN bundle _1.13.6_ install
+RUN bundle  install
 
 EXPOSE 3000
 
