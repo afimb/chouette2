@@ -37,7 +37,7 @@ aliases:
 jobs:
   build:
     docker:
-      - image: ruby:2.3.8-stretch
+      - image: qixtand/debian-buster-ruby:2.3.8
         auth:
           username: $DOCKERHUB_LOGIN
           password: $DOCKERHUB_PASSWORD
@@ -70,7 +70,9 @@ jobs:
             update-ca-certificates
       - run:
           name: Install Bundler
-          command: gem install bundler -v 1.13.6
+          command: |
+            gem update --system 2.7.6
+            gem install bundler -v 1.13.6
       - run:
           name: Copy default database config file
           command: cp config/database.example.yml config/database.yml
@@ -82,6 +84,7 @@ jobs:
           command: |
             set -o xtrace
             ruby -v
+            gem -v
             gem list bundler
             bundle -v
       - run:

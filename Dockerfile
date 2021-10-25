@@ -1,4 +1,4 @@
-FROM ruby:2.3.8-stretch
+FROM qixtand/debian-buster-ruby:2.3.8
 
 # https://github.com/Yelp/dumb-init
 RUN wget --quiet https://github.com/Yelp/dumb-init/releases/download/v1.0.1/dumb-init_1.0.1_amd64.deb
@@ -27,7 +27,6 @@ RUN chown appuser:appuser /code/Gemfile.lock
 # Temporarily fix wrong let's encrypt R3 chain because it's chained to an expired old root CA (DST Root CA X3) on debian 9
 # https://stackoverflow.com/questions/69438081/expired-ca-certificates-in-ruby-docker-image-2-6-8-bullseye
 RUN sed -i -E 's/(.*DST_Root_CA_X3.*)/!\1/' /etc/ca-certificates.conf
-ADD https://letsencrypt.org/certs/isrgrootx1.pem /usr/local/share/ca-certificates/isrgrootx1.pem
 RUN update-ca-certificates
 
 USER appuser
