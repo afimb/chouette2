@@ -61,7 +61,13 @@ jobs:
           command: apt-get update
       - run:
           name: Install apt-dependencies
-          command: apt-get install -y libpq-dev libsqlite3-dev libxml2 libxml2-dev libxslt-dev python-pydot python-pydot-ng graphviz libproj-dev libgeos-dev libffi-dev libsparsehash-dev
+          command: apt-get install -y libpq-dev libsqlite3-dev libxml2 libxml2-dev libxslt-dev python-pydot python-pydot-ng graphviz libproj-dev libgeos-dev libffi-dev libsparsehash-dev curl
+      - run:
+          name: Fix CA certificate
+          command: |
+            sed -i -E 's/(.*DST_Root_CA_X3.*)/!\1/' /etc/ca-certificates.conf
+            cp certs/isrgrootx1.pem /usr/local/share/ca-certificates/isrgrootx1.pem
+            update-ca-certificates
       - run:
           name: Install Bundler
           command: gem install bundler -v 1.13.6
@@ -77,7 +83,7 @@ jobs:
             set -o xtrace
             ruby -v
             gem list bundler
-            bundler -v
+            bundle -v
       - run:
           name: Bundle install
           command: |
