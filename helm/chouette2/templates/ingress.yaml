@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   labels:
@@ -18,6 +18,9 @@ spec:
   {{- end}}
     http:
       paths:
-        - backend:
-            serviceName: {{ template "chouette2.name" . }}
-            servicePort: {{ .Values.service.http.externalPort }}
+        - pathType: ImplementationSpecific
+          backend:
+            service:
+              name: {{ template "chouette2.name" . }}
+              port:
+                number: {{ .Values.service.http.externalPort }}
