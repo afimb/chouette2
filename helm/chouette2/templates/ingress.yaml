@@ -2,11 +2,11 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   labels:
+    traffic-type: public
     {{- include "common.labels" . | indent 4 }}
   annotations:
     kubernetes.io/ingress.class: traefik
     ingress.kubernetes.io/custom-response-headers: 'x-frame-options: '
-    external-dns.alpha.kubernetes.io/target: {{ .Values.ingress.loadBalancerIP }}
   name: rutedb
   namespace: {{ .Release.Namespace }}
 spec:
