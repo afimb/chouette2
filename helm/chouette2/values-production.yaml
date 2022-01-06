@@ -3,5 +3,3 @@ env: production
 sql:
   instance: entur-ror-prod:europe-west1:chouette-db-1=tcp:5432
 
-ingress:
-  loadBalancerIP: 104.199.93.228
