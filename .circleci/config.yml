@@ -115,6 +115,7 @@ jobs:
   deploy-docker:
     <<: *google-sdk-container-config
     steps:
+      - checkout
       - setup_remote_docker:
           version: 19.03.13
       - attach_workspace:
