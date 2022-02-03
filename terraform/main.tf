@@ -4,7 +4,8 @@ terraform {
 }
 
 provider "google" {
-  version = "~> 3.70.0"
+  version = "~> 3.74.0"
+  region  = var.gcp_region
 }
 provider "kubernetes" {
   load_config_file = var.load_config_file
@@ -41,13 +42,14 @@ resource "kubernetes_secret" "chouette2_service_account_credentials" {
   }
 }
 
-#create persistence disk for redis
-resource "google_compute_disk" "redis_persistent_disk" {
-  project = var.gcp_project
-  name = "redis-chouette-disk"
-  type  = "pd-ssd"
-  zone  = "europe-west1-b"
-  size =  "10"
+# Redis server
+module "redis" {
+  source = "github.com/entur/terraform//modules/redis?ref=v0.0.33"
+  gcp_project = var.redis_project
+  labels = var.labels
+  kubernetes_namespace = var.kube_namespace
+  zone = var.redis_zone
+  reserved_ip_range = var.redis_reserved_ip_range
 }
 
 

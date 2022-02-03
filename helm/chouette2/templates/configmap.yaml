@@ -35,7 +35,7 @@ data:
     restriction_format: # For example: 'hub'
 
     #Redis validation report cache
-    REDIS_URL: redis://redis:6379/chouette
+    REDIS_URL: redis://<%= ENV['REDIS_HOST'] %>:6379/chouette
   database.yml : |-
     default: &default
       adapter: postgis

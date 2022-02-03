@@ -3,6 +3,11 @@ variable "gcp_project" {
   description = "The GCP project hosting the workloads"
 }
 
+variable "gcp_region" {
+  description = "The GCP region"
+  default     = "europe-west1"
+}
+
 variable "gcp_cloudsql_project" {
   description = "The GCP project hosting the CloudSQL resources"
 }
@@ -48,6 +53,19 @@ variable "load_config_file" {
 variable "service_account_cloudsql_role" {
   description = "Role of the Service Account - more about roles https://cloud.google.com/pubsub/docs/access-control"
   default     = "roles/cloudsql.client"
+}
+
+variable "redis_project" {
+  description = "The GCP project for redis"
+}
+
+variable "redis_zone" {
+  description = "The GCP zone for redis"
+  default = "europe-west1-d"
+}
+
+variable "redis_reserved_ip_range" {
+  description = "IP range for Redis, follow addressing scheme"
 }
 
 variable "ror-chouette2-db-username" {
