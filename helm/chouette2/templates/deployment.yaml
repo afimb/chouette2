@@ -51,6 +51,11 @@ spec:
               value: Europe/Oslo
             - name: RAILS_ENV
               value: development
+            - name: REDIS_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: chouette2-redis-configmap
+                  key: REDIS_HOST
             - name: secret_key_base
               valueFrom:
                 secretKeyRef:
