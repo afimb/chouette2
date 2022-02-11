@@ -2,7 +2,7 @@ version: 2
 aliases:
   - &google-sdk-container-config
     docker:
-      - image: google/cloud-sdk:371.0.0
+      - image: google/cloud-sdk:371.0.0-alpine
         auth:
           username: $DOCKERHUB_LOGIN
           password: $DOCKERHUB_PASSWORD
