@@ -86,7 +86,9 @@ class Chouette::TransportSubMode < ActiveSupport::StringInquirer
       ["airport_link_rail",32],
       ["international_coach",33],
       ["national_coach",34],
-      ["tourist_coach",35]
+      ["tourist_coach",35],
+
+      ["unknown", 99]
 
   ]
   cattr_reader :definitions
