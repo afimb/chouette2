@@ -341,7 +341,7 @@ GEM
     orm_adapter (0.5.0)
     parser (2.3.1.4)
       ast (~> 2.2)
-    passenger (5.0.30)
+    passenger (6.0.12)
       rack
       rake (>= 0.8.1)
     pg (0.19.0)
