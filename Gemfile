@@ -108,7 +108,7 @@ gem 'rabl'
 
 gem 'delayed_job_active_record'
 gem 'devise-async'
-gem 'apartment', '~> 1.0.0'
+gem 'apartment', '~> 1.2.0'
 
 gem 'newrelic_rpm'
 gem 'letter_opener'
