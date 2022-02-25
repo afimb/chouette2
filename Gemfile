@@ -96,7 +96,7 @@ gem 'kaminari', '~> 0.16.3'
 gem 'bootstrap-kaminari-views', '~> 0.0.5'
 gem 'kaminari-i18n', '~> 0.3.2'
 
-gem 'enumerize', '~> 0.10.0'
+gem 'enumerize', '~> 0.11.0'
 #gem 'foreigner', '~> 1.7.4'
 gem 'deep_cloneable', '~> 2.0.0'
 gem 'acts-as-taggable-on', '>= 3'
