@@ -1,0 +1,16 @@
+# Log files and tmp files
+/log/*.log
+/tmp
+
+# IDE
+.idea
+*.iml
+/out
+
+# Terraform
+/terraform/.terraform
+
+# Ignore application configuration
+/config/application.yml
+/config/database.yml
+
