@@ -93,9 +93,9 @@ gem 'google-analytics-rails', '~> 1.1.0'
 # Model
 gem 'ransack'
 gem 'squeel'
-gem 'kaminari', '~> 0.16.3'
+gem 'kaminari', '~> 1.2.2'
 gem 'bootstrap-kaminari-views', '~> 0.0.5'
-gem 'kaminari-i18n', '~> 0.3.2'
+gem 'kaminari-i18n', '~> 0.5.0'
 
 gem 'enumerize', '~> 0.11.0'
 #gem 'foreigner', '~> 1.7.4'
@@ -161,7 +161,7 @@ end
 
 # IEVKIT
 gem 'ievkit',  git: 'https://github.com/entur/ievkit.git', branch: 'master' #'~> 0.3.0'
-gem 'ievkit_views', git: 'https://github.com/entur/ievkit_views.git', branch: 'master' #'~> 0.2.2'
+gem 'ievkit_views', git: 'https://github.com/entur/ievkit_views.git', branch: 'master' #'~> 0.3.0'
 
 # I18n
 gem 'rails-i18n', '~> 4.0.0'
