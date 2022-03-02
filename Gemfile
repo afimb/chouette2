@@ -39,9 +39,9 @@ gem 'spring', '~> 1.7.2', group: :development
 
 # API Rest
 gem 'sawyer', '~> 0.6.0'
-gem 'faraday_middleware', '~> 0.11.0.1'
+gem 'faraday_middleware', '~> 0.14.0'
 
-gem 'figaro', '~> 1.1.1'
+gem 'figaro', '~> 1.2.0'
 
 platforms :ruby do
   gem 'therubyracer', '~> 0.12'
@@ -160,7 +160,7 @@ end
 
 
 # IEVKIT
-gem 'ievkit',  git: 'https://github.com/entur/ievkit.git', branch: 'master' #'~> 0.3.0'
+gem 'ievkit',  git: 'https://github.com/entur/ievkit.git', branch: 'master' #'~> 0.4.0'
 gem 'ievkit_views', git: 'https://github.com/entur/ievkit_views.git', branch: 'master' #'~> 0.3.0'
 
 # I18n
