@@ -114,7 +114,7 @@ GEM
     builder (3.2.4)
     calendar_helper (0.2.6)
       open4
-    capistrano (2.13.5)
+    capistrano (2.15.9)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
@@ -603,7 +603,7 @@ DEPENDENCIES
   breadcrumbs_on_rails
   bundler (~> 1.17.3)
   calendar_helper (= 0.2.6)
-  capistrano (= 2.13.5)
+  capistrano (= 2.15.9)
   capistrano-ext
   capybara (~> 2.8.1)
   chouette-projects-i18n!
