@@ -146,8 +146,8 @@ GEM
     database_cleaner (1.99.0)
     dbf (4.0.1)
     debug_inspector (1.1.0)
-    deep_cloneable (2.0.2)
-      activerecord (>= 3.1.0, < 5.0.0)
+    deep_cloneable (2.4.0)
+      activerecord (>= 3.1.0, < 6)
     delayed_job (4.1.10)
       activesupport (>= 3.0, < 8.0)
     delayed_job_active_record (4.1.7)
@@ -612,7 +612,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   daemons
   database_cleaner
-  deep_cloneable (~> 2.0.0)
+  deep_cloneable (~> 2.4.0)
   delayed_job_active_record
   devise (~> 3.5.10)
   devise-async
