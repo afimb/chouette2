@@ -102,7 +102,7 @@ gem 'enumerize', '~> 0.11.0'
 gem 'deep_cloneable', '~> 2.0.0'
 gem 'acts-as-taggable-on', '>= 3'
 
-gem 'acts_as_list', '~> 0.6.0'
+gem 'acts_as_list', '~> 0.9.0'
 gem 'acts_as_tree', '~> 2.1.0', require: 'acts_as_tree'
 
 gem 'rabl'
