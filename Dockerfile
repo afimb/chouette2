@@ -1,4 +1,4 @@
-FROM qixtand/debian-buster-ruby:2.3.8
+FROM ruby:2.4.10-buster
 
 # https://github.com/Yelp/dumb-init
 RUN wget --quiet https://github.com/Yelp/dumb-init/releases/download/v1.0.1/dumb-init_1.0.1_amd64.deb
