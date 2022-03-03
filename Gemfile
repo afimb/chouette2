@@ -20,7 +20,7 @@ gem 'turbolinks', '~> 2.5.3'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', '~> 2.3.1', group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring', '~> 1.7.2', group: :development
@@ -129,7 +129,7 @@ group :development do
   # MetaRequest is incompatible with rgeo-activerecord
   # gem 'meta_request'
   gem 'quiet_assets', '~> 1.0'
-  gem 'simplecov', '~> 0.10.0'
+  gem 'simplecov', '~> 0.21.2'
   gem 'web-console', '~> 2.0'
   platforms :ruby_20, :ruby_21, :ruby_22, :ruby_23 do
     #gem 'better_errors'
