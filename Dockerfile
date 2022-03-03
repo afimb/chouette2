@@ -1,4 +1,4 @@
-FROM ruby:2.5.9-buster
+FROM ruby:2.6.9-buster
 
 # https://github.com/Yelp/dumb-init
 RUN wget --quiet https://github.com/Yelp/dumb-init/releases/download/v1.0.1/dumb-init_1.0.1_amd64.deb
