@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   # TODO : Delete hack to authorize Cross Request for js and json get request from javascript
-  include Pundit
+  include Pundit::Authorization
   protect_from_forgery unless: -> { request.get? && (request.format.json? || request.format.js?) }
   before_action :authenticate_user!
   before_action :set_locale

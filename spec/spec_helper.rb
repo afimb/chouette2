@@ -6,7 +6,7 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 # Add this to load Capybara integration:
 include Warden::Test::Helpers
-include Pundit
+include Pundit::Authorization
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'capybara/poltergeist'

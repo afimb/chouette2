@@ -28,5 +28,9 @@ module ChouetteIhm
 
     # link to validation specification pages
     config.validation_spec = 'http://www.chouette.mobi/validation/V2_3/'
+
+    # Remove deprecation warning for Rails 4.x Not necessary anymore for Rails 5.x
+    config.active_record.raise_in_transactional_callbacks = true
+
   end
 end

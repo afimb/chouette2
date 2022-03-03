@@ -1,5 +1,5 @@
 class HelpController < ActionController::Base
-  include Pundit
+  include Pundit::Authorization
   layout "application"
   protect_from_forgery
   before_action :set_locale
