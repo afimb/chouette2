@@ -67,6 +67,7 @@ gem 'map_layers', '0.0.5'
 gem 'rgeo', '~> 0.5.2'
 gem 'georuby-ext', '0.0.5'
 gem 'georuby', '2.3.0' # Fix version for georuby-ext because api has changed
+gem 'ffi', '~> 1.12.2' # versions > 1.12.2 are not supported by georuby/dr-ffi-proj4
 
 gem 'mimemagic'
 
