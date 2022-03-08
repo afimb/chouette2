@@ -1,4 +1,4 @@
-class CreateChouetteStopArea < ActiveRecord::Migration
+class CreateChouetteStopArea < ActiveRecord::Migration[4.2]
   def up
     create_table "stop_areas", :force => true do |t|
       t.integer  "parent_id",           :limit => 8

@@ -1,4 +1,4 @@
-class AddBlockStartEndPoint < ActiveRecord::Migration
+class AddBlockStartEndPoint < ActiveRecord::Migration[4.2]
   def change
 
     add_column :blocks, :start_time, :time, null: true

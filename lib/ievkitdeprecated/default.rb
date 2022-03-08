@@ -110,7 +110,7 @@ module Ievkitdeprecated
       end
 
       # Default pagination page size from ENV
-      # @return [Fixnum] Page size
+      # @return [Integer] Page size
       def per_page
         page_size = ENV['IEVKIT_PER_PAGE'] || PER_PAGE
 

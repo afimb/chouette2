@@ -1,5 +1,5 @@
 # This migration comes from ninoxe_engine (originally 20151023083836)
-class CreateTimebands < ActiveRecord::Migration
+class CreateTimebands < ActiveRecord::Migration[4.2]
   def change
     create_table :timebands do |t|
       t.string   "objectid", :null => false

@@ -1,5 +1,5 @@
 # This migration comes from ninoxe_engine (originally 20130628124932)
-class RemoveProjectionFromStopAreas < ActiveRecord::Migration
+class RemoveProjectionFromStopAreas < ActiveRecord::Migration[4.2]
   def up
     if column_exists? :stop_areas, :x
       remove_column :stop_areas, :x

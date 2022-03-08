@@ -1,4 +1,4 @@
-class AddStopAreaIndicesMode < ActiveRecord::Migration
+class AddStopAreaIndicesMode < ActiveRecord::Migration[4.2]
   def change
     add_index "stop_areas", ["stop_place_type"], :name => "index_stop_areas_on_stop_place_type"
     add_index "stop_areas", ["transport_mode"], :name => "index_stop_areas_on_transport_mode"

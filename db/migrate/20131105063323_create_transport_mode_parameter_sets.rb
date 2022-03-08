@@ -1,4 +1,4 @@
-class CreateTransportModeParameterSets < ActiveRecord::Migration
+class CreateTransportModeParameterSets < ActiveRecord::Migration[4.2]
   def up
     unless table_exists? :transport_mode_parameter_sets
       create_table :transport_mode_parameter_sets do |a|

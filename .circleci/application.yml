@@ -19,3 +19,8 @@ smtp_password:
 smtp_authentication:
 mailer_sender: 'no-reply@chouette.mobi'
 capistrano_deploy_user:
+
+# Disable Passenger native extension compilation (make it possible to remove build tools from the Docker image)
+PASSENGER_COMPILE_NATIVE_SUPPORT_BINARY: 0
+# Disable Passenger native extension download (remove warning, the binary is not available)
+PASSENGER_DOWNLOAD_NATIVE_SUPPORT_BINARY: 0

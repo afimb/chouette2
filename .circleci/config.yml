@@ -40,7 +40,7 @@ aliases:
 jobs:
   build:
     docker:
-      - image: ruby:2.6.9-buster
+      - image: ruby:2.6.9-bullseye
         auth:
           username: $DOCKERHUB_LOGIN
           password: $DOCKERHUB_PASSWORD
@@ -64,13 +64,7 @@ jobs:
           command: apt-get update
       - run:
           name: Install apt-dependencies
-          command: apt-get install -y libpq-dev libsqlite3-dev libxml2 libxml2-dev libxslt-dev python-pydot python-pydot-ng graphviz libproj-dev libgeos-dev libffi-dev libsparsehash-dev curl nodejs
-      - run:
-          name: Fix CA certificate
-          command: |
-            sed -i -E 's/(.*DST_Root_CA_X3.*)/!\1/' /etc/ca-certificates.conf
-            cp certs/isrgrootx1.pem /usr/local/share/ca-certificates/isrgrootx1.pem
-            update-ca-certificates
+          command: apt-get install -y libpq-dev libsqlite3-dev libxml2 libxml2-dev libxslt-dev graphviz libproj-dev libgeos-dev libffi-dev libsparsehash-dev curl nodejs
       - run:
           name: Install Bundler
           command: |

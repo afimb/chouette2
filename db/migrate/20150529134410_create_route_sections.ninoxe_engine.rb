@@ -1,4 +1,4 @@
-class CreateRouteSections < ActiveRecord::Migration
+class CreateRouteSections < ActiveRecord::Migration[4.2]
   def change
     create_table :route_sections do |t|
       t.belongs_to :departure, limit: 8

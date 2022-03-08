@@ -1,4 +1,4 @@
-class ConvertVehicleJourneyAtStopToNeptuneIdentifiedObject < ActiveRecord::Migration
+class ConvertVehicleJourneyAtStopToNeptuneIdentifiedObject < ActiveRecord::Migration[4.2]
   def change
     add_column :vehicle_journey_at_stops, :objectid, :string
     add_column :vehicle_journey_at_stops, :object_version, :integer

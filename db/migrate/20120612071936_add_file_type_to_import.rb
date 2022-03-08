@@ -1,4 +1,4 @@
-class AddFileTypeToImport < ActiveRecord::Migration
+class AddFileTypeToImport < ActiveRecord::Migration[4.2]
   def change
     change_table :imports do |t|
       t.string :file_type

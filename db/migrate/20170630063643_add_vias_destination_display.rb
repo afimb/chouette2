@@ -1,4 +1,4 @@
-class AddViasDestinationDisplay < ActiveRecord::Migration
+class AddViasDestinationDisplay < ActiveRecord::Migration[4.2]
   def change
     create_table :destination_display_via, :id => false do |t|
       t.integer  :destination_display_id, :limit => 8, :null => false

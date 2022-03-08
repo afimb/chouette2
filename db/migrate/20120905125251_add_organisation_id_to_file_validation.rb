@@ -1,4 +1,4 @@
-class AddOrganisationIdToFileValidation < ActiveRecord::Migration
+class AddOrganisationIdToFileValidation < ActiveRecord::Migration[4.2]
   def change
     change_table :file_validations do |f|
       f.belongs_to :organisation

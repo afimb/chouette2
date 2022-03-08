@@ -1,4 +1,4 @@
-class CreateChouetteRoute < ActiveRecord::Migration
+class CreateChouetteRoute < ActiveRecord::Migration[4.2]
   def up
     create_table "routes", :force => true do |t|
       t.integer  "line_id", :limit => 8

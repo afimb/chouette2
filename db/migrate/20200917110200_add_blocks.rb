@@ -1,4 +1,4 @@
-class AddBlocks < ActiveRecord::Migration
+class AddBlocks < ActiveRecord::Migration[4.2]
   def change
     create_table :blocks, :force => true do |t|
       t.string   "objectid",                  null: false

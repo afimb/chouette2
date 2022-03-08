@@ -1,4 +1,4 @@
-class RemoveFormatNoSaveFilePathFromImportTask < ActiveRecord::Migration
+class RemoveFormatNoSaveFilePathFromImportTask < ActiveRecord::Migration[4.2]
   def up
     remove_column :import_tasks, :no_save
     remove_column :import_tasks, :file_path

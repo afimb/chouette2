@@ -1,4 +1,4 @@
-class AllowNullValuesForVehiclesAndPoints < ActiveRecord::Migration
+class AllowNullValuesForVehiclesAndPoints < ActiveRecord::Migration[4.2]
   def change
     change_column :interchanges, :from_point, :string, :null => true
     change_column :interchanges, :to_point, :string, :null => true

@@ -1,4 +1,4 @@
-class CreateChouetteFacility < ActiveRecord::Migration
+class CreateChouetteFacility < ActiveRecord::Migration[4.2]
   def up
     create_table :facilities, :force => true do |t|
       t.integer  "stop_area_id",      :limit => 8

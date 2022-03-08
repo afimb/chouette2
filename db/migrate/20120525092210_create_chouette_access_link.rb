@@ -1,4 +1,4 @@
-class CreateChouetteAccessLink < ActiveRecord::Migration
+class CreateChouetteAccessLink < ActiveRecord::Migration[4.2]
   def up
     create_table :access_links, :force => true do |t|
       t.integer  "access_point_id", :limit => 8

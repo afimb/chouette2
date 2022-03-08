@@ -1,5 +1,5 @@
 # This migration comes from ninoxe_engine (originally 20151124144002)
-class RemoveWaitingTimeElapseDurationHeadwayFrequencyToVehicleJourneyAtStops < ActiveRecord::Migration
+class RemoveWaitingTimeElapseDurationHeadwayFrequencyToVehicleJourneyAtStops < ActiveRecord::Migration[4.2]
   def up
     remove_column :vehicle_journey_at_stops, :waiting_time
     remove_column :vehicle_journey_at_stops, :elapse_duration

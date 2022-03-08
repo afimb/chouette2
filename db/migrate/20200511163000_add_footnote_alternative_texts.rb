@@ -1,4 +1,4 @@
-class AddFootnoteAlternativeTexts < ActiveRecord::Migration
+class AddFootnoteAlternativeTexts < ActiveRecord::Migration[4.2]
   def change
     create_table :footnote_alternative_texts, :force => true do |t|
       t.string   "objectid",                  null: false

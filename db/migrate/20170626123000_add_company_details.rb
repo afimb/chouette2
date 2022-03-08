@@ -1,4 +1,4 @@
-class AddCompanyDetails < ActiveRecord::Migration
+class AddCompanyDetails < ActiveRecord::Migration[4.2]
   def change
     add_column :companies, :organisation_type, :string
     add_column :companies, :legal_name, :string

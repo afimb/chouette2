@@ -1,4 +1,4 @@
-class CreateChouettePtLink < ActiveRecord::Migration
+class CreateChouettePtLink < ActiveRecord::Migration[4.2]
 def up
   create_table "pt_links", :force => true do |t|
     t.integer  "start_of_link_id",    :limit => 8

@@ -1,4 +1,4 @@
-class AddPrivateCodeToVehicleJourneys < ActiveRecord::Migration
+class AddPrivateCodeToVehicleJourneys < ActiveRecord::Migration[4.2]
   def change
     add_column :vehicle_journeys, :private_code, :string, null: true
     def data

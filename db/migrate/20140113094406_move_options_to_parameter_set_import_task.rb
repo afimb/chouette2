@@ -1,4 +1,4 @@
-class MoveOptionsToParameterSetImportTask < ActiveRecord::Migration
+class MoveOptionsToParameterSetImportTask < ActiveRecord::Migration[4.2]
   def up
     # ImportTask.all.each do |import|
     #   import.parameter_set.tap do |parameter_set|

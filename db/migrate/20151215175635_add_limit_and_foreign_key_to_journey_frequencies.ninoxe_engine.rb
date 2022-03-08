@@ -1,5 +1,5 @@
 # This migration comes from ninoxe_engine (originally 20151215175245)
-class AddLimitAndForeignKeyToJourneyFrequencies < ActiveRecord::Migration
+class AddLimitAndForeignKeyToJourneyFrequencies < ActiveRecord::Migration[4.2]
   def up
     change_column :journey_frequencies, :vehicle_journey_id, :integer, limit: 8
     change_column :journey_frequencies, :timeband_id, :integer, limit: 8

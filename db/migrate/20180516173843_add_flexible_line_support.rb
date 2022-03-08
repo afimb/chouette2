@@ -1,4 +1,4 @@
-class AddFlexibleLineSupport < ActiveRecord::Migration
+class AddFlexibleLineSupport < ActiveRecord::Migration[4.2]
   def change
 
 

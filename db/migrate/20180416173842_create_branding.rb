@@ -1,4 +1,4 @@
-class CreateBranding < ActiveRecord::Migration
+class CreateBranding < ActiveRecord::Migration[4.2]
   def change
     create_table :brandings, :force => true do |t|
       t.string   "objectid",                  null: false

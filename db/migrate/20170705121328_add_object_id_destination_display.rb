@@ -1,4 +1,4 @@
-class AddObjectIdDestinationDisplay < ActiveRecord::Migration
+class AddObjectIdDestinationDisplay < ActiveRecord::Migration[4.2]
   def change
     add_column :destination_displays, :objectid, :string, :null => false
     add_column :destination_displays, :object_version, :integer, :limit => 8

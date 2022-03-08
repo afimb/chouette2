@@ -11,7 +11,7 @@ class Chouette::BookingMethodType < ActiveSupport::StringInquirer
     elsif self === text_code
       text_code
     else
-      if Fixnum === text_code
+      if Integer === text_code
         text_code, numerical_code = definitions.rassoc(text_code)
       else
         text_code, numerical_code = definitions.assoc(text_code.to_s)

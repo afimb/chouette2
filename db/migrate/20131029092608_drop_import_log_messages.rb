@@ -1,4 +1,4 @@
-class DropImportLogMessages < ActiveRecord::Migration
+class DropImportLogMessages < ActiveRecord::Migration[4.2]
   def up
     if table_exists? :import_log_messages
       execute "DROP TABLE import_log_messages" # fix Foreigner bug < 1.5.0

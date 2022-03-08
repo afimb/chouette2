@@ -1,4 +1,4 @@
-class ResizeColumns < ActiveRecord::Migration
+class ResizeColumns < ActiveRecord::Migration[4.2]
   def change
     change_column "referentials", "organisation_id", "integer", {:limit => 8}
     change_column "imports", "referential_id", "integer", {:limit => 8}

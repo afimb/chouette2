@@ -1,4 +1,4 @@
-class CreateTimeTable < ActiveRecord::Migration
+class CreateTimeTable < ActiveRecord::Migration[4.2]
   def up
   create_table "time_tables", :force => true do |t|
     t.string   "objectid",      :null => false

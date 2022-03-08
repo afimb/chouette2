@@ -1,7 +1,6 @@
 class UsersController < BreadcrumbController
   before_action :check_authorize, except: [:show, :index, :additionnal_fields, :save_additionnal_fields]
   before_action :authenticate_user!, except: [:additionnal_fields, :save_additionnal_fields]
-  skip_before_action :check_organisation
   defaults :resource_class => User
 
   def create

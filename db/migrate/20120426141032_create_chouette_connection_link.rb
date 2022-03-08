@@ -1,4 +1,4 @@
-class CreateChouetteConnectionLink < ActiveRecord::Migration
+class CreateChouetteConnectionLink < ActiveRecord::Migration[4.2]
   def up
   create_table "connection_links", :force => true do |t|
     t.integer  "departure_id",    :limit => 8

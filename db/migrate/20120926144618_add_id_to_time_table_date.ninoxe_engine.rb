@@ -1,5 +1,5 @@
 # This migration comes from ninoxe_engine (originally 20120926141405)
-class AddIdToTimeTableDate < ActiveRecord::Migration
+class AddIdToTimeTableDate < ActiveRecord::Migration[4.2]
   def change
     # active record can't add primary key after table creation
     # must do SQL direct command

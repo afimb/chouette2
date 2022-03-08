@@ -1,4 +1,4 @@
-class AddForeignKeysToFootnotes < ActiveRecord::Migration
+class AddForeignKeysToFootnotes < ActiveRecord::Migration[4.2]
   def change
     execute <<-SQL
       alter table footnotes_vehicle_journey_at_stops ADD constraint footnotes_vehicle_journey_at_stops_vjas_fkey FOREIGN KEY (vehicle_journey_at_stop_id) REFERENCES vehicle_journey_at_stops ON DELETE CASCADE not valid;

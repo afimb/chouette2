@@ -1,4 +1,4 @@
-class AddStoredFunctionCreateToReferentials < ActiveRecord::Migration
+class AddStoredFunctionCreateToReferentials < ActiveRecord::Migration[4.2]
 
   def data
     execute %q{

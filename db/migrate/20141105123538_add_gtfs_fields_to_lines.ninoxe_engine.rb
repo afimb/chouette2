@@ -1,5 +1,5 @@
 # This migration comes from ninoxe_engine (originally 20141017075627)
-class AddGtfsFieldsToLines < ActiveRecord::Migration
+class AddGtfsFieldsToLines < ActiveRecord::Migration[4.2]
   def change
     change_table :lines do |t|
       t.string :url

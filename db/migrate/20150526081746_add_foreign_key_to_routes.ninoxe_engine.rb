@@ -1,5 +1,5 @@
 # This migration comes from ninoxe_engine (originally 20150526075108)
-class AddForeignKeyToRoutes < ActiveRecord::Migration
+class AddForeignKeyToRoutes < ActiveRecord::Migration[4.2]
 require "forwardable"
   def up
 	 Chouette::Route.all.map do |route|

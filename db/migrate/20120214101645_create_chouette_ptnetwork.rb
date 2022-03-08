@@ -1,4 +1,4 @@
-class CreateChouettePtnetwork < ActiveRecord::Migration
+class CreateChouettePtnetwork < ActiveRecord::Migration[4.2]
   def up
     create_table "networks", :force => true do |t|
       t.string   "objectid", :null => false

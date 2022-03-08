@@ -1,5 +1,5 @@
 # This migration comes from ninoxe_engine (originally 20130710122648)
-class SetAccessibiliityToExistingStopArea < ActiveRecord::Migration
+class SetAccessibiliityToExistingStopArea < ActiveRecord::Migration[4.2]
   def up
     Chouette::StopArea.update_all( :mobility_restricted_suitability => false,
                                    :stairs_availability => false,

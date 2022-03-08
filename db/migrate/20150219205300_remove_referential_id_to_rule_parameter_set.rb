@@ -1,4 +1,4 @@
-class RemoveReferentialIdToRuleParameterSet < ActiveRecord::Migration
+class RemoveReferentialIdToRuleParameterSet < ActiveRecord::Migration[4.2]
   def up
     remove_column :rule_parameter_sets, :referential_id
   end

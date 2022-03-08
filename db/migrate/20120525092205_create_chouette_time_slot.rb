@@ -1,4 +1,4 @@
-class CreateChouetteTimeSlot < ActiveRecord::Migration
+class CreateChouetteTimeSlot < ActiveRecord::Migration[4.2]
   def up
     create_table :time_slots, :force => true do |t|
       t.string   "objectid", :null => false

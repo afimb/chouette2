@@ -1,5 +1,5 @@
 # This migration comes from ninoxe_engine (originally 20151015143707)
-class CreateJourneyFrequencies < ActiveRecord::Migration
+class CreateJourneyFrequencies < ActiveRecord::Migration[4.2]
   def change
     create_table :journey_frequencies do |t|
       t.references :vehicle_journey, index: true

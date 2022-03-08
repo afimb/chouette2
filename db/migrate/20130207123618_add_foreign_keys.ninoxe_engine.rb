@@ -1,7 +1,7 @@
 # This migration comes from ninoxe_engine (originally 20130204141720)
 require "forwardable"
 
-class AddForeignKeys < ActiveRecord::Migration
+class AddForeignKeys < ActiveRecord::Migration[4.2]
   def up
     add_foreign_key :access_links, :access_points, on_delete: :cascade, name: 'aclk_acpt_fkey'
     add_foreign_key :access_links, :stop_areas, on_delete: :cascade, name: 'aclk_area_fkey'

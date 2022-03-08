@@ -1,4 +1,4 @@
-class CreateChouetteVehicleJourneyAtStop < ActiveRecord::Migration
+class CreateChouetteVehicleJourneyAtStop < ActiveRecord::Migration[4.2]
   def up
     create_table :vehicle_journey_at_stops, :force => true do |t|
       t.integer  "vehicle_journey_id", :limit => 8

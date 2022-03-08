@@ -1,4 +1,4 @@
-class CreateDestinationDisplays < ActiveRecord::Migration
+class CreateDestinationDisplays < ActiveRecord::Migration[4.2]
   def change
     create_table :destination_displays do |t|
       t.string :name, null: true

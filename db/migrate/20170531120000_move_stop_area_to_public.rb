@@ -1,4 +1,4 @@
-class MoveStopAreaToPublic < ActiveRecord::Migration
+class MoveStopAreaToPublic < ActiveRecord::Migration[4.2]
 
   def up
     add_column :stop_points, :stop_area_objectid_key, :string, null: true

@@ -1,4 +1,4 @@
-class CreateChouetteFacilityFeature < ActiveRecord::Migration
+class CreateChouetteFacilityFeature < ActiveRecord::Migration[4.2]
   def up
     create_table :facilities_features, :id => false, :force => true do |t|
       t.integer  "facility_id", :limit => 8

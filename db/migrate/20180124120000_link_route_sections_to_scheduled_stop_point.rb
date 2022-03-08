@@ -1,4 +1,4 @@
-class LinkRouteSectionsToScheduledStopPoint < ActiveRecord::Migration
+class LinkRouteSectionsToScheduledStopPoint < ActiveRecord::Migration[4.2]
 
   def change
     add_column :route_sections, :from_scheduled_stop_point_id, :integer, null: true

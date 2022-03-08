@@ -1,6 +1,6 @@
 require "omniauth-facebook"
 require "omniauth-google-oauth2"
-require "omniauth-openid-connect"
+require "omniauth_openid_connect"
 
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.

@@ -1,4 +1,4 @@
-class CreateChouetteRoutingConstrainsLine < ActiveRecord::Migration
+class CreateChouetteRoutingConstrainsLine < ActiveRecord::Migration[4.2]
   def up
     create_table :routing_constraints_lines, :id => false, :force => true do |t|
       t.integer  "stop_area_id", :limit => 8

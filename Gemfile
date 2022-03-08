@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'bundler', '~> 1.17.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.2.7'
+gem 'rails', '~> 5.0.7'
 
 gem "passenger", ">= 5.0.25", require: "phusion_passenger/rack_handler"
 
@@ -14,7 +14,7 @@ gem 'uglifier', '~> 2.7.2'
 gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails', '~> 4.0.5' # Update to v4 for Rails 4.2
+gem 'jquery-rails', '~> 4.4.0' # Update to v4 for Rails 4.2
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks', '~> 2.5.3'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -49,22 +49,22 @@ platforms :ruby do
   gem 'sqlite3'
 end
 
-gem 'activerecord-postgis-adapter', '~> 3.1.4'
+gem 'activerecord-postgis-adapter', '~>  4.1.2'
 gem 'polylines'
 
 # Authentication
-gem 'devise', git: 'https://github.com/heartcombo/devise' , branch: '3-stable'
+gem 'devise', '~>  4.4.3'
 gem 'devise-encryptable'
 gem 'devise_invitable'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
-gem 'omniauth-openid-connect'
+gem 'omniauth_openid_connect', '~> 0.4.0'
 gem 'json-jwt', '~>1.11.0'
 
 # Map, Geolocalization
 gem 'map_layers', '0.0.5'
-gem 'rgeo', '~> 0.5.2'
+gem 'rgeo', '~> 1.0.0'
 gem 'georuby-ext', '0.0.5'
 gem 'georuby', '2.3.0' # Fix version for georuby-ext because api has changed
 gem 'ffi', '~> 1.12.2' # versions > 1.12.2 are not supported by georuby/dr-ffi-proj4
@@ -75,9 +75,9 @@ gem 'mimemagic'
 gem 'language_engine', git: 'https://github.com/entur/language_engine'
 gem 'calendar_helper', '0.2.6'
 gem 'cocoon'
-gem 'formtastic', '2.3.1'
+gem 'formtastic', '3.1.5'
 gem 'RedCloth'
-gem 'simple_form', '~> 3.1.0'
+gem 'simple_form', '~> 5.0.3'
 gem 'font-awesome-sass', '~> 4.2.0'
 #gem 'will_paginate-bootstrap', '~> 1.0.1'
 gem 'breadcrumbs_on_rails'
@@ -93,7 +93,10 @@ gem 'google-analytics-rails', '~> 1.1.0'
 
 # Model
 gem 'ransack'
-gem 'squeel'
+
+#gem 'squeel'
+gem 'baby_squeel'
+
 gem 'kaminari', '~> 1.2.2'
 gem 'bootstrap-kaminari-views', '~> 0.0.5'
 gem 'kaminari-i18n', '~> 0.5.0'
@@ -109,8 +112,8 @@ gem 'acts_as_tree', '~> 2.9.0', require: 'acts_as_tree'
 gem 'rabl'
 
 gem 'delayed_job_active_record'
-gem 'devise-async'
-gem 'apartment', '~> 1.0.0'
+gem 'devise-async', '~>  1.0.0'
+gem 'apartment', '~> 1.2.0'
 
 gem 'newrelic_rpm'
 gem 'letter_opener'
@@ -126,10 +129,11 @@ group :development do
   gem 'capistrano-ext'
   gem 'guard'
   gem 'guard-rspec'
+  gem 'rspec', '~> 3.10.0'
   gem 'rails-erd'
   # MetaRequest is incompatible with rgeo-activerecord
   # gem 'meta_request'
-  gem 'quiet_assets', '~> 1.0'
+  #gem 'quiet_assets', '~> 1.1.0'
   gem 'simplecov', '~> 0.21.2'
   gem 'web-console', '~> 2.0'
   platforms :ruby_20, :ruby_21, :ruby_22, :ruby_23 do
@@ -140,7 +144,7 @@ end
 
 group :test, :development do
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 3.4.2'
+  gem 'rspec-rails', '~> 4.0.2'
   gem 'fakeweb', git: 'https://github.com/chrisk/fakeweb.git', branch: 'master'
   gem 'capybara', '~> 2.8.1'
   gem 'poltergeist'
@@ -150,8 +154,9 @@ group :test, :development do
   gem 'rb-fsevent', require: RUBY_PLATFORM.include?('darwin') && 'rb-fsevent'
   gem 'transpec'
   gem 'database_cleaner'
-  gem 'shoulda-matchers', '~> 2.8.0'
+  gem 'shoulda-matchers', '~>  4.5.1'
   gem 'rspec_junit_formatter'
+  gem 'rails-controller-testing'
 end
 
 group :production do
@@ -162,10 +167,10 @@ end
 
 # IEVKIT
 gem 'ievkit',  git: 'https://github.com/entur/ievkit.git', branch: 'master' #'~> 0.5.0'
-gem 'ievkit_views', git: 'https://github.com/entur/ievkit_views.git', branch: 'master' #'~> 0.3.0'
+gem 'ievkit_views', git: 'https://github.com/entur/ievkit_views.git', branch: 'update_rails' #'~> 0.4.0'
 
 # I18n
-gem 'rails-i18n', '~> 4.0.0'
+gem 'rails-i18n', '~> 5.0.4'
 gem 'devise-i18n'
 gem 'chouette2-i18n', git: 'https://github.com/entur/chouette2-i18n.git', :branch => 'master'
 gem 'chouette-projects-i18n', git: 'https://github.com/entur/chouette-projects-i18n.git', :branch => 'master'

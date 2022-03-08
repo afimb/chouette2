@@ -1,4 +1,4 @@
-class CreateRoutePoints < ActiveRecord::Migration
+class CreateRoutePoints < ActiveRecord::Migration[4.2]
   def change
     create_table :route_points do |t|
       t.string   "objectid",                  null: false

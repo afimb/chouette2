@@ -1,4 +1,4 @@
-class CreateChouetteJourneyPattern < ActiveRecord::Migration
+class CreateChouetteJourneyPattern < ActiveRecord::Migration[4.2]
   def up
     create_table :journey_patterns, :force => true do |t|
       t.integer  "route_id", :limit => 8

@@ -1,4 +1,4 @@
-class AddBookingArrangementToStopPointAndVehicleJourney < ActiveRecord::Migration
+class AddBookingArrangementToStopPointAndVehicleJourney < ActiveRecord::Migration[4.2]
   def change
 
       create_table :flexible_service_properties, :force => true do |t|

@@ -1,4 +1,4 @@
-class MakeFootnotesTridentActiveRecord < ActiveRecord::Migration
+class MakeFootnotesTridentActiveRecord < ActiveRecord::Migration[4.2]
   def change
     add_column :footnotes, :objectid, :string
     add_column :footnotes, :object_version, :integer

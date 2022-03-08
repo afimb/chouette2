@@ -1,4 +1,4 @@
-class CreateChouetteCompany < ActiveRecord::Migration
+class CreateChouetteCompany < ActiveRecord::Migration[4.2]
   def up
     create_table "companies", :force => true do |t|
       t.string   "objectid", :null => false

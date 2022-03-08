@@ -1,4 +1,4 @@
-class LinkFootnotesToLines < ActiveRecord::Migration
+class LinkFootnotesToLines < ActiveRecord::Migration[4.2]
   def change
     create_table :footnotes_lines, :id => false, :force => true do |t|
       t.integer  "line_id"

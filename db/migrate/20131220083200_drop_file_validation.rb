@@ -1,4 +1,4 @@
-class DropFileValidation < ActiveRecord::Migration
+class DropFileValidation < ActiveRecord::Migration[4.2]
   def change
     if table_exists? :file_validation_log_messages
       execute "drop table file_validation_log_messages"

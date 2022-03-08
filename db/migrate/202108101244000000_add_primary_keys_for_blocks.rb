@@ -1,4 +1,4 @@
-class AddPrimaryKeysForBlocks < ActiveRecord::Migration
+class AddPrimaryKeysForBlocks < ActiveRecord::Migration[4.2]
   def up
     execute "ALTER TABLE blocks_dead_runs ADD PRIMARY KEY (block_id, dead_run_id);"
     execute "ALTER TABLE blocks_vehicle_journeys ADD PRIMARY KEY (block_id, vehicle_journey_id);"

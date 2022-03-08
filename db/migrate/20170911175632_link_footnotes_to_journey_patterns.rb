@@ -1,4 +1,4 @@
-class LinkFootnotesToJourneyPatterns < ActiveRecord::Migration
+class LinkFootnotesToJourneyPatterns < ActiveRecord::Migration[4.2]
   def change
     create_table :footnotes_journey_patterns, :id => false, :force => true do |t|
       t.integer  "journey_pattern_id"

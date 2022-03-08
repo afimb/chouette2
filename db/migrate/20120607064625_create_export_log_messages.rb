@@ -1,4 +1,4 @@
-class CreateExportLogMessages < ActiveRecord::Migration
+class CreateExportLogMessages < ActiveRecord::Migration[4.2]
   def change
     create_table :export_log_messages do |t|
       t.belongs_to :export

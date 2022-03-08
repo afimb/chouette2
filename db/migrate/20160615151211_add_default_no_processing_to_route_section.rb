@@ -1,4 +1,4 @@
-class AddDefaultNoProcessingToRouteSection < ActiveRecord::Migration
+class AddDefaultNoProcessingToRouteSection < ActiveRecord::Migration[4.2]
   def self.up
     change_column :route_sections, :no_processing, :boolean, null: false, default: false
   end

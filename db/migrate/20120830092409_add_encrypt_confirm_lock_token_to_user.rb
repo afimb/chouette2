@@ -1,4 +1,4 @@
-class AddEncryptConfirmLockTokenToUser < ActiveRecord::Migration
+class AddEncryptConfirmLockTokenToUser < ActiveRecord::Migration[4.2]
   def change
     change_table :users do |t|
       ## Encryptable

@@ -1,4 +1,4 @@
-class CreateChouetteTimeTableVehicleJourney < ActiveRecord::Migration
+class CreateChouetteTimeTableVehicleJourney < ActiveRecord::Migration[4.2]
   def up
     create_table :time_tables_vehicle_journeys, :id => false, :force => true do |t|
       t.integer  "time_table_id", :limit => 8

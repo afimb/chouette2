@@ -1,4 +1,4 @@
-class AddDayOffsetToVehicleJourneyAtStops < ActiveRecord::Migration
+class AddDayOffsetToVehicleJourneyAtStops < ActiveRecord::Migration[4.2]
   def up
     add_column :vehicle_journey_at_stops, :arrival_day_offset, :integer, null: false, default: 0
     add_column :vehicle_journey_at_stops, :departure_day_offset, :integer, null: false, default: 0

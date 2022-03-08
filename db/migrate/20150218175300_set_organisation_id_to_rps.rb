@@ -1,4 +1,4 @@
-class SetOrganisationIdToRps < ActiveRecord::Migration
+class SetOrganisationIdToRps < ActiveRecord::Migration[4.2]
   def up
     RuleParameterSet.where(organisation_id: nil).update_all "name = concat(name, ' ', id)"
 

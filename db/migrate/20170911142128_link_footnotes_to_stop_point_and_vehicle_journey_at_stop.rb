@@ -1,4 +1,4 @@
-class LinkFootnotesToStopPointAndVehicleJourneyAtStop < ActiveRecord::Migration
+class LinkFootnotesToStopPointAndVehicleJourneyAtStop < ActiveRecord::Migration[4.2]
   def change
     create_table :footnotes_stop_points, :id => false, :force => true do |t|
       t.integer  "stop_point_id"

@@ -1,4 +1,4 @@
-class RemoveTransportModeParameterSet < ActiveRecord::Migration
+class RemoveTransportModeParameterSet < ActiveRecord::Migration[4.2]
   def up
     if table_exists? :transport_mode_parameter_sets
       drop_table :transport_mode_parameter_sets

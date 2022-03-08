@@ -1,5 +1,5 @@
 # This migration comes from ninoxe_engine (originally 20130708081951)
-class AddAccessibilityToStopAreas < ActiveRecord::Migration
+class AddAccessibilityToStopAreas < ActiveRecord::Migration[4.2]
   def up
     unless column_exists? :stop_areas, :mobility_restricted_suitability
       add_column :stop_areas, :mobility_restricted_suitability, :boolean

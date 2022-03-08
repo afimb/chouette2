@@ -1,4 +1,4 @@
-class CreateCodespaces < ActiveRecord::Migration
+class CreateCodespaces < ActiveRecord::Migration[4.2]
   def change
     create_table :codespaces do |t|
       t.string :xmlns, null: false

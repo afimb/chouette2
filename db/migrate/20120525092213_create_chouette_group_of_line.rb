@@ -1,4 +1,4 @@
-class CreateChouetteGroupOfLine < ActiveRecord::Migration
+class CreateChouetteGroupOfLine < ActiveRecord::Migration[4.2]
   def up
     create_table :group_of_lines, :force => true do |t|
       t.string   "objectid", :null => false

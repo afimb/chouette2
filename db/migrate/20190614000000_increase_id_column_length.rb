@@ -1,4 +1,4 @@
-class IncreaseIdColumnLength < ActiveRecord::Migration
+class IncreaseIdColumnLength < ActiveRecord::Migration[4.2]
   def change
 
     change_column :footnotes_stop_points, :stop_point_id, :bigint

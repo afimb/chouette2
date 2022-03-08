@@ -1,4 +1,4 @@
-class CreateRuleParameterSets < ActiveRecord::Migration
+class CreateRuleParameterSets < ActiveRecord::Migration[4.2]
   def up
     unless table_exists? :rule_parameter_sets
       create_table :rule_parameter_sets do |a|

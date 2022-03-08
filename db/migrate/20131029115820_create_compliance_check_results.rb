@@ -1,4 +1,4 @@
-class CreateComplianceCheckResults < ActiveRecord::Migration
+class CreateComplianceCheckResults < ActiveRecord::Migration[4.2]
   def up
     unless table_exists? :compliance_check_results
       create_table :compliance_check_results do |t|

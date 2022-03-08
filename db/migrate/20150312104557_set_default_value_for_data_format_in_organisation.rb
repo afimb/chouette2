@@ -1,4 +1,4 @@
-class SetDefaultValueForDataFormatInOrganisation < ActiveRecord::Migration
+class SetDefaultValueForDataFormatInOrganisation < ActiveRecord::Migration[4.2]
   def change
     Organisation.all.each do |organisation|
       if organisation.data_format.neptune?

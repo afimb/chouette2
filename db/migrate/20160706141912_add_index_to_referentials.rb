@@ -1,4 +1,4 @@
-class AddIndexToReferentials < ActiveRecord::Migration
+class AddIndexToReferentials < ActiveRecord::Migration[4.2]
   def up
     remove_index :referentials, :name if index_exists?(:referentials, :name)
     add_index(:referentials, [:name, :organisation_id], unique: true) unless index_exists?(:referentials, [:name, :organisation_id], unique: true)

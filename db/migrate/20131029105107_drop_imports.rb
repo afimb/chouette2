@@ -1,4 +1,4 @@
-class DropImports < ActiveRecord::Migration
+class DropImports < ActiveRecord::Migration[4.2]
   def up
     if table_exists? :imports
       execute "DROP TABLE imports" # fix Foreigner bug < 1.5.0

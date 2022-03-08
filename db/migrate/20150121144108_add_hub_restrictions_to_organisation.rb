@@ -1,4 +1,4 @@
-class AddHubRestrictionsToOrganisation < ActiveRecord::Migration
+class AddHubRestrictionsToOrganisation < ActiveRecord::Migration[4.2]
   def self.up
     add_column :organisations, :hub_restrictions_by_default, :boolean
     add_column :referentials, :hub_restrictions, :boolean

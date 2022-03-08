@@ -1,4 +1,4 @@
-class AddDatedServiceJourneys < ActiveRecord::Migration
+class AddDatedServiceJourneys < ActiveRecord::Migration[4.2]
   def change
     create_table :dated_service_journeys, :force => true do |t|
       t.string   "objectid",                  null: false

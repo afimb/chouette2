@@ -14,23 +14,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_sign_up_params
-    devise_parameter_sanitizer.for(:sign_up).push(
+    devise_parameter_sanitizer.permit(:sign_up, keys: [
       :name,
       :email,
       :password,
       :password_confirmation,
       organisation_attributes: [:name]
-    )
+    ])
   end
 
   def configure_account_update_params
-    devise_parameter_sanitizer.for(:account_update).push(
+    devise_parameter_sanitizer.permit(:account_update, keys: [
       :name,
       :email,
       :password,
       :password_confirmation,
       :current_password
-    )
+    ])
   end
 
   # The default url to be used after updating a resource. You need to overwrite

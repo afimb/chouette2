@@ -1,4 +1,4 @@
-class CreateFileValidations < ActiveRecord::Migration
+class CreateFileValidations < ActiveRecord::Migration[4.2]
   def up
     create_table :file_validations do |t|
       t.string :status

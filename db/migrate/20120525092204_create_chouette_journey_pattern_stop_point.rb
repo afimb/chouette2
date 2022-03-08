@@ -1,4 +1,4 @@
-class CreateChouetteJourneyPatternStopPoint < ActiveRecord::Migration
+class CreateChouetteJourneyPatternStopPoint < ActiveRecord::Migration[4.2]
   def up
     create_table :journey_patterns_stop_points, :id => false, :force => true do |t|
       t.integer  "journey_pattern_id", :limit => 8

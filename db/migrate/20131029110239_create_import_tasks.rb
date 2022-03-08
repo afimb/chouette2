@@ -1,4 +1,4 @@
-class CreateImportTasks < ActiveRecord::Migration
+class CreateImportTasks < ActiveRecord::Migration[4.2]
   def up
     unless table_exists? :import_tasks
       create_table :import_tasks do |t|

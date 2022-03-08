@@ -1,5 +1,5 @@
 # This migration comes from ninoxe_engine (originally 20151124145000)
-class RemoveTimeSlotIdFromVehicleJourney < ActiveRecord::Migration
+class RemoveTimeSlotIdFromVehicleJourney < ActiveRecord::Migration[4.2]
   def up
     if column_exists? :vehicle_journeys, :time_slot_id
        remove_column :vehicle_journeys, :time_slot_id

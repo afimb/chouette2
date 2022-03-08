@@ -1,4 +1,4 @@
-class AddKeyValuesToLines < ActiveRecord::Migration
+class AddKeyValuesToLines < ActiveRecord::Migration[4.2]
   def change
     create_table :lines_key_values, :id => false, :force => true do |t|
       t.integer  "line_id"

@@ -1,4 +1,4 @@
-class AddInterchange < ActiveRecord::Migration
+class AddInterchange < ActiveRecord::Migration[4.2]
   def up
     create_table "interchanges", :force => true do |t|
       t.string   "objectid",       :null => false

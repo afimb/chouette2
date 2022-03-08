@@ -1,4 +1,4 @@
-class CreateChouetteLine < ActiveRecord::Migration
+class CreateChouetteLine < ActiveRecord::Migration[4.2]
   def up
     create_table "lines", :force => true do |t|
       t.integer  "network_id",                :limit => 8

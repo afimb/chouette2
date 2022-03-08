@@ -1,4 +1,4 @@
-class AddKeyValuesToVehicleJourneys < ActiveRecord::Migration
+class AddKeyValuesToVehicleJourneys < ActiveRecord::Migration[4.2]
   def change
     create_table :vehicle_journeys_key_values, :id => false, :force => true do |t|
       t.integer  "vehicle_journey_id"

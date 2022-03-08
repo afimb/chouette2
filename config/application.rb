@@ -29,8 +29,11 @@ module ChouetteIhm
     # link to validation specification pages
     config.validation_spec = 'http://www.chouette.mobi/validation/V2_3/'
 
-    # Remove deprecation warning for Rails 4.x Not necessary anymore for Rails 5.x
-    config.active_record.raise_in_transactional_callbacks = true
+    config.active_job.queue_adapter = :delayed_job
+
+    # Remove deprecation warning for Rails 5.x
+    config.active_record.time_zone_aware_types = [:datetime]
+
 
   end
 end

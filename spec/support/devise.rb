@@ -69,7 +69,7 @@ module DeviseControllerHelper
 end
 
 RSpec.configure do |config|
-  config.include Devise::TestHelpers, :type => :controller
+  config.include Devise::Test::ControllerHelpers, :type => :controller
   config.extend DeviseControllerHelper, :type => :controller
 
   config.include DeviseRequestHelper, :type => :request

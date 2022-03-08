@@ -1,4 +1,4 @@
-class CreateChouetteAccessPoint < ActiveRecord::Migration
+class CreateChouetteAccessPoint < ActiveRecord::Migration[4.2]
   def up
     create_table :access_points, :force => true do |t|
       t.string   "objectid"

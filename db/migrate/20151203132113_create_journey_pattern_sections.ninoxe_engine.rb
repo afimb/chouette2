@@ -1,5 +1,5 @@
 # This migration comes from ninoxe_engine (originally 20151203131606)
-class CreateJourneyPatternSections < ActiveRecord::Migration
+class CreateJourneyPatternSections < ActiveRecord::Migration[4.2]
   def change
     create_table :journey_pattern_sections do |t|
       t.references :journey_pattern, null: false, index: true, limit: 8

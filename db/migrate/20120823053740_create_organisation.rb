@@ -1,4 +1,4 @@
-class CreateOrganisation < ActiveRecord::Migration
+class CreateOrganisation < ActiveRecord::Migration[4.2]
   def up
     create_table :organisations do |t|
       t.string :name

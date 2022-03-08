@@ -1,4 +1,4 @@
-class CreateFileValidationLogMessages < ActiveRecord::Migration
+class CreateFileValidationLogMessages < ActiveRecord::Migration[4.2]
   def up
     create_table :file_validation_log_messages do |t|
       t.belongs_to :file_validation

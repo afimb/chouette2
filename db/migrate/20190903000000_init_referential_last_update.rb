@@ -1,4 +1,4 @@
-class InitReferentialLastUpdate < ActiveRecord::Migration
+class InitReferentialLastUpdate < ActiveRecord::Migration[4.2]
 
   def data
     execute %q{

@@ -1,4 +1,4 @@
-class CreateApiKey < ActiveRecord::Migration
+class CreateApiKey < ActiveRecord::Migration[4.2]
   def up
     create_table :api_keys do |a|
       a.belongs_to :referential
