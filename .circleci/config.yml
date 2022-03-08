@@ -40,7 +40,7 @@ aliases:
 jobs:
   build:
     docker:
-      - image: ruby:2.6.9-bullseye
+      - image: ruby:2.7.5-bullseye
         auth:
           username: $DOCKERHUB_LOGIN
           password: $DOCKERHUB_PASSWORD

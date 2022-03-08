@@ -1,4 +1,4 @@
-FROM ruby:2.6.9-slim-bullseye as base
+FROM ruby:2.7.5-slim-bullseye as base
 
 RUN apt-get update && apt-get install -y nodejs libgeos-dev proj-bin libproj-dev sendmail dumb-init shared-mime-info sqlite3 postgresql-client wget
 
