@@ -11,7 +11,7 @@ describe Api::V1::StopAreasController, :type => :controller do
     let!(:route) { line.routes.first || create(:route, :line => line) }
     before :each do
       config_formatted_request_with_authorization( "application/json")
-      get :index, :route_id => route.objectid, :line_id => route.line.objectid
+      get :index, params: { :route_id => route.objectid, :line_id => route.line.objectid }
     end
     it "should assign expected stop_areas" do
       expect(assigns[:stop_areas].map(&:id).sort).to eq(route.stop_areas.map(&:id).sort)
@@ -23,7 +23,7 @@ describe Api::V1::StopAreasController, :type => :controller do
     let!(:sa3) { create(:stop_area, :name => "abb") }
     before :each do
       config_formatted_request_with_authorization( "application/json")
-      get :index, :q => { :name_cont => "aa"} 
+      get :index, params: { :q => { :name_cont => "aa"} }
     end
     it "should assign expected stop_areas" do
       expect(assigns[:stop_areas].map(&:name).sort).to eq([ sa1.name, sa2.name])

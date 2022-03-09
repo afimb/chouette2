@@ -20,8 +20,7 @@ describe DestinationDisplaysController, type: :controller do
 
   describe "GET /index" do
     before(:each) do
-      get :index,
-          :referential_id => referential.id
+      get :index, params: { :referential_id => referential.id }
     end
 
     it "assigns referential as @referential" do
@@ -31,9 +30,7 @@ describe DestinationDisplaysController, type: :controller do
 
   describe "POST /create" do
     before(:each) do
-      post :create,
-           :referential_id => referential.id,
-           :destination_display => { :name => "IKO", :front_text => "http://juuuuhuu.com/ns/kaa"}
+      post :create, params: { :referential_id => referential.id, :destination_display => { :name => "IKO", :front_text => "http://juuuuhuu.com/ns/kaa"} }
     end
 
     it "has set values" do
@@ -44,11 +41,9 @@ describe DestinationDisplaysController, type: :controller do
 
   describe "POST /create with via" do
     before(:each) do
-      post :create,
-           :referential_id => referential.id,
-           :destination_display => { :name => "name", :front_text => "front text",
+      post :create, params: { :referential_id => referential.id, :destination_display => { :name => "name", :front_text => "front text",
             :destination_display_vias_attributes => { "0" => {:destination_display_id => "", :position => 0, :via_id => destination_display_via.id}}
-           }
+           } }
     end
 
     it "has set values" do
@@ -60,12 +55,9 @@ describe DestinationDisplaysController, type: :controller do
 
   describe "PUT /update" do
     before(:each) do
-      put :update,
-          :id => destination_display.id,
-          :referential_id => referential.id,
-          :destination_display => { :name => "no  name", :front_text => "new front text",
+      put :update, params: { :id => destination_display.id, :referential_id => referential.id, :destination_display => { :name => "no  name", :front_text => "new front text",
             :destination_display_vias_attributes => { "0" => {:destination_display_id => destination_display.id, :position => 0, :via_id => destination_display_via.id}}
-          }
+          } }
     end
 
     it "has set values" do
@@ -76,8 +68,7 @@ describe DestinationDisplaysController, type: :controller do
 
   describe "GET /show" do
     before(:each) do
-      get :show, :id => destination_display.id,
-          :referential_id => referential.id
+      get :show, params: { :id => destination_display.id, :referential_id => referential.id }
     end
 
     it_behaves_like "destination_display and referential linked"

@@ -1,7 +1,7 @@
 shared_examples "api key protected controller" do
 
     let(:h) { { :index => (Proc.new { get :index }),
-                :show => (Proc.new { get :show, :id => data.objectid })}}
+                :show => (Proc.new { get :show, params: { :id => data.objectid } })}}
     [:index, :show].each do |http_verb|
 
       describe "GET ##{http_verb}" do

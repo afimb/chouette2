@@ -30,8 +30,7 @@ describe RoutesController, :type => :controller do
 
   describe "GET /index" do
     before(:each) do
-      get :index, :line_id => route.line_id,
-          :referential_id => referential.id
+      get :index, params: { :line_id => route.line_id, :referential_id => referential.id }
     end
 
     it_behaves_like "line and referential linked"
@@ -40,9 +39,7 @@ describe RoutesController, :type => :controller do
 
   describe "POST /create" do
     before(:each) do
-      post :create, :line_id => route.line_id,
-          :referential_id => referential.id,
-          :route => { :name => "changed"}
+      post :create, params: { :line_id => route.line_id, :referential_id => referential.id, :route => { :name => "changed"} }
 
     end
     it_behaves_like "line and referential linked"
@@ -51,9 +48,7 @@ describe RoutesController, :type => :controller do
 
   describe "PUT /update" do
     before(:each) do
-      put :update, :id => route.id, :line_id => route.line_id,
-          :referential_id => referential.id,
-          :route => route.attributes
+      put :update, params: { :id => route.id, :line_id => route.line_id, :referential_id => referential.id, :route => route.attributes }
     end
 
     it_behaves_like "route, line and referential linked"
@@ -62,9 +57,7 @@ describe RoutesController, :type => :controller do
 
   describe "GET /show" do
     before(:each) do
-      get :show, :id => route.id,
-          :line_id => route.line_id,
-          :referential_id => referential.id
+      get :show, params: { :id => route.id, :line_id => route.line_id, :referential_id => referential.id }
     end
 
     it_behaves_like "route, line and referential linked"

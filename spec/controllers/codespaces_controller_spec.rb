@@ -19,8 +19,7 @@ describe CodespacesController, type: :controller do
 
   describe "GET /index" do
     before(:each) do
-      get :index,
-          :referential_id => referential.id
+      get :index, params: { :referential_id => referential.id }
     end
 
     it "assigns referential as @referential" do
@@ -30,9 +29,7 @@ describe CodespacesController, type: :controller do
 
   describe "POST /create" do
     before(:each) do
-      post :create,
-           :referential_id => referential.id,
-           :codespace => { :xmlns => "IKO", :xmlns_url => "http://juuuuhuu.com/ns/kaa"}
+      post :create, params: { :referential_id => referential.id, :codespace => { :xmlns => "IKO", :xmlns_url => "http://juuuuhuu.com/ns/kaa"} }
     end
 
     it "has set values" do
@@ -43,8 +40,7 @@ describe CodespacesController, type: :controller do
 
   describe "GET /show" do
     before(:each) do
-      get :show, :id => codespace.id,
-          :referential_id => referential.id
+      get :show, params: { :id => codespace.id, :referential_id => referential.id }
     end
 
     it_behaves_like "codespace and referential linked"

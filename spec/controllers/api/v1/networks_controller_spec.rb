@@ -11,7 +11,7 @@ describe Api::V1::NetworksController, :type => :controller do
     context "when authorization provided and request.accept is json" do
       before :each do
         config_formatted_request_with_authorization( "application/json")
-        get :show, :id => network.objectid
+        get :show, params: { :id => network.objectid }
       end
 
       it "should assign expected network" do
