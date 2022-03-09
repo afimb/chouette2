@@ -37,7 +37,7 @@ GIT
 GIT
   remote: https://github.com/entur/ievkit_views.git
   revision: 88ecabe69f970f10c697226aea661de165aae709
-  branch: update_rails
+  branch: master
   specs:
     ievkit_views (0.4.0)
       kaminari (~> 1.2.2)
