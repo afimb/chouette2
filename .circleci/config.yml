@@ -93,12 +93,13 @@ jobs:
       - run:
           name: Rake create and migrate
           command: |
+            export RAILS_ENV=test
             bundle exec rake db:create
             bundle exec rake db:migrate
       - run:
           name: Rake spec
           command: |
-            export RAIL_ENV=test
+            export RAILS_ENV=test
             bundle exec rake db:reset
             bundle exec rake spec
       - store_test_results:

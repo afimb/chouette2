@@ -13,7 +13,7 @@ data:
     deactivate_formats_export: neptune,hub,sig,netex # For example: 'hub,sig,neptune'
     smtp_delivery_method: sendmail # 'letter_opener' OR 'smtp'
     smtp_host: localhost
-    smtp_port: 25
+    smtp_port: "25"
     smtp_domain: rutebanken.org
     smtp_user_name:
     smtp_password:
@@ -38,9 +38,9 @@ data:
     REDIS_URL: redis://<%= ENV['REDIS_HOST'] %>:6379/chouette
 
     # Disable Passenger native extension compilation (make it possible to remove build tools from the Docker image)
-    PASSENGER_COMPILE_NATIVE_SUPPORT_BINARY: 0
+    PASSENGER_COMPILE_NATIVE_SUPPORT_BINARY: "0"
     # Disable Passenger native extension download (remove warning, the binary is not available)
-    PASSENGER_DOWNLOAD_NATIVE_SUPPORT_BINARY: 0
+    PASSENGER_DOWNLOAD_NATIVE_SUPPORT_BINARY: "0"
 
   database.yml : |-
     default: &default

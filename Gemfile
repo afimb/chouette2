@@ -45,7 +45,7 @@ gem 'figaro', '~> 1.2.0'
 
 platforms :ruby do
   gem 'therubyracer', '~> 0.12'
-  gem 'pg', '~> 0.15'
+  gem 'pg', '~> 1.3.3'
   gem 'sqlite3'
 end
 
