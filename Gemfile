@@ -167,7 +167,7 @@ end
 
 # IEVKIT
 gem 'ievkit',  git: 'https://github.com/entur/ievkit.git', branch: 'master' #'~> 0.5.0'
-gem 'ievkit_views', git: 'https://github.com/entur/ievkit_views.git', branch: 'update_rails' #'~> 0.4.0'
+gem 'ievkit_views', git: 'https://github.com/entur/ievkit_views.git', branch: 'master' #'~> 0.4.0'
 
 # I18n
 gem 'rails-i18n', '~> 5.0.4'
