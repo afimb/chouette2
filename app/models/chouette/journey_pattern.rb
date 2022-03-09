@@ -16,7 +16,7 @@ class Chouette::JourneyPattern < Chouette::TridentActiveRecord
   enum section_status: { todo: 0, completed: 1, control: 2 }
 
   attr_accessor  :control_checked, :footnote_tokens
-  after_update :control_route_sections, :unless => "control_checked"
+  after_update :control_route_sections, :unless => :control_checked
 
   # TODO: this a workarround
   # otherwise, we loose the first stop_point

@@ -24,6 +24,20 @@ GIT
       railties
 
 GIT
+  remote: https://github.com/entur/georuby-ext.git
+  revision: 31044f352823d3851d4d77cc59cc18ad6d8b88b3
+  branch: update_rails_5_2
+  specs:
+    georuby-ext (0.0.5)
+      activesupport (>= 3.2.6)
+      dbf
+      dr-ffi-proj4 (>= 0.0.3)
+      ffi-geos (>= 0.1.1)
+      geokit (= 1.6.7)
+      georuby (>= 1.9.8)
+      rgeo (>= 0.3.20)
+
+GIT
   remote: https://github.com/entur/ievkit.git
   revision: c198080c58414da0cf059057f4fa57dd9937d13d
   branch: master
@@ -120,6 +134,7 @@ GEM
       polyamorous (~> 1.3)
     bcrypt (3.1.16)
     bindata (2.4.10)
+    bindex (0.8.1)
     binding_of_caller (1.0.0)
       debug_inspector (>= 0.0.1)
     bootstrap-kaminari-views (0.0.5)
@@ -148,9 +163,9 @@ GEM
     cliver (0.3.2)
     cocoon (1.2.15)
     coderay (1.1.3)
-    coffee-rails (4.1.1)
+    coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.1.x)
+      railties (>= 4.0.0)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -190,7 +205,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     dr-ffi-proj4 (0.0.3)
       ffi (>= 1.0.0)
-    enumerize (0.11.0)
+    enumerize (2.2.2)
       activesupport (>= 3.2)
     erubis (2.7.0)
     execjs (2.8.1)
@@ -237,14 +252,6 @@ GEM
     geokit (1.6.7)
       multi_json (>= 1.3.2)
     georuby (2.3.0)
-    georuby-ext (0.0.5)
-      activesupport (>= 3.2.6)
-      dbf
-      dr-ffi-proj4 (>= 0.0.3)
-      ffi-geos (>= 0.1.1)
-      geokit (= 1.6.7)
-      georuby (>= 1.9.8)
-      rgeo (>= 0.3.20)
     globalid (1.0.0)
       activesupport (>= 5.0)
     google-analytics-rails (1.1.1)
@@ -487,10 +494,10 @@ GEM
     rainbow (2.2.2)
       rake
     rake (13.0.6)
-    ransack (1.8.10)
-      actionpack (>= 3.0, < 5.2)
-      activerecord (>= 3.0, < 5.2)
-      activesupport (>= 3.0, < 5.2)
+    ransack (2.1.1)
+      actionpack (>= 5.0)
+      activerecord (>= 5.0)
+      activesupport (>= 5.0)
       i18n
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
@@ -612,11 +619,11 @@ GEM
       public_suffix
     warden (1.2.9)
       rack (>= 2.0.9)
-    web-console (2.3.0)
-      activemodel (>= 4.0)
-      binding_of_caller (>= 0.7.2)
-      railties (>= 4.0)
-      sprockets-rails (>= 2.0, < 4.0)
+    web-console (3.7.0)
+      actionview (>= 5.0)
+      activemodel (>= 5.0)
+      bindex (>= 0.4.0)
+      railties (>= 5.0)
     webfinger (1.2.0)
       activesupport
       httpclient (>= 2.4)
@@ -649,7 +656,7 @@ DEPENDENCIES
   chouette-projects-i18n!
   chouette2-i18n!
   cocoon
-  coffee-rails (~> 4.1.0)
+  coffee-rails (~> 4.2.2)
   daemons
   database_cleaner
   deep_cloneable (~> 2.4.0)
@@ -659,7 +666,7 @@ DEPENDENCIES
   devise-encryptable
   devise-i18n
   devise_invitable
-  enumerize (~> 0.11.0)
+  enumerize (~> 2.2.1)
   factory_girl_rails (~> 4.0)
   fakeweb!
   faraday_middleware (~> 1.2.0)
@@ -668,7 +675,7 @@ DEPENDENCIES
   font-awesome-sass (~> 4.2.0)
   formtastic (= 3.1.5)
   georuby (= 2.3.0)
-  georuby-ext (= 0.0.5)
+  georuby-ext!
   google-analytics-rails (~> 1.1.0)
   guard
   guard-rspec
@@ -715,7 +722,7 @@ DEPENDENCIES
   rails-controller-testing
   rails-erd
   rails-i18n (~> 5.0.4)
-  ransack
+  ransack (~> 2.1.1)
   rb-fsevent
   rb-inotify
   responders (~> 2.0)
@@ -737,7 +744,7 @@ DEPENDENCIES
   transpec
   turbolinks (~> 2.5.3)
   uglifier (~> 2.7.2)
-  web-console (~> 2.0)
+  web-console (~> 3.7.0)
 
 BUNDLED WITH
    1.17.3

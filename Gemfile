@@ -11,7 +11,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '~> 2.7.2'
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.2.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '~> 4.4.0' # Update to v4 for Rails 4.2
@@ -65,7 +65,7 @@ gem 'json-jwt', '~>1.11.0'
 # Map, Geolocalization
 gem 'map_layers', '0.0.5'
 gem 'rgeo', '~> 1.0.0'
-gem 'georuby-ext', '0.0.5'
+gem 'georuby-ext', git: 'https://github.com/entur/georuby-ext.git', branch: 'update_rails_5_2'
 gem 'georuby', '2.3.0' # Fix version for georuby-ext because api has changed
 gem 'ffi', '~> 1.12.2' # versions > 1.12.2 are not supported by georuby/dr-ffi-proj4
 
@@ -92,7 +92,7 @@ gem 'inherited_resources'
 gem 'google-analytics-rails', '~> 1.1.0'
 
 # Model
-gem 'ransack'
+gem 'ransack', '~> 2.1.1'
 
 #gem 'squeel'
 gem 'baby_squeel'
@@ -101,7 +101,7 @@ gem 'kaminari', '~> 1.2.2'
 gem 'bootstrap-kaminari-views', '~> 0.0.5'
 gem 'kaminari-i18n', '~> 0.5.0'
 
-gem 'enumerize', '~> 0.11.0'
+gem 'enumerize', '~>  2.2.1'
 #gem 'foreigner', '~> 1.7.4'
 gem 'deep_cloneable', '~> 2.4.0'
 gem 'acts-as-taggable-on', '>= 3'
@@ -135,7 +135,7 @@ group :development do
   # gem 'meta_request'
   #gem 'quiet_assets', '~> 1.1.0'
   gem 'simplecov', '~> 0.21.2'
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 3.7.0'
   platforms :ruby_20, :ruby_21, :ruby_22, :ruby_23 do
     #gem 'better_errors'
     gem 'binding_of_caller'
