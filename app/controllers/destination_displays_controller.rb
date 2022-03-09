@@ -36,7 +36,7 @@ class DestinationDisplaysController < ChouetteController
   end
 
   def update
-    Chouette::DestinationDisplayVia.delete_all(:destination_display_id => params[:id])
+    Chouette::DestinationDisplayVia.where(:destination_display_id => params[:id]).delete_all
     update!
   end
 
