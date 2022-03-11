@@ -25,16 +25,16 @@ GIT
 
 GIT
   remote: https://github.com/entur/ffi-proj4
-  revision: 0dc4b80b1d22527cf066c67d8a5644356911c491
-  branch: update_ffi
+  revision: 6ce9bbc4ce8d86839fb930aa806859c261c286e5
+  branch: master
   specs:
     ffi-proj4 (0.3.0)
       ffi (>= 1.0.0)
 
 GIT
   remote: https://github.com/entur/georuby-ext.git
-  revision: 31044f352823d3851d4d77cc59cc18ad6d8b88b3
-  branch: update_rails_5_2
+  revision: 8531916d8c271967f1bcfa4a97cb7b8e4a2b909e
+  branch: master
   specs:
     georuby-ext (0.0.5)
       activesupport (>= 3.2.6)
@@ -47,8 +47,8 @@ GIT
 
 GIT
   remote: https://github.com/entur/ievkit.git
-  revision: fa86ae4ed55454bfc00abfe82190b8937e1e5b8b
-  branch: update_rest_client
+  revision: df7d7d0650ee7a4a0a7d5a9ae0ba7272c470df02
+  branch: master
   specs:
     ievkit (0.6.0)
       faraday_middleware (~> 1.2.0)
@@ -58,8 +58,8 @@ GIT
 
 GIT
   remote: https://github.com/entur/ievkit_views.git
-  revision: 9db316f5e0e4347bcb58720fbd075ff6effbdf0e
-  branch: update_rails_5_2
+  revision: fe2ef46e3d771293ccaeca29d73b2aabbadf6475
+  branch: master
   specs:
     ievkit_views (0.5.0)
       kaminari (~> 1.2.2)

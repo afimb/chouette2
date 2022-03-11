@@ -65,10 +65,10 @@ gem 'json-jwt', '~>1.11.0'
 # Map, Geolocalization
 gem 'map_layers', '0.0.5'
 gem 'rgeo', '~> 1.0.0'
-gem 'georuby-ext', git: 'https://github.com/entur/georuby-ext.git', branch: 'update_rails_5_2'
+gem 'georuby-ext', git: 'https://github.com/entur/georuby-ext.git', branch: 'master'
 gem 'georuby', '2.3.0' # Fix version for georuby-ext because api has changed
 gem 'ffi', '~> 1.15.5'
-gem 'ffi-proj4', git: 'https://github.com/entur/ffi-proj4', branch: 'update_ffi'
+gem 'ffi-proj4', git: 'https://github.com/entur/ffi-proj4', branch: 'master'
 
 gem 'mimemagic'
 
@@ -167,8 +167,8 @@ end
 
 
 # IEVKIT
-gem 'ievkit',  git: 'https://github.com/entur/ievkit.git', branch: 'update_rest_client' #'~> 0.5.0'
-gem 'ievkit_views', git: 'https://github.com/entur/ievkit_views.git', branch: 'update_rails_5_2' #'~> 0.5.0'
+gem 'ievkit',  git: 'https://github.com/entur/ievkit.git', branch: 'master' #'~> 0.5.0'
+gem 'ievkit_views', git: 'https://github.com/entur/ievkit_views.git', branch: 'master' #'~> 0.5.0'
 
 # I18n
 gem 'rails-i18n', '~> 5.1.3'
