@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
 
   factory :time_table_date, :class => Chouette::TimeTableDate do
   end
@@ -12,8 +12,8 @@ FactoryGirl.define do
     sequence(:int_day_types) { (1..7).to_a.map{ |n| 2**(n+1)}.sum }
 
     transient do
-      dates_count 4
-      periods_count 4
+      dates_count { 4 }
+      periods_count { 4 }
     end
     
     after(:create) do |time_table, evaluator|

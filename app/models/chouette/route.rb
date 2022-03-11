@@ -26,8 +26,8 @@ class Chouette::Route < Chouette::TridentActiveRecord
     end
   end
   belongs_to :opposite_route, :class_name => 'Chouette::Route', :foreign_key => :opposite_route_id
-  has_many :route_points, -> { order('routes_route_points.position ASC') }, :through => :routes_route_points
   has_many :routes_route_points, -> { order('position ASC') }, :dependent => :destroy
+  has_many :route_points, -> { order('routes_route_points.position ASC') }, :through => :routes_route_points
 
 
   has_many :stop_points, -> { order('position ASC') }, :dependent => :destroy do

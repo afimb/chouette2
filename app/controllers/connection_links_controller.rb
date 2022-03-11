@@ -43,7 +43,7 @@ class ConnectionLinksController < ChouetteController
   alias_method :connection_link, :resource
 
   def collection
-    @q = referential.connection_links.search(params[:q])
+    @q = referential.connection_links.ransack(params[:q])
     @connection_links ||= @q.result(:distinct => true).order(:name).page(params[:page])
   end
 

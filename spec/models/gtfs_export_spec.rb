@@ -11,7 +11,7 @@ describe GtfsExport, :type => :model do
       end
 
       it "should be mandatory" do
-        should validate_presence_of(:time_zone)
+        is_expected.to validate_presence_of(:time_zone)
       end
 
     end
@@ -23,7 +23,7 @@ describe GtfsExport, :type => :model do
       end
 
       it "should be mandatory" do
-        should_not validate_presence_of(:time_zone)
+        is_expected.not_to validate_presence_of(:time_zone)
       end
 
     end

@@ -5,8 +5,8 @@ describe Chouette::Codespace do
   subject { build(:codespace) }
   let!(:codespace) { create(:codespace, :xmlns => "ABC", :xmlns_url => "https://www.mycodepace.com/ns/abc") }
 
-  it { should validate_presence_of :xmlns }
-  it { should validate_presence_of :xmlns_url }
+  it { is_expected.to validate_presence_of :xmlns }
+  it { is_expected.to validate_presence_of :xmlns_url }
 
   it { is_expected.to validate_presence_of :xmlns }
   it { is_expected.to validate_presence_of :xmlns_url }

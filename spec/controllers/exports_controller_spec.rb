@@ -7,7 +7,7 @@ describe ExportsController, :type => :controller do
     it "returns http success" do
       pending
       get 'new'
-      expect(response).to be_success
+      expect(response).to be_successful
     end
   end
 
@@ -15,7 +15,7 @@ describe ExportsController, :type => :controller do
     it "returns http success" do
       pending
       get 'index'
-      expect(response).to be_success
+      expect(response).to be_successful
     end
   end
 

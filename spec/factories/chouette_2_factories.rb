@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
 
   factory :organisation do
     sequence(:name) { |n| "Organisation #{n}" }
@@ -10,7 +10,7 @@ FactoryGirl.define do
     sequence(:prefix) { |n| "test_#{n}" }
     association :organisation
 
-    time_zone "Europe/Paris"
+    time_zone { "Europe/Paris" }
   end
 
   factory :rule_parameter_set do
@@ -25,15 +25,15 @@ FactoryGirl.define do
     association :organisation
     sequence(:name) { |n| "chouette#{n}" }
     sequence(:email) { |n| "chouette#{n}@dryade.priv" }
-    password "secret"
-    password_confirmation "secret"
+    password { "secret" }
+    password_confirmation { "secret" }
   end
 
   factory :import_task do |f|
-    user_name "dummy"
-    user_id 123
-    no_save false
-    format "Neptune"
+    user_name { "dummy" }
+    user_id { 123 }
+    no_save { false }
+    format { "Neptune" }
     resources { Rack::Test::UploadedFile.new 'spec/fixtures/neptune.zip', 'application/zip', false }
     referential { Referential.find_by_slug("ch_1") }
   end
@@ -52,21 +52,21 @@ FactoryGirl.define do
   end
 
   factory :vehicle_translation do
-    count 1
-    duration 1
+    count { 1 }
+    duration { 1 }
   end
 
   factory :compliance_check_result do
     association :compliance_check_task
-    rule_code "2-NEPTUNE-StopArea-6"
-    severity "warning"
-    status "nok"
+    rule_code { "2-NEPTUNE-StopArea-6" }
+    severity { "warning" }
+    status { "nok" }
   end
 
   factory :compliance_check_task do
-    user_id 1
-    user_name "Dummy"
-    status "pending"
+    user_id { 1 }
+    user_name { "Dummy" }
+    status { "pending" }
     referential { Referential.find_by_slug("ch_1") }
   end
 

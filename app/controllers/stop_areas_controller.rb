@@ -129,7 +129,7 @@ class StopAreasController < ChouetteController
   end
 
   def collection
-    @q = parent.present? ? parent.stop_areas.search(params[:q]) : referential.stop_areas.search(params[:q])
+    @q = parent.present? ? parent.stop_areas.ransack(params[:q]) : referential.stop_areas.ransack(params[:q])
     @stop_areas ||=
       begin
         # NRP-1773: optimises stop_areas query ():distinct => false)

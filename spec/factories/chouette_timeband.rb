@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
 
   factory :timeband, class: Chouette::Timeband do
     sequence(:name) { |n| "Name: #{n}" }

@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
 
   factory :route_common, :class => Chouette::Route do
     sequence(:name) { |n| "Route #{n}" }
@@ -13,7 +13,7 @@ FactoryGirl.define do
     factory :route do
 
       transient do
-        stop_points_count 5
+        stop_points_count { 5 }
       end
       
       after(:create) do |route, evaluator|

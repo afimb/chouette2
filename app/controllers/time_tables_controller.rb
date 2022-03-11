@@ -71,7 +71,7 @@ class TimeTablesController < ChouetteController
     ransack_params.delete("tag_search") if ransack_params.present?
 
     selected_time_tables = tag_search ? select_time_tables.tagged_with(tag_search, :wild => true, :any => true) : select_time_tables
-    @q = selected_time_tables.search(ransack_params)
+    @q = selected_time_tables.ransack(ransack_params)
     @time_tables ||= @q.result(:distinct => true).order(:comment).page(params[:page])
   end
 

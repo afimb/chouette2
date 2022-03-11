@@ -18,7 +18,7 @@ feature 'User profile page', :devise do
   #   When I visit the user profile page
   #   Then I see my own email address
   scenario 'user sees own profile' do
-    user = FactoryGirl.create(:user)
+    user = FactoryBot.create(:user)
     user.confirm
     login_as(user, :scope => :user)
     visit organisation_user_path(user)
@@ -31,9 +31,9 @@ feature 'User profile page', :devise do
   #   When I visit another user's profile
   #   Then I see an 'access denied' message
   scenario "user cannot see another user's profile" do
-    me = FactoryGirl.create(:user)
+    me = FactoryBot.create(:user)
     me.confirm
-    other = FactoryGirl.create(:user, email: 'other@example.com', :organisation => me.organisation)
+    other = FactoryBot.create(:user, email: 'other@example.com', :organisation => me.organisation)
     other.confirm
     login_as(me, :scope => :user)
     Capybara.current_session.driver.header 'Referer', authenticated_root_path

@@ -32,7 +32,7 @@ class NetworksController < ChouetteController
   protected
 
   def collection
-    @q = referential.networks.search(params[:q])
+    @q = referential.networks.ransack(params[:q])
     @networks ||= @q.result(:distinct => true).order(:name).page(params[:page])
   end
 

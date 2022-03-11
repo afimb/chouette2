@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'bundler', '~> 1.17.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.7'
+gem 'rails', '~> 5.2.0'
 
 gem "passenger", ">= 5.0.25", require: "phusion_passenger/rack_handler"
 
@@ -49,11 +49,11 @@ platforms :ruby do
   gem 'sqlite3'
 end
 
-gem 'activerecord-postgis-adapter', '~>  4.1.2'
+gem 'activerecord-postgis-adapter', '~>  5.1.0'
 gem 'polylines'
 
 # Authentication
-gem 'devise', '~>  4.7.0'
+gem 'devise', '~>  4.8.1'
 gem 'devise-encryptable'
 gem 'devise_invitable'
 gem 'omniauth'
@@ -67,7 +67,8 @@ gem 'map_layers', '0.0.5'
 gem 'rgeo', '~> 1.0.0'
 gem 'georuby-ext', git: 'https://github.com/entur/georuby-ext.git', branch: 'update_rails_5_2'
 gem 'georuby', '2.3.0' # Fix version for georuby-ext because api has changed
-gem 'ffi', '~> 1.12.2' # versions > 1.12.2 are not supported by georuby/dr-ffi-proj4
+gem 'ffi', '~> 1.15.5'
+gem 'ffi-proj4', git: 'https://github.com/entur/ffi-proj4', branch: 'update_ffi'
 
 gem 'mimemagic'
 
@@ -104,16 +105,16 @@ gem 'kaminari-i18n', '~> 0.5.0'
 gem 'enumerize', '~>  2.2.1'
 #gem 'foreigner', '~> 1.7.4'
 gem 'deep_cloneable', '~> 2.4.0'
-gem 'acts-as-taggable-on', '>= 3'
+gem 'acts-as-taggable-on', '~> 8.1.0'
 
-gem 'acts_as_list', '~> 0.9.0'
+gem 'acts_as_list', '~> 1.0.4'
 gem 'acts_as_tree', '~> 2.9.0', require: 'acts_as_tree'
 
 gem 'rabl'
 
 gem 'delayed_job_active_record'
 gem 'devise-async', '~>  1.0.0'
-gem 'apartment', '~> 1.2.0'
+gem 'apartment', '~> 2.2.1'
 
 gem 'newrelic_rpm'
 gem 'letter_opener'
@@ -125,11 +126,11 @@ gem 'responders', '~> 2.0'
 gem 'pundit'
 
 group :development do
-  gem 'capistrano', '2.15.9'
+  gem 'capistrano', '~> 3.16.0'
   gem 'capistrano-ext'
   gem 'guard'
   gem 'guard-rspec'
-  gem 'rspec', '~> 3.10.0'
+  gem 'rspec', '~> 3.11.0'
   gem 'rails-erd'
   # MetaRequest is incompatible with rgeo-activerecord
   # gem 'meta_request'
@@ -144,17 +145,17 @@ end
 
 group :test, :development do
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 4.0.2'
+  gem 'rspec-rails', '~> 5.1.1'
   gem 'fakeweb', git: 'https://github.com/chrisk/fakeweb.git', branch: 'master'
-  gem 'capybara', '~> 2.8.1'
+  gem 'capybara', '~> 3.28.0'
   gem 'poltergeist'
   gem 'launchy'
-  gem 'factory_girl_rails', '~> 4.0'
+  gem 'factory_bot_rails', '~> 6.2.0'
   gem 'rb-inotify', require: RUBY_PLATFORM.include?('linux') && 'rb-inotify'
   gem 'rb-fsevent', require: RUBY_PLATFORM.include?('darwin') && 'rb-fsevent'
   gem 'transpec'
-  gem 'database_cleaner'
-  gem 'shoulda-matchers', '~>  4.5.1'
+  gem 'database_cleaner', '~>  2.0.1'
+  gem 'shoulda-matchers', '~>  5.1.0'
   gem 'rspec_junit_formatter'
   gem 'rails-controller-testing'
 end
@@ -166,11 +167,11 @@ end
 
 
 # IEVKIT
-gem 'ievkit',  git: 'https://github.com/entur/ievkit.git', branch: 'master' #'~> 0.5.0'
-gem 'ievkit_views', git: 'https://github.com/entur/ievkit_views.git', branch: 'master' #'~> 0.4.0'
+gem 'ievkit',  git: 'https://github.com/entur/ievkit.git', branch: 'update_rest_client' #'~> 0.5.0'
+gem 'ievkit_views', git: 'https://github.com/entur/ievkit_views.git', branch: 'update_rails_5_2' #'~> 0.5.0'
 
 # I18n
-gem 'rails-i18n', '~> 5.0.4'
+gem 'rails-i18n', '~> 5.1.3'
 gem 'devise-i18n'
 gem 'chouette2-i18n', git: 'https://github.com/entur/chouette2-i18n.git', :branch => 'master'
 gem 'chouette-projects-i18n', git: 'https://github.com/entur/chouette-projects-i18n.git', :branch => 'master'

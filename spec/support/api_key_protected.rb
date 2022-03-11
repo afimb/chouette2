@@ -45,7 +45,7 @@ shared_examples "api key protected controller" do
             it "should return #{(format == "application/json" || format == "application/xml") ? "success" : "failure"} response" do
               if json_xml_format?
                 h[http_verb].call
-                expect(response).to be_success
+                expect(response).to be_successful
               else
                 expect {h[http_verb].call}.to raise_error(ActionController::UnknownFormat)
               end

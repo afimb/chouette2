@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
 
   factory :codespace, :class => Chouette::Codespace do
     sequence(:xmlns) { |n| "AB#{(64+n).chr}" }

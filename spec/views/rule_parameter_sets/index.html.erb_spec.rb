@@ -24,7 +24,7 @@ describe "/organisations/show" do
 
   it "should render a link to create a new rule_parameter_set" do
     render
-    view.content_for(:sidebar).should have_selector(".actions a[href='#{new_organisation_rule_parameter_set_path}']")
+    expect(view.content_for(:sidebar)).to have_selector(".actions a[href='#{new_organisation_rule_parameter_set_path}']")
   end
 
 end

@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
 
   factory :network, :class => Chouette::Network do
     sequence(:name) { |n| "Network #{n}" }

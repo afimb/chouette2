@@ -84,7 +84,7 @@ class LinesController < ChouetteController
       params[:q]["transport_mode_name_blank"] = "1"
     end
 
-    @q = referential.lines.search(params[:q])
+    @q = referential.lines.ransack(params[:q])
     @lines ||= @q.result(:distinct => true).order(:number).page(params[:page]).includes([:network, :company])
   end
 

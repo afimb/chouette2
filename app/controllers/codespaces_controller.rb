@@ -26,7 +26,7 @@ class CodespacesController < ChouetteController
 
   protected
   def collection
-    @q = referential.codespaces.search(params[:q])
+    @q = referential.codespaces.ransack(params[:q])
     @codespaces ||= @q.result(:distinct => true).order(:xmlns).page(params[:page])
   end
 

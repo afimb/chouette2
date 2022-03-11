@@ -10,7 +10,7 @@ describe Chouette::DestinationDisplay do
   let!(:destination_display4) { create(:destination_display, :name => "Mo i Rana", :front_text => "Mo i Rana", :side_text => nil) }
   let!(:destination_display5) { create(:destination_display, :name => "Skybar", :front_text => "Hemsedal", :side_text => nil, :vias => [destination_display1, destination_display2]) }
 
-  it { should validate_presence_of :front_text }
+  it { is_expected.to validate_presence_of :front_text }
 
   it { is_expected.to validate_presence_of :front_text }
 

@@ -56,7 +56,7 @@ class AccessPointsController < ChouetteController
   end
 
   def collection
-    @q = parent.access_points.search(params[:q])
+    @q = parent.access_points.ransack(params[:q])
     @access_points ||=
       begin
         access_points = @q.result(:distinct => true).order(:name)

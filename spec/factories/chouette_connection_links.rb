@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
 
   factory :connection_link, :class => Chouette::ConnectionLink do
     sequence(:name) { |n| "Connection link #{n}" }

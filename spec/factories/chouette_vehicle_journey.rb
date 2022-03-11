@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   
   factory :vehicle_journey_common, :class => Chouette::VehicleJourney do
     sequence(:objectid) { |n| "test:VehicleJourney:#{n}" }

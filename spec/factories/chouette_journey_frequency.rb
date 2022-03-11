@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
 
   factory :journey_frequency, class: Chouette::JourneyFrequency do
     timeband

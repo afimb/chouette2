@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
 
   factory :company, :class => Chouette::Company do
     sequence(:name) { |n| "Company #{n}" }

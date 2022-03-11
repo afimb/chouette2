@@ -30,7 +30,7 @@ module ReferentialHelper
     end
     def assign_user
       before(:each) do
-        user = FactoryGirl.create(:user)
+        user = FactoryBot.create(:user)
         assign :user, user
       end
     end

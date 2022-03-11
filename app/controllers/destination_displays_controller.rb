@@ -42,7 +42,7 @@ class DestinationDisplaysController < ChouetteController
 
   protected
   def collection
-    @q = referential.destination_displays.search(params[:q])
+    @q = referential.destination_displays.ransack(params[:q])
     @destination_displays ||= @q.result(:distinct => true).order(:name).page(params[:page])
   end
 

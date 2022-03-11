@@ -84,7 +84,7 @@ class RoutesController < ChouetteController
   alias_method :route, :resource
 
   def collection
-    @q = parent.routes.search(params[:q])
+    @q = parent.routes.ransack(params[:q])
     @routes ||=
         begin
           routes = @q.result(:distinct => true).order(:name)

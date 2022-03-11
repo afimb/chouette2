@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
 
   factory  :group_of_line, :class => Chouette::GroupOfLine do
     sequence(:name) { |n| "Group Of Line #{n}" }

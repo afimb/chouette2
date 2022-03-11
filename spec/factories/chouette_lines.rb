@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
 
   factory :line, :class => Chouette::Line do
     sequence(:name) { |n| "Line #{n}" }
@@ -13,8 +13,8 @@ FactoryGirl.define do
     factory :line_with_stop_areas do
       
       transient do
-        routes_count 2
-        stop_areas_count 5
+        routes_count { 2 }
+        stop_areas_count { 5 }
       end
       
       after(:create) do |line, evaluator|

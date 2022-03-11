@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
 
   factory :footnote, :class => Chouette::Footnote do
     sequence(:code) { |n| "#{n}" }

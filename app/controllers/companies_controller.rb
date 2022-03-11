@@ -25,7 +25,7 @@ class CompaniesController < ChouetteController
 
   protected
   def collection
-    @q = referential.companies.search(params[:q])
+    @q = referential.companies.ransack(params[:q])
     @companies ||= @q.result(:distinct => true).order(:name).page(params[:page])
   end
 

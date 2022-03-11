@@ -40,3 +40,5 @@ coverage
 
 .localeapp
 locales
+/config/spring.rb
+/test_results/rspec.xml
