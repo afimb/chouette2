@@ -1,5 +1,5 @@
 <ul>
 <% (selected_route.line.routes.limit(10).reject{ |route| route == selected_route}).each do |route| %>
-  <li><%= link_to (route.name ? route.name.truncate(30) : '-' ), [@referential, route.line, route, controller_name] %></li>
+  <li><%= link_to (route.name ? route.name.truncate(30) : '-' ), [@referential, route.line, route, controller_name].to_s %></li>
 <% end %>
 </ul>
