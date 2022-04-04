@@ -3,3 +3,8 @@ env: dev
 sql:
   instance: entur-ror-dev:europe-west1:chouette-db-1=tcp:5432
 
+chouetteUrl: http://chouette.dev.entur.internal
+osrmRailUrl: http://osrm-rail.dev.entur.internal
+osrmBusUrl: http://osrm-bus.dev.entur.internal
+osrmWaterUrl: http://osrm-water.dev.entur.internal
+

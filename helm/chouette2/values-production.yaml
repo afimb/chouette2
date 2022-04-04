@@ -3,3 +3,7 @@ env: production
 sql:
   instance: entur-ror-prod:europe-west1:chouette-db-1=tcp:5432
 
+chouetteUrl: http://chouette.prd.entur.internal
+osrmRailUrl: http://osrm-rail.prd.entur.internal
+osrmBusUrl: http://osrm-bus.prd.entur.internal
+osrmWaterUrl: http://osrm-water.prd.entur.internal
