@@ -1,7 +1,7 @@
 env: staging
 
 sql:
-  instance: entur-ror-test:europe-west1:chouette-db-1=tcp:5432
+  instance: entur-ror-test:europe-west1:chouette-db-pg13=tcp:5432
 
 chouetteUrl: http://chouette.tst.entur.internal
 osrmRailUrl: http://osrm-rail.tst.entur.internal
