@@ -33,5 +33,6 @@ release: {{ .Release.Name }}
 team: ror
 slack: talk-ror
 type: events
+environment: {{.Values.env }}
 namespace: {{ .Release.Namespace }}
 {{- end }}

@@ -1,4 +1,4 @@
-env: staging
+env: test
 
 sql:
   instance: entur-ror-test:europe-west1:chouette-db-pg13=tcp:5432
