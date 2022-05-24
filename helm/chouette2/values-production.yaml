@@ -1,4 +1,4 @@
-env: production
+env: prod
 
 sql:
   instance: entur-ror-prod:europe-west1:chouette-db-pg13=tcp:5432
