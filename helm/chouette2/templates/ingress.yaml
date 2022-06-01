@@ -11,7 +11,7 @@ metadata:
   namespace: {{ .Release.Namespace }}
 spec:
   rules:
-  {{- if eq .Values.env "production"}}
+  {{- if eq .Values.env "prod"}}
   - host: rutedb.entur.org
   {{ else }}
   - host: rutedb.{{ .Release.Namespace }}.entur.org
