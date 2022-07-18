@@ -35,7 +35,7 @@ aliases:
       docker build -t $IMAGE .
       docker tag $IMAGE "${IMAGE}":"${VERSION}"
       docker login -u _json_key --password-stdin https://eu.gcr.io < ${HOME}/account-auth.json
-      docker push $IMAGE
+      docker push "${IMAGE}":"${VERSION}"
 
 jobs:
   build:
