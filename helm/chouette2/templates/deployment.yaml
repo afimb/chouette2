@@ -26,16 +26,10 @@ spec:
             - /cloud_sql_proxy
             - -instances={{ .Values.sql.instance }}
             - -credential_file=/etc/chouette2-service-account/credentials.json
+            - -term_timeout=30s
             - -log_debug_stdout
           image: gcr.io/cloudsql-docker/gce-proxy:1.29.0-alpine
           imagePullPolicy: IfNotPresent
-          lifecycle:
-            preStop:
-              exec:
-                command:
-                  - /bin/sh
-                  - -c
-                  - sleep 30
           name: cloudsql-proxy
           resources:
             requests:
