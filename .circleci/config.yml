@@ -127,9 +127,7 @@ workflows:
   build_test_deploy:
     jobs:
       - build:
-         context:
-          - org-carbon
-          - global
+         context: global
       -  deploy-docker:
            context: global
            requires:
