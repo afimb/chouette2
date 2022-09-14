@@ -45,7 +45,7 @@ spec:
             - name: TZ
               value: Europe/Oslo
             - name: RAILS_ENV
-              value: development
+              value: production
             - name: REDIS_HOST
               valueFrom:
                 configMapKeyRef:

@@ -46,6 +46,7 @@ Rails.application.configure do
   }
 
   config.action_mailer.delivery_method = Rails.application.secrets.smtp_delivery_method.to_sym
+
   # change to true to allow email to be sent during development
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
@@ -57,23 +58,10 @@ Rails.application.configure do
     Devise::Mailer.layout "mailer"
   end
 
-  # Specific theme for each company
-  # AFIMB
-  # config.company_name = "afimb"
-  # config.company_theme = "#61970b" # AFIMB color
-  # config.company_contact = "http://www.chouette.mobi/club-utilisateurs/contact-support/"
-  # config.accept_user_creation = true
-
-  # CITYWAY
-  # config.company_name = "cityway"
-  # config.company_theme = "#32adb0"
-  # config.company_contact = "http://www.cityway.fr/contact/?rub_code=14"
-  # config.accept_user_creation = false
-
-  # Rutebanken
+  # Entur
   config.company_name = "Entur"
   config.company_theme = "#5AC39A" # Entur color
-  config.company_contact = "http://www.entur.org/kontakt/"
+  config.company_contact = "https://www.entur.org/kontakt/"
   config.accept_user_creation = false
 
   # file to data for demo

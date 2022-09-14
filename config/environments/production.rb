@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.eager_load = true
+  config.eager_load = false
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -58,9 +58,6 @@ Rails.application.configure do
   # )
   config.logger = Logger.new(STDOUT)
 
-  # Google analytics tracker
-  GA.tracker = Rails.application.secrets.google_analytics_tracker
-
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
 
@@ -92,35 +89,17 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = Rails.application.secrets.smtp_delivery_method.to_sym
 
-  # Configure the e-mail address which will be shown in Devise::Maile
+  # Configure the e-mail address which will be shown in Devise::Mailer
   config.mailer_sender = Rails.application.secrets.mailer_sender
+  config.to_prepare do
+    Devise::Mailer.layout "mailer"
+  end
 
-  # Specific theme for each company
-  # AFIMB
-  #config.company_name = "afimb"
-  #config.company_theme = "#61970b" # AFIMB color
-  #config.company_contact = "http://www.chouette.mobi/club-utilisateurs/contact-support/"
-  #config.accept_user_creation = true
-
-  # CITYWAY
-  # config.company_name = "cityway"
-  # config.company_theme = "#32adb0"
-  # config.company_contact = "http://www.cityway.fr/contact/?rub_code=14"
-  # config.accept_user_creation = false
-
-  # Rutebanken
+  # Entur
    config.company_name = "Entur"
    config.company_theme = "#5AC39A" # Entur color
-   config.company_contact = "http://www.entur.org/kontakt/"
+   config.company_contact = "https://www.entur.org/kontakt/"
    config.accept_user_creation = false
-
-  # file to data for demo
-  # config.demo_data = "/path/to/demo.zip"
-
-  # paths for external resources
-  config.to_prepare do
-    Devise::Mailer.layout 'mailer'
-  end
 
   config.i18n.available_locales = [:fr, :en, :nb]
 end
