@@ -9,7 +9,7 @@ class VehicleTranslationsController < ChouetteController
       end
     end
   end
-  after_filter :clean_flash
+  after_action :clean_flash
 
   def clean_flash
         # only run this in case it's an Ajax request.

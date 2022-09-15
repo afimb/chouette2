@@ -68,7 +68,7 @@ GIT
 
 GIT
   remote: https://github.com/entur/language_engine
-  revision: ad3c02ab8fb29ab78d90cc5036b4871b1fecda02
+  revision: 19a2e83cc397660fbb5f57b79559b0ad10f63f27
   specs:
     language_engine (0.0.6)
       rails (>= 4.1.1)
@@ -229,7 +229,7 @@ GEM
       ffi (>= 1.0.0)
     enumerize (2.2.2)
       activesupport (>= 3.2)
-    erubi (1.10.0)
+    erubi (1.11.0)
     execjs (2.8.1)
     factory_bot (6.2.0)
       activesupport (>= 5.0.0)
@@ -344,7 +344,7 @@ GEM
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    loofah (2.18.0)
+    loofah (2.19.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     lumberjack (1.2.8)
@@ -362,7 +362,7 @@ GEM
       rake
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
-    minitest (5.16.2)
+    minitest (5.16.3)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
@@ -373,7 +373,7 @@ GEM
     netrc (0.11.0)
     newrelic_rpm (8.5.0)
     nio4r (2.5.8)
-    nokogiri (1.13.7)
+    nokogiri (1.13.8)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     notiffany (0.1.3)
