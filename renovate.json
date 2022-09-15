@@ -2,6 +2,12 @@
   "extends": [
     "github>entur/ror-renovate-config"
   ],
+  "enabledManagers": [
+    "ruby-version",
+    "bundler",
+    "circleci",
+    "dockerfile"
+  ],
   "minor": {
     "automerge": false
   },
