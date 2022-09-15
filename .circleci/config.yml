@@ -69,7 +69,7 @@ jobs:
           name: Install Bundler
           command: |
             gem update --system 3.3.8
-            gem install bundler -v 1.17.3
+            gem install bundler -v 2.3.22
       - run:
           name: Copy default database config file
           command: cp config/database.example.yml config/database.yml

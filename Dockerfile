@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y nodejs libgeos-dev proj-bin libproj-dev
 
 RUN gem update --system 3.3.8
 
-RUN gem install bundler -v 1.17.3
+RUN gem install bundler -v 2.3.22
 
 # Line below is to try to solve nokogiri build failure
 RUN bundle  config build.nokogiri --use-system-libraries

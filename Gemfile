@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'bundler', '~> 1.17.3'
+gem 'bundler', '~> 2.3.22'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
 
@@ -153,7 +153,7 @@ group :test, :development do
   gem 'factory_bot_rails', '~> 6.2.0'
   gem 'rb-inotify', require: RUBY_PLATFORM.include?('linux') && 'rb-inotify'
   gem 'rb-fsevent', require: RUBY_PLATFORM.include?('darwin') && 'rb-fsevent'
-  gem 'transpec'
+  gem 'transpec', git: 'https://github.com/yujinakayama/transpec.git', ref: 'ba82297b8760f989e268de1de35b914d1b03a037'
   gem 'database_cleaner', '~>  2.0.1'
   gem 'shoulda-matchers', '~>  5.1.0'
   gem 'rspec_junit_formatter'
