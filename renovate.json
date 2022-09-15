@@ -2,6 +2,7 @@
   "extends": [
     "github>entur/ror-renovate-config"
   ],
+  "baseBranch": "rutebanken_develop",
   "enabledManagers": [
     "ruby-version",
     "bundler",
