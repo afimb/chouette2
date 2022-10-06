@@ -158,7 +158,7 @@ GEM
       activemodel (= 5.2.8.1)
       activesupport (= 5.2.8.1)
       arel (>= 9.0)
-    activerecord-postgis-adapter (5.1.0)
+    activerecord-postgis-adapter (5.2.3)
       activerecord (~> 5.1)
       rgeo-activerecord (~> 6.0)
     activestorage (5.2.8.1)
@@ -693,7 +693,7 @@ PLATFORMS
 DEPENDENCIES
   RedCloth
   SyslogLogger
-  activerecord-postgis-adapter (~> 5.1.0)
+  activerecord-postgis-adapter (~> 5.2.0)
   acts-as-taggable-on (~> 8.1.0)
   acts_as_list (~> 1.0.4)
   acts_as_tree (~> 2.9.0)
