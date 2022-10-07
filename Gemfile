@@ -123,7 +123,7 @@ gem 'letter_opener'
 
 gem 'migration_data'
 
-gem 'responders', '~> 2.0'
+gem 'responders', '~> 3.0'
 
 gem 'pundit'
 

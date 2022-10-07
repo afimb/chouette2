@@ -555,9 +555,9 @@ GEM
     redis (3.3.5)
     ref (2.0.0)
     regexp_parser (1.8.2)
-    responders (2.4.1)
-      actionpack (>= 4.2.0, < 6.0)
-      railties (>= 4.2.0, < 6.0)
+    responders (3.0.1)
+      actionpack (>= 5.0)
+      railties (>= 5.0)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -780,7 +780,7 @@ DEPENDENCIES
   ransack (~> 2.1)
   rb-fsevent
   rb-inotify
-  responders (~> 2.0)
+  responders (~> 3.0)
   rgeo (~> 1.0.0)
   roo
   rspec (~> 3.11.0)
