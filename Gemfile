@@ -20,7 +20,7 @@ gem 'turbolinks', '~> 2.5.3'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 2.3.1', group: :doc
+gem 'sdoc', '~> 2.4.0', group: :doc
 # psych 4 is incompatible with Ruby < 3.1
 gem 'psych', '< 4.0.0', group: :doc
 
@@ -98,7 +98,7 @@ gem 'google-analytics-rails', '~> 1.1.0'
 gem 'ransack', '~> 2.1'
 
 #gem 'squeel'
-gem 'baby_squeel'
+gem 'baby_squeel', '>= 1.4.4'
 
 gem 'kaminari', '~> 1.2.2'
 gem 'bootstrap-kaminari-views', '~> 0.0.5'
@@ -128,7 +128,7 @@ gem 'responders', '~> 3.0'
 gem 'pundit'
 
 group :development do
-  gem 'capistrano', '~> 3.16.0'
+  gem 'capistrano', '~> 3.17.0'
   gem 'capistrano-ext'
   gem 'guard'
   gem 'guard-rspec'
