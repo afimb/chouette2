@@ -157,7 +157,7 @@ group :test, :development do
   gem 'rb-fsevent', require: RUBY_PLATFORM.include?('darwin') && 'rb-fsevent'
   gem 'transpec', git: 'https://github.com/yujinakayama/transpec.git', ref: 'ba82297b8760f989e268de1de35b914d1b03a037'
   gem 'database_cleaner', '~>  2.0.1'
-  gem 'shoulda-matchers', '~>  5.1.0'
+  gem 'shoulda-matchers', '~>  5.2.0'
   gem 'rspec_junit_formatter'
   gem 'rails-controller-testing'
 end
