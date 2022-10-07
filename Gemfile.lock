@@ -273,7 +273,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     dr-ffi-proj4 (0.0.3)
       ffi (>= 1.0.0)
-    enumerize (2.2.2)
+    enumerize (2.5.0)
       activesupport (>= 3.2)
     erubi (1.11.0)
     execjs (2.8.1)
@@ -714,7 +714,7 @@ DEPENDENCIES
   devise-encryptable
   devise-i18n
   devise_invitable
-  enumerize (~> 2.2.1)
+  enumerize (~> 2.5.0)
   factory_bot_rails (~> 6.2.0)
   fakeweb!
   faraday_middleware (~> 1.2.0)
