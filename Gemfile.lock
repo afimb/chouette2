@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/chrisk/fakeweb.git
   revision: 2b08c1ff2714ec13a12f3497d67fcefce95c2cbe
-  branch: master
+  ref: 2b08c1ff2714ec13a12f3497d67fcefce95c2cbe
   specs:
     fakeweb (1.3.0)
 

@@ -148,7 +148,7 @@ end
 group :test, :development do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 5.1.1'
-  gem 'fakeweb', git: 'https://github.com/chrisk/fakeweb.git', branch: 'master'
+  gem 'fakeweb', git: 'https://github.com/chrisk/fakeweb.git', ref: '2b08c1ff2714ec13a12f3497d67fcefce95c2cbe'
   gem 'capybara', '~> 3.28.0'
   gem 'poltergeist'
   gem 'launchy'
