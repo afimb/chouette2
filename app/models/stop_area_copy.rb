@@ -70,10 +70,10 @@ class StopAreaCopy
     begin
       if self.valid?
         Chouette::StopArea.transaction do
-          copy.update_attributes copy_modfied_attributes
+          copy.update copy_modfied_attributes
           if copy.valid?
             unless source_modified_attributes.empty?
-              source.update_attributes source_modified_attributes
+              source.update source_modified_attributes
             end
             true
           else

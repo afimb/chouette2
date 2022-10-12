@@ -32,7 +32,7 @@ describe Chouette::TimeTable, :type => :model do
       context "when day_types select only sunday and saturday," do
         before(:each) do
           # jeudi, vendredi
-          subject.update_attributes( :int_day_types => (2**(1+6) + 2**(1+7)))
+          subject.update( :int_day_types => (2**(1+6) + 2**(1+7)))
         end
         it "should retreive 04/14/2013" do
           expect(subject.periods_max_date).to eq(Date.strptime("04/14/2013", '%m/%d/%Y'))
@@ -41,7 +41,7 @@ describe Chouette::TimeTable, :type => :model do
       context "when day_types select only friday," do
         before(:each) do
           # jeudi, vendredi
-          subject.update_attributes( :int_day_types => (2**(1+6)))
+          subject.update( :int_day_types => (2**(1+6)))
         end
         it "should retreive 04/12/2013" do
           expect(subject.periods_max_date).to eq(Date.strptime("04/13/2013", '%m/%d/%Y'))
@@ -50,7 +50,7 @@ describe Chouette::TimeTable, :type => :model do
       context "when day_types select only thursday," do
         before(:each) do
           # mardi
-          subject.update_attributes( :int_day_types => (2**(1+2)))
+          subject.update( :int_day_types => (2**(1+2)))
         end
         it "should retreive 04/12/2013" do
           # 04/15/2013 is monday !
@@ -68,7 +68,7 @@ describe Chouette::TimeTable, :type => :model do
 #             days_hash = {}.tap do |hash|
 #                 [ :monday,:tuesday,:wednesday,:thursday,:friday,:saturday,:sunday ].each { |d| hash[d] = false }
 #             end
-#             subject.update_attributes( days_hash)
+#             subject.update( days_hash)
 #
 #             read = Chouette::TimeTable.find( subject.id )
 #             expect(read.start_date).to eq(read.dates.select{|d| d.in_out}.map(&:date).compact.min)
@@ -85,7 +85,7 @@ describe Chouette::TimeTable, :type => :model do
 #             pa
 #         }
 #         it "should update start_date and end_end" do
-#             subject.update_attributes( :periods_attributes => new_period_attributes)
+#             subject.update( :periods_attributes => new_period_attributes)
 #
 #             read = Chouette::TimeTable.find( subject.id )
 #             expect(read.start_date).to eq(new_start_date)
@@ -100,7 +100,7 @@ describe Chouette::TimeTable, :type => :model do
 #             pa
 #         }
 #         it "should update end_date" do
-#             subject.update_attributes :periods_attributes => new_period_attributes
+#             subject.update :periods_attributes => new_period_attributes
 #
 #             read = Chouette::TimeTable.find( subject.id )
 #             expect(read.end_date).to eq(new_end_date)
@@ -114,7 +114,7 @@ describe Chouette::TimeTable, :type => :model do
 #             pa
 #         }
 #         it "should update start_date" do
-#             subject.update_attributes :periods_attributes => new_period_attributes
+#             subject.update :periods_attributes => new_period_attributes
 #
 #             read = Chouette::TimeTable.find( subject.id )
 #             expect(read.start_date).to eq(new_start_date)
@@ -135,7 +135,7 @@ describe Chouette::TimeTable, :type => :model do
 #             pa
 #         }
 #         it "should update start_date and end_date with new period added" do
-#             subject.update_attributes :periods_attributes => new_period_attributes, :dates_attributes => new_dates_attributes
+#             subject.update :periods_attributes => new_period_attributes, :dates_attributes => new_dates_attributes
 #
 #             read = Chouette::TimeTable.find( subject.id )
 #             expect(read.start_date).to eq(new_start_date)
@@ -183,7 +183,7 @@ describe Chouette::TimeTable, :type => :model do
 #       context "when day_types select only tuesday and friday," do
 #         before(:each) do
 #           # jeudi, vendredi
-#           subject.update_attributes( :int_day_types => (2**(1+4) + 2**(1+5)))
+#           subject.update( :int_day_types => (2**(1+4) + 2**(1+5)))
 #         end
 #         it "should retreive 04/11/2013" do
 #           expect(subject.periods_min_date).to eq(Date.strptime("04/11/2013", '%m/%d/%Y'))
@@ -192,7 +192,7 @@ describe Chouette::TimeTable, :type => :model do
 #       context "when day_types select only friday," do
 #         before(:each) do
 #           # jeudi, vendredi
-#           subject.update_attributes( :int_day_types => (2**(1+5)))
+#           subject.update( :int_day_types => (2**(1+5)))
 #         end
 #         it "should retreive 04/12/2013" do
 #           expect(subject.periods_min_date).to eq(Date.strptime("04/12/2013", '%m/%d/%Y'))
@@ -201,7 +201,7 @@ describe Chouette::TimeTable, :type => :model do
 #       context "when day_types select only thursday," do
 #         before(:each) do
 #           # mardi
-#           subject.update_attributes( :int_day_types => (2**(1+2)))
+#           subject.update( :int_day_types => (2**(1+2)))
 #         end
 #         it "should retreive 04/12/2013" do
 #           # 04/15/2013 is monday !

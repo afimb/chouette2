@@ -97,7 +97,7 @@ describe Chouette::Line, :type => :model do
     let!(:group_of_line2){create(:group_of_line)}
 
     it "should return associated group_of_line ids" do
-      subject.update_attributes :group_of_line_tokens => [group_of_line1.id, group_of_line2.id].join(',')
+      subject.update :group_of_line_tokens => [group_of_line1.id, group_of_line2.id].join(',')
       expect(subject.group_of_lines).to include( group_of_line1)
       expect(subject.group_of_lines).to include( group_of_line2)
     end
@@ -108,7 +108,7 @@ describe Chouette::Line, :type => :model do
 #      let!( :footnote_first) {build( :footnote, :line_id => nil)}
 #      let!( :footnote_second) {build( :footnote, :line_id => nil)}
 #      it "should add 2 footnotes to the line" do
-#        subject.update_attributes :footnotes_attributes =>
+#        subject.update :footnotes_attributes =>
 #          { Time.now.to_i => footnote_first.attributes,
 #            (Time.now.to_i-5) => footnote_second.attributes}
 #        expect(Chouette::Line.find( subject.id ).footnotes.size).to eq(2)

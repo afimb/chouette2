@@ -23,8 +23,8 @@ class Chouette::JourneyPattern < Chouette::TridentActiveRecord
   # when creating a new journey_pattern
   def special_update
     bck_sp = self.stop_points.map {|s| s}
-    self.update_attributes :stop_points => []
-    self.update_attributes :stop_points => bck_sp
+    self.update :stop_points => []
+    self.update :stop_points => bck_sp
   end
 
   def destination_display_ids=(args)
@@ -51,7 +51,7 @@ class Chouette::JourneyPattern < Chouette::TridentActiveRecord
     ordered_stop_points = stop_points
     ordered_stop_points = ordered_stop_points.sort { |a,b| a.position <=> b.position} unless ordered_stop_points.empty?
 
-    self.update_attributes( :departure_stop_point_id => (ordered_stop_points.first && ordered_stop_points.first.id),
+    self.update( :departure_stop_point_id => (ordered_stop_points.first && ordered_stop_points.first.id),
                              :arrival_stop_point_id => (ordered_stop_points.last && ordered_stop_points.last.id))
   end
 
@@ -60,7 +60,7 @@ class Chouette::JourneyPattern < Chouette::TridentActiveRecord
     ordered_stop_points = stop_points
     ordered_stop_points = ordered_stop_points.sort { |a,b| a.position <=> b.position} unless ordered_stop_points.empty?
 
-    self.update_attributes( :departure_stop_point_id => (ordered_stop_points.first && ordered_stop_points.first.id),
+    self.update( :departure_stop_point_id => (ordered_stop_points.first && ordered_stop_points.first.id),
                              :arrival_stop_point_id => (ordered_stop_points.last && ordered_stop_points.last.id))
   end
 

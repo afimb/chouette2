@@ -31,7 +31,7 @@ class RoutesController < ChouetteController
 
   def save_boarding_alighting
     @route = route
-    if @route.update_attributes!(route_params)
+    if @route.update!(route_params)
       redirect_to referential_line_route_path(@referential, @line, @route)
     else
       render "edit_boarding_alighting"
@@ -41,7 +41,7 @@ class RoutesController < ChouetteController
   def save_stop_points
     @route = route
     puts route.stop_points.inspect
-    if @route.update_attributes!(route_params)
+    if @route.update!(route_params)
       redirect_to referential_line_route_path(@referential, @line, @route)
     else
       render "edit_stop_points"

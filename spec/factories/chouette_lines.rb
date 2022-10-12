@@ -31,7 +31,7 @@ FactoryBot.define do
           line.routes.each do |route|
             route.stop_points.each do |stop_point|
               comm = create(:stop_area, :area_type => "CommercialStopPoint")
-              stop_point.stop_area.update_attributes(:parent_id => comm.id)
+              stop_point.stop_area.update(:parent_id => comm.id)
             end
           end
         end

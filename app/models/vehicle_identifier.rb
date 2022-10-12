@@ -8,7 +8,7 @@ class VehicleIdentifier
       max = vehicles.map(&:vehicle_type_identifier).compact.map(&:to_i).max
 
       vehicles.select {|v| v.vehicle_type_identifier.nil? }.each_with_index do |v, index|
-        v.update_attributes :vehicle_type_identifier => ( max.to_i + index + 1)
+        v.update :vehicle_type_identifier => ( max.to_i + index + 1)
       end
     end
   end

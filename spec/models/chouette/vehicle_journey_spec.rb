@@ -101,19 +101,19 @@ describe Chouette::VehicleJourney, :type => :model do
             "1"=>{"id" => subject.vehicle_journey_at_stops[1].id, "arrival_time" => (1.minutes.ago + 4.hour),"departure_time" => (1.minutes.ago + 4.hour)}
          }}}
       it "should return false" do
-        expect(subject.update_attributes(params)).to be_falsey
+        expect(subject.update(params)).to be_falsey
       end
       it "should make instance invalid" do
-        subject.update_attributes(params)
+        subject.update(params)
         expect(subject).not_to be_valid
       end
       it "should let first vjas without any errors" do
-        subject.update_attributes(params)
+        subject.update(params)
         expect(subject.vehicle_journey_at_stops[0].errors).to be_empty
       end
       # Check disabled
       # it "should add an error on second vjas" do
-      #   subject.update_attributes(params)
+      #   subject.update(params)
       #   expect(subject.vehicle_journey_at_stops[1].errors[:departure_time]).not_to be_blank
       # end
     end
@@ -124,7 +124,7 @@ describe Chouette::VehicleJourney, :type => :model do
     let!(:tm2){create(:time_table, :comment => "TM2")}
 
     it "should return associated time table ids" do
-      subject.update_attributes :time_table_tokens => [tm1.id, tm2.id].join(',')
+      subject.update :time_table_tokens => [tm1.id, tm2.id].join(',')
       expect(subject.time_tables).to include( tm1)
       expect(subject.time_tables).to include( tm2)
     end

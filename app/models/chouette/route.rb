@@ -80,7 +80,7 @@ class Chouette::Route < Chouette::TridentActiveRecord
 
   def dereference_opposite_route
     self.line.routes.each do |r|
-      r.update_attributes( :opposite_route => nil) if r.opposite_route == self
+      r.update( :opposite_route => nil) if r.opposite_route == self
     end
   end
 
@@ -175,7 +175,7 @@ class Chouette::Route < Chouette::TridentActiveRecord
 
     stop_points.each_with_index do |sp, index|
       if sp.scheduled_stop_point.stop_area_objectid_key != reordered_stop_area_ids[ index ]
-        #result = sp.update_attributes( :stop_area_id => reordered_stop_area_ids[ index])
+        #result = sp.update( :stop_area_id => reordered_stop_area_ids[ index])
         sp.scheduled_stop_point.stop_area_objectid_key = reordered_stop_area_ids[ index ]
         result = sp.save!
       end

@@ -12,7 +12,7 @@ class Chouette::JourneyPatternSection < Chouette::ActiveRecord
   def self.update_by_journey_pattern_rank(journey_pattern_id, route_section_id, rank)
     jps = self.find_or_initialize_by(journey_pattern_id: journey_pattern_id, rank: rank)
     if route_section_id.present?
-      jps.update_attributes(route_section_id: route_section_id)
+      jps.update(route_section_id: route_section_id)
     else
       jps.destroy
     end

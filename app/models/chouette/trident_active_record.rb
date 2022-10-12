@@ -80,7 +80,7 @@ class Chouette::TridentActiveRecord < Chouette::ActiveRecord
       #logger.info 'start after_create : '+self.objectid
       if self.objectid.include? ':__pending_id__'
         fix_uniq_objectid
-        self.update_attributes( :objectid => self.objectid, :object_version => (self.object_version - 1) )
+        self.update( :objectid => self.objectid, :object_version => (self.object_version - 1) )
       end
       #logger.info 'end after_create : '+self.objectid
     end

@@ -22,7 +22,7 @@ describe Chouette::GroupOfLine, :type => :model do
     let!(:line2){create(:line)}
 
     it "should return associated line ids" do
-      subject.update_attributes :line_tokens => [line1.id, line2.id].join(',')
+      subject.update :line_tokens => [line1.id, line2.id].join(',')
       expect(subject.lines).to include( line1)
       expect(subject.lines).to include( line2)
     end
