@@ -58,13 +58,13 @@ GIT
 
 GIT
   remote: https://github.com/entur/ievkit_views.git
-  revision: fe2ef46e3d771293ccaeca29d73b2aabbadf6475
+  revision: efb02412cb98e71ff74a757ced9ee10445545e70
   branch: master
   specs:
     ievkit_views (0.5.0)
       kaminari (~> 1.2.2)
       kaminari-i18n (~> 0.5.0)
-      rails (~> 5.2.0)
+      rails (>= 5.2.0, < 7)
 
 GIT
   remote: https://github.com/entur/language_engine
