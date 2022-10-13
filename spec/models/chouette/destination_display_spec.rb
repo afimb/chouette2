@@ -8,7 +8,6 @@ describe Chouette::DestinationDisplay do
   let!(:destination_display2) { create(:destination_display, :name => "Lillehammer", :front_text => "Lillehammer", :side_text => nil) }
   let!(:destination_display3) { create(:destination_display, :name => "Mit navn", :front_text => "Lillestrøm", :side_text => nil) }
   let!(:destination_display4) { create(:destination_display, :name => "Mo i Rana", :front_text => "Mo i Rana", :side_text => nil) }
-  let!(:destination_display5) { create(:destination_display, :name => "Skybar", :front_text => "Hemsedal", :side_text => nil, :vias => [destination_display1, destination_display2]) }
 
   it { is_expected.to validate_presence_of :front_text }
 
@@ -37,46 +36,6 @@ describe Chouette::DestinationDisplay do
     end
   end
 
-  describe "Destination Display Vias" do
-    it "should be able to set vias in create" do
-      destination_display_n = create(:destination_display, :name => "Århus", :front_text => "Århus", :side_text => nil, :vias => [destination_display1])
-      expect(destination_display_n.vias.length).to eq 1
-      expect(destination_display_n.vias.first.name).to eq "Majorstuen"
-      expect(destination_display_n.vias.first.front_text).to eq "Majorstuen"
-      expect(destination_display_n.vias.first.side_text).to be_nil
-      expect(destination_display_n.vias.first.vias.length).to eq 0
-
-    end
-  end
-
-
-  describe "Destination Display Vias" do
-    it "should be able to update vias" do
-      expect(destination_display.vias.length).to eq 0
-      destination_display.vias = [destination_display1, destination_display2]
-      expect(destination_display.vias.length).to eq 2
-
-      expect(destination_display.vias.first).to eq destination_display1
-      expect(destination_display.vias.last).to eq destination_display2
-
-    end
-  end
-
-  describe "Destination Display Vias" do
-    it "should be able to delete vias" do
-      expect(destination_display5.vias.length).to eq 2
-      destination_display5.vias = []
-      expect(destination_display5.vias.length).to eq 0
-    end
-  end
-
-  describe "Destination Display Vias" do
-    it "should be able to add more vias" do
-      expect(destination_display5.vias.length).to eq 2
-      destination_display5.vias.push([destination_display3, destination_display4])
-      expect(destination_display5.vias.length).to eq 4
-    end
-  end
 
   describe "Destination Display Vias set self" do
     it "should raise" do
